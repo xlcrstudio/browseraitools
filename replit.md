@@ -11,19 +11,26 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - **Server**: Express serves the Vite frontend only (no API routes for app logic)
 
 ## Key Pages
-- `/` - Homepage with full tool catalog (50 tools across 8 categories)
-- `/hook-generator` - AI Hook Generator (first live tool)
+- `/` - Homepage with hero, tool catalog, privacy section, CTA
+- `/ai-hook-generator` - AI Hook Generator (first live tool)
+- `/privacy-policy` - Privacy Policy (React page, not static HTML)
+- `/terms-of-service` - Terms of Service (React page, not static HTML)
 
 ## File Structure
 - `client/src/pages/Home.tsx` - Homepage with hero, tool catalog, privacy section, CTA
 - `client/src/pages/HookGeneratorPage.tsx` - Hook generator tool page
-- `client/src/components/Layout.tsx` - Shared layout with header (desktop mega menu + mobile drawer), footer
+- `client/src/pages/PrivacyPolicy.tsx` - Privacy Policy page
+- `client/src/pages/TermsOfService.tsx` - Terms of Service page
+- `client/src/components/Layout.tsx` - Shared layout with header (desktop mega menu + mobile drawer), footer with legal links
+- `client/src/components/ToolPageHeader.tsx` - Reusable tool page header (home breadcrumb + tool name)
+- `client/src/components/ToolFAQ.tsx` - Reusable FAQ accordion with Schema.org structured data
 - `client/src/components/Hero.tsx` - Hook generator hero section
 - `client/src/components/HookGenerator.tsx` - Main hook generation UI
 - `client/src/components/HistorySidebar.tsx` - Hook history panel (localStorage)
 - `client/src/hooks/use-web-llm.ts` - WebLLM engine initialization & generation (auto-loads on page mount)
 - `client/src/hooks/use-hook-storage.ts` - localStorage-based hook history
-- `client/src/lib/tools-data.ts` - All 50 tools data organized by category
+- `client/src/lib/tools-data.ts` - All tools data organized by category
+- `client/src/lib/faqs-data.ts` - FAQ content for tool pages
 
 ## Design
 - Mobile-first responsive design
