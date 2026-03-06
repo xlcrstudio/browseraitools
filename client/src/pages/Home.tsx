@@ -10,7 +10,6 @@ export default function Home() {
       <TrustBar />
       <ToolsCatalog />
       <PrivacySection />
-      <CTASection />
     </>
   );
 }
@@ -222,24 +221,3 @@ function PrivacySection() {
   );
 }
 
-function CTASection() {
-  return (
-    <section className="mb-12 text-center">
-      <div className="bg-gradient-primary rounded-2xl p-8 md:p-12 shadow-xl shadow-purple-500/15">
-        <h2 className="text-2xl md:text-3xl font-bold font-display text-white mb-3">
-          Ready to Create Viral Content?
-        </h2>
-        <p className="text-purple-100 mb-6 max-w-lg mx-auto">
-          Start with our AI Hook Generator - it's free, private, and works offline after the first load.
-        </p>
-        <Link
-          href="/ai-hook-generator"
-          data-testid="link-cta-hook-generator"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-purple-700 bg-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
-        >
-          Launch Hook Generator <ArrowRight className="w-5 h-5" />
-        </Link>
-      </div>
-    </section>
-  );
-}
