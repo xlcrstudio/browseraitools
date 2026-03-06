@@ -295,8 +295,9 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-6 pt-4 border-t border-slate-100 text-center text-xs text-slate-400">
-          &copy; {new Date().getFullYear()} browseraitools.com. Powered by WebLLM. All tools run locally in your browser.
+        <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
+          <span>&copy; {new Date().getFullYear()} browseraitools.com. Based on WebLLM. All tools run locally in your browser.</span>
+          <span>Powered by XLCR Studio</span>
         </div>
       </div>
     </footer>
