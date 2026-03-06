@@ -70,15 +70,7 @@ export function useWebLLM() {
     topic: string, 
     onChunk: (text: string) => void
   ) => {
-    if (!engineRef.current) {
-      return null;
-    }
-
-    setState('generating');
-    setError(null);
-
-    try {
-      const prompt = `You are an elite social media strategist and copywriter known for creating viral, scroll-stopping hooks.
+    const prompt = `You are an elite social media strategist and copywriter known for creating viral, scroll-stopping hooks.
 Create exactly 5 distinct, high-converting hooks for a ${platform} post about "${topic}".
 The tone must be: ${tone}.
 
@@ -90,18 +82,40 @@ CRITICAL RULES:
 5. DO NOT wrap the hooks in quotes.
 Just 5 lines of text, nothing else.`;
 
+    return generateRaw({
+      messages: [{ role: "user", content: prompt }],
+      temperature: 0.7,
+      maxTokens: 500,
+      onChunk,
+    });
+  }, []);
+
+  const generateRaw = useCallback(async (opts: {
+    messages: Array<{ role: "system" | "user" | "assistant"; content: string }>;
+    temperature?: number;
+    maxTokens?: number;
+    onChunk: (text: string) => void;
+  }) => {
+    if (!engineRef.current) {
+      return null;
+    }
+
+    setState('generating');
+    setError(null);
+
+    try {
       const chunks = await engineRef.current!.chat.completions.create({
-        messages: [{ role: "user", content: prompt }],
+        messages: opts.messages,
         stream: true,
-        temperature: 0.7,
-        max_tokens: 500,
+        temperature: opts.temperature ?? 0.7,
+        max_tokens: opts.maxTokens ?? 500,
       });
 
       let fullText = "";
       for await (const chunk of chunks) {
         const content = chunk.choices[0]?.delta?.content || "";
         fullText += content;
-        onChunk(fullText);
+        opts.onChunk(fullText);
       }
 
       setState('ready');
@@ -109,7 +123,7 @@ Just 5 lines of text, nothing else.`;
     } catch (err: any) {
       console.error("Generation Error:", err);
       setState('error');
-      setError(err.message || "Failed to generate hooks.");
+      setError(err.message || "Failed to generate content.");
       return null;
     }
   }, []);
@@ -119,6 +133,7 @@ Just 5 lines of text, nothing else.`;
     progress,
     error,
     initialize,
-    generate
+    generate,
+    generateRaw
   };
 }
