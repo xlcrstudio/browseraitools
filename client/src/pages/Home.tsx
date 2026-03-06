@@ -55,7 +55,7 @@ function HomeHero() {
         transition={{ duration: 0.5, delay: 0.3 }}
       >
         <Link
-          href="/hook-generator"
+          href="/ai-hook-generator"
           data-testid="link-try-hook-generator"
           className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white bg-gradient-primary shadow-xl shadow-purple-500/25 hover:shadow-2xl hover:shadow-purple-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 text-lg"
         >
@@ -233,7 +233,7 @@ function CTASection() {
           Start with our AI Hook Generator - it's free, private, and works offline after the first load.
         </p>
         <Link
-          href="/hook-generator"
+          href="/ai-hook-generator"
           data-testid="link-cta-hook-generator"
           className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-purple-700 bg-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
         >

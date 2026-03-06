@@ -12,7 +12,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/hook-generator" component={HookGeneratorPage} />
+      <Route path="/ai-hook-generator" component={HookGeneratorPage} />
       <Route component={NotFound} />
     </Switch>
   );
