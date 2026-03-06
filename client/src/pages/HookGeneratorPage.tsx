@@ -1,12 +1,18 @@
 import { Hero } from "@/components/Hero";
 import { HookGenerator } from "@/components/HookGenerator";
 import { HistoryPanel } from "@/components/HistorySidebar";
+import { ToolPageHeader } from "@/components/ToolPageHeader";
+import { ToolFAQ } from "@/components/ToolFAQ";
+import { hookGeneratorFAQs } from "@/lib/faqs-data";
+import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function HookGeneratorPage() {
   return (
     <>
-      <div className="pb-24">
+      <ToolPageHeader toolName="AI Hook Generator" icon={Sparkles} />
+
+      <div className="pb-12">
         <Hero />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -16,6 +22,9 @@ export default function HookGeneratorPage() {
           <HookGenerator />
         </motion.div>
       </div>
+
+      <ToolFAQ toolName="AI Hook Generator" faqs={hookGeneratorFAQs} />
+
       <HistoryPanel />
     </>
   );
