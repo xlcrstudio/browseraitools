@@ -25,7 +25,7 @@ function HomeHero() {
       >
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 text-sm font-semibold mb-6 ring-1 ring-purple-200/50 shadow-sm">
           <Sparkles className="w-4 h-4" />
-          50 Free AI Tools - Running 100% In Your Browser
+          Free AI Tools - Running 100% In Your Browser
         </div>
       </motion.div>
 
@@ -100,7 +100,7 @@ function ToolsCatalog() {
     <section className="mb-16 md:mb-20" id="tools">
       <div className="text-center mb-10">
         <h2 className="text-2xl md:text-3xl font-bold font-display mb-2">
-          All 50 AI Tools
+          All AI Tools
         </h2>
         <p className="text-slate-500 max-w-lg mx-auto">
           Every tool runs locally in your browser using WebLLM. Your data never touches a server.
