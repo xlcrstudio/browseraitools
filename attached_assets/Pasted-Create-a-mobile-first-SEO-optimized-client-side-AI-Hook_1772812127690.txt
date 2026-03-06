@@ -1,0 +1,340 @@
+Create a mobile-first, SEO-optimized, client-side AI Hook Generator website for browseraitools.com using WebLLM.
+
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tagline: "AI Tools That Run In Your Browser"
+Mission: Browser-based AI tools that are private, free, and offline-ready
+Core Values: Privacy (client-side), Free (no cost), Fast (local inference)
+
+=== PRODUCT: AI Hook Generator ===
+First tool in a planned suite of 50 browser-based AI tools.
+Purpose: Generate viral hooks for YouTube, TikTok, blogs, ads, and social media.
+Target Users: Content creators, marketers, YouTubers, copywriters
+Search Demand: ~80k monthly searches
+
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite (for fast builds)
+Styling: Tailwind CSS 3.4+
+State Management: React useState/useContext
+LLM Engine: @mlc-ai/web-llm (latest version)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Storage: IndexedDB (model caching), LocalStorage (user preferences)
+Deployment Target: Vercel/Netlify (static hosting)
+
+WebLLM Integration:
+- Lazy load WebLLM after initial page paint
+- Show model download progress (percentage + estimated time)
+- Cache model in IndexedDB after first download
+- Implement WebGPU compatibility check with fallback message
+- Use streaming responses for better UX
+
+=== MOBILE-FIRST DESIGN ===
+Breakpoints:
+- Mobile: 375px - 767px (primary design target)
+- Tablet: 768px - 1023px
+- Desktop: 1024px+
+
+Layout Priority:
+1. Mobile experience is flawless (thumb-friendly, no horizontal scroll)
+2. Touch targets minimum 44x44px
+3. Form inputs optimized for mobile keyboards
+4. Sticky CTA buttons on mobile
+5. Progressive enhancement for larger screens
+
+=== PAGE STRUCTURE ===
+
+HEADER (Sticky on scroll):
+- Logo: "Browser AI Tools" with icon (🔒 or browser symbol)
+- Navigation: [Tools] [About] [Privacy]
+- "100% Private • 100% Free" badge
+- Mobile: Hamburger menu
+
+HERO SECTION:
+Headline: "Generate Viral Hooks in Seconds"
+Subheadline: "AI-powered hook generator that runs entirely in your browser. Your ideas stay private."
+Trust Badges Row:
+  🔒 No Servers | 💰 Always Free | ⚡ Works Offline | 🚀 WebLLM Powered
+
+MAIN APP INTERFACE:
+1. Settings Panel (collapsible on mobile):
+   - Hook Type Selector (tabs/pills):
+     • YouTube Hooks
+     • TikTok Hooks  
+     • Blog Post Hooks
+     • Ad Copy Hooks
+     • Tweet/X Hooks
+     • Generic Viral Hooks
+   - Tone Selector (dropdown):
+     • Curiosity-Driven
+     • Controversial
+     • Data-Driven
+     • Question-Based
+     • Storytelling
+     • Urgent/FOMO
+
+2. Input Section:
+   - Large textarea (min 3 rows on mobile)
+   - Placeholder: "Enter your topic or idea (e.g., 'productivity tips for remote workers')"
+   - Character counter (0/500)
+   - Example topics button that populates with samples
+
+3. Generate Button (Primary CTA):
+   - Full-width on mobile
+   - Gradient background (purple-600 to blue-600)
+   - Loading state with spinner + "Generating..." text
+   - Disabled state while model loading or generating
+   - Pulse animation when ready
+
+4. Model Status Indicator:
+   - Initial state: "Downloading AI model... 45% (Est. 30s remaining)"
+   - Ready state: "✓ AI Model Ready"
+   - Offline-capable state: "✓ Works Offline"
+   - Error state: "⚠ WebGPU not supported" with explanation
+
+5. Output Section (appears after generation):
+   - Title: "Your Generated Hooks"
+   - 5-7 hook cards, each with:
+     • Hook text (readable font, good line-height)
+     • Copy button (tooltip: "Copied!" on click)
+     • Hook length indicator (character count)
+   - Regenerate button: "Generate New Hooks"
+   - Variation controls: "Make it shorter" / "Make it punchier"
+
+6. Examples Section (below fold):
+   - "Example Hooks We've Generated"
+   - 3-4 before/after cards showing:
+     Input: "AI productivity tools"
+     Output: "This AI Tool Saved Me 10 Hours This Week (And It's Free)"
+
+PRIVACY CALLOUT SECTION:
+Headline: "Your Data Never Leaves Your Browser"
+Explanation: "Unlike other AI tools, Browser AI Tools runs entirely in your browser using WebLLM. No servers. No tracking. No data collection. Your prompts and results stay 100% private on your device."
+Visual: Simple diagram showing:
+  ❌ Other AI Tools → Cloud Server → Your Data Exposed
+  ✅ Browser AI Tools → Your Browser → Your Data Private
+
+FOOTER:
+- Links: About | Privacy Policy | All Tools (link to roadmap)
+- "Built with WebLLM • Open Source AI in Your Browser"
+- Social sharing: "Share Browser AI Tools"
+- Usage stats: "Generated X hooks today" (localStorage counter)
+
+=== UX/UI DESIGN REQUIREMENTS ===
+
+Color Palette:
+- Primary: Purple-600 to Blue-600 gradient
+- Secondary: Emerald-500 (for success states)
+- Neutral: Slate-50 to Slate-900
+- Accent: Amber-400 (for highlights)
+- Background: White with subtle gradient overlay
+
+Typography:
+- Headings: Inter or Space Grotesk (700 weight)
+- Body: Inter (400, 500 weights)
+- Code/Stats: JetBrains Mono
+
+Components:
+- Cards: Rounded-2xl, shadow-lg, border subtle
+- Buttons: Rounded-xl, shadow-md, hover:scale-105 transition
+- Inputs: Rounded-lg, border-2 focus:border-purple-500
+- Badges: Rounded-full, text-xs, font-semibold
+
+Animations:
+- Framer Motion for page transitions
+- Micro-interactions on hover (scale, shadow changes)
+- Loading skeleton screens (not spinners alone)
+- Toast notifications (top-right, auto-dismiss)
+- Copy button: checkmark animation on success
+
+States:
+- Empty state: Friendly illustration + "Enter a topic to begin"
+- Loading state: Skeleton cards while generating
+- Error state: Helpful message + retry button
+- Success state: Subtle confetti animation on first generation
+
+Accessibility:
+- ARIA labels on all interactive elements
+- Keyboard navigation support (tab order logical)
+- Focus indicators visible and high-contrast
+- Color contrast WCAG AAA compliant
+- Screen reader friendly announcements
+
+=== WEBLLM IMPLEMENTATION ===
+
+Initialization:
+```javascript
+import * as webllm from "@mlc-ai/web-llm";
+
+// Check WebGPU support
+const checkWebGPU = async () => {
+  if (!navigator.gpu) {
+    return { supported: false, message: "WebGPU not supported. Use Chrome/Edge 113+." };
+  }
+  return { supported: true };
+};
+
+// Initialize engine with progress tracking
+const initModel = async (onProgress) => {
+  const engine = await webllm.CreateMLCEngine(
+    "Llama-3.1-8B-Instruct-q4f16_1-MLC",
+    {
+      initProgressCallback: (progress) => {
+        onProgress(progress); // Update UI with download %
+      }
+    }
+  );
+  return engine;
+};
+```
+
+Generation Function:
+```javascript
+const generateHooks = async (topic, hookType, tone) => {
+  const systemPrompt = `You are a viral content strategist specializing in ${hookType}. Generate hooks that are attention-grabbing, specific, and optimized for ${tone} tone. Always deliver exactly 5-7 hooks.`;
+  
+  const userPrompt = `Generate 5-7 viral ${hookType} hooks about: "${topic}". 
+  
+Requirements:
+- Each hook must be under 15 words
+- Make them diverse in style
+- Include ${tone} elements
+- Format as a numbered list
+- No explanations, just hooks`;
+
+  const response = await engine.chat.completions.create({
+    messages: [
+      { role: "system", content: systemPrompt },
+      { role: "user", content: userPrompt }
+    ],
+    temperature: 0.8,
+    max_tokens: 400,
+    stream: true // Enable streaming for progressive display
+  });
+  
+  // Handle streaming response
+  let fullText = "";
+  for await (const chunk of response) {
+    fullText += chunk.choices[0]?.delta?.content || "";
+    updateUIWithPartialText(fullText); // Progressive rendering
+  }
+  
+  return parseHooks(fullText);
+};
+```
+
+Caching Strategy:
+- Cache model in IndexedDB (persist across sessions)
+- LocalStorage for user preferences and recent generations
+- Session storage for current generation history
+
+Error Handling:
+```javascript
+try {
+  const result = await generateHooks(topic);
+} catch (error) {
+  if (error.message.includes("WebGPU")) {
+    showFallbackMessage("WebGPU required");
+  } else if (error.message.includes("Out of memory")) {
+    showFallbackMessage("Please close other tabs and retry");
+  } else {
+    showGenericError("Generation failed. Please try again.");
+  }
+}
+```
+
+=== SEO OPTIMIZATION ===
+
+Meta Tags:
+```html
+<title>Free AI Hook Generator - Browser AI Tools | 100% Private & Free</title>
+<meta name="description" content="Generate viral hooks for YouTube, TikTok, blogs & ads instantly. AI-powered hook generator that runs in your browser. No signup, completely private, always free.">
+<meta name="keywords" content="AI hook generator, viral hooks, YouTube hooks, TikTok hooks, free AI tool, browser AI, private AI">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Free AI Hook Generator - 100% Private Browser-Based AI">
+<meta property="og:description" content="Generate viral hooks in seconds. Runs entirely in your browser. Your data never leaves your device.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://browseraitools.com">
+<meta property="og:image" content="https://browseraitools.com/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free AI Hook Generator - Browser AI Tools">
+<meta name="twitter:description" content="Generate viral hooks instantly. 100% private, browser-based AI.">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Browser AI Tools - Hook Generator",
+  "applicationCategory": "BusinessApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "operatingSystem": "Web Browser",
+  "description": "AI-powered hook generator that runs entirely in your browser"
+}
+</script>
+```
+
+Semantic HTML:
+- Use <article> for hook outputs
+- <section> for major page areas
+- <h1> for main heading (only one per page)
+- <h2> for section headings
+- Proper heading hierarchy
+
+Performance:
+- Lazy load images (loading="lazy")
+- Preconnect to CDNs: <link rel="preconnect" href="https://cdn.jsdelivr.net">
+- Minify CSS/JS in production
+- Use WebP images with fallbacks
+- Implement service worker for offline functionality
+
+=== PERFORMANCE TARGETS ===
+- First Contentful Paint: < 1.2s
+- Largest Contentful Paint: < 2.0s
+- Time to Interactive: < 3.0s (before model load)
+- Cumulative Layout Shift: < 0.1
+- Model Download: Show progress, ~30-60s first time
+- Generation Speed: 2-5 seconds per response
+- Lighthouse Score: 95+ (Performance, Accessibility, Best Practices, SEO)
+
+=== PROGRESSIVE ENHANCEMENT ===
+1. Page loads and is interactive immediately
+2. WebLLM loads in background (non-blocking)
+3. Show model status prominently
+4. Allow form interaction before model ready
+5. Queue generation requests if model still loading
+6. Graceful degradation if WebGPU unavailable
+
+=== ANALYTICS & TRACKING (Privacy-Respecting) ===
+- LocalStorage counters only (no external analytics)
+- Track: hooks generated today, total generations
+- Display usage stats to user: "You've generated 47 hooks today!"
+- No user identification, no external tracking scripts
+- Optional: Privacy-first analytics (Plausible/Fathom) with user consent
+
+=== EXTRAS ===
+- Add keyboard shortcut: Cmd/Ctrl+Enter to generate
+- Auto-save last input in localStorage
+- "Share this hook" button (copies to clipboard with attribution)
+- Dark mode toggle (system preference detection)
+- Export hooks as .txt file
+- Rate limiting: Max 50 generations per session (localStorage)
+
+=== FUTURE-PROOFING ===
+- Component structure ready for additional tools
+- Shared header/footer components
+- Tool routing structure: /hook-generator, /tone-converter, etc.
+- Reusable WebLLM initialization logic
+- Centralized prompt templates
+
+=== CALL TO ACTION ===
+After generation, show soft CTA:
+"✨ Loved these hooks? Browser AI Tools has 49 more free tools coming soon. Bookmark us!"
+
+Build this as a production-ready, polished application that showcases the power of browser-based AI while maintaining exceptional UX and performance. Make it feel premium despite being completely free.
