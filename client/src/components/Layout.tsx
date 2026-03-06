@@ -1,6 +1,6 @@
 import { ReactNode, useState } from "react";
 import { Link, useLocation } from "wouter";
-import { ShieldCheck, Menu, X, ChevronDown, ChevronRight, Lock } from "lucide-react";
+import { ShieldCheck, Menu, X, ChevronDown, ChevronRight, Lock, Gift } from "lucide-react";
 import logoImg from "@assets/image_1772818839650.png";
 import { toolCategories } from "@/lib/tools-data";
 import { AnimatePresence, motion } from "framer-motion";
@@ -53,6 +53,10 @@ function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <div data-testid="status-free" className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-purple-50 border border-purple-100/50 text-purple-700 text-xs font-semibold shadow-sm">
+            <Gift className="w-3.5 h-3.5" />
+            100% Free
+          </div>
           <div data-testid="status-privacy" className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-100/50 text-emerald-700 text-xs font-semibold shadow-sm">
             <ShieldCheck className="w-3.5 h-3.5" />
             100% Private
