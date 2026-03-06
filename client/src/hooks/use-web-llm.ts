@@ -1,20 +1,22 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { CreateMLCEngine, MLCEngine } from '@mlc-ai/web-llm';
 
-// We use a lighter model for better browser compatibility and speed
 const MODEL_ID = "Llama-3.1-8B-Instruct-q4f16_1-MLC";
 
 export type WebLLMState = 'idle' | 'checking-gpu' | 'downloading' | 'ready' | 'generating' | 'error';
 
 export function useWebLLM() {
-  const [state, setState] = useState<WebLLMState>('idle');
-  const [progress, setProgress] = useState<{ text: string, percent: number }>({ text: '', percent: 0 });
+  const [state, setState] = useState<WebLLMState>('checking-gpu');
+  const [progress, setProgress] = useState<{ text: string, percent: number }>({ text: 'Preparing AI engine...', percent: 0 });
   const [error, setError] = useState<string | null>(null);
   
   const engineRef = useRef<MLCEngine | null>(null);
+  const initStarted = useRef(false);
 
   const initialize = useCallback(async () => {
     if (engineRef.current) return true;
+    if (initStarted.current) return false;
+    initStarted.current = true;
     
     setState('checking-gpu');
     setError(null);
@@ -58,15 +60,18 @@ export function useWebLLM() {
     }
   }, []);
 
+  useEffect(() => {
+    initialize();
+  }, [initialize]);
+
   const generate = useCallback(async (
     platform: string, 
     tone: string, 
     topic: string, 
     onChunk: (text: string) => void
   ) => {
-    if (!engineRef.current && state !== 'ready') {
-      const success = await initialize();
-      if (!success) return null;
+    if (!engineRef.current) {
+      return null;
     }
 
     setState('generating');
@@ -107,7 +112,7 @@ Just 5 lines of text, nothing else.`;
       setError(err.message || "Failed to generate hooks.");
       return null;
     }
-  }, [initialize, state]);
+  }, []);
 
   return {
     state,

@@ -148,7 +148,7 @@ export function HookGenerator() {
                 <AlertTriangle className="w-4 h-4" /> {error}
               </span>
             )}
-            {(state === 'idle' || state === 'ready') && !error && (
+            {state === 'ready' && !error && (
               <span className="flex items-center gap-2 text-slate-500">
                 <CheckCircle2 className="w-4 h-4 text-emerald-500" /> AI ready to generate
               </span>
