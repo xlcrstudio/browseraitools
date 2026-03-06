@@ -7,6 +7,7 @@ import { Layout } from "@/components/Layout";
 import Home from "@/pages/Home";
 import HookGeneratorPage from "@/pages/HookGeneratorPage";
 import CTAGeneratorPage from "@/pages/CTAGeneratorPage";
+import CoverLetterGeneratorPage from "@/pages/CoverLetterGeneratorPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -17,6 +18,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/ai-hook-generator" component={HookGeneratorPage} />
       <Route path="/ai-cta-generator" component={CTAGeneratorPage} />
+      <Route path="/ai-cover-letter-generator" component={CoverLetterGeneratorPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
