@@ -274,7 +274,6 @@ function Footer() {
 
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-slate-500">
             <Link href="/" className="hover:text-slate-800 transition-colors">Home</Link>
-            <Link href="/hook-generator" className="hover:text-slate-800 transition-colors">Hook Generator</Link>
             <button
               onClick={() => {
                 if (window.location.pathname !== "/") {
