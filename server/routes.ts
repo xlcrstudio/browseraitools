@@ -1,16 +1,16 @@
 import type { Express } from "express";
-import { createServer, type Server } from "http";
-import { storage } from "./storage";
+import type { Server } from "http";
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
-  // put application routes here
-  // prefix all routes with /api
-
-  // use storage to perform CRUD operations on the storage interface
-  // e.g. storage.insertUser(user) or storage.getUserByUsername(username)
+  // No backend API routes needed for this pure client-side application.
+  // The Express server will just serve the Vite frontend.
+  
+  app.get('/api/health', (req, res) => {
+    res.json({ status: 'ok' });
+  });
 
   return httpServer;
 }

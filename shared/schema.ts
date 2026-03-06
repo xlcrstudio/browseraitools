@@ -1,18 +1,27 @@
-import { sql } from "drizzle-orm";
-import { pgTable, text, varchar } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const users = pgTable("users", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+// We define our pure client-side types here
+export const hookSchema = z.object({
+  id: z.string(),
+  topic: z.string(),
+  type: z.string(),
+  tone: z.string(),
+  content: z.string(),
+  createdAt: z.string(),
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
+export type GeneratedHook = z.infer<typeof hookSchema>;
+
+export const userStatsSchema = z.object({
+  generationsToday: z.number().default(0),
+  totalGenerations: z.number().default(0),
+  lastGenerationDate: z.string().optional(),
 });
 
-export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
+export type UserStats = z.infer<typeof userStatsSchema>;
+
+// Dummy Drizzle definitions to keep any template imports happy without a real DB
+import { pgTable, serial } from "drizzle-orm/pg-core";
+export const dummyTable = pgTable("dummy", {
+  id: serial("id").primaryKey(),
+});
