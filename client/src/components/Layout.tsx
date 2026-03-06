@@ -1,6 +1,7 @@
 import { ReactNode, useState } from "react";
 import { Link, useLocation } from "wouter";
-import { ShieldCheck, Sparkles, Menu, X, ChevronDown, ChevronRight, Lock } from "lucide-react";
+import { ShieldCheck, Menu, X, ChevronDown, ChevronRight, Lock } from "lucide-react";
+import logoImg from "@assets/image_1772818839650.png";
 import { toolCategories } from "@/lib/tools-data";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -29,9 +30,7 @@ function Header() {
     <header className="sticky top-0 z-50 w-full glass-panel border-b-0 border-white/40">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
         <Link href="/" data-testid="link-home" className="flex items-center gap-2 group shrink-0">
-          <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center shadow-lg shadow-purple-500/25 group-hover:scale-105 transition-transform duration-300">
-            <Sparkles className="w-4 h-4 text-white" />
-          </div>
+          <img src={logoImg} alt="Browser AI Tools" className="w-8 h-8 rounded-lg shadow-lg shadow-purple-500/25 group-hover:scale-105 transition-transform duration-300" />
           <span className="font-display font-bold text-lg sm:text-xl tracking-tight text-slate-900">
             Browser<span className="text-purple-600">AI</span> Tools
           </span>
@@ -264,9 +263,7 @@ function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-md bg-gradient-primary flex items-center justify-center">
-              <Sparkles className="w-3 h-3 text-white" />
-            </div>
+            <img src={logoImg} alt="Browser AI Tools" className="w-6 h-6 rounded-md" />
             <span className="font-display font-bold text-sm text-slate-700">
               Browser<span className="text-purple-600">AI</span> Tools
             </span>
