@@ -1,4 +1,5 @@
 import { ReactNode, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link, useLocation } from "wouter";
 import { ShieldCheck, Menu, X, ChevronDown, ChevronRight, Lock, Gift } from "lucide-react";
 import logoImg from "@assets/image_1772818839650.png";
@@ -73,11 +74,14 @@ function Header() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <MobileMenu onClose={() => setMobileOpen(false)} currentPath={location} />
-        )}
-      </AnimatePresence>
+      {createPortal(
+        <AnimatePresence>
+          {mobileOpen && (
+            <MobileMenu onClose={() => setMobileOpen(false)} currentPath={location} />
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </header>
   );
 }
