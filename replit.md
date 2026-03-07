@@ -17,6 +17,7 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `/ai-cover-letter-generator` - AI Cover Letter Generator (tool #3, flagship)
 - `/ai-startup-name-generator` - AI Startup Name Generator (tool #4)
 - `/ai-business-idea-generator` - AI Business Idea Generator (tool #5)
+- `/ai-keyword-generator` - AI Keyword Generator (tool #6)
 - `/privacy-policy` - Privacy Policy (React page, not static HTML)
 - `/terms-of-service` - Terms of Service (React page, not static HTML)
 
@@ -47,14 +48,19 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `client/src/components/BusinessIdeaHero.tsx` - Business idea generator hero section
 - `client/src/components/BusinessIdeaGenerator.tsx` - Main business idea generation UI with idea cards, favorites, filtering/sorting, expandable plans
 - `client/src/components/BusinessIdeaArticle.tsx` - Business idea SEO article with collapsible sections
+- `client/src/pages/KeywordGeneratorPage.tsx` - Keyword generator tool page
+- `client/src/components/KeywordHero.tsx` - Keyword generator hero section
+- `client/src/components/KeywordGenerator.tsx` - Main keyword generation UI with table/cluster views, intent filtering, difficulty scoring, CSV export
+- `client/src/components/KeywordArticle.tsx` - Keyword research SEO article with collapsible sections
 - `client/src/hooks/use-web-llm.ts` - WebLLM engine initialization & generation (exports `generate` + `generateRaw`)
 - `client/src/hooks/use-hook-storage.ts` - localStorage-based hook history
 - `client/src/hooks/use-cta-storage.ts` - localStorage-based CTA history with auto-categorization
 - `client/src/hooks/use-cover-letter-storage.ts` - localStorage-based cover letter drafts (save/load/delete, max 10)
 - `client/src/hooks/use-startup-name-storage.ts` - localStorage-based startup name history with favorites, domain availability heuristics
 - `client/src/hooks/use-business-idea-storage.ts` - localStorage-based business idea history with favorites
+- `client/src/hooks/use-keyword-storage.ts` - localStorage-based keyword research history with favorites
 - `client/src/lib/tools-data.ts` - All tools data organized by category
-- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, businessIdeaGeneratorFAQs, defaultToolFAQs)
+- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, businessIdeaGeneratorFAQs, keywordGeneratorFAQs, defaultToolFAQs)
 
 ## Design
 - Mobile-first responsive design
@@ -65,5 +71,5 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 ## Important Notes
 - WebLLM requires WebGPU (Chrome/Edge 113+). Graceful fallback message shown if unsupported.
 - AI engine auto-initializes on page load (not on first generate click).
-- Hook Generator, CTA Generator, Cover Letter Generator, Startup Name Generator, and Business Idea Generator are live; other tools show "Coming Soon".
+- Hook Generator, CTA Generator, Cover Letter Generator, Startup Name Generator, Business Idea Generator, and Keyword Generator are live; other tools show "Coming Soon".
 - No database, no backend storage - purely client-side app.
