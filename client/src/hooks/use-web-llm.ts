@@ -1,9 +1,23 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
-import { CreateMLCEngine, MLCEngine } from '@mlc-ai/web-llm';
+import { CreateMLCEngine, MLCEngine, hasModelInCache, deleteModelAllInfoInCache } from '@mlc-ai/web-llm';
 
 const MODEL_ID = "Qwen2.5-1.5B-Instruct-q4f16_1-MLC";
+const PREV_MODEL_IDS = ["Llama-3.1-8B-Instruct-q4f16_1-MLC"];
 
 export type WebLLMState = 'idle' | 'checking-gpu' | 'downloading' | 'ready' | 'generating' | 'error';
+
+async function clearStaleModelCache() {
+  for (const oldId of PREV_MODEL_IDS) {
+    try {
+      const cached = await hasModelInCache(oldId);
+      if (cached) {
+        await deleteModelAllInfoInCache(oldId);
+        console.log(`Cleared stale cache for ${oldId}`);
+      }
+    } catch {
+    }
+  }
+}
 
 export function useWebLLM() {
   const [state, setState] = useState<WebLLMState>('checking-gpu');
@@ -13,6 +27,17 @@ export function useWebLLM() {
   const engineRef = useRef<MLCEngine | null>(null);
   const initStarted = useRef(false);
 
+  const initProgressCallback = useCallback((report: { text: string; progress?: number }) => {
+    const match = report.text.match(/\[(\d+)\/(\d+)\]/);
+    let percent = 0;
+    if (match && match[1] && match[2]) {
+      percent = (parseInt(match[1]) / parseInt(match[2])) * 100;
+    } else if (report.progress) {
+      percent = report.progress * 100;
+    }
+    setProgress({ text: report.text, percent: Math.round(percent) });
+  }, []);
+
   const initialize = useCallback(async () => {
     if (engineRef.current) return true;
     if (initStarted.current) return false;
@@ -21,44 +46,44 @@ export function useWebLLM() {
     setState('checking-gpu');
     setError(null);
 
-    // Check WebGPU Support
     if (!(navigator as any).gpu) {
       setState('error');
       setError("Your browser doesn't support WebGPU. Please use a recent version of Chrome, Edge, or enable WebGPU flags in Safari.");
       return false;
     }
 
+    await clearStaleModelCache();
+
     try {
       setState('downloading');
       
-      const engine = await CreateMLCEngine(MODEL_ID, {
-        initProgressCallback: (report) => {
-          // parse progress if available, otherwise just use text
-          const match = report.text.match(/\[(\d+)\/(\d+)\]/);
-          let percent = 0;
-          if (match && match[1] && match[2]) {
-            percent = (parseInt(match[1]) / parseInt(match[2])) * 100;
-          } else if (report.progress) {
-             percent = report.progress * 100;
-          }
-          
-          setProgress({
-            text: report.text,
-            percent: Math.round(percent)
-          });
-        }
-      });
+      const engine = await CreateMLCEngine(MODEL_ID, { initProgressCallback });
       
       engineRef.current = engine;
       setState('ready');
       return true;
     } catch (err: any) {
       console.error("WebLLM Init Error:", err);
+      if (err.message?.includes("Instance") || err.message?.includes("external")) {
+        try {
+          console.log("Clearing model cache and retrying...");
+          await deleteModelAllInfoInCache(MODEL_ID);
+          const engine = await CreateMLCEngine(MODEL_ID, { initProgressCallback });
+          engineRef.current = engine;
+          setState('ready');
+          return true;
+        } catch (retryErr: any) {
+          console.error("WebLLM Retry Error:", retryErr);
+          setState('error');
+          setError(retryErr.message || "Failed to initialize the AI engine.");
+          return false;
+        }
+      }
       setState('error');
       setError(err.message || "Failed to initialize the AI engine.");
       return false;
     }
-  }, []);
+  }, [initProgressCallback]);
 
   useEffect(() => {
     initialize();
