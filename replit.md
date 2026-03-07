@@ -18,6 +18,7 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `/ai-startup-name-generator` - AI Startup Name Generator (tool #4)
 - `/ai-business-idea-generator` - AI Business Idea Generator (tool #5)
 - `/ai-keyword-generator` - AI Keyword Generator (tool #6)
+- `/ai-hashtag-generator` - AI Hashtag Generator (tool #7)
 - `/privacy-policy` - Privacy Policy (React page, not static HTML)
 - `/terms-of-service` - Terms of Service (React page, not static HTML)
 
@@ -59,8 +60,13 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `client/src/hooks/use-startup-name-storage.ts` - localStorage-based startup name history with favorites, domain availability heuristics
 - `client/src/hooks/use-business-idea-storage.ts` - localStorage-based business idea history with favorites
 - `client/src/hooks/use-keyword-storage.ts` - localStorage-based keyword research history with favorites
+- `client/src/pages/HashtagGeneratorPage.tsx` - Hashtag generator tool page
+- `client/src/components/HashtagHero.tsx` - Hashtag generator hero section
+- `client/src/components/HashtagGenerator.tsx` - Main hashtag generation UI with platform selection, volume-categorized output, copy-paste ready sets, CSV export, favorites
+- `client/src/components/HashtagArticle.tsx` - Hashtag strategy SEO article with collapsible sections
+- `client/src/hooks/use-hashtag-storage.ts` - localStorage-based hashtag history with favorites
 - `client/src/lib/tools-data.ts` - All tools data organized by category
-- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, businessIdeaGeneratorFAQs, keywordGeneratorFAQs, defaultToolFAQs)
+- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, businessIdeaGeneratorFAQs, keywordGeneratorFAQs, hashtagGeneratorFAQs, defaultToolFAQs)
 
 ## Ad Blocks
 - `client/src/components/AdBlock.tsx` - Reusable ad placeholder component with unique `slot` ID and `format` (horizontal/rectangle/vertical)
@@ -77,5 +83,5 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 ## Important Notes
 - WebLLM requires WebGPU (Chrome/Edge 113+). Graceful fallback message shown if unsupported.
 - AI engine auto-initializes on page load (not on first generate click).
-- Hook Generator, CTA Generator, Cover Letter Generator, Startup Name Generator, Business Idea Generator, and Keyword Generator are live; other tools show "Coming Soon".
+- Hook Generator, CTA Generator, Cover Letter Generator, Startup Name Generator, Business Idea Generator, Keyword Generator, and Hashtag Generator are live; other tools show "Coming Soon".
 - No database, no backend storage - purely client-side app.

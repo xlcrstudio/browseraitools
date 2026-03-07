@@ -11,6 +11,7 @@ import CoverLetterGeneratorPage from "@/pages/CoverLetterGeneratorPage";
 import StartupNameGeneratorPage from "@/pages/StartupNameGeneratorPage";
 import BusinessIdeaGeneratorPage from "@/pages/BusinessIdeaGeneratorPage";
 import KeywordGeneratorPage from "@/pages/KeywordGeneratorPage";
+import HashtagGeneratorPage from "@/pages/HashtagGeneratorPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -25,6 +26,7 @@ function Router() {
       <Route path="/ai-startup-name-generator" component={StartupNameGeneratorPage} />
       <Route path="/ai-business-idea-generator" component={BusinessIdeaGeneratorPage} />
       <Route path="/ai-keyword-generator" component={KeywordGeneratorPage} />
+      <Route path="/ai-hashtag-generator" component={HashtagGeneratorPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />

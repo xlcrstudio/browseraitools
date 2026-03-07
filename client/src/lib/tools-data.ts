@@ -51,7 +51,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 12, name: "AI TikTok Caption Generator", slug: "/tiktok-caption-generator", icon: Music2, available: false },
       { id: 13, name: "AI LinkedIn Post Generator", slug: "/linkedin-post-generator", icon: Linkedin, available: false },
       { id: 14, name: "AI Tweet Generator", slug: "/tweet-generator", icon: Twitter, available: false },
-      { id: 15, name: "AI Hashtag Generator", slug: "/hashtag-generator", icon: Hash, available: false },
+      { id: 15, name: "AI Hashtag Generator", slug: "/ai-hashtag-generator", icon: Hash, available: true },
       { id: 16, name: "AI YouTube Title Generator", slug: "/youtube-title-generator", icon: Youtube, available: false },
       { id: 17, name: "AI YouTube Description Generator", slug: "/youtube-description-generator", icon: FileEdit, available: false },
       { id: 18, name: "AI Instagram Bio Generator", slug: "/instagram-bio-generator", icon: User, available: false },
