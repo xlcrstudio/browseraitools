@@ -14,11 +14,11 @@ export default function StartupNameGeneratorPage() {
     document.title = "Free AI Startup Name Generator - Find Your Perfect Business Name | Browser AI Tools";
 
     const metaUpdates: Record<string, string> = {
-      description: "Generate 30+ brandable startup names instantly. AI-powered name generator with meanings, domain insights, and naming analysis. Free and private.",
+      description: "Generate 10+ brandable startup names instantly. AI-powered name generator with meanings, domain insights, and naming analysis. Free and private.",
     };
     const ogUpdates: Record<string, string> = {
       "og:title": "Free AI Startup Name Generator - Browser AI Tools",
-      "og:description": "Generate 30+ brandable startup names instantly. AI-powered with meanings, domain insights, and naming analysis.",
+      "og:description": "Generate 10+ brandable startup names instantly. AI-powered with meanings, domain insights, and naming analysis.",
       "og:type": "website",
       "og:url": "https://browseraitools.com/ai-startup-name-generator",
     };

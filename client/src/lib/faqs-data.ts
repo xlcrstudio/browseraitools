@@ -132,7 +132,7 @@ export const coverLetterGeneratorFAQs: FAQItem[] = [
 export const startupNameGeneratorFAQs: FAQItem[] = [
   {
     question: "What is the AI Startup Name Generator?",
-    answer: "The AI Startup Name Generator is a free, browser-based tool that creates creative, brandable startup names. It generates 30+ unique name ideas with meanings, categories, and analysis using advanced AI (Qwen 2.5) running directly in your browser.",
+    answer: "The AI Startup Name Generator is a free, browser-based tool that creates creative, brandable startup names. It generates 10+ unique name ideas with meanings, categories, and analysis using advanced AI (Qwen 2.5) running directly in your browser.",
   },
   {
     question: "Is it really free?",
@@ -148,7 +148,7 @@ export const startupNameGeneratorFAQs: FAQItem[] = [
   },
   {
     question: "How many names does it generate?",
-    answer: "The tool generates 30+ startup name ideas in each generation. Each name includes the category (compound, invented, descriptive, etc.), a meaningful definition, and analysis of why it works for your startup.",
+    answer: "The tool generates 10+ startup name ideas in each generation. Each name includes the category (compound, invented, descriptive, etc.), a meaningful definition, and analysis of why it works for your startup.",
   },
   {
     question: "Are the names unique and not already trademarked?",

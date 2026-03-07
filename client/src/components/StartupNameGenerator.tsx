@@ -132,7 +132,7 @@ export function StartupNameGenerator() {
       any: "Generate a mix of short, medium, and longer names.",
     };
 
-    return `Generate 30 creative, brandable startup names.
+    return `Generate 10 creative, brandable startup names.
 
 STARTUP DETAILS:
 What it does: ${description}
@@ -168,7 +168,7 @@ Category: Invented
 Meaning: Combines "lumi" (light/clarity) with "vox" (voice), suggesting clear communication
 Why: Unique and brandable | Easy to pronounce globally | Strong .com availability
 
-Generate 30 names following this EXACT format. Be creative, think like a brand strategist. No extra text before or after.`;
+Generate 10 names following this EXACT format. Be creative, think like a brand strategist. No extra text before or after.`;
   };
 
   const parseNames = (text: string): GeneratedName[] => {

@@ -37,7 +37,7 @@ export function StartupNameHero() {
         className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto"
         data-testid="text-hero-subheadline"
       >
-        Discover the perfect name for your startup. Get 30+ brandable names
+        Discover the perfect name for your startup. Get 10+ brandable names
         with meanings and analysis in seconds. Free, private, AI-powered.
       </motion.p>
 
@@ -49,7 +49,7 @@ export function StartupNameHero() {
         data-testid="container-trust-badges"
       >
         {[
-          { icon: Rocket, label: "30+ Name Ideas" },
+          { icon: Rocket, label: "10+ Name Ideas" },
           { icon: Lightbulb, label: "Brandable & Memorable" },
           { icon: ShieldCheck, label: "100% Private" },
         ].map(({ icon: Icon, label }) => (
