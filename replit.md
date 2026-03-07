@@ -19,6 +19,7 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `/ai-business-idea-generator` - AI Business Idea Generator (tool #5)
 - `/ai-keyword-generator` - AI Keyword Generator (tool #6)
 - `/ai-hashtag-generator` - AI Hashtag Generator (tool #7)
+- `/ai-tiktok-caption-generator` - AI TikTok Caption Generator (tool #8)
 - `/privacy-policy` - Privacy Policy (React page, not static HTML)
 - `/terms-of-service` - Terms of Service (React page, not static HTML)
 
@@ -65,8 +66,13 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `client/src/components/HashtagGenerator.tsx` - Main hashtag generation UI with platform selection, volume-categorized output, copy-paste ready sets, CSV export, favorites
 - `client/src/components/HashtagArticle.tsx` - Hashtag strategy SEO article with collapsible sections
 - `client/src/hooks/use-hashtag-storage.ts` - localStorage-based hashtag history with favorites
+- `client/src/pages/TikTokCaptionGeneratorPage.tsx` - TikTok caption generator tool page
+- `client/src/components/TikTokCaptionHero.tsx` - TikTok caption generator hero section
+- `client/src/components/TikTokCaptionGenerator.tsx` - Main TikTok caption generation UI with multi-variation output, first comment suggestions, engagement analysis
+- `client/src/components/TikTokCaptionArticle.tsx` - TikTok caption SEO article with collapsible sections
+- `client/src/hooks/use-tiktok-caption-storage.ts` - localStorage-based TikTok caption history with favorites
 - `client/src/lib/tools-data.ts` - All tools data organized by category
-- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, businessIdeaGeneratorFAQs, keywordGeneratorFAQs, hashtagGeneratorFAQs, defaultToolFAQs)
+- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, businessIdeaGeneratorFAQs, keywordGeneratorFAQs, hashtagGeneratorFAQs, tiktokCaptionGeneratorFAQs, defaultToolFAQs)
 
 ## Ad Blocks
 - `client/src/components/AdBlock.tsx` - Reusable ad placeholder component with unique `slot` ID and `format` (horizontal/rectangle/vertical)
@@ -83,5 +89,5 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 ## Important Notes
 - WebLLM requires WebGPU (Chrome/Edge 113+). Graceful fallback message shown if unsupported.
 - AI engine auto-initializes on page load (not on first generate click).
-- Hook Generator, CTA Generator, Cover Letter Generator, Startup Name Generator, Business Idea Generator, Keyword Generator, and Hashtag Generator are live; other tools show "Coming Soon".
+- Hook Generator, CTA Generator, Cover Letter Generator, Startup Name Generator, Business Idea Generator, Keyword Generator, Hashtag Generator, and TikTok Caption Generator are live (8 tools); other tools show "Coming Soon".
 - No database, no backend storage - purely client-side app.
