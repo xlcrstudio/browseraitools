@@ -3,6 +3,7 @@ import { StartupNameGenerator } from "@/components/StartupNameGenerator";
 import { StartupNameArticle } from "@/components/StartupNameArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
+import { AdBlock } from "@/components/AdBlock";
 import { startupNameGeneratorFAQs } from "@/lib/faqs-data";
 import { Rocket } from "lucide-react";
 import { motion } from "framer-motion";
@@ -55,6 +56,7 @@ export default function StartupNameGeneratorPage() {
 
       <div className="pb-12">
         <StartupNameHero />
+        <AdBlock slot="startup-name-top" format="horizontal" className="mb-8" />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,9 +66,13 @@ export default function StartupNameGeneratorPage() {
         </motion.div>
       </div>
 
+      <AdBlock slot="startup-name-mid" format="horizontal" className="mb-10" />
+
       <StartupNameArticle />
 
       <ToolFAQ toolName="AI Startup Name Generator" faqs={startupNameGeneratorFAQs} />
+
+      <AdBlock slot="startup-name-bottom" format="horizontal" className="mt-10" />
     </>
   );
 }

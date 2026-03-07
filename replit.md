@@ -62,6 +62,12 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `client/src/lib/tools-data.ts` - All tools data organized by category
 - `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, businessIdeaGeneratorFAQs, keywordGeneratorFAQs, defaultToolFAQs)
 
+## Ad Blocks
+- `client/src/components/AdBlock.tsx` - Reusable ad placeholder component with unique `slot` ID and `format` (horizontal/rectangle/vertical)
+- Home page: 3 ad blocks (home-top before tools catalog, home-mid before privacy, home-bottom after privacy)
+- Each tool page: 3 ad blocks (top after hero, mid between generator and article/FAQ, bottom after FAQ)
+- Each ad block has `data-ad-slot` and `data-ad-format` attributes for ad network integration
+
 ## Design
 - Mobile-first responsive design
 - Purple-to-blue gradient primary colors

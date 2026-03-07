@@ -3,6 +3,7 @@ import { CoverLetterGenerator } from "@/components/CoverLetterGenerator";
 import { CoverLetterArticle } from "@/components/CoverLetterArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
+import { AdBlock } from "@/components/AdBlock";
 import { coverLetterGeneratorFAQs } from "@/lib/faqs-data";
 import { FileText } from "lucide-react";
 import { motion } from "framer-motion";
@@ -36,6 +37,7 @@ export default function CoverLetterGeneratorPage() {
 
       <div className="pb-12">
         <CoverLetterHero />
+        <AdBlock slot="cover-letter-top" format="horizontal" className="mb-8" />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -45,9 +47,13 @@ export default function CoverLetterGeneratorPage() {
         </motion.div>
       </div>
 
+      <AdBlock slot="cover-letter-mid" format="horizontal" className="mb-10" />
+
       <CoverLetterArticle />
 
       <ToolFAQ toolName="AI Cover Letter Generator" faqs={coverLetterGeneratorFAQs} />
+
+      <AdBlock slot="cover-letter-bottom" format="horizontal" className="mt-10" />
     </>
   );
 }

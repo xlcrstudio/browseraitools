@@ -3,6 +3,7 @@ import { BusinessIdeaGenerator } from "@/components/BusinessIdeaGenerator";
 import { BusinessIdeaArticle } from "@/components/BusinessIdeaArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
+import { AdBlock } from "@/components/AdBlock";
 import { businessIdeaGeneratorFAQs } from "@/lib/faqs-data";
 import { Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
@@ -55,6 +56,7 @@ export default function BusinessIdeaGeneratorPage() {
 
       <div className="pb-12">
         <BusinessIdeaHero />
+        <AdBlock slot="business-idea-top" format="horizontal" className="mb-8" />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,9 +66,13 @@ export default function BusinessIdeaGeneratorPage() {
         </motion.div>
       </div>
 
+      <AdBlock slot="business-idea-mid" format="horizontal" className="mb-10" />
+
       <BusinessIdeaArticle />
 
       <ToolFAQ toolName="AI Business Idea Generator" faqs={businessIdeaGeneratorFAQs} />
+
+      <AdBlock slot="business-idea-bottom" format="horizontal" className="mt-10" />
     </>
   );
 }

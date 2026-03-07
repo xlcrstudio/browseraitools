@@ -3,6 +3,7 @@ import { CTAGenerator } from "@/components/CTAGenerator";
 import { CTAArticle } from "@/components/CTAArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
+import { AdBlock } from "@/components/AdBlock";
 import { ctaGeneratorFAQs } from "@/lib/faqs-data";
 import { MousePointerClick } from "lucide-react";
 import { motion } from "framer-motion";
@@ -36,6 +37,7 @@ export default function CTAGeneratorPage() {
 
       <div className="pb-12">
         <CTAHero />
+        <AdBlock slot="cta-top" format="horizontal" className="mb-8" />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -45,9 +47,13 @@ export default function CTAGeneratorPage() {
         </motion.div>
       </div>
 
+      <AdBlock slot="cta-mid" format="horizontal" className="mb-10" />
+
       <CTAArticle />
 
       <ToolFAQ toolName="AI Call-to-Action Generator" faqs={ctaGeneratorFAQs} />
+
+      <AdBlock slot="cta-bottom" format="horizontal" className="mt-10" />
     </>
   );
 }

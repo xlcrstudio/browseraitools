@@ -2,14 +2,18 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Lock, Zap, Cpu, ArrowRight, Sparkles, ChevronRight } from "lucide-react";
 import { toolCategories, type ToolCategory, type Tool } from "@/lib/tools-data";
+import { AdBlock } from "@/components/AdBlock";
 
 export default function Home() {
   return (
     <>
       <HomeHero />
       <TrustBar />
+      <AdBlock slot="home-top" format="horizontal" className="mb-10 md:mb-14" />
       <ToolsCatalog />
+      <AdBlock slot="home-mid" format="horizontal" className="mb-10 md:mb-14" />
       <PrivacySection />
+      <AdBlock slot="home-bottom" format="horizontal" className="mb-10 md:mb-14" />
     </>
   );
 }
