@@ -173,13 +173,13 @@ Generate 10 names following this EXACT format. Be creative, think like a brand s
 
   const parseNames = (text: string): GeneratedName[] => {
     const names: GeneratedName[] = [];
-    const blocks = text.split(/\n\d+\.\s+/).filter((b) => b.trim());
+    const blocks = text.split(/(?:^|\n)\d+[\.\)]\s+/).filter((b) => b.trim());
 
     for (const block of blocks) {
       const lines = block.split("\n").map((l) => l.trim()).filter(Boolean);
       if (lines.length < 2) continue;
 
-      const name = lines[0].replace(/^\*+|\*+$/g, "").trim();
+      const name = lines[0].replace(/^\*+|\*+$/g, "").replace(/^\[|\]$/g, "").trim();
       if (!name || name.length < 2 || name.length > 30) continue;
 
       let category: GeneratedName["category"] = "invented";
@@ -329,9 +329,9 @@ Generate 10 names following this EXACT format. Be creative, think like a brand s
   }, [generatedNames, activeFilter, searchQuery, sortBy, favorites]);
 
   const streamedNames = streamedContent
-    .split(/\n\d+\.\s+/)
+    .split(/(?:^|\n)\d+[\.\)]\s+/)
     .filter((b) => b.trim())
-    .map((b) => b.split("\n")[0].replace(/^\*+|\*+$/g, "").trim())
+    .map((b) => b.split("\n")[0].replace(/^\*+|\*+$/g, "").replace(/^\[|\]$/g, "").trim())
     .filter((n) => n.length >= 2 && n.length <= 30);
 
   const categoryFilterCounts = useMemo(() => {
