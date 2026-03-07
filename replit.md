@@ -5,7 +5,7 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 
 ## Architecture
 - **Frontend**: React 18 + Vite + Tailwind CSS + Framer Motion
-- **AI Engine**: @mlc-ai/web-llm (Llama 3.1 8B model, cached in IndexedDB)
+- **AI Engine**: @mlc-ai/web-llm (Qwen 2.5 1.5B model, cached in IndexedDB)
 - **State**: React useState + localStorage (no database needed)
 - **Routing**: wouter (client-side)
 - **Server**: Express serves the Vite frontend only (no API routes for app logic)

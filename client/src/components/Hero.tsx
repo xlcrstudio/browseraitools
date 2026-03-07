@@ -11,7 +11,7 @@ export function Hero() {
       >
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 text-sm font-semibold mb-6 ring-1 ring-purple-200/50 shadow-sm">
           <SparklesIcon className="w-4 h-4" />
-          Powered by Llama 3 running directly in your browser
+          Powered by Qwen 2.5 running directly in your browser
         </div>
       </motion.div>
 

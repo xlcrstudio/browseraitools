@@ -3,7 +3,7 @@ import type { FAQItem } from "@/components/ToolFAQ";
 export const hookGeneratorFAQs: FAQItem[] = [
   {
     question: "What is the AI Hook Generator?",
-    answer: "The AI Hook Generator is a free, browser-based tool that creates attention-grabbing hooks for social media posts, YouTube videos, TikTok content, blog articles, and ad copy. It uses advanced AI (Llama 3) running directly in your browser to generate viral, scroll-stopping opening lines.",
+    answer: "The AI Hook Generator is a free, browser-based tool that creates attention-grabbing hooks for social media posts, YouTube videos, TikTok content, blog articles, and ad copy. It uses advanced AI (Qwen 2.5) running directly in your browser to generate viral, scroll-stopping opening lines.",
   },
   {
     question: "Is the AI Hook Generator really free?",
@@ -11,7 +11,7 @@ export const hookGeneratorFAQs: FAQItem[] = [
   },
   {
     question: "How does the AI Hook Generator work?",
-    answer: "The tool uses WebLLM technology to run an AI language model (Llama 3.1 8B) directly in your web browser using WebGPU. When you enter a topic and select a platform and tone, the AI generates multiple hook variations optimized for engagement. No data is sent to any server.",
+    answer: "The tool uses WebLLM technology to run an AI language model (Qwen 2.5 1.5B) directly in your web browser using WebGPU. When you enter a topic and select a platform and tone, the AI generates multiple hook variations optimized for engagement. No data is sent to any server.",
   },
   {
     question: "Is my data private when using this tool?",
@@ -54,7 +54,7 @@ export const ctaGeneratorFAQs: FAQItem[] = [
   },
   {
     question: "How does the AI CTA Generator work?",
-    answer: "The tool uses WebLLM technology to run an AI language model (Llama 3.1 8B) directly in your web browser using WebGPU. You enter your product details, target audience, and campaign goal, and the AI generates conversion-optimized CTAs using proven marketing psychology principles. No data is sent to any server.",
+    answer: "The tool uses WebLLM technology to run an AI language model (Qwen 2.5 1.5B) directly in your web browser using WebGPU. You enter your product details, target audience, and campaign goal, and the AI generates conversion-optimized CTAs using proven marketing psychology principles. No data is sent to any server.",
   },
   {
     question: "Is my campaign data private?",
@@ -89,7 +89,7 @@ export const ctaGeneratorFAQs: FAQItem[] = [
 export const coverLetterGeneratorFAQs: FAQItem[] = [
   {
     question: "What is the AI Cover Letter Generator?",
-    answer: "The AI Cover Letter Generator is a free, browser-based tool that creates personalized, professional cover letters tailored to specific job postings. It uses advanced AI (Llama 3) running directly in your browser to generate ATS-optimized cover letters in about 30 seconds.",
+    answer: "The AI Cover Letter Generator is a free, browser-based tool that creates personalized, professional cover letters tailored to specific job postings. It uses advanced AI (Qwen 2.5) running directly in your browser to generate ATS-optimized cover letters in about 30 seconds.",
   },
   {
     question: "Is the AI Cover Letter Generator really free?",
@@ -97,7 +97,7 @@ export const coverLetterGeneratorFAQs: FAQItem[] = [
   },
   {
     question: "How does the AI Cover Letter Generator work?",
-    answer: "The tool uses WebLLM technology to run an AI language model (Llama 3.1 8B) directly in your web browser using WebGPU. You enter your job details, background, and preferences, and the AI generates a personalized, professionally formatted cover letter. No data is sent to any server.",
+    answer: "The tool uses WebLLM technology to run an AI language model (Qwen 2.5 1.5B) directly in your web browser using WebGPU. You enter your job details, background, and preferences, and the AI generates a personalized, professionally formatted cover letter. No data is sent to any server.",
   },
   {
     question: "Is my data private when using this tool?",
@@ -132,7 +132,7 @@ export const coverLetterGeneratorFAQs: FAQItem[] = [
 export const startupNameGeneratorFAQs: FAQItem[] = [
   {
     question: "What is the AI Startup Name Generator?",
-    answer: "The AI Startup Name Generator is a free, browser-based tool that creates creative, brandable startup names. It generates 30+ unique name ideas with meanings, categories, and analysis using advanced AI (Llama 3) running directly in your browser.",
+    answer: "The AI Startup Name Generator is a free, browser-based tool that creates creative, brandable startup names. It generates 30+ unique name ideas with meanings, categories, and analysis using advanced AI (Qwen 2.5) running directly in your browser.",
   },
   {
     question: "Is it really free?",
@@ -140,7 +140,7 @@ export const startupNameGeneratorFAQs: FAQItem[] = [
   },
   {
     question: "How does it work?",
-    answer: "The tool uses WebLLM technology to run an AI language model (Llama 3.1 8B) directly in your web browser using WebGPU. You describe your startup, select an industry, choose naming styles and preferences, and the AI generates creative names with meanings and analysis. No data is sent to any server.",
+    answer: "The tool uses WebLLM technology to run an AI language model (Qwen 2.5 1.5B) directly in your web browser using WebGPU. You describe your startup, select an industry, choose naming styles and preferences, and the AI generates creative names with meanings and analysis. No data is sent to any server.",
   },
   {
     question: "Is my startup idea private?",
