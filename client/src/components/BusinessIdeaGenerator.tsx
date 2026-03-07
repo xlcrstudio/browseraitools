@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Lightbulb, Loader2, AlertTriangle, CheckCircle2, ChevronDown, ChevronUp,
   RefreshCw, Download, Copy, Heart, Search, Filter, TrendingUp,
-  DollarSign, Clock, Target, Zap, BarChart3
+  DollarSign, Clock, Target, Zap, BarChart3, RotateCcw
 } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
@@ -688,23 +688,50 @@ Make each idea specific, actionable, and personalized to their profile.`;
             )}
           </div>
 
-          <button
-            data-testid="button-generate-ideas"
-            onClick={handleGenerate}
-            disabled={!skills.trim() || state === "generating" || state === "downloading" || state === "checking-gpu"}
-            className={cn(
-              "w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-white shadow-xl shadow-purple-500/25 transition-all duration-300 flex items-center justify-center gap-2",
-              !skills.trim() || ["generating", "downloading", "checking-gpu"].includes(state)
-                ? "bg-slate-300 text-slate-500 shadow-none cursor-not-allowed"
-                : "bg-gradient-primary hover:shadow-2xl hover:shadow-purple-500/40 hover:-translate-y-0.5 active:translate-y-0 animate-pulse-glow"
-            )}
-          >
-            {state === "generating" ? (
-              <><Loader2 className="w-5 h-5 animate-spin" /> Generating Ideas...</>
-            ) : (
-              <><Lightbulb className="w-5 h-5" /> Generate Business Ideas</>
-            )}
-          </button>
+          <div className="flex gap-3 w-full sm:w-auto">
+            <button
+              data-testid="button-generate-ideas"
+              onClick={handleGenerate}
+              disabled={!skills.trim() || state === "generating" || state === "downloading" || state === "checking-gpu"}
+              className={cn(
+                "flex-1 sm:flex-auto px-8 py-4 rounded-xl font-bold text-white shadow-xl shadow-purple-500/25 transition-all duration-300 flex items-center justify-center gap-2",
+                !skills.trim() || ["generating", "downloading", "checking-gpu"].includes(state)
+                  ? "bg-slate-300 text-slate-500 shadow-none cursor-not-allowed"
+                  : "bg-gradient-primary hover:shadow-2xl hover:shadow-purple-500/40 hover:-translate-y-0.5 active:translate-y-0 animate-pulse-glow"
+              )}
+            >
+              {state === "generating" ? (
+                <><Loader2 className="w-5 h-5 animate-spin" /> Generating Ideas...</>
+              ) : (
+                <><Lightbulb className="w-5 h-5" /> Generate Business Ideas</>
+              )}
+            </button>
+            <button
+              data-testid="button-reset"
+              onClick={() => {
+                setSkills("");
+                setInterests("");
+                setTimeCommitment(TIME_OPTIONS[0].value);
+                setBudget(BUDGETS[1].value);
+                setSelectedModels(["Online/Digital Business", "Service-Based Business"]);
+                setSelectedIndustries([]);
+                setRiskTolerance("Medium");
+                setTimeline(TIMELINE_OPTIONS[2].value);
+                setConsiderations([]);
+                setAvoidIdeas("");
+                setShowAdvanced(false);
+                setStreamedContent("");
+                setIsDone(false);
+                setGeneratedIdeas([]);
+                setCurrentRecordId(null);
+              }}
+              disabled={state === "generating"}
+              className="px-4 py-4 rounded-xl border border-slate-200 text-slate-500 hover:text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-all flex items-center gap-2"
+            >
+              <RotateCcw className="w-4 h-4" />
+              <span className="hidden sm:inline">Reset</span>
+            </button>
+          </div>
         </div>
       </div>
 

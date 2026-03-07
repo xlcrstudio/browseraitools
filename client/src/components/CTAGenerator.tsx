@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Wand2, Loader2, AlertTriangle, CheckCircle2, ChevronDown, RefreshCw, Download, Filter, Flame, Target, Magnet, ShieldCheck, Zap } from "lucide-react";
+import { Wand2, Loader2, AlertTriangle, CheckCircle2, ChevronDown, RefreshCw, Download, Filter, Flame, Target, Magnet, ShieldCheck, Zap, RotateCcw } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useCTAStorage, categorizeCTA, type GeneratedCTA } from "@/hooks/use-cta-storage";
@@ -359,27 +359,51 @@ NO explanations, NO categories, NO extra text. Just the CTAs.`;
             )}
           </div>
 
-          <button
-            data-testid="button-generate-ctas"
-            onClick={handleGenerate}
-            disabled={!product.trim() || !audience.trim() || state === "generating" || state === "downloading" || state === "checking-gpu"}
-            className={cn(
-              "w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-white shadow-xl shadow-purple-500/25 transition-all duration-300 flex items-center justify-center gap-2",
-              !product.trim() || !audience.trim() || ["generating", "downloading", "checking-gpu"].includes(state)
-                ? "bg-slate-300 text-slate-500 shadow-none cursor-not-allowed"
-                : "bg-gradient-primary hover:shadow-2xl hover:shadow-purple-500/40 hover:-translate-y-0.5 active:translate-y-0 animate-pulse-glow"
-            )}
-          >
-            {state === "generating" ? (
-              <>
-                <Loader2 className="w-5 h-5 animate-spin" /> Generating...
-              </>
-            ) : (
-              <>
-                <Wand2 className="w-5 h-5" /> Generate CTAs
-              </>
-            )}
-          </button>
+          <div className="flex gap-3 w-full sm:w-auto">
+            <button
+              data-testid="button-generate-ctas"
+              onClick={handleGenerate}
+              disabled={!product.trim() || !audience.trim() || state === "generating" || state === "downloading" || state === "checking-gpu"}
+              className={cn(
+                "flex-1 sm:flex-auto px-8 py-4 rounded-xl font-bold text-white shadow-xl shadow-purple-500/25 transition-all duration-300 flex items-center justify-center gap-2",
+                !product.trim() || !audience.trim() || ["generating", "downloading", "checking-gpu"].includes(state)
+                  ? "bg-slate-300 text-slate-500 shadow-none cursor-not-allowed"
+                  : "bg-gradient-primary hover:shadow-2xl hover:shadow-purple-500/40 hover:-translate-y-0.5 active:translate-y-0 animate-pulse-glow"
+              )}
+            >
+              {state === "generating" ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" /> Generating...
+                </>
+              ) : (
+                <>
+                  <Wand2 className="w-5 h-5" /> Generate CTAs
+                </>
+              )}
+            </button>
+            <button
+              data-testid="button-reset"
+              onClick={() => {
+                setProduct("");
+                setAudience("");
+                setGoal(GOALS[0]);
+                setPlatform(PLATFORMS[0]);
+                setTone(TONES[0]);
+                setLengthPref(LENGTH_OPTIONS[1]);
+                setValueProp("");
+                setShowAdvanced(false);
+                setStreamedContent("");
+                setIsDone(false);
+                setGeneratedCTAs([]);
+                setActiveFilter("all");
+              }}
+              disabled={state === "generating"}
+              className="px-4 py-4 rounded-xl border border-slate-200 text-slate-500 hover:text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-all flex items-center gap-2"
+            >
+              <RotateCcw className="w-4 h-4" />
+              <span className="hidden sm:inline">Reset</span>
+            </button>
+          </div>
         </div>
       </div>
 

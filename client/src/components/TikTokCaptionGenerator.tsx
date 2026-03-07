@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Music2, Loader2, AlertTriangle, CheckCircle2, ChevronDown,
-  RefreshCw, Copy, Heart, Star, MessageCircle, Hash, Type
+  RefreshCw, Copy, Heart, Star, MessageCircle, Hash, Type, RotateCcw
 } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
@@ -559,29 +559,60 @@ C: a real first comment suggestion`;
             </AnimatePresence>
           </div>
 
-          <button
-            data-testid="button-generate"
-            onClick={handleGenerate}
-            disabled={!canGenerate}
-            className={cn(
-              "w-full py-4 rounded-xl font-bold text-white text-lg transition-all flex items-center justify-center gap-3",
-              canGenerate
-                ? "bg-gradient-primary shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/40 hover:-translate-y-0.5 active:translate-y-0"
-                : "bg-slate-300 cursor-not-allowed"
-            )}
-          >
-            {isGenerating ? (
-              <>
-                <Loader2 className="w-5 h-5 animate-spin" />
-                Creating viral captions...
-              </>
-            ) : (
-              <>
-                <Music2 className="w-5 h-5" />
-                Generate TikTok Captions
-              </>
-            )}
-          </button>
+          <div className="flex gap-3">
+            <button
+              data-testid="button-generate"
+              onClick={handleGenerate}
+              disabled={!canGenerate}
+              className={cn(
+                "flex-1 py-4 rounded-xl font-bold text-white text-lg transition-all flex items-center justify-center gap-3",
+                canGenerate
+                  ? "bg-gradient-primary shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/40 hover:-translate-y-0.5 active:translate-y-0"
+                  : "bg-slate-300 cursor-not-allowed"
+              )}
+            >
+              {isGenerating ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Creating viral captions...
+                </>
+              ) : (
+                <>
+                  <Music2 className="w-5 h-5" />
+                  Generate TikTok Captions
+                </>
+              )}
+            </button>
+            <button
+              data-testid="button-reset"
+              onClick={() => {
+                setVideoContent("");
+                setVideoHook("");
+                setTrendingSound("");
+                setNiche(NICHES[0]);
+                setAudience("gen-z");
+                setAccountType("creator");
+                setContentType("educational");
+                setSelectedGoals(["Get on FYP", "Drive Engagement"]);
+                setSelectedTones(["Casual"]);
+                setCaptionLength("medium");
+                setShowAdvanced(false);
+                setIncludeHashtags(true);
+                setNumHashtags(5);
+                setIncludeEmojis(true);
+                setNumCaptions(5);
+                setUseTrendingFormats(true);
+                setStreamingText("");
+                setCurrentRecord(null);
+                setCopiedId(null);
+              }}
+              disabled={isGenerating}
+              className="px-4 py-4 rounded-xl border border-slate-200 text-slate-500 hover:text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-all flex items-center gap-2"
+            >
+              <RotateCcw className="w-4 h-4" />
+              <span className="hidden sm:inline">Reset</span>
+            </button>
+          </div>
         </div>
       </div>
 

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Key, Loader2, AlertTriangle, CheckCircle2, ChevronDown, ChevronUp,
   RefreshCw, Download, Copy, Heart, Search,
-  Layers, Table2, ToggleLeft, ToggleRight
+  Layers, Table2, ToggleLeft, ToggleRight, RotateCcw
 } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
@@ -607,29 +607,56 @@ Make keywords diverse, realistic, and SEO-valuable. No extra text outside the cl
             )}
           </AnimatePresence>
 
-          <button
-            data-testid="button-generate"
-            onClick={handleGenerate}
-            disabled={isDisabled || isGenerating || !seedKeyword.trim()}
-            className={cn(
-              "w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-white shadow-xl shadow-purple-500/25 transition-all duration-300 flex items-center justify-center gap-2",
-              isDisabled || isGenerating || !seedKeyword.trim()
-                ? "bg-slate-300 text-slate-500 shadow-none cursor-not-allowed"
-                : "bg-gradient-primary hover:shadow-2xl hover:shadow-purple-500/30 hover:-translate-y-0.5 active:translate-y-0"
-            )}
-          >
-            {isGenerating ? (
-              <>
-                <Loader2 className="w-5 h-5 animate-spin" />
-                Researching Keywords...
-              </>
-            ) : (
-              <>
-                <Key className="w-5 h-5" />
-                Generate Keywords
-              </>
-            )}
-          </button>
+          <div className="flex gap-3 w-full sm:w-auto">
+            <button
+              data-testid="button-generate"
+              onClick={handleGenerate}
+              disabled={isDisabled || isGenerating || !seedKeyword.trim()}
+              className={cn(
+                "flex-1 sm:flex-auto px-8 py-4 rounded-xl font-bold text-white shadow-xl shadow-purple-500/25 transition-all duration-300 flex items-center justify-center gap-2",
+                isDisabled || isGenerating || !seedKeyword.trim()
+                  ? "bg-slate-300 text-slate-500 shadow-none cursor-not-allowed"
+                  : "bg-gradient-primary hover:shadow-2xl hover:shadow-purple-500/30 hover:-translate-y-0.5 active:translate-y-0"
+              )}
+            >
+              {isGenerating ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Researching Keywords...
+                </>
+              ) : (
+                <>
+                  <Key className="w-5 h-5" />
+                  Generate Keywords
+                </>
+              )}
+            </button>
+            <button
+              data-testid="button-reset"
+              onClick={() => {
+                setSeedKeyword("");
+                setIndustry("General");
+                setContentType("Blog Post");
+                setSelectedIntents(["Informational", "Commercial"]);
+                setLengthPref("Mix");
+                setNumKeywords(50);
+                setIncludeQuestions(true);
+                setGeoTarget("");
+                setCompetitionPref("Any");
+                setShowAdvanced(false);
+                setStreamedContent("");
+                setIsDone(false);
+                setGeneratedKeywords([]);
+                setCurrentRecordId(null);
+                setActiveFilter("all");
+              }}
+              disabled={isGenerating}
+              className="px-4 py-4 rounded-xl border border-slate-200 text-slate-500 hover:text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-all flex items-center gap-2"
+            >
+              <RotateCcw className="w-4 h-4" />
+              <span className="hidden sm:inline">Reset</span>
+            </button>
+          </div>
         </div>
 
         {isGenerating && streamedContent && (

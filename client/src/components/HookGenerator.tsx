@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Wand2, Loader2, AlertTriangle, CheckCircle2, ChevronDown, RefreshCw } from "lucide-react";
+import { Wand2, Loader2, AlertTriangle, CheckCircle2, ChevronDown, RefreshCw, RotateCcw } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useHookStorage } from "@/hooks/use-hook-storage";
@@ -155,23 +155,40 @@ export function HookGenerator() {
             )}
           </div>
 
-          <button
-            data-testid="button-generate"
-            onClick={handleGenerate}
-            disabled={!topic.trim() || state === 'generating' || state === 'downloading' || state === 'checking-gpu'}
-            className={cn(
-              "w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-white shadow-xl shadow-purple-500/25 transition-all duration-300 flex items-center justify-center gap-2",
-              (!topic.trim() || ['generating', 'downloading', 'checking-gpu'].includes(state))
-                ? "bg-slate-300 text-slate-500 shadow-none cursor-not-allowed"
-                : "bg-gradient-primary hover:shadow-2xl hover:shadow-purple-500/40 hover:-translate-y-0.5 active:translate-y-0 animate-pulse-glow"
-            )}
-          >
-            {state === 'generating' ? (
-              <><Loader2 className="w-5 h-5 animate-spin" /> Generating...</>
-            ) : (
-              <><Wand2 className="w-5 h-5" /> Generate Hooks</>
-            )}
-          </button>
+          <div className="flex gap-3 w-full sm:w-auto">
+            <button
+              data-testid="button-generate"
+              onClick={handleGenerate}
+              disabled={!topic.trim() || state === 'generating' || state === 'downloading' || state === 'checking-gpu'}
+              className={cn(
+                "flex-1 sm:flex-auto px-8 py-4 rounded-xl font-bold text-white shadow-xl shadow-purple-500/25 transition-all duration-300 flex items-center justify-center gap-2",
+                (!topic.trim() || ['generating', 'downloading', 'checking-gpu'].includes(state))
+                  ? "bg-slate-300 text-slate-500 shadow-none cursor-not-allowed"
+                  : "bg-gradient-primary hover:shadow-2xl hover:shadow-purple-500/40 hover:-translate-y-0.5 active:translate-y-0 animate-pulse-glow"
+              )}
+            >
+              {state === 'generating' ? (
+                <><Loader2 className="w-5 h-5 animate-spin" /> Generating...</>
+              ) : (
+                <><Wand2 className="w-5 h-5" /> Generate Hooks</>
+              )}
+            </button>
+            <button
+              data-testid="button-reset"
+              onClick={() => {
+                setTopic("");
+                setPlatform(PLATFORMS[0]);
+                setTone(TONES[0]);
+                setStreamedContent("");
+                setIsDone(false);
+              }}
+              disabled={state === 'generating'}
+              className="px-4 py-4 rounded-xl border border-slate-200 text-slate-500 hover:text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-all flex items-center gap-2"
+            >
+              <RotateCcw className="w-4 h-4" />
+              <span className="hidden sm:inline">Reset</span>
+            </button>
+          </div>
         </div>
       </div>
 
