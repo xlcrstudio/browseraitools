@@ -151,52 +151,62 @@ export function TikTokCaptionGenerator() {
 
     const lengthDesc = CAPTION_LENGTHS.find(l => l.value === captionLength)?.desc || "100-200 chars";
 
-    const userPrompt = `Generate ${numCaptions} viral TikTok captions optimized for engagement and FYP.
+    const userPrompt = `Write ${numCaptions} different TikTok captions for this video:
 
-VIDEO DETAILS:
-Video Content: ${videoContent.trim()}
-${videoHook ? `Hook/Opening: ${videoHook.trim()}` : ""}
-${trendingSound ? `Trending Sound: ${trendingSound.trim()}` : ""}
+Video: ${videoContent.trim()}
+${videoHook ? `Hook: ${videoHook.trim()}` : ""}
+${trendingSound ? `Sound: ${trendingSound.trim()}` : ""}
 Niche: ${niche}
-Target Audience: ${AUDIENCES.find(a => a.value === audience)?.label} (${AUDIENCES.find(a => a.value === audience)?.desc})
-Account Type: ${ACCOUNT_TYPES.find(a => a.value === accountType)?.label}
-Content Type: ${CONTENT_TYPES.find(c => c.value === contentType)?.label}
+Audience: ${AUDIENCES.find(a => a.value === audience)?.label}
+Account: ${ACCOUNT_TYPES.find(a => a.value === accountType)?.label}
+Type: ${CONTENT_TYPES.find(c => c.value === contentType)?.label}
 Goals: ${selectedGoals.join(", ")}
 Tone: ${selectedTones.join(", ")}
-Caption Length: ${captionLength} (${lengthDesc})
-${includeHashtags ? `Include ${numHashtags} hashtags at end of each caption` : "No hashtags"}
-${includeEmojis ? "Include 2-5 emojis per caption" : "No emojis"}
-${useTrendingFormats ? "Use trending TikTok formats (POV:, Nobody talks about..., etc.)" : "Use original formats"}
+Length: ${captionLength} (${lengthDesc})
+${includeHashtags ? `Add ${numHashtags} hashtags at the end of each caption.` : "Do not include hashtags."}
+${includeEmojis ? "Use 2-5 emojis in each caption." : "Do not use emojis."}
+${useTrendingFormats ? "Use trending TikTok formats like POV:, Nobody talks about..., This is your sign to..., etc." : ""}
 
-OUTPUT FORMAT (follow exactly for each caption):
+Here is an example of the exact format I need. Write REAL captions, not placeholders:
 
-OPTION 1: [Angle/Style Name]
-TONE: [tone used]
+OPTION 1: Curiosity Hook
+TONE: Casual
 
-[Complete caption text with line breaks, emojis if enabled, hashtags at end if enabled]
+POV: You finally found a morning routine that actually works
+
+No 5am wake-ups, no cold showers, just coffee and vibes
+
+Comment "morning" if you need this rn
+
+#morningroutine #coffeetok #realistic #productivity #fyp
 
 WHY IT WORKS:
-- [reason 1]
-- [reason 2]
-- [reason 3]
+- POV format is trending and relatable
+- Pain point hook grabs attention
+- Clear comment CTA drives engagement
 
 ---
 
-OPTION 2: [Angle/Style Name]
-[Continue same format]
+Now write ${numCaptions} COMPLETELY DIFFERENT real captions about "${videoContent.trim()}" using these angles: 1) Curiosity Hook 2) Relatable/Funny 3) Educational Value 4) Question/Engagement 5) Bold Statement. Each must be a unique, complete caption ready to post on TikTok. Do NOT write placeholder text like "Continue same format" -- write the actual caption.
+
+Use this exact format for each:
+
+OPTION N: Angle Name
+TONE: tone
+
+actual caption text here
+
+WHY IT WORKS:
+- reason
 
 ---
 
-[Continue for ${numCaptions} options total]
-
-After all options, add:
+After all ${numCaptions} captions, add:
 
 FIRST COMMENTS:
-A: [First comment suggestion - additional context or question]
-B: [First comment suggestion - teaser for next video]
-C: [First comment suggestion - engagement question]
-
-Make each caption distinct with a different angle (curiosity hook, relatable/funny, educational value, question/engagement, bold statement). Every caption must feel authentic and native to TikTok.`;
+A: a real first comment suggestion
+B: a real first comment suggestion
+C: a real first comment suggestion`;
 
     try {
       const result = await generateRaw({
@@ -204,8 +214,8 @@ Make each caption distinct with a different angle (curiosity hook, relatable/fun
           { role: "system", content: SYSTEM_PROMPT },
           { role: "user", content: userPrompt },
         ],
-        temperature: 0.8,
-        maxTokens: 2000,
+        temperature: 0.85,
+        maxTokens: 3000,
         onChunk: (text) => setStreamingText(text),
       });
 
