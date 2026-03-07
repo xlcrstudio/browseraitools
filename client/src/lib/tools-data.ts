@@ -64,7 +64,7 @@ export const toolCategories: ToolCategory[] = [
     tools: [
       { id: 19, name: "AI Business Name Generator", slug: "/business-name-generator", icon: Building2, available: false },
       { id: 20, name: "AI Startup Name Generator", slug: "/ai-startup-name-generator", icon: Rocket, available: true },
-      { id: 21, name: "AI Business Idea Generator", slug: "/business-idea-generator", icon: Lightbulb, available: false },
+      { id: 21, name: "AI Business Idea Generator", slug: "/ai-business-idea-generator", icon: Lightbulb, available: true },
       { id: 22, name: "AI Value Proposition Generator", slug: "/value-proposition-generator", icon: Target, available: false },
       { id: 23, name: "AI Elevator Pitch Generator", slug: "/elevator-pitch-generator", icon: Presentation, available: false },
       { id: 24, name: "AI Target Audience Generator", slug: "/target-audience-generator", icon: Users, available: false },

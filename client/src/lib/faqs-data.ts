@@ -172,6 +172,49 @@ export const startupNameGeneratorFAQs: FAQItem[] = [
   },
 ];
 
+export const businessIdeaGeneratorFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Business Idea Generator?",
+    answer: "The AI Business Idea Generator is a free, browser-based tool that creates personalized, viable business ideas tailored to your skills, budget, and interests. It generates 15+ validated business ideas with viability scores, action plans, revenue models, and detailed analysis using advanced AI (Qwen 2.5) running directly in your browser.",
+  },
+  {
+    question: "Is it really free?",
+    answer: "Yes, the AI Business Idea Generator is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser, so there are no server costs to pass on to you.",
+  },
+  {
+    question: "How does the AI generate business ideas?",
+    answer: "The tool uses WebLLM technology to run an AI language model (Qwen 2.5 1.5B) directly in your web browser using WebGPU. You provide your skills, interests, budget, and preferences, and the AI generates personalized business ideas with detailed validation, scoring, and action plans. No data is sent to any server.",
+  },
+  {
+    question: "Is my information private?",
+    answer: "Absolutely. Unlike cloud-based AI tools, the Business Idea Generator runs 100% locally in your browser. Your skills, interests, budget details, and generated ideas never leave your device. There's no server processing, no data collection, and no tracking.",
+  },
+  {
+    question: "How many business ideas does it generate?",
+    answer: "The tool generates 15+ unique business ideas per generation. Each idea includes a viability score, startup cost estimate, time to launch, potential monthly revenue, difficulty level, and detailed analysis including target market, revenue model, and action steps.",
+  },
+  {
+    question: "Are the viability scores accurate?",
+    answer: "The viability scores are AI-generated estimates based on market research principles, startup metrics, and feasibility analysis. While they provide valuable guidance, we recommend conducting your own due diligence, market research, and validation before launching any business. Use the scores as a starting point for further investigation.",
+  },
+  {
+    question: "Can I use these ideas to start a real business?",
+    answer: "Yes! The generated ideas are designed to be actionable and realistic. Many are based on proven business models with low barriers to entry. We recommend validating your chosen idea by researching the market, talking to potential customers, and testing a minimum viable product (MVP) before fully committing.",
+  },
+  {
+    question: "What makes this different from other idea generators?",
+    answer: "This tool combines personalization (based on your specific skills and budget), viability scoring (realistic assessments), and actionable plans (next steps to validate). Unlike generic idea lists, it tailors suggestions to your situation and includes detailed metrics and reasoning. Plus, it's 100% private and runs entirely in your browser.",
+  },
+  {
+    question: "Does it work offline?",
+    answer: "Yes! After the first use, the AI model is cached in your browser's storage. Once downloaded, you can generate business ideas without an internet connection. The initial download is required only once.",
+  },
+  {
+    question: "How are the startup costs and revenue estimates calculated?",
+    answer: "The AI generates cost and revenue estimates based on industry benchmarks, business model type, and the scope of your specific idea. Estimates are educated projections, not guarantees. Actual costs and revenue will vary significantly based on execution, market conditions, marketing effectiveness, and your operational efficiency. Always validate with real market data.",
+  },
+];
+
 export const defaultToolFAQs: FAQItem[] = [
   {
     question: "Is this AI tool really free?",
