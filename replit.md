@@ -15,6 +15,7 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `/ai-hook-generator` - AI Hook Generator (tool #1)
 - `/ai-cta-generator` - AI Call-to-Action Generator (tool #2)
 - `/ai-cover-letter-generator` - AI Cover Letter Generator (tool #3, flagship)
+- `/ai-startup-name-generator` - AI Startup Name Generator (tool #4)
 - `/privacy-policy` - Privacy Policy (React page, not static HTML)
 - `/terms-of-service` - Terms of Service (React page, not static HTML)
 
@@ -37,12 +38,17 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `client/src/components/CoverLetterHero.tsx` - Cover letter generator hero section
 - `client/src/components/CoverLetterGenerator.tsx` - Multi-section cover letter form + output display with save/load drafts
 - `client/src/components/CoverLetterArticle.tsx` - Cover letter SEO article with collapsible sections
+- `client/src/pages/StartupNameGeneratorPage.tsx` - Startup name generator tool page
+- `client/src/components/StartupNameHero.tsx` - Startup name generator hero section
+- `client/src/components/StartupNameGenerator.tsx` - Main startup name generation UI with name cards, favorites, filtering/sorting, domain heuristics
+- `client/src/components/StartupNameArticle.tsx` - Startup name SEO article with collapsible sections
 - `client/src/hooks/use-web-llm.ts` - WebLLM engine initialization & generation (exports `generate` + `generateRaw`)
 - `client/src/hooks/use-hook-storage.ts` - localStorage-based hook history
 - `client/src/hooks/use-cta-storage.ts` - localStorage-based CTA history with auto-categorization
 - `client/src/hooks/use-cover-letter-storage.ts` - localStorage-based cover letter drafts (save/load/delete, max 10)
+- `client/src/hooks/use-startup-name-storage.ts` - localStorage-based startup name history with favorites, domain availability heuristics
 - `client/src/lib/tools-data.ts` - All tools data organized by category
-- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, defaultToolFAQs)
+- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, defaultToolFAQs)
 
 ## Design
 - Mobile-first responsive design
@@ -53,5 +59,5 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 ## Important Notes
 - WebLLM requires WebGPU (Chrome/Edge 113+). Graceful fallback message shown if unsupported.
 - AI engine auto-initializes on page load (not on first generate click).
-- Hook Generator, CTA Generator, and Cover Letter Generator are live; other tools show "Coming Soon".
+- Hook Generator, CTA Generator, Cover Letter Generator, and Startup Name Generator are live; other tools show "Coming Soon".
 - No database, no backend storage - purely client-side app.
