@@ -1,0 +1,143 @@
+ai-dating-profile-generator-command.md
+Markdown## Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI Dating Profile Generator for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Dating Profile Generator
+URL Slug: /ai-dating-profile-generator
+Tagline: "Get More Matches in Minutes"
+Mission: Help singles create authentic, high-response dating profiles and openers that actually get matches on Tinder, Bumble, and Hinge.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~95,000 monthly searches).
+Purpose: Generate complete dating bios, prompt answers, opening lines, and photo captions tailored to your vibe and apps.
+Target Users: Singles 18-45, people tired of bad profiles, recent daters
+Search Demand: ~95,000 monthly searches
+Key Value: Profile + 10 openers in 30 seconds vs days of overthinking
+=== UNIQUE SELLING POINTS ===
+✅ App-specific (Tinder/Bumble/Hinge)
+✅ Vibe selector (funny, flirty, deep, adventurous, chill)
+✅ Prompt answers + photo captions
+✅ First-message templates + reply strategies
+✅ Match-rate estimator
+✅ 100% Private & Local (no data stored)
+✅ Multiple versions for A/B testing
+✅ Export as screenshot-ready text
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm (shared instance)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Storage: LocalStorage (saved profiles, drafts)
+Export: Text, Formatted for copy-paste, PDF
+Deployment: Vercel/Netlify
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Dating Profile Generator"
+Subheadline: "Get more matches with profiles and openers that actually work. Private, free, no signup. Works for Tinder, Bumble & Hinge."
+Trust Badges:
+
+🔥 Match-Rate Optimized
+💬 10 Ready Openers
+📸 Photo Caption Ideas
+🎯 App-Specific
+❤️ Authentic & Human
+🔒 100% Private
+
+Success Counter: "Helped 124,567 people get more matches this month"
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+YOUR BASICS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 1: Age & Gender*
+
+Input + dropdown
+Required
+
+Field 2: Apps You Use*
+
+Multi-select cards: Tinder • Bumble • Hinge (all three allowed)
+
+Field 3: Vibe / Personality*
+
+Large cards with icons:
+○ Funny & Playful
+○ Flirty & Confident
+○ Deep & Thoughtful
+○ Adventurous & Active
+○ Chill & Easygoing
+○ Professional but Fun
+Required
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROFILE CONTENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 4: 3-5 Dating Prompts (or bio prompt)
+
+Textarea (paste your app prompts)
+Placeholder: "Paste the prompts Hinge gave you or describe what you want to say"
+
+Field 5: Interests & Hobbies
+
+Tags input: "hiking, coffee, dogs, travel, gym, books…"
+
+Field 6: What You're Looking For (Optional)
+
+Short input: "long-term, casual fun, travel buddy…"
+
+Field 7: Photo Descriptions (Optional)
+
+Textarea: "Describe your 3-6 photos (e.g., hiking pic, dog pic, travel shot)"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STYLE OPTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Tone: Funny • Flirty • Witty • Genuine (radio)
+Generate Multiple Versions: 1-3 (default 2)
+Include Opening Lines: Toggle (default YES)
+Include Reply Templates: Toggle
+GENERATE BUTTON
+Full-width: "Generate My Profile & Openers" | Loading: "Crafting your irresistible profile…"
+=== OUTPUT SECTION ===
+Full profile preview (bio + all prompt answers) formatted exactly as it appears on the app.
+Quick stats: Estimated match rate, Length, Vibe score.
+Action buttons: Copy All, Download PDF, Regenerate, Edit.
+Then 10 Opening Lines + Reply Templates + Photo Captions.
+Expandable "Why This Profile Works" + Posting/Photo tips section.
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are a world-class dating profile coach and messaging expert who has helped thousands get 5-10x more matches. You understand every app's algorithm (Tinder, Bumble, Hinge) and what actually works in 2026. You create authentic, attractive, non-creepy profiles that sound like the real person — never robotic or cheesy. You balance humor, vulnerability, and confidence perfectly.
+User Prompt Template:
+text[Full detailed template mirroring your LinkedIn example — with all fields injected, exact output format, structure rules, app-specific strategies, opening line formulas, reply strategies, etc.]
+
+OUTPUT FORMAT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+YOUR MAIN PROFILE (Copy-Paste Ready)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[Full bio + every prompt answer]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+10 OPENING LINES (Copy-Paste)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[Numbered list with emojis]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PHOTO CAPTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[One for each photo described]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WHY THIS WORKS + MATCH STRATEGY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[Analysis + first-message tips]
+=== SEO ARTICLE SECTION ===
+Below the tool, comprehensive 2500-word article: "How to Write a Dating Profile That Actually Gets Matches in 2026 – Complete Guide"
+=== SPECIAL FEATURES ===
+
+Match-Rate Estimator
+First-Date Message Ideas
+Profile Photo Analyzer (text-based)
+Save Profile Library
+Weekly Opener Refresh
+
+Build this as the #1 dating profile tool on the internet.

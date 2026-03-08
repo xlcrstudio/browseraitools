@@ -721,3 +721,38 @@ export const essayWriterFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can then generate essays without an internet connection -- great for studying or writing on the go.",
   },
 ];
+
+export const datingProfileFAQs: FAQItem[] = [
+  {
+    question: "Which dating apps does this work for?",
+    answer: "The generator is optimized for the three most popular dating apps: Tinder, Bumble, and Hinge. You can select one or multiple apps, and the AI tailors your bio, prompt answers, and opening lines to match each app's style and character limits.",
+  },
+  {
+    question: "Is my personal information kept private?",
+    answer: "Absolutely. The AI model runs entirely in your browser using WebLLM technology. Your age, interests, photos, and generated profiles never leave your device. No data is uploaded to any server -- perfect for keeping your dating life private.",
+  },
+  {
+    question: "What are the vibe options?",
+    answer: "You can choose from six personality vibes: Funny & Playful (humor-forward), Flirty & Confident (bold and direct), Deep & Thoughtful (intellectual and genuine), Adventurous & Active (outdoorsy and energetic), Chill & Easygoing (relaxed and approachable), and Professional but Fun (polished yet personable). The AI adapts your entire profile to match your chosen vibe.",
+  },
+  {
+    question: "Does it generate opening messages too?",
+    answer: "Yes! When the opening lines toggle is enabled, the AI generates 5-7 conversation starters tailored to your vibe and the apps you selected. These are designed to stand out and get responses -- not generic 'hey' messages.",
+  },
+  {
+    question: "Can I generate photo captions?",
+    answer: "Yes. Describe your photos (e.g., 'hiking pic with mountain view', 'cooking in the kitchen', 'at a music festival') and the AI will generate witty, engaging captions that match your profile vibe. Just enable the photo captions toggle and fill in the photo descriptions.",
+  },
+  {
+    question: "How do I get the best results?",
+    answer: "Be specific about your interests and hobbies, choose a vibe that genuinely matches your personality, and include details about what you are looking for. The more context you give the AI, the more authentic and personalized your profile will be. Try generating 2-3 versions and mix the best parts.",
+  },
+  {
+    question: "Can I customize the tone separately from the vibe?",
+    answer: "Yes. The vibe sets your overall personality style, while the tone fine-tunes how the text reads: Funny (humor-driven), Flirty (playful and suggestive), Witty (clever and sharp), or Genuine (sincere and straightforward). Combining different vibes and tones lets you find the perfect voice.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate profiles and openers without an internet connection.",
+  },
+];

@@ -133,6 +133,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 51, name: "AI Document Analyzer", slug: "/ai-document-analyzer", icon: FileText, available: true },
       { id: 52, name: "AI Message Analyzer", slug: "/ai-message-analyzer", icon: MessageSquare, available: true },
       { id: 53, name: "AI Explain This", slug: "/explain-this-ai", icon: Lightbulb, available: true },
+      { id: 55, name: "AI Dating Profile Generator", slug: "/ai-dating-profile-generator", icon: Heart, available: true },
     ],
   },
 ];
