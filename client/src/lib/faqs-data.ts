@@ -473,6 +473,49 @@ export const interviewAnswerGeneratorFAQs: FAQItem[] = [
   },
 ];
 
+export const resumeBulletGeneratorFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Resume Bullet Generator?",
+    answer: "The AI Resume Bullet Generator is a free, browser-based tool that creates powerful, ATS-optimized resume bullet points from your work experience. It uses AI (Qwen 2.5) running locally in your browser to generate achievement-focused bullets with quantified results, strong action verbs, and industry-specific keywords.",
+  },
+  {
+    question: "What is the CAR method for resume bullets?",
+    answer: "CAR stands for Context-Action-Result. Context describes the situation or challenge, Action describes what you specifically did (starting with a strong verb), and Result shows the measurable outcome. This structure transforms bland job descriptions into compelling achievement statements that demonstrate your value to employers.",
+  },
+  {
+    question: "What does ATS-optimized mean?",
+    answer: "ATS (Applicant Tracking System) is software that scans resumes before a human recruiter sees them. Up to 75% of resumes are rejected by ATS. Our tool generates bullets that are ATS-friendly by using standard formatting, industry keywords, and avoiding special characters that confuse parsing systems.",
+  },
+  {
+    question: "Is the Resume Bullet Generator free?",
+    answer: "Yes, completely free with no hidden costs, usage limits, or subscriptions. The AI runs locally in your browser, so there are no server costs to pass on to users.",
+  },
+  {
+    question: "How does experience level affect the bullets?",
+    answer: "The tool adjusts action verb strength and framing based on your level. Entry-level uses verbs like 'Coordinated' and 'Assisted,' mid-level uses 'Managed' and 'Implemented,' and senior/executive level uses 'Spearheaded' and 'Orchestrated.' The complexity of achievements and scope also scales accordingly.",
+  },
+  {
+    question: "Is my resume data private?",
+    answer: "Yes. The AI Resume Bullet Generator runs 100% locally in your browser. Your job history, achievements, and generated bullets never leave your device. There is no server processing, no data collection, and no tracking.",
+  },
+  {
+    question: "What if I don't have specific metrics?",
+    answer: "The tool can generate reasonable estimates and comparative metrics even without exact numbers. However, specific numbers make bullets significantly more powerful. Try to recall approximate percentages, dollar amounts, team sizes, or timeframes -- even estimates like 'approximately 30%' are more compelling than no numbers at all.",
+  },
+  {
+    question: "Can I use these bullets on my actual resume?",
+    answer: "Yes! The bullets are designed to be copy-paste ready for your resume. We recommend reviewing and personalizing them with your specific details -- the more accurate and specific the information you provide, the more ready-to-use the output will be.",
+  },
+  {
+    question: "Does it work for career changers?",
+    answer: "Yes. Select 'Career Changer' as your experience level, and the tool will focus on transferable skills, highlight relevant achievements from your previous field, and frame your experience in terms that resonate with your target industry.",
+  },
+  {
+    question: "How many bullet points should I have per job?",
+    answer: "Most resume experts recommend 3-5 bullet points per position. Lead with your strongest, most relevant achievement. For your most recent role, you can include up to 6-7 bullets. For older positions, 2-3 is sufficient. Quality always trumps quantity.",
+  },
+];
+
 export const defaultToolFAQs: FAQItem[] = [
   {
     question: "Is this AI tool really free?",
