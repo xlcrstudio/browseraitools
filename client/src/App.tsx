@@ -13,6 +13,7 @@ import BusinessIdeaGeneratorPage from "@/pages/BusinessIdeaGeneratorPage";
 import KeywordGeneratorPage from "@/pages/KeywordGeneratorPage";
 import HashtagGeneratorPage from "@/pages/HashtagGeneratorPage";
 import TikTokCaptionGeneratorPage from "@/pages/TikTokCaptionGeneratorPage";
+import LinkedInPostGeneratorPage from "@/pages/LinkedInPostGeneratorPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -29,6 +30,7 @@ function Router() {
       <Route path="/ai-keyword-generator" component={KeywordGeneratorPage} />
       <Route path="/ai-hashtag-generator" component={HashtagGeneratorPage} />
       <Route path="/ai-tiktok-caption-generator" component={TikTokCaptionGeneratorPage} />
+      <Route path="/ai-linkedin-post-generator" component={LinkedInPostGeneratorPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
