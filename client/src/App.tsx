@@ -20,6 +20,7 @@ import ResumeBulletGeneratorPage from "@/pages/ResumeBulletGeneratorPage";
 import BlogOutlineGeneratorPage from "@/pages/BlogOutlineGeneratorPage";
 import DocumentAnalyzerPage from "@/pages/DocumentAnalyzerPage";
 import MessageAnalyzerPage from "@/pages/MessageAnalyzerPage";
+import ExplainThisPage from "@/pages/ExplainThisPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -43,6 +44,7 @@ function Router() {
       <Route path="/ai-blog-outline-generator" component={BlogOutlineGeneratorPage} />
       <Route path="/ai-document-analyzer" component={DocumentAnalyzerPage} />
       <Route path="/ai-message-analyzer" component={MessageAnalyzerPage} />
+      <Route path="/explain-this-ai" component={ExplainThisPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />

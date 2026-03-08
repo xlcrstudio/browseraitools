@@ -651,3 +651,38 @@ export const defaultToolFAQs: FAQItem[] = [
     answer: "Absolutely. Unlike cloud-based AI tools, Browser AI Tools runs 100% locally in your browser. Your inputs and outputs never leave your device. No servers, no tracking, no data collection.",
   },
 ];
+
+export const explainThisFAQs: FAQItem[] = [
+  {
+    question: "What types of text can this tool explain?",
+    answer: "Virtually anything -- academic textbooks, legal contracts, medical reports, technical documentation, scientific papers, news articles, business documents, terms of service, privacy policies, code, and more. If text confuses you, paste it in and get a clear explanation.",
+  },
+  {
+    question: "Is my pasted text kept private?",
+    answer: "Yes, 100%. The AI model runs entirely in your browser using WebLLM technology. Your text is never uploaded to any server, never stored remotely, and never seen by anyone. This makes it safe for sensitive content like medical records, legal documents, or work emails.",
+  },
+  {
+    question: "What are the different explanation modes?",
+    answer: "There are six modes: Simple Explanation (everyday language), ELI5 / Explain Like I'm 5 (extremely simple), Step-by-Step (sequential breakdown), Analogy (real-world comparisons), Technical (precise detail for those with some background), and Academic (scholarly with formal terminology). You can select multiple modes at once.",
+  },
+  {
+    question: "How does the reading level slider work?",
+    answer: "The slider adjusts how complex the explanation's vocabulary and sentence structure will be. Grade 5 produces very basic language suitable for children, while PhD produces advanced language suitable for experts. The default is Grade 10 (high school level), which works well for most people.",
+  },
+  {
+    question: "What does the subject area setting do?",
+    answer: "It helps the AI tailor its explanation to a specific domain. For example, selecting 'Legal' will make the AI focus on translating legalese and explaining practical implications, while 'Medical' will ensure patient-friendly language and term definitions. 'Auto-Detect' lets the AI figure out the subject automatically.",
+  },
+  {
+    question: "Can I use this for homework or studying?",
+    answer: "Absolutely. Students use this tool to understand textbook passages, research papers, and complex assignments. The ELI5 and Step-by-Step modes are especially helpful for building foundational understanding, while the Academic mode helps prepare for exams.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can then use the tool without an internet connection -- perfect for studying on the go or working in areas with limited connectivity.",
+  },
+  {
+    question: "What browsers are supported?",
+    answer: "You need a browser with WebGPU support: Google Chrome 113+, Microsoft Edge 113+, or Safari 18+ with WebGPU flags enabled. We recommend the latest version of Chrome or Edge for the best experience.",
+  },
+];
