@@ -338,7 +338,13 @@ Photo Captions:`;
                   const val = e.target.value;
                   if (val === "") { setAge(""); return; }
                   const num = parseInt(val);
-                  if (!isNaN(num)) setAge(Math.min(99, Math.max(18, num)));
+                  if (!isNaN(num)) setAge(num);
+                }}
+                onBlur={() => {
+                  if (typeof age === "number") {
+                    if (age < 18) setAge(18);
+                    else if (age > 99) setAge(99);
+                  }
                 }}
                 placeholder="18-99"
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50/50 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-purple-500/30 focus:border-purple-400 transition-all"
@@ -678,10 +684,10 @@ Photo Captions:`;
                 {copiedId === "bio" ? "Copied" : "Copy"}
               </button>
             </div>
-            <div className="prose prose-sm prose-slate max-w-none">
-              <pre className="whitespace-pre-wrap text-sm text-slate-700 leading-relaxed font-sans" data-testid="text-profile-bio">
+            <div className="rounded-xl bg-purple-50/50 border border-purple-100 p-4">
+              <p className="whitespace-pre-wrap text-sm text-slate-700 leading-relaxed" data-testid="text-profile-bio">
                 {currentProfile.profileContent}
-              </pre>
+              </p>
             </div>
           </div>
 
@@ -747,10 +753,10 @@ Photo Captions:`;
                   {copiedId === "captions" ? "Copied" : "Copy All"}
                 </button>
               </div>
-              <div className="prose prose-sm prose-slate max-w-none">
-                <pre className="whitespace-pre-wrap text-sm text-slate-700 leading-relaxed font-sans" data-testid="text-photo-captions">
+              <div className="rounded-xl bg-amber-50/50 border border-amber-100 p-4">
+                <p className="whitespace-pre-wrap text-sm text-slate-700 leading-relaxed" data-testid="text-photo-captions">
                   {currentProfile.photoCaptions}
-                </pre>
+                </p>
               </div>
             </div>
           )}
