@@ -46,6 +46,7 @@ export interface BlogOutlineRecord {
   sections: OutlineSection[];
   conclusion: OutlineConclusion | null;
   faqs: OutlineFAQ[];
+  rawText: string;
   favorites: string[];
   createdAt: string;
 }
@@ -66,6 +67,7 @@ const recordSchema = z.object({
   titleOptions: z.array(titleOptionSchema), metaDescriptions: z.array(z.string()),
   intro: introSchema.nullable(), sections: z.array(sectionSchema),
   conclusion: conclusionSchema.nullable(), faqs: z.array(faqSchema),
+  rawText: z.string().optional().default(""),
   favorites: z.array(z.string()), createdAt: z.string(),
 });
 

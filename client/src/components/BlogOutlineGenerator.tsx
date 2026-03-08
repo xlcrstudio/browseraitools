@@ -127,128 +127,68 @@ export function BlogOutlineGenerator() {
     const intentLabel = SEARCH_INTENTS.find((s) => s.value === searchIntent)?.label || "Informational";
     const sectionCount = Math.max(3, Math.ceil(wordCount / 350));
 
-    const userPrompt = `Create an SEO-optimized blog outline.
-
-BLOG DETAILS:
-Topic: ${topic.trim()}
-Target Audience: ${audience.trim()}
-Content Type: ${typeLabel}
-Target Word Count: ${wordCount} words
-Tone: ${toneLabel}
-Content Depth: ${depthLabel}
-Search Intent: ${intentLabel}
+    const userPrompt = `Create an SEO-optimized blog outline for: ${topic.trim()}
+Audience: ${audience.trim()} | Type: ${typeLabel} | ${wordCount} words | Tone: ${toneLabel} | Depth: ${depthLabel}
 ${primaryKeyword ? `Primary Keyword: ${primaryKeyword.trim()}` : ""}
 ${secondaryKeywords ? `Secondary Keywords: ${secondaryKeywords.trim()}` : ""}
 
-Generate ${titleCount} title options and ${sectionCount} main H2 sections.
-
-IMPORTANT RULES:
-1. Each title must be under 65 characters and include the primary keyword if provided
-2. Each H2 section must have a word count allocation
-3. Each section needs 3-5 key points to cover
-4. Each section needs 2-3 H3 subsections
-5. Write specific, actionable guidance -- not vague placeholder text
-6. Do NOT use bracket placeholders like [Topic] -- use the actual topic
-
-Here is the exact output format:
+Write ${titleCount} title options and ${sectionCount} main sections. Use this EXACT format:
 
 TITLE OPTIONS:
-Title 1: How to Start a Blog in 2026: Complete Beginner Guide
-Why: Includes year for freshness, primary keyword, and clear promise for beginners
+Title 1: 10 Proven Email Marketing Tips to Boost Open Rates
+Why: Uses number, power word, and specific benefit
 
-Title 2: Starting a Blog: Step-by-Step Guide for Complete Beginners
-Why: Front-loads the keyword, emphasizes simplicity with step-by-step approach
+Title 2: Email Marketing Guide: How to Write Emails People Open
+Why: Clear promise addressing reader pain point
+${includeMeta ? `
+META DESCRIPTIONS:
+Meta 1: Discover proven email marketing strategies that boost open rates by 40%. Step-by-step guide with templates and real examples for beginners and pros.
+Meta 2: Master email marketing with our complete guide. Learn to write subject lines, segment lists, and create campaigns that convert.` : ""}
+${includeIntro ? `
+INTRODUCTION:
+HOOK: A compelling opening statistic or question about ${topic.trim()}.
+PROBLEM: The main challenge ${audience.trim()} face with this topic.
+PROMISE: What the reader will learn and achieve.
+PREVIEW: Brief list of main topics covered.` : ""}
 
-Title 3: Blog for Beginners: How to Launch Your First Blog Today
-Why: Creates urgency with "today" and positions as beginner-friendly
-
-${includeMeta ? `META DESCRIPTIONS:
-Meta 1: Learn how to start a blog in 2026 with this step-by-step beginner guide. Choose a platform, pick a niche, and publish your first post today.
-Meta 2: Starting a blog has never been easier. Follow our complete guide to go from zero to published in under an hour. Free tools and templates included.
-` : ""}
-${includeIntro ? `INTRODUCTION:
-HOOK: Did you know that over 600 million blogs exist worldwide, yet only 10% generate meaningful traffic? The difference between a successful blog and a forgotten one starts before you write a single word -- it starts with planning.
-PROBLEM: Most new bloggers jump straight into writing without a clear structure, leading to unfocused content that fails to rank or engage readers.
-PROMISE: This guide will show you exactly how to plan, structure, and outline blog content that ranks on Google and keeps readers engaged from start to finish.
-PREVIEW: We will cover topic research, outline structure, SEO optimization, content formatting, and common mistakes to avoid.
-` : ""}
-SECTIONS:
-
-H2: Why Blog Outlines Matter for SEO
+H2: First Main Section Title
 Word Count: 300 words
 Key Points:
-- Outlines improve content structure and readability
-- Search engines reward well-organized comprehensive content
-- Writers produce posts 40-60% faster with outlines
-- Better keyword placement planning leads to higher rankings
-H3: The Connection Between Structure and Rankings
-H3: How Outlines Save Writing Time
-Content Notes: Include statistics about content quality improvement with outlines. Reference a study or expert quote about structured writing.
-SEO Notes: Include primary keyword in first sentence. Link to related SEO content.
+- Specific point about the topic
+- Another actionable insight
+- Data or example to include
+H3: Subsection One
+H3: Subsection Two
+Content Notes: Specific examples and data to include.
+SEO Notes: Keywords to use and linking opportunities.
 
----
-
-H2: How to Research Your Blog Topic
+H2: Second Main Section Title
 Word Count: 350 words
 Key Points:
-- Use keyword tools to validate search demand
-- Analyze top-ranking content for gaps
-- Identify questions your audience is asking
-- Check content freshness and competition level
-H3: Finding Keyword Opportunities
-H3: Analyzing Competitor Content
-H3: Understanding Search Intent
-Content Notes: Recommend specific free tools like Google Trends, AnswerThePublic. Show a brief example of keyword research workflow.
-SEO Notes: Use secondary keywords naturally. Include external link to an authority source on keyword research.
-
----
-
-H2: Building Your Outline Structure
-Word Count: 400 words
-Key Points:
-- Start with H2 main sections covering major subtopics
-- Add H3 subsections for detailed breakdown
-- Allocate word counts per section
-- Plan introduction hook and conclusion CTA
-H3: Creating Your H2 Framework
-H3: Adding Detail with H3 Subsections
-H3: Word Count Allocation Strategy
-Content Notes: Include a visual example of a good outline vs a bad outline. Add a downloadable template suggestion.
-SEO Notes: Primary keyword variation in heading. Internal link to content planning resources.
-
----
+- Key insight for this section
+- Practical tip or strategy
+- Supporting evidence
+H3: Subsection One
+H3: Subsection Two
+Content Notes: Real-world examples.
+SEO Notes: Related keywords to include naturally.
 
 CONCLUSION:
 TAKEAWAYS:
-- Blog outlines dramatically improve content quality and SEO performance
-- Structure your outline with clear H2/H3 hierarchy and word count targets
-- Always plan keyword placement and internal linking before writing
-CALL TO ACTION: Try creating your first outline using the AI Blog Outline Generator above -- it takes just 30 seconds to get a complete, SEO-optimized structure for your next post.
-FINAL THOUGHT: The best content starts with the best planning. An outline is not extra work -- it is the work that makes everything else easier.
+- Key takeaway one
+- Key takeaway two
+- Key takeaway three
+CALL TO ACTION: What the reader should do next.
+FINAL THOUGHT: Inspiring closing statement.
+${includeFAQ ? `
+FAQ SECTION:
+Q: Common question about the topic?
+A: Concise 2-3 sentence answer with actionable guidance.
 
-${includeFAQ ? `FAQ SECTION:
-Q: How long should a blog outline be?
-A: A typical outline has 5-8 H2 sections for a 1500-2000 word post. Each section should have 3-5 key points and 2-3 H3 subsections. The outline itself is usually 1-2 pages.
+Q: Another frequent question?
+A: Clear answer addressing the concern directly.` : ""}
 
-Q: Should I include word counts in my outline?
-A: Yes. Word count allocation keeps your content balanced and prevents sections from becoming too long or too short. Allocate based on topic complexity and keyword importance.
-
-Q: How many H3 subsections should each H2 have?
-A: Aim for 2-4 H3 subsections per H2. This breaks up content for scannability and gives search engines more context about your content structure.
-
-Q: Do blog outlines help with SEO?
-A: Absolutely. Outlines help you plan keyword placement, heading hierarchy, internal linking, and content depth -- all factors that search engines use to rank content.
-
-Q: Can I change my outline while writing?
-A: Yes, outlines are guides, not rigid rules. You may discover new angles or insights while writing. Adjust your outline as needed while maintaining overall structure.
-` : ""}
----
-
-Now write a REAL blog outline for: "${topic.trim()}"
-Audience: ${audience.trim()}
-Type: ${typeLabel} | ${wordCount} words | ${depthLabel} depth
-
-Use the EXACT format above. Write specific, real content for this topic -- not generic placeholders.`;
+Now write the REAL outline about "${topic.trim()}" for ${audience.trim()}. Write ${sectionCount} H2 sections. Be specific and actionable -- no bracket placeholders.`;
 
     try {
       const result = await generateRaw({
@@ -275,6 +215,7 @@ Use the EXACT format above. Write specific, real content for this topic -- not g
           sections: parsed.sections,
           conclusion: parsed.conclusion,
           faqs: parsed.faqs,
+          rawText: result,
           favorites: [],
           createdAt: new Date().toISOString(),
         };
@@ -291,6 +232,9 @@ Use the EXACT format above. Write specific, real content for this topic -- not g
 
   const buildFullOutlineText = () => {
     if (!currentRecord) return "";
+    if (currentRecord.titleOptions.length === 0 && currentRecord.sections.length === 0 && currentRecord.rawText) {
+      return currentRecord.rawText;
+    }
     const parts: string[] = [];
     if (currentRecord.titleOptions.length > 0) {
       parts.push("TITLE OPTIONS:");
@@ -653,6 +597,18 @@ Use the EXACT format above. Write specific, real content for this topic -- not g
             </div>
           )}
 
+          {currentRecord.titleOptions.length === 0 && currentRecord.sections.length === 0 && currentRecord.rawText && (
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 md:p-6" data-testid="container-raw-outline">
+              <div className="flex items-center gap-2 mb-4">
+                <FileText className="w-5 h-5 text-purple-500" />
+                <h3 className="text-base font-bold text-slate-800">Your Blog Outline</h3>
+              </div>
+              <div className="prose prose-sm prose-slate max-w-none">
+                {formatRawOutline(currentRecord.rawText)}
+              </div>
+            </div>
+          )}
+
           <div className="flex gap-3">
             <button data-testid="button-regenerate" onClick={handleGenerate} disabled={!canGenerate}
               className="flex items-center gap-2 px-5 py-3 rounded-xl border border-purple-200 text-purple-700 font-medium hover:bg-purple-50 transition-colors">
@@ -788,6 +744,35 @@ function EngineStatus({ state, progress, error }: { state: string; progress: { t
       )}
     </div>
   );
+}
+
+function formatRawOutline(raw: string) {
+  const lines = raw.split("\n");
+  const elements: React.ReactNode[] = [];
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+    if (!trimmed) {
+      elements.push(<br key={`br-${i}`} />);
+      continue;
+    }
+    if (/^#{1,3}\s/.test(trimmed) || /^H[23]:/.test(trimmed) || /^[A-Z][A-Z\s]{4,}:?\s*$/.test(trimmed) || /^━+/.test(trimmed)) {
+      const heading = trimmed.replace(/^#{1,3}\s*/, "").replace(/^H[23]:\s*/, "").replace(/^━+$/, "").replace(/:?\s*$/, "");
+      if (heading) {
+        elements.push(<h4 key={`h-${i}`} className="font-bold text-slate-800 mt-3 mb-1">{heading}</h4>);
+      }
+    } else if (/^[-*\u2022]\s/.test(trimmed) || /^\d+[.)]\s/.test(trimmed)) {
+      elements.push(
+        <div key={`li-${i}`} className="flex items-start gap-2 text-sm text-slate-700 ml-2">
+          <span className="text-purple-400 shrink-0 mt-0.5">-</span>
+          <span>{trimmed.replace(/^[-*\u2022\d.)]+\s*/, "")}</span>
+        </div>
+      );
+    } else {
+      elements.push(<p key={`p-${i}`} className="text-sm text-slate-700 leading-relaxed">{trimmed}</p>);
+    }
+  }
+  return <>{elements}</>;
 }
 
 function parseOutlineOutput(raw: string): {
