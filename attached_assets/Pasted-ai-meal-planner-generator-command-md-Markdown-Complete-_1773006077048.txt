@@ -1,0 +1,45 @@
+ai-meal-planner-generator-command.md
+Markdown## Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI Meal Planner & Grocery List Generator for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Meal Planner & Grocery List Generator
+URL Slug: /ai-meal-planner
+Tagline: "Weekly Meals & Shopping List in Seconds"
+Mission: Help busy people eat healthier with personalized weekly plans and instant grocery lists.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~110,000 monthly searches).
+Purpose: Generate 7-day meal plans + recipes + full grocery lists based on diet, budget, and ingredients on hand.
+Target Users: Busy professionals, families, fitness enthusiasts, meal-preppers
+Search Demand: ~110,000 monthly searches
+Key Value: Complete weekly plan + shopping list in 25 seconds
+=== UNIQUE SELLING POINTS ===
+✅ Handles any diet (keto, vegan, gluten-free, family-friendly…)
+✅ Uses ingredients you already have
+✅ Full recipes with cook time & nutrition
+✅ Instant grocery list (organized by aisle)
+✅ PDF export for fridge + phone
+✅ 100% Private
+=== TECHNICAL FOUNDATION ===
+[Same as previous documents]
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Meal Planner & Grocery List"
+Subheadline: "Healthy weekly meals + shopping list in seconds. Free, private, no signup."
+=== INPUT FORM ===
+[Full detailed fields: Dietary restrictions (multi-select), Family size, Budget per week, Ingredients on hand (tags), Days of week, Cuisine prefs, Calorie/macro goals, Meal prep time limit — with cards and toggles exactly like LinkedIn example]
+=== OUTPUT SECTION ===
+7-day calendar view + recipes + full grocery list (aisle-organized) + nutrition totals + PDF button + "Why This Plan Works" analysis.
+=== WEBLLM PROMPTS ===
+[Full System Prompt + detailed User Prompt Template with nutrition accuracy rules, recipe structure, grocery optimization, output format — same depth as LinkedIn]
+=== SEO ARTICLE SECTION ===
+2500-word guide: "Best AI Meal Planner 2026 – How to Save Time & Money on Groceries"
+=== SPECIAL FEATURES ===
+
+Macro Calculator
+Meal-Prep Sunday Tips
+Swap Recipe Button
+Save Weekly Plans
+Grocery List Export to Notes/Apps
+
+Build this as the essential weekly meal planning tool.

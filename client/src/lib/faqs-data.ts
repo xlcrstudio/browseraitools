@@ -756,3 +756,38 @@ export const datingProfileFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate profiles and openers without an internet connection.",
   },
 ];
+
+export const mealPlannerFAQs: FAQItem[] = [
+  {
+    question: "What diets does the meal planner support?",
+    answer: "The planner supports any dietary preference including Vegetarian, Vegan, Keto, Paleo, Gluten-Free, Dairy-Free, Low-Carb, Mediterranean, and Halal. You can select multiple restrictions at once, and the AI ensures every meal in your plan meets all your requirements.",
+  },
+  {
+    question: "Is my dietary and health information kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your dietary preferences, family size, budget, and generated meal plans never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "How does the grocery list work?",
+    answer: "After generating your meal plan, the AI creates a complete grocery list organized by store aisle (Produce, Proteins, Dairy, Grains, Pantry, Frozen, Other). It accounts for ingredients you already have and consolidates quantities across all meals to minimize waste and trips.",
+  },
+  {
+    question: "Can I plan for different family sizes?",
+    answer: "Yes. Set your family size from 1 to 10 people, and the AI automatically adjusts all portions, ingredient quantities, and grocery list amounts. The nutrition estimates are calculated per person.",
+  },
+  {
+    question: "Does it respect my budget?",
+    answer: "The planner takes your weekly budget into account and prioritizes affordable, common ingredients. It suggests cost-effective protein sources, seasonal produce, and bulk-friendly staples to keep your grocery bill within range.",
+  },
+  {
+    question: "How accurate is the nutrition information?",
+    answer: "The AI provides estimated calorie counts and macro breakdowns (protein, carbs, fat) based on standard portion sizes. While these are helpful for general planning, consult a registered dietitian for medical-grade precision.",
+  },
+  {
+    question: "Can I use ingredients I already have?",
+    answer: "Yes. List the ingredients you already have on hand, and the AI will incorporate them into your meal plan. This reduces food waste and lowers your grocery bill by building meals around what you already own.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate meal plans and grocery lists without an internet connection.",
+  },
+];
