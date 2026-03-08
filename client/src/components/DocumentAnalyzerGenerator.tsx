@@ -49,7 +49,7 @@ const LENGTH_PREFS = [
 const MAX_CHARS = 200000;
 const TRUNCATE_FOR_LLM = 4000;
 
-const SYSTEM_PROMPT = `You are an expert document analyst. You excel at distilling complex documents into clear, actionable insights while preserving accuracy. You understand research papers, legal documents, business reports, and academic texts. You maintain factual fidelity to the source and never add information not in the document. You format outputs for maximum readability.`;
+const SYSTEM_PROMPT = `You are a document analyst. Analyze text accurately. Only use information from the provided text. Never invent facts.`;
 
 export function DocumentAnalyzerGenerator() {
   const { state, progress, error, generateRaw } = useWebLLM();
@@ -170,81 +170,156 @@ export function DocumentAnalyzerGenerator() {
     } catch {}
   };
 
+  const [generationProgress, setGenerationProgress] = useState("");
+
+  const generateSection = async (textForLLM: string, sectionType: string, levelLabel: string, lengthLabel: string): Promise<string> => {
+    const lengthHint = lengthPref === "concise" ? "Be brief, 2-4 sentences." : lengthPref === "detailed" ? "Be thorough and detailed." : "";
+
+    const prompts: Record<string, string> = {
+      summary: `Write a summary of this document in 2-3 paragraphs. ${lengthHint} Only use facts from the text.
+
+Document text:
+${textForLLM}
+
+Summary:`,
+      insights: `List the 5 most important insights from this document. Write each as a bullet point starting with "- ". ${lengthHint} Only use facts from the text.
+
+Document text:
+${textForLLM}
+
+Key Insights:
+- `,
+      simplified: `Explain this document in very simple terms that a ${levelLabel === "Explain Like I'm 12" ? "12-year-old" : "non-expert"} would understand. ${lengthHint} Only use facts from the text.
+
+Document text:
+${textForLLM}
+
+Simple Explanation:`,
+      quotes: `List the 3-5 most important direct quotes from this document. Copy exact phrases from the text. Write each quote on its own line starting with ">> ".
+
+Document text:
+${textForLLM}
+
+Important Quotes:
+>> `,
+      stats: `List every number, percentage, dollar amount, date, and statistic mentioned in this document. Write each as a bullet starting with "- ".
+
+Document text:
+${textForLLM}
+
+Key Statistics:
+- `,
+      actions: `Based on this document, list 3-5 specific action items or next steps someone should take. Write each as a bullet starting with "- ".
+
+Document text:
+${textForLLM}
+
+Action Items:
+- `,
+      questions: `Write 5 thoughtful study or discussion questions based on this document. Write each on its own line starting with "Q: ".
+
+Document text:
+${textForLLM}
+
+Study Questions:
+Q: `,
+    };
+
+    const prompt = prompts[sectionType];
+    if (!prompt) return "";
+
+    const result = await generateRaw({
+      messages: [
+        { role: "system", content: SYSTEM_PROMPT },
+        { role: "user", content: prompt },
+      ],
+      temperature: 0.6,
+      maxTokens: sectionType === "summary" || sectionType === "simplified" ? 800 : 600,
+      onChunk: () => {},
+    });
+
+    return result || "";
+  };
+
+  const parseBulletList = (text: string, minLength: number = 10): string[] => {
+    return text.split("\n")
+      .map((l) => l.trim().replace(/^[-*\u2022\d.)\]]+\s*/, "").trim())
+      .filter((l) => l.length >= minLength);
+  };
+
+  const parseQuoteList = (text: string): string[] => {
+    return text.split("\n")
+      .map((l) => l.trim().replace(/^>>?\s*/, "").replace(/^[""\u201C\u201D]|[""\u201C\u201D]$/g, "").replace(/^[-*\u2022]\s*/, "").trim())
+      .filter((l) => l.length >= 15);
+  };
+
+  const parseQuestionList = (text: string): string[] => {
+    return text.split("\n")
+      .map((l) => l.trim().replace(/^Q\d*[.:)]\s*/i, "").replace(/^[-*\u2022\d.)\]]+\s*/, "").trim())
+      .filter((l) => l.length >= 10);
+  };
+
   const handleGenerate = async () => {
     if (!documentText.trim() || documentText.trim().length < 50) return;
     setIsGenerating(true);
     setStreamingText("");
     setCurrentAnalysis(null);
+    setGenerationProgress("");
 
     const textForLLM = documentText.slice(0, TRUNCATE_FOR_LLM);
     const levelLabel = READING_LEVELS.find((l) => l.value === readingLevel)?.label || "General";
     const lengthLabel = LENGTH_PREFS.find((l) => l.value === lengthPref)?.label || "Balanced";
-    const optionLabels = selectedOptions.map((o) => ANALYSIS_OPTIONS.find((a) => a.value === o)?.label || o);
 
-    const requestedSections: string[] = [];
-    if (selectedOptions.includes("summary")) requestedSections.push("SUMMARY: Write a clear 2-3 paragraph summary of the document.");
-    if (selectedOptions.includes("insights")) requestedSections.push("KEY INSIGHTS: List 5-7 key insights as bullet points starting with -");
-    if (selectedOptions.includes("simplified")) requestedSections.push("SIMPLIFIED EXPLANATION: Explain the document in simple terms anyone can understand.");
-    if (selectedOptions.includes("quotes") || extractQuotes) requestedSections.push("IMPORTANT QUOTES: List 3-5 notable quotes from the text, each on its own line starting with >>");
-    if (selectedOptions.includes("stats") || extractStats) requestedSections.push("KEY STATISTICS: List all numbers, percentages, and data points as bullets starting with -");
-    if (selectedOptions.includes("actions")) requestedSections.push("ACTION ITEMS: List specific next steps or recommendations as bullets starting with -");
-    if (selectedOptions.includes("questions")) requestedSections.push("STUDY QUESTIONS: Write 5-7 thought-provoking questions about this content, each on its own line starting with Q:");
+    const sectionsToGenerate: string[] = [...selectedOptions];
+    if (extractStats && !sectionsToGenerate.includes("stats")) sectionsToGenerate.push("stats");
+    if (extractQuotes && !sectionsToGenerate.includes("quotes")) sectionsToGenerate.push("quotes");
 
-    const userPrompt = `Analyze this document and provide a private analysis.
+    const sectionLabels: Record<string, string> = {
+      summary: "Summary", insights: "Key Insights", simplified: "Simplified Explanation",
+      quotes: "Important Quotes", stats: "Key Statistics", actions: "Action Items", questions: "Study Questions",
+    };
 
-DOCUMENT: "${documentTitle || "Untitled Document"}"
-TYPE: ${DOC_TYPES.find((d) => d.value === docType)?.label || "Article"}
-TARGET LEVEL: ${levelLabel}
-LENGTH: ${lengthLabel}
-${focusAreas ? `FOCUS ON: ${focusAreas}` : ""}
-
-TEXT TO ANALYZE:
-${textForLLM}
-
-REQUESTED ANALYSIS (write each section with its header):
-
-${requestedSections.join("\n\n")}
-
-Write the analysis now. Use the exact section headers above (SUMMARY, KEY INSIGHTS, etc). Be specific to this document -- do not make up information not in the text.`;
+    const results: Record<string, string> = {};
+    let allRawText = "";
 
     try {
-      const result = await generateRaw({
-        messages: [
-          { role: "system", content: SYSTEM_PROMPT },
-          { role: "user", content: userPrompt },
-        ],
-        temperature: 0.6,
-        maxTokens: 2500,
-        onChunk: (text) => setStreamingText(text),
-      });
+      for (let i = 0; i < sectionsToGenerate.length; i++) {
+        const section = sectionsToGenerate[i];
+        const label = sectionLabels[section] || section;
+        setGenerationProgress(`Generating ${label}... (${i + 1}/${sectionsToGenerate.length})`);
+        setStreamingText(allRawText + `\n\n--- Generating ${label}... ---`);
 
-      if (result) {
-        const parsed = parseAnalysisOutput(result, selectedOptions);
-        const analysis: DocumentAnalysis = {
-          id: generateId(),
-          documentTitle: documentTitle || "Untitled Document",
-          documentType: docType,
-          charCount: documentText.length,
-          analysisOptions: selectedOptions,
-          readingLevel,
-          lengthPref,
-          rawText: result,
-          summary: parsed.summary,
-          keyInsights: parsed.keyInsights,
-          simplifiedExplanation: parsed.simplifiedExplanation,
-          importantQuotes: parsed.importantQuotes,
-          keyStats: parsed.keyStats,
-          actionItems: parsed.actionItems,
-          studyQuestions: parsed.studyQuestions,
-          createdAt: new Date().toISOString(),
-        };
-        setCurrentAnalysis(analysis);
-        saveAnalysis(analysis);
+        const sectionResult = await generateSection(textForLLM, section, levelLabel, lengthLabel);
+        results[section] = sectionResult;
+        allRawText += `\n\n${label.toUpperCase()}:\n${sectionResult}`;
+        setStreamingText(allRawText.trim());
       }
+
+      const analysis: DocumentAnalysis = {
+        id: generateId(),
+        documentTitle: documentTitle || "Untitled Document",
+        documentType: docType,
+        charCount: documentText.length,
+        analysisOptions: selectedOptions,
+        readingLevel,
+        lengthPref,
+        rawText: allRawText.trim(),
+        summary: (results.summary || "").trim(),
+        keyInsights: results.insights ? parseBulletList(results.insights) : [],
+        simplifiedExplanation: (results.simplified || "").trim(),
+        importantQuotes: results.quotes ? parseQuoteList(results.quotes) : [],
+        keyStats: results.stats ? parseBulletList(results.stats, 5) : [],
+        actionItems: results.actions ? parseBulletList(results.actions, 5) : [],
+        studyQuestions: results.questions ? parseQuestionList(results.questions) : [],
+        createdAt: new Date().toISOString(),
+      };
+      setCurrentAnalysis(analysis);
+      saveAnalysis(analysis);
     } catch (err) {
       console.error("Generation error:", err);
     }
     setIsGenerating(false);
+    setGenerationProgress("");
   };
 
   const canGenerate = state === "ready" && documentText.trim().length >= 50 && selectedOptions.length > 0 && !isGenerating;
@@ -460,7 +535,7 @@ Write the analysis now. Use the exact section headers above (SUMMARY, KEY INSIGH
           className="mt-8 bg-white rounded-2xl border border-slate-200 shadow-sm p-5 md:p-8" data-testid="container-streaming">
           <div className="flex items-center gap-2 mb-4">
             <Loader2 className="w-5 h-5 animate-spin text-purple-500" />
-            <span className="text-sm font-medium text-purple-600">Extracting insights... Analyzing content... 100% in-browser</span>
+            <span className="text-sm font-medium text-purple-600">{generationProgress || "Analyzing document... 100% in-browser"}</span>
           </div>
           <pre className="whitespace-pre-wrap text-sm text-slate-600 font-mono leading-relaxed" data-testid="text-streaming-output">{streamingText}</pre>
         </motion.div>
@@ -721,97 +796,3 @@ function formatRawText(raw: string) {
   return <>{elements}</>;
 }
 
-function parseAnalysisOutput(raw: string, requestedOptions: string[]): {
-  summary: string;
-  keyInsights: string[];
-  simplifiedExplanation: string;
-  importantQuotes: string[];
-  keyStats: string[];
-  actionItems: string[];
-  studyQuestions: string[];
-} {
-  let summary = "";
-  const keyInsights: string[] = [];
-  let simplifiedExplanation = "";
-  const importantQuotes: string[] = [];
-  const keyStats: string[] = [];
-  const actionItems: string[] = [];
-  const studyQuestions: string[] = [];
-
-  const sectionHeaders = [
-    "SUMMARY", "KEY INSIGHTS", "SIMPLIFIED EXPLANATION", "IMPORTANT QUOTES",
-    "KEY STATISTICS", "ACTION ITEMS", "STUDY QUESTIONS", "MAIN SUMMARY",
-    "INSIGHTS", "QUOTES", "STATISTICS", "DATA", "QUESTIONS"
-  ];
-  const headerPattern = sectionHeaders.join("|");
-  const sectionRegex = new RegExp(`(?:^|\\n)(?:━+\\n)?\\s*(${headerPattern})[:\\s]*\\n((?:(?!\\n(?:━+\\n)?\\s*(?:${headerPattern})[:\\s]*\\n)[\\s\\S])*?)(?=\\n(?:━+\\n)?\\s*(?:${headerPattern})[:\\s]*\\n|$)`, "gi");
-
-  const sections: Record<string, string> = {};
-  let match;
-  while ((match = sectionRegex.exec(raw)) !== null) {
-    const header = match[1].trim().toUpperCase();
-    sections[header] = match[2].trim();
-  }
-
-  if (!Object.keys(sections).length) {
-    const simpleRegex = /(?:^|\n)\s*(SUMMARY|KEY INSIGHTS|SIMPLIFIED EXPLANATION|IMPORTANT QUOTES|KEY STATISTICS|ACTION ITEMS|STUDY QUESTIONS|MAIN SUMMARY|INSIGHTS|QUOTES|STATISTICS|DATA|QUESTIONS)[:\s]*\n([\s\S]*?)(?=\n\s*(?:SUMMARY|KEY INSIGHTS|SIMPLIFIED EXPLANATION|IMPORTANT QUOTES|KEY STATISTICS|ACTION ITEMS|STUDY QUESTIONS|MAIN SUMMARY|INSIGHTS|QUOTES|STATISTICS|DATA|QUESTIONS)[:\s]*\n|$)/gi;
-    while ((match = simpleRegex.exec(raw)) !== null) {
-      sections[match[1].trim().toUpperCase()] = match[2].trim();
-    }
-  }
-
-  const summaryText = sections["SUMMARY"] || sections["MAIN SUMMARY"] || "";
-  if (summaryText) summary = summaryText.replace(/^[-*\u2022]\s*/gm, "").trim();
-
-  const insightsText = sections["KEY INSIGHTS"] || sections["INSIGHTS"] || "";
-  if (insightsText) {
-    insightsText.split("\n").forEach((line) => {
-      const cleaned = line.trim().replace(/^[-*\u2022\d.)\]]+\s*/, "").trim();
-      if (cleaned.length > 10) keyInsights.push(cleaned);
-    });
-  }
-
-  const simplifiedText = sections["SIMPLIFIED EXPLANATION"] || "";
-  if (simplifiedText) simplifiedExplanation = simplifiedText.trim();
-
-  const quotesText = sections["IMPORTANT QUOTES"] || sections["QUOTES"] || "";
-  if (quotesText) {
-    quotesText.split("\n").forEach((line) => {
-      const cleaned = line.trim().replace(/^>>?\s*/, "").replace(/^[""\u201C\u201D]|[""\u201C\u201D]$/g, "").replace(/^[-*\u2022]\s*/, "").trim();
-      if (cleaned.length > 15) importantQuotes.push(cleaned);
-    });
-  }
-
-  const statsText = sections["KEY STATISTICS"] || sections["STATISTICS"] || sections["DATA"] || "";
-  if (statsText) {
-    statsText.split("\n").forEach((line) => {
-      const cleaned = line.trim().replace(/^[-*\u2022\d.)\]]+\s*/, "").trim();
-      if (cleaned.length > 5) keyStats.push(cleaned);
-    });
-  }
-
-  const actionsText = sections["ACTION ITEMS"] || "";
-  if (actionsText) {
-    actionsText.split("\n").forEach((line) => {
-      const cleaned = line.trim().replace(/^[-*\u2022\u2705\d.)\]]+\s*/, "").trim();
-      if (cleaned.length > 5) actionItems.push(cleaned);
-    });
-  }
-
-  const questionsText = sections["STUDY QUESTIONS"] || sections["QUESTIONS"] || "";
-  if (questionsText) {
-    questionsText.split("\n").forEach((line) => {
-      const cleaned = line.trim().replace(/^Q\d*[.:)]\s*/i, "").replace(/^[-*\u2022\d.)\]]+\s*/, "").trim();
-      if (cleaned.length > 10 && cleaned.includes("?") || cleaned.length > 20) studyQuestions.push(cleaned);
-    });
-  }
-
-  if (!summary && !keyInsights.length && !simplifiedExplanation) {
-    const lines = raw.split("\n").filter((l) => l.trim().length > 20);
-    if (lines.length > 0) {
-      summary = lines.slice(0, Math.min(5, lines.length)).join("\n").trim();
-    }
-  }
-
-  return { summary, keyInsights, simplifiedExplanation, importantQuotes, keyStats, actionItems, studyQuestions };
-}
