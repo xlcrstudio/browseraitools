@@ -102,7 +102,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 35, name: "AI Resume Bullet Generator", slug: "/resume-bullet-generator", icon: Briefcase, available: false },
       { id: 36, name: "AI Cover Letter Generator", slug: "/ai-cover-letter-generator", icon: FileText, available: true },
       { id: 37, name: "AI LinkedIn Summary Generator", slug: "/linkedin-summary-generator", icon: UserCheck, available: false },
-      { id: 38, name: "AI Interview Answer Generator", slug: "/interview-answer-generator", icon: MessageCircle, available: false },
+      { id: 38, name: "AI Interview Answer Generator", slug: "/ai-interview-answer-generator", icon: MessageCircle, available: true },
     ],
   },
   {

@@ -430,6 +430,49 @@ export const toneConverterFAQs: FAQItem[] = [
   },
 ];
 
+export const interviewAnswerGeneratorFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Interview Answer Generator?",
+    answer: "The AI Interview Answer Generator is a free, browser-based tool that creates professional interview answers using the STAR method (Situation, Task, Action, Result). It uses AI (Qwen 2.5) running directly in your browser to generate structured, compelling answers tailored to your specific question, job role, and experience level.",
+  },
+  {
+    question: "What is the STAR method?",
+    answer: "STAR stands for Situation, Task, Action, Result. It is a proven framework for structuring behavioral interview answers. You describe the Situation (context), your Task (responsibility), the Actions you took, and the Results you achieved. This structure helps you deliver clear, organized, and impactful answers.",
+  },
+  {
+    question: "Is the AI Interview Answer Generator really free?",
+    answer: "Yes, it is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser, so there are no server costs.",
+  },
+  {
+    question: "What types of interview questions can it handle?",
+    answer: "The tool handles behavioral questions ('Tell me about a time when...'), situational questions ('What would you do if...'), strength and weakness questions, 'Tell me about yourself,' 'Why should we hire you,' and many more. It adapts the answer structure based on the question type.",
+  },
+  {
+    question: "Is my data private when using this tool?",
+    answer: "Absolutely. The AI Interview Answer Generator runs 100% locally in your browser. Your interview questions, job details, and generated answers never leave your device. There is no server processing, no data collection, and no tracking.",
+  },
+  {
+    question: "How does it customize answers for my experience level?",
+    answer: "The tool adjusts answer complexity, vocabulary, and framing based on your experience level -- entry-level (0-2 years), mid-level (3-5 years), senior (6-10 years), executive (10+ years), or career changer. Entry-level answers focus on transferable skills and potential, while executive answers emphasize strategic impact and leadership.",
+  },
+  {
+    question: "What are the delivery tips?",
+    answer: "The tool provides specific guidance on how to deliver your answer effectively, including body language tips (eye contact, posture, gestures), tone and pacing advice (speaking speed, emphasis, pauses), and engagement strategies (reading interviewer reactions, knowing when to elaborate or wrap up).",
+  },
+  {
+    question: "Can I save answers for practice?",
+    answer: "Yes! You can save answers to your local library, favorite specific answers, and build a collection of prepared responses for different question types. All data is stored in your browser's local storage.",
+  },
+  {
+    question: "Does it work offline?",
+    answer: "Yes! After the first use, the AI model is cached in your browser's storage. Once downloaded, you can generate interview answers without an internet connection.",
+  },
+  {
+    question: "Can I use these answers in real interviews?",
+    answer: "Yes, but we recommend using the generated answers as a starting point and personalizing them with your own specific experiences and details. The best interview answers sound natural, not memorized. Practice delivering the key points in your own words rather than reciting the generated text word-for-word.",
+  },
+];
+
 export const defaultToolFAQs: FAQItem[] = [
   {
     question: "Is this AI tool really free?",

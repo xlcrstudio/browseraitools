@@ -15,6 +15,7 @@ import HashtagGeneratorPage from "@/pages/HashtagGeneratorPage";
 import TikTokCaptionGeneratorPage from "@/pages/TikTokCaptionGeneratorPage";
 import LinkedInPostGeneratorPage from "@/pages/LinkedInPostGeneratorPage";
 import ToneConverterPage from "@/pages/ToneConverterPage";
+import InterviewAnswerGeneratorPage from "@/pages/InterviewAnswerGeneratorPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -33,6 +34,7 @@ function Router() {
       <Route path="/ai-tiktok-caption-generator" component={TikTokCaptionGeneratorPage} />
       <Route path="/ai-linkedin-post-generator" component={LinkedInPostGeneratorPage} />
       <Route path="/ai-tone-converter" component={ToneConverterPage} />
+      <Route path="/ai-interview-answer-generator" component={InterviewAnswerGeneratorPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
