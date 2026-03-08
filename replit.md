@@ -21,6 +21,7 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `/ai-hashtag-generator` - AI Hashtag Generator (tool #7)
 - `/ai-tiktok-caption-generator` - AI TikTok Caption Generator (tool #8)
 - `/ai-linkedin-post-generator` - AI LinkedIn Post Generator (tool #9)
+- `/ai-tone-converter` - AI Tone Converter (tool #10)
 - `/privacy-policy` - Privacy Policy (React page, not static HTML)
 - `/terms-of-service` - Terms of Service (React page, not static HTML)
 
@@ -77,8 +78,13 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `client/src/components/LinkedInPostGenerator.tsx` - Main LinkedIn post generation UI with multiple versions, post analysis, first comment strategy, A/B testing
 - `client/src/components/LinkedInPostArticle.tsx` - LinkedIn posting strategy SEO article with collapsible sections
 - `client/src/hooks/use-linkedin-post-storage.ts` - localStorage-based LinkedIn post history with favorites
+- `client/src/pages/ToneConverterPage.tsx` - Tone converter tool page
+- `client/src/components/ToneConverterHero.tsx` - Tone converter hero section
+- `client/src/components/ToneConverterGenerator.tsx` - Main tone converter UI with side-by-side comparison, change analysis, usage notes, 10 target tones
+- `client/src/components/ToneConverterArticle.tsx` - Tone and communication SEO article with collapsible sections
+- `client/src/hooks/use-tone-converter-storage.ts` - localStorage-based tone conversion history with favorites
 - `client/src/lib/tools-data.ts` - All tools data organized by category
-- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, businessIdeaGeneratorFAQs, keywordGeneratorFAQs, hashtagGeneratorFAQs, tiktokCaptionGeneratorFAQs, linkedInPostGeneratorFAQs, defaultToolFAQs)
+- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, businessIdeaGeneratorFAQs, keywordGeneratorFAQs, hashtagGeneratorFAQs, tiktokCaptionGeneratorFAQs, linkedInPostGeneratorFAQs, toneConverterFAQs, defaultToolFAQs)
 
 ## Ad Blocks
 - `client/src/components/AdBlock.tsx` - Reusable ad placeholder component with unique `slot` ID and `format` (horizontal/rectangle/vertical)
@@ -95,5 +101,5 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 ## Important Notes
 - WebLLM requires WebGPU (Chrome/Edge 113+). Graceful fallback message shown if unsupported.
 - AI engine auto-initializes on page load (not on first generate click).
-- Hook Generator, CTA Generator, Cover Letter Generator, Startup Name Generator, Business Idea Generator, Keyword Generator, Hashtag Generator, TikTok Caption Generator, and LinkedIn Post Generator are live (9 tools); other tools show "Coming Soon".
+- Hook Generator, CTA Generator, Cover Letter Generator, Startup Name Generator, Business Idea Generator, Keyword Generator, Hashtag Generator, TikTok Caption Generator, LinkedIn Post Generator, and Tone Converter are live (10 tools); other tools show "Coming Soon".
 - No database, no backend storage - purely client-side app.

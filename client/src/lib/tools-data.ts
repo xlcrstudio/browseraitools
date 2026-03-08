@@ -35,7 +35,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 3, name: "AI Sentence Simplifier", slug: "/sentence-simplifier", icon: AlignLeft, available: false },
       { id: 4, name: "AI Sentence Expander", slug: "/sentence-expander", icon: Maximize2, available: false },
       { id: 5, name: "AI Sentence Shortener", slug: "/sentence-shortener", icon: Minimize2, available: false },
-      { id: 6, name: "AI Tone Converter", slug: "/tone-converter", icon: Type, available: false },
+      { id: 6, name: "AI Tone Converter", slug: "/ai-tone-converter", icon: Type, available: true },
       { id: 7, name: "AI Headline Improver", slug: "/headline-improver", icon: Heading, available: false },
       { id: 8, name: "AI Bullet Point Generator", slug: "/bullet-point-generator", icon: List, available: false },
       { id: 9, name: "AI Blog Outline Generator", slug: "/blog-outline-generator", icon: FileText, available: false },
