@@ -108,6 +108,7 @@ export function MessageAnalyzerGenerator() {
   };
 
   const loadExample = (exampleMessage: string) => {
+    if (message.trim().length > 0) return;
     setMessage(exampleMessage);
   };
 
@@ -332,14 +333,22 @@ Scam Detection:`,
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">Quick Examples</label>
+            <label className="block text-sm font-semibold text-slate-700 mb-2">
+              Quick Examples {message.trim().length > 0 && <span className="text-xs font-normal text-slate-400 ml-1">(clear message to load)</span>}
+            </label>
             <div className="flex flex-wrap gap-2" data-testid="container-quick-examples">
               {QUICK_EXAMPLES.map((ex) => (
                 <button
                   key={ex.label}
                   data-testid={`button-example-${ex.label.toLowerCase().replace(/\s+/g, "-")}`}
                   onClick={() => loadExample(ex.message)}
-                  className="px-3 py-2 rounded-xl text-sm font-medium border border-slate-200 bg-white text-slate-600 hover:border-purple-200 hover:text-purple-700 transition-all"
+                  disabled={message.trim().length > 0}
+                  className={cn(
+                    "px-3 py-2 rounded-xl text-sm font-medium border transition-all",
+                    message.trim().length > 0
+                      ? "border-slate-100 bg-slate-50 text-slate-300 cursor-not-allowed"
+                      : "border-slate-200 bg-white text-slate-600 hover:border-purple-200 hover:text-purple-700"
+                  )}
                 >
                   {ex.label}
                 </button>
