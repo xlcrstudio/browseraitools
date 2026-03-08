@@ -18,6 +18,7 @@ import ToneConverterPage from "@/pages/ToneConverterPage";
 import InterviewAnswerGeneratorPage from "@/pages/InterviewAnswerGeneratorPage";
 import ResumeBulletGeneratorPage from "@/pages/ResumeBulletGeneratorPage";
 import BlogOutlineGeneratorPage from "@/pages/BlogOutlineGeneratorPage";
+import DocumentAnalyzerPage from "@/pages/DocumentAnalyzerPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -39,6 +40,7 @@ function Router() {
       <Route path="/ai-interview-answer-generator" component={InterviewAnswerGeneratorPage} />
       <Route path="/ai-resume-bullet-generator" component={ResumeBulletGeneratorPage} />
       <Route path="/ai-blog-outline-generator" component={BlogOutlineGeneratorPage} />
+      <Route path="/ai-document-analyzer" component={DocumentAnalyzerPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />

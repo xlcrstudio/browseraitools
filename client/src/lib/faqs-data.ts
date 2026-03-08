@@ -559,6 +559,41 @@ export const blogOutlineGeneratorFAQs: FAQItem[] = [
   },
 ];
 
+export const documentAnalyzerFAQs: FAQItem[] = [
+  {
+    question: "Is my document really private?",
+    answer: "Yes, 100%. Your document is processed entirely in your browser using WebLLM technology. The text is extracted locally using PDF.js and analyzed by an AI model running on your device's GPU. No data is ever uploaded to any server. This makes it safe for confidential documents, legal contracts, medical records, and proprietary business information.",
+  },
+  {
+    question: "What file types are supported?",
+    answer: "The tool currently supports PDF files (.pdf) and plain text files (.txt). You can also paste any text directly -- from articles, emails, web pages, or any other source. Support for .docx files is planned for a future update.",
+  },
+  {
+    question: "How long can my document be?",
+    answer: "You can upload or paste documents up to 200,000 characters (roughly 50 pages). For AI analysis, the tool processes the first ~4,000 characters to generate insights, which typically covers the most important content. Longer documents are truncated for analysis but fully stored in your browser.",
+  },
+  {
+    question: "What analysis options are available?",
+    answer: "You can choose from seven analysis modes: Full Summary (2-4 paragraph overview), Key Insights (bullet-point takeaways), Simplified Explanation (ELI5 mode for complex topics), Important Quotes (notable excerpts), Key Statistics (numbers and data points), Action Items (next steps), and Study Questions (exam or interview prep). Select one or more modes for your analysis.",
+  },
+  {
+    question: "Can I use this for research papers?",
+    answer: "Absolutely. The tool is designed for academic documents. Set the document type to 'Research Paper' and choose analysis modes like Key Insights, Important Quotes, and Study Questions. Use the College or Professional reading level for appropriate depth.",
+  },
+  {
+    question: "Does it work offline?",
+    answer: "Yes! After the first use, the AI model is cached in your browser. Once downloaded, you can analyze documents without an internet connection. Your analyses are also saved locally so you can review them anytime.",
+  },
+  {
+    question: "How accurate is the analysis?",
+    answer: "The AI is instructed to maintain strict factual fidelity to the source document and never add information not present in the text. However, as with any AI tool, we recommend reviewing the output against the original document for critical use cases like legal or medical analysis.",
+  },
+  {
+    question: "Can I analyze multiple documents?",
+    answer: "You can analyze documents one at a time. Each analysis is saved to your browser's local storage, so you can build a library of analyzed documents. Document comparison (analyzing two documents side by side) is planned for a future update.",
+  },
+];
+
 export const defaultToolFAQs: FAQItem[] = [
   {
     question: "Is this AI tool really free?",

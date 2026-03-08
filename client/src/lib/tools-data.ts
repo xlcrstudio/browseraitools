@@ -129,6 +129,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 48, name: "AI Roast Generator", slug: "/roast-generator", icon: Flame, available: false },
       { id: 49, name: "AI Story Starter", slug: "/story-starter", icon: BookOpenCheck, available: false },
       { id: 50, name: "AI Prompt Generator", slug: "/prompt-generator", icon: PenTool, available: false },
+      { id: 51, name: "AI Document Analyzer", slug: "/ai-document-analyzer", icon: FileText, available: true },
     ],
   },
 ];
