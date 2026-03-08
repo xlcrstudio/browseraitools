@@ -26,6 +26,7 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `/ai-resume-bullet-generator` - AI Resume Bullet Generator (tool #12)
 - `/ai-blog-outline-generator` - AI Blog Outline Generator (tool #13)
 - `/ai-document-analyzer` - AI Document Analyzer (tool #14)
+- `/ai-message-analyzer` - AI Message Analyzer (tool #15)
 - `/privacy-policy` - Privacy Policy (React page, not static HTML)
 - `/terms-of-service` - Terms of Service (React page, not static HTML)
 
@@ -107,8 +108,13 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `client/src/components/DocumentAnalyzerGenerator.tsx` - Main document analyzer UI with PDF upload (pdfjs-dist), text paste, 7 analysis modes, reading level, length pref, focus areas, structured + raw fallback output
 - `client/src/components/DocumentAnalyzerArticle.tsx` - Document analysis SEO article with collapsible sections
 - `client/src/hooks/use-document-analyzer-storage.ts` - localStorage-based document analysis history
+- `client/src/pages/MessageAnalyzerPage.tsx` - Message analyzer tool page
+- `client/src/components/MessageAnalyzerHero.tsx` - Message analyzer hero section
+- `client/src/components/MessageAnalyzerGenerator.tsx` - Main message analyzer UI with 7 analysis modes (tone, intent, replies, red flags, relationship, professional, scam), quick examples, presets, context inputs, separate LLM calls per mode
+- `client/src/components/MessageAnalyzerArticle.tsx` - Message analysis SEO article with collapsible sections
+- `client/src/hooks/use-message-analyzer-storage.ts` - localStorage-based message analysis history
 - `client/src/lib/tools-data.ts` - All tools data organized by category
-- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, businessIdeaGeneratorFAQs, keywordGeneratorFAQs, hashtagGeneratorFAQs, tiktokCaptionGeneratorFAQs, linkedInPostGeneratorFAQs, toneConverterFAQs, interviewAnswerGeneratorFAQs, resumeBulletGeneratorFAQs, blogOutlineGeneratorFAQs, documentAnalyzerFAQs, defaultToolFAQs)
+- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, businessIdeaGeneratorFAQs, keywordGeneratorFAQs, hashtagGeneratorFAQs, tiktokCaptionGeneratorFAQs, linkedInPostGeneratorFAQs, toneConverterFAQs, interviewAnswerGeneratorFAQs, resumeBulletGeneratorFAQs, blogOutlineGeneratorFAQs, documentAnalyzerFAQs, messageAnalyzerFAQs, defaultToolFAQs)
 
 ## Ad Blocks
 - `client/src/components/AdBlock.tsx` - Reusable ad placeholder component with unique `slot` ID and `format` (horizontal/rectangle/vertical)
@@ -125,5 +131,5 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 ## Important Notes
 - WebLLM requires WebGPU (Chrome/Edge 113+). Graceful fallback message shown if unsupported.
 - AI engine auto-initializes on page load (not on first generate click).
-- Hook Generator, CTA Generator, Cover Letter Generator, Startup Name Generator, Business Idea Generator, Keyword Generator, Hashtag Generator, TikTok Caption Generator, LinkedIn Post Generator, Tone Converter, Interview Answer Generator, Resume Bullet Generator, Blog Outline Generator, and Document Analyzer are live (14 tools); other tools show "Coming Soon".
+- Hook Generator, CTA Generator, Cover Letter Generator, Startup Name Generator, Business Idea Generator, Keyword Generator, Hashtag Generator, TikTok Caption Generator, LinkedIn Post Generator, Tone Converter, Interview Answer Generator, Resume Bullet Generator, Blog Outline Generator, Document Analyzer, and Message Analyzer are live (15 tools); other tools show "Coming Soon".
 - No database, no backend storage - purely client-side app.

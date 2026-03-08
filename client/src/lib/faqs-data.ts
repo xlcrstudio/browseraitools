@@ -594,6 +594,41 @@ export const documentAnalyzerFAQs: FAQItem[] = [
   },
 ];
 
+export const messageAnalyzerFAQs: FAQItem[] = [
+  {
+    question: "Can anyone see the messages I analyze?",
+    answer: "No. Your messages are processed entirely in your browser using WebLLM technology. The AI model runs on your device's GPU -- nothing is ever sent to any server. Not even we can see what you analyze. This makes it safe for private texts, work emails, dating messages, and sensitive conversations.",
+  },
+  {
+    question: "What types of messages can I analyze?",
+    answer: "You can analyze any text-based message: texts, emails, DMs, Slack messages, dating app conversations, work emails, suspicious messages, or any other digital communication. Just paste the message into the text area and select your analysis options.",
+  },
+  {
+    question: "How accurate is the tone and intent analysis?",
+    answer: "The AI provides well-reasoned interpretations based on common communication patterns, linguistics, and psychology. However, text communication lacks body language and vocal tone, so interpretations are informed guesses rather than certainties. The tool provides confidence levels and multiple possible interpretations when a message is ambiguous.",
+  },
+  {
+    question: "Can it detect scams and phishing?",
+    answer: "Yes. The Scam Detection mode checks for common phishing indicators like urgency tactics, suspicious links, impersonation attempts, requests for sensitive information, and too-good-to-be-true offers. It provides a risk level assessment and recommended actions. However, always exercise your own judgment for critical decisions.",
+  },
+  {
+    question: "What are the analysis modes available?",
+    answer: "There are 7 analysis modes: Tone Analysis (detect emotional tone), Intent Analysis (what they really mean), Reply Suggestions (3 response options in different tones), Red Flags Check (manipulation, gaslighting indicators), Relationship Insights (interest level, commitment signals), Professional Analysis (workplace communication), and Scam Detection (phishing and fraud checks). You can select any combination.",
+  },
+  {
+    question: "Does it work for dating and relationship messages?",
+    answer: "Absolutely. The Relationship Insights mode is specifically designed for dating and personal communication. It analyzes interest level, enthusiasm indicators, commitment signals, and provides honest guidance. The Reply Suggestions mode can generate responses in different tones appropriate for the relationship context you specify.",
+  },
+  {
+    question: "Does it work offline?",
+    answer: "Yes! After the first use, the AI model is cached in your browser. Once downloaded, you can analyze messages without an internet connection. Your analysis history is saved locally so you can review past analyses anytime.",
+  },
+  {
+    question: "Can I use the quick example messages?",
+    answer: "Yes. We provide 4 sample messages (dating text, work email, suspicious message, cold response) that you can load with one click to see how the tool works before pasting your own messages. There are also quick presets like 'Dating Message' and 'Work Email' that auto-select the most relevant analysis options.",
+  },
+];
+
 export const defaultToolFAQs: FAQItem[] = [
   {
     question: "Is this AI tool really free?",
