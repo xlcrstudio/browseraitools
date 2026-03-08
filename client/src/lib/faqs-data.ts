@@ -686,3 +686,38 @@ export const explainThisFAQs: FAQItem[] = [
     answer: "You need a browser with WebGPU support: Google Chrome 113+, Microsoft Edge 113+, or Safari 18+ with WebGPU flags enabled. We recommend the latest version of Chrome or Edge for the best experience.",
   },
 ];
+
+export const essayWriterFAQs: FAQItem[] = [
+  {
+    question: "What types of essays can this tool generate?",
+    answer: "The AI Essay Writer supports six essay types: Argumentative (defend a position with evidence), Expository (explain a topic clearly), Narrative (tell a compelling story), Descriptive (paint a vivid picture), Compare & Contrast (analyze similarities and differences), and Persuasive (convince the reader). Each type uses a distinct structure and approach appropriate to the format.",
+  },
+  {
+    question: "How does the academic level setting work?",
+    answer: "You can choose from five academic levels: High School, College, University, Master's, and PhD. The AI adjusts vocabulary complexity, argument depth, source sophistication, and analytical rigor to match the selected level. A high school essay uses straightforward language, while a PhD-level essay employs nuanced academic discourse and advanced theoretical frameworks.",
+  },
+  {
+    question: "Does the tool format citations properly?",
+    answer: "Yes. You can select from APA 7th Edition, MLA 9th Edition, Chicago, Harvard, or no citations. The AI generates properly formatted in-text citations and a references section that follows the conventions of your chosen style. Note that references are illustrative examples -- always verify citations against actual sources for academic submissions.",
+  },
+  {
+    question: "Is my essay topic and content private?",
+    answer: "Absolutely. The AI model runs entirely in your browser using WebLLM technology. Your essay topic, requirements, and the generated content never leave your device. No data is uploaded to any server, making it safe for sensitive academic work.",
+  },
+  {
+    question: "What is Outline-Only mode?",
+    answer: "Outline-Only mode generates a structured essay outline instead of a full essay. It includes the thesis statement, main arguments, supporting points, and conclusion framework -- perfect for planning your essay before writing, or for submitting an outline as part of a multi-stage assignment.",
+  },
+  {
+    question: "How accurate is the word count control?",
+    answer: "You can set a target word count between 500 and 5,000 words. The AI aims to match your target closely, though the actual count may vary by 10-15% depending on the complexity of the topic and the essay type. The final word count is displayed in the output stats.",
+  },
+  {
+    question: "Can I use this for academic work?",
+    answer: "This tool is designed as a writing assistant to help you understand essay structure, generate ideas, and learn effective argumentation techniques. Always follow your institution's academic integrity policies. We recommend using the generated essays as a starting point and adding your own research, analysis, and voice.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can then generate essays without an internet connection -- great for studying or writing on the go.",
+  },
+];

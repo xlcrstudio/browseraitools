@@ -1,0 +1,114 @@
+Create a mobile-first, SEO-optimized AI Essay Writer for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Essay Writer
+URL Slug: /ai-essay-writer
+Tagline: "Write A+ Essays in Seconds"
+Mission: Help students and professionals create high-quality, original essays instantly while keeping their authentic voice and academic integrity
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~220,000 monthly searches).
+Purpose: Generate complete, properly structured essays (or outlines) from a topic + requirements, tailored to academic level.
+Target Users: High school/college/graduate students, writers, researchers
+Search Demand: ~220,000 monthly searches
+Key Value: Full 1,500-word essay in under 45 seconds vs hours/days of writing
+=== UNIQUE SELLING POINTS ===
+✅ Full Essay or Outline-only mode
+✅ Academic level adaptation (High School → PhD)
+✅ Built-in thesis generator + proper structure
+✅ Citation style selector (APA, MLA, Chicago, Harvard)
+✅ Multiple versions for comparison
+✅ Natural, non-robotic writing style
+✅ Exact word count control
+✅ PDF/Markdown export with references
+✅ 100% Private (runs locally)
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm (shared instance)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Storage: LocalStorage (saved essays, drafts, history)
+Export: PDF, Markdown, Formatted Text
+Deployment: Vercel/Netlify
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Essay Writer"
+Subheadline: "Generate complete, well-structured essays in seconds. Private, free, no signup. Built for real academic work."
+Trust Badges:
+
+📚 Proper Academic Structure
+🎯 Strong Thesis Statement
+🔍 Citation-Ready References
+✍️ Natural Human-Like Writing
+📏 Exact Word Count
+🔒 100% Private & Local
+
+Success Counter: "Helped students write 156,789 essays this month"
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ESSAY DETAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 1: Essay Topic*
+
+Textarea
+Placeholder: "e.g., The impact of social media on mental health in teenagers"
+Max: 300 chars
+Required
+
+Field 2: Essay Type*
+
+Large cards with icons:
+○ Argumentative • Expository • Narrative • Descriptive • Compare & Contrast • Persuasive
+Required
+
+Field 3: Academic Level*
+
+Radio cards: High School • College • University • Master's • PhD
+Required
+
+Field 4: Word Count*
+
+Slider + input: 500 – 5,000 (default 1,500)
+Required
+
+Field 5: Citation Style*
+
+Dropdown: APA 7th • MLA 9th • Chicago • Harvard • None
+Required
+
+Field 6: Key Points / Requirements (Optional)
+
+Textarea (bullet each point)
+Help text: "List any specific arguments, sources, or instructions"
+
+Field 7: Outline-Only Mode
+
+Toggle (default OFF)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STYLE & REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Tone: Formal / Academic / Persuasive (radio)
+Include Counterarguments: Toggle
+Generate Multiple Versions: 1–3 (default 1)
+GENERATE BUTTON
+Full-width: "Write My Essay" | Loading: "Researching… Structuring… Writing…"
+=== OUTPUT SECTION ===
+Full essay preview with Title, Introduction, Body (headings + paragraphs), Conclusion, References.
+Quick stats: Word count, Read time, Thesis strength, Plagiarism-awareness note.
+Action buttons: Copy, Download PDF, Download Markdown, Edit, Regenerate, New Version.
+Expandable "Why This Essay Works" analysis section.
+=== WEBLLM PROMPTS ===
+System Prompt: [detailed 400+ word prompt exactly mirroring your LinkedIn example — academic integrity, structure rules, citation guidelines, natural tone, etc.]
+User Prompt Template: [full template with all fields injected, exact output format, structure rules, etc.]
+=== SEO ARTICLE SECTION ===
+Below the tool: 2500-word guide "How to Write Essays with AI in 2026 – Complete Guide (Without Getting Caught)"
+=== SPECIAL FEATURES ===
+
+Section-by-section editing
+Thesis strength analyzer
+One-click citation formatter
+Save to library
+Outline ↔ Full Essay toggle
+
+Build this as the #1 academic writing tool for students.

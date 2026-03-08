@@ -21,6 +21,7 @@ import BlogOutlineGeneratorPage from "@/pages/BlogOutlineGeneratorPage";
 import DocumentAnalyzerPage from "@/pages/DocumentAnalyzerPage";
 import MessageAnalyzerPage from "@/pages/MessageAnalyzerPage";
 import ExplainThisPage from "@/pages/ExplainThisPage";
+import EssayWriterPage from "@/pages/EssayWriterPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -45,6 +46,7 @@ function Router() {
       <Route path="/ai-document-analyzer" component={DocumentAnalyzerPage} />
       <Route path="/ai-message-analyzer" component={MessageAnalyzerPage} />
       <Route path="/explain-this-ai" component={ExplainThisPage} />
+      <Route path="/ai-essay-writer" component={EssayWriterPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />

@@ -28,6 +28,7 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `/ai-document-analyzer` - AI Document Analyzer (tool #14)
 - `/ai-message-analyzer` - AI Message Analyzer (tool #15)
 - `/explain-this-ai` - AI Explain This (tool #16)
+- `/ai-essay-writer` - AI Essay Writer (tool #17)
 - `/privacy-policy` - Privacy Policy (React page, not static HTML)
 - `/terms-of-service` - Terms of Service (React page, not static HTML)
 
@@ -119,8 +120,13 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `client/src/components/ExplainThisGenerator.tsx` - Main explainer UI with 6 explanation modes (simple, ELI5, step-by-step, analogy, technical, academic), reading level slider, subject area detection, advanced options, separate LLM calls per mode + key terms
 - `client/src/components/ExplainThisArticle.tsx` - Text comprehension SEO article with collapsible sections
 - `client/src/hooks/use-explainer-storage.ts` - localStorage-based explanation history
+- `client/src/pages/EssayWriterPage.tsx` - Essay writer tool page
+- `client/src/components/EssayWriterHero.tsx` - Essay writer hero section
+- `client/src/components/EssayWriterGenerator.tsx` - Main essay writer UI with 6 essay types, 5 academic levels, citation styles, word count slider, outline mode, tone selection, multi-call LLM per section
+- `client/src/components/EssayWriterArticle.tsx` - Essay writing SEO article with collapsible sections
+- `client/src/hooks/use-essay-writer-storage.ts` - localStorage-based essay history
 - `client/src/lib/tools-data.ts` - All tools data organized by category
-- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, businessIdeaGeneratorFAQs, keywordGeneratorFAQs, hashtagGeneratorFAQs, tiktokCaptionGeneratorFAQs, linkedInPostGeneratorFAQs, toneConverterFAQs, interviewAnswerGeneratorFAQs, resumeBulletGeneratorFAQs, blogOutlineGeneratorFAQs, documentAnalyzerFAQs, messageAnalyzerFAQs, explainThisFAQs, defaultToolFAQs)
+- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, businessIdeaGeneratorFAQs, keywordGeneratorFAQs, hashtagGeneratorFAQs, tiktokCaptionGeneratorFAQs, linkedInPostGeneratorFAQs, toneConverterFAQs, interviewAnswerGeneratorFAQs, resumeBulletGeneratorFAQs, blogOutlineGeneratorFAQs, documentAnalyzerFAQs, messageAnalyzerFAQs, explainThisFAQs, essayWriterFAQs, defaultToolFAQs)
 
 ## Ad Blocks
 - `client/src/components/AdBlock.tsx` - Reusable ad placeholder component with unique `slot` ID and `format` (horizontal/rectangle/vertical)
@@ -137,5 +143,5 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 ## Important Notes
 - WebLLM requires WebGPU (Chrome/Edge 113+). Graceful fallback message shown if unsupported.
 - AI engine auto-initializes on page load (not on first generate click).
-- Hook Generator, CTA Generator, Cover Letter Generator, Startup Name Generator, Business Idea Generator, Keyword Generator, Hashtag Generator, TikTok Caption Generator, LinkedIn Post Generator, Tone Converter, Interview Answer Generator, Resume Bullet Generator, Blog Outline Generator, Document Analyzer, Message Analyzer, and Explain This are live (16 tools); other tools show "Coming Soon".
+- Hook Generator, CTA Generator, Cover Letter Generator, Startup Name Generator, Business Idea Generator, Keyword Generator, Hashtag Generator, TikTok Caption Generator, LinkedIn Post Generator, Tone Converter, Interview Answer Generator, Resume Bullet Generator, Blog Outline Generator, Document Analyzer, Message Analyzer, Explain This, and Essay Writer are live (17 tools); other tools show "Coming Soon".
 - No database, no backend storage - purely client-side app.
