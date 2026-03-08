@@ -660,10 +660,10 @@ References:`,
                 {copiedId === "essay" ? "Copied" : "Copy"}
               </button>
             </div>
-            <div className="prose prose-sm prose-slate max-w-none">
-              <pre className="whitespace-pre-wrap text-sm text-slate-700 leading-relaxed font-sans" data-testid="text-essay-content">
+            <div className="rounded-xl bg-blue-50/50 border border-blue-100 p-4">
+              <p className="whitespace-pre-wrap text-sm text-slate-700 leading-relaxed" data-testid="text-essay-content">
                 {currentEssay.essayContent || currentEssay.rawText}
-              </pre>
+              </p>
             </div>
           </div>
 
