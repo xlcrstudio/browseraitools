@@ -137,7 +137,110 @@ export function InterviewAnswerGenerator() {
     const lengthLabel = ANSWER_LENGTHS.find((l) => l.value === answerLength)?.desc || "1-2 minutes";
     const styleLabel = ANSWER_STYLES.find((s) => s.value === answerStyle)?.label || "Balanced";
 
-    const userPrompt = `Generate a compelling interview answer using the STAR method.
+    const questionLower = question.trim().toLowerCase();
+    const isWeaknessQ = /weakness|weak point|area.*(improve|development)|shortcoming|flaw/i.test(questionLower);
+    const isTellMeAboutYourself = /tell me about yourself|walk me through your background|introduce yourself/i.test(questionLower);
+    const isWhyHire = /why should we hire|why are you the best|what makes you stand out|what do you bring/i.test(questionLower);
+    const isWhyCompany = /why (this|our) company|why do you want (to work|this)/i.test(questionLower);
+    const isStrengthQ = /strength|strong point|best qualit/i.test(questionLower);
+
+    let exampleAnswer: string;
+    let exampleBreakdown: string;
+    let exampleStrengths: string;
+    let questionTypeInstruction: string;
+
+    if (isWeaknessQ) {
+      questionTypeInstruction = `This is a WEAKNESS question. The answer must:
+- Name a REAL, specific weakness (not a disguised strength like "perfectionism")
+- Give a concrete example of when this weakness caused a problem
+- Explain specific steps being taken to improve
+- Show self-awareness and growth mindset
+- Keep a positive, forward-looking tone`;
+
+      exampleAnswer = `SAMPLE ANSWER
+
+Honestly, one of my biggest weaknesses has been delegating effectively. Earlier in my career as a team lead, I had a habit of taking on too much myself because I felt I could do things faster than explaining them to someone else.
+
+This really caught up with me during a major product migration last year. I was handling the technical architecture, code reviews, and client communication all at once. I ended up missing a client deadline by two days because I simply had too much on my plate, and some tasks slipped through the cracks.
+
+That was a wake-up call. Since then, I have been deliberately working on this. I started using a delegation framework where I assess each task by urgency and whether it truly requires my specific expertise. I now hold weekly one-on-ones with my team to assign ownership clearly. I also started asking my manager for feedback on whether I am distributing work well enough.
+
+It is still something I work on every day, but the improvement has been noticeable. Our team velocity increased by about 20 percent once I stopped being the bottleneck, and I have not missed a deadline since.`;
+
+      exampleBreakdown = `STAR BREAKDOWN:
+SITUATION: As a team lead, struggled with delegating and took on too many tasks personally.
+TASK: Needed to improve delegation to prevent missed deadlines and personal burnout.
+ACTION: Adopted a delegation framework, started weekly one-on-ones for clear ownership, sought manager feedback on work distribution.
+RESULT: Team velocity increased 20%, no missed deadlines since implementing changes.
+SKILLS: self-awareness, delegation, time management, leadership growth
+METRICS: 20% velocity increase, zero missed deadlines`;
+
+      exampleStrengths = `STRENGTHS SHOWN:
+- Self-Awareness: Honestly identified a real weakness without deflecting
+- Growth Mindset: Took concrete steps to improve after recognizing the problem
+- Accountability: Owned the mistake and its consequences`;
+    } else if (isTellMeAboutYourself) {
+      questionTypeInstruction = `This is a "Tell me about yourself" question. The answer must:
+- Follow Present-Past-Future structure (not STAR)
+- Start with current role and key achievements
+- Briefly mention relevant past experience
+- End with why this role excites you
+- Stay under 2 minutes, focused on professional life`;
+
+      exampleAnswer = `SAMPLE ANSWER
+
+I am currently a Senior Software Engineer at a fintech startup where I lead a team of four developers building our payment processing platform. Over the past two years, I have helped scale our system from handling 10,000 to over 500,000 daily transactions.
+
+Before that, I spent three years at a larger company working on backend infrastructure, which is where I developed my expertise in distributed systems and database optimization. I led the migration of our core services to microservices, which reduced our deployment time from hours to minutes.
+
+What drew me to this role is your focus on building developer tools. I have always been passionate about making complex systems more accessible, and the chance to work on APIs that other engineers rely on is exactly the kind of impact I want to have in my next role.`;
+
+      exampleBreakdown = `STAR BREAKDOWN:
+SITUATION: Currently a Senior Software Engineer at a fintech startup leading a development team.
+TASK: Seeking a new role that aligns with passion for developer tools and broader impact.
+ACTION: Built payment platform scaling to 500K daily transactions, led microservices migration at previous company.
+RESULT: 50x transaction growth, deployment time reduced from hours to minutes.
+SKILLS: technical leadership, distributed systems, team management, system scaling
+METRICS: 500K daily transactions, 50x growth, deployment reduced to minutes`;
+
+      exampleStrengths = `STRENGTHS SHOWN:
+- Technical Depth: Demonstrated concrete expertise with real metrics
+- Career Progression: Clear upward trajectory with increasing responsibility
+- Intentionality: Articulated clear reasons for pursuing this specific role`;
+    } else {
+      questionTypeInstruction = `This is a behavioral/situational question. The answer must:
+- Follow the STAR method (Situation, Task, Action, Result)
+- Use a specific real example from past experience
+- Show concrete actions and quantifiable results
+- Directly address what the question is asking about`;
+
+      exampleAnswer = `SAMPLE ANSWER
+
+In my previous role as a Marketing Manager at a mid-size tech company, we faced a major challenge when our biggest product launch of the year was running three weeks behind schedule.
+
+I was responsible for getting the project back on track without compromising quality or burning out the team.
+
+I took several targeted actions. First, I met individually with each team lead to identify the root causes of delays. I discovered that unclear requirements and context-switching were the main blockers. I then reorganized our sprint planning, cut non-essential features for post-launch, and implemented focused daily standups limited to 10 minutes. I also created a visual progress dashboard so everyone could see our momentum building.
+
+The results were significant. We delivered the product one week ahead of the revised deadline, received a 92 percent positive review rate from beta testers, and the streamlined process I built became our standard for all future launches.`;
+
+      exampleBreakdown = `STAR BREAKDOWN:
+SITUATION: Product launch falling 3 weeks behind schedule at a tech company.
+TASK: Get the project back on track while maintaining quality and team morale.
+ACTION: Met with team leads, identified blockers, reorganized sprints, cut non-essential features, implemented daily standups, created progress dashboard.
+RESULT: Delivered 1 week early, 92% positive reviews, process became company standard.
+SKILLS: leadership, problem-solving, project management, communication
+METRICS: 3-week improvement, 92% positive reviews, adopted as standard process`;
+
+      exampleStrengths = `STRENGTHS SHOWN:
+- Leadership: Led team through crisis with clear direction
+- Problem-Solving: Identified root causes and developed systematic solutions
+- Communication: Aligned stakeholders and created transparency`;
+    }
+
+    const userPrompt = `Generate an interview answer for the following question.
+
+${questionTypeInstruction}
 
 INTERVIEW QUESTION: "${question.trim()}"
 
@@ -152,54 +255,44 @@ ${companyInfo ? `- Company Context: ${companyInfo.trim()}` : ""}
 Answer Length: ${answerLength} (${lengthLabel})
 Answer Style: ${styleLabel}
 
-Here is an example of the exact output format I need:
+IMPORTANT RULES:
+1. The SAMPLE ANSWER section must ONLY contain the spoken answer text. Nothing else.
+2. Do NOT add any commentary, analysis, or explanation inside the SAMPLE ANSWER section.
+3. Do NOT say things like "This answer shows..." or "The candidate demonstrates..." inside the answer.
+4. Put all analysis in the STAR BREAKDOWN and STRENGTHS SHOWN sections instead.
+5. The answer must directly address the specific question being asked.
+6. Write as if the candidate is speaking naturally to the interviewer.
 
-SAMPLE ANSWER
+Here is an example of the exact output format:
 
-In my previous role as a Project Manager at a mid-size software company, we faced a critical deadline when our flagship product release was falling behind schedule by three weeks.
-
-I was responsible for getting the project back on track while maintaining quality standards and keeping team morale high.
-
-I took several targeted actions. First, I met individually with each team lead to identify the root causes of delays. I discovered that unclear requirements and context-switching were the main blockers. I then reorganized our sprint planning, cut non-essential features for post-launch, and implemented focused daily standups limited to 10 minutes. I also created a visual progress dashboard so everyone could see our momentum building.
-
-The results were significant. We delivered the product one week ahead of the revised deadline, received a 92% satisfaction score from beta testers, and the streamlined process I built became our standard for all future releases.
+${exampleAnswer}
 
 SPEAKING TIME: approximately 1 minute 30 seconds
 WORD COUNT: 153
 
-STAR BREAKDOWN:
-SITUATION: Flagship product release falling 3 weeks behind schedule at a software company.
-TASK: Get the project back on track while maintaining quality and team morale.
-ACTION: Met with team leads, identified blockers, reorganized sprints, cut non-essential features, implemented daily standups, created progress dashboard.
-RESULT: Delivered 1 week early, 92% satisfaction score, process became company standard.
-SKILLS: leadership, problem-solving, project management, communication
-METRICS: 3-week improvement, 92% satisfaction, adopted as standard process
+${exampleBreakdown}
 
 ${includeAlternative ? `ALTERNATIVE ANGLE:
-If asked for another example: "I also demonstrated this skill when I led a cross-functional team through a company merger integration, where I had to align three different project management methodologies into one unified system within 60 days."
+If asked for another example: "I also demonstrated this when I handled a similar situation during a cross-team collaboration where I had to coordinate between three departments within a tight 30-day window."
 ` : ""}
 ${includeFollowUp ? `FOLLOW-UP PREP:
-Q: "What would you do differently?" -> Show growth: "I would implement the daily standups from day one rather than waiting for issues to surface."
-Q: "What did you learn?" -> Connect to role: "I learned that proactive communication prevents most bottlenecks, which I now apply to every project."
-Q: "How does this apply to our role?" -> Show fit: "This experience directly applies to your need for someone who can drive complex projects to completion under tight timelines."
+Q: "What would you do differently?" -> "I would start with better upfront planning to catch issues earlier in the process."
+Q: "What did you learn?" -> "I learned that proactive communication prevents most bottlenecks, which I now apply to every project."
+Q: "How does this apply here?" -> "This experience directly applies to your need for someone who can handle complex challenges effectively."
 ` : ""}
 ${includeDeliveryTips ? `DELIVERY TIPS:
 BODY LANGUAGE: Maintain eye contact, use natural hand gestures when describing actions, sit forward with confident posture.
-TONE AND PACING: Speak at a moderate pace, pause briefly between STAR sections, show enthusiasm when discussing results.
-ENGAGEMENT: Watch for interviewer reactions, be ready to elaborate on any section, end by asking "Does that answer your question?"
+TONE AND PACING: Speak at a moderate pace, pause briefly between sections, show enthusiasm when discussing results.
+ENGAGEMENT: Watch for interviewer reactions, be ready to elaborate on any section.
 ` : ""}
-STRENGTHS SHOWN:
-- Leadership: Led team through crisis with clear direction
-- Problem-Solving: Identified root causes and developed systematic solutions
-- Communication: Aligned stakeholders and created transparency
+${exampleStrengths}
 
 ---
 
-Now write a REAL interview answer for: "${question.trim()}"
-For the role of: ${jobTitle.trim()} in ${industry}
-Experience level: ${expLabel}
+Now write a REAL answer for the question: "${question.trim()}"
+Role: ${jobTitle.trim()} in ${industry} (${expLabel})
 
-Write the actual answer content as if the candidate is speaking naturally in an interview. Use the EXACT same format as the example above. Do NOT use placeholder brackets.`;
+Write ONLY the spoken answer in SAMPLE ANSWER. Use the EXACT same format sections as above. Do NOT add commentary inside the answer.`;
 
     try {
       const result = await generateRaw({
@@ -874,6 +967,15 @@ function parseInterviewOutput(raw: string): {
     }
     answerContent = contentLines.join("\n").trim();
   }
+
+  const metaPatterns = [
+    /^(This|The|Overall,?\s*this|Squeezed|In this|Here,?\s*the|Note:|The STAR|The answer|This answer|This response|The candidate|It shows|It demonstrates)[^.]*?(demonstrates?|showcases?|shows|highlights?|ensures?|covers?|positions?|effectively|attributes?|method|valuable|comprehensive|concise|element)[^.]*\.?\s*$/gim,
+    /^(This is a|The above|As you can see|Notice how|The key takeaway)[^.]*\.?\s*$/gim,
+  ];
+  for (const pattern of metaPatterns) {
+    answerContent = answerContent.replace(pattern, "").trim();
+  }
+  answerContent = answerContent.replace(/\n{3,}/g, "\n\n").trim();
 
   const timeMatch = raw.match(/SPEAKING TIME:?\s*(.+)/i);
   if (timeMatch) speakingTime = timeMatch[1].trim();
