@@ -24,6 +24,7 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `/ai-tone-converter` - AI Tone Converter (tool #10)
 - `/ai-interview-answer-generator` - AI Interview Answer Generator (tool #11)
 - `/ai-resume-bullet-generator` - AI Resume Bullet Generator (tool #12)
+- `/ai-blog-outline-generator` - AI Blog Outline Generator (tool #13)
 - `/privacy-policy` - Privacy Policy (React page, not static HTML)
 - `/terms-of-service` - Terms of Service (React page, not static HTML)
 
@@ -95,8 +96,13 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 - `client/src/components/ResumeBulletGenerator.tsx` - Main resume bullet generation UI with bullet cards, "why it works" explanations, best combination, concise/detailed variations, improvement tips
 - `client/src/components/ResumeBulletArticle.tsx` - Resume writing SEO article with collapsible sections
 - `client/src/hooks/use-resume-bullet-storage.ts` - localStorage-based resume bullet history with favorites
+- `client/src/pages/BlogOutlineGeneratorPage.tsx` - Blog outline generator tool page
+- `client/src/components/BlogOutlineHero.tsx` - Blog outline generator hero section
+- `client/src/components/BlogOutlineGenerator.tsx` - Main blog outline generation UI with title options, meta descriptions, intro structure, H2/H3 sections, conclusion, FAQ generation, content notes, SEO notes
+- `client/src/components/BlogOutlineArticle.tsx` - Blog outline/content planning SEO article with collapsible sections
+- `client/src/hooks/use-blog-outline-storage.ts` - localStorage-based blog outline history with favorites
 - `client/src/lib/tools-data.ts` - All tools data organized by category
-- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, businessIdeaGeneratorFAQs, keywordGeneratorFAQs, hashtagGeneratorFAQs, tiktokCaptionGeneratorFAQs, linkedInPostGeneratorFAQs, toneConverterFAQs, interviewAnswerGeneratorFAQs, resumeBulletGeneratorFAQs, defaultToolFAQs)
+- `client/src/lib/faqs-data.ts` - FAQ content for tool pages (hookGeneratorFAQs, ctaGeneratorFAQs, coverLetterGeneratorFAQs, startupNameGeneratorFAQs, businessIdeaGeneratorFAQs, keywordGeneratorFAQs, hashtagGeneratorFAQs, tiktokCaptionGeneratorFAQs, linkedInPostGeneratorFAQs, toneConverterFAQs, interviewAnswerGeneratorFAQs, resumeBulletGeneratorFAQs, blogOutlineGeneratorFAQs, defaultToolFAQs)
 
 ## Ad Blocks
 - `client/src/components/AdBlock.tsx` - Reusable ad placeholder component with unique `slot` ID and `format` (horizontal/rectangle/vertical)
@@ -113,5 +119,5 @@ A mobile-first, client-side AI tools website (browseraitools.com) that runs AI m
 ## Important Notes
 - WebLLM requires WebGPU (Chrome/Edge 113+). Graceful fallback message shown if unsupported.
 - AI engine auto-initializes on page load (not on first generate click).
-- Hook Generator, CTA Generator, Cover Letter Generator, Startup Name Generator, Business Idea Generator, Keyword Generator, Hashtag Generator, TikTok Caption Generator, LinkedIn Post Generator, Tone Converter, Interview Answer Generator, and Resume Bullet Generator are live (12 tools); other tools show "Coming Soon".
+- Hook Generator, CTA Generator, Cover Letter Generator, Startup Name Generator, Business Idea Generator, Keyword Generator, Hashtag Generator, TikTok Caption Generator, LinkedIn Post Generator, Tone Converter, Interview Answer Generator, Resume Bullet Generator, and Blog Outline Generator are live (13 tools); other tools show "Coming Soon".
 - No database, no backend storage - purely client-side app.

@@ -516,6 +516,49 @@ export const resumeBulletGeneratorFAQs: FAQItem[] = [
   },
 ];
 
+export const blogOutlineGeneratorFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Blog Outline Generator?",
+    answer: "The AI Blog Outline Generator is a free, browser-based tool that creates comprehensive, SEO-optimized blog post outlines. It generates title options, meta descriptions, introduction structure, H2/H3 sections with content guidance, conclusion, and FAQ suggestions -- all powered by AI running locally in your browser.",
+  },
+  {
+    question: "How does the outline help with SEO?",
+    answer: "The tool plans keyword placement in titles, headings, and section content. It structures your post with proper H2/H3 hierarchy that search engines reward, suggests meta descriptions optimized for click-through rates, and includes content depth that helps rank for featured snippets.",
+  },
+  {
+    question: "What content types are supported?",
+    answer: "The tool supports 8 content types: How-To Guides, Listicles, Ultimate Guides, Comparison articles, Reviews, Opinion pieces, Case Studies, and News/Trend Analysis. Each type generates a different outline structure optimized for that format.",
+  },
+  {
+    question: "Is the Blog Outline Generator free?",
+    answer: "Yes, completely free with no hidden costs, usage limits, or subscriptions. The AI runs locally in your browser, so there are no server costs.",
+  },
+  {
+    question: "Is my content private?",
+    answer: "Yes. The AI Blog Outline Generator runs 100% locally in your browser. Your topics, keywords, and generated outlines never leave your device. There is no server processing, no data collection, and no tracking.",
+  },
+  {
+    question: "How do I use the word count slider?",
+    answer: "The word count slider sets your target post length from 500 to 5,000 words. The tool automatically adjusts the number of sections and content depth based on your target. Shorter posts get fewer sections with focused content, while longer posts get more comprehensive outlines with additional subsections.",
+  },
+  {
+    question: "Can I export the outline?",
+    answer: "You can copy the entire outline or individual sections to your clipboard. Use the Copy All button to get the complete outline in a structured format that works in any text editor, Google Docs, or writing tool.",
+  },
+  {
+    question: "What are the tone options?",
+    answer: "You can select one or more tones: Professional, Conversational, Educational, Entertaining, or Authoritative. Combining tones (like Professional + Conversational) gives you a balanced style. The tone affects word choice, content approach, and engagement strategies in the outline.",
+  },
+  {
+    question: "Does it work offline?",
+    answer: "Yes! After the first use, the AI model is cached in your browser. Once downloaded, you can generate blog outlines without an internet connection.",
+  },
+  {
+    question: "How many sections does it generate?",
+    answer: "The number of sections scales with your target word count -- roughly one H2 section per 300-350 words. A 1,500-word post gets about 4-5 sections, while a 3,000-word comprehensive guide gets 8-10 sections, each with its own H3 subsections.",
+  },
+];
+
 export const defaultToolFAQs: FAQItem[] = [
   {
     question: "Is this AI tool really free?",

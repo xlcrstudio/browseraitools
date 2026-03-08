@@ -38,7 +38,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 6, name: "AI Tone Converter", slug: "/ai-tone-converter", icon: Type, available: true },
       { id: 7, name: "AI Headline Improver", slug: "/headline-improver", icon: Heading, available: false },
       { id: 8, name: "AI Bullet Point Generator", slug: "/bullet-point-generator", icon: List, available: false },
-      { id: 9, name: "AI Blog Outline Generator", slug: "/blog-outline-generator", icon: FileText, available: false },
+      { id: 9, name: "AI Blog Outline Generator", slug: "/ai-blog-outline-generator", icon: FileText, available: true },
       { id: 10, name: "AI FAQ Generator", slug: "/faq-generator", icon: HelpCircle, available: false },
     ],
   },
