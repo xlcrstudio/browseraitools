@@ -931,3 +931,38 @@ export const serpIntentFAQs: FAQItem[] = [
     answer: "Currently the tool analyzes one keyword at a time for the most thorough results. You can run multiple analyses back-to-back and they are saved to your local history for comparison. Bulk analysis is planned for a future update.",
   },
 ];
+
+export const metaDescriptionFAQs: FAQItem[] = [
+  {
+    question: "What is a meta description and why does it matter?",
+    answer: "A meta description is a short text snippet (150-160 characters) that appears under your page title in Google search results. A well-written meta description can significantly increase your click-through rate, driving more organic traffic to your site even without changing your ranking position.",
+  },
+  {
+    question: "What is the ideal meta description length?",
+    answer: "The optimal length is 150-160 characters. Google typically displays up to 155-160 characters on desktop and around 120 characters on mobile. Descriptions that are too short waste valuable space, while those that are too long get truncated with an ellipsis.",
+  },
+  {
+    question: "How should I include keywords in my meta description?",
+    answer: "Include your target keywords naturally within the description. Google bolds matching search terms in the results, which draws the eye and improves CTR. Avoid keyword stuffing — focus on one or two primary keywords woven into a compelling sentence that reads naturally.",
+  },
+  {
+    question: "Why does the tool generate 5 variations?",
+    answer: "Different approaches work for different audiences and search intents. The 5 variations cover benefit-focused, question hook, statistical proof, problem-solution, and direct value angles. This lets you A/B test or pick the one that best matches your content and audience.",
+  },
+  {
+    question: "What do the different tone options mean?",
+    answer: "Professional is authoritative and trustworthy, best for B2B content. Persuasive is action-oriented for high conversion pages. Friendly is conversational and approachable. Sales is direct and benefit-focused, ideal for e-commerce and promotional pages.",
+  },
+  {
+    question: "Is my content kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your page titles, keywords, and descriptions never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate meta descriptions without an internet connection.",
+  },
+  {
+    question: "What content types are supported?",
+    answer: "The tool supports Blog Post/Article, Product Page, Service Page, Homepage, Landing Page, Category Page, and About Page. Each content type adjusts the meta description style to match its typical search result context and user expectations.",
+  },
+];

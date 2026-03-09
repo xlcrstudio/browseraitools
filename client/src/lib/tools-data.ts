@@ -88,7 +88,7 @@ export const toolCategories: ToolCategory[] = [
     slug: "seo",
     description: "Optimize your content for search engines",
     tools: [
-      { id: 30, name: "AI Meta Description Generator", slug: "/meta-description-generator", icon: Search, available: false },
+      { id: 30, name: "AI Meta Description Generator", slug: "/ai-meta-description-generator", icon: Search, available: true },
       { id: 31, name: "AI SEO Title Generator", slug: "/seo-title-generator", icon: Tag, available: false },
       { id: 32, name: "AI Keyword Generator", slug: "/ai-keyword-generator", icon: Key, available: true },
       { id: 33, name: "AI Content Brief Generator", slug: "/content-brief-generator", icon: BookOpen, available: false },
