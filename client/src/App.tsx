@@ -25,6 +25,7 @@ import EssayWriterPage from "@/pages/EssayWriterPage";
 import DatingProfilePage from "@/pages/DatingProfilePage";
 import MealPlannerPage from "@/pages/MealPlannerPage";
 import TravelPlannerPage from "@/pages/TravelPlannerPage";
+import ContentGapPage from "@/pages/ContentGapPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -53,6 +54,7 @@ function Router() {
       <Route path="/ai-dating-profile-generator" component={DatingProfilePage} />
       <Route path="/ai-meal-planner" component={MealPlannerPage} />
       <Route path="/ai-travel-itinerary-planner" component={TravelPlannerPage} />
+      <Route path="/ai-content-gap-analyzer" component={ContentGapPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />

@@ -826,3 +826,38 @@ export const travelPlannerFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate travel itineraries without an internet connection -- perfect for planning on flights or in areas with limited connectivity.",
   },
 ];
+
+export const contentGapFAQs: FAQItem[] = [
+  {
+    question: "What does the Content Gap Analyzer do?",
+    answer: "It compares your article against up to 3 competitor articles to find topics, keywords, and subtopics that competitors cover but you do not. You get a prioritized list of missing topics, keyword gaps, recommended headings, and a ready-to-use content brief to improve your article.",
+  },
+  {
+    question: "Is my content kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your articles, competitor content, and analysis results never leave your device. No data is sent to any server -- your content strategy stays completely confidential.",
+  },
+  {
+    question: "How many competitor articles can I compare?",
+    answer: "You can compare your article against 1 to 3 competitor articles at once. More competitors give richer gap analysis, but even a single competitor comparison reveals valuable missing topics and keyword opportunities.",
+  },
+  {
+    question: "How accurate is the gap analysis?",
+    answer: "The AI extracts key topics, headings, and themes from each article and compares them systematically. While it provides strong directional insights for content strategy, we recommend using it alongside your own expertise. The analysis is most accurate when articles are in the same niche and target similar keywords.",
+  },
+  {
+    question: "How does this compare to paid tools like Ahrefs or SEMrush?",
+    answer: "Paid tools like Ahrefs and SEMrush analyze backlinks and search volume data from their databases. This tool focuses on content-level gap analysis -- comparing what is actually written in articles. It is a complementary approach that does not require a subscription, and runs 100% privately in your browser.",
+  },
+  {
+    question: "What are the analysis depth options?",
+    answer: "Quick Scan gives a fast overview of major gaps. Standard (default) provides a balanced analysis with topic gaps, keywords, and heading suggestions. Deep Dive is the most comprehensive, analyzing semantic gaps, content structure, unique angles, and providing a detailed content brief.",
+  },
+  {
+    question: "Can I use this for any niche or industry?",
+    answer: "Yes. The tool works for any content niche -- from technology and marketing to health, finance, travel, food, and more. Simply specify your niche when running the analysis so the AI can provide industry-relevant recommendations.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can run content gap analyses without an internet connection.",
+  },
+];

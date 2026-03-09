@@ -1,0 +1,227 @@
+## Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI Content Gap Analyzer for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Content Gap Analyzer
+URL Slug: /ai-content-gap-analyzer
+Tagline: "Find Missing Topics & Outrank Competitors in Seconds"
+Mission: Help bloggers, SEO specialists, and content teams instantly discover content gaps and create winning strategies — 100% private, free, and unlimited.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~85,000 monthly searches).
+Purpose: Paste your article + competitor article(s) → AI instantly identifies missing topics, keyword gaps, subtopics, and gives ready-to-use content recommendations.
+Target Users: Content marketers, bloggers, SEO agencies, freelance writers, website owners
+Search Demand: 50k–120k monthly searches ("content gap analysis", "SEO content gap tool", "competitor content analysis")
+Key Value: Professional-grade gap analysis in 35 seconds vs $99+/month tools like Ahrefs or SEMrush
+=== UNIQUE SELLING POINTS ===
+✅ 100% Private — everything runs in your browser (no uploads, no tracking)
+✅ Compare 1–3 competitors at once
+✅ Finds semantic gaps, missing subtopics, and keyword opportunities
+✅ Suggests exact headings, questions, and content angles
+✅ Exports beautiful PDF report + content brief
+✅ Works offline after first load
+✅ No login, no limits, no cost
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm (shared instance)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Text Processing: Fully client-side (no external APIs)
+Storage: LocalStorage (saved analyses, history)
+Export: PDF report, Markdown brief, Copy-all
+Deployment: Vercel/Netlify
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Content Gap Analyzer"
+Subheadline: "Paste your article + competitor content → discover every missing topic and keyword opportunity instantly. Private. Free. Built for real SEO wins."
+Trust Badges:
+
+🔍 Competitor Gap Detection
+📈 SEO Keyword Opportunities
+🧠 Semantic Topic Analysis
+📋 Ready-to-Use Content Brief
+📄 PDF Report Export
+🔒 100% Private & Local
+
+Success Counter: "Helped creators close 67,432 content gaps this month"
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+YOUR CONTENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 1: Your Article / Page*
+
+Large textarea
+Placeholder: "Paste your full article or blog post here..."
+Max: 15,000 characters (for performance)
+Required
+Help text: "The page you want to improve or expand"
+
+Field 2: Your Target Keywords (Optional)
+
+Tags input
+Placeholder: "AI tools, content gap analysis, SEO strategy..."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMPETITOR CONTENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 3: Competitor 1 Article*
+
+Large textarea
+Placeholder: "Paste the full competitor article here..."
+Required
+
+Field 4: Competitor 2 (Optional)
+
+Large textarea (same as above)
+
+Field 5: Competitor 3 (Optional)
+
+Large textarea (same as above)
+
+Field 6: Niche / Industry*
+
+Input: "e.g., AI tools, digital marketing, fitness, SaaS"
+Required
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ANALYSIS OPTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 7: Analysis Depth*
+
+Radio cards:
+○ Quick Scan (fastest)
+○ Standard (default)
+○ Deep Dive (most comprehensive)
+
+Field 8: Focus Areas (Multi-select cards)
+○ Missing Topics & Subtopics
+○ Keyword & Semantic Gaps
+○ Question Gaps (People Also Ask style)
+○ Content Structure & Headings
+○ Unique Angles & Hooks
+○ Recommended Word Count & Depth
+GENERATE BUTTON
+Full-width gradient button
+Text: "Analyze Content Gaps"
+Icon: 📊
+Loading: "Comparing articles… Finding gaps… Building recommendations… (100% in-browser)"
+=== OUTPUT SECTION ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONTENT GAP REPORT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Header: "Gap Analysis: Your Article vs Competitors"
+Quick Stats:
+
+Total topics in competitors: 28
+Missing in your article: 11
+Opportunity score: 87/100
+Estimated traffic gain: High
+
+Action Buttons:
+
+Copy All • Download PDF Report • Save Analysis • Regenerate • New Comparison
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MISSING TOPICS (Primary Output)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• AI keyword clustering (missing entirely)
+• On-page optimization tools comparison
+• SEO automation workflows
+• AI content auditing checklist
+• [5–12 more with priority level High/Medium]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEYWORD & SEMANTIC GAPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Missing high-intent keywords:
+
+"best AI content gap tool" (search volume high)
+"how to perform competitor content analysis"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RECOMMENDED HEADINGS & STRUCTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Suggested new sections:
+H2: How AI Changes Content Gap Analysis in 2026
+H3: Step-by-step workflow with screenshots
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONTENT BRIEF (Ready to Write)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Target word count: +1,800 words
+Questions to answer
+Unique angles to add
+Internal linking suggestions
+
+Expandable sections:
+
+Competitor Coverage Comparison Table
+Why These Gaps Exist
+Action Plan (what to add today)
+
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are an expert SEO content strategist and competitive intelligence analyst with 10+ years experience at top agencies. You specialize in content gap analysis using semantic SEO, topic clusters, and searcher intent. You compare articles at a deep level, identify every missing subtopic, keyword opportunity, and content angle. You always deliver actionable, prioritized recommendations that actually help pages rank higher. Never hallucinate topics — base everything strictly on the provided texts.
+User Prompt Template:
+textPerform a complete content gap analysis between the user's article and the competitor articles.
+
+═══════════════════════════════════════
+YOUR ARTICLE:
+{userArticle}
+
+YOUR TARGET KEYWORDS: {keywords}
+
+═══════════════════════════════════════
+COMPETITOR 1:
+{comp1}
+
+COMPETITOR 2 (if provided):
+{comp2}
+
+COMPETITOR 3 (if provided):
+{comp3}
+
+═══════════════════════════════════════
+NICHE: {niche}
+ANALYSIS DEPTH: {depth}
+FOCUS AREAS: {selectedFocusAreas}
+
+═══════════════════════════════════════
+REQUIRED OUTPUT STRUCTURE
+═══════════════════════════════════════
+
+1. QUICK STATS (topics covered, gaps found, opportunity score)
+2. MISSING TOPICS (8–15 bullets, sorted by importance, with brief explanation why it matters)
+3. KEYWORD & SEMANTIC GAPS (list missing keywords + search intent)
+4. RECOMMENDED HEADINGS & SUBTOPICS (exact H2/H3 suggestions)
+5. CONTENT BRIEF (word count recommendation, questions to answer, unique angles)
+6. COMPETITOR COVERAGE TABLE (what each has that you don't)
+
+FORMATTING RULES:
+- Use markdown
+- Prioritize high-impact gaps first
+- Include estimated traffic value where logical
+- Be specific and actionable
+- Never suggest adding anything not supported by competitor content or standard SEO best practices
+
+OUTPUT FORMAT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+MISSING TOPICS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• Topic (priority: High)
+
+[Continue for all sections exactly]
+=== SEO ARTICLE SECTION ===
+Below the tool, comprehensive 2600-word article:
+Title: "Free AI Content Gap Analyzer 2026 – Better Than Ahrefs & SEMrush (No Subscription Needed)"
+[Full guide: how content gaps work, why privacy matters, step-by-step examples, comparison table vs paid tools, how to turn gaps into ranking wins]
+=== SPECIAL FEATURES ===
+
+Multi-Competitor Mode (up to 3)
+One-Click "Add to Content Brief" for any gap
+Keyword Volume Estimator (text-based)
+Gap Report History (LocalStorage)
+Export as SEO-Optimized Content Brief
+"Beat This Competitor" mode (focus on single rival)
+
+Build this as the #1 free & private content gap analysis tool on the internet — the one that finally makes professional SEO accessible to everyone.

@@ -93,6 +93,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 32, name: "AI Keyword Generator", slug: "/ai-keyword-generator", icon: Key, available: true },
       { id: 33, name: "AI Content Brief Generator", slug: "/content-brief-generator", icon: BookOpen, available: false },
       { id: 34, name: "AI Internal Link Suggestion Tool", slug: "/internal-link-suggestion", icon: Link2, available: false },
+      { id: 58, name: "AI Content Gap Analyzer", slug: "/ai-content-gap-analyzer", icon: Search, available: true },
     ],
   },
   {
