@@ -1,0 +1,157 @@
+Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI Decision Maker for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Decision Maker
+URL Slug: /ai-decision-maker
+Tagline: "Let AI Help You Make Smarter Decisions"
+Mission: Act as your personal rational decision assistant — instantly analyze any choice, weigh options objectively, and give clear recommendations with confidence scores.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~95,000 monthly searches).
+Purpose: Enter a decision question + 2–5 options → get a full analysis dashboard with pros/cons for each option, weighted scoring, and a final recommendation.
+Target Users: Professionals, students, couples/families, entrepreneurs, anyone facing big or small decisions
+Search Demand: ~95,000 monthly searches ("ai decision maker", "decision making tool", "what should I do ai", "ai decision assistant")
+Key Value: Complete decision analysis in 25 seconds vs hours of overthinking
+=== UNIQUE SELLING POINTS ===
+✅ Dynamic option builder (add/remove options easily)
+✅ Per-option pros & cons analysis
+✅ Weighted scoring + visual Confidence Score (0–100%)
+✅ Clear final recommendation with reasoning
+✅ One-click “Re-analyze”, “Add Factor”, “Change Weights”
+✅ Beautiful dashboard layout (mobile-friendly)
+✅ 100% Private — runs entirely in your browser
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm (shared instance)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Storage: LocalStorage (saved decisions, history)
+Export: PDF report, Markdown summary
+Deployment: Vercel/Netlify
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Decision Maker"
+Subheadline: "Struggling with a choice? Enter your decision and options — get instant pros/cons analysis, scoring, and a clear recommendation. Private & instant."
+Trust Badges:
+
+⚖️ Objective Analysis
+📊 Confidence Score
+🎯 Per-Option Breakdown
+📋 Dynamic Options
+📄 PDF Export
+🔒 100% Private & Local
+
+Success Counter: "Helped 178,923 people decide this month"
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+YOUR DECISION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 1: Decision Question*
+
+Input field
+Placeholder: "Should I buy an electric car?" or "Which job offer should I accept?"
+Required
+
+Field 2: Options (Dynamic List)
+
+Start with 2 options, allow + Add Option button
+Each option: Text input (e.g., "Tesla Model Y", "Toyota Camry")
+Minimum 2, maximum 5 options
+Required
+
+Field 3: Extra Context (Optional)
+
+Textarea
+Placeholder: "Budget $45k max, daily commute 40 miles, family of 4, cold winters"
+
+GENERATE BUTTON
+Full-width gradient button
+Text: "Analyze My Options"
+Icon: 🤖
+Loading: "Thinking rationally… Weighing pros & cons… (100% in-browser)"
+=== OUTPUT SECTION ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DECISION DASHBOARD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Header: "Analysis: [Decision Question]"
+Big visual Confidence Score in center:
+Confidence Score: 74%
+(Colored gauge: Green = Strong recommendation, Yellow = Close call)
+Then per-option cards (stacked on mobile):
+Option 1: Tesla Model Y
+Pros:
+• Lower running costs
+• Environmental benefits
+Cons:
+• Higher upfront price
+• Charging time
+Option 2: Toyota Camry
+Pros:
+• Reliable & cheaper
+• Easier refueling
+Cons:
+• Higher fuel costs long-term
+Final Recommendation Section:
+✅ Recommended: Option 2 (Toyota Camry)
+Reasoning: Best balance of cost, reliability, and practicality for your situation.
+Action buttons:
+
+Copy All • Download PDF Report • Save Decision • Re-analyze • Add New Factor
+
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are a rational, objective decision advisor and analyst. You evaluate options logically, fairly, and without bias. You provide clear pros and cons for each option, assign balanced weights based on typical real-world priorities, and give a final recommendation with transparent reasoning. You always remain neutral until the final recommendation step.
+User Prompt Template:
+textAnalyze the following decision and provide a complete, objective recommendation.
+
+═══════════════════════════════════════
+DECISION QUESTION: {question}
+OPTIONS:
+{option1}
+{option2}
+{option3}
+{option4}
+{option5}
+
+EXTRA CONTEXT: {extraContext}
+
+═══════════════════════════════════════
+RULES:
+• Give 4–6 pros and cons for EACH option
+• Keep each point concise (1 short sentence)
+• Consider the provided context
+• Calculate a fair overall score (0–100) for each option
+• End with a clear final recommendation and confidence percentage
+• Be logical and evidence-based
+
+═══════════════════════════════════════
+OUTPUT FORMAT
+═══════════════════════════════════════
+
+CONFIDENCE SCORE: [X]%
+
+OPTION 1: [Name]
+Pros:
+• ...
+Cons:
+• ...
+
+[Repeat for every option]
+
+FINAL RECOMMENDATION:
+[Option name] is the best choice because...
+=== SEO ARTICLE SECTION ===
+Below the tool, comprehensive 2600-word article:
+Title: "Best AI Decision Maker 2026 – Make Better Choices Faster"
+[Full guide covering decision frameworks, how to use AI for career/business/personal decisions, real examples, common biases to avoid, and why confidence scoring helps]
+=== SPECIAL FEATURES ===
+
+Visual Confidence Score gauge (0–100%)
+Dynamic “Add Option” and “Add Factor” buttons
+One-click “Re-analyze with different weights”
+Decision History & Library (LocalStorage)
+PDF report with full breakdown
+“What If” scenario tester (future v2)
+
+Build this as the #1 AI Decision Maker on the internet — the engaging productivity tool everyone uses when they need to decide anything important.

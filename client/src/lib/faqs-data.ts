@@ -1281,3 +1281,38 @@ export const excuseFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate excuses without an internet connection.",
   },
 ];
+
+export const decisionFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Decision Maker?",
+    answer: "The AI Decision Maker is a free, browser-based tool that helps you analyze decisions objectively. Enter your question and 2-5 options, and the AI provides pros and cons for each option, individual scores, a confidence percentage, and a clear recommendation with reasoning.",
+  },
+  {
+    question: "Is the AI Decision Maker really free?",
+    answer: "Yes, it is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser using WebLLM technology, so there are no server costs to pass on to you.",
+  },
+  {
+    question: "How many options can I compare?",
+    answer: "You can compare between 2 and 5 options. Start with 2 options by default and use the Add Option button to include up to 5. Each option gets its own detailed analysis with pros, cons, and a score.",
+  },
+  {
+    question: "What does the Confidence Score mean?",
+    answer: "The Confidence Score (0-100%) indicates how clear-cut the recommendation is. A high score (75%+) means one option clearly stands out. A lower score (below 50%) means the options are closely matched and the decision depends more on personal preference.",
+  },
+  {
+    question: "Does extra context improve the analysis?",
+    answer: "Yes. Adding context like your budget, priorities, timeline, or specific constraints helps the AI tailor its analysis to your situation. The more relevant details you provide, the more personalized and useful the recommendation will be.",
+  },
+  {
+    question: "Can I use this for important life decisions?",
+    answer: "The AI Decision Maker is a helpful thinking tool for organizing pros and cons and seeing different perspectives. For major life decisions involving health, legal, or financial matters, always consult qualified professionals. The tool is best used as a starting point for structured thinking.",
+  },
+  {
+    question: "Is my data kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your decision questions, options, and context never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can analyze decisions without an internet connection.",
+  },
+];
