@@ -791,3 +791,38 @@ export const mealPlannerFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate meal plans and grocery lists without an internet connection.",
   },
 ];
+
+export const travelPlannerFAQs: FAQItem[] = [
+  {
+    question: "What destinations does the planner support?",
+    answer: "The planner works for any destination worldwide -- cities, countries, regions, or multi-stop trips. Type in anywhere from 'Tokyo, Japan' to 'Southeast Asia backpacking route' and the AI will create a tailored day-by-day itinerary with local insights.",
+  },
+  {
+    question: "Is my travel information kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your destination, dates, budget, and generated itineraries never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "How detailed is the day-by-day itinerary?",
+    answer: "Each day includes morning, afternoon, and evening activities with specific place names, suggested timings, transport tips between locations, and restaurant recommendations. The level of detail adapts to your travel style -- fast-paced plans pack more in, while relaxed plans leave breathing room.",
+  },
+  {
+    question: "Does it generate a packing list?",
+    answer: "Yes. The packing list is customized based on your destination, trip duration, planned activities, and expected weather conditions. It covers essentials, clothing, toiletries, electronics, and activity-specific gear.",
+  },
+  {
+    question: "How accurate is the budget breakdown?",
+    answer: "The AI provides estimated daily and total costs for accommodation, food, transport, activities, and miscellaneous expenses based on your budget level. While estimates are helpful for planning, actual prices vary by season and availability. Always verify current prices before booking.",
+  },
+  {
+    question: "Can I plan for groups or families?",
+    answer: "Yes. Set your group size from 1 to 20, and the AI adjusts recommendations accordingly -- suggesting family-friendly activities for larger groups, romantic spots for couples, or solo traveler tips. Budget estimates also scale with group size.",
+  },
+  {
+    question: "Can I specify must-see places?",
+    answer: "Yes. Add specific attractions, landmarks, restaurants, or experiences you do not want to miss, and the AI will incorporate them into your itinerary at optimal times. You can also specify your flight arrival time so Day 1 is planned realistically.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate travel itineraries without an internet connection -- perfect for planning on flights or in areas with limited connectivity.",
+  },
+];
