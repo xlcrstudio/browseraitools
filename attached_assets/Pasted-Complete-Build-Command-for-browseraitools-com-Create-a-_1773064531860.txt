@@ -1,0 +1,187 @@
+Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI LinkedIn Summary Generator for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI LinkedIn Summary Generator
+URL Slug: /ai-linkedin-summary-generator
+Tagline: "Write a Powerful LinkedIn About Section in Seconds"
+Mission: Help professionals, job seekers, and executives craft a compelling LinkedIn "About" section that tells their story, highlights achievements, and attracts the right opportunities — all while feeling like building their personal brand.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~95,000 monthly searches).
+Purpose: Generate 3 polished, keyword-optimized LinkedIn About sections tailored to your role, experience, skills, and achievements.
+Target Users: Job seekers, professionals, career switchers, executives, freelancers, students entering the workforce
+Search Demand: ~95,000 monthly searches ("linkedin summary generator", "linkedin about section", "best linkedin bio", "linkedin summary examples")
+Key Value: Professional LinkedIn About section in 25 seconds vs hours of staring at a blank screen
+=== UNIQUE SELLING POINTS ===
+✅ Step-by-step personal brand builder (not just a text box)
+✅ 3 distinct versions for A/B testing
+✅ Built-in LinkedIn optimization (keywords + ATS-friendly)
+✅ Tone selector that matches your personality
+✅ One-click "Improve", "Shorten", or "Make More Personal"
+✅ Copy-ready formatting with proper line breaks for LinkedIn
+✅ 100% Private — everything runs in your browser
+✅ Save drafts & history in LocalStorage
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+
+State Management: React useState + multi-step wizard
+LLM Engine: @mlc-ai/web-llm (shared instance)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Storage: LocalStorage (saved summaries, profile drafts)
+Export: Formatted text, PDF (ready to paste into LinkedIn)
+Deployment: Vercel/Netlify
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI LinkedIn Summary Generator"
+Subheadline: "Create a powerful LinkedIn 'About' section that gets you noticed. Step-by-step profile builder. 100% private. Runs in your browser."
+Trust Badges:
+
+💼 Personal Brand Builder
+📈 Keyword Optimized
+🎯 3 Ready-to-Use Versions
+⭐ LinkedIn Score
+🔄 Improve with One Click
+🔒 100% Private & Local
+
+Success Counter: "Helped 187,456 professionals stand out this month"
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BUILD YOUR PROFILE (Step-by-Step Wizard)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Step 1: Your Current Role*
+
+Input + suggestions dropdown
+Placeholder: "Software Engineer | Marketing Manager | Product Designer | Student | Founder"
+Required
+
+Step 2: Experience Level*
+
+Large cards with icons:
+○ Entry Level
+○ Mid-Level
+○ Senior
+○ Executive / Leadership
+Required
+
+Step 3: Key Skills (up to 8)
+
+Tags input with popular suggestions
+Placeholder: "SEO, Python, Data Analysis, Leadership, Content Strategy..."
+
+Step 4: Key Achievements (Optional)
+
+Textarea
+Placeholder: "• Led team of 12 to 300% revenue growth\n• Built AI tool used by 50k+ users\n• Promoted 3x in 18 months"
+Help text: "The more specific, the better your summary"
+
+Step 5: Tone & Style*
+
+Large selectable cards:
+○ Professional (default)
+○ Friendly & Approachable
+○ Inspirational / Motivational
+○ Executive / Authoritative
+○ Creative / Storyteller
+Required
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EXTRA CONTEXT (Optional)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field: Target Audience / Goal
+
+Input: "e.g., Attract recruiters in tech, Position myself as thought leader, Land next role at FAANG"
+
+GENERATE BUTTON
+Full-width glowing gradient button
+Text: "Generate My LinkedIn Summary"
+Icon: ✨
+Loading: "Crafting your professional story… Optimizing keywords… (100% in-browser)"
+=== OUTPUT SECTION ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+YOUR LINKEDIN SUMMARIES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Header: "Here Are 3 Powerful Versions of Your LinkedIn About Section"
+Quick Stats (above cards):
+
+Average word count: 178
+Keyword strength: Excellent
+Estimated profile views boost: +40%
+
+Three beautiful side-by-side cards (mobile stacks):
+Card 1 – Version 1 (Recommended)
+[Full formatted text with proper line breaks and emojis]
+• Copy Button
+• Word count: 182
+• LinkedIn Score: 94/100
+Card 2 – Version 2 (More Story-Driven)
+[Alternative version]
+Card 3 – Version 3 (Achievement-Focused)
+[Alternative version]
+Action buttons on each card:
+
+Copy to Clipboard
+Improve This Version
+Make It Shorter
+Make It More Personal
+Regenerate All
+
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are a world-class LinkedIn profile strategist and personal branding expert who has written About sections for executives at Google, Meta, and top startups. You know exactly what recruiters and hiring managers look for in 2026. You write authentic, engaging, keyword-rich LinkedIn summaries that sound human and drive profile views, connection requests, and job opportunities. You never sound robotic. You balance achievements with personality.
+User Prompt Template:
+textWrite 3 different versions of a powerful LinkedIn "About" section.
+
+═══════════════════════════════════════
+ROLE: {role}
+EXPERIENCE LEVEL: {experienceLevel}
+KEY SKILLS: {skillsList}
+ACHIEVEMENTS: {achievements}
+TONE: {selectedTone}
+TARGET GOAL: {targetAudienceGoal}
+
+═══════════════════════════════════════
+RULES:
+• Each version must be 120–220 words
+• Use first person ("I")
+• Include relevant keywords naturally for LinkedIn search
+• Strong opening hook in first 2-3 lines
+• Highlight achievements with numbers when possible
+• End with a clear call-to-action or forward-looking statement
+• Proper line breaks and spacing for LinkedIn readability
+• Professional but authentic tone
+
+═══════════════════════════════════════
+OUTPUT FORMAT
+═══════════════════════════════════════
+
+VERSION 1 (Recommended):
+[Full text here]
+
+VERSION 2 (Alternative Angle):
+[Full text here]
+
+VERSION 3 (Alternative Angle):
+[Full text here]
+
+For each version also provide:
+- Word count
+- LinkedIn Score (out of 100) with short reason
+=== SEO ARTICLE SECTION ===
+Below the tool, comprehensive 2600-word article:
+Title: "How to Write a LinkedIn About Section That Gets You Hired in 2026 – Complete Guide"
+[Full guide covering LinkedIn algorithm for profiles, keyword strategy, what recruiters actually read, before/after examples, common mistakes, and how to use AI without sounding fake]
+=== SPECIAL FEATURES ===
+
+One-click actions on every version:
+Improve Summary
+Make It Shorter (target 120 words)
+Make It More Personal / Story-Driven
+Make It More Achievement-Focused
+
+LinkedIn Score meter with tips
+Save Profile Drafts (LocalStorage)
+Export as formatted PDF (ready for LinkedIn mobile)
+"Copy & Paste Directly to LinkedIn" button
+Profile History & Version Comparison
+
+Build this as the #1 AI LinkedIn Summary Generator on the internet — the personal branding tool every professional will bookmark and share with their network.

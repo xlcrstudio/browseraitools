@@ -1071,3 +1071,38 @@ export const contentBriefFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate content briefs without an internet connection.",
   },
 ];
+
+export const linkedInSummaryFAQs: FAQItem[] = [
+  {
+    question: "What is a LinkedIn summary and why does it matter?",
+    answer: "Your LinkedIn summary (the 'About' section) is the first thing recruiters and hiring managers read on your profile. A well-written summary increases profile views, connection requests, and job opportunities. It tells your professional story, highlights key achievements, and includes keywords that help you appear in LinkedIn search results.",
+  },
+  {
+    question: "Why does the tool generate 3 versions?",
+    answer: "Different versions let you A/B test what works best. Version 1 is a balanced recommendation, Version 2 takes an alternative angle (more story-driven or conversational), and Version 3 focuses on achievements. You can try each one and see which generates more profile views and engagement.",
+  },
+  {
+    question: "How long should a LinkedIn summary be?",
+    answer: "The ideal LinkedIn summary is 120-220 words. LinkedIn shows only the first 3 lines before a 'see more' button, so your opening hook must be compelling. The tool generates summaries within this optimal range, with a strong opening that encourages readers to click 'see more'.",
+  },
+  {
+    question: "How does the LinkedIn Score work?",
+    answer: "The LinkedIn Score rates each generated summary out of 100 based on factors like keyword inclusion, opening hook strength, achievement specificity, call-to-action clarity, and overall readability. A score of 85+ indicates a strong, recruiter-friendly summary.",
+  },
+  {
+    question: "What keywords should I include in my LinkedIn summary?",
+    answer: "Include your job title, key skills, industry terms, and tools you use. The AI automatically weaves relevant keywords into your summary based on your role and skills input. This helps you appear in recruiter searches on LinkedIn.",
+  },
+  {
+    question: "Can I customize the tone of my summary?",
+    answer: "Yes. Choose from 5 tone options: Professional (formal and polished), Friendly & Approachable (warm and personable), Inspirational (motivational and visionary), Executive (authoritative and strategic), or Creative/Storyteller (narrative-driven). The default is Professional.",
+  },
+  {
+    question: "Is my information kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your role, skills, achievements, and generated summaries never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate LinkedIn summaries without an internet connection.",
+  },
+];
