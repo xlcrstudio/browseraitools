@@ -1001,3 +1001,38 @@ export const seoTitleFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate SEO titles without an internet connection.",
   },
 ];
+
+export const internalLinkFAQs: FAQItem[] = [
+  {
+    question: "What are internal links and why do they matter for SEO?",
+    answer: "Internal links are hyperlinks that connect pages within the same website. They help Google crawl and index your site, distribute PageRank (link equity) to important pages, build topical authority, and improve user navigation. A strong internal linking structure is one of the most effective and overlooked SEO strategies.",
+  },
+  {
+    question: "How many internal links should I add per page?",
+    answer: "The ideal number depends on content length. As a general rule, aim for 1 internal link per 200-300 words. A 2,000-word article can support 7-12 internal links comfortably. The tool adjusts its suggestions based on your content length and selected link count range (3-15).",
+  },
+  {
+    question: "How does the tool suggest anchor text?",
+    answer: "The AI analyzes the context of your content and the target page to suggest natural, SEO-optimized anchor text. It provides multiple options: a primary keyword-rich option, a descriptive alternative, and a conversational variant. This diversity helps avoid over-optimization penalties.",
+  },
+  {
+    question: "What is topical authority and how do internal links build it?",
+    answer: "Topical authority means Google recognizes your site as an expert on a subject. By linking related pages together in content clusters, you signal to Google that you cover a topic comprehensively. The tool identifies pages with topical overlap and suggests links that strengthen these clusters.",
+  },
+  {
+    question: "What link density is considered healthy?",
+    answer: "A healthy internal link density is typically 0.3-0.5% (internal links as a percentage of total words). Too few links means missed SEO opportunities, while too many can appear spammy. The tool analyzes your content and recommends an optimal link count.",
+  },
+  {
+    question: "Is my content kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your page content, site structure, and linking analysis never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can analyze internal linking opportunities without an internet connection.",
+  },
+  {
+    question: "What format should I use for my site pages list?",
+    answer: "You can paste URLs one per line, URLs with descriptions separated by a pipe character (URL | Description), or even XML sitemap content. The more pages you include with descriptions, the better the AI can match relevant linking opportunities.",
+  },
+];
