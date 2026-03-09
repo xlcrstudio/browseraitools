@@ -1,0 +1,165 @@
+Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI Instagram Caption Generator for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Instagram Caption Generator
+URL Slug: /ai-instagram-caption-generator
+Tagline: "Create Viral Instagram Captions Instantly"
+Mission: Help content creators, influencers, and brands craft engaging, scroll-stopping Instagram captions that get more likes, comments, and saves — all in a beautiful content creator studio experience.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~145,000 monthly searches).
+Purpose: Describe your post + choose style & audience → get 5 ready-to-post captions with emojis, hashtags, and virality scoring.
+Target Users: Instagram influencers, small businesses, photographers, travel bloggers, marketers, students, everyday users
+Search Demand: ~145,000 monthly searches ("instagram caption generator", "ai instagram captions", "viral caption generator", "best instagram captions")
+Key Value: Scroll-stopping caption in 20 seconds vs hours of overthinking
+=== UNIQUE SELLING POINTS ===
+✅ Content creator studio vibe with Instagram-style gradient background
+✅ Visual emoji previews and live caption cards
+✅ Virality Score (0–10) for every caption
+✅ Styles: Funny, Inspirational, Promotional, Casual, Aesthetic
+✅ One-click copy + "Post this now" formatting
+✅ Advanced toggles (emojis, hashtags, short/long)
+✅ 100% Private — everything runs in your browser
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+ (Instagram-style gradient background + glassmorphism cards)
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm (shared instance with streaming support)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Storage: LocalStorage (saved captions, history)
+Export: Copy text, Share image (canvas with Instagram frame), Download
+Deployment: Vercel/Netlify
+=== SHARED UI DESIGN SYSTEM (MANDATORY) ===
+• Subtle Instagram gradient background (purple-pink-orange)
+• Glassmorphism caption cards
+• Soft gradients + emoji previews
+• Animated glowing Generate button
+• Live streaming tokens with typewriter effect
+• Consistent action buttons: Copy • Regenerate • Improve • Share
+• Animations: "AI thinking…", "Crafting viral hook…", "Adding emojis…"
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Instagram Caption Generator"
+Subheadline: "Create viral captions instantly. Private AI running in your browser. Feels like a real content creator studio."
+Trust Badges:
+
+📸 Instagram-Optimized
+🔥 Virality Score
+✨ Emoji Previews
+🎯 Style & Audience Match
+⚡ Streaming Output
+🔒 100% Private & Local
+
+Success Counter: "Generated 412,567 viral captions this month"
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONTENT CREATOR STUDIO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Step 1: What is your post about?*
+
+Textarea with photo placeholder icon
+Placeholder: "Sunset beach photo" or "New product launch" or "Coffee shop aesthetic"
+
+Step 2: Caption Style*
+
+Large selectable cards with preview emojis:
+○ Funny 😂
+○ Inspirational ✨
+○ Promotional 🔥
+○ Casual ☕
+○ Aesthetic 🌿
+Required
+
+Step 3: Target Audience*
+
+Large selectable cards:
+○ Friends & Followers
+○ Customers / Buyers
+○ General Audience
+○ Niche Community (travel, fitness, food, etc.)
+Required
+
+Step 4: Add Keywords (Optional)
+
+Tags input
+Placeholder: "travel, sunset, beach vibes, summer"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ADVANCED OPTIONS (Collapsible)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Include emojis: Toggle (default ON)
+Include hashtags: Toggle (default ON)
+Caption Length: Short (1–2 lines) • Medium (default) • Long (storytelling)
+
+GENERATE BUTTON
+Full-width animated gradient button (Instagram purple-pink)
+Text: "✨ Generate Captions"
+Loading states: "AI thinking… → Analyzing vibe… → Crafting viral hook…"
+=== OUTPUT SECTION ===
+Five glassmorphism caption cards (stacked on mobile) with live streaming typewriter effect:
+Caption 1 🔥 8.6/10
+Sunsets, salty air, and endless summer vibes 🌅✨
+Who else is chasing golden hour right now? Drop a 🌊 below!
+#sunset #beachlife #travelvibes
+Each card shows:
+
+Virality Score (colored flame meter)
+Copy button
+Regenerate this one
+Improve (more emojis / shorter / funnier)
+Share as Instagram-ready image
+
+Global bar:
+
+Generate 5 New Captions
+Save to Drafts
+Export All
+
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are a professional Instagram content strategist and viral caption writer who has created captions for millions of followers. You write natural, engaging, scroll-stopping captions that feel human and authentic. You perfectly match tone, audience, and post type while adding the right emojis and strategic hashtags.
+User Prompt Template:
+textGenerate 5 highly engaging Instagram captions for the following post.
+
+═══════════════════════════════════════
+POST TOPIC: {topic}
+STYLE: {style}
+AUDIENCE: {audience}
+KEYWORDS: {keywords}
+EMOJIS: {includeEmojis}
+HASHTAGS: {includeHashtags}
+LENGTH: {length}
+
+═══════════════════════════════════════
+RULES:
+• Natural and conversational tone
+• Add relevant emojis (if enabled)
+• 3–5 strategic hashtags at the end (if enabled)
+• Strong hook in first line
+• Include a call-to-action
+• Match the chosen style and audience perfectly
+• Keep short/medium/long as requested
+
+═══════════════════════════════════════
+OUTPUT FORMAT
+═══════════════════════════════════════
+
+CAPTION #1 (Virality Score: X.X/10)
+[full caption text]
+
+[Repeat for #2–#5]
+=== SEO ARTICLE SECTION ===
+Below the tool, comprehensive 2700-word article:
+Title: "Best AI Instagram Caption Generator 2026 – Viral Captions That Actually Get Engagement"
+[Full guide: Instagram algorithm 2026, caption psychology, emoji & hashtag strategies, before/after examples, how to boost reach]
+=== SPECIAL FEATURES ===
+
+Real-time Virality Score (0–10 with flame meter)
+Live streaming typewriter output
+One-click actions on every caption (Copy / Improve / Regenerate / Share as image)
+Caption Drafts library (LocalStorage)
+"Post Preview" mode (shows how it looks in Instagram feed)
+Quick style/audience switcher
+
+Build this as the #1 AI Instagram Caption Generator on the internet — the content creator studio every influencer and brand will bookmark and use daily.

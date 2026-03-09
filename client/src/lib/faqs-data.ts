@@ -1351,3 +1351,38 @@ export const storyStarterFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate story starters without an internet connection.",
   },
 ];
+
+export const captionFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Instagram Caption Generator?",
+    answer: "The AI Instagram Caption Generator is a free, browser-based tool that creates 5 viral, engaging captions for your Instagram posts. Choose a style, target audience, and optional keywords to get captions with emojis, hashtags, and virality scores. The AI runs entirely in your browser for complete privacy.",
+  },
+  {
+    question: "Is the AI Instagram Caption Generator really free?",
+    answer: "Yes, it is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser using WebLLM technology, so there are no server costs to pass on to you.",
+  },
+  {
+    question: "What caption styles are available?",
+    answer: "Five styles are available: Funny (playful and witty), Inspirational (uplifting and motivating), Promotional (sales and marketing focused), Casual (relaxed and authentic), and Aesthetic (artsy and visual). Each style produces distinctly different caption tones optimized for engagement.",
+  },
+  {
+    question: "What is the Virality Score?",
+    answer: "Each generated caption receives a Virality Score from 0 to 10, indicating its predicted engagement potential. Scores of 8+ indicate high viral potential, 6-7.9 is solid engagement, and below 6 suggests the caption may need refinement. The score considers hook strength, call-to-action, and emotional appeal.",
+  },
+  {
+    question: "Can I customize emojis and hashtags?",
+    answer: "Yes. The Advanced Options section lets you toggle emojis and hashtags on or off independently. You can also choose caption length (Short, Medium, or Long) to match your posting style. These options give you full control over your caption format.",
+  },
+  {
+    question: "How do I get the best captions?",
+    answer: "Be specific about your post topic. Instead of just 'beach photo', try 'golden hour sunset at a quiet beach with friends'. Add relevant keywords and choose the right style and audience. The more context you provide, the more tailored and engaging the captions will be.",
+  },
+  {
+    question: "Is my data kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your post topics, captions, and preferences never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate Instagram captions without an internet connection.",
+  },
+];

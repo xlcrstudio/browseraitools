@@ -48,7 +48,7 @@ export const toolCategories: ToolCategory[] = [
     slug: "social-media",
     description: "Create engaging social media content effortlessly",
     tools: [
-      { id: 11, name: "AI Instagram Caption Generator", slug: "/instagram-caption-generator", icon: Instagram, available: false },
+      { id: 11, name: "AI Instagram Caption Generator", slug: "/ai-instagram-caption-generator", icon: Instagram, available: true },
       { id: 12, name: "AI TikTok Caption Generator", slug: "/ai-tiktok-caption-generator", icon: Music2, available: true },
       { id: 13, name: "AI LinkedIn Post Generator", slug: "/ai-linkedin-post-generator", icon: Linkedin, available: true },
       { id: 14, name: "AI Tweet Generator", slug: "/tweet-generator", icon: Twitter, available: false },
