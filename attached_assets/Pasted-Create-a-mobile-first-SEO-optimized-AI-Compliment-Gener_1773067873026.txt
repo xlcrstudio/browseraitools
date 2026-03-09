@@ -1,0 +1,137 @@
+Create a mobile-first, SEO-optimized AI Compliment Generator for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Compliment Generator
+URL Slug: /ai-compliment-generator
+Tagline: "Instant Heartfelt Compliments That Make People Smile"
+Mission: Spread positivity and help users brighten someone's day with genuine, natural-sounding compliments tailored to any person and tone.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~90,000 monthly searches).
+Purpose: Choose recipient + tone → get 5 beautiful, ready-to-send compliments instantly.
+Target Users: Friends, partners, coworkers, students, content creators, anyone who wants to make someone feel good
+Search Demand: ~90,000 monthly searches ("compliment generator", "AI compliment", "nice things to say", "compliment someone")
+Key Value: Perfect compliment in 12 seconds vs awkward brainstorming
+=== UNIQUE SELLING POINTS ===
+✅ Positivity engine with warm, uplifting language
+✅ Recipient types: Friend / Partner / Coworker / Stranger / Self
+✅ 5 tone options (Heartfelt, Funny, Professional, Flirty, Motivational)
+✅ Beautiful card-style output perfect for copying or sharing
+✅ One-click "Generate More" and "Daily Compliment"
+✅ 100% Private — runs entirely in your browser
+✅ Shareable as image or text
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm (shared instance)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Storage: LocalStorage (saved compliments, favorites)
+Export: Copy text, Share image (canvas), Daily streak
+Deployment: Vercel/Netlify
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Compliment Generator"
+Subheadline: "Give the perfect compliment in seconds. Heartfelt, funny, or professional — make someone’s day instantly. 100% private."
+Trust Badges:
+
+❤️ Warm & Genuine
+🎯 5 Tailored Compliments
+😊 Multiple Tones
+📬 Ready to Send
+🌟 Daily Compliment
+🔒 100% Private & Local
+
+Success Counter: "Brightened 289,345 days this month ✨"
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMPLIMENT SETUP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 1: Who is this compliment for?*
+
+Large selectable cards with icons:
+○ Friend
+○ Partner / Loved One
+○ Coworker / Boss
+○ Stranger / New Friend
+○ Yourself (self-love mode)
+Required
+
+Field 2: Tone*
+
+Large selectable cards:
+○ Heartfelt (warm & sincere)
+○ Funny (playful & light)
+○ Professional (polished & respectful)
+○ Flirty (fun & charming)
+○ Motivational (uplifting & empowering)
+Required
+
+Field 3: Specific Context (Optional)
+
+Textarea
+Placeholder: "They just finished a big project" or "They always make me laugh" or "It's their birthday"
+
+GENERATE BUTTON
+Full-width glowing pink-to-purple gradient button
+Text: "Generate Compliments ✨"
+Loading: "Crafting the perfect words… (100% in-browser)"
+=== OUTPUT SECTION ===
+Five elegant card designs (mobile stacks vertically):
+💖 Compliment #1
+"You have an amazing ability to make people feel valued and heard — it's a true gift."
+Each card includes:
+
+Copy button
+"Use this one" highlight
+Heart animation on copy
+
+Global buttons:
+
+Generate More (5 new ones)
+Daily Compliment (one fresh random compliment every day)
+Share All (beautiful image collage)
+
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are a warm, positive, and highly skilled communicator who specializes in genuine compliments. Your compliments feel natural, sincere, and uplifting. You never sound cheesy or over-the-top. You adapt perfectly to the recipient and tone while keeping everything respectful and heartfelt.
+User Prompt Template:
+textGenerate 5 beautiful compliments for the following person.
+
+═══════════════════════════════════════
+RECIPIENT: {recipient}
+TONE: {tone}
+CONTEXT: {context}
+
+═══════════════════════════════════════
+RULES:
+• Warm, natural, and uplifting language
+• 1–2 sentences max per compliment
+• Specific and genuine (not generic)
+• Match the chosen tone perfectly
+• Feel like something a real caring person would say
+
+═══════════════════════════════════════
+OUTPUT FORMAT
+═══════════════════════════════════════
+
+COMPLIMENT #1:
+[full text]
+
+COMPLIMENT #2:
+[full text]
+
+... (up to #5)
+=== SEO ARTICLE SECTION ===
+Below the tool, comprehensive 2300-word article:
+Title: "Best AI Compliment Generator 2026 – Make Anyone Smile Instantly"
+[Full guide: psychology of compliments, how to give better compliments, examples for every relationship, why compliments boost mental health, and viral sharing tips]
+=== SPECIAL FEATURES ===
+
+Daily Compliment button (new one every 24 hours with streak counter)
+One-click "Generate More" + "Try Different Tone"
+Compliment image export (ready for Instagram stories / WhatsApp)
+Favorites library (LocalStorage)
+Self-Love mode with extra empowering compliments
+"Copy & Send" quick buttons optimized for messaging apps
+
+Build this as the #1 AI Compliment Generator on the internet — the positivity tool everyone shares with friends, partners, and coworkers.

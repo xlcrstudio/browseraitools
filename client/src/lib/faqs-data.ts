@@ -1211,3 +1211,38 @@ export const prosConsFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate pros and cons analyses without an internet connection.",
   },
 ];
+
+export const complimentFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Compliment Generator?",
+    answer: "The AI Compliment Generator creates 5 genuine, natural-sounding compliments tailored to your chosen recipient and tone. Whether you want something heartfelt for a partner, professional for a coworker, or motivational for yourself, the AI crafts compliments that feel authentic and meaningful.",
+  },
+  {
+    question: "Who can I generate compliments for?",
+    answer: "Choose from 5 recipient types: Friend, Partner/Loved One, Coworker/Boss, Stranger/New Friend, or Yourself (self-love mode). Each type adjusts the language, warmth level, and appropriateness of the compliments.",
+  },
+  {
+    question: "What tone options are available?",
+    answer: "Choose from 5 tones: Heartfelt (warm and sincere), Funny (playful and light), Professional (polished and respectful), Flirty (fun and charming), or Motivational (uplifting and empowering). The AI matches the tone perfectly to your selection.",
+  },
+  {
+    question: "How does adding context improve the compliments?",
+    answer: "Context makes compliments specific and personal rather than generic. Mentioning details like 'they just got a promotion' or 'they always make me laugh' helps the AI create compliments that reference real qualities and situations, making them feel much more genuine.",
+  },
+  {
+    question: "Are the compliments appropriate and respectful?",
+    answer: "Yes. The AI is specifically designed to generate respectful, sincere compliments. Even in Flirty mode, the language stays tasteful and appropriate. The compliments are crafted to make people feel valued without being uncomfortable.",
+  },
+  {
+    question: "What is self-love mode?",
+    answer: "Selecting 'Yourself' as the recipient activates self-love mode, generating empowering affirmations and self-compliments. These are designed to boost confidence, recognize your own strengths, and practice positive self-talk.",
+  },
+  {
+    question: "Is my data kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your compliments, recipient details, and context never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate compliments without an internet connection.",
+  },
+];

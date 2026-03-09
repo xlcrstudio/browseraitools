@@ -36,6 +36,7 @@ import LinkedInSummaryPage from "@/pages/LinkedInSummaryPage";
 import RoastPage from "@/pages/RoastPage";
 import PromptGeneratorPage from "@/pages/PromptGeneratorPage";
 import ProsConsPage from "@/pages/ProsConsPage";
+import ComplimentPage from "@/pages/ComplimentPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -75,6 +76,7 @@ function Router() {
       <Route path="/ai-roast-generator" component={RoastPage} />
       <Route path="/ai-prompt-generator" component={PromptGeneratorPage} />
       <Route path="/ai-pros-and-cons-generator" component={ProsConsPage} />
+      <Route path="/ai-compliment-generator" component={ComplimentPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
