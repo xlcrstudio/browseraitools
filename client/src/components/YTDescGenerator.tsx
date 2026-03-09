@@ -48,53 +48,6 @@ interface ParsedDescription {
   seoScore: number;
 }
 
-function parseDescriptions(raw: string): ParsedDescription[] {
-  const optionRegex = /OPTION\s*#?\s*(\d+)\s*[-:]\s*(.*?)(?:\(|SEO).*?(\d+(?:\.\d+)?)\/10\)?\s*\n([\s\S]*?)(?=OPTION\s*#?\s*\d|$)/gi;
-  let matches = Array.from(raw.matchAll(optionRegex));
-  if (matches.length >= 2) {
-    return matches.slice(0, 3).map((m) => {
-      const text = m[4].trim();
-      return {
-        label: m[2].trim() || `Option ${m[1]}`,
-        text,
-        wordCount: text.split(/\s+/).filter(Boolean).length,
-        seoScore: parseFloat(m[3]) || 7.5,
-      };
-    });
-  }
-
-  const simpleOptionRegex = /OPTION\s*#?\s*(\d+)\s*[-:]?\s*(.*?)\n([\s\S]*?)(?=OPTION\s*#?\s*\d|$)/gi;
-  matches = Array.from(raw.matchAll(simpleOptionRegex));
-  if (matches.length >= 2) {
-    return matches.slice(0, 3).map((m) => {
-      const text = m[3].trim();
-      return {
-        label: m[2].trim() || `Option ${m[1]}`,
-        text,
-        wordCount: text.split(/\s+/).filter(Boolean).length,
-        seoScore: 7.5,
-      };
-    });
-  }
-
-  const sections = raw.split(/---+/).map((s) => s.trim()).filter((s) => s.length > 50);
-  if (sections.length >= 2) {
-    return sections.slice(0, 3).map((s, i) => ({
-      label: `Option ${i + 1}`,
-      text: s,
-      wordCount: s.split(/\s+/).filter(Boolean).length,
-      seoScore: 7.5,
-    }));
-  }
-
-  return [{
-    label: "Generated Description",
-    text: raw.trim(),
-    wordCount: raw.trim().split(/\s+/).filter(Boolean).length,
-    seoScore: 7.5,
-  }];
-}
-
 function getSeoScoreColor(score: number) {
   if (score >= 8) return "bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300";
   if (score >= 6) return "bg-yellow-100 dark:bg-yellow-900/50 text-yellow-700 dark:text-yellow-300";
@@ -176,6 +129,48 @@ export function YTDescGenerator() {
     } catch {}
   };
 
+  const buildPrompt = (style: string, styleInstruction: string) => {
+    const summaryLine = summary.trim() ? `\nVideo Summary: ${summary.trim()}` : "";
+    const durationLine = videoDuration.trim() ? ` (total duration: ${videoDuration.trim()})` : "";
+    const linksLine = links.trim() ? `\n\nLINKS TO INCLUDE:\n${links.trim()}` : "";
+    const ctaLine = ctas.length > 0 ? ctas.join(", ") : "Subscribe and like";
+    const channelLine = channelName.trim() ? ` for the channel "${channelName.trim()}"` : "";
+    const hashtagLine = includeHashtags ? "\n- End with 8-15 relevant hashtags on one line, space-separated" : "";
+    const emojiLine = includeEmoji ? "\n- Use emojis for section headers and bullet points" : "";
+    const timestampBlock = includeTimestamps
+      ? `\n- Include TIMESTAMPS section with ${numSections} chapters in MM:SS - Topic format, starting at 00:00${durationLine}`
+      : "";
+
+    const lengthGuide = descLength === "Short" ? "100-150"
+      : descLength === "Detailed" ? "300-500"
+      : "200-300";
+
+    return `Write a complete, ready-to-paste YouTube video description${channelLine}.
+
+IMPORTANT CONTEXT - this description MUST be specifically about: "${topic.trim()}". Do NOT write generic or placeholder text. Write the ACTUAL full description.
+${summaryLine}
+Main Keywords to integrate naturally: ${keywords.trim()}
+Video Type: ${videoType} | Channel Type: ${channelType}
+
+STYLE: ${style} - ${styleInstruction}
+
+TARGET LENGTH: ${lengthGuide} words.
+
+REQUIRED STRUCTURE:
+- Start with a compelling 2-3 line HOOK that includes the primary keyword and grabs attention
+- Add a VALUE PROPOSITION paragraph explaining what viewers will learn
+- Include a WHAT'S COVERED section with 4-8 bullet points of key topics${timestampBlock}${linksLine ? "\n- Include a LINKS section with the provided links formatted nicely" : ""}
+- Add CALL-TO-ACTION for: ${ctaLine}${hashtagLine}${emojiLine}
+
+Write the complete description now. Do NOT use placeholders or brackets. Write real, specific content about "${topic.trim()}":`;
+  };
+
+  const STYLES: [string, string][] = [
+    ["SEO-Optimized", "Maximum keyword integration, structured for YouTube search ranking"],
+    ["Concise & Direct", "Shorter, punchy, gets straight to the point for quick scanning"],
+    ["Comprehensive", "Detailed and thorough, extra context and resources"],
+  ];
+
   const handleGenerate = async () => {
     setIsGenerating(true);
     setStreamingText("");
@@ -183,73 +178,39 @@ export function YTDescGenerator() {
     setCopiedIdx(null);
     setCopiedAll(false);
 
-    const summaryLine = summary.trim() ? `\nVideo Summary: ${summary.trim()}` : "";
-    const durationLine = videoDuration.trim() ? `\nVideo Duration: ${videoDuration.trim()}` : "";
-    const linksLine = links.trim() ? `\nLinks to Include:\n${links.trim()}` : "";
-    const ctaLine = ctas.length > 0 ? `\nCTAs to Include: ${ctas.join(", ")}` : "";
-    const channelLine = channelName.trim() ? `\nChannel/Brand Name: ${channelName.trim()}` : "";
-    const hashtagLine = includeHashtags ? "\nInclude 8-15 relevant hashtags at the end" : "\nDo NOT include hashtags";
-    const emojiLine = includeEmoji ? "\nUse emojis strategically for section headers and bullet points" : "\nDo NOT use emojis";
-    const timestampBlock = includeTimestamps
-      ? `\nInclude Timestamps: Yes (${numSections} sections)${durationLine}\nFormat timestamps as MM:SS - Description, always start with 00:00`
-      : "\nInclude Timestamps: No";
-
-    const lengthGuide = descLength === "Short" ? "100-150 words, concise and direct"
-      : descLength === "Detailed" ? "300-500 words, comprehensive and thorough"
-      : "200-300 words, balanced and complete";
-
-    const userPrompt = `Generate 3 optimized YouTube video description options.
-
-IMPORTANT CONTEXT - every description MUST be specifically about this topic: ${topic.trim()}. Do NOT write generic descriptions.
-
-VIDEO INFORMATION:
-Video Topic/Title: ${topic.trim()}${summaryLine}
-Main Keywords: ${keywords.trim()}
-Video Type: ${videoType}
-Channel Type: ${channelType}
-Description Length: ${descLength} (${lengthGuide})${timestampBlock}${linksLine}${ctaLine}${channelLine}${hashtagLine}${emojiLine}
-
-STRUCTURE EACH DESCRIPTION WITH:
-1. HOOK (First 2-3 lines) - Most critical 150 characters, include primary keyword, create curiosity
-2. VALUE PROPOSITION - What viewers will learn/gain
-3. WHAT'S COVERED - Bullet points with key topics (4-8 items)
-${includeTimestamps ? `4. TIMESTAMPS - MM:SS format for ${numSections} sections` : ""}
-${links.trim() ? "5. LINKS & RESOURCES - Format provided links with labels" : ""}
-6. CALL-TO-ACTION - ${ctas.length > 0 ? ctas.join(", ") : "Subscribe and like"}
-${includeHashtags ? "7. HASHTAGS - 8-15 relevant hashtags at the very end" : ""}
-
-Rules:
-- First 2 lines are CRITICAL - they show in search results
-- Integrate keywords naturally (NOT stuffed)
-- Each option should have a unique hook/opening
-- Rate each description's SEO optimization 0.0-10.0
-- Ready to copy-paste directly into YouTube
-
-FORMAT YOUR RESPONSE EXACTLY:
-OPTION #1 - SEO-Optimized (SEO: X.X/10)
-[Complete YouTube description]
-
-OPTION #2 - Concise & Direct (SEO: X.X/10)
-[Complete YouTube description]
-
-OPTION #3 - Comprehensive (SEO: X.X/10)
-[Complete YouTube description]`;
+    const results: ParsedDescription[] = [];
 
     try {
-      const result = await generateRaw({
-        messages: [
-          { role: "system", content: SYSTEM_PROMPT },
-          { role: "user", content: userPrompt },
-        ],
-        temperature: 0.7,
-        maxTokens: 2048,
-        onChunk: (text) => setStreamingText(text),
-      });
+      for (let i = 0; i < 3; i++) {
+        const [styleName, styleInstruction] = STYLES[i];
+        setStreamingText(`Generating ${styleName} description (${i + 1}/3)...`);
 
-      if (result) {
-        const parsed = parseDescriptions(result);
-        setDescriptions(parsed);
+        const result = await generateRaw({
+          messages: [
+            { role: "system", content: SYSTEM_PROMPT },
+            { role: "user", content: buildPrompt(styleName, styleInstruction) },
+          ],
+          temperature: 0.7,
+          maxTokens: 1200,
+          onChunk: (text) => setStreamingText(`[${styleName} - ${i + 1}/3]\n\n${text}`),
+        });
 
+        if (result) {
+          const cleaned = result.trim();
+          const wordCount = cleaned.split(/\s+/).filter(Boolean).length;
+          const hasKeywords = keywords.split(",").some((k) => cleaned.toLowerCase().includes(k.trim().toLowerCase()));
+          const seoScore = Math.min(10, 6 + (hasKeywords ? 1.5 : 0) + (cleaned.includes("00:00") ? 0.5 : 0) + (cleaned.includes("#") ? 0.5 : 0) + Math.min(1.5, wordCount / 200));
+          results.push({
+            label: styleName,
+            text: cleaned,
+            wordCount,
+            seoScore: Math.round(seoScore * 10) / 10,
+          });
+          setDescriptions([...results]);
+        }
+      }
+
+      if (results.length > 0) {
         const record: YTDescResult = {
           id: generateId(),
           topic: topic.trim(),
@@ -266,8 +227,8 @@ OPTION #3 - Comprehensive (SEO: X.X/10)
           includeHashtags,
           includeEmoji,
           channelName: channelName.trim(),
-          descriptions: parsed.map((d) => d.text).join("\n---\n"),
-          rawText: result,
+          descriptions: results.map((d) => d.text).join("\n---\n"),
+          rawText: results.map((d) => `[${d.label}]\n${d.text}`).join("\n\n===\n\n"),
           createdAt: new Date().toISOString(),
         };
         saveDesc(record);
@@ -276,6 +237,7 @@ OPTION #3 - Comprehensive (SEO: X.X/10)
       console.error("Generation error:", err);
     }
 
+    setStreamingText("");
     setIsGenerating(false);
   };
 
@@ -623,9 +585,9 @@ OPTION #3 - Comprehensive (SEO: X.X/10)
           </div>
         </div>
 
-        {isGenerating && streamingText && !descriptions.length && (
+        {isGenerating && streamingText && (
           <div className="mt-6" data-testid="container-streaming">
-            <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Generating description options...</p>
+            <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Generating description options ({descriptions.length + 1}/3)...</p>
             <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
               <p className="text-slate-700 dark:text-slate-200 whitespace-pre-wrap" data-testid="text-streaming">
                 {streamingText}
