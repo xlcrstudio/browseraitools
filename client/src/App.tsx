@@ -31,6 +31,7 @@ import SerpIntentPage from "@/pages/SerpIntentPage";
 import MetaDescriptionPage from "@/pages/MetaDescriptionPage";
 import SeoTitlePage from "@/pages/SeoTitlePage";
 import InternalLinkPage from "@/pages/InternalLinkPage";
+import ContentBriefPage from "@/pages/ContentBriefPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -65,6 +66,7 @@ function Router() {
       <Route path="/ai-meta-description-generator" component={MetaDescriptionPage} />
       <Route path="/ai-seo-title-generator" component={SeoTitlePage} />
       <Route path="/ai-internal-link-suggestion-tool" component={InternalLinkPage} />
+      <Route path="/ai-content-brief-generator" component={ContentBriefPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />

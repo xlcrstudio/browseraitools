@@ -1036,3 +1036,38 @@ export const internalLinkFAQs: FAQItem[] = [
     answer: "You can paste URLs one per line, URLs with descriptions separated by a pipe character (URL | Description), or even XML sitemap content. The more pages you include with descriptions, the better the AI can match relevant linking opportunities.",
   },
 ];
+
+export const contentBriefFAQs: FAQItem[] = [
+  {
+    question: "What is a content brief and why do I need one?",
+    answer: "A content brief is a comprehensive document that guides writers to create SEO-optimized content. It includes target keywords, heading structure, search intent, word count recommendations, questions to answer, and style guidelines. Great briefs eliminate guesswork, reduce revisions, and consistently produce content that ranks.",
+  },
+  {
+    question: "How many sections does the generated brief include?",
+    answer: "The AI generates a complete brief with 5 core sections: Content Overview (keyword, intent, audience), Content Structure (full H1/H2/H3 outline), Keywords (primary, secondary, LSI terms), Questions and Angles (FAQs, user questions, unique approaches), and Writer Guidelines (tone, style, meta descriptions, title suggestions).",
+  },
+  {
+    question: "How does search intent matching work?",
+    answer: "The tool auto-detects search intent based on your keyword and content type. For example, a 'how-to guide' defaults to Informational intent, while a 'comparison' defaults to Commercial. You can override the auto-detected intent. The entire brief is then optimized to match that intent.",
+  },
+  {
+    question: "How does the tool determine the ideal word count?",
+    answer: "The AI recommends a word count based on your content type, search intent, and content depth. Blog posts typically need 1,500-2,500 words, ultimate guides 3,000-5,000 words, and listicles 1,000-2,000 words. You can adjust the slider to set your own target between 500 and 5,000 words.",
+  },
+  {
+    question: "Can I include competitor URLs for analysis?",
+    answer: "Yes. You can paste up to 10 competitor URLs. The AI will analyze the competitive landscape and suggest ways to differentiate your content, identify content gaps, and recommend angles that competitors are missing. This helps you create content that outperforms existing results.",
+  },
+  {
+    question: "Can I export the content brief?",
+    answer: "You can copy the entire brief or copy it formatted as Markdown. The Markdown format can be pasted directly into Google Docs, Notion, or any other document editor. All briefs are also saved to your browser history for future reference.",
+  },
+  {
+    question: "Is my data kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your keywords, competitor URLs, brand guidelines, and generated briefs never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate content briefs without an internet connection.",
+  },
+];
