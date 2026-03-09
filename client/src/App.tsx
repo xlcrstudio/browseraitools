@@ -43,6 +43,7 @@ import StoryStarterPage from "@/pages/StoryStarterPage";
 import CaptionPage from "@/pages/CaptionPage";
 import TweetPage from "@/pages/TweetPage";
 import YTTitlePage from "@/pages/YTTitlePage";
+import YTDescPage from "@/pages/YTDescPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -89,6 +90,7 @@ function Router() {
       <Route path="/ai-instagram-caption-generator" component={CaptionPage} />
       <Route path="/ai-tweet-generator" component={TweetPage} />
       <Route path="/ai-youtube-title-generator" component={YTTitlePage} />
+      <Route path="/ai-youtube-description-generator" component={YTDescPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />

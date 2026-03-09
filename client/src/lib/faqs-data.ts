@@ -1456,3 +1456,42 @@ export const ytTitleFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate YouTube titles without an internet connection.",
   },
 ];
+
+export const ytDescFAQs: FAQItem[] = [
+  {
+    question: "What is the AI YouTube Description Generator?",
+    answer: "The AI YouTube Description Generator is a free, browser-based tool that creates SEO-optimized YouTube video descriptions. It generates 3 complete description variations with hooks, bullet points, timestamps, hashtags, and calls-to-action. Choose from 6 video types and 3 description lengths. The AI runs entirely in your browser for complete privacy.",
+  },
+  {
+    question: "Is the AI YouTube Description Generator really free?",
+    answer: "Yes, it is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser using WebLLM technology, so there are no server costs to pass on to you.",
+  },
+  {
+    question: "What video types are supported?",
+    answer: "Six video types are supported: Educational/Tutorial, Review/Comparison, Vlog/Lifestyle, Gaming/Entertainment, News/Commentary, and Unboxing/First Look. Each type optimizes the description style, tone, and structure to match audience expectations for that content category.",
+  },
+  {
+    question: "What description lengths are available?",
+    answer: "Three lengths are available: Short (100-150 words, ideal for simple videos), Standard (200-300 words, the most common and balanced option), and Detailed (300-500 words, best for tutorials and comprehensive guides). Each length is optimized for different content types and audience preferences.",
+  },
+  {
+    question: "What do the SEO scores mean?",
+    answer: "The SEO Score (0-10) rates how well each generated description is optimized for YouTube search. It considers keyword integration, structure and formatting, hook effectiveness, hashtag strategy, and overall readability. A score of 8 or higher indicates a well-optimized description that should perform well in YouTube search results.",
+  },
+  {
+    question: "Does the tool generate timestamps automatically?",
+    answer: "Yes. When the timestamps toggle is enabled, the tool generates chapter markers in MM:SS format based on the number of sections you specify (3-10). If you provide your video duration, the timestamps will be distributed proportionally. Timestamps improve viewer experience and help YouTube understand your content structure.",
+  },
+  {
+    question: "How many hashtags does it generate?",
+    answer: "When hashtags are enabled, the tool generates 8-15 relevant hashtags, which is the optimal range for YouTube. The first 3 hashtags appear above your video title on YouTube, making them especially important for visibility. The hashtags include a mix of broad and niche tags tailored to your content.",
+  },
+  {
+    question: "Is my data kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your video topics, content summaries, generated descriptions, and preferences never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate YouTube descriptions without an internet connection.",
+  },
+];
