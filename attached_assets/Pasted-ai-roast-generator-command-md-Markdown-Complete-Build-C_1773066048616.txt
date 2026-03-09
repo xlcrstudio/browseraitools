@@ -1,0 +1,134 @@
+ai-roast-generator-command.md
+Markdown## Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI Roast Generator for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Roast Generator
+URL Slug: /ai-roast-generator
+Tagline: "Get Hilariously Roasted by AI"
+Mission: Deliver laugh-out-loud, playful roasts that feel like a comedy club experience — perfect for sharing on social media, group chats, and viral content.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~140,000 monthly searches).
+Purpose: Enter a name or topic + roast level → get 3 clever, funny roasts instantly.
+Target Users: Friends roasting friends, social media users, content creators, Reddit/TikTok/Discord communities
+Search Demand: ~140,000 monthly searches ("roast generator", "AI roast me", "funny roast", "savage roast generator")
+Key Value: Viral-ready roast in 15 seconds vs awkward manual attempts
+=== UNIQUE SELLING POINTS ===
+✅ Comedy-club vibe with speech-bubble design
+✅ 3 roast levels: Light • Medium • Savage
+✅ Short, punchy, shareable roasts
+✅ One-click "Roast Again", "Savage Mode", "Share"
+✅ 100% Private — runs entirely in your browser
+✅ Roast Meter visual for extra fun
+✅ Works offline after first load
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm (shared instance)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Storage: LocalStorage (saved roasts, favorites)
+Export: Copy text, Share image (canvas), Download
+Deployment: Vercel/Netlify
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Roast Generator"
+Subheadline: "Get hilariously roasted by AI. Light, Medium, or Savage — your choice. 100% private & instant."
+Trust Badges:
+
+🔥 Comedy Club Vibes
+😂 3 Roast Levels
+⚡ Instant & Shareable
+🔄 Roast Again Button
+📈 Viral Meter
+🔒 100% Private
+
+Success Counter: "Roasted 312,456 people this month 🔥"
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ROAST SETUP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 1: Name or Topic*
+
+Input field
+Placeholder: "Alex" or "my boss" or "my dating profile"
+Required
+
+Field 2: Roast Level*
+
+Large selectable cards with fire emojis:
+○ Light 😂 (playful & safe)
+○ Medium 🔥 (witty & cheeky)
+○ Savage 🔥🔥 (no mercy — still clean)
+Required
+
+Field 3: Add Context (Optional)
+
+Textarea
+Placeholder: "He's a software engineer who always misses deadlines" or "She loves pineapple on pizza"
+
+GENERATE BUTTON
+Full-width glowing red-orange button
+Text: "Roast Me 🔥"
+Loading: "Loading the comedy stage… (100% in-browser)"
+=== OUTPUT SECTION ===
+Three speech-bubble cards with comedy-club lighting:
+🔥 Roast #1
+"You're like a software update. Everyone avoids you until forced."
+Quick stats per roast:
+
+Roast Level: Savage
+Length: Short & punchy
+Share button
+
+Global buttons:
+
+Roast Again
+Savage Mode (one-click upgrade)
+Share All (generates fun image)
+
+Roast Meter visual bar that fills with fire emojis based on level.
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are a world-class stand-up comedian and roast master who has performed at comedy clubs and viral social media. Your roasts are clever, creative, playful, and never mean-spirited or offensive. You use wordplay, exaggeration, and relatable humor. Keep every roast short (1-2 sentences), punchy, and extremely shareable.
+User Prompt Template:
+textGenerate 3 hilarious roasts for the following target.
+
+═══════════════════════════════════════
+TARGET: {nameOrTopic}
+ROAST INTENSITY: {level}
+CONTEXT: {context}
+
+═══════════════════════════════════════
+RULES:
+• Playful humor only — no offensive language, no hate
+• Short, punchy lines (1-2 sentences max per roast)
+• Creative metaphors and clever wordplay
+• Make them feel like a comedy club roast
+• Keep it fun and light-hearted even on Savage level
+
+═══════════════════════════════════════
+OUTPUT FORMAT
+═══════════════════════════════════════
+
+ROAST #1:
+[roast text]
+
+ROAST #2:
+[roast text]
+
+ROAST #3:
+[roast text]
+
+Also add a fun Roast Meter rating for each.
+=== SEO ARTICLE SECTION ===
+Below the tool, comprehensive 2200-word article: "Best AI Roast Generator 2026 – How to Create Viral Roasts That Get Millions of Views"
+=== SPECIAL FEATURES ===
+
+Roast Meter (visual fire bar)
+One-click Savage Mode upgrade
+Share as image (canvas export)
+Roast History & Favorites
+"Roast My Photo" text prompt (future)
+
+Build this as the #1 viral AI Roast Generator on the internet — the tool everyone shares in group chats and TikTok comments.

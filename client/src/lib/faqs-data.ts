@@ -1106,3 +1106,38 @@ export const linkedInSummaryFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate LinkedIn summaries without an internet connection.",
   },
 ];
+
+export const roastFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Roast Generator?",
+    answer: "The AI Roast Generator creates clever, playful roasts using artificial intelligence. Enter a name or topic, choose a roast level (Light, Medium, or Savage), and get 3 unique roasts instantly. It uses comedy writing principles like wordplay, exaggeration, and relatable humor.",
+  },
+  {
+    question: "Are the roasts offensive or mean?",
+    answer: "No. The AI is specifically trained to keep roasts playful, clever, and fun. Even on Savage mode, the humor stays clean and lighthearted. Think comedy club roast, not personal attack. The roasts use wordplay and exaggeration rather than anything hurtful.",
+  },
+  {
+    question: "What do the roast levels mean?",
+    answer: "Light roasts are playful and safe, perfect for friends and family. Medium roasts are witty and cheeky with more bite. Savage roasts go all-in with creative burns, but still keep it clean and fun. All levels avoid offensive or hateful content.",
+  },
+  {
+    question: "Can I roast a topic instead of a person?",
+    answer: "Yes. You can roast anything: a person's name, a job title, a hobby, a food preference, a city, or any topic. Adding context makes the roasts more specific and funnier. For example, 'pineapple on pizza' with context 'people who defend it passionately' gives targeted humor.",
+  },
+  {
+    question: "How does adding context improve the roasts?",
+    answer: "Context gives the AI specific details to work with, resulting in more personalized and clever roasts. Instead of generic humor, the AI can reference specific traits, habits, or situations you describe. The more specific the context, the funnier the roasts.",
+  },
+  {
+    question: "Can I share the roasts on social media?",
+    answer: "Yes. Each roast has a copy button so you can paste it directly into TikTok, Reddit, Discord, Twitter, or any group chat. The roasts are designed to be short, punchy, and shareable.",
+  },
+  {
+    question: "Is my data kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Names, topics, and generated roasts never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate roasts without an internet connection.",
+  },
+];
