@@ -1,0 +1,164 @@
+Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI YouTube Title Generator for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI YouTube Title Generator
+URL Slug: /ai-youtube-title-generator
+Tagline: "Generate Click-Worthy YouTube Titles That Rank"
+Mission: Help creators and YouTubers instantly create high-CTR, SEO-optimized titles that boost views and ranking — all inside a sleek YouTube growth assistant interface.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~165,000 monthly searches).
+Purpose: Enter video topic + category + style → get 10 perfectly optimized YouTube titles with SEO Score and Predicted CTR.
+Target Users: YouTubers, content creators, marketers, educators, tech reviewers, students
+Search Demand: ~165,000 monthly searches ("youtube title generator", "ai youtube titles", "best youtube titles", "clickbait title generator")
+Key Value: Viral-ready title in 18 seconds vs hours of A/B testing
+=== UNIQUE SELLING POINTS ===
+✅ YouTube growth assistant experience with real-time SEO scoring
+✅ 10 high-CTR titles per generation
+✅ Predicted CTR (High/Medium/Low) + SEO Score (0–10)
+✅ Styles: Clickbait, Informational, List style, Curiosity
+✅ Character limit enforcement (under 60–70 for best performance)
+✅ One-click “Generate Thumbnail Idea” + “Turn into Script Hook”
+✅ 100% Private — everything runs in your browser
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+ (YouTube red-black gradient + glassmorphism cards)
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm (shared instance with streaming support)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Storage: LocalStorage (saved titles, history)
+Export: Copy text, Share image (YouTube thumbnail preview), Download CSV
+Deployment: Vercel/Netlify
+=== SHARED UI DESIGN SYSTEM (MANDATORY) ===
+• YouTube-style red gradient background
+• Glassmorphism title cards with play-button icons
+• Animated glowing Generate button
+• Live streaming tokens with typewriter effect
+• Consistent action buttons: Copy • Regenerate • Improve • Share
+• Animations: “AI thinking…”, “Optimizing for search…”, “Calculating CTR…”
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI YouTube Title Generator"
+Subheadline: "Create click-worthy, SEO-optimized YouTube titles that actually rank. Private AI running in your browser. Built like a real growth assistant."
+Trust Badges:
+
+📈 SEO Score
+📊 Predicted CTR
+🔥 10 Titles Every Time
+⚡ Under 70 Characters
+🎯 Style & Category Match
+🔒 100% Private & Local
+
+Success Counter: "Generated 523,891 ranking titles this month"
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+YOUTUBE GROWTH ASSISTANT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 1: Video Topic*
+
+Textarea
+Placeholder: "AI tools for productivity" or "How I made $10k last month"
+
+Field 2: Video Category*
+
+Large selectable cards with icons:
+○ Education 📚
+○ Technology 💻
+○ Entertainment 🎥
+○ Business 💼
+○ Gaming 🎮
+○ Lifestyle 🌿
+○ Other
+Required
+
+Field 3: Title Style*
+
+Large selectable cards:
+○ Clickbait 🔥
+○ Informational 📊
+○ List Style 📋
+○ Curiosity ❓
+Required
+
+Field 4: Target Keywords (Optional)
+
+Tags input
+Placeholder: "AI tools, productivity, 2026"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ADVANCED OPTIONS (Collapsible)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Max length: 60 characters (default) / 70 characters
+Include numbers: Toggle
+Include emotional words: Toggle
+
+GENERATE BUTTON
+Full-width animated red-gradient button (YouTube style)
+Text: "✨ Generate Titles"
+Loading states: "AI thinking… → Optimizing for search… → Calculating CTR…"
+=== OUTPUT SECTION ===
+Ten glassmorphism title cards (stacked on mobile) with live streaming typewriter effect:
+Title 1
+10 AI Tools That Will 10X Your Productivity in 2026
+SEO Score: 9.1/10
+Predicted CTR: High 🔥
+Each card includes:
+
+SEO Score badge
+Predicted CTR (High/Medium/Low with color)
+Copy button
+Regenerate this one
+“Generate Thumbnail Idea”
+“Turn into Script Hook”
+
+Global actions:
+
+Generate 10 New Titles
+Save to Channel Ideas
+Export All as CSV
+
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are a YouTube growth expert and title optimizer who has helped channels grow from 0 to 1M+ subscribers. You create highly clickable, SEO-optimized titles that rank in 2026. You understand search volume, click-through rate psychology, and YouTube’s algorithm perfectly. Titles must be under 70 characters and feel native to YouTube.
+User Prompt Template:
+textGenerate 10 highly clickable YouTube titles for the following video.
+
+═══════════════════════════════════════
+VIDEO TOPIC: {topic}
+CATEGORY: {category}
+STYLE: {style}
+KEYWORDS: {keywords}
+MAX LENGTH: {maxLength} characters
+
+═══════════════════════════════════════
+RULES:
+• All titles under the exact character limit
+• Highly searchable + clickable
+• Match the chosen style perfectly
+• Include numbers or power words when they fit
+• Optimized for both search and CTR
+• Ready to copy-paste into YouTube
+
+═══════════════════════════════════════
+OUTPUT FORMAT
+═══════════════════════════════════════
+
+TITLE #1 (SEO: X.X/10 | CTR: High/Medium/Low)
+[full title text]
+
+[Repeat for #2–#10]
+=== SEO ARTICLE SECTION ===
+Below the tool, comprehensive 2800-word article:
+Title: "Best AI YouTube Title Generator 2026 – Titles That Rank & Get Clicks"
+[Full guide: YouTube SEO 2026, CTR psychology, title formulas that work, before/after case studies, how to combine with thumbnails]
+=== SPECIAL FEATURES ===
+
+Real-time SEO Score + Predicted CTR for every title
+Live streaming typewriter output
+One-click actions on every title (Copy / Improve / Regenerate / Thumbnail Idea)
+Title History & Channel Library (LocalStorage)
+“Generate Full Script Hook” from any title
+CSV export for bulk upload
+
+Build this as the #1 AI YouTube Title Generator on the internet — the growth assistant every creator will bookmark and use for every video.

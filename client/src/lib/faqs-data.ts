@@ -1421,3 +1421,38 @@ export const tweetFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate tweets without an internet connection.",
   },
 ];
+
+export const ytTitleFAQs: FAQItem[] = [
+  {
+    question: "What is the AI YouTube Title Generator?",
+    answer: "The AI YouTube Title Generator is a free, browser-based tool that creates 10 SEO-optimized, click-worthy YouTube titles for any video topic. Each title comes with an SEO score and predicted CTR rating. Choose from clickbait, informational, list, or curiosity styles. The AI runs entirely in your browser for complete privacy.",
+  },
+  {
+    question: "Is the AI YouTube Title Generator really free?",
+    answer: "Yes, it is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser using WebLLM technology, so there are no server costs to pass on to you.",
+  },
+  {
+    question: "What title styles are available?",
+    answer: "Four styles are available: Clickbait (maximum clicks with curiosity gaps), Informational (data-driven and factual), List Style (numbered titles like 'Top 10' or '5 Ways'), and Curiosity (mystery and intrigue that makes viewers click). Each style is optimized for different content types.",
+  },
+  {
+    question: "What do the SEO Score and CTR prediction mean?",
+    answer: "The SEO Score (0-10) rates how well the title is optimized for YouTube search, considering keyword placement, length, and searchability. The Predicted CTR (High/Medium/Low) estimates how likely viewers are to click the title based on emotional appeal, curiosity gaps, and proven title patterns.",
+  },
+  {
+    question: "Why is the character limit important?",
+    answer: "YouTube truncates titles longer than about 60-70 characters in search results and recommendations. Keeping titles under 60 characters ensures the full title is visible everywhere. The 70-character option gives slightly more room while still performing well in most views.",
+  },
+  {
+    question: "What video categories are supported?",
+    answer: "Six categories are available: Education, Technology, Entertainment, Business, Gaming, and Lifestyle. Each category helps the AI tailor titles to your specific niche and audience expectations.",
+  },
+  {
+    question: "Is my data kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your video topics, generated titles, and preferences never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate YouTube titles without an internet connection.",
+  },
+];
