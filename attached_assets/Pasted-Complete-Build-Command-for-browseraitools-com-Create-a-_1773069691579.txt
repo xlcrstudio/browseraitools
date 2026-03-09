@@ -1,0 +1,138 @@
+Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI Excuse Generator for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Excuse Generator
+URL Slug: /ai-excuse-generator
+Tagline: "Instant Believable Excuses for Any Situation"
+Mission: Turn any awkward situation into a creative, believable excuse in seconds with a fun “excuse factory” experience — perfect for work, life, friends, or pure entertainment.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~85,000 monthly searches).
+Purpose: Enter a situation + choose style → get 5 clever, ready-to-use excuses instantly.
+Target Users: Students, professionals, friends in group chats, anyone who needs a quick creative out
+Search Demand: ~85,000 monthly searches ("excuse generator", "funny excuses", "AI excuse maker", "professional excuse generator")
+Key Value: Perfect excuse in 15 seconds vs scrambling for words
+=== UNIQUE SELLING POINTS ===
+✅ Creative “excuse factory” vibe with fun animations
+✅ 3 styles: Funny • Professional • Dramatic
+✅ 5 high-quality excuses per generation
+✅ Believable, short, and copy-paste ready
+✅ One-click “Generate More” and style switcher
+✅ 100% Private — runs entirely in your browser
+✅ Shareable as text or fun image
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm (shared instance)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Storage: LocalStorage (saved excuses, favorites)
+Export: Copy text, Share image (canvas), Download
+Deployment: Vercel/Netlify
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Excuse Generator"
+Subheadline: "Need a quick excuse? Get 5 hilarious, professional, or dramatic ones instantly. Private, fun, and always believable."
+Trust Badges:
+
+😂 Funny Mode
+💼 Professional Mode
+🎭 Dramatic Mode
+⚡ Instant & Believable
+📋 5 Excuses Every Time
+🔒 100% Private & Local
+
+Success Counter: "Generated 267,891 excuses this month 😂"
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+EXCUSE FACTORY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 1: What’s the Situation?*
+
+Input field
+Placeholder: "Missed the team meeting" or "Forgot my partner’s birthday" or "Late on assignment"
+Required
+
+Field 2: Excuse Style*
+
+Large selectable cards with icons:
+○ Funny 😂 (playful & witty)
+○ Professional 💼 (polished & believable)
+○ Dramatic 🎭 (over-the-top & theatrical)
+Required
+
+Field 3: Extra Details (Optional)
+
+Textarea
+Placeholder: "It’s my boss’s meeting" or "I was supposed to bring cake"
+
+GENERATE BUTTON
+Full-width glowing button with factory-machine animation
+Text: "Generate Excuses Now ⚙️"
+Loading: "Spinning up the excuse factory… (100% in-browser)"
+=== OUTPUT SECTION ===
+Five clean, labeled cards (mobile stacks vertically):
+💼 Professional Excuse #1
+"I apologize for missing the meeting. An unexpected family matter came up that required my immediate attention."
+😂 Funny Excuse #1
+"My alarm clock and I had a major disagreement about what time ‘morning’ actually starts."
+Each card includes:
+
+Copy button
+Style badge
+"This one’s gold" highlight
+
+Global buttons:
+
+Generate More (5 new ones)
+Switch Style (quick re-generate in different tone)
+Share All (fun image collage)
+
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are a creative comedy writer and professional excuse engineer. You create short, believable, and clever excuses that sound natural and human. You adapt perfectly to the requested style (Funny, Professional, or Dramatic) while keeping everything light-hearted and non-offensive. Your excuses are always concise, witty when appropriate, and ready to copy-paste.
+User Prompt Template:
+textGenerate 5 creative excuses for the following situation.
+
+═══════════════════════════════════════
+SITUATION: {situation}
+STYLE: {style}
+EXTRA DETAILS: {extraDetails}
+
+═══════════════════════════════════════
+RULES:
+• Exactly 5 excuses
+• Short and punchy (1-2 sentences max)
+• Believable and natural-sounding
+• Match the chosen style perfectly
+• Funny = playful & witty
+• Professional = polished & respectful
+• Dramatic = theatrical & exaggerated
+• Never mean or harmful
+
+═══════════════════════════════════════
+OUTPUT FORMAT
+═══════════════════════════════════════
+
+[STYLE] Excuse #1:
+[full text]
+
+[STYLE] Excuse #2:
+[full text]
+
+... (up to #5)
+=== SEO ARTICLE SECTION ===
+Below the tool, comprehensive 2300-word article:
+Title: "Best AI Excuse Generator 2026 – Funny, Professional & Dramatic Excuses Instantly"
+[Full guide: when to use excuses ethically, psychology of believable excuses, best practices for work vs personal life, viral examples, and why people love excuse generators]
+=== SPECIAL FEATURES ===
+
+Quick style switcher (re-generate all 5 in a new style instantly)
+One-click “Generate More” button
+Shareable excuse image export (perfect for group chats)
+Excuse History & Favorites (LocalStorage)
+“Daily Excuse” button for fun random situations
+“Make It Believabler” refinement button
+
+Build this as the #1 fun AI Excuse Generator on the internet — the creative excuse factory everyone shares with friends and coworkers.
+text

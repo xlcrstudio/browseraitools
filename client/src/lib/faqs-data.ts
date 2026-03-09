@@ -1246,3 +1246,38 @@ export const complimentFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate compliments without an internet connection.",
   },
 ];
+
+export const excuseFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Excuse Generator?",
+    answer: "The AI Excuse Generator is a free, browser-based tool that creates creative, believable excuses for any situation. Choose from Funny, Professional, or Dramatic styles and get 5 ready-to-use excuses instantly. The AI runs entirely in your browser for complete privacy.",
+  },
+  {
+    question: "Is the AI Excuse Generator really free?",
+    answer: "Yes, it is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser using WebLLM technology, so there are no server costs to pass on to you.",
+  },
+  {
+    question: "What excuse styles are available?",
+    answer: "Three styles are available: Funny (playful and witty excuses that lighten the mood), Professional (polished and believable excuses suitable for work situations), and Dramatic (over-the-top theatrical excuses for maximum entertainment). Each style produces distinctly different results.",
+  },
+  {
+    question: "How does the AI generate excuses?",
+    answer: "The tool uses WebLLM technology to run an AI language model (Qwen 2.5 1.5B) directly in your web browser using WebGPU. When you enter a situation, choose a style, and optionally add extra details, the AI generates 5 unique excuses tailored to your specific scenario. No data is sent to any server.",
+  },
+  {
+    question: "Can I add extra details to get better excuses?",
+    answer: "Yes. The optional Extra Details field lets you provide additional context like who the excuse is for, specific circumstances, or important details. The AI will incorporate these details into every excuse it generates, making them more specific and believable.",
+  },
+  {
+    question: "Are the excuses actually believable?",
+    answer: "The Professional style is designed to produce realistic, plausible excuses suitable for real situations. The Funny and Dramatic styles prioritize entertainment and creativity over believability. All excuses are kept light-hearted and non-offensive regardless of style.",
+  },
+  {
+    question: "Is my data kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your situations, excuses, and context details never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate excuses without an internet connection.",
+  },
+];
