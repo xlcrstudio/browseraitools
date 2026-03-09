@@ -1176,3 +1176,38 @@ export const promptGeneratorFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate prompts without an internet connection.",
   },
 ];
+
+export const prosConsFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Pros & Cons Generator?",
+    answer: "The AI Pros & Cons Generator creates balanced, objective analyses for any decision or topic. Enter your topic, choose a context (buying, career, business, etc.), and get a structured list of pros and cons with explanations, plus a Decision Score from 0-100%.",
+  },
+  {
+    question: "How does the Decision Score work?",
+    answer: "The Decision Score is a 0-100% rating that summarizes how favorable the analysis is overall. Green (70-100%) means 'Go for it', yellow (40-69%) means 'Think carefully', and red (0-39%) means 'Proceed with caution'. It provides a quick visual summary of the overall balance.",
+  },
+  {
+    question: "Is the analysis truly objective?",
+    answer: "The AI is specifically instructed to remain neutral and balanced. It considers real-world facts, common experiences, and practical considerations without favoring either side. The equal number of pros and cons ensures structural balance.",
+  },
+  {
+    question: "How many pros and cons can I generate?",
+    answer: "Choose from 3 options: 5 pros & 5 cons for a quick overview, 7 pros & 7 cons for a thorough analysis, or 10 pros & 10 cons for a comprehensive deep-dive. Each item includes a concise explanation.",
+  },
+  {
+    question: "What types of decisions work best?",
+    answer: "The tool works for any decision: buying products, career moves, business strategies, personal life choices, research topics, and debate preparation. Adding extra context (budget, timeline, constraints) makes the analysis more relevant and specific.",
+  },
+  {
+    question: "Can I use this for essays or debates?",
+    answer: "Yes. Select 'Research/Essay' or 'Debate/Argument' as the context, and the AI will tailor the analysis for academic or argumentative use. The structured format with explanations makes it easy to incorporate into written work.",
+  },
+  {
+    question: "Is my data kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your topics, decisions, and generated analyses never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate pros and cons analyses without an internet connection.",
+  },
+];

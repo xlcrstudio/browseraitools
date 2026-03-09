@@ -1,0 +1,158 @@
+Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI Pros & Cons Generator for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Pros & Cons Generator
+URL Slug: /ai-pros-and-cons-generator
+Tagline: "Make Smarter Decisions with Balanced AI Analysis"
+Mission: Help users make better, more informed decisions by instantly generating clear, balanced, and objective pros & cons lists for any topic or choice.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~105,000 monthly searches).
+Purpose: Enter any topic + context → get a perfectly balanced dashboard of 5–7 pros and 5–7 cons with concise explanations and a final Decision Score.
+Target Users: Professionals making business decisions, students writing essays/debates, consumers comparing products, researchers, couples/families, content creators
+Search Demand: ~105,000 monthly searches ("pros and cons generator", "AI pros cons", "pros and cons list", "decision making tool")
+Key Value: Instant, objective analysis in 18 seconds vs hours of overthinking or biased research
+=== UNIQUE SELLING POINTS ===
+✅ Clean split-screen dashboard (Pros vs Cons)
+✅ Visual Decision Score (0–100% positive)
+✅ Context-aware analysis (buying, research, debate, career, etc.)
+✅ Balanced & objective — never biased
+✅ One-click "Add More Pros", "Make It More Detailed", "Flip Perspective"
+✅ Beautiful PDF export with decision summary
+✅ 100% Private — everything runs locally in your browser
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm (shared instance)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Storage: LocalStorage (saved analyses, decision history)
+Export: PDF report, Markdown, Copy-all
+Deployment: Vercel/Netlify
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Pros & Cons Generator"
+Subheadline: "Get a perfectly balanced analysis for any decision in seconds. Private, objective, and instantly helpful."
+Trust Badges:
+
+⚖️ Perfectly Balanced
+📊 Visual Decision Score
+🎯 Context-Aware
+📄 PDF Export
+🔄 One-Click Refinements
+🔒 100% Private & Local
+
+Success Counter: "Helped 245,678 people make better decisions this month"
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DECISION DETAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 1: Topic / Decision*
+
+Input field
+Placeholder: "Electric cars" or "Switching careers to AI" or "Buying a new laptop"
+Required
+
+Field 2: Context / Purpose*
+
+Large selectable cards with icons:
+○ Buying Decision
+○ Research / Essay
+○ Career Move
+○ Debate / Argument
+○ Personal Life
+○ Business Strategy
+○ Other (custom)
+Required
+
+Field 3: Extra Context (Optional)
+
+Textarea
+Placeholder: "Budget under $50k, family of 4, living in cold climate" or "Need for daily commuting and long road trips"
+
+Field 4: Number of Items
+
+Radio: 5 Pros & 5 Cons (default) • 7 Pros & 7 Cons • 10 Pros & 10 Cons
+
+GENERATE BUTTON
+Full-width gradient button
+Text: "Generate Balanced Analysis"
+Icon: ⚖️
+Loading: "Analyzing objectively… Balancing pros & cons… (100% in-browser)"
+=== OUTPUT SECTION ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DECISION DASHBOARD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Header: "Pros & Cons: [Topic]"
+Big visual Decision Score in center:
+Decision Score: 72% Positive
+(Colored gauge: Green 70%+ = Go, Yellow 40-69% = Think, Red <40% = Caution)
+Split-screen layout (mobile stacks vertically):
+Left Column – PROS ✅
+• Environmentally friendly (detailed short explanation)
+• Lower long-term fuel costs
+• Quiet and smooth driving experience
+• [5–10 total]
+Right Column – CONS ❌
+• Higher upfront purchase price
+• Charging infrastructure still limited
+• Battery range anxiety on long trips
+• [5–10 total]
+Action buttons (top bar):
+
+Copy All • Download PDF Report • Save Decision • Regenerate • Add More Pros • Add More Cons • Flip Perspective (swap pros/cons)
+
+Below the dashboard:
+
+Final Recommendation paragraph based on score
+"Why This Score?" explanation
+
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are an objective, unbiased decision analyst and researcher. You excel at providing perfectly balanced pros and cons lists with clear, concise, factual explanations. You never lean toward one side. You consider real-world context and always remain neutral and helpful for genuine decision-making.
+User Prompt Template:
+textGenerate a perfectly balanced pros and cons analysis for the following decision.
+
+═══════════════════════════════════════
+TOPIC: {topic}
+CONTEXT / PURPOSE: {context}
+EXTRA DETAILS: {extraContext}
+NUMBER OF ITEMS: {numberOfItems}
+
+═══════════════════════════════════════
+RULES:
+• Exactly 5 or 7 or 10 pros and the same number of cons
+• Each item has a short, clear explanation (1 sentence max)
+• Stay 100% objective and factual
+• Base everything on real-world knowledge and logic
+• Use bullet points for scannability
+• End with a neutral overall assessment
+
+═══════════════════════════════════════
+OUTPUT FORMAT
+═══════════════════════════════════════
+
+DECISION SCORE: [X]% Positive
+
+PROS:
+• Item (explanation)
+
+CONS:
+• Item (explanation)
+
+FINAL RECOMMENDATION:
+[Short neutral paragraph]
+=== SEO ARTICLE SECTION ===
+Below the tool, comprehensive 2500-word article:
+Title: "Best AI Pros & Cons Generator 2026 – Make Better Decisions Faster"
+[Full guide covering decision-making frameworks, how to use pros/cons for career/business/personal choices, examples, comparison vs manual methods, and SEO/research use cases]
+=== SPECIAL FEATURES ===
+
+Visual Decision Score gauge (0–100%)
+One-click "Add More Pros/Cons" + "Make More Detailed"
+"Flip Perspective" button (reverses pros/cons)
+Decision History & Library (LocalStorage)
+PDF report with score and highlights
+Shareable image export of the dashboard
+
+Build this as the #1 AI Pros & Cons Generator on the internet — the essential decision-making tool that everyone bookmarks for big and small choices.

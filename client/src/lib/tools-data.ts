@@ -126,7 +126,7 @@ export const toolCategories: ToolCategory[] = [
     description: "Fun and creative AI tools for any occasion",
     tools: [
       { id: 43, name: "AI Decision Maker", slug: "/decision-maker", icon: Scale, available: false },
-      { id: 44, name: "AI Pros & Cons Generator", slug: "/pros-cons-generator", icon: ThumbsUp, available: false },
+      { id: 44, name: "AI Pros & Cons Generator", slug: "/ai-pros-and-cons-generator", icon: ThumbsUp, available: true },
       { id: 45, name: "AI Debate Generator", slug: "/debate-generator", icon: Swords, available: false },
       { id: 46, name: "AI Excuse Generator", slug: "/excuse-generator", icon: ShieldQuestion, available: false },
       { id: 47, name: "AI Compliment Generator", slug: "/compliment-generator", icon: Heart, available: false },
