@@ -1386,3 +1386,38 @@ export const captionFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate Instagram captions without an internet connection.",
   },
 ];
+
+export const tweetFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Tweet Generator?",
+    answer: "The AI Tweet Generator is a free, browser-based tool that creates 5 viral, engaging tweets for any topic. Choose a style, set character limits, and get tweets with virality scores in X/Twitter-style cards. The AI runs entirely in your browser for complete privacy.",
+  },
+  {
+    question: "Is the AI Tweet Generator really free?",
+    answer: "Yes, it is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser using WebLLM technology, so there are no server costs to pass on to you.",
+  },
+  {
+    question: "What tweet styles are available?",
+    answer: "Four styles are available: Thought Leadership (insightful and authoritative), Funny (witty and entertaining), Informational (data-driven and useful), and Motivational (inspiring and energizing). Each style produces distinctly different tweet tones optimized for engagement on X/Twitter.",
+  },
+  {
+    question: "How does the character limit work?",
+    answer: "You can choose between 120 characters (short and punchy) or 240 characters (with room for hooks and thread starters). Each generated tweet displays its character count so you can see exactly how long it is before posting.",
+  },
+  {
+    question: "What is the Virality Score?",
+    answer: "Each generated tweet receives a Virality Score from 0 to 10, indicating its predicted engagement potential on X/Twitter. Scores of 8+ indicate high viral potential with strong hooks and call-to-actions.",
+  },
+  {
+    question: "Can I add hashtags and keywords?",
+    answer: "Yes. The optional Keywords/Hashtags field lets you specify topics and hashtags you want included. The AI will incorporate them naturally into the tweets without making them feel forced.",
+  },
+  {
+    question: "Is my data kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your tweet topics, generated content, and preferences never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate tweets without an internet connection.",
+  },
+];

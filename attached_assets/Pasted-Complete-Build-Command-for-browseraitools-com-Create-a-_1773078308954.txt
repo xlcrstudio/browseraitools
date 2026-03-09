@@ -1,0 +1,145 @@
+Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI Tweet Generator for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Tweet Generator
+URL Slug: /ai-tweet-generator
+Tagline: "Write Viral Tweets in Seconds"
+Mission: Help creators, founders, and professionals craft engaging, concise tweets that drive likes, retweets, and replies — with a familiar X-style composer interface.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~115,000 monthly searches).
+Purpose: Enter a topic + choose style & length → get 5 ready-to-post tweets, plus one-click thread generation.
+Target Users: Twitter/X power users, founders, marketers, influencers, journalists, students
+Search Demand: ~115,000 monthly searches ("tweet generator", "ai tweet generator", "twitter caption generator", "viral tweet maker")
+Key Value: Perfect tweet in 15 seconds vs endless editing
+=== UNIQUE SELLING POINTS ===
+✅ X/Twitter-style composer interface (feels instantly familiar)
+✅ Tweet-style output cards with character count
+✅ Character limit control (120 or 240)
+✅ Styles: Thought leadership, Funny, Informational, Motivational
+✅ One-click “Generate Thread” that creates full 3–8 tweet threads
+✅ Virality Score for every tweet
+✅ 100% Private — everything runs in your browser
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+ (X-like dark/light mode cards + composer layout)
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm (shared instance with streaming support)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Storage: LocalStorage (saved tweets & threads)
+Export: Copy text, Share image (tweet screenshot), Download thread
+Deployment: Vercel/Netlify
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Tweet Generator"
+Subheadline: "Write viral tweets instantly. Familiar X composer interface. Private AI running in your browser."
+Trust Badges:
+
+🐦 X/Twitter Style
+📏 Character Limit Control
+🔥 Virality Score
+🧵 One-Click Threads
+⚡ Streaming Output
+🔒 100% Private & Local
+
+Success Counter: "Generated 387,654 tweets this month"
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TWEET COMPOSER (X-Style Layout)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Left Panel – Compose
+Field 1: What’s your tweet about?*
+
+Textarea (X-style input box)
+Placeholder: "AI productivity tips" or "New product launch"
+
+Right Panel – Options
+Field 2: Tweet Style*
+
+Large selectable cards:
+○ Thought Leadership 💡
+○ Funny 😂
+○ Informational 📊
+○ Motivational 🔥
+Required
+
+Field 3: Max Length*
+
+Radio buttons:
+○ 120 characters (short & punchy)
+○ 240 characters (with room for thread hooks)
+Default: 120
+
+Field 4: Add Keywords/Hashtags (Optional)
+
+Tags input
+
+GENERATE BUTTON
+Full-width animated X-blue gradient button
+Text: "Generate Tweets 🐦"
+Loading states: "AI thinking… → Crafting hooks… → Checking character limit…"
+=== OUTPUT SECTION ===
+Five tweet-style cards (exact X look with avatar placeholder, character count, and timestamp):
+Tweet 1
+AI isn’t replacing humans.
+It’s replacing boring tasks.
+Work smarter.
+#AI #productivity
+(87 characters)
+Each card shows:
+
+Virality Score (flame meter)
+Copy button
+Regenerate this one
+“Generate Thread from this” button
+
+Global actions:
+
+Generate 5 New Tweets
+Save Draft
+Export All
+
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are an expert X/Twitter strategist who has written viral tweets for founders, influencers, and brands. You create concise, engaging, high-impact tweets that feel native to the platform. You understand thread structure, hook writing, and character limits perfectly.
+User Prompt Template:
+textGenerate 5 engaging tweets for the following topic.
+
+═══════════════════════════════════════
+TOPIC: {topic}
+STYLE: {style}
+MAX LENGTH: {characterLimit} characters
+KEYWORDS: {keywords}
+
+═══════════════════════════════════════
+RULES:
+• Under the exact character limit
+• Strong hook in first line
+• Natural, conversational tone
+• Include 1–3 relevant hashtags when it fits
+• Feel like real X posts (not salesy)
+• Ready to copy-paste
+
+═══════════════════════════════════════
+OUTPUT FORMAT
+═══════════════════════════════════════
+
+TWEET #1 (Virality: X.X/10)
+[full tweet text]
+
+[Repeat for #2–#5]
+=== SEO ARTICLE SECTION ===
+Below the tool, comprehensive 2600-word article:
+Title: "Best AI Tweet Generator 2026 – Write Viral X/Twitter Threads Instantly"
+[Full guide: X algorithm 2026, thread strategy, character limit tips, before/after examples, how to get more engagement]
+=== SPECIAL FEATURES ===
+
+One-click “Generate Thread” (turns any tweet into 3–8 tweet thread)
+Real-time Virality Score
+Live streaming typewriter output
+Tweet screenshot export (perfect for sharing)
+Tweet Drafts & History (LocalStorage)
+Quick character limit switcher
+
+Build this as the #1 AI Tweet Generator on the internet — the X-style composer every creator will use daily.
+text
