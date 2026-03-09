@@ -34,6 +34,7 @@ import InternalLinkPage from "@/pages/InternalLinkPage";
 import ContentBriefPage from "@/pages/ContentBriefPage";
 import LinkedInSummaryPage from "@/pages/LinkedInSummaryPage";
 import RoastPage from "@/pages/RoastPage";
+import PromptGeneratorPage from "@/pages/PromptGeneratorPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -71,6 +72,7 @@ function Router() {
       <Route path="/ai-content-brief-generator" component={ContentBriefPage} />
       <Route path="/ai-linkedin-summary-generator" component={LinkedInSummaryPage} />
       <Route path="/ai-roast-generator" component={RoastPage} />
+      <Route path="/ai-prompt-generator" component={PromptGeneratorPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />

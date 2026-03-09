@@ -1141,3 +1141,38 @@ export const roastFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate roasts without an internet connection.",
   },
 ];
+
+export const promptGeneratorFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Prompt Generator?",
+    answer: "The AI Prompt Generator creates expert-level prompts for ChatGPT, Claude, Midjourney, Grok, and other AI tools. Enter your topic, purpose, and desired output type, and get 3 optimized prompts at different complexity levels: Short, Detailed, and Expert.",
+  },
+  {
+    question: "Why do I get 3 different prompt levels?",
+    answer: "Short prompts are quick and direct for simple tasks. Detailed prompts include context, constraints, and structure for better results. Expert prompts use advanced techniques like role-playing, chain-of-thought reasoning, and few-shot examples. Different tasks benefit from different complexity levels.",
+  },
+  {
+    question: "What AI models do the prompts work with?",
+    answer: "The generated prompts work with any AI model including ChatGPT (GPT-4), Claude, Midjourney, Grok, Gemini, Llama, and others. The prompt engineering principles are universal across all major AI platforms.",
+  },
+  {
+    question: "What prompt purposes are available?",
+    answer: "You can generate prompts for 7 purposes: Marketing (ads, copy, campaigns), Coding (development, debugging, APIs), Writing (articles, stories, emails), Art/Image (Midjourney, DALL-E, Stable Diffusion), Strategy (business planning, analysis), Research (academic, market research), and General (any other task).",
+  },
+  {
+    question: "What makes a prompt 'expert-level'?",
+    answer: "Expert prompts use advanced prompt engineering techniques: clear role assignment, step-by-step instructions, structured output formatting, chain-of-thought reasoning, few-shot examples, constraints and guardrails, and specific output format requirements. These techniques consistently produce 5-10x better AI responses.",
+  },
+  {
+    question: "Can I customize the output type?",
+    answer: "Yes. Choose from 10 output types including blog post, code, image prompt, strategy document, content plan, email, script, social media post, report, or other. The AI tailors each prompt's structure and instructions to match your desired output format.",
+  },
+  {
+    question: "Is my data kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your topics, prompts, and generated content never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate prompts without an internet connection.",
+  },
+];

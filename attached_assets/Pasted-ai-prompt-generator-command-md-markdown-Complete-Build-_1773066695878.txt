@@ -1,0 +1,87 @@
+ai-prompt-generator-command.md
+```markdown
+## Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI Prompt Generator for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Prompt Generator
+URL Slug: /ai-prompt-generator
+Tagline: "Turn Ideas into Perfect Prompts Instantly"
+Mission: Help ChatGPT, Claude, Midjourney, and Grok users write insanely effective prompts that get 10x better results.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~130,000 monthly searches).
+Purpose: Choose purpose + topic + output type → generate 3 optimized prompts (Short, Detailed, Expert).
+Target Users: AI power users, students, marketers, developers, writers, designers
+Search Demand: ~130,000 monthly searches ("prompt generator", "best ChatGPT prompt", "AI prompt engineer", "prompt engineering tool")
+Key Value: Expert-level prompt in 20 seconds vs trial-and-error
+=== UNIQUE SELLING POINTS ===
+✅ Prompt engineering studio experience
+✅ 3 levels: Short • Detailed • Expert
+✅ One-click "Improve", "Make More Advanced", "Simplify"
+✅ Works for ChatGPT, Claude, Midjourney, Grok, etc.
+✅ 100% Private & Local
+✅ Copy-ready with role + structure
+=== TECHNICAL FOUNDATION ===
+[Same React + Tailwind + WebLLM setup as all previous tools]
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Prompt Generator"
+Subheadline: "Turn any idea into a perfect, high-performance prompt for ChatGPT, Claude & more. Private. Instant. Expert-level."
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PROMPT STUDIO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 1: Prompt Purpose*
+
+Cards: Marketing • Coding • Writing • Art/Image • Strategy • Research • General
+
+Field 2: Topic*
+
+Input
+
+Field 3: Desired Output Type*
+
+Dropdown: Blog post • Code • Image prompt • Strategy • Content plan • Email • Script • etc.
+
+Field 4: Extra Details (Optional)
+
+Textarea: tone, length, examples, constraints
+
+GENERATE BUTTON: "Generate Optimized Prompts"
+=== OUTPUT SECTION ===
+Three cards:
+
+Short Prompt
+Detailed Prompt
+Expert Prompt
+
+Each with:
+
+Copy button
+"Use in ChatGPT" button
+One-click Improve / Make More Advanced / Simplify
+
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are an expert prompt engineer who has created thousands of high-performance prompts for ChatGPT, Claude, and Midjourney. You understand role-playing, chain-of-thought, structured output, few-shot examples, and all advanced techniques that get 10x better results.
+User Prompt Template:
+textCreate 3 optimized prompts (Short, Detailed, Expert) for the following request.
+
+Topic: {topic}
+Purpose: {purpose}
+Output Type: {outputType}
+Extra Details: {details}
+
+Rules: clear role, step-by-step instructions, structured output, examples when helpful.
+
+Output exactly in the 3-card format.
+=== SEO ARTICLE SECTION ===
+2500-word guide: "How to Write Perfect AI Prompts in 2026 – Complete Prompt Engineering Guide"
+=== SPECIAL FEATURES ===
+
+One-click Improve / Advanced / Simplify buttons
+Prompt Library & History
+"Copy for ChatGPT" / "Copy for Claude" buttons
+Prompt Strength Meter
+
+Build this as the #1 AI Prompt Generator on the internet — the essential studio every AI user bookmarks.

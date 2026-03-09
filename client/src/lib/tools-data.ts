@@ -132,7 +132,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 47, name: "AI Compliment Generator", slug: "/compliment-generator", icon: Heart, available: false },
       { id: 48, name: "AI Roast Generator", slug: "/ai-roast-generator", icon: Flame, available: true },
       { id: 49, name: "AI Story Starter", slug: "/story-starter", icon: BookOpenCheck, available: false },
-      { id: 50, name: "AI Prompt Generator", slug: "/prompt-generator", icon: PenTool, available: false },
+      { id: 50, name: "AI Prompt Generator", slug: "/ai-prompt-generator", icon: PenTool, available: true },
       { id: 51, name: "AI Document Analyzer", slug: "/ai-document-analyzer", icon: FileText, available: true },
       { id: 52, name: "AI Message Analyzer", slug: "/ai-message-analyzer", icon: MessageSquare, available: true },
       { id: 53, name: "AI Explain This", slug: "/explain-this-ai", icon: Lightbulb, available: true },
