@@ -95,6 +95,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 34, name: "AI Internal Link Suggestion Tool", slug: "/internal-link-suggestion", icon: Link2, available: false },
       { id: 58, name: "AI Content Gap Analyzer", slug: "/ai-content-gap-analyzer", icon: Search, available: true },
       { id: 59, name: "AI Schema Markup Generator", slug: "/ai-schema-markup-generator", icon: Code, available: true },
+      { id: 60, name: "AI SERP Intent Analyzer", slug: "/ai-serp-intent-analyzer", icon: Target, available: true },
     ],
   },
   {

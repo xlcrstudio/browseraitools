@@ -1,0 +1,195 @@
+Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI SERP Intent Analyzer for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI SERP Intent Analyzer
+URL Slug: /ai-serp-intent-analyzer
+Tagline: "Discover Exact Search Intent in Seconds"
+Mission: Help SEO professionals, content marketers, and bloggers instantly understand what searchers really want — so they can create content that ranks #1.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~60,000 monthly searches).
+Purpose: Enter any keyword → AI instantly classifies search intent, shows dominant content types on the SERP, and gives ready-to-use article formats and title ideas.
+Target Users: SEO specialists, content strategists, bloggers, digital marketers, agency owners
+Search Demand: 40k–80k monthly searches ("search intent analyzer", "SERP intent tool", "keyword intent analysis", "what is the search intent for")
+Key Value: Professional SERP intent breakdown in 20 seconds — completely free and private (no Ahrefs, SEMrush, or paid tools needed)
+=== UNIQUE SELLING POINTS ===
+✅ 100% Private — runs entirely in your browser (no data sent anywhere)
+✅ Instant intent classification (Informational / Navigational / Commercial Investigation / Transactional)
+✅ Shows real SERP content patterns (comparison tables, reviews, lists, etc.)
+✅ Gives exact title templates + outline structures that win
+✅ Analyzes "People Also Ask" and question gaps
+✅ Exports beautiful PDF report + content brief
+✅ Works offline after first load
+✅ Unlimited usage — zero cost
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm (shared instance)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Storage: LocalStorage (saved analyses, keyword history)
+Export: PDF report, Markdown brief, Copy-all
+Deployment: Vercel/Netlify
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI SERP Intent Analyzer"
+Subheadline: "Type any keyword → instantly know the exact search intent, top content types, and winning article formats. Private. Free. Built for ranking #1."
+Trust Badges:
+
+🎯 4 Intent Types Detected
+📊 Real SERP Content Patterns
+📋 Ready-to-Rank Title Ideas
+❓ People Also Ask Insights
+📄 PDF Report Export
+🔒 100% Private & Local
+
+Success Counter: "Analyzed 134,892 keywords this month"
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEYWORD ANALYSIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 1: Target Keyword*
+
+Input field (large, prominent)
+Placeholder: "e.g., best AI content tools 2026"
+Max: 150 characters
+Required
+
+Field 2: Niche / Industry (Optional)
+
+Input: "e.g., SEO, digital marketing, SaaS, fitness"
+Help text: "Helps fine-tune intent for your audience"
+
+Field 3: Target Country (Optional)
+
+Dropdown: United States • United Kingdom • Canada • Australia • Global • Other
+Default: Global
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ANALYSIS OPTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 4: Analysis Depth*
+
+Radio cards:
+○ Quick (fastest)
+○ Standard (default — most popular)
+○ Deep Dive (includes question gaps + full outline)
+
+Field 5: Extra Insights (Multi-select cards)
+○ Top Content Types on SERP
+○ Recommended Article Formats
+○ Winning Title Templates (5 ideas)
+○ People Also Ask Questions
+○ Content Depth & Word Count Recommendation
+○ Competitor Angle Opportunities
+GENERATE BUTTON
+Full-width gradient button
+Text: "Analyze Search Intent"
+Icon: 🔎
+Loading: "Analyzing SERP patterns… Classifying intent… Generating recommendations… (100% in-browser)"
+=== OUTPUT SECTION ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SERP INTENT REPORT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Header: "Intent Analysis for: [keyword]"
+Quick Stats:
+
+Primary Intent: Commercial Investigation
+Secondary Intent: Informational
+SERP Dominance: 70% Listicles & Comparisons
+Opportunity Score: 92/100
+
+Action Buttons:
+
+Copy All • Download PDF Report • Save Analysis • Regenerate • New Keyword
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SEARCH INTENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Primary Intent: Commercial Investigation
+Explanation: Searchers are comparing options and looking for reviews/buying guides.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TOP CONTENT TYPES ON CURRENT SERP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Tool comparison articles (42% of top 10)
+• In-depth product reviews
+• "Best of" listicles
+• Buying guides & checklists
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RECOMMENDED ARTICLE FORMAT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Winning Format: "Top 10 [Keyword] for [Audience] in 2026 (Compared & Ranked)"
+Full suggested structure:
+
+H1: [Recommended title]
+Introduction hook
+Comparison table
+Detailed reviews
+Buying guide
+FAQ section
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+5 WINNING TITLE IDEAS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Best AI Content Tools 2026: 12 Tools Tested & Ranked
+I Tested 15 AI Content Tools — Here Are the Top 7 Winners
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PEOPLE ALSO ASK (Question Gaps)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• What is the best free AI content tool?
+• How much do AI content tools cost?
+Expandable "Why This Intent Matters" + full content brief section.
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are an expert SERP intent analyst and SEO strategist who has analyzed over 50,000 keywords for top-ranking clients. You classify search intent with perfect accuracy into the four standard types: Informational, Navigational, Commercial Investigation, Transactional. You understand exactly what content ranks in 2026 based on Google’s E-E-A-T and helpful content guidelines. You always deliver actionable, data-driven recommendations including exact title templates, content formats, and outline structures that actually win rankings.
+User Prompt Template:
+textAnalyze the search intent for the following keyword and provide a complete SERP intent report.
+
+═══════════════════════════════════════
+KEYWORD: {keyword}
+NICHE: {niche}
+TARGET COUNTRY: {country}
+ANALYSIS DEPTH: {depth}
+EXTRA INSIGHTS REQUESTED: {selectedInsights}
+
+═══════════════════════════════════════
+REQUIRED OUTPUT STRUCTURE
+═══════════════════════════════════════
+
+1. PRIMARY & SECONDARY INTENT (with clear explanation)
+2. TOP CONTENT TYPES CURRENTLY RANKING (with percentages where logical)
+3. RECOMMENDED ARTICLE FORMAT (exact structure + winning formula)
+4. 5 WINNING TITLE TEMPLATES (click-worthy and SEO-optimized)
+5. PEOPLE ALSO ASK / QUESTION GAPS (8-12 questions)
+6. CONTENT DEPTH RECOMMENDATION (word count, sections, angles)
+
+RULES:
+- Base everything on real 2026 SERP behavior
+- Be extremely specific and actionable
+- Never guess — use proven intent patterns
+- Prioritize high-ranking formats (lists, comparisons, reviews, etc.)
+
+OUTPUT FORMAT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SEARCH INTENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Primary Intent: [Type]
+
+[Continue for all sections exactly]
+=== SEO ARTICLE SECTION ===
+Below the tool, comprehensive 2700-word article:
+Title: "Free AI SERP Intent Analyzer 2026 – Better Than Paid Tools (Instant & Private)"
+[Full guide: what search intent really means in 2026, how to use intent to rank #1, step-by-step examples, comparison vs Ahrefs/SEMrush/Surfer, case studies of intent-based ranking wins]
+=== SPECIAL FEATURES ===
+
+Bulk Mode (analyze 5 keywords at once)
+One-Click "Generate Content Brief" from analysis
+Intent History & Library (LocalStorage)
+"Compare with Competitor URL" (future v2)
+Export as SEO Agency-Ready PDF
+"Intent Match Score" for your existing article (paste URL/text)
+
+Build this as the #1 free SERP intent analysis tool on the internet — the privacy-first weapon every SEO professional bookmarks.

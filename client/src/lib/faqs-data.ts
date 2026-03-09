@@ -896,3 +896,38 @@ export const schemaMarkupFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate schema markup without an internet connection.",
   },
 ];
+
+export const serpIntentFAQs: FAQItem[] = [
+  {
+    question: "What are the four types of search intent?",
+    answer: "The four standard types are: Informational (seeking knowledge, e.g. 'what is SEO'), Navigational (looking for a specific site, e.g. 'Google Analytics login'), Commercial Investigation (comparing options before buying, e.g. 'best AI writing tools'), and Transactional (ready to take action, e.g. 'buy SEMrush subscription'). This tool classifies your keyword into primary and secondary intent types.",
+  },
+  {
+    question: "Is my keyword data kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your keywords, niche information, and analysis results never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "How accurate is the intent classification?",
+    answer: "The AI analyzes keyword patterns, modifiers, and context to classify intent following the same frameworks used by professional SEO tools. While no tool is perfect, the analysis provides reliable intent signals that align with how Google interprets search queries in 2026.",
+  },
+  {
+    question: "How does this compare to Ahrefs, SEMrush, or Surfer?",
+    answer: "Paid tools like Ahrefs and SEMrush use actual SERP data and search volume metrics. This tool uses AI pattern recognition to predict intent and content patterns without accessing live search data. It is best used as a fast, free, and private complement to paid tools for quick intent checks and content planning.",
+  },
+  {
+    question: "What are People Also Ask questions?",
+    answer: "People Also Ask (PAA) are the expandable question boxes that appear in Google search results. They represent related questions searchers commonly ask. Targeting these questions in your content can help you win featured snippets and capture additional search traffic.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can analyze keyword intent without an internet connection.",
+  },
+  {
+    question: "What do the analysis depth levels mean?",
+    answer: "Quick provides a fast intent classification with basic SERP patterns. Standard (recommended) adds detailed article formats, title ideas, and People Also Ask questions. Deep Dive includes everything plus competitor angle analysis, content depth recommendations, and a comprehensive content brief.",
+  },
+  {
+    question: "Can I analyze multiple keywords at once?",
+    answer: "Currently the tool analyzes one keyword at a time for the most thorough results. You can run multiple analyses back-to-back and they are saved to your local history for comparison. Bulk analysis is planned for a future update.",
+  },
+];

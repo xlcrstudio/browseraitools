@@ -27,6 +27,7 @@ import MealPlannerPage from "@/pages/MealPlannerPage";
 import TravelPlannerPage from "@/pages/TravelPlannerPage";
 import ContentGapPage from "@/pages/ContentGapPage";
 import SchemaMarkupPage from "@/pages/SchemaMarkupPage";
+import SerpIntentPage from "@/pages/SerpIntentPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -57,6 +58,7 @@ function Router() {
       <Route path="/ai-travel-itinerary-planner" component={TravelPlannerPage} />
       <Route path="/ai-content-gap-analyzer" component={ContentGapPage} />
       <Route path="/ai-schema-markup-generator" component={SchemaMarkupPage} />
+      <Route path="/ai-serp-intent-analyzer" component={SerpIntentPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
