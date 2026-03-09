@@ -95,7 +95,7 @@ export function SerpIntentGenerator() {
       ],
       temperature,
       maxTokens,
-      onChunk: () => {},
+      onChunk: (text) => setStreamingText(text),
     });
     return result || "";
   };

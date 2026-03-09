@@ -133,7 +133,7 @@ export function DatingProfileGenerator() {
       ],
       temperature: 0.6,
       maxTokens,
-      onChunk: () => {},
+      onChunk: (text) => setStreamingText(text),
     });
     return result || "";
   };

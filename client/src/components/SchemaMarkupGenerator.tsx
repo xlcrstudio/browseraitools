@@ -278,7 +278,7 @@ export function SchemaMarkupGenerator() {
       ],
       temperature,
       maxTokens,
-      onChunk: () => {},
+      onChunk: (text) => setStreamingText(text),
     });
     return result || "";
   };

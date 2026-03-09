@@ -235,7 +235,7 @@ Q: `,
       ],
       temperature: 0.6,
       maxTokens: sectionType === "summary" || sectionType === "simplified" ? 800 : 600,
-      onChunk: () => {},
+      onChunk: (text) => setStreamingText(text),
     });
 
     return result || "";

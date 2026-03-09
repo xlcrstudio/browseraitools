@@ -189,7 +189,7 @@ Scam Detection:`,
       ],
       temperature: 0.6,
       maxTokens: sectionType === "replies" ? 800 : 600,
-      onChunk: () => {},
+      onChunk: (text) => setStreamingText(text),
     });
 
     return result || "";

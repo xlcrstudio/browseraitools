@@ -212,7 +212,7 @@ Academic Explanation:`,
       ],
       temperature: 0.6,
       maxTokens: 800,
-      onChunk: () => {},
+      onChunk: (text) => setStreamingText(text),
     });
 
     return result || "";
@@ -233,7 +233,7 @@ Key Terms:`;
       ],
       temperature: 0.5,
       maxTokens: 600,
-      onChunk: () => {},
+      onChunk: (text) => setStreamingText(text),
     });
 
     return result || "";

@@ -113,7 +113,7 @@ export function ContentGapGenerator() {
       ],
       temperature,
       maxTokens,
-      onChunk: () => {},
+      onChunk: (text) => setStreamingText(text),
     });
     return result || "";
   };

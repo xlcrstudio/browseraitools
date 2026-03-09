@@ -120,7 +120,7 @@ export function TravelPlannerGenerator() {
       ],
       temperature,
       maxTokens,
-      onChunk: () => {},
+      onChunk: (text) => setStreamingText(text),
     });
     return result || "";
   };

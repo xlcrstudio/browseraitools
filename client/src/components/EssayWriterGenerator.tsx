@@ -128,7 +128,7 @@ export function EssayWriterGenerator() {
       ],
       temperature: 0.7,
       maxTokens,
-      onChunk: () => {},
+      onChunk: (text) => setStreamingText(text),
     });
     return result || "";
   };

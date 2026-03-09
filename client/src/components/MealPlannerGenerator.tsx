@@ -168,7 +168,7 @@ export function MealPlannerGenerator() {
       ],
       temperature,
       maxTokens,
-      onChunk: () => {},
+      onChunk: (text) => setStreamingText(text),
     });
     return result || "";
   };
