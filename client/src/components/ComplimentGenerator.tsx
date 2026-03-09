@@ -117,12 +117,16 @@ export function ComplimentGenerator() {
     setCopiedIdx(null);
     setCopiedAll(false);
 
+    const contextBlock = context.trim()
+      ? `\nIMPORTANT CONTEXT — every compliment MUST directly reference this: "${context.trim()}"\nDo NOT write generic compliments. Each one must specifically mention or relate to the context above.`
+      : "";
+
     const userPrompt = `Write exactly 5 compliments for a ${recipient}.
-Tone: ${tone}${context.trim() ? `\nContext: ${context.trim()}` : ""}
+Tone: ${tone}${contextBlock}
 
 Rules:
 - Each compliment must be 1-2 sentences, natural, and uplifting.
-- Adapt the language to suit the recipient and tone perfectly.
+- Adapt the language to suit the recipient and tone perfectly.${context.trim() ? "\n- Every compliment MUST specifically reference the context provided. Generic compliments that ignore the context are NOT acceptable." : ""}
 - Format your response EXACTLY like this:
 
 COMPLIMENT #1: [compliment text here]

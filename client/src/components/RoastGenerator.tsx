@@ -92,12 +92,16 @@ export function RoastGenerator() {
 
     const levelLabel = ROAST_LEVELS.find((l) => l.value === level)?.label || "Medium";
 
+    const contextBlock = context.trim()
+      ? `\nIMPORTANT CONTEXT — every roast MUST directly reference this: "${context.trim()}"\nDo NOT write generic roasts. Each one must specifically use the context above for targeted humor.`
+      : "";
+
     const userPrompt = `Write exactly 3 roasts about "${name.trim()}".
-Roast Level: ${levelLabel}${context.trim() ? `\nContext: ${context.trim()}` : ""}
+Roast Level: ${levelLabel}${contextBlock}
 
 Rules:
 - Each roast must be 1-2 sentences, punchy, and shareable.
-- ${level === "light" ? "Keep it playful and safe for all audiences." : level === "savage" ? "Go hard but stay clean -- no profanity, slurs, or truly hurtful content." : "Be witty and cheeky, but not cruel."}
+- ${level === "light" ? "Keep it playful and safe for all audiences." : level === "savage" ? "Go hard but stay clean -- no profanity, slurs, or truly hurtful content." : "Be witty and cheeky, but not cruel."}${context.trim() ? "\n- Every roast MUST specifically reference the context provided. Generic roasts that ignore the context are NOT acceptable." : ""}
 - Format your response EXACTLY like this:
 
 ROAST #1: [roast text here]
