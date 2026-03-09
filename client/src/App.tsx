@@ -39,6 +39,7 @@ import ProsConsPage from "@/pages/ProsConsPage";
 import ComplimentPage from "@/pages/ComplimentPage";
 import ExcusePage from "@/pages/ExcusePage";
 import DecisionPage from "@/pages/DecisionPage";
+import StoryStarterPage from "@/pages/StoryStarterPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -81,6 +82,7 @@ function Router() {
       <Route path="/ai-compliment-generator" component={ComplimentPage} />
       <Route path="/ai-excuse-generator" component={ExcusePage} />
       <Route path="/ai-decision-maker" component={DecisionPage} />
+      <Route path="/ai-story-starter" component={StoryStarterPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />

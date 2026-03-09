@@ -1,0 +1,162 @@
+Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI Story Starter for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Story Starter
+URL Slug: /ai-story-starter
+Tagline: "Instant Creative Writing Sparks"
+Mission: Spark creativity for writers, students, and storytellers with 5 powerful opening lines tailored to any genre and tone — instantly turning a blank page into a story.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~75,000 monthly searches).
+Purpose: Choose genre + tone + optional character → get 5 imaginative, genre-perfect story opening lines (hooks) that grab readers immediately.
+Target Users: Writers, novelists, students, screenwriters, content creators, teachers, NaNoWriMo participants
+Search Demand: ~75,000 monthly searches ("story starter", "AI story prompt generator", "creative writing starter", "story opening generator")
+Key Value: Perfect first line in 18 seconds vs hours of staring at a blank page
+=== UNIQUE SELLING POINTS ===
+✅ Creative writing spark generator with genre & tone precision
+✅ 5 unique, ready-to-use opening lines every time
+✅ Streaming token output with live typing animation
+✅ One-click actions on every starter (Copy, Improve, Continue Story, Share)
+✅ Follows shared premium UI system (glassmorphism cards, soft gradients, animated buttons)
+✅ 100% Private — runs entirely in your browser
+✅ Works offline after first load
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+ (strictly following shared UI Design System)
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm (shared instance with streaming support)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Storage: LocalStorage (saved starters, story ideas)
+Export: Copy text, Share image (canvas), Continue in editor
+Deployment: Vercel/Netlify
+=== SHARED UI DESIGN SYSTEM (MANDATORY) ===
+• Glassmorphism cards with subtle backdrop blur
+• Soft gradient accents (purple-to-blue for creative tools)
+• Animated glowing Generate button with loading states
+• Live streaming tokens with typewriter effect
+• Engagement animations: "AI thinking…", "Crafting the hook…", "Generating ideas…"
+• Consistent action buttons on every output: Copy • Regenerate • Improve • Share
+• Mobile-first responsive layout
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Story Starter"
+Subheadline: "Spark your next story instantly. 5 powerful opening lines tailored to your genre and tone. Private, beautiful, and ready to write."
+Trust Badges:
+
+✨ Creative Sparks
+📖 Genre Perfect
+⚡ Streaming Output
+🎯 5 Fresh Starters
+📝 One-Click Continue
+🔒 100% Private & Local
+
+Success Counter: "Ignited 156,789 stories this month"
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STORY SPARK SETUP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 1: Genre*
+
+Large selectable cards with icons:
+○ Fantasy
+○ Horror
+○ Sci-Fi
+○ Romance
+○ Mystery
+○ Adventure
+○ Other (custom)
+Required
+
+Field 2: Tone*
+
+Large selectable cards:
+○ Dark & Mysterious
+○ Humorous & Witty
+○ Epic & Heroic
+○ Romantic & Emotional
+○ Suspenseful
+○ Light & Whimsical
+Required
+
+Field 3: Main Character (Optional)
+
+Input field
+Placeholder: "Elena, a young archaeologist" or "a rogue AI"
+
+Field 4: Extra Flavor (Optional)
+
+Textarea
+Placeholder: "Set in a rainy cyberpunk city" or "Include a mysterious artifact"
+
+GENERATE BUTTON
+Full-width animated gradient button with glow effect
+Text: "Spark My Story ✨"
+Loading states (streaming):
+"AI thinking… → Analyzing genre… → Crafting the perfect hook…"
+=== OUTPUT SECTION ===
+Five glassmorphism cards with live streaming typewriter animation:
+📖 Story Starter #1
+"On the night the stars disappeared, Elena discovered a glowing door hidden beneath the roots of an ancient tree."
+Each card includes:
+
+Copy button
+"Improve this starter" button
+"Continue the story" button
+Share button (image export)
+
+Global actions (sticky bar):
+
+Generate 5 New Starters
+Save to My Ideas
+Export All
+
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are a master creative storyteller and award-winning author who specializes in powerful opening lines. You create imaginative, intriguing, genre-appropriate story hooks that immediately pull readers in. Your openings feel cinematic, emotional, and full of possibility while perfectly matching the requested genre and tone.
+User Prompt Template:
+textGenerate 5 powerful story opening lines (first sentences or paragraphs) for the following story.
+
+═══════════════════════════════════════
+GENRE: {genre}
+TONE: {tone}
+MAIN CHARACTER: {character}
+EXTRA FLAVOR: {extraFlavor}
+
+═══════════════════════════════════════
+RULES:
+• Each starter must be 1 strong opening line or short paragraph (max 2 sentences)
+• Highly imaginative and intriguing
+• Perfectly matches the genre and tone
+• Creates immediate curiosity
+• Feels like the first line of a published novel
+
+═══════════════════════════════════════
+OUTPUT FORMAT
+═══════════════════════════════════════
+
+STORY STARTER #1:
+[full text]
+
+STORY STARTER #2:
+[full text]
+
+... (up to #5)
+=== SEO ARTICLE SECTION ===
+Below the tool, comprehensive 2600-word article:
+Title: "Best AI Story Starter Generator 2026 – Spark Your Next Novel or Essay Instantly"
+[Full guide: how to overcome writer’s block, genre-specific writing tips, how to turn a starter into a full story, examples across genres, and why opening lines matter]
+=== SPECIAL FEATURES ===
+
+Live streaming tokens with typewriter animation
+One-click actions on every starter:
+Copy
+Regenerate this one
+Improve (make it darker/funnier/longer)
+Continue the story (opens mini editor)
+Share as image
+
+Save to My Story Ideas library (LocalStorage)
+"Random Spark" button for instant inspiration
+Genre/Tone quick-switcher
+
+Build this as the #1 AI Story Starter on the internet — the creative writing spark generator every writer and student will bookmark and return to daily.

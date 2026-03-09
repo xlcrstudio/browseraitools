@@ -1316,3 +1316,38 @@ export const decisionFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can analyze decisions without an internet connection.",
   },
 ];
+
+export const storyStarterFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Story Starter?",
+    answer: "The AI Story Starter is a free, browser-based creative writing tool that generates 5 powerful opening lines for your story. Choose a genre and tone, optionally add a character and setting details, and get genre-perfect story hooks instantly. The AI runs entirely in your browser for complete privacy.",
+  },
+  {
+    question: "Is the AI Story Starter really free?",
+    answer: "Yes, it is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser using WebLLM technology, so there are no server costs to pass on to you.",
+  },
+  {
+    question: "What genres and tones are available?",
+    answer: "Six genres are available: Fantasy, Horror, Sci-Fi, Romance, Mystery, and Adventure. Six tones are available: Dark & Mysterious, Humorous & Witty, Epic & Heroic, Romantic & Emotional, Suspenseful, and Light & Whimsical. Mix any genre with any tone for unique results.",
+  },
+  {
+    question: "How do I get better story starters?",
+    answer: "Add a main character name and description for personalized openings. Use the Extra Flavor field to specify settings, themes, or plot elements you want included. The more specific your inputs, the more tailored and creative the starters will be.",
+  },
+  {
+    question: "Can I use these starters in my own writing?",
+    answer: "Yes. All generated story starters are yours to use however you like. Use them as opening lines for novels, short stories, essays, screenwriting, creative writing assignments, or as inspiration to spark your own ideas.",
+  },
+  {
+    question: "How does the AI generate story starters?",
+    answer: "The tool uses WebLLM technology to run an AI language model (Qwen 2.5 1.5B) directly in your web browser using WebGPU. It analyzes your genre, tone, character, and setting choices to craft opening lines that feel like the first sentence of a published novel.",
+  },
+  {
+    question: "Is my data kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your story ideas, characters, and settings never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate story starters without an internet connection.",
+  },
+];
