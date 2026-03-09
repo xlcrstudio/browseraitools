@@ -966,3 +966,38 @@ export const metaDescriptionFAQs: FAQItem[] = [
     answer: "The tool supports Blog Post/Article, Product Page, Service Page, Homepage, Landing Page, Category Page, and About Page. Each content type adjusts the meta description style to match its typical search result context and user expectations.",
   },
 ];
+
+export const seoTitleFAQs: FAQItem[] = [
+  {
+    question: "What is the ideal SEO title length?",
+    answer: "The optimal SEO title length is 50-60 characters. Google typically displays up to 60 characters in search results before truncating. Titles in this range get fully shown and perform best for click-through rates. The tool color-codes each title: green for 50-60 chars (perfect), yellow for slightly outside range, red for too short or too long.",
+  },
+  {
+    question: "How should I place keywords in my title?",
+    answer: "Place your primary keyword as close to the beginning of the title as possible. Google gives more weight to words that appear earlier. The tool naturally integrates your target keyword into every generated title while keeping it readable and compelling.",
+  },
+  {
+    question: "Why does the tool generate 10 variations?",
+    answer: "Different title styles appeal to different audiences and search intents. The 10 variations cover list style, question hooks, how-to guides, power words, number-based, problem-solution, and comparison formats. This gives you options for A/B testing and lets you pick the approach that best matches your content.",
+  },
+  {
+    question: "What content types can I generate titles for?",
+    answer: "The tool supports Blog Post/Article, Product Page, YouTube Video, Landing Page, Category Page, and About/Company Page. Each content type adjusts the title formulas and style to match its typical search context and user expectations.",
+  },
+  {
+    question: "What are power words and emotional triggers?",
+    answer: "Power words are persuasive terms like 'Ultimate', 'Essential', 'Proven', and 'Secret' that trigger emotional responses and increase click rates. The tool can integrate these naturally into titles when you select the Power Words style option.",
+  },
+  {
+    question: "How does the headline scoring system work?",
+    answer: "Each title receives an SEO strength score based on factors like keyword placement, character length, use of power words, specificity, and emotional impact. Higher scores indicate titles more likely to perform well in search results and drive clicks.",
+  },
+  {
+    question: "Is my content kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your topics, keywords, and generated titles never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate SEO titles without an internet connection.",
+  },
+];

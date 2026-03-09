@@ -195,7 +195,8 @@ CRITICAL RULES:
 1.`;
 
       const descriptionsResult = await generateSection(generatePrompt, 800, 0.7);
-      const fullDescriptionsText = "1." + descriptionsResult.trim();
+      const trimmedDesc = descriptionsResult.trim();
+      const fullDescriptionsText = /^\d/.test(trimmedDesc) ? trimmedDesc : "1." + trimmedDesc;
       parsedDescriptions = parseDescriptions(fullDescriptionsText);
       allRawText = `META DESCRIPTIONS:\n${fullDescriptionsText}`;
       setStreamingText(allRawText);
