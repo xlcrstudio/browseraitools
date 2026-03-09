@@ -6,7 +6,7 @@ import {
   Search, Tag, Key, BookOpen, Link2,
   Briefcase, ScrollText, UserCheck, MessageCircle,
   ListChecks, ClipboardList, CalendarDays, Flag,
-  Scale, ThumbsUp, Swords, ShieldQuestion, Heart, Flame, BookOpenCheck, Sparkles, UtensilsCrossed, MapPin,
+  Scale, ThumbsUp, Swords, ShieldQuestion, Heart, Flame, BookOpenCheck, Sparkles, UtensilsCrossed, MapPin, Code,
 } from "lucide-react";
 
 export interface Tool {
@@ -94,6 +94,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 33, name: "AI Content Brief Generator", slug: "/content-brief-generator", icon: BookOpen, available: false },
       { id: 34, name: "AI Internal Link Suggestion Tool", slug: "/internal-link-suggestion", icon: Link2, available: false },
       { id: 58, name: "AI Content Gap Analyzer", slug: "/ai-content-gap-analyzer", icon: Search, available: true },
+      { id: 59, name: "AI Schema Markup Generator", slug: "/ai-schema-markup-generator", icon: Code, available: true },
     ],
   },
   {

@@ -861,3 +861,38 @@ export const contentGapFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can run content gap analyses without an internet connection.",
   },
 ];
+
+export const schemaMarkupFAQs: FAQItem[] = [
+  {
+    question: "What schema types does this tool support?",
+    answer: "The tool supports 12+ schema types: FAQPage, Article/BlogPosting, Product, Recipe, HowTo, Organization, LocalBusiness, VideoObject, Event, JobPosting, Course, and BreadcrumbList. Each type has dynamic input fields tailored to its specific requirements.",
+  },
+  {
+    question: "Is my content kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your page details, business information, and generated schemas never leave your device. No data is sent to any server.",
+  },
+  {
+    question: "Is the generated JSON-LD valid?",
+    answer: "The tool generates standard JSON-LD following schema.org vocabulary and Google's structured data guidelines. After generation, it automatically validates the JSON syntax. We recommend also testing with Google's Rich Results Test tool for final verification before deploying.",
+  },
+  {
+    question: "Will this help me get Google rich results?",
+    answer: "The schema markup is designed to meet Google's requirements for rich results (featured snippets, FAQ dropdowns, recipe cards, product ratings, etc.). However, Google ultimately decides which pages get rich results based on content quality, schema correctness, and other ranking factors.",
+  },
+  {
+    question: "What is JSON-LD and why should I use it?",
+    answer: "JSON-LD (JavaScript Object Notation for Linked Data) is Google's recommended format for structured data markup. Unlike microdata or RDFa, JSON-LD is added as a separate script tag and does not require modifying your HTML content. It is easier to implement, maintain, and debug.",
+  },
+  {
+    question: "Can I generate FAQ schema automatically?",
+    answer: "Yes. Select the FAQPage type, add your questions and answers using the dynamic form fields, and the tool will generate properly formatted FAQ schema with mainEntity arrays. This is the format Google requires for FAQ rich results in search.",
+  },
+  {
+    question: "How do I add the schema to my website?",
+    answer: "Copy the generated script tag and paste it into the head section of your HTML page. The tool provides a complete script element ready to copy. For WordPress, you can paste it using a plugin like Insert Headers and Footers, or add it to your theme's header.php file.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate schema markup without an internet connection.",
+  },
+];

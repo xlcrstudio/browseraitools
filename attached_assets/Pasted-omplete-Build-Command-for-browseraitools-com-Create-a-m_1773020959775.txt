@@ -1,0 +1,217 @@
+omplete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI Schema Markup Generator for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Schema Markup Generator
+URL Slug: /ai-schema-markup-generator
+Tagline: "Instant JSON-LD Schema – Copy & Paste Ready"
+Mission: Help developers, SEO professionals, and website owners generate perfect, Google-validated schema markup in seconds — 100% private and free.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~110,000 monthly searches).
+Purpose: Choose page type + enter details → generate complete, valid JSON-LD schema markup (FAQ, Article, Product, Recipe, HowTo, Organization, LocalBusiness, etc.).
+Target Users: SEO specialists, web developers, bloggers, e-commerce owners, agency teams
+Search Demand: 70k–150k monthly searches ("schema generator", "FAQ schema generator", "JSON-LD schema tool", "structured data generator")
+Key Value: Production-ready schema in 15 seconds vs hours of manual coding or $49+/mo tools
+=== UNIQUE SELLING POINTS ===
+✅ 100% Private — runs entirely in your browser (no data sent anywhere)
+✅ 15+ schema types supported (FAQ, Article, Product, Recipe, HowTo, Event, JobPosting, Organization, LocalBusiness, VideoObject, etc.)
+✅ Auto-generates FAQ schema from questions & answers
+✅ Real-time validation (shows Google Rich Results eligibility)
+✅ One-click copy + download as .json file
+✅ Multiple schemas on one page (combine FAQ + Article)
+✅ Works offline after first load
+✅ No login, no limits, no cost
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm (shared instance)
+Model: "Llama-3.1-8B-Instruct-q4f16_1-MLC"
+Validation: Built-in JSON-LD syntax checker + Google Structured Data Testing Tool simulation
+Storage: LocalStorage (saved schemas, history)
+Export: Copy JSON, Download .json, Download HTML script tag
+Deployment: Vercel/Netlify
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Schema Markup Generator"
+Subheadline: "Generate perfect JSON-LD schema for any page in seconds. FAQ, Article, Product, Recipe & more. Private. Free. Google-ready."
+Trust Badges:
+
+📋 15+ Schema Types
+✅ Google Rich Results Ready
+⚡ Instant & Validated
+🔄 Combine Multiple Schemas
+📥 One-Click Copy & Download
+🔒 100% Private & Local
+
+Success Counter: "Generated 198,765 schemas this month"
+=== INPUT FORM ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PAGE BASICS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 1: Page Title / Name*
+
+Input field
+Placeholder: "Best AI Content Tools 2026"
+Required
+
+Field 2: Page URL (Optional)
+
+Input: "https://yoursite.com/blog/ai-tools"
+Help text: "Used for canonical and @id"
+
+Field 3: Page Type*
+
+Large selectable cards with icons:
+○ FAQPage (most popular)
+○ Article / BlogPosting
+○ Product
+○ Recipe
+○ HowTo
+○ Organization
+○ LocalBusiness
+○ VideoObject
+○ Event
+○ JobPosting
+○ Course
+○ Other (custom)
+Required
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONTENT DETAILS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Field 4: FAQ Questions & Answers (shown only for FAQPage)
+
+Dynamic add/remove fields
+Question input + Answer textarea
+Minimum 3 for rich results
+
+Field 5: Description / Key Details
+
+Textarea (auto-populated based on type)
+Placeholder changes dynamically (e.g., "Product price, rating, availability" for Product)
+
+Field 6: Additional Fields (dynamic based on type)
+
+For Product: price, currency, rating, availability
+For Recipe: prep time, cook time, ingredients list
+For Article: author, publish date, image URL
+For HowTo: step-by-step list (dynamic add)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ADVANCED OPTIONS (Collapsible)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Generate multiple schemas: Toggle
+Include breadcrumbs: Toggle
+Add image schema: Toggle
+Combine with FAQ schema: Toggle
+Target rich results: Yes/No (auto-optimizes)
+
+GENERATE BUTTON
+Full-width gradient button
+Text: "Generate JSON-LD Schema"
+Icon: 📐
+Loading: "Crafting perfect schema… Validating… (100% in-browser)"
+=== OUTPUT SECTION ===
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+YOUR SCHEMA MARKUP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Header: "JSON-LD Schema for [Page Title]"
+Quick Stats:
+
+Schema Type: FAQPage
+Rich Results Eligible: YES
+Estimated CTR Boost: +15-30%
+Validation: Passed
+
+Action Buttons (sticky top bar):
+
+Copy JSON • Copy <script> Tag • Download .json • Download HTML • Validate on Google • Regenerate
+
+[Beautiful code block with syntax highlighting]
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [
+{
+"@type": "Question",
+"name": "What is AI SEO?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "AI SEO uses machine learning to improve search rankings."
+}
+}
+]
+}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMPLEMENTATION GUIDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Exact HTML to paste:
+<script type="application/ld+json">...paste here...</script>
+Live preview of how it will appear in Google (simulated rich snippet)
+Expandable sections:
+
+Why This Schema Works
+Additional Recommended Schemas
+Troubleshooting Tips
+
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are an expert structured data and schema markup specialist who has implemented JSON-LD for Fortune 500 sites and helped thousands rank with rich results. You know Google's exact requirements for every schema type in 2026. You generate 100% valid, clean, production-ready JSON-LD code. You never hallucinate fields. You always follow official schema.org vocabulary and Google's rich results guidelines. Accuracy and validity are your top priorities.
+User Prompt Template:
+textGenerate complete, valid JSON-LD schema markup for the following page.
+
+═══════════════════════════════════════
+PAGE TITLE: {pageTitle}
+PAGE URL: {pageUrl}
+PAGE TYPE: {selectedType}
+ADDITIONAL FIELDS: {dynamicFields}
+
+═══════════════════════════════════════
+REQUIRED OUTPUT STRUCTURE
+═══════════════════════════════════════
+
+Output ONLY clean JSON-LD (no extra text in the code block).
+Then provide:
+- Implementation instructions
+- Rich results eligibility check
+- Suggested additional schemas
+
+RULES:
+- Use correct @context and @type
+- Include all mandatory fields for the chosen type
+- Make values realistic and helpful
+- Format with proper indentation
+- For FAQPage: use mainEntity array
+- For Article/Product/etc.: use all required + recommended properties
+- Never add extra properties not supported by schema.org
+
+OUTPUT FORMAT:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+JSON-LD SCHEMA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+```json
+{pure valid JSON-LD here}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMPLEMENTATION GUIDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[HTML script tag + tips]
+text=== SEO ARTICLE SECTION ===
+Below the tool, comprehensive 2800-word article:
+
+Title: "Free AI Schema Markup Generator 2026 – JSON-LD & Rich Snippets in Seconds (No Coding Needed)"
+
+[Full guide: why schema matters in 2026, how to get rich results, complete walkthrough for every schema type, comparison vs paid tools like Schema Pro/Merkle, case studies of CTR increases]
+
+=== SPECIAL FEATURES ===
+1. Dynamic form fields (auto-changes per schema type)
+2. Real-time validation badge
+3. One-click "Add FAQ Schema" to any page
+4. Schema Library & History (LocalStorage)
+5. Bulk Generator (multiple pages at once – v2)
+6. "Rich Results Preview" simulator
+7. Export as WordPress/Shopify-ready code
+
+Build this as the #1 free & private schema markup tool on the internet — the one every SEO and dev
