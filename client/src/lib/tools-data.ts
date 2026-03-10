@@ -4,7 +4,7 @@ import {
   Building2, Rocket, Lightbulb, Target, Presentation, Users,
   Megaphone, Mail, MessageSquare, MousePointerClick, Layout,
   Search, Tag, Key, BookOpen, Link2,
-  Briefcase, ScrollText, UserCheck, MessageCircle,
+  Briefcase, ScrollText, UserCheck, MessageCircle, ScanSearch,
   ListChecks, ClipboardList, CalendarDays, Flag,
   Scale, ThumbsUp, Swords, ShieldQuestion, Heart, Flame, BookOpenCheck, Sparkles, UtensilsCrossed, MapPin, Code,
 } from "lucide-react";
@@ -107,6 +107,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 36, name: "AI Cover Letter Generator", slug: "/ai-cover-letter-generator", icon: FileText, available: true },
       { id: 37, name: "AI LinkedIn Summary Generator", slug: "/ai-linkedin-summary-generator", icon: UserCheck, available: true },
       { id: 38, name: "AI Interview Answer Generator", slug: "/ai-interview-answer-generator", icon: MessageCircle, available: true },
+      { id: 61, name: "AI ATS Resume Matcher", slug: "/ai-ats-resume-matcher", icon: ScanSearch, available: true },
     ],
   },
   {

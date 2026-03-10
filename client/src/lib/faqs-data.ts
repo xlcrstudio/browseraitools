@@ -1661,3 +1661,86 @@ export const debateFAQs: FAQItem[] = [
     answer: "The tool generates balanced arguments for both sides of any issue without taking a moral or political stance. It presents the strongest possible case for each position, helping users understand multiple perspectives. Since everything runs locally in your browser, controversial topics remain completely private.",
   },
 ];
+
+export const atsFAQs: FAQItem[] = [
+  {
+    question: "What is the AI ATS Resume Matcher?",
+    answer: "The AI ATS Resume Matcher is a free, browser-based tool that analyzes how well your resume matches a specific job description. It provides an exact match percentage score, identifies missing keywords and skills, and gives actionable suggestions to improve your resume. The AI runs entirely in your browser for complete privacy.",
+  },
+  {
+    question: "How accurate is the match score?",
+    answer: "The tool uses AI to simulate how ATS systems evaluate resumes against job descriptions. While no tool can perfectly replicate every ATS platform (Workday, Greenhouse, Lever all score differently), our analysis identifies the same keyword gaps and skill mismatches that cause real ATS rejections. Use the score as a relative guide: higher scores mean better alignment with the job requirements.",
+  },
+  {
+    question: "What match score should I aim for?",
+    answer: "Career experts recommend targeting an 80% or higher match score for competitive positions. Scores below 60% are likely to be filtered out by most ATS systems. The tool lets you set your target (70%, 80%, or 90%) and shows whether your resume meets that goal. For highly competitive roles, aim for 85% or above.",
+  },
+  {
+    question: "Is my resume data kept private?",
+    answer: "Yes, completely. The AI model runs entirely in your browser using WebLLM technology. Your resume content, job descriptions, and analysis results never leave your device. No data is uploaded to any server, making this tool safe for confidential job searches where you do not want anyone to know you are looking for a new position.",
+  },
+  {
+    question: "How do I use the tool?",
+    answer: "Paste the full job description in the left text area and your resume (or experience section) in the right text area. Optionally select your industry, target score, and whether to analyze the full resume or just experience. Click Analyze My Match Score and wait about 25-30 seconds for the AI to generate your complete match report with scores, missing keywords, missing skills, and improvement suggestions.",
+  },
+  {
+    question: "What are missing keywords?",
+    answer: "Missing keywords are important terms and phrases from the job description that do not appear in your resume. ATS systems scan for these keywords to determine relevance. Common missing keywords include specific technologies (Python, AWS, Salesforce), methodologies (Agile, Six Sigma), certifications (PMP, CPA), and industry-specific terminology. Adding these keywords naturally to your resume can significantly boost your match score.",
+  },
+  {
+    question: "What are missing skills?",
+    answer: "Missing skills are competencies and abilities mentioned in the job description that your resume does not demonstrate. These include both hard skills (programming languages, tools, platforms) and soft skills (leadership, communication, problem-solving). Unlike keywords, skills often need to be demonstrated through specific examples and achievements rather than simply listed.",
+  },
+  {
+    question: "How do I improve my score?",
+    answer: "Follow the actionable suggestions provided in your match report. Typically, the most effective improvements include: adding missing keywords to your skills section, rewriting experience bullets to naturally incorporate key terms from the job description, using the exact terminology from the posting rather than synonyms, and ensuring your resume has clearly labeled standard sections (Experience, Education, Skills) that ATS systems recognize.",
+  },
+  {
+    question: "Can I compare one resume against multiple jobs?",
+    answer: "Yes. Simply run a new analysis for each job description while keeping your resume the same. This helps you see which roles you are best matched for and how to prioritize your applications. Your recent analyses are saved in your browser history so you can compare scores across different positions.",
+  },
+  {
+    question: "Should I analyze my full resume or just experience?",
+    answer: "For most applications, analyze your full resume. This gives the most comprehensive match score since ATS systems scan all sections including your summary, skills, education, and certifications. The Experience Only option is useful when you want to focus specifically on how well your work history aligns with the role, or if your resume is very long and you want to check one section at a time.",
+  },
+  {
+    question: "How is this different from Jobscan or Teal?",
+    answer: "The main differences are privacy and cost. Paid tools like Jobscan (around 50 dollars per month) and Teal (around 29 dollars per month) upload your resume to their servers. Our tool runs entirely in your browser so your data never leaves your device, and it is completely free with no usage limits. The analysis quality is comparable for identifying keyword gaps and skill mismatches.",
+  },
+  {
+    question: "Does the industry selection matter?",
+    answer: "The industry selection helps the AI understand the context of your resume and job description more accurately. Different industries have different ATS optimization priorities. For example, technology roles weight specific tool names heavily, while healthcare roles prioritize exact certification names. If you are unsure, leave it on Auto-Detect and the AI will determine the most relevant industry context.",
+  },
+  {
+    question: "Can I use this for career changes?",
+    answer: "Yes. The tool is especially valuable for career changers because it clearly shows the gap between your current resume and a new target role. By identifying exactly which keywords and skills are missing, you can strategically highlight transferable experience, add relevant coursework or certifications, and reframe your existing accomplishments using industry-appropriate language.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can analyze resume matches without an internet connection, which is useful for resume preparation while traveling or in areas with limited connectivity.",
+  },
+  {
+    question: "How long does the analysis take?",
+    answer: "A typical analysis takes 20-30 seconds after the AI model is loaded. The first time you use the tool, you will need to wait for the model to download (about 1-2 minutes depending on your connection speed). After that initial download, the model is cached and subsequent analyses start immediately.",
+  },
+  {
+    question: "Are the suggestions safe to use on my resume?",
+    answer: "The suggestions are designed to help you authentically represent your experience using language that ATS systems recognize. Never add keywords for skills you do not have, as you will need to demonstrate these in interviews. The goal is to ensure your genuine qualifications are not being missed due to terminology differences between your resume and the job description.",
+  },
+  {
+    question: "Can I save or export my analysis?",
+    answer: "Your recent analyses are automatically saved in your browser's local storage (up to 15 sessions). You can also copy the full report to your clipboard using the Copy Report button, and paste it into any document or notes application for future reference.",
+  },
+  {
+    question: "What resume format works best?",
+    answer: "Paste your resume as plain text for best results. If you are copying from a PDF or Word document, the formatting may not transfer perfectly, but the tool can still analyze keyword and skill matches from the text content. For your actual resume submissions, use a clean PDF with standard section headers and simple formatting for maximum ATS compatibility.",
+  },
+  {
+    question: "How often should I re-analyze?",
+    answer: "Re-analyze every time you tailor your resume for a new job application. Since each job description has different keyword requirements, a resume that scores 85% for one role may only score 60% for another. The most successful job seekers customize their resume for each application and verify the match score before submitting.",
+  },
+  {
+    question: "Does it check resume formatting?",
+    answer: "The tool focuses on content analysis rather than formatting. It evaluates keyword matches, skill alignment, and experience relevance based on the text you provide. For formatting advice, follow ATS best practices: use a single-column layout, standard fonts, clearly labeled sections, and avoid tables, text boxes, graphics, and headers/footers that ATS parsers may skip.",
+  },
+];
