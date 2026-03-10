@@ -115,7 +115,7 @@ export const toolCategories: ToolCategory[] = [
     slug: "productivity",
     description: "Get more done with smart AI assistants",
     tools: [
-      { id: 39, name: "AI To-Do List Generator", slug: "/todo-list-generator", icon: ListChecks, available: false },
+      { id: 39, name: "AI To-Do List Generator", slug: "/ai-todo-list-generator", icon: ListChecks, available: true },
       { id: 40, name: "AI Meeting Summary Generator", slug: "/meeting-summary-generator", icon: ClipboardList, available: false },
       { id: 41, name: "AI Weekly Planner Generator", slug: "/weekly-planner-generator", icon: CalendarDays, available: false },
       { id: 42, name: "AI Goal Planner", slug: "/goal-planner", icon: Flag, available: false },

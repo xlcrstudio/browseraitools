@@ -1744,3 +1744,46 @@ export const atsFAQs: FAQItem[] = [
     answer: "The tool focuses on content analysis rather than formatting. It evaluates keyword matches, skill alignment, and experience relevance based on the text you provide. For formatting advice, follow ATS best practices: use a single-column layout, standard fonts, clearly labeled sections, and avoid tables, text boxes, graphics, and headers/footers that ATS parsers may skip.",
   },
 ];
+
+export const todoListFAQs: FAQItem[] = [
+  {
+    question: "What is the AI To-Do List Generator?",
+    answer: "The AI To-Do List Generator is a free, browser-based productivity tool that transforms any goal or project into a clear, actionable task list. It uses AI running directly in your browser to break down vague objectives into specific tasks with priorities, time estimates, difficulty ratings, and logical dependencies.",
+  },
+  {
+    question: "Is the AI To-Do List Generator really free?",
+    answer: "Yes, it is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser using WebGPU, so there are no server costs. You can generate unlimited to-do lists without creating an account.",
+  },
+  {
+    question: "How does it break down goals into tasks?",
+    answer: "The AI analyzes your goal, timeframe, and experience level to create a structured action plan. It organizes tasks into logical phases, assigns priority levels (high, medium, low), estimates time for each task, identifies dependencies between tasks, and provides step-by-step instructions when detailed mode is selected.",
+  },
+  {
+    question: "Is my data private when using this tool?",
+    answer: "Absolutely. The AI runs 100% locally in your browser. Your goals, projects, and generated task lists never leave your device. There is no server processing, no data collection, and no tracking. Your productivity plans stay completely private.",
+  },
+  {
+    question: "What timeframes can I plan for?",
+    answer: "You can generate task lists for four different timeframes: Today (3-8 urgent tasks for the next 8 hours), This Week (8-15 tasks for a 7-day plan), This Month (15-30 tasks for a 30-day roadmap), and Long-term (30-50+ tasks for a 3-6 month project). The AI adjusts task granularity and count based on your chosen timeframe.",
+  },
+  {
+    question: "Can I track my progress on generated tasks?",
+    answer: "Yes, every generated task has an interactive checkbox. You can mark tasks as complete and see your overall progress update in real-time with a progress bar. Your progress is saved to your browser's local storage, so you can close the page and come back later without losing your check marks.",
+  },
+  {
+    question: "What export formats are available?",
+    answer: "You can export your task list in multiple formats: Copy as a formatted checklist, download as Markdown (.md) for use in Notion or Obsidian, or download as CSV for spreadsheets and project management tools like Trello or Asana. All exports preserve task details including priorities, time estimates, and descriptions.",
+  },
+  {
+    question: "Does it work offline?",
+    answer: "Yes! After the first use, the AI model is cached in your browser's storage. Once downloaded, you can generate to-do lists without an internet connection. The initial model download is required only once and takes about 1-2 minutes depending on your connection speed.",
+  },
+  {
+    question: "What types of goals work best with this tool?",
+    answer: "The tool works well with any type of goal: business projects (launch a product, build a website), learning goals (learn a programming language, prepare for certification), personal projects (organize a move, plan a wedding), health goals (train for a marathon, start a diet), financial goals (create a budget, start investing), and creative projects (write a book, start a podcast).",
+  },
+  {
+    question: "How does the experience level setting affect the output?",
+    answer: "The experience level adjusts task complexity and detail. Complete Beginner gets more detailed explanations, learning tasks, and slower time estimates. Some Experience gets balanced detail with standard estimates. Experienced users get less explanation with faster estimates. Expert level provides minimal explanation focused purely on organization and execution.",
+  },
+];

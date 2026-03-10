@@ -47,6 +47,7 @@ import YTDescPage from "@/pages/YTDescPage";
 import IGBioPage from "@/pages/IGBioPage";
 import DebatePage from "@/pages/DebatePage";
 import ATSMatcherPage from "@/pages/ATSMatcherPage";
+import TodoListPage from "@/pages/TodoListPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -97,6 +98,7 @@ function Router() {
       <Route path="/ai-instagram-bio-generator" component={IGBioPage} />
       <Route path="/ai-debate-generator" component={DebatePage} />
       <Route path="/ai-ats-resume-matcher" component={ATSMatcherPage} />
+      <Route path="/ai-todo-list-generator" component={TodoListPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
