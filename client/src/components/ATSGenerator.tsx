@@ -1,11 +1,12 @@
-import { useState, useMemo } from "react";
+import { useState, useRef } from "react";
 import {
-  Loader2, AlertTriangle, Copy, Check, RotateCcw, BarChart3,
-  Key, Wrench, TrendingUp, ChevronDown, ScanSearch, Trash2,
+  Loader2, AlertTriangle, Copy, Check, RotateCcw,
+  ChevronDown, ScanSearch, Trash2, CheckCircle2, XCircle,
+  Cpu, Heart, Tag, TrendingUp, UserCheck, Lightbulb,
 } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
-import { useATSStorage, type ATSResult } from "@/hooks/use-ats-storage";
+import { useATSStorage, type ATSResult, type SkillItem } from "@/hooks/use-ats-storage";
 
 const INDUSTRIES = [
   "Auto-Detect",
@@ -36,12 +37,13 @@ const ANALYZE_MODES = [
   { value: "experience", label: "Experience Only" },
 ] as const;
 
-const SYSTEM_PROMPT = `You are an expert ATS resume optimizer and recruiter with 10+ years experience. You analyze resumes against job descriptions with perfect accuracy. You are extremely thorough: you extract EVERY keyword, technology, tool, methodology, certification, and skill from the job description, then check each one against the resume. You never say "no gaps detected" when the match score is below 100%. If skills match is 85%, you list the 15% worth of missing skills. If keyword match is 76%, you list every missing keyword that accounts for that 24% gap. You are strict, detailed, and honest.`;
+const SYSTEM_PROMPT = `You are an expert ATS resume optimizer and recruiter with 10+ years experience. You analyze resumes against job descriptions with perfect accuracy. You follow the exact output format requested. Each item goes on its own line. You never skip items or combine multiple items into one line.`;
 
 const JUNK_PATTERNS = [
   /^\(.*\)$/,
   /^list\s/i,
   /^missing\s/i,
+  /^found\s/i,
   /^keyword\s*match/i,
   /^skill[s]?\s*match/i,
   /^score/i,
@@ -70,46 +72,65 @@ const JUNK_PATTERNS = [
   /^percentage/i,
   /^be\s+thorough/i,
   /^list\s+every/i,
-  /at\s+least\s+5-10/i,
+  /at\s+least\s+\d/i,
+  /^hard\s+skills/i,
+  /^soft\s+skills/i,
+  /^other\s+keywords/i,
+  /^recruiter/i,
+  /^formatting/i,
+  /^section/i,
 ];
 
 function isJunkLine(s: string): boolean {
   return JUNK_PATTERNS.some((p) => p.test(s));
 }
 
-function parseScore(text: string): { overall: number; keyword: number; skills: number; experience: number } {
+function parseTaggedList(text: string, sectionRegex: RegExp): SkillItem[] {
   const clean = text.replace(/\*\*/g, "").replace(/__/g, "");
-  const getNum = (patterns: RegExp[]) => {
-    for (const p of patterns) {
-      const m = clean.match(p);
-      if (m) return Math.min(100, Math.max(0, parseInt(m[1], 10)));
-    }
-    return 0;
-  };
+  const match = clean.match(sectionRegex);
+  if (!match) return [];
+  const startIdx = match.index! + match[0].length;
+  const remaining = clean.slice(startIdx, startIdx + 2000);
 
-  return {
-    overall: getNum([/overall\s*(?:match\s*)?score[:\s]*(\d+)/i, /match\s*score[:\s]*(\d+)/i]),
-    keyword: getNum([/keyword\s*(?:match\s*)?[%:\s]*(\d+)/i]),
-    skills: getNum([/skills?\s*(?:match\s*)?[%:\s]*(\d+)/i]),
-    experience: getNum([/experience\s*(?:alignment|match|relevance)?[%:\s]*(\d+)/i]),
-  };
+  const sectionEnd = remaining.search(/\n\s*(?:#{1,3}\s|(?:HARD\s+SKILLS?|SOFT\s+SKILLS?|OTHER\s+KEYWORDS?|RECRUITER|OVERALL|SUGGESTION|RECOMMENDATION|TIP|SCORE|EXPERIENCE)[A-Z\s]*:)/i);
+  const section = sectionEnd > 0 ? remaining.slice(0, sectionEnd) : remaining.slice(0, 1200);
+
+  const items: SkillItem[] = [];
+  const lines = section.split("\n");
+  for (const line of lines) {
+    const trimmed = line.replace(/^[\s\-*•\d.)+]+/, "").trim();
+    if (trimmed.length < 2 || trimmed.length > 200 || isJunkLine(trimmed)) continue;
+
+    const foundMatch = trimmed.match(/^\[FOUND\]\s*(.+)/i) || trimmed.match(/^FOUND:\s*(.+)/i) || trimmed.match(/^\u2705\s*(.+)/);
+    const missingMatch = trimmed.match(/^\[MISSING\]\s*(.+)/i) || trimmed.match(/^MISSING:\s*(.+)/i) || trimmed.match(/^\u274c\s*(.+)/);
+
+    if (foundMatch) {
+      const name = foundMatch[1].replace(/\s*[-–]\s*(?:found|present|included|matched|in resume).*$/i, "").trim();
+      if (name.length > 1 && !isJunkLine(name)) items.push({ name, found: true });
+    } else if (missingMatch) {
+      const name = missingMatch[1].replace(/\s*[-–]\s*(?:missing|not found|absent|not in resume).*$/i, "").trim();
+      if (name.length > 1 && !isJunkLine(name)) items.push({ name, found: false });
+    }
+
+    if (items.length >= 25) break;
+  }
+  return items;
 }
 
-function parseList(text: string, sectionStart: RegExp, maxItems: number = 15): string[] {
+function parseSimpleList(text: string, sectionRegex: RegExp, maxItems = 10): string[] {
   const clean = text.replace(/\*\*/g, "").replace(/__/g, "");
-  const match = clean.match(sectionStart);
+  const match = clean.match(sectionRegex);
   if (!match) return [];
   const startIdx = match.index! + match[0].length;
   const remaining = clean.slice(startIdx, startIdx + 1500);
 
-  const sectionEnd = remaining.search(/\n\s*(?:\d+\.\s(?:overall|keyword|skill|experience|action|suggest|final|recommend))|(?:#{1,3}\s)|(?:={3,})|(?:missing\s+(?:skill|keyword)s?\s*(?:\(|:))|(?:actionable\s+suggest)|(?:final\s+recommend)|(?:experience\s+align)/i);
+  const sectionEnd = remaining.search(/\n\s*(?:#{1,3}\s|(?:FOUND|MISSING|HARD|SOFT|OTHER|RECRUITER|OVERALL|SUGGESTION|RECOMMENDATION|TIP|SCORE)[A-Z\s]*:)/i);
   const section = sectionEnd > 0 ? remaining.slice(0, sectionEnd) : remaining.slice(0, 800);
 
   const items: string[] = [];
-  const lines = section.split("\n");
-  for (const line of lines) {
+  for (const line of section.split("\n")) {
     const cleaned = line.replace(/^[\s\-*•\d.)+]+/, "").trim();
-    if (cleaned.length > 3 && cleaned.length < 200 && !isJunkLine(cleaned)) {
+    if (cleaned.length > 3 && cleaned.length < 300 && !isJunkLine(cleaned)) {
       items.push(cleaned);
     }
     if (items.length >= maxItems) break;
@@ -117,8 +138,10 @@ function parseList(text: string, sectionStart: RegExp, maxItems: number = 15): s
   return items;
 }
 
-function parseSuggestions(text: string): string[] {
-  return parseList(text, /(?:actionable|suggestion|improvement|tip)[s]?[:\s]*/i, 10);
+function parseScore(text: string): number {
+  const clean = text.replace(/\*\*/g, "").replace(/__/g, "");
+  const m = clean.match(/overall\s*(?:match\s*)?score[:\s]*(\d+)/i) || clean.match(/match\s*score[:\s]*(\d+)/i) || clean.match(/score[:\s]*(\d+)/i);
+  return m ? Math.min(100, Math.max(0, parseInt(m[1], 10))) : 0;
 }
 
 function parseRecommendation(text: string): string {
@@ -167,6 +190,97 @@ function ScoreGauge({ score, label, size = "lg", target }: { score: number; labe
   );
 }
 
+function SkillTag({ item }: { item: SkillItem }) {
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium border transition-colors",
+        item.found
+          ? "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-700/50 text-green-700 dark:text-green-300"
+          : "bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-700/50 text-red-700 dark:text-red-300"
+      )}
+    >
+      {item.found ? (
+        <CheckCircle2 className="w-3 h-3 text-green-500 dark:text-green-400 flex-shrink-0" />
+      ) : (
+        <XCircle className="w-3 h-3 text-red-500 dark:text-red-400 flex-shrink-0" />
+      )}
+      {item.name}
+    </span>
+  );
+}
+
+function SkillSection({
+  title,
+  icon,
+  items,
+  testId,
+}: {
+  title: string;
+  icon: React.ReactNode;
+  items: SkillItem[];
+  testId: string;
+}) {
+  const found = items.filter((i) => i.found);
+  const missing = items.filter((i) => !i.found);
+  const total = items.length;
+  const matchPercent = total > 0 ? Math.round((found.length / total) * 100) : 0;
+  const barColor = matchPercent >= 80 ? "bg-green-500" : matchPercent >= 60 ? "bg-amber-500" : "bg-red-500";
+
+  return (
+    <div className="rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden" data-testid={testId}>
+      <div className="flex items-center justify-between px-4 py-3 bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-700">
+        <div className="flex items-center gap-2">
+          {icon}
+          <span className="text-sm font-bold text-slate-700 dark:text-slate-200">{title}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+            {found.length}/{total} found
+          </span>
+          <span className={cn(
+            "text-xs font-bold px-2 py-0.5 rounded-full",
+            matchPercent >= 80
+              ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300"
+              : matchPercent >= 60
+                ? "bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300"
+                : "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300"
+          )}>
+            {matchPercent}%
+          </span>
+        </div>
+      </div>
+
+      <div className="px-4 pt-2 pb-1">
+        <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-1.5 overflow-hidden">
+          <div className={cn("h-full rounded-full transition-all duration-700", barColor)} style={{ width: `${matchPercent}%` }} />
+        </div>
+      </div>
+
+      <div className="p-4 bg-white dark:bg-slate-900/60">
+        {items.length > 0 ? (
+          <div className="flex flex-wrap gap-1.5">
+            {found.map((item, i) => (
+              <SkillTag key={`f-${i}`} item={item} />
+            ))}
+            {missing.map((item, i) => (
+              <SkillTag key={`m-${i}`} item={item} />
+            ))}
+          </div>
+        ) : (
+          <p className="text-sm text-slate-500 dark:text-slate-400">No items detected in this category.</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+const STEP_LABELS = [
+  "Analyzing hard skills...",
+  "Analyzing soft skills & keywords...",
+  "Scoring & generating recommendations...",
+];
+
 export function ATSGenerator() {
   const { state, progress, error, generateRaw } = useWebLLM();
   const { history, saveAnalysis, deleteAnalysis } = useATSStorage();
@@ -179,13 +293,17 @@ export function ATSGenerator() {
   const [advancedOpen, setAdvancedOpen] = useState(false);
 
   const [isGenerating, setIsGenerating] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
   const [streamingText, setStreamingText] = useState("");
   const [result, setResult] = useState<ATSResult | null>(null);
   const [copiedReport, setCopiedReport] = useState(false);
+  const [rawOutputOpen, setRawOutputOpen] = useState(false);
+  const abortRef = useRef(false);
 
   const canGenerate = jobDesc.trim().length > 20 && resumeText.trim().length > 20;
 
   const handleReset = () => {
+    abortRef.current = true;
     setJobDesc("");
     setResumeText("");
     setIndustry("Auto-Detect");
@@ -195,6 +313,9 @@ export function ATSGenerator() {
     setStreamingText("");
     setResult(null);
     setCopiedReport(false);
+    setRawOutputOpen(false);
+    setIsGenerating(false);
+    setCurrentStep(0);
   };
 
   const copyText = async (text: string) => {
@@ -205,48 +326,16 @@ export function ATSGenerator() {
     } catch {}
   };
 
-  const buildPrompt = () => {
-    const industryLine = industry !== "Auto-Detect" ? `\nIndustry/Role Category: ${industry}` : "";
-    const modeLine = analyzeMode === "experience" ? "\nNote: The candidate has provided only their experience section. Focus analysis on work experience keywords and skills." : "";
-
-    return `You must carefully compare this job description against this resume. Your job is to find what is TRULY MISSING — not what is present.${industryLine}${modeLine}
+  const buildContext = () => {
+    const industryLine = industry !== "Auto-Detect" ? `\nIndustry: ${industry}` : "";
+    const modeLine = analyzeMode === "experience" ? "\nNote: Candidate provided only their experience section." : "";
+    return `${industryLine}${modeLine}
 
 JOB DESCRIPTION:
 ${jobDesc.trim().slice(0, 6000)}
 
 RESUME:
-${resumeText.trim().slice(0, 6000)}
-
-CRITICAL RULES - READ CAREFULLY:
-1. Before listing ANY item as "missing", you MUST search the ENTIRE resume text for that term, its abbreviation, and its synonym. For example:
-   - If the job mentions "PMP" and the resume contains "PMP" anywhere, it is NOT missing.
-   - If the job mentions "SDLC" and the resume contains "SDLC" anywhere, it is NOT missing.
-   - If the job mentions "Agile" and the resume says "Agile", it is NOT missing.
-   - If the job says "ITIL" and the resume says "ITIL", it is NOT missing.
-2. Only list items that are genuinely ABSENT from the resume. Double-check each one.
-3. Keywords = specific terms, tools, technologies, methodologies, certifications, and jargon from the job description that do not appear in the resume.
-4. Skills = abilities and competencies required by the job that the resume does not demonstrate at all. A skill is only missing if neither the skill name nor evidence of that skill appears anywhere in the resume.
-5. Do NOT group multiple items into one bullet. List each missing item separately on its own line.
-
-Write your analysis now:
-
-Overall Match Score: (percentage, be strict and realistic)
-
-Keyword Match: (percentage)
-Missing Keywords:
-- (list each keyword/term from the job description that is genuinely NOT found anywhere in the resume, one item per line)
-
-Skills Match: (percentage)
-Missing Skills:
-- (list each skill the job requires that the resume truly does not mention or demonstrate, one item per line)
-
-Experience Alignment: (percentage)
-
-Actionable Suggestions:
-- (write 5 specific improvements the candidate should make)
-
-Final Recommendation:
-(2-3 sentence summary with next steps)`;
+${resumeText.trim().slice(0, 6000)}`;
   };
 
   const handleGenerate = async () => {
@@ -254,55 +343,166 @@ Final Recommendation:
     setStreamingText("");
     setResult(null);
     setCopiedReport(false);
+    setCurrentStep(0);
+    abortRef.current = false;
+
+    const context = buildContext();
+    let allRawText = "";
 
     try {
-      const raw = await generateRaw({
+      setCurrentStep(0);
+      setStreamingText("");
+      const hardSkillsRaw = await generateRaw({
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
-          { role: "user", content: buildPrompt() },
+          {
+            role: "user",
+            content: `${context}
+
+TASK: Extract all HARD SKILLS (technical skills, tools, technologies, programming languages, frameworks, methodologies, certifications, platforms, software) mentioned in the job description. For EACH hard skill, check if it appears in the resume.
+
+CRITICAL RULES:
+1. Before marking any skill as FOUND, verify it actually appears in the resume text.
+2. Before marking any skill as MISSING, verify it does NOT appear anywhere in the resume.
+3. Check abbreviations and synonyms (e.g., JS = JavaScript, K8s = Kubernetes).
+4. List each skill on its own line. Do not combine multiple skills into one line.
+
+Output format - use exactly this format for each item:
+[FOUND] Skill Name
+[MISSING] Skill Name
+
+List every hard skill from the job description now:`,
+          },
         ],
-        temperature: 0.4,
-        maxTokens: 2500,
+        temperature: 0.3,
+        maxTokens: 1200,
         onChunk: (text) => setStreamingText(text),
       });
+      allRawText += "=== HARD SKILLS ===\n" + (hardSkillsRaw || "") + "\n\n";
 
-      const fullText = raw?.trim() || "";
-      if (fullText) {
-        const scores = parseScore(fullText);
-        const missingKeywords = parseList(fullText, /missing\s+keyword[s]?[:\s]*/i);
-        const missingSkills = parseList(fullText, /missing\s+skill[s]?[:\s]*/i);
-        const suggestions = parseSuggestions(fullText);
-        const recommendation = parseRecommendation(fullText);
+      if (abortRef.current) return;
 
-        const jobTitleMatch = jobDesc.match(/(?:job\s*title|position|role)[:\s]*([^\n]{5,60})/i);
-        const jobTitle = jobTitleMatch ? jobTitleMatch[1].trim() : jobDesc.trim().split("\n")[0].slice(0, 60);
+      setCurrentStep(1);
+      setStreamingText("");
+      const softKeywordsRaw = await generateRaw({
+        messages: [
+          { role: "system", content: SYSTEM_PROMPT },
+          {
+            role: "user",
+            content: `${context}
 
-        const record: ATSResult = {
-          id: generateId(),
-          jobTitle,
-          overallScore: scores.overall,
-          keywordScore: scores.keyword,
-          skillsScore: scores.skills,
-          experienceScore: scores.experience,
-          missingKeywords,
-          missingSkills,
-          suggestions,
-          recommendation,
-          rawText: fullText,
-          createdAt: new Date().toISOString(),
-        };
-        setResult(record);
-        saveAnalysis(record);
-      }
+TASK: Do TWO analyses:
+
+PART 1 - SOFT SKILLS: Extract all soft skills (communication, leadership, teamwork, problem-solving, etc.) from the job description. For each, check the resume.
+
+PART 2 - OTHER KEYWORDS: Extract other important keywords from the job description that are NOT technical skills or soft skills. These include: industry jargon, company-specific terms, methodologies, business concepts, domain knowledge, regulatory terms, specific processes.
+
+CRITICAL RULES:
+1. Verify each item against the actual resume text before marking FOUND or MISSING.
+2. One item per line. Do not combine items.
+
+SOFT SKILLS:
+[FOUND] Skill Name
+[MISSING] Skill Name
+
+OTHER KEYWORDS:
+[FOUND] Keyword
+[MISSING] Keyword
+
+Write your analysis now:`,
+          },
+        ],
+        temperature: 0.3,
+        maxTokens: 1200,
+        onChunk: (text) => setStreamingText(text),
+      });
+      allRawText += "=== SOFT SKILLS & KEYWORDS ===\n" + (softKeywordsRaw || "") + "\n\n";
+
+      if (abortRef.current) return;
+
+      setCurrentStep(2);
+      setStreamingText("");
+      const scoresRaw = await generateRaw({
+        messages: [
+          { role: "system", content: SYSTEM_PROMPT },
+          {
+            role: "user",
+            content: `${context}
+
+TASK: Provide an overall assessment of this resume against the job description.
+
+Write your analysis in this exact format:
+
+Overall Match Score: (a number from 0-100, be strict and realistic)
+
+Actionable Suggestions:
+- (write 5-7 specific, actionable improvements the candidate should make to increase their ATS score)
+
+Recruiter Tips:
+- (write 3-5 tips about resume formatting, quantifiable achievements, action verbs, and presentation that would impress a human recruiter)
+
+Final Recommendation:
+(2-3 sentence summary with concrete next steps)
+
+Write your analysis now:`,
+          },
+        ],
+        temperature: 0.4,
+        maxTokens: 1500,
+        onChunk: (text) => setStreamingText(text),
+      });
+      allRawText += "=== SCORES & RECOMMENDATIONS ===\n" + (scoresRaw || "") + "\n\n";
+
+      if (abortRef.current) return;
+
+      const hardSkills = parseTaggedList(hardSkillsRaw || "", /^/);
+      const softRaw = softKeywordsRaw || "";
+      const softSplit = softRaw.search(/OTHER\s+KEYWORDS?\s*:/i);
+      const softSection = softSplit >= 0 ? softRaw.slice(0, softSplit) : softRaw;
+      const keywordsSection = softSplit >= 0 ? softRaw.slice(softSplit) : "";
+
+      const softSkills = parseTaggedList(softSection, /(?:SOFT\s+SKILLS?\s*:|^)/i);
+      const otherKeywords = parseTaggedList(keywordsSection, /OTHER\s+KEYWORDS?\s*:/i);
+
+      const overallScore = parseScore(scoresRaw || "");
+      const suggestions = parseSimpleList(scoresRaw || "", /(?:actionable\s+)?suggestion[s]?[:\s]*/i, 10);
+      const recruiterTips = parseSimpleList(scoresRaw || "", /recruiter\s+tip[s]?[:\s]*/i, 8);
+      const recommendation = parseRecommendation(scoresRaw || "");
+
+      const jobTitleMatch = jobDesc.match(/(?:job\s*title|position|role)[:\s]*([^\n]{5,60})/i);
+      const jobTitle = jobTitleMatch ? jobTitleMatch[1].trim() : jobDesc.trim().split("\n")[0].slice(0, 60);
+
+      const record: ATSResult = {
+        id: generateId(),
+        jobTitle,
+        overallScore,
+        hardSkills,
+        softSkills,
+        otherKeywords,
+        suggestions,
+        recruiterTips,
+        recommendation,
+        rawText: allRawText,
+        createdAt: new Date().toISOString(),
+      };
+      setResult(record);
+      saveAnalysis(record);
     } catch (err) {
       console.error("ATS analysis error:", err);
     }
 
     setStreamingText("");
     setIsGenerating(false);
+    setCurrentStep(0);
   };
 
   const hasResults = result !== null;
+
+  const getScoreLabel = (score: number) => {
+    if (score >= targetScore) return { text: "Target reached!", bg: "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-700/50", fg: "text-green-700 dark:text-green-300" };
+    if (score >= targetScore - 20) return { text: "Close to target", bg: "bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-700/50", fg: "text-amber-700 dark:text-amber-300" };
+    return { text: "Below target", bg: "bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-700/50", fg: "text-red-700 dark:text-red-300" };
+  };
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6">
@@ -314,10 +514,11 @@ Final Recommendation:
         <div className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+              <label htmlFor="ats-job-desc" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                 Job Description <span className="text-red-500">*</span>
               </label>
               <textarea
+                id="ats-job-desc"
                 data-testid="input-job-description"
                 value={jobDesc}
                 onChange={(e) => setJobDesc(e.target.value.slice(0, 15000))}
@@ -329,10 +530,11 @@ Final Recommendation:
               <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">{jobDesc.length}/15,000</p>
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+              <label htmlFor="ats-resume" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
                 Your Resume <span className="text-red-500">*</span>
               </label>
               <textarea
+                id="ats-resume"
                 data-testid="input-resume"
                 value={resumeText}
                 onChange={(e) => setResumeText(e.target.value.slice(0, 15000))}
@@ -360,8 +562,9 @@ Final Recommendation:
             {advancedOpen && (
               <div className="px-4 py-4 space-y-4 border-t border-slate-200 dark:border-slate-700">
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Industry / Role</label>
+                  <label htmlFor="ats-industry" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Industry / Role</label>
                   <select
+                    id="ats-industry"
                     data-testid="select-industry"
                     value={industry}
                     onChange={(e) => setIndustry(e.target.value)}
@@ -488,15 +691,38 @@ Final Recommendation:
         </div>
 
         {isGenerating && (
-          <div className="mt-6" data-testid="container-streaming">
-            <div className="flex items-center gap-2 mb-2">
-              <Loader2 className="w-4 h-4 text-indigo-500 animate-spin" />
-              <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
-                {streamingText ? "Analyzing match..." : "Starting analysis..."}
+          <div className="mt-6" data-testid="container-streaming" aria-live="polite">
+            <div className="mb-4">
+              <div className="flex items-center gap-3 mb-2">
+                {STEP_LABELS.map((label, i) => (
+                  <div key={i} className="flex items-center gap-1.5">
+                    <div className={cn(
+                      "w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border-2 transition-all",
+                      i < currentStep
+                        ? "bg-green-500 border-green-500 text-white"
+                        : i === currentStep
+                          ? "bg-indigo-500 border-indigo-500 text-white animate-pulse"
+                          : "bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-600 text-slate-400 dark:text-slate-500"
+                    )}>
+                      {i < currentStep ? <Check className="w-3 h-3" /> : i + 1}
+                    </div>
+                    {i < STEP_LABELS.length - 1 && (
+                      <div className={cn(
+                        "w-8 h-0.5 rounded-full",
+                        i < currentStep ? "bg-green-500" : "bg-slate-200 dark:bg-slate-700"
+                      )} />
+                    )}
+                  </div>
+                ))}
+              </div>
+              <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400 flex items-center gap-2">
+                <Loader2 className="w-4 h-4 animate-spin" />
+                {STEP_LABELS[currentStep] || "Analyzing..."}
               </p>
             </div>
+
             <div
-              className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 max-h-80 overflow-y-auto"
+              className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 max-h-60 overflow-y-auto"
               ref={(el) => { if (el) el.scrollTop = el.scrollHeight; }}
             >
               {streamingText ? (
@@ -515,10 +741,10 @@ Final Recommendation:
         )}
 
         {hasResults && result && (
-          <div className="mt-8" data-testid="container-results">
-            <div className="flex items-center justify-between mb-6">
+          <div className="mt-8 space-y-6" data-testid="container-results">
+            <div className="flex items-center justify-between">
               <h3 className="text-lg font-display font-bold text-slate-800 dark:text-slate-100">
-                Your Match Report
+                Match Report
               </h3>
               <button
                 type="button"
@@ -531,88 +757,48 @@ Final Recommendation:
               </button>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-6 mb-8 p-6 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700" data-testid="container-scores">
+            <div className="flex flex-col items-center gap-4 p-6 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700" data-testid="container-scores">
               <ScoreGauge score={result.overallScore} label="Overall Match" size="lg" target={targetScore} />
-              <div className="flex gap-6">
-                <ScoreGauge score={result.keywordScore} label="Keywords" size="sm" />
-                <ScoreGauge score={result.skillsScore} label="Skills" size="sm" />
-                <ScoreGauge score={result.experienceScore} label="Experience" size="sm" />
-              </div>
+              {(() => {
+                const sl = getScoreLabel(result.overallScore);
+                return (
+                  <div className={cn("px-4 py-2 rounded-lg border text-sm font-medium", sl.bg, sl.fg)} data-testid="container-score-status">
+                    <strong>{sl.text}</strong> — Your score is {result.overallScore}% vs your target of {targetScore}%
+                  </div>
+                );
+              })()}
             </div>
 
-            {result.overallScore < targetScore && (
-              <div className="mb-6 p-4 rounded-xl bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700/50" data-testid="container-target-warning">
-                <p className="text-sm text-amber-700 dark:text-amber-300">
-                  <strong>Below target:</strong> Your score is {result.overallScore}% vs your target of {targetScore}%. Review the missing keywords and skills below to improve your match.
-                </p>
-              </div>
-            )}
+            <SkillSection
+              title="Hard Skills"
+              icon={<Cpu className="w-4 h-4 text-blue-600 dark:text-blue-400" />}
+              items={result.hardSkills}
+              testId="panel-hard-skills"
+            />
 
-            {result.overallScore >= targetScore && (
-              <div className="mb-6 p-4 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700/50" data-testid="container-target-success">
-                <p className="text-sm text-green-700 dark:text-green-300">
-                  <strong>Target reached!</strong> Your score of {result.overallScore}% meets or exceeds your {targetScore}% target. Review the suggestions below for further optimization.
-                </p>
-              </div>
-            )}
+            <SkillSection
+              title="Soft Skills"
+              icon={<Heart className="w-4 h-4 text-pink-600 dark:text-pink-400" />}
+              items={result.softSkills}
+              testId="panel-soft-skills"
+            />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-              <div className="rounded-xl border border-red-200 dark:border-red-700/50 overflow-hidden" data-testid="panel-missing-keywords">
-                <div className="flex items-center gap-2 px-4 py-3 bg-red-50 dark:bg-red-900/30 border-b border-red-200 dark:border-red-700/50">
-                  <Key className="w-4 h-4 text-red-600 dark:text-red-400" />
-                  <span className="text-sm font-bold text-red-700 dark:text-red-300">
-                    Missing Keywords ({result.missingKeywords.length})
-                  </span>
-                </div>
-                <div className="p-4 bg-white dark:bg-slate-800/80">
-                  {result.missingKeywords.length > 0 ? (
-                    <ul className="space-y-1.5">
-                      {result.missingKeywords.map((kw, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-200">
-                          <span className="w-1.5 h-1.5 mt-1.5 rounded-full bg-red-400 dark:bg-red-500 flex-shrink-0" />
-                          {kw}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="text-sm text-slate-500 dark:text-slate-400">No significant keyword gaps detected.</p>
-                  )}
-                </div>
-              </div>
-
-              <div className="rounded-xl border border-orange-200 dark:border-orange-700/50 overflow-hidden" data-testid="panel-missing-skills">
-                <div className="flex items-center gap-2 px-4 py-3 bg-orange-50 dark:bg-orange-900/30 border-b border-orange-200 dark:border-orange-700/50">
-                  <Wrench className="w-4 h-4 text-orange-600 dark:text-orange-400" />
-                  <span className="text-sm font-bold text-orange-700 dark:text-orange-300">
-                    Missing Skills ({result.missingSkills.length})
-                  </span>
-                </div>
-                <div className="p-4 bg-white dark:bg-slate-800/80">
-                  {result.missingSkills.length > 0 ? (
-                    <ul className="space-y-1.5">
-                      {result.missingSkills.map((skill, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-200">
-                          <span className="w-1.5 h-1.5 mt-1.5 rounded-full bg-orange-400 dark:bg-orange-500 flex-shrink-0" />
-                          {skill}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="text-sm text-slate-500 dark:text-slate-400">No significant skill gaps detected.</p>
-                  )}
-                </div>
-              </div>
-            </div>
+            <SkillSection
+              title="Other Keywords"
+              icon={<Tag className="w-4 h-4 text-violet-600 dark:text-violet-400" />}
+              items={result.otherKeywords}
+              testId="panel-other-keywords"
+            />
 
             {result.suggestions.length > 0 && (
-              <div className="mb-6 rounded-xl border border-green-200 dark:border-green-700/50 overflow-hidden" data-testid="panel-suggestions">
+              <div className="rounded-xl border border-green-200 dark:border-green-700/50 overflow-hidden" data-testid="panel-suggestions">
                 <div className="flex items-center gap-2 px-4 py-3 bg-green-50 dark:bg-green-900/30 border-b border-green-200 dark:border-green-700/50">
                   <TrendingUp className="w-4 h-4 text-green-600 dark:text-green-400" />
                   <span className="text-sm font-bold text-green-700 dark:text-green-300">
                     Actionable Suggestions ({result.suggestions.length})
                   </span>
                 </div>
-                <div className="p-4 bg-white dark:bg-slate-800/80">
+                <div className="p-4 bg-white dark:bg-slate-900/60">
                   <ul className="space-y-2">
                     {result.suggestions.map((sug, i) => (
                       <li key={i} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-200">
@@ -625,10 +811,32 @@ Final Recommendation:
               </div>
             )}
 
+            {result.recruiterTips.length > 0 && (
+              <div className="rounded-xl border border-indigo-200 dark:border-indigo-700/50 overflow-hidden" data-testid="panel-recruiter-tips">
+                <div className="flex items-center gap-2 px-4 py-3 bg-indigo-50 dark:bg-indigo-900/30 border-b border-indigo-200 dark:border-indigo-700/50">
+                  <UserCheck className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                  <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">
+                    Recruiter Tips ({result.recruiterTips.length})
+                  </span>
+                </div>
+                <div className="p-4 bg-white dark:bg-slate-900/60">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">Human-focused feedback that goes beyond ATS matching</p>
+                  <ul className="space-y-2">
+                    {result.recruiterTips.map((tip, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-200">
+                        <Lightbulb className="w-3.5 h-3.5 mt-0.5 text-indigo-400 dark:text-indigo-500 flex-shrink-0" />
+                        {tip}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
+
             {result.recommendation && (
-              <div className="mb-6 p-4 rounded-xl bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-700/50" data-testid="container-recommendation">
-                <p className="text-sm font-semibold text-indigo-700 dark:text-indigo-300 mb-1">Final Recommendation</p>
-                <p className="text-sm text-slate-700 dark:text-slate-200 leading-relaxed">{result.recommendation}</p>
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700" data-testid="container-recommendation">
+                <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1">Final Recommendation</p>
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{result.recommendation}</p>
               </div>
             )}
 
@@ -636,17 +844,18 @@ Final Recommendation:
               <button
                 type="button"
                 data-testid="toggle-raw-output"
-                onClick={() => {
-                  const el = document.getElementById("ats-raw-output");
-                  if (el) el.classList.toggle("hidden");
-                }}
+                aria-expanded={rawOutputOpen}
+                aria-controls="ats-raw-output"
+                onClick={() => setRawOutputOpen(!rawOutputOpen)}
                 className="text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
               >
-                Show/Hide Full AI Output
+                {rawOutputOpen ? "Hide" : "Show"} Full AI Output
               </button>
-              <div id="ats-raw-output" className="hidden mt-3">
-                <p className="text-xs text-slate-600 dark:text-slate-300 whitespace-pre-wrap leading-relaxed">{result.rawText}</p>
-              </div>
+              {rawOutputOpen && (
+                <div id="ats-raw-output" className="mt-3">
+                  <p className="text-xs text-slate-600 dark:text-slate-300 whitespace-pre-wrap leading-relaxed">{result.rawText}</p>
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -657,6 +866,7 @@ Final Recommendation:
             <div className="space-y-3">
               {history.slice(0, 5).map((record) => {
                 const scoreColor = record.overallScore >= targetScore ? "text-green-600 dark:text-green-400" : record.overallScore >= targetScore - 20 ? "text-amber-600 dark:text-amber-400" : "text-red-600 dark:text-red-400";
+                const totalMissing = (record.hardSkills?.filter(s => !s.found).length || 0) + (record.softSkills?.filter(s => !s.found).length || 0);
                 return (
                   <div
                     key={record.id}
@@ -666,7 +876,7 @@ Final Recommendation:
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 truncate">{record.jobTitle}</p>
                       <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                        Score: <span className={cn("font-bold", scoreColor)}>{record.overallScore}%</span> | {record.missingKeywords.length} missing keywords | {new Date(record.createdAt).toLocaleDateString()}
+                        Score: <span className={cn("font-bold", scoreColor)}>{record.overallScore}%</span> | {totalMissing} missing items | {new Date(record.createdAt).toLocaleDateString()}
                       </p>
                     </div>
                     <button
