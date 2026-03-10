@@ -51,6 +51,7 @@ import TodoListPage from "@/pages/TodoListPage";
 import GoalPlannerPage from "@/pages/GoalPlannerPage";
 import WeeklyPlannerPage from "@/pages/WeeklyPlannerPage";
 import SalesEmailPage from "@/pages/SalesEmailPage";
+import AdCopyPage from "@/pages/AdCopyPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -105,6 +106,7 @@ function Router() {
       <Route path="/ai-goal-planner" component={GoalPlannerPage} />
       <Route path="/ai-weekly-planner-generator" component={WeeklyPlannerPage} />
       <Route path="/ai-sales-email-generator" component={SalesEmailPage} />
+      <Route path="/ai-ad-copy-generator" component={AdCopyPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />

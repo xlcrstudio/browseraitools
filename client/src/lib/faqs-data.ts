@@ -1900,3 +1900,46 @@ export const salesEmailFAQs: FAQItem[] = [
     answer: "Yes! After the first use, the AI model is cached in your browser's storage. Once downloaded, you can generate sales emails without an internet connection. The initial model download is required only once.",
   },
 ];
+
+export const adCopyFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Ad Copy Generator?",
+    answer: "The AI Ad Copy Generator is a free, browser-based tool that creates high-converting ad copy for Facebook, Instagram, Google Ads, and LinkedIn. It generates 5 complete ad variations with headlines, primary text, CTAs, and conversion scoring. The AI runs 100% in your browser using WebLLM.",
+  },
+  {
+    question: "Is the AI Ad Copy Generator really free?",
+    answer: "Yes, it is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser using WebGPU, so there are no server costs to pass on to you.",
+  },
+  {
+    question: "What ad platforms does it support?",
+    answer: "The tool generates ad copy optimized for Facebook Feed, Instagram Feed/Story, Google Search Ads, LinkedIn, and a General/Multi-Platform format. Each platform has different character limits and style guidelines that the AI follows automatically.",
+  },
+  {
+    question: "How does conversion scoring work?",
+    answer: "Each ad variation receives a conversion score from 0 to 10 based on copywriting best practices. The AI evaluates factors like headline strength, benefit clarity, social proof usage, CTA effectiveness, and platform optimization. The highest-scoring ad is highlighted as the Best Performing variation.",
+  },
+  {
+    question: "Can I export my ad copy?",
+    answer: "Yes. You can copy individual ads or all 5 at once, save them to your browser's local storage, download as a plain text file, or export as a CSV spreadsheet for easy importing into ad platforms or spreadsheets.",
+  },
+  {
+    question: "What tones and styles are available?",
+    answer: "The tool offers six tone options: Persuasive/Direct (action-oriented), Friendly/Conversational (warm and approachable), Urgent/FOMO (scarcity-driven), Luxury/Premium (sophisticated), Playful/Fun (energetic), and Professional/Informative (fact-based). Each changes how the AI crafts your copy.",
+  },
+  {
+    question: "Is my data private?",
+    answer: "Absolutely. Unlike cloud-based ad tools, the AI Ad Copy Generator runs 100% locally in your browser. Your product descriptions, audience data, and generated ads never leave your device. There is no server processing, data collection, or tracking.",
+  },
+  {
+    question: "What campaign goals can I choose?",
+    answer: "You can optimize your ad copy for six campaign objectives: Conversions/Sales, Lead Generation, Traffic, Brand Awareness, Engagement, and App Installs. Each goal changes the messaging strategy and CTA style.",
+  },
+  {
+    question: "How does A/B testing work with this tool?",
+    answer: "The tool generates 5 variations using different copywriting angles: Benefit-Focused, Social Proof, Problem/Solution, Urgency/FOMO, and Feature Highlight. You can run these as A/B tests in your ad platform to find which angle resonates best with your audience.",
+  },
+  {
+    question: "Does it work offline?",
+    answer: "Yes! After the first use, the AI model is cached in your browser's storage. Once downloaded, you can generate ad copy without an internet connection. The initial model download is required only once.",
+  },
+];
