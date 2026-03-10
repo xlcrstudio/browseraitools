@@ -1943,3 +1943,46 @@ export const adCopyFAQs: FAQItem[] = [
     answer: "Yes! After the first use, the AI model is cached in your browser's storage. Once downloaded, you can generate ad copy without an internet connection. The initial model download is required only once.",
   },
 ];
+
+export const elevatorPitchFAQs = [
+  {
+    question: "What is an elevator pitch?",
+    answer: "An elevator pitch is a concise, persuasive speech that explains what you or your business does. It should be brief enough to deliver during a short elevator ride, typically 30 to 60 seconds. The goal is to spark interest and create an opportunity for further conversation.",
+  },
+  {
+    question: "How many pitch variations does this tool generate?",
+    answer: "The tool generates 5 elevator pitch variations using different approaches: Problem-First (30 seconds), Vision-First (60 seconds), Traction-First (30 seconds), Story Approach (45 seconds), and Contrarian (30 seconds). Each angle is tailored to different situations and audiences.",
+  },
+  {
+    question: "Can I customize pitches for different audiences?",
+    answer: "Yes. You can select from four audience types: Investors (focused on ROI, market size, and traction), Customers (focused on benefits and pain points), Partners (focused on mutual value and collaboration), and General/Networking (focused on being memorable and clear). The AI adapts the language, structure, and emphasis based on your audience.",
+  },
+  {
+    question: "What is the pitch strength score?",
+    answer: "Each generated pitch receives a strength score from 0 to 10, evaluating problem clarity, solution clarity, differentiation, proof elements, call-to-action specificity, memorability, and delivery ease. The highest-scoring pitch is highlighted as the strongest variation.",
+  },
+  {
+    question: "How does the practice timer work?",
+    answer: "Each pitch card includes a practice timer with 30-second, 45-second, and 60-second countdown options. The timer shows a progress bar and changes color as time runs out, helping you practice delivering your pitch within the target time. It also displays word count and estimated speaking time at normal pace.",
+  },
+  {
+    question: "Is this tool free to use?",
+    answer: "Yes, the AI Elevator Pitch Generator is completely free. Unlike cloud-based AI tools, it runs 100% locally in your browser using WebLLM technology. There are no subscriptions, usage limits, or hidden costs.",
+  },
+  {
+    question: "Is my pitch idea kept private?",
+    answer: "Absolutely. The AI runs entirely in your browser. Your business ideas, pitch content, and all generated pitches stay on your device and are never sent to any server. This is especially important when pitching startup ideas that may be confidential.",
+  },
+  {
+    question: "What follow-up questions does it prepare?",
+    answer: "For each pitch variation, the tool anticipates the most likely follow-up questions your audience might ask. This helps you prepare concise answers in advance so you can handle the conversation after delivering your pitch with confidence.",
+  },
+  {
+    question: "Can I save and download my pitches?",
+    answer: "Yes. You can save pitches to your browser's local storage for quick access later, copy individual pitches or all variations to your clipboard, and download the full set as a text file. Saved pitches persist between visits until you clear your browser data.",
+  },
+  {
+    question: "Does this work offline?",
+    answer: "Yes! After the initial AI model download, the elevator pitch generator works completely offline. The model is cached in your browser's storage, so you can generate pitches anytime without an internet connection.",
+  },
+];

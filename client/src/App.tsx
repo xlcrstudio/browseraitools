@@ -52,6 +52,7 @@ import GoalPlannerPage from "@/pages/GoalPlannerPage";
 import WeeklyPlannerPage from "@/pages/WeeklyPlannerPage";
 import SalesEmailPage from "@/pages/SalesEmailPage";
 import AdCopyPage from "@/pages/AdCopyPage";
+import ElevatorPitchPage from "@/pages/ElevatorPitchPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -107,6 +108,7 @@ function Router() {
       <Route path="/ai-weekly-planner-generator" component={WeeklyPlannerPage} />
       <Route path="/ai-sales-email-generator" component={SalesEmailPage} />
       <Route path="/ai-ad-copy-generator" component={AdCopyPage} />
+      <Route path="/ai-elevator-pitch-generator" component={ElevatorPitchPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
