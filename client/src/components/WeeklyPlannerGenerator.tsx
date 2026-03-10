@@ -94,6 +94,24 @@ function isJunkLine(s: string): boolean {
   return JUNK_PATTERNS.some((p) => p.test(s));
 }
 
+function detectCategory(text: string): string {
+  const lower = text.toLowerCase();
+  if (/\b(work|project|report|meeting|email|client|presentation|proposal|deadline|office)\b/.test(lower)) return "Work";
+  if (/\b(health|gym|workout|exercise|fitness|run|yoga|stretch|walk|cardio|strength)\b/.test(lower)) return "Health";
+  if (/\b(learn|study|read|course|tutorial|practice|chapter|book|research|python|coding)\b/.test(lower)) return "Learning";
+  if (/\b(break|rest|coffee|lunch|relax|recharge|nap)\b/.test(lower)) return "Break";
+  if (/\b(plan|review|reflect|organize|schedule|prep)\b/.test(lower)) return "Planning";
+  if (/\b(personal|family|call|friend|home|clean|cook|meal|grocery|errands|organize|declutter)\b/.test(lower)) return "Personal";
+  return "Work";
+}
+
+function detectPriority(text: string): string {
+  const lower = text.toLowerCase();
+  if (/\b(high|urgent|critical|important|top|must|essential)\b/.test(lower)) return "High";
+  if (/\b(low|optional|flexible|light|easy|if time)\b/.test(lower)) return "Low";
+  return "Medium";
+}
+
 function parseDayPlan(raw: string, dayName: string): DayPlan {
   const lines = raw.split("\n");
   let totalHours = 0;
@@ -103,38 +121,56 @@ function parseDayPlan(raw: string, dayName: string): DayPlan {
   let currentTask: Partial<TimeBlock> | null = null;
   let inSummary = false;
 
-  for (const line of lines) {
-    const trimmed = line.replace(/\*\*/g, "").replace(/__/g, "").trim();
-    if (!trimmed) { inSummary = false; continue; }
+  const flushTask = () => {
+    if (currentTask && currentTask.title && currentTask.title.length > 2) {
+      if (!currentTask.category) currentTask.category = detectCategory(currentTask.title + " " + (currentTask.description || ""));
+      if (!currentTask.priority || currentTask.priority === "Medium") {
+        const detected = detectPriority(currentTask.title + " " + (currentTask.description || ""));
+        if (detected !== "Medium") currentTask.priority = detected;
+      }
+      tasks.push(finalizeBlock(currentTask));
+    }
+    currentTask = null;
+  };
 
-    const energyMatch = trimmed.match(/Energy[:\s]*(High|Medium|Low|Rest|Variable)/i);
+  for (const line of lines) {
+    const trimmed = line.replace(/\*\*/g, "").replace(/__/g, "").replace(/^#+\s*/, "").trim();
+    if (!trimmed) {
+      if (inSummary) continue;
+      flushTask();
+      continue;
+    }
+
+    if (/^(?:MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY)[:\s,]/i.test(trimmed) && !trimmed.match(/call|meet|schedule/i)) continue;
+
+    const energyMatch = trimmed.match(/Energy[:\s]*(High|Medium|Low|Rest|Variable|Medium-High|Medium-Low)/i);
     if (energyMatch) { energyLevel = energyMatch[1]; continue; }
 
     const totalMatch = trimmed.match(/Total[:\s]*(\d+(?:\.\d+)?)\s*(?:hours?|hrs?)/i);
     if (totalMatch) { totalHours = parseFloat(totalMatch[1]); continue; }
 
-    if (/^(?:Day\s+Summary|Summary|Accomplishments)[:\s]*/i.test(trimmed)) {
+    if (/^(?:Day\s+Summary|Summary|Accomplishments|What.*accomplished|Key.*wins)[:\s]*/i.test(trimmed)) {
       inSummary = true;
-      if (currentTask && currentTask.title) {
-        tasks.push(finalizeBlock(currentTask));
-        currentTask = null;
-      }
+      flushTask();
       continue;
     }
 
     if (inSummary) {
-      const item = trimmed.replace(/^[\-*•✅⚠️✓]+\s*/, "").trim();
+      const item = trimmed.replace(/^[\-*•✅⚠️✓\d.]+[\s.)]*/, "").trim();
       if (item.length > 3 && !isJunkLine(item)) {
         summary = summary ? `${summary}; ${item}` : item;
       }
       continue;
     }
 
+    if (/^(?:MORNING|AFTERNOON|EVENING|NIGHT|LATE\s+MORNING|EARLY\s+MORNING|MID-MORNING|MID-DAY|MIDDAY)[:\s]*/i.test(trimmed)) {
+      flushTask();
+      continue;
+    }
+
     const timeMatch = trimmed.match(/^(\d{1,2}:\d{2}\s*(?:AM|PM)?)\s*[-–]\s*(\d{1,2}:\d{2}\s*(?:AM|PM)?)\s*\|?\s*(.+)?/i);
     if (timeMatch) {
-      if (currentTask && currentTask.title) {
-        tasks.push(finalizeBlock(currentTask));
-      }
+      flushTask();
       const timeStr = `${timeMatch[1]} - ${timeMatch[2]}`;
       const rest = timeMatch[3]?.trim() || "";
       const durMatch = rest.match(/^(\d+(?:\.\d+)?\s*(?:hours?|hrs?|min(?:utes?)?|h))/i);
@@ -143,16 +179,18 @@ function parseDayPlan(raw: string, dayName: string): DayPlan {
       continue;
     }
 
-    const catTaskMatch = trimmed.match(/^(WORK|HEALTH|PERSONAL|LEARNING|BREAK|PLANNING|FITNESS)[:\s]*(.+)/i);
-    if (catTaskMatch && currentTask) {
-      currentTask.category = catTaskMatch[1].charAt(0).toUpperCase() + catTaskMatch[1].slice(1).toLowerCase();
-      currentTask.title = catTaskMatch[2].trim();
-      continue;
-    }
-
-    if (!currentTask && trimmed.match(/^(WORK|HEALTH|PERSONAL|LEARNING|BREAK|PLANNING|FITNESS)[:\s]*(.+)/i)) {
-      const m = trimmed.match(/^(WORK|HEALTH|PERSONAL|LEARNING|BREAK|PLANNING|FITNESS)[:\s]*(.+)/i)!;
-      currentTask = { time: "", duration: "", category: m[1].charAt(0).toUpperCase() + m[1].slice(1).toLowerCase(), title: m[2].trim(), priority: "Medium", description: "" };
+    const catTaskMatch = trimmed.match(/^(?:[-*•\d.)\s]*)?(WORK|HEALTH|PERSONAL|LEARNING|BREAK|PLANNING|FITNESS|STUDY|EXERCISE|SELF-CARE|ADMIN|HOME)[:\s]+(.+)/i);
+    if (catTaskMatch) {
+      flushTask();
+      const rawCat = catTaskMatch[1].trim();
+      let cat = rawCat.charAt(0).toUpperCase() + rawCat.slice(1).toLowerCase();
+      if (["Study", "Exercise", "Self-care", "Admin", "Home"].includes(cat)) {
+        if (cat === "Study") cat = "Learning";
+        else if (cat === "Exercise") cat = "Health";
+        else if (cat === "Self-care") cat = "Health";
+        else if (cat === "Admin" || cat === "Home") cat = "Personal";
+      }
+      currentTask = { time: "", duration: "", category: cat, title: catTaskMatch[2].trim(), priority: "Medium", description: "" };
       continue;
     }
 
@@ -168,20 +206,56 @@ function parseDayPlan(raw: string, dayName: string): DayPlan {
       continue;
     }
 
-    if (currentTask && !currentTask.title && trimmed.length > 5 && !isJunkLine(trimmed)) {
-      currentTask.title = trimmed;
-      continue;
-    }
+    const bulletTask = trimmed.replace(/^[\-*•\d.)\s]+/, "").trim();
+    if (!bulletTask || bulletTask.length < 4) continue;
+    if (isJunkLine(bulletTask)) continue;
 
-    if (currentTask && currentTask.title && !currentTask.description && trimmed.length > 10 && !isJunkLine(trimmed) && !trimmed.match(/^(?:MORNING|AFTERNOON|EVENING|NIGHT|LATE|BREAK)/i)) {
-      currentTask.description = trimmed;
-      continue;
+    const inlineTime = bulletTask.match(/(\d{1,2}:\d{2}\s*(?:AM|PM)?)\s*[-–]\s*(\d{1,2}:\d{2}\s*(?:AM|PM)?)/i);
+    const inlineDur = bulletTask.match(/\((\d+(?:\.\d+)?\s*(?:hours?|hrs?|h|min(?:utes?)?))\)/i);
+    const inlinePrio = bulletTask.match(/\[(High|Medium|Low)\]/i) || bulletTask.match(/Priority[:\s]*(High|Medium|Low)/i);
+    const inlineCat = bulletTask.match(/^(WORK|HEALTH|PERSONAL|LEARNING|BREAK|PLANNING|FITNESS)[:\s]+/i);
+
+    if (inlineTime || inlineDur || inlineCat || (bulletTask.length > 5 && /[a-zA-Z]/.test(bulletTask))) {
+      if (currentTask && currentTask.title) {
+        if (!currentTask.description && !inlineTime && !inlineCat && bulletTask.length > 10) {
+          currentTask.description = bulletTask;
+          continue;
+        }
+        flushTask();
+      }
+
+      let time = "";
+      let duration = "";
+      let title = bulletTask;
+      let category = "";
+      let priority = "Medium";
+
+      if (inlineTime) {
+        time = `${inlineTime[1]} - ${inlineTime[2]}`;
+        title = title.replace(inlineTime[0], "").trim();
+      }
+      if (inlineDur) {
+        duration = inlineDur[1];
+        title = title.replace(inlineDur[0], "").trim();
+      }
+      if (inlinePrio) {
+        priority = inlinePrio[1].charAt(0).toUpperCase() + inlinePrio[1].slice(1).toLowerCase();
+        title = title.replace(inlinePrio[0], "").trim();
+      }
+      if (inlineCat) {
+        category = inlineCat[1].charAt(0).toUpperCase() + inlineCat[1].slice(1).toLowerCase();
+        title = title.replace(inlineCat[0], "").trim();
+      }
+
+      title = title.replace(/^[\-–:|\s]+/, "").replace(/[\-–:|\s]+$/, "").trim();
+
+      if (title.length > 2) {
+        currentTask = { time, duration, category, title, priority, description: "" };
+      }
     }
   }
 
-  if (currentTask && currentTask.title) {
-    tasks.push(finalizeBlock(currentTask));
-  }
+  flushTask();
 
   if (totalHours === 0 && tasks.length > 0) {
     totalHours = tasks.reduce((acc, t) => {
@@ -189,6 +263,7 @@ function parseDayPlan(raw: string, dayName: string): DayPlan {
       const mm = t.duration.match(/(\d+)\s*min/i);
       return acc + (hm ? parseFloat(hm[1]) : 0) + (mm ? parseInt(mm[1], 10) / 60 : 0);
     }, 0);
+    if (totalHours === 0) totalHours = tasks.length;
     totalHours = Math.round(totalHours * 10) / 10;
   }
 
@@ -503,12 +578,30 @@ Write the ${dayName} schedule now:`;
         if (abortRef.current) return;
         const dayText = typeof raw === "string" ? raw : "";
         allRawText += `\n${dayText}\n`;
+        console.log(`[WeeklyPlanner] Raw output for ${dayName}:`, dayText.slice(0, 500));
 
         const dayPlan = parseDayPlan(dayText, dayName);
+        console.log(`[WeeklyPlanner] Parsed ${dayName}: ${dayPlan.tasks.length} tasks`);
+
         if (dayPlan.tasks.length > 0) {
           allDays.push(dayPlan);
           const taskTitles = dayPlan.tasks.map((t) => t.title).join(", ");
           prevContext += `${dayName} (${dayPlan.totalHours}hrs: ${taskTitles.slice(0, 80)}), `;
+        } else if (dayText.trim().length > 20) {
+          const fallbackLines = dayText.split("\n").map((l) => l.replace(/\*\*/g, "").replace(/^#+\s*/, "").replace(/^[\-*•\d.)\s]+/, "").trim()).filter((l) => l.length > 5 && !isJunkLine(l));
+          const fallbackTasks: TimeBlock[] = fallbackLines.slice(0, 8).map((l) => ({
+            time: "",
+            duration: "",
+            category: detectCategory(l),
+            title: l.slice(0, 100),
+            priority: detectPriority(l),
+            description: "",
+            done: false,
+          }));
+          if (fallbackTasks.length > 0) {
+            allDays.push({ dayName, totalHours: fallbackTasks.length, energyLevel: "Medium", tasks: fallbackTasks, summary: "", done: false });
+            prevContext += `${dayName} (${fallbackTasks.length} tasks), `;
+          }
         }
       }
 
