@@ -459,7 +459,7 @@ Final Recommendation:
               {isGenerating ? (
                 <>
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  Scanning requirements and comparing...
+                  {streamingText ? "Streaming results below..." : "Starting analysis..."}
                 </>
               ) : (
                 <>
@@ -481,13 +481,29 @@ Final Recommendation:
           </div>
         </div>
 
-        {isGenerating && streamingText && (
+        {isGenerating && (
           <div className="mt-6" data-testid="container-streaming">
-            <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">Analyzing match...</p>
-            <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 max-h-64 overflow-y-auto">
-              <p className="text-slate-700 dark:text-slate-200 whitespace-pre-wrap text-sm leading-relaxed" data-testid="text-streaming">
-                {streamingText}
+            <div className="flex items-center gap-2 mb-2">
+              <Loader2 className="w-4 h-4 text-indigo-500 animate-spin" />
+              <p className="text-sm font-medium text-indigo-600 dark:text-indigo-400">
+                {streamingText ? "Analyzing match..." : "Starting analysis..."}
               </p>
+            </div>
+            <div
+              className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 max-h-80 overflow-y-auto"
+              ref={(el) => { if (el) el.scrollTop = el.scrollHeight; }}
+            >
+              {streamingText ? (
+                <p className="text-slate-700 dark:text-slate-200 whitespace-pre-wrap text-sm leading-relaxed" data-testid="text-streaming">
+                  {streamingText}
+                  <span className="inline-block w-2 h-4 ml-0.5 bg-indigo-500 animate-pulse rounded-sm" />
+                </p>
+              ) : (
+                <div className="flex items-center gap-2 text-slate-400 dark:text-slate-500 text-sm">
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  Preparing AI model for analysis...
+                </div>
+              )}
             </div>
           </div>
         )}
