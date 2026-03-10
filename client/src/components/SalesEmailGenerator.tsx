@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Mail, Loader2, AlertTriangle, CheckCircle2, ChevronDown,
   RefreshCw, Download, Copy, Save, FolderOpen, Trash2, X,
-  Target, ShieldAlert, TrendingUp, Sparkles
+  Target, ShieldAlert, TrendingUp, Sparkles, RotateCcw
 } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
@@ -561,27 +561,59 @@ Generate 5 completely different approaches. Each must have unique subject lines,
           </div>
         )}
 
-        <button
-          data-testid="button-generate"
-          onClick={handleGenerate}
-          disabled={!isFormValid || isGenerating || !isReady}
-          className={cn(
-            "w-full py-4 rounded-2xl font-bold text-lg transition-all flex items-center justify-center gap-3",
-            isFormValid && !isGenerating && isReady
-              ? "bg-gradient-primary text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
-              : "bg-slate-200 text-slate-400 cursor-not-allowed"
-          )}
-        >
-          {isGenerating ? (
-            <>
-              <Loader2 className="w-5 h-5 animate-spin" /> Generating Emails...
-            </>
-          ) : (
-            <>
-              <Sparkles className="w-5 h-5" /> Generate 5 Sales Emails
-            </>
-          )}
-        </button>
+        <div className="flex gap-3">
+          <button
+            data-testid="button-generate"
+            onClick={handleGenerate}
+            disabled={!isFormValid || isGenerating || !isReady}
+            className={cn(
+              "flex-1 py-4 rounded-2xl font-bold text-lg transition-all flex items-center justify-center gap-3",
+              isFormValid && !isGenerating && isReady
+                ? "bg-gradient-primary text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
+                : "bg-slate-200 text-slate-400 cursor-not-allowed"
+            )}
+          >
+            {isGenerating ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" /> Generating Emails...
+              </>
+            ) : (
+              <>
+                <Sparkles className="w-5 h-5" /> Generate 5 Sales Emails
+              </>
+            )}
+          </button>
+          <button
+            data-testid="button-reset"
+            type="button"
+            onClick={() => {
+              setProduct("");
+              setTargetCustomer("");
+              setObjective(OBJECTIVES[0]);
+              setTone("Professional");
+              setEmailLength("medium");
+              setPersonalizationFields("");
+              setShowAdvanced(false);
+              setStreamedContent("");
+              setEmails([]);
+              setIsDone(false);
+              setExpandedEmail(null);
+              setCopiedId(null);
+              setSaved(false);
+              setEmptyError("");
+            }}
+            disabled={isGenerating}
+            className={cn(
+              "px-4 py-4 rounded-2xl font-semibold text-sm border-2 transition-all flex items-center justify-center gap-2",
+              isGenerating
+                ? "border-slate-200 text-slate-300 cursor-not-allowed"
+                : "border-slate-200 text-slate-500 hover:border-red-300 hover:text-red-500 hover:bg-red-50"
+            )}
+          >
+            <RotateCcw className="w-4 h-4" />
+            Reset
+          </button>
+        </div>
       </div>
 
       {emptyError && (

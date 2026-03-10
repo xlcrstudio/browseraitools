@@ -1016,40 +1016,57 @@ Write the ${dayName} schedule now:`;
             </div>
           )}
 
-          <button
-            type="button"
-            data-testid="button-generate"
-            disabled={!canGenerate || isGenerating || status === "error"}
-            onClick={handleGenerate}
-            className={cn(
-              "w-full py-3.5 rounded-xl font-bold text-white text-base transition-all shadow-md",
-              canGenerate && !isGenerating && status !== "error"
-                ? "bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 hover:shadow-lg"
-                : "bg-slate-300 dark:bg-slate-700 cursor-not-allowed"
-            )}
-          >
-            {isGenerating ? (
-              <span className="inline-flex items-center gap-2">
-                <Loader2 className="w-5 h-5 animate-spin" />
-                {STEP_LABELS[currentStep]}
-              </span>
-            ) : status === "downloading" ? (
-              <span className="inline-flex items-center gap-2">
-                <Loader2 className="w-5 h-5 animate-spin" />
-                Downloading AI model...
-              </span>
-            ) : status === "checking-gpu" ? (
-              <span className="inline-flex items-center gap-2">
-                <Loader2 className="w-5 h-5 animate-spin" />
-                Checking GPU compatibility...
-              </span>
-            ) : (
-              <span className="inline-flex items-center gap-2">
-                <CalendarDays className="w-5 h-5" />
-                Generate My Weekly Plan
-              </span>
-            )}
-          </button>
+          <div className="flex gap-3">
+            <button
+              type="button"
+              data-testid="button-generate"
+              disabled={!canGenerate || isGenerating || status === "error"}
+              onClick={handleGenerate}
+              className={cn(
+                "flex-1 py-3.5 rounded-xl font-bold text-white text-base transition-all shadow-md",
+                canGenerate && !isGenerating && status !== "error"
+                  ? "bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 hover:shadow-lg"
+                  : "bg-slate-300 dark:bg-slate-700 cursor-not-allowed"
+              )}
+            >
+              {isGenerating ? (
+                <span className="inline-flex items-center gap-2">
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  {STEP_LABELS[currentStep]}
+                </span>
+              ) : status === "downloading" ? (
+                <span className="inline-flex items-center gap-2">
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Downloading AI model...
+                </span>
+              ) : status === "checking-gpu" ? (
+                <span className="inline-flex items-center gap-2">
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Checking GPU compatibility...
+                </span>
+              ) : (
+                <span className="inline-flex items-center gap-2">
+                  <CalendarDays className="w-5 h-5" />
+                  Generate My Weekly Plan
+                </span>
+              )}
+            </button>
+            <button
+              type="button"
+              data-testid="button-reset-form"
+              onClick={handleReset}
+              disabled={isGenerating}
+              className={cn(
+                "px-4 py-3.5 rounded-xl font-semibold text-sm border-2 transition-all flex items-center justify-center gap-2",
+                isGenerating
+                  ? "border-slate-200 dark:border-slate-700 text-slate-300 dark:text-slate-600 cursor-not-allowed"
+                  : "border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:border-red-300 dark:hover:border-red-700 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20"
+              )}
+            >
+              <RotateCcw className="w-4 h-4" />
+              Reset
+            </button>
+          </div>
         </div>
 
         {emptyError && !isGenerating && (
