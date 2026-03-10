@@ -131,6 +131,27 @@ export function IGBioGenerator() {
     });
   };
 
+  const handleReset = () => {
+    setName("");
+    setWhatYouDo("");
+    setNiche("Personal Brand");
+    setBioStyle("Friendly");
+    setEmojiUsage("Moderate");
+    setLocation("");
+    setLocationPin(false);
+    setUniqueQualities("");
+    setIncludeElements([]);
+    setLinkInBioText("");
+    setUseLineBreaks(true);
+    setUseSymbols(false);
+    setAdvancedOpen(false);
+    setStreamingText("");
+    setBios([]);
+    setCopiedIdx(null);
+    setCopiedAll(false);
+    setFavorites(new Set());
+  };
+
   const copyBio = async (text: string, idx: number) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -551,30 +572,42 @@ Write the Instagram bio now. Output ONLY the bio text, nothing else:`;
             </div>
           )}
 
-          <button
-            type="button"
-            data-testid="button-generate"
-            disabled={!canGenerate || isGenerating || state !== "ready"}
-            onClick={handleGenerate}
-            className={cn(
-              "w-full py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2",
-              canGenerate && !isGenerating && state === "ready"
-                ? "bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white shadow-lg shadow-pink-500/25"
-                : "bg-slate-200 dark:bg-slate-700 text-slate-400 dark:text-slate-500 cursor-not-allowed"
+          <div className="flex gap-3">
+            <button
+              type="button"
+              data-testid="button-generate"
+              disabled={!canGenerate || isGenerating || state !== "ready"}
+              onClick={handleGenerate}
+              className={cn(
+                "flex-1 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2",
+                canGenerate && !isGenerating && state === "ready"
+                  ? "bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white shadow-lg shadow-pink-500/25"
+                  : "bg-slate-200 dark:bg-slate-700 text-slate-400 dark:text-slate-500 cursor-not-allowed"
+              )}
+            >
+              {isGenerating ? (
+                <>
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Creating perfect bios...
+                </>
+              ) : (
+                <>
+                  <SparklesIcon className="w-5 h-5" />
+                  Generate Instagram Bios
+                </>
+              )}
+            </button>
+            {(bios.length > 0 || streamingText) && (
+              <button
+                data-testid="button-reset"
+                onClick={handleReset}
+                className="px-4 py-4 rounded-xl border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 transition-all flex items-center gap-2 hover:bg-slate-50 dark:hover:bg-slate-800"
+              >
+                <RotateCcw className="w-4 h-4" />
+                Reset
+              </button>
             )}
-          >
-            {isGenerating ? (
-              <>
-                <Loader2 className="w-5 h-5 animate-spin" />
-                Creating perfect bios...
-              </>
-            ) : (
-              <>
-                <SparklesIcon className="w-5 h-5" />
-                Generate Instagram Bios
-              </>
-            )}
-          </button>
+          </div>
         </div>
 
         {isGenerating && streamingText && (
