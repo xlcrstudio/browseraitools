@@ -4,6 +4,7 @@ import { ContentBriefArticle } from "@/components/ContentBriefArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { contentBriefFAQs } from "@/lib/faqs-data";
 import { BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function ContentBriefPage() {
       <ToolFAQ toolName="AI Content Brief Generator" faqs={contentBriefFAQs} />
 
       <AdBlock slot="content-brief-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={contentBriefFAQs} />
     </>
   );
 }

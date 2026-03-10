@@ -4,6 +4,7 @@ import { DatingProfileArticle } from "@/components/DatingProfileArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { datingProfileFAQs } from "@/lib/faqs-data";
 import { Heart } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function DatingProfilePage() {
       <ToolFAQ toolName="AI Dating Profile Generator" faqs={datingProfileFAQs} />
 
       <AdBlock slot="dating-profile-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={datingProfileFAQs} />
     </>
   );
 }

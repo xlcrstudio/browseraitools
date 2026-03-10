@@ -4,6 +4,7 @@ import { PromptGeneratorArticle } from "@/components/PromptGeneratorArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { promptGeneratorFAQs } from "@/lib/faqs-data";
 import { PenTool } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function PromptGeneratorPage() {
       <ToolFAQ toolName="AI Prompt Generator" faqs={promptGeneratorFAQs} />
 
       <AdBlock slot="prompt-gen-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={promptGeneratorFAQs} />
     </>
   );
 }

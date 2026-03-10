@@ -4,6 +4,7 @@ import { YTTitleArticle } from "@/components/YTTitleArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { ytTitleFAQs } from "@/lib/faqs-data";
 import { Youtube } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function YTTitlePage() {
       <ToolFAQ toolName="AI YouTube Title Generator" faqs={ytTitleFAQs} />
 
       <AdBlock slot="yttitle-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={ytTitleFAQs} />
     </>
   );
 }

@@ -4,6 +4,7 @@ import { BlogOutlineArticle } from "@/components/BlogOutlineArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { blogOutlineGeneratorFAQs } from "@/lib/faqs-data";
 import { FileText } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function BlogOutlineGeneratorPage() {
       <ToolFAQ toolName="AI Blog Outline Generator" faqs={blogOutlineGeneratorFAQs} />
 
       <AdBlock slot="blog-outline-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={blogOutlineGeneratorFAQs} />
     </>
   );
 }

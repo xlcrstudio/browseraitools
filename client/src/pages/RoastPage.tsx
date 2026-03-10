@@ -4,6 +4,7 @@ import { RoastArticle } from "@/components/RoastArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { roastFAQs } from "@/lib/faqs-data";
 import { Flame } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function RoastPage() {
       <ToolFAQ toolName="AI Roast Generator" faqs={roastFAQs} />
 
       <AdBlock slot="roast-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={roastFAQs} />
     </>
   );
 }

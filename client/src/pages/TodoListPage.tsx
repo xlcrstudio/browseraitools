@@ -4,6 +4,7 @@ import { TodoListArticle } from "@/components/TodoListArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { todoListFAQs } from "@/lib/faqs-data";
 import { ListChecks } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function TodoListPage() {
       <ToolFAQ toolName="AI To-Do List Generator" faqs={todoListFAQs} />
 
       <AdBlock slot="todo-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={todoListFAQs} />
     </>
   );
 }

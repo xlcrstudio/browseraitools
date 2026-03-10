@@ -4,6 +4,7 @@ import { DocumentAnalyzerArticle } from "@/components/DocumentAnalyzerArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { documentAnalyzerFAQs } from "@/lib/faqs-data";
 import { FileText } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function DocumentAnalyzerPage() {
       <ToolFAQ toolName="AI Document Analyzer" faqs={documentAnalyzerFAQs} />
 
       <AdBlock slot="document-analyzer-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={documentAnalyzerFAQs} />
     </>
   );
 }

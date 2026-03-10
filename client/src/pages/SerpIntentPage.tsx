@@ -4,6 +4,7 @@ import { SerpIntentArticle } from "@/components/SerpIntentArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { serpIntentFAQs } from "@/lib/faqs-data";
 import { Target } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function SerpIntentPage() {
       <ToolFAQ toolName="AI SERP Intent Analyzer" faqs={serpIntentFAQs} />
 
       <AdBlock slot="serp-intent-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={serpIntentFAQs} />
     </>
   );
 }

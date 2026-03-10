@@ -4,6 +4,7 @@ import { GoalPlannerArticle } from "@/components/GoalPlannerArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { goalPlannerFAQs } from "@/lib/faqs-data";
 import { Flag } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function GoalPlannerPage() {
       <ToolFAQ toolName="AI Goal Planner" faqs={goalPlannerFAQs} />
 
       <AdBlock slot="goal-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={goalPlannerFAQs} />
     </>
   );
 }

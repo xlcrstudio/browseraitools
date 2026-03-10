@@ -4,6 +4,7 @@ import { TravelPlannerArticle } from "@/components/TravelPlannerArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { travelPlannerFAQs } from "@/lib/faqs-data";
 import { MapPin } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function TravelPlannerPage() {
       <ToolFAQ toolName="AI Travel Planner" faqs={travelPlannerFAQs} />
 
       <AdBlock slot="travel-planner-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={travelPlannerFAQs} />
     </>
   );
 }

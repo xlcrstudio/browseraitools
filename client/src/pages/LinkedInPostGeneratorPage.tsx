@@ -4,6 +4,7 @@ import { LinkedInPostArticle } from "@/components/LinkedInPostArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { linkedInPostGeneratorFAQs } from "@/lib/faqs-data";
 import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function LinkedInPostGeneratorPage() {
       <ToolFAQ toolName="AI LinkedIn Post Generator" faqs={linkedInPostGeneratorFAQs} />
 
       <AdBlock slot="linkedin-post-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={linkedInPostGeneratorFAQs} />
     </>
   );
 }

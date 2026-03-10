@@ -4,6 +4,7 @@ import { MealPlannerArticle } from "@/components/MealPlannerArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { mealPlannerFAQs } from "@/lib/faqs-data";
 import { UtensilsCrossed } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function MealPlannerPage() {
       <ToolFAQ toolName="AI Meal Planner" faqs={mealPlannerFAQs} />
 
       <AdBlock slot="meal-planner-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={mealPlannerFAQs} />
     </>
   );
 }

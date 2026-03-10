@@ -4,6 +4,7 @@ import { IGBioArticle } from "@/components/IGBioArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { igBioFAQs } from "@/lib/faqs-data";
 import { User } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function IGBioPage() {
       <ToolFAQ toolName="AI Instagram Bio Generator" faqs={igBioFAQs} />
 
       <AdBlock slot="igbio-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={igBioFAQs} />
     </>
   );
 }

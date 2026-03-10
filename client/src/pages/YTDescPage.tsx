@@ -4,6 +4,7 @@ import { YTDescArticle } from "@/components/YTDescArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { ytDescFAQs } from "@/lib/faqs-data";
 import { FileEdit } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function YTDescPage() {
       <ToolFAQ toolName="AI YouTube Description Generator" faqs={ytDescFAQs} />
 
       <AdBlock slot="ytdesc-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={ytDescFAQs} />
     </>
   );
 }

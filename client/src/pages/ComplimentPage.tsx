@@ -4,6 +4,7 @@ import { ComplimentArticle } from "@/components/ComplimentArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { complimentFAQs } from "@/lib/faqs-data";
 import { Heart } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function ComplimentPage() {
       <ToolFAQ toolName="AI Compliment Generator" faqs={complimentFAQs} />
 
       <AdBlock slot="compliment-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={complimentFAQs} />
     </>
   );
 }

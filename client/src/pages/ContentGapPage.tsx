@@ -4,6 +4,7 @@ import { ContentGapArticle } from "@/components/ContentGapArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { contentGapFAQs } from "@/lib/faqs-data";
 import { Search } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function ContentGapPage() {
       <ToolFAQ toolName="AI Content Gap Analyzer" faqs={contentGapFAQs} />
 
       <AdBlock slot="content-gap-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={contentGapFAQs} />
     </>
   );
 }

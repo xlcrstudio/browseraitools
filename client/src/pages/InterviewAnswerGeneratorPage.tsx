@@ -4,6 +4,7 @@ import { InterviewAnswerArticle } from "@/components/InterviewAnswerArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { interviewAnswerGeneratorFAQs } from "@/lib/faqs-data";
 import { Mic } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function InterviewAnswerGeneratorPage() {
       <ToolFAQ toolName="AI Interview Answer Generator" faqs={interviewAnswerGeneratorFAQs} />
 
       <AdBlock slot="interview-answer-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={interviewAnswerGeneratorFAQs} />
     </>
   );
 }

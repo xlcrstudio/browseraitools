@@ -4,6 +4,7 @@ import { MessageAnalyzerArticle } from "@/components/MessageAnalyzerArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { messageAnalyzerFAQs } from "@/lib/faqs-data";
 import { MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function MessageAnalyzerPage() {
       <ToolFAQ toolName="AI Message Analyzer" faqs={messageAnalyzerFAQs} />
 
       <AdBlock slot="message-analyzer-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={messageAnalyzerFAQs} />
     </>
   );
 }

@@ -4,6 +4,7 @@ import { DebateArticle } from "@/components/DebateArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { debateFAQs } from "@/lib/faqs-data";
 import { Swords } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function DebatePage() {
       <ToolFAQ toolName="AI Debate Generator" faqs={debateFAQs} />
 
       <AdBlock slot="debate-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={debateFAQs} />
     </>
   );
 }

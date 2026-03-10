@@ -4,6 +4,7 @@ import { StartupNameArticle } from "@/components/StartupNameArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { startupNameGeneratorFAQs } from "@/lib/faqs-data";
 import { Rocket } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function StartupNameGeneratorPage() {
       <ToolFAQ toolName="AI Startup Name Generator" faqs={startupNameGeneratorFAQs} />
 
       <AdBlock slot="startup-name-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={startupNameGeneratorFAQs} />
     </>
   );
 }

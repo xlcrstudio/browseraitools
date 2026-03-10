@@ -4,6 +4,7 @@ import { DecisionArticle } from "@/components/DecisionArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { decisionFAQs } from "@/lib/faqs-data";
 import { Scale } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function DecisionPage() {
       <ToolFAQ toolName="AI Decision Maker" faqs={decisionFAQs} />
 
       <AdBlock slot="decision-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={decisionFAQs} />
     </>
   );
 }

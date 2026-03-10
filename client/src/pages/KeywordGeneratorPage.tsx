@@ -4,6 +4,7 @@ import { KeywordArticle } from "@/components/KeywordArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { keywordGeneratorFAQs } from "@/lib/faqs-data";
 import { Key } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function KeywordGeneratorPage() {
       <ToolFAQ toolName="AI Keyword Generator" faqs={keywordGeneratorFAQs} />
 
       <AdBlock slot="keyword-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={keywordGeneratorFAQs} />
     </>
   );
 }

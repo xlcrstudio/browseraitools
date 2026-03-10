@@ -4,6 +4,7 @@ import { CTAArticle } from "@/components/CTAArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { ctaGeneratorFAQs } from "@/lib/faqs-data";
 import { MousePointerClick } from "lucide-react";
 import { motion } from "framer-motion";
@@ -54,6 +55,8 @@ export default function CTAGeneratorPage() {
       <ToolFAQ toolName="AI Call-to-Action Generator" faqs={ctaGeneratorFAQs} />
 
       <AdBlock slot="cta-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={ctaGeneratorFAQs} />
     </>
   );
 }

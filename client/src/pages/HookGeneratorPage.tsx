@@ -4,6 +4,7 @@ import { HistoryPanel } from "@/components/HistorySidebar";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { hookGeneratorFAQs } from "@/lib/faqs-data";
 import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
@@ -32,6 +33,8 @@ export default function HookGeneratorPage() {
       <AdBlock slot="hook-bottom" format="horizontal" className="mt-10" />
 
       <HistoryPanel />
+    
+      <FAQSchema faqs={hookGeneratorFAQs} />
     </>
   );
 }

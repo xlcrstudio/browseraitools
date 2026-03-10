@@ -4,6 +4,7 @@ import { CoverLetterArticle } from "@/components/CoverLetterArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { coverLetterGeneratorFAQs } from "@/lib/faqs-data";
 import { FileText } from "lucide-react";
 import { motion } from "framer-motion";
@@ -54,6 +55,8 @@ export default function CoverLetterGeneratorPage() {
       <ToolFAQ toolName="AI Cover Letter Generator" faqs={coverLetterGeneratorFAQs} />
 
       <AdBlock slot="cover-letter-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={coverLetterGeneratorFAQs} />
     </>
   );
 }

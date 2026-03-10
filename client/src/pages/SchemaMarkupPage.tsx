@@ -4,6 +4,7 @@ import { SchemaMarkupArticle } from "@/components/SchemaMarkupArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { schemaMarkupFAQs } from "@/lib/faqs-data";
 import { Code } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function SchemaMarkupPage() {
       <ToolFAQ toolName="AI Schema Markup Generator" faqs={schemaMarkupFAQs} />
 
       <AdBlock slot="schema-markup-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={schemaMarkupFAQs} />
     </>
   );
 }

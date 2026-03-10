@@ -4,6 +4,7 @@ import { SeoTitleArticle } from "@/components/SeoTitleArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { seoTitleFAQs } from "@/lib/faqs-data";
 import { Tag } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function SeoTitlePage() {
       <ToolFAQ toolName="AI SEO Title Generator" faqs={seoTitleFAQs} />
 
       <AdBlock slot="seo-title-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={seoTitleFAQs} />
     </>
   );
 }

@@ -4,6 +4,7 @@ import { ResumeBulletArticle } from "@/components/ResumeBulletArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { resumeBulletGeneratorFAQs } from "@/lib/faqs-data";
 import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function ResumeBulletGeneratorPage() {
       <ToolFAQ toolName="AI Resume Bullet Generator" faqs={resumeBulletGeneratorFAQs} />
 
       <AdBlock slot="resume-bullet-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={resumeBulletGeneratorFAQs} />
     </>
   );
 }

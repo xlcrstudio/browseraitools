@@ -4,6 +4,7 @@ import { CaptionArticle } from "@/components/CaptionArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { captionFAQs } from "@/lib/faqs-data";
 import { Instagram } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function CaptionPage() {
       <ToolFAQ toolName="AI Instagram Caption Generator" faqs={captionFAQs} />
 
       <AdBlock slot="caption-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={captionFAQs} />
     </>
   );
 }

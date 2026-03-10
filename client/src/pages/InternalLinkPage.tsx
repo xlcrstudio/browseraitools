@@ -4,6 +4,7 @@ import { InternalLinkArticle } from "@/components/InternalLinkArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { internalLinkFAQs } from "@/lib/faqs-data";
 import { Link2 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function InternalLinkPage() {
       <ToolFAQ toolName="AI Internal Link Suggestion Tool" faqs={internalLinkFAQs} />
 
       <AdBlock slot="internal-link-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={internalLinkFAQs} />
     </>
   );
 }

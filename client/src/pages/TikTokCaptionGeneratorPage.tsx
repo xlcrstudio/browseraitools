@@ -4,6 +4,7 @@ import { TikTokCaptionArticle } from "@/components/TikTokCaptionArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { tiktokCaptionGeneratorFAQs } from "@/lib/faqs-data";
 import { Music2 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function TikTokCaptionGeneratorPage() {
       <ToolFAQ toolName="AI TikTok Caption Generator" faqs={tiktokCaptionGeneratorFAQs} />
 
       <AdBlock slot="tiktok-caption-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={tiktokCaptionGeneratorFAQs} />
     </>
   );
 }

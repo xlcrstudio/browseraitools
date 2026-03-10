@@ -4,6 +4,7 @@ import { TweetArticle } from "@/components/TweetArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { tweetFAQs } from "@/lib/faqs-data";
 import { Twitter } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function TweetPage() {
       <ToolFAQ toolName="AI Tweet Generator" faqs={tweetFAQs} />
 
       <AdBlock slot="tweet-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={tweetFAQs} />
     </>
   );
 }

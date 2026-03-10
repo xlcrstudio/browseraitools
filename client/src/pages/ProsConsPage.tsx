@@ -4,6 +4,7 @@ import { ProsConsArticle } from "@/components/ProsConsArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { prosConsFAQs } from "@/lib/faqs-data";
 import { ThumbsUp } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function ProsConsPage() {
       <ToolFAQ toolName="AI Pros & Cons Generator" faqs={prosConsFAQs} />
 
       <AdBlock slot="proscons-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={prosConsFAQs} />
     </>
   );
 }

@@ -4,6 +4,7 @@ import { HashtagArticle } from "@/components/HashtagArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { hashtagGeneratorFAQs } from "@/lib/faqs-data";
 import { Hash } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function HashtagGeneratorPage() {
       <ToolFAQ toolName="AI Hashtag Generator" faqs={hashtagGeneratorFAQs} />
 
       <AdBlock slot="hashtag-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={hashtagGeneratorFAQs} />
     </>
   );
 }

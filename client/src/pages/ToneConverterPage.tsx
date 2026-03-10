@@ -4,6 +4,7 @@ import { ToneConverterArticle } from "@/components/ToneConverterArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { toneConverterFAQs } from "@/lib/faqs-data";
 import { RefreshCw } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function ToneConverterPage() {
       <ToolFAQ toolName="AI Tone Converter" faqs={toneConverterFAQs} />
 
       <AdBlock slot="tone-converter-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={toneConverterFAQs} />
     </>
   );
 }

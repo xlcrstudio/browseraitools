@@ -4,6 +4,7 @@ import { ExplainThisArticle } from "@/components/ExplainThisArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
+import FAQSchema from "@/components/FAQSchema";
 import { explainThisFAQs } from "@/lib/faqs-data";
 import { Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
@@ -73,6 +74,8 @@ export default function ExplainThisPage() {
       <ToolFAQ toolName="AI Explain This" faqs={explainThisFAQs} />
 
       <AdBlock slot="explain-this-bottom" format="horizontal" className="mt-10" />
+    
+      <FAQSchema faqs={explainThisFAQs} />
     </>
   );
 }
