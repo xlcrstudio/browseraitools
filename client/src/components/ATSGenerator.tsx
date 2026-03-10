@@ -36,7 +36,7 @@ const ANALYZE_MODES = [
   { value: "experience", label: "Experience Only" },
 ] as const;
 
-const SYSTEM_PROMPT = `You are an expert ATS resume optimizer and recruiter with 10+ years experience at top tech companies. You analyze resumes against job descriptions with perfect accuracy. You identify exact missing keywords and skills, calculate a realistic match percentage, and give clear, actionable suggestions that actually help candidates beat ATS systems and get interviews.`;
+const SYSTEM_PROMPT = `You are an expert ATS resume optimizer and recruiter with 10+ years experience. You analyze resumes against job descriptions with perfect accuracy. You are extremely thorough: you extract EVERY keyword, technology, tool, methodology, certification, and skill from the job description, then check each one against the resume. You never say "no gaps detected" when the match score is below 100%. If skills match is 85%, you list the 15% worth of missing skills. If keyword match is 76%, you list every missing keyword that accounts for that 24% gap. You are strict, detailed, and honest.`;
 
 const JUNK_PATTERNS = [
   /^\(.*\)$/,
@@ -63,6 +63,14 @@ const JUNK_PATTERNS = [
   /one\s+per\s+line/i,
   /from\s+the\s+job\s+description/i,
   /from\s+your\s+analysis/i,
+  /no\s+significant/i,
+  /no\s+gaps?\s+detected/i,
+  /no\s+missing/i,
+  /all\s+skills?\s+(?:are\s+)?(?:present|covered|matched)/i,
+  /^percentage/i,
+  /^be\s+thorough/i,
+  /^list\s+every/i,
+  /at\s+least\s+5-10/i,
 ];
 
 function isJunkLine(s: string): boolean {
@@ -198,35 +206,41 @@ export function ATSGenerator() {
     const industryLine = industry !== "Auto-Detect" ? `\nIndustry/Role Category: ${industry}` : "";
     const modeLine = analyzeMode === "experience" ? "\nNote: The candidate has provided only their experience section. Focus analysis on work experience keywords and skills." : "";
 
-    return `Analyze the match between this job description and resume.${industryLine}${modeLine}
+    return `You must carefully compare this job description against this resume. Extract every important term from the job description and check if it appears in the resume.${industryLine}${modeLine}
 
 JOB DESCRIPTION:
-${jobDesc.trim().slice(0, 3000)}
+${jobDesc.trim().slice(0, 4500)}
 
 RESUME:
-${resumeText.trim().slice(0, 3000)}
+${resumeText.trim().slice(0, 4500)}
 
-Write your analysis using the section headers below. For each percentage, write the actual number you calculated. For each list item, write the actual keyword, skill, or suggestion from your analysis.
+IMPORTANT INSTRUCTIONS:
+- Keywords are specific terms, phrases, tools, technologies, methodologies, certifications, domain knowledge, and industry jargon mentioned in the job description.
+- Skills are abilities and competencies the job requires: technical skills (programming languages, software, platforms), soft skills (leadership, communication), and domain expertise.
+- Keywords and skills are DIFFERENT categories. A keyword might be "Enterprise Architecture" while a skill might be "cross-functional team leadership."
+- You MUST list every keyword from the job description that does NOT appear anywhere in the resume. Be thorough. Most job descriptions contain 15-30 important keywords. Check each one.
+- You MUST list every skill from the job description that the resume does NOT demonstrate. If skills match is below 100%, there MUST be missing skills listed.
+- A score below 100% means there ARE gaps. List them all.
 
-Overall Match Score: (write the percentage here, e.g. 72%)
+Write your analysis now:
 
-Keyword Match: (write the percentage here)
+Overall Match Score: (percentage, be strict and realistic)
+
+Keyword Match: (percentage)
 Missing Keywords:
-- (write each missing keyword from the job description that is absent from the resume, one per line)
+- (list EVERY important keyword/term/phrase from the job description not found in the resume, one per line, be thorough and list at least 5-10 if the keyword match is below 90%)
 
-Skills Match: (write the percentage here)
+Skills Match: (percentage)
 Missing Skills:
-- (write each missing skill from the job description that is absent from the resume, one per line)
+- (list EVERY skill required by the job that the resume does not demonstrate, one per line, if skills match is below 100% you MUST list the missing skills here)
 
-Experience Alignment: (write the percentage here)
+Experience Alignment: (percentage)
 
 Actionable Suggestions:
-- (write 5 specific, concrete suggestions the candidate should implement to raise their match score)
+- (write 5 specific improvements the candidate should make)
 
 Final Recommendation:
-Write 2-3 sentences summarizing the analysis with specific next steps.
-
-Be precise, objective, and encouraging. Base everything strictly on the provided text. Give realistic percentage scores.`;
+(2-3 sentence summary with next steps)`;
   };
 
   const handleGenerate = async () => {
@@ -242,7 +256,7 @@ Be precise, objective, and encouraging. Base everything strictly on the provided
           { role: "user", content: buildPrompt() },
         ],
         temperature: 0.4,
-        maxTokens: 2000,
+        maxTokens: 2500,
         onChunk: (text) => setStreamingText(text),
       });
 
@@ -300,13 +314,13 @@ Be precise, objective, and encouraging. Base everything strictly on the provided
               <textarea
                 data-testid="input-job-description"
                 value={jobDesc}
-                onChange={(e) => setJobDesc(e.target.value.slice(0, 5000))}
+                onChange={(e) => setJobDesc(e.target.value.slice(0, 10000))}
                 placeholder="Paste the full job description or job ad here..."
                 rows={10}
                 className="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-3 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-2 focus:ring-indigo-400 dark:focus:ring-indigo-500 focus:border-transparent outline-none transition-all resize-none text-sm"
-                maxLength={5000}
+                maxLength={10000}
               />
-              <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">{jobDesc.length}/5000</p>
+              <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">{jobDesc.length}/10,000</p>
             </div>
             <div>
               <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
@@ -315,13 +329,13 @@ Be precise, objective, and encouraging. Base everything strictly on the provided
               <textarea
                 data-testid="input-resume"
                 value={resumeText}
-                onChange={(e) => setResumeText(e.target.value.slice(0, 5000))}
+                onChange={(e) => setResumeText(e.target.value.slice(0, 10000))}
                 placeholder="Paste your full resume (or just the experience section) here..."
                 rows={10}
                 className="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-3 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-2 focus:ring-indigo-400 dark:focus:ring-indigo-500 focus:border-transparent outline-none transition-all resize-none text-sm"
-                maxLength={5000}
+                maxLength={10000}
               />
-              <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">{resumeText.length}/5000</p>
+              <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">{resumeText.length}/10,000</p>
             </div>
           </div>
 
