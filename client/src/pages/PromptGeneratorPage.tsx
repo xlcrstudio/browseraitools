@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { promptGeneratorFAQs } from "@/lib/faqs-data";
 import { PenTool } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function PromptGeneratorPage() {
       <ToolSchema faqs={promptGeneratorFAQs} toolName="AI Prompt Generator" toolDescription="AI-powered prompt generator. Create expert-level prompts for ChatGPT, Claude, Midjourney, and more. 3 complexity levels: Short, Detailed, Expert. 100% privat..." />
 
       <RelatedTools currentToolName="AI Prompt Generator" currentCategory="ProductivityApplication" />
+
+      <ShareResultButtons toolName="AI Prompt Generator" />
     </>
   );
 }

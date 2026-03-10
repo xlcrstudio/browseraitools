@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { keywordGeneratorFAQs } from "@/lib/faqs-data";
 import { Key } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function KeywordGeneratorPage() {
       <ToolSchema faqs={keywordGeneratorFAQs} toolName="AI Keyword Generator" toolDescription="Generate 100+ SEO keyword ideas with search volume, difficulty scores, intent classification, and CPC estimates. AI-powered, free, and private." category="BusinessApplication" />
 
       <RelatedTools currentToolName="AI Keyword Generator" currentCategory="BusinessApplication" />
+
+      <ShareResultButtons toolName="AI Keyword Generator" />
     </>
   );
 }

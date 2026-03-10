@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { todoListFAQs } from "@/lib/faqs-data";
 import { ListChecks } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function TodoListPage() {
       <ToolSchema faqs={todoListFAQs} toolName="AI To-Do List Generator" toolDescription="AI-powered to-do list generator. Break any goal into actionable tasks with priorities, time estimates, and step-by-step instructions. 100% private and free -..." />
 
       <RelatedTools currentToolName="AI To-Do List Generator" currentCategory="ProductivityApplication" />
+
+      <ShareResultButtons toolName="AI To-Do List Generator" />
     </>
   );
 }

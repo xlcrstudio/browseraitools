@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { decisionFAQs } from "@/lib/faqs-data";
 import { Scale } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function DecisionPage() {
       <ToolSchema faqs={decisionFAQs} toolName="AI Decision Maker" toolDescription="AI-powered decision maker. Enter your options and get instant pros/cons analysis, confidence scoring, and a clear recommendation. 100% private and free." />
 
       <RelatedTools currentToolName="AI Decision Maker" currentCategory="ProductivityApplication" />
+
+      <ShareResultButtons toolName="AI Decision Maker" />
     </>
   );
 }

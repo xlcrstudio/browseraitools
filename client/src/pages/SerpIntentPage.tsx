@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { serpIntentFAQs } from "@/lib/faqs-data";
 import { Target } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function SerpIntentPage() {
       <ToolSchema faqs={serpIntentFAQs} toolName="AI SERP Intent Analyzer" toolDescription="Analyze any keyword's search intent instantly. Classify as Informational, Navigational, Commercial, or Transactional. Get SERP patterns, title ideas, and Peo..." category="BusinessApplication" />
 
       <RelatedTools currentToolName="AI SERP Intent Analyzer" currentCategory="BusinessApplication" />
+
+      <ShareResultButtons toolName="AI SERP Intent Analyzer" />
     </>
   );
 }

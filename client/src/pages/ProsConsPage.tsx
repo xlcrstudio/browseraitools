@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { prosConsFAQs } from "@/lib/faqs-data";
 import { ThumbsUp } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function ProsConsPage() {
       <ToolSchema faqs={prosConsFAQs} toolName="AI Pros & Cons Generator" toolDescription="AI-powered pros and cons generator. Get balanced, objective analysis with Decision Score for any topic or choice. 100% private and free." />
 
       <RelatedTools currentToolName="AI Pros & Cons Generator" currentCategory="ProductivityApplication" />
+
+      <ShareResultButtons toolName="AI Pros & Cons Generator" />
     </>
   );
 }

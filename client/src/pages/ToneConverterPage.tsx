@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { toneConverterFAQs } from "@/lib/faqs-data";
 import { RefreshCw } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function ToneConverterPage() {
       <ToolSchema faqs={toneConverterFAQs} toolName="AI Tone Converter" toolDescription="Convert text between professional, casual, friendly, formal, and 10+ tones instantly with AI. Free, private, runs in your browser." />
 
       <RelatedTools currentToolName="AI Tone Converter" currentCategory="ProductivityApplication" />
+
+      <ShareResultButtons toolName="AI Tone Converter" />
     </>
   );
 }

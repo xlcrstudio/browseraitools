@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { tweetFAQs } from "@/lib/faqs-data";
 import { Twitter } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function TweetPage() {
       <ToolSchema faqs={tweetFAQs} toolName="AI Tweet Generator" toolDescription="AI-powered tweet generator. Get 5 viral, engaging tweets with virality scoring and character limit control. Thought leadership, funny, informational, or moti..." category="EntertainmentApplication" />
 
       <RelatedTools currentToolName="AI Tweet Generator" currentCategory="EntertainmentApplication" />
+
+      <ShareResultButtons toolName="AI Tweet Generator" />
     </>
   );
 }

@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { travelPlannerFAQs } from "@/lib/faqs-data";
 import { MapPin } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function TravelPlannerPage() {
       <ToolSchema faqs={travelPlannerFAQs} toolName="AI Travel Planner" toolDescription="Generate complete day-by-day travel itineraries with timings, packing lists, and budget breakdowns. Works for any destination. 100% private and free." />
 
       <RelatedTools currentToolName="AI Travel Planner" currentCategory="ProductivityApplication" />
+
+      <ShareResultButtons toolName="AI Travel Planner" />
     </>
   );
 }

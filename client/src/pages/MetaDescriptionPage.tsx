@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { metaDescriptionFAQs } from "@/lib/faqs-data";
 import { Search } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function MetaDescriptionPage() {
       <ToolSchema faqs={metaDescriptionFAQs} toolName="AI Meta Description Generator" toolDescription="Generate SEO-optimized meta descriptions that boost click-through rates. 5 variations per generation with character counting, keyword integration, and Google..." category="BusinessApplication" />
 
       <RelatedTools currentToolName="AI Meta Description Generator" currentCategory="BusinessApplication" />
+
+      <ShareResultButtons toolName="AI Meta Description Generator" />
     </>
   );
 }

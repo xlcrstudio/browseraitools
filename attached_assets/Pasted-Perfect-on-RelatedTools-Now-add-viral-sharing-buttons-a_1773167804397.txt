@@ -1,0 +1,81 @@
+Perfect on RelatedTools! Now add viral sharing buttons as the final SEO/virality boost.
+
+Step 1: Create client/src/components/ShareResultButtons.tsx with this exact code:
+
+import React from 'react';
+import { Share2, Twitter, Linkedin, Link as LinkIcon } from 'lucide-react';
+
+interface ShareResultButtonsProps {
+  toolName: string;
+  resultText?: string; // optional - if the page has generated output, pass it here
+  url?: string;
+}
+
+const ShareResultButtons: React.FC<ShareResultButtonsProps> = ({ 
+  toolName, 
+  resultText = "", 
+  url = window.location.href 
+}) => {
+  const shareText = resultText 
+    ? `${toolName} just roasted me 😂 ${resultText.slice(0, 120)}...` 
+    : `Just used the free private ${toolName} on browseraitools.com (runs in browser, 100% private!)`;
+
+  const handleNativeShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: toolName, text: shareText, url });
+      } catch {}
+    }
+  };
+
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}`;
+  const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&text=${encodeURIComponent(shareText)}`;
+  const copyUrl = () => {
+    navigator.clipboard.writeText(url);
+    // You can add a toast here later if you have one
+  };
+
+  return (
+    <div className="share-buttons mt-8 flex flex-wrap gap-3 justify-center">
+      <button
+        onClick={handleNativeShare}
+        className="flex items-center gap-2 px-6 py-3 bg-black text-white rounded-2xl hover:bg-zinc-800 transition-all"
+      >
+        <Share2 size={18} /> Share Result
+      </button>
+      <a
+        href={twitterUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-2xl hover:bg-gray-50 transition-all"
+      >
+        <Twitter size={18} className="text-[#1DA1F2]" /> X
+      </a>
+      <a
+        href={linkedinUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-2xl hover:bg-gray-50 transition-all"
+      >
+        <Linkedin size={18} className="text-[#0A66C2]" /> LinkedIn
+      </a>
+      <button
+        onClick={copyUrl}
+        className="flex items-center gap-2 px-6 py-3 border border-gray-300 rounded-2xl hover:bg-gray-50 transition-all"
+      >
+        <LinkIcon size={18} /> Copy Link
+      </button>
+    </div>
+  );
+};
+
+export default ShareResultButtons;
+
+Step 2: Add ShareResultButtons to EVERY *Page.tsx file (the 45 tool pages):
+- Import ShareResultButtons
+- Add it right after <RelatedTools ... /> (still before the closing fragment).
+- Pass: toolName={same one used in ToolSchema} and resultText={whatever state holds the generated output on that page, if it exists}. If no resultText on a page, just omit it or pass "".
+
+Start with WeeklyPlannerPage.tsx as test (it may not have resultText yet), then do all the rest. The Agent should intelligently find the result state variable on each page.
+
+After you're done, say "All pages updated with ShareResultButtons".

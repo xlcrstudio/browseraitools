@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { coverLetterGeneratorFAQs } from "@/lib/faqs-data";
 import { FileText } from "lucide-react";
 import { motion } from "framer-motion";
@@ -60,6 +61,8 @@ export default function CoverLetterGeneratorPage() {
       <ToolSchema faqs={coverLetterGeneratorFAQs} toolName="AI Cover Letter Generator" toolDescription="Generate professional cover letters tailored to any job description with AI. ATS-optimized, customizable tone. Free and private." category="BusinessApplication" />
 
       <RelatedTools currentToolName="AI Cover Letter Generator" currentCategory="BusinessApplication" />
+
+      <ShareResultButtons toolName="AI Cover Letter Generator" />
     </>
   );
 }

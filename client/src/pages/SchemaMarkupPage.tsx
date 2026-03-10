@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { schemaMarkupFAQs } from "@/lib/faqs-data";
 import { Code } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function SchemaMarkupPage() {
       <ToolSchema faqs={schemaMarkupFAQs} toolName="AI Schema Markup Generator" toolDescription="Generate valid JSON-LD schema markup for any page type. FAQ, Article, Product, Recipe, HowTo & more. Copy-paste ready. 100% private and free." category="BusinessApplication" />
 
       <RelatedTools currentToolName="AI Schema Markup Generator" currentCategory="BusinessApplication" />
+
+      <ShareResultButtons toolName="AI Schema Markup Generator" />
     </>
   );
 }

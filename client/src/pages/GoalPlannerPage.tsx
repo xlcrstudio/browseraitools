@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { goalPlannerFAQs } from "@/lib/faqs-data";
 import { Flag } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function GoalPlannerPage() {
       <ToolSchema faqs={goalPlannerFAQs} toolName="AI Goal Planner" toolDescription="AI-powered goal planner. Break any ambition into milestones, timelines, and weekly actions. Get a complete roadmap for achieving your biggest goals. 100% pri..." />
 
       <RelatedTools currentToolName="AI Goal Planner" currentCategory="ProductivityApplication" />
+
+      <ShareResultButtons toolName="AI Goal Planner" />
     </>
   );
 }

@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { seoTitleFAQs } from "@/lib/faqs-data";
 import { Tag } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function SeoTitlePage() {
       <ToolSchema faqs={seoTitleFAQs} toolName="AI SEO Title Generator" toolDescription="Generate 10 SEO-optimized titles that rank on Google and drive clicks. Headline scoring, power words, character optimization. 100% private and free." category="BusinessApplication" />
 
       <RelatedTools currentToolName="AI SEO Title Generator" currentCategory="BusinessApplication" />
+
+      <ShareResultButtons toolName="AI SEO Title Generator" />
     </>
   );
 }

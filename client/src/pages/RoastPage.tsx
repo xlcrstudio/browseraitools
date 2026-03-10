@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { roastFAQs } from "@/lib/faqs-data";
 import { Flame } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function RoastPage() {
       <ToolSchema faqs={roastFAQs} toolName="AI Roast Generator" toolDescription="AI-powered roast generator. Get 3 clever, funny roasts instantly. Light, Medium, or Savage mode. Perfect for social media, group chats, and viral content. 10..." category="EntertainmentApplication" />
 
       <RelatedTools currentToolName="AI Roast Generator" currentCategory="EntertainmentApplication" />
+
+      <ShareResultButtons toolName="AI Roast Generator" />
     </>
   );
 }

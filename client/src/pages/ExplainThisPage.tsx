@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { explainThisFAQs } from "@/lib/faqs-data";
 import { Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function ExplainThisPage() {
       <ToolSchema faqs={explainThisFAQs} toolName="AI Explain This" toolDescription="Understand any complex text instantly with AI. Get simple, ELI5, step-by-step, analogy, technical, or academic explanations. 100% private in your browser. Fr..." />
 
       <RelatedTools currentToolName="AI Explain This" currentCategory="ProductivityApplication" />
+
+      <ShareResultButtons toolName="AI Explain This" />
     </>
   );
 }

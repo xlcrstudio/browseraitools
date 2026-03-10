@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { contentGapFAQs } from "@/lib/faqs-data";
 import { Search } from "lucide-react";
 import { motion } from "framer-motion";
@@ -79,6 +80,8 @@ export default function ContentGapPage() {
       <ToolSchema faqs={contentGapFAQs} toolName="AI Content Gap Analyzer" toolDescription="Paste your article + competitor content to discover missing topics, keyword gaps, and content opportunities. Better than paid SEO tools. 100% private and free." category="BusinessApplication" />
 
       <RelatedTools currentToolName="AI Content Gap Analyzer" currentCategory="BusinessApplication" />
+
+      <ShareResultButtons toolName="AI Content Gap Analyzer" />
     </>
   );
 }

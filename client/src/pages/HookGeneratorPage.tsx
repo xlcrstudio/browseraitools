@@ -6,6 +6,7 @@ import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import RelatedTools from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 import { hookGeneratorFAQs } from "@/lib/faqs-data";
 import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
@@ -38,6 +39,8 @@ export default function HookGeneratorPage() {
       <ToolSchema faqs={hookGeneratorFAQs} toolName="AI Hook Generator" toolDescription="Generate scroll-stopping hooks for social media with AI. Get 5 viral, engaging hooks for any platform and topic. Free and private." category="EntertainmentApplication" />
 
       <RelatedTools currentToolName="AI Hook Generator" currentCategory="EntertainmentApplication" />
+
+      <ShareResultButtons toolName="AI Hook Generator" />
     </>
   );
 }
