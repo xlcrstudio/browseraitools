@@ -5,6 +5,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import RelatedTools from "@/components/RelatedTools";
 import { businessIdeaGeneratorFAQs } from "@/lib/faqs-data";
 import { Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
@@ -76,6 +77,8 @@ export default function BusinessIdeaGeneratorPage() {
       <AdBlock slot="business-idea-bottom" format="horizontal" className="mt-10" />
     
       <ToolSchema faqs={businessIdeaGeneratorFAQs} toolName="AI Business Idea Generator" toolDescription="Generate 15+ personalized business ideas with viability scores and action plans. AI-powered, free, and private." />
+
+      <RelatedTools currentToolName="AI Business Idea Generator" currentCategory="ProductivityApplication" />
     </>
   );
 }

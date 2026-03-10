@@ -5,6 +5,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import RelatedTools from "@/components/RelatedTools";
 import { hashtagGeneratorFAQs } from "@/lib/faqs-data";
 import { Hash } from "lucide-react";
 import { motion } from "framer-motion";
@@ -76,6 +77,8 @@ export default function HashtagGeneratorPage() {
       <AdBlock slot="hashtag-bottom" format="horizontal" className="mt-10" />
     
       <ToolSchema faqs={hashtagGeneratorFAQs} toolName="AI Hashtag Generator" toolDescription="Generate 30 optimized hashtags for Instagram, TikTok, LinkedIn, and Twitter in seconds. Platform-specific strategies, volume categories, copy-paste ready. Fr..." />
+
+      <RelatedTools currentToolName="AI Hashtag Generator" currentCategory="ProductivityApplication" />
     </>
   );
 }

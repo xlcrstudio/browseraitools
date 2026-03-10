@@ -5,6 +5,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import RelatedTools from "@/components/RelatedTools";
 import { mealPlannerFAQs } from "@/lib/faqs-data";
 import { UtensilsCrossed } from "lucide-react";
 import { motion } from "framer-motion";
@@ -76,6 +77,8 @@ export default function MealPlannerPage() {
       <AdBlock slot="meal-planner-bottom" format="horizontal" className="mt-10" />
     
       <ToolSchema faqs={mealPlannerFAQs} toolName="AI Meal Planner" toolDescription="Generate personalized 7-day meal plans with recipes and organized grocery lists. Supports any diet, budget, and family size. 100% private and free." />
+
+      <RelatedTools currentToolName="AI Meal Planner" currentCategory="ProductivityApplication" />
     </>
   );
 }

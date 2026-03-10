@@ -5,6 +5,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import RelatedTools from "@/components/RelatedTools";
 import { datingProfileFAQs } from "@/lib/faqs-data";
 import { Heart } from "lucide-react";
 import { motion } from "framer-motion";
@@ -76,6 +77,8 @@ export default function DatingProfilePage() {
       <AdBlock slot="dating-profile-bottom" format="horizontal" className="mt-10" />
     
       <ToolSchema faqs={datingProfileFAQs} toolName="AI Dating Profile Generator" toolDescription="Create irresistible dating profiles and opening lines for Tinder, Bumble, and Hinge. App-specific bios, prompt answers, photo captions, and first messages. 1..." category="EntertainmentApplication" />
+
+      <RelatedTools currentToolName="AI Dating Profile Generator" currentCategory="EntertainmentApplication" />
     </>
   );
 }

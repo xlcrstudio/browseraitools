@@ -1,0 +1,56 @@
+Perfect job on ToolSchema! Now add smart internal linking for SEO.
+
+Step 1: Create client/src/components/RelatedTools.tsx with this exact code:
+
+import React from 'react';
+import { Link } from 'react-router-dom'; // assuming you're using React Router (common in Replit React setups)
+
+interface RelatedTool {
+  name: string;
+  path: string;
+  category: string;
+}
+
+const RelatedTools: React.FC<{ currentToolName: string; currentCategory: string }> = ({ currentToolName, currentCategory }) => {
+  // Simple category-based related tools (Agent will expand this intelligently)
+  const allTools = [
+    // The Agent can expand this list from the existing pages if needed
+    { name: "AI Roast Generator", path: "/roast-generator", category: "EntertainmentApplication" },
+    { name: "AI Excuse Generator", path: "/excuse-generator", category: "EntertainmentApplication" },
+    // ... (Agent will use real paths and categories from the project)
+  ];
+
+  const related = allTools
+    .filter(tool => tool.name !== currentToolName && tool.category === currentCategory)
+    .slice(0, 5);
+
+  if (related.length === 0) return null;
+
+  return (
+    <div className="related-tools mt-12 border-t pt-8">
+      <h3 className="text-2xl font-bold mb-6">🔗 Related AI Tools You Might Love</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {related.map(tool => (
+          <Link
+            key={tool.path}
+            to={tool.path}
+            className="block p-4 border rounded-xl hover:border-purple-500 hover:bg-purple-50 transition-all"
+          >
+            <div className="font-medium text-lg">{tool.name}</div>
+            <div className="text-sm text-gray-600">Free • Private • In-browser</div>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default RelatedTools;
+
+Step 2: Add RelatedTools to EVERY *Page.tsx file (the 45 tool pages):
+- Import RelatedTools
+- Add <RelatedTools currentToolName="Exact Tool Name" currentCategory="TheCategoryAlreadyUsedInToolSchema" /> right before the closing fragment (after the ToolSchema component).
+- Pull the exact currentToolName and currentCategory from the same props/data already used in ToolSchema on that page.
+- Make the links use your actual routing paths (e.g. /ai-roast-generator or whatever your URLs are).
+
+Start with WeeklyPlannerPage.tsx as test, then do all the rest. Use the same category values already in ToolSchema. After you're done, say "All pages updated with RelatedTools".

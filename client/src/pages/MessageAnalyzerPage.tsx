@@ -5,6 +5,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import RelatedTools from "@/components/RelatedTools";
 import { messageAnalyzerFAQs } from "@/lib/faqs-data";
 import { MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
@@ -76,6 +77,8 @@ export default function MessageAnalyzerPage() {
       <AdBlock slot="message-analyzer-bottom" format="horizontal" className="mt-10" />
     
       <ToolSchema faqs={messageAnalyzerFAQs} toolName="AI Message Analyzer" toolDescription="Analyze any message privately with AI. Detect tone, decode intent, get reply suggestions, check for scams and red flags. 100% local, no uploads. Free and unl..." />
+
+      <RelatedTools currentToolName="AI Message Analyzer" currentCategory="ProductivityApplication" />
     </>
   );
 }

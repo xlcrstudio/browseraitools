@@ -5,6 +5,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import RelatedTools from "@/components/RelatedTools";
 import { travelPlannerFAQs } from "@/lib/faqs-data";
 import { MapPin } from "lucide-react";
 import { motion } from "framer-motion";
@@ -76,6 +77,8 @@ export default function TravelPlannerPage() {
       <AdBlock slot="travel-planner-bottom" format="horizontal" className="mt-10" />
     
       <ToolSchema faqs={travelPlannerFAQs} toolName="AI Travel Planner" toolDescription="Generate complete day-by-day travel itineraries with timings, packing lists, and budget breakdowns. Works for any destination. 100% private and free." />
+
+      <RelatedTools currentToolName="AI Travel Planner" currentCategory="ProductivityApplication" />
     </>
   );
 }

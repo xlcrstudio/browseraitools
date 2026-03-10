@@ -5,6 +5,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import RelatedTools from "@/components/RelatedTools";
 import { contentBriefFAQs } from "@/lib/faqs-data";
 import { BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
@@ -76,6 +77,8 @@ export default function ContentBriefPage() {
       <AdBlock slot="content-brief-bottom" format="horizontal" className="mt-10" />
     
       <ToolSchema faqs={contentBriefFAQs} toolName="AI Content Brief Generator" toolDescription="AI-powered content brief generator. Create complete SEO briefs with keyword research, content structure, competitor analysis, and writer guidelines. 100% pri..." category="BusinessApplication" />
+
+      <RelatedTools currentToolName="AI Content Brief Generator" currentCategory="BusinessApplication" />
     </>
   );
 }

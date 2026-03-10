@@ -5,6 +5,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import RelatedTools from "@/components/RelatedTools";
 import { ctaGeneratorFAQs } from "@/lib/faqs-data";
 import { MousePointerClick } from "lucide-react";
 import { motion } from "framer-motion";
@@ -57,6 +58,8 @@ export default function CTAGeneratorPage() {
       <AdBlock slot="cta-bottom" format="horizontal" className="mt-10" />
     
       <ToolSchema faqs={ctaGeneratorFAQs} toolName="AI Call-to-Action Generator" toolDescription="Generate high-converting calls-to-action with AI. Get compelling CTAs for any platform, audience, and goal. Free and private." />
+
+      <RelatedTools currentToolName="AI Call-to-Action Generator" currentCategory="ProductivityApplication" />
     </>
   );
 }

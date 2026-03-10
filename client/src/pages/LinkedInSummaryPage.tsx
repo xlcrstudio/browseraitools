@@ -5,6 +5,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import RelatedTools from "@/components/RelatedTools";
 import { linkedInSummaryFAQs } from "@/lib/faqs-data";
 import { UserCheck } from "lucide-react";
 import { motion } from "framer-motion";
@@ -76,6 +77,8 @@ export default function LinkedInSummaryPage() {
       <AdBlock slot="linkedin-summary-bottom" format="horizontal" className="mt-10" />
     
       <ToolSchema faqs={linkedInSummaryFAQs} toolName="AI LinkedIn Summary Generator" toolDescription="AI-powered LinkedIn summary generator. Create a powerful LinkedIn About section with 3 optimized versions, keyword integration, and LinkedIn scoring. 100% pr..." category="BusinessApplication" />
+
+      <RelatedTools currentToolName="AI LinkedIn Summary Generator" currentCategory="BusinessApplication" />
     </>
   );
 }

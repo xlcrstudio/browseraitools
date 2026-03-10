@@ -5,6 +5,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import RelatedTools from "@/components/RelatedTools";
 import { documentAnalyzerFAQs } from "@/lib/faqs-data";
 import { FileText } from "lucide-react";
 import { motion } from "framer-motion";
@@ -76,6 +77,8 @@ export default function DocumentAnalyzerPage() {
       <AdBlock slot="document-analyzer-bottom" format="horizontal" className="mt-10" />
     
       <ToolSchema faqs={documentAnalyzerFAQs} toolName="AI Document Analyzer" toolDescription="Analyze PDFs and documents privately with AI. Get instant summaries, key insights, quotes, statistics, and study questions. 100% local, no uploads. Free." />
+
+      <RelatedTools currentToolName="AI Document Analyzer" currentCategory="ProductivityApplication" />
     </>
   );
 }

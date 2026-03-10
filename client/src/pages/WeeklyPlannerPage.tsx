@@ -5,6 +5,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import RelatedTools from "@/components/RelatedTools";
 import { weeklyPlannerFAQs } from "@/lib/faqs-data";
 import { CalendarDays } from "lucide-react";
 import { motion } from "framer-motion";
@@ -76,6 +77,8 @@ export default function WeeklyPlannerPage() {
       <AdBlock slot="weekly-bottom" format="horizontal" className="mt-10" />
 
       <ToolSchema faqs={weeklyPlannerFAQs} toolName="AI Weekly Planner Generator" toolDescription="AI-powered weekly planner generator. Create balanced, optimized weekly schedules with intelligent task distribution, energy optimization, and work-life balan..." />
+
+      <RelatedTools currentToolName="AI Weekly Planner Generator" currentCategory="ProductivityApplication" />
     </>
   );
 }

@@ -5,6 +5,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import RelatedTools from "@/components/RelatedTools";
 import { interviewAnswerGeneratorFAQs } from "@/lib/faqs-data";
 import { Mic } from "lucide-react";
 import { motion } from "framer-motion";
@@ -76,6 +77,8 @@ export default function InterviewAnswerGeneratorPage() {
       <AdBlock slot="interview-answer-bottom" format="horizontal" className="mt-10" />
     
       <ToolSchema faqs={interviewAnswerGeneratorFAQs} toolName="AI Interview Answer Generator" toolDescription="Generate professional interview answers using the STAR method with AI. Get structured answers, delivery tips, and follow-up prep. Free, private, instant." category="BusinessApplication" />
+
+      <RelatedTools currentToolName="AI Interview Answer Generator" currentCategory="BusinessApplication" />
     </>
   );
 }

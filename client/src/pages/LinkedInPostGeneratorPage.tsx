@@ -5,6 +5,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import RelatedTools from "@/components/RelatedTools";
 import { linkedInPostGeneratorFAQs } from "@/lib/faqs-data";
 import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
@@ -76,6 +77,8 @@ export default function LinkedInPostGeneratorPage() {
       <AdBlock slot="linkedin-post-bottom" format="horizontal" className="mt-10" />
     
       <ToolSchema faqs={linkedInPostGeneratorFAQs} toolName="AI LinkedIn Post Generator" toolDescription="Generate professional LinkedIn posts with AI. Thought leadership content, engagement-optimized hooks, and strategic hashtags. Free, private, instant." category="BusinessApplication" />
+
+      <RelatedTools currentToolName="AI LinkedIn Post Generator" currentCategory="BusinessApplication" />
     </>
   );
 }

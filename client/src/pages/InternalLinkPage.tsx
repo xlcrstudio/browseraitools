@@ -5,6 +5,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import RelatedTools from "@/components/RelatedTools";
 import { internalLinkFAQs } from "@/lib/faqs-data";
 import { Link2 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -76,6 +77,8 @@ export default function InternalLinkPage() {
       <AdBlock slot="internal-link-bottom" format="horizontal" className="mt-10" />
     
       <ToolSchema faqs={internalLinkFAQs} toolName="AI Internal Link Suggestion Tool" toolDescription="AI-powered internal link suggestion tool. Analyze your content and get strategic internal linking recommendations with anchor text, placement context, and re..." category="BusinessApplication" />
+
+      <RelatedTools currentToolName="AI Internal Link Suggestion Tool" currentCategory="BusinessApplication" />
     </>
   );
 }

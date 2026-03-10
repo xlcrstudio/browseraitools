@@ -5,6 +5,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import RelatedTools from "@/components/RelatedTools";
 import { ytDescFAQs } from "@/lib/faqs-data";
 import { FileEdit } from "lucide-react";
 import { motion } from "framer-motion";
@@ -76,6 +77,8 @@ export default function YTDescPage() {
       <AdBlock slot="ytdesc-bottom" format="horizontal" className="mt-10" />
     
       <ToolSchema faqs={ytDescFAQs} toolName="AI YouTube Description Generator" toolDescription="AI-powered YouTube description generator. Get 3 SEO-optimized descriptions with timestamps, hashtags, and CTAs. Multiple lengths and video types. 100% privat..." />
+
+      <RelatedTools currentToolName="AI YouTube Description Generator" currentCategory="ProductivityApplication" />
     </>
   );
 }
