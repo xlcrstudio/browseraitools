@@ -4,7 +4,7 @@ import { StoryArticle } from "@/components/StoryArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { storyStarterFAQs } from "@/lib/faqs-data";
 import { BookOpenCheck } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function StoryStarterPage() {
 
       <AdBlock slot="story-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={storyStarterFAQs} />
+      <ToolSchema faqs={storyStarterFAQs} toolName="AI Story Starter" toolDescription="AI-powered story starter generator. Get 5 powerful opening lines tailored to your genre and tone. Fantasy, horror, sci-fi, romance, mystery, and more. 100% p..." category="EntertainmentApplication" />
     </>
   );
 }

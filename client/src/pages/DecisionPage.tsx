@@ -4,7 +4,7 @@ import { DecisionArticle } from "@/components/DecisionArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { decisionFAQs } from "@/lib/faqs-data";
 import { Scale } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function DecisionPage() {
 
       <AdBlock slot="decision-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={decisionFAQs} />
+      <ToolSchema faqs={decisionFAQs} toolName="AI Decision Maker" toolDescription="AI-powered decision maker. Enter your options and get instant pros/cons analysis, confidence scoring, and a clear recommendation. 100% private and free." />
     </>
   );
 }

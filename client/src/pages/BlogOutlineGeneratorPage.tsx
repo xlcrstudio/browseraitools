@@ -4,7 +4,7 @@ import { BlogOutlineArticle } from "@/components/BlogOutlineArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { blogOutlineGeneratorFAQs } from "@/lib/faqs-data";
 import { FileText } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function BlogOutlineGeneratorPage() {
 
       <AdBlock slot="blog-outline-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={blogOutlineGeneratorFAQs} />
+      <ToolSchema faqs={blogOutlineGeneratorFAQs} toolName="AI Blog Outline Generator" toolDescription="Create SEO-optimized blog outlines in seconds with AI. Get title options, structured sections, meta descriptions, and content guidance. Free, private, instant." category="BusinessApplication" />
     </>
   );
 }

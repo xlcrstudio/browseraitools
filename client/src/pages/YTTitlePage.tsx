@@ -4,7 +4,7 @@ import { YTTitleArticle } from "@/components/YTTitleArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { ytTitleFAQs } from "@/lib/faqs-data";
 import { Youtube } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function YTTitlePage() {
 
       <AdBlock slot="yttitle-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={ytTitleFAQs} />
+      <ToolSchema faqs={ytTitleFAQs} toolName="AI YouTube Title Generator" toolDescription="AI-powered YouTube title generator. Get 10 SEO-optimized, click-worthy titles with SEO scores and CTR predictions. Clickbait, informational, list, or curiosi..." />
     </>
   );
 }

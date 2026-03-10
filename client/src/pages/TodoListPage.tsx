@@ -4,7 +4,7 @@ import { TodoListArticle } from "@/components/TodoListArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { todoListFAQs } from "@/lib/faqs-data";
 import { ListChecks } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function TodoListPage() {
 
       <AdBlock slot="todo-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={todoListFAQs} />
+      <ToolSchema faqs={todoListFAQs} toolName="AI To-Do List Generator" toolDescription="AI-powered to-do list generator. Break any goal into actionable tasks with priorities, time estimates, and step-by-step instructions. 100% private and free -..." />
     </>
   );
 }

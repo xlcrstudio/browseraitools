@@ -4,7 +4,7 @@ import { ComplimentArticle } from "@/components/ComplimentArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { complimentFAQs } from "@/lib/faqs-data";
 import { Heart } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function ComplimentPage() {
 
       <AdBlock slot="compliment-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={complimentFAQs} />
+      <ToolSchema faqs={complimentFAQs} toolName="AI Compliment Generator" toolDescription="AI-powered compliment generator. Get 5 genuine, tailored compliments for any person and tone. Heartfelt, funny, professional, or motivational. 100% private a..." category="EntertainmentApplication" />
     </>
   );
 }

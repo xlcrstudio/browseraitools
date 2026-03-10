@@ -4,7 +4,7 @@ import { ResumeBulletArticle } from "@/components/ResumeBulletArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { resumeBulletGeneratorFAQs } from "@/lib/faqs-data";
 import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function ResumeBulletGeneratorPage() {
 
       <AdBlock slot="resume-bullet-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={resumeBulletGeneratorFAQs} />
+      <ToolSchema faqs={resumeBulletGeneratorFAQs} toolName="AI Resume Bullet Generator" toolDescription="Generate powerful, ATS-optimized resume bullet points with AI. Quantified achievements, strong action verbs, CAR method. Free, private, instant." category="BusinessApplication" />
     </>
   );
 }

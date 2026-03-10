@@ -4,7 +4,7 @@ import { ATSArticle } from "@/components/ATSArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { atsFAQs } from "@/lib/faqs-data";
 import { ScanSearch } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function ATSMatcherPage() {
 
       <AdBlock slot="ats-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={atsFAQs} />
+      <ToolSchema faqs={atsFAQs} toolName="AI ATS Resume Matcher" toolDescription="AI-powered ATS resume matcher. Get your exact match score, missing keywords, missing skills, and actionable improvement tips. 100% private and free - runs in..." category="BusinessApplication" />
     </>
   );
 }

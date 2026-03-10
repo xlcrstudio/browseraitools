@@ -4,7 +4,7 @@ import { MessageAnalyzerArticle } from "@/components/MessageAnalyzerArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { messageAnalyzerFAQs } from "@/lib/faqs-data";
 import { MessageSquare } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function MessageAnalyzerPage() {
 
       <AdBlock slot="message-analyzer-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={messageAnalyzerFAQs} />
+      <ToolSchema faqs={messageAnalyzerFAQs} toolName="AI Message Analyzer" toolDescription="Analyze any message privately with AI. Detect tone, decode intent, get reply suggestions, check for scams and red flags. 100% local, no uploads. Free and unl..." />
     </>
   );
 }

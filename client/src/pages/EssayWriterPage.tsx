@@ -4,7 +4,7 @@ import { EssayWriterArticle } from "@/components/EssayWriterArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { essayWriterFAQs } from "@/lib/faqs-data";
 import { ScrollText } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function EssayWriterPage() {
 
       <AdBlock slot="essay-writer-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={essayWriterFAQs} />
+      <ToolSchema faqs={essayWriterFAQs} toolName="AI Essay Writer" toolDescription="Write complete, well-structured essays in seconds with AI. Argumentative, expository, narrative, and more. Proper citations, academic levels from high school..." />
     </>
   );
 }

@@ -4,7 +4,7 @@ import { ProsConsArticle } from "@/components/ProsConsArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { prosConsFAQs } from "@/lib/faqs-data";
 import { ThumbsUp } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function ProsConsPage() {
 
       <AdBlock slot="proscons-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={prosConsFAQs} />
+      <ToolSchema faqs={prosConsFAQs} toolName="AI Pros & Cons Generator" toolDescription="AI-powered pros and cons generator. Get balanced, objective analysis with Decision Score for any topic or choice. 100% private and free." />
     </>
   );
 }

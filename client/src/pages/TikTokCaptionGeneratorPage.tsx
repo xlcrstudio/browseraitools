@@ -4,7 +4,7 @@ import { TikTokCaptionArticle } from "@/components/TikTokCaptionArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { tiktokCaptionGeneratorFAQs } from "@/lib/faqs-data";
 import { Music2 } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function TikTokCaptionGeneratorPage() {
 
       <AdBlock slot="tiktok-caption-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={tiktokCaptionGeneratorFAQs} />
+      <ToolSchema faqs={tiktokCaptionGeneratorFAQs} toolName="AI TikTok Caption Generator" toolDescription="Generate viral TikTok captions with AI-powered hooks, hashtags, and CTAs. 5 caption variations optimized for the FYP. Free, private, instant." category="EntertainmentApplication" />
     </>
   );
 }

@@ -4,7 +4,7 @@ import { ExcuseArticle } from "@/components/ExcuseArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { excuseFAQs } from "@/lib/faqs-data";
 import { ShieldQuestion } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function ExcusePage() {
 
       <AdBlock slot="excuse-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={excuseFAQs} />
+      <ToolSchema faqs={excuseFAQs} toolName="AI Excuse Generator" toolDescription="AI-powered excuse generator. Get 5 creative, believable excuses for any situation. Funny, professional, or dramatic styles. 100% private and free." category="EntertainmentApplication" />
     </>
   );
 }

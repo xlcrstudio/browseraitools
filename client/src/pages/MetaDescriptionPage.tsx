@@ -4,7 +4,7 @@ import { MetaDescriptionArticle } from "@/components/MetaDescriptionArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { metaDescriptionFAQs } from "@/lib/faqs-data";
 import { Search } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function MetaDescriptionPage() {
 
       <AdBlock slot="meta-description-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={metaDescriptionFAQs} />
+      <ToolSchema faqs={metaDescriptionFAQs} toolName="AI Meta Description Generator" toolDescription="Generate SEO-optimized meta descriptions that boost click-through rates. 5 variations per generation with character counting, keyword integration, and Google..." category="BusinessApplication" />
     </>
   );
 }

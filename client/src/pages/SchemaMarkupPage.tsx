@@ -4,7 +4,7 @@ import { SchemaMarkupArticle } from "@/components/SchemaMarkupArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { schemaMarkupFAQs } from "@/lib/faqs-data";
 import { Code } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function SchemaMarkupPage() {
 
       <AdBlock slot="schema-markup-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={schemaMarkupFAQs} />
+      <ToolSchema faqs={schemaMarkupFAQs} toolName="AI Schema Markup Generator" toolDescription="Generate valid JSON-LD schema markup for any page type. FAQ, Article, Product, Recipe, HowTo & more. Copy-paste ready. 100% private and free." category="BusinessApplication" />
     </>
   );
 }

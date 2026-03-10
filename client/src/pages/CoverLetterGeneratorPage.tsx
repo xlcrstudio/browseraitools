@@ -4,7 +4,7 @@ import { CoverLetterArticle } from "@/components/CoverLetterArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { coverLetterGeneratorFAQs } from "@/lib/faqs-data";
 import { FileText } from "lucide-react";
 import { motion } from "framer-motion";
@@ -56,7 +56,7 @@ export default function CoverLetterGeneratorPage() {
 
       <AdBlock slot="cover-letter-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={coverLetterGeneratorFAQs} />
+      <ToolSchema faqs={coverLetterGeneratorFAQs} toolName="AI Cover Letter Generator" toolDescription="Generate professional cover letters tailored to any job description with AI. ATS-optimized, customizable tone. Free and private." category="BusinessApplication" />
     </>
   );
 }

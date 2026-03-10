@@ -1,0 +1,83 @@
+Great job on the FAQSchema! Now upgrade it to the highest-ROI schema for 2026.
+
+Step 1: Rename FAQSchema.tsx to ToolSchema.tsx and replace its entire content with this improved version (combines SoftwareApplication + FAQPage):
+
+import React from 'react';
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface ToolSchemaProps {
+  faqs: FAQ[];
+  toolName: string;
+  toolDescription: string;
+  category?: string; // e.g. "ProductivityApplication", "UtilityApplication"
+}
+
+const ToolSchema: React.FC<ToolSchemaProps> = ({ 
+  faqs, 
+  toolName, 
+  toolDescription, 
+  category = "ProductivityApplication" 
+}) => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": toolName,
+        "description": toolDescription,
+        "applicationCategory": category,
+        "operatingSystem": "Web Browser",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "BrowserAITools"
+        },
+        "url": window.location.href,
+        "featureList": [
+          "Runs 100% in-browser with WebLLM",
+          "100% Private - nothing leaves your device",
+          "Unlimited free use",
+          "No sign-up required"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqs.map((faq) => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};
+
+export default ToolSchema;
+
+Step 2: Update EVERY *Page.tsx file (the 45 tool pages) in one go:
+- Change the import from FAQSchema to ToolSchema
+- Replace <FAQSchema faqs={...} /> with <ToolSchema faqs={...} toolName="Exact Tool Name" toolDescription="Exact short description from the page" />
+- Pull the exact toolName and toolDescription from the same page (they're already in the JSX or imported data).
+
+Start with WeeklyPlannerPage.tsx as test, then do all 44 others. Keep it clean and make sure it still compiles.
+
+After you're done, say "All pages updated with ToolSchema".

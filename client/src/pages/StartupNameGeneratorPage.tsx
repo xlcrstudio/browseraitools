@@ -4,7 +4,7 @@ import { StartupNameArticle } from "@/components/StartupNameArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { startupNameGeneratorFAQs } from "@/lib/faqs-data";
 import { Rocket } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function StartupNameGeneratorPage() {
 
       <AdBlock slot="startup-name-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={startupNameGeneratorFAQs} />
+      <ToolSchema faqs={startupNameGeneratorFAQs} toolName="AI Startup Name Generator" toolDescription="Generate 10+ brandable startup names instantly. AI-powered name generator with meanings, domain insights, and naming analysis. Free and private." />
     </>
   );
 }

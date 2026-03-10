@@ -4,7 +4,7 @@ import { ExplainThisArticle } from "@/components/ExplainThisArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { explainThisFAQs } from "@/lib/faqs-data";
 import { Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function ExplainThisPage() {
 
       <AdBlock slot="explain-this-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={explainThisFAQs} />
+      <ToolSchema faqs={explainThisFAQs} toolName="AI Explain This" toolDescription="Understand any complex text instantly with AI. Get simple, ELI5, step-by-step, analogy, technical, or academic explanations. 100% private in your browser. Fr..." />
     </>
   );
 }

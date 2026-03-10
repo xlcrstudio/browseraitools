@@ -4,7 +4,7 @@ import { IGBioArticle } from "@/components/IGBioArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { igBioFAQs } from "@/lib/faqs-data";
 import { User } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function IGBioPage() {
 
       <AdBlock slot="igbio-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={igBioFAQs} />
+      <ToolSchema faqs={igBioFAQs} toolName="AI Instagram Bio Generator" toolDescription="AI-powered Instagram bio generator. Create 5 unique bios with perfect emoji placement, aesthetic formatting, and 150-character optimization. Niche-specific, ..." category="EntertainmentApplication" />
     </>
   );
 }

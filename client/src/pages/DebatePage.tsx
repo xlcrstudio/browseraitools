@@ -4,7 +4,7 @@ import { DebateArticle } from "@/components/DebateArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { debateFAQs } from "@/lib/faqs-data";
 import { Swords } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function DebatePage() {
 
       <AdBlock slot="debate-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={debateFAQs} />
+      <ToolSchema faqs={debateFAQs} toolName="AI Debate Generator" toolDescription="AI-powered debate argument generator. Get balanced Pro and Con arguments, rebuttals, and evidence suggestions for any topic. School to professional levels. 1..." />
     </>
   );
 }

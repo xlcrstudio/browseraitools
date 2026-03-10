@@ -4,7 +4,7 @@ import { SeoTitleArticle } from "@/components/SeoTitleArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { seoTitleFAQs } from "@/lib/faqs-data";
 import { Tag } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function SeoTitlePage() {
 
       <AdBlock slot="seo-title-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={seoTitleFAQs} />
+      <ToolSchema faqs={seoTitleFAQs} toolName="AI SEO Title Generator" toolDescription="Generate 10 SEO-optimized titles that rank on Google and drive clicks. Headline scoring, power words, character optimization. 100% private and free." category="BusinessApplication" />
     </>
   );
 }

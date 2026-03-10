@@ -4,7 +4,7 @@ import { MealPlannerArticle } from "@/components/MealPlannerArticle";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { mealPlannerFAQs } from "@/lib/faqs-data";
 import { UtensilsCrossed } from "lucide-react";
 import { motion } from "framer-motion";
@@ -75,7 +75,7 @@ export default function MealPlannerPage() {
 
       <AdBlock slot="meal-planner-bottom" format="horizontal" className="mt-10" />
     
-      <FAQSchema faqs={mealPlannerFAQs} />
+      <ToolSchema faqs={mealPlannerFAQs} toolName="AI Meal Planner" toolDescription="Generate personalized 7-day meal plans with recipes and organized grocery lists. Supports any diet, budget, and family size. 100% private and free." />
     </>
   );
 }

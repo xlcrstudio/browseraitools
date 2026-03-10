@@ -4,7 +4,7 @@ import { HistoryPanel } from "@/components/HistorySidebar";
 import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ToolFAQ } from "@/components/ToolFAQ";
 import { AdBlock } from "@/components/AdBlock";
-import FAQSchema from "@/components/FAQSchema";
+import ToolSchema from "@/components/ToolSchema";
 import { hookGeneratorFAQs } from "@/lib/faqs-data";
 import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
@@ -34,7 +34,7 @@ export default function HookGeneratorPage() {
 
       <HistoryPanel />
     
-      <FAQSchema faqs={hookGeneratorFAQs} />
+      <ToolSchema faqs={hookGeneratorFAQs} toolName="AI Hook Generator" toolDescription="Generate scroll-stopping hooks for social media with AI. Get 5 viral, engaging hooks for any platform and topic. Free and private." category="EntertainmentApplication" />
     </>
   );
 }
