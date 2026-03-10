@@ -576,6 +576,16 @@ Write the ${dayName} schedule now:`;
         });
 
         if (abortRef.current) return;
+        if (raw === null) {
+          console.error(`[WeeklyPlanner] generateRaw returned null for ${dayName} — engine may have lost GPU connection`);
+          if (allDays.length === 0) {
+            setEmptyError("AI engine connection was lost. Please refresh the page and try again.");
+            setIsGenerating(false);
+            setCurrentStep(0);
+            return;
+          }
+          break;
+        }
         const dayText = typeof raw === "string" ? raw : "";
         allRawText += `\n${dayText}\n`;
         console.log(`[WeeklyPlanner] Raw output for ${dayName}:`, dayText.slice(0, 500));

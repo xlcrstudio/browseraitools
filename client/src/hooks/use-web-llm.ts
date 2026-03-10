@@ -115,6 +115,33 @@ Just 5 lines of text, nothing else.`;
     });
   }, []);
 
+  const doGenerate = async (opts: {
+    messages: Array<{ role: "system" | "user" | "assistant"; content: string }>;
+    temperature?: number;
+    maxTokens?: number;
+    onChunk: (text: string) => void;
+  }) => {
+    const chunks = await engineRef.current!.chat.completions.create({
+      messages: opts.messages,
+      stream: true,
+      temperature: opts.temperature ?? 0.7,
+      max_tokens: opts.maxTokens ?? 500,
+    });
+
+    let fullText = "";
+    for await (const chunk of chunks) {
+      const content = chunk.choices[0]?.delta?.content || "";
+      fullText += content;
+      opts.onChunk(fullText);
+    }
+    return fullText;
+  };
+
+  const isDeviceLostError = (err: any): boolean => {
+    const msg = String(err?.message || err || "").toLowerCase();
+    return msg.includes("instance") || msg.includes("device was lost") || msg.includes("external") || msg.includes("poperrorscope") || msg.includes("mapasync");
+  };
+
   const generateRaw = useCallback(async (opts: {
     messages: Array<{ role: "system" | "user" | "assistant"; content: string }>;
     temperature?: number;
@@ -129,29 +156,35 @@ Just 5 lines of text, nothing else.`;
     setError(null);
 
     try {
-      const chunks = await engineRef.current!.chat.completions.create({
-        messages: opts.messages,
-        stream: true,
-        temperature: opts.temperature ?? 0.7,
-        max_tokens: opts.maxTokens ?? 500,
-      });
-
-      let fullText = "";
-      for await (const chunk of chunks) {
-        const content = chunk.choices[0]?.delta?.content || "";
-        fullText += content;
-        opts.onChunk(fullText);
-      }
-
+      const result = await doGenerate(opts);
       setState('ready');
-      return fullText;
+      return result;
     } catch (err: any) {
       console.error("Generation Error:", err);
+      if (isDeviceLostError(err)) {
+        console.log("GPU device lost, attempting re-initialization...");
+        try {
+          engineRef.current = null;
+          initStarted.current = false;
+          setState('downloading');
+          opts.onChunk("");
+          const engine = await CreateMLCEngine(MODEL_ID, { initProgressCallback });
+          engineRef.current = engine;
+          const result = await doGenerate(opts);
+          setState('ready');
+          return result;
+        } catch (retryErr: any) {
+          console.error("Re-init failed:", retryErr);
+          setState('error');
+          setError("GPU connection lost. Please refresh the page and try again.");
+          return null;
+        }
+      }
       setState('error');
       setError(err.message || "Failed to generate content.");
       return null;
     }
-  }, []);
+  }, [initProgressCallback]);
 
   return {
     state,
