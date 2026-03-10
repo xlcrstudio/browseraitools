@@ -1788,6 +1788,41 @@ export const todoListFAQs: FAQItem[] = [
   },
 ];
 
+export const weeklyPlannerFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Weekly Planner Generator?",
+    answer: "The AI Weekly Planner Generator is a free, browser-based productivity tool that creates a personalized day-by-day schedule for your entire week. It uses AI (Qwen 2.5) running directly in your browser to generate time-blocked plans with energy optimization, work-life balance, and priority-driven task scheduling.",
+  },
+  {
+    question: "Is the AI Weekly Planner Generator really free?",
+    answer: "Yes, the AI Weekly Planner Generator is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser using WebGPU, so there are no server costs. You can generate unlimited weekly plans without creating an account.",
+  },
+  {
+    question: "How does the AI create a weekly schedule?",
+    answer: "The AI analyzes your goals, available hours, peak productivity times, priority focus, and existing commitments to generate a balanced day-by-day schedule. Each day includes time-blocked tasks categorized by type (Work, Health, Personal, Learning) with duration estimates, priority levels, and descriptions. The AI processes each day sequentially to ensure a coherent weekly flow.",
+  },
+  {
+    question: "Is my data private when using this tool?",
+    answer: "Absolutely. The AI runs 100% locally in your browser. Your goals, schedule preferences, and generated plans never leave your device. There is no server processing, no data collection, and no tracking. Your weekly planning stays completely private.",
+  },
+  {
+    question: "How does energy optimization work?",
+    answer: "The tool considers your peak productivity times (morning, afternoon, evening, or night) and schedules high-priority, demanding tasks during those windows. Lower-priority tasks and routine activities are placed during lower-energy periods, helping you work with your natural rhythms instead of against them.",
+  },
+  {
+    question: "Can I track my progress on the generated plan?",
+    answer: "Yes, every time block in your weekly plan has an interactive checkbox. You can mark individual tasks as complete and see progress bars update in real-time for each day. Your progress is saved to your browser's local storage, so you can close the page and return later without losing your check marks.",
+  },
+  {
+    question: "What export formats are available?",
+    answer: "You can export your weekly plan in multiple formats: copy the entire plan as formatted text, download as Markdown (.md) for use in Notion or Obsidian, or download as CSV for spreadsheets and calendar tools. All exports preserve time blocks, categories, priorities, and descriptions.",
+  },
+  {
+    question: "Does it work offline?",
+    answer: "Yes! After the first use, the AI model is cached in your browser's storage. Once downloaded, you can generate weekly plans without an internet connection. The initial model download is required only once and takes about 1-2 minutes depending on your connection speed.",
+  },
+];
+
 export const goalPlannerFAQs: FAQItem[] = [
   {
     question: "What is the AI Goal Planner?",
