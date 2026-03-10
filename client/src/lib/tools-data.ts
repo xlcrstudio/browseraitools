@@ -55,7 +55,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 15, name: "AI Hashtag Generator", slug: "/ai-hashtag-generator", icon: Hash, available: true },
       { id: 16, name: "AI YouTube Title Generator", slug: "/ai-youtube-title-generator", icon: Youtube, available: true },
       { id: 17, name: "AI YouTube Description Generator", slug: "/ai-youtube-description-generator", icon: FileEdit, available: true },
-      { id: 18, name: "AI Instagram Bio Generator", slug: "/instagram-bio-generator", icon: User, available: false },
+      { id: 18, name: "AI Instagram Bio Generator", slug: "/ai-instagram-bio-generator", icon: User, available: true },
     ],
   },
   {

@@ -1495,3 +1495,86 @@ export const ytDescFAQs: FAQItem[] = [
     answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate YouTube descriptions without an internet connection.",
   },
 ];
+
+export const igBioFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Instagram Bio Generator?",
+    answer: "The AI Instagram Bio Generator is a free, browser-based tool that creates personalized Instagram bios optimized for the 150-character limit. It uses advanced AI (Qwen 2.5) running directly in your browser to generate 5 unique bio variations tailored to your niche, style preferences, and personality.",
+  },
+  {
+    question: "Is the AI Instagram Bio Generator really free?",
+    answer: "Yes, the AI Instagram Bio Generator is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser, so there are no server costs to pass on to you. Generate as many bios as you want, whenever you want.",
+  },
+  {
+    question: "How does the 150-character optimization work?",
+    answer: "The AI is specifically trained to create bios that fit within Instagram's strict 150-character limit. Each generated bio displays a real-time character count so you can see exactly how many characters are used. The generator accounts for spaces, line breaks, and emojis in the character count.",
+  },
+  {
+    question: "Why does it generate 5 bio options?",
+    answer: "Five variations give you a range of styles and approaches to choose from. Each bio uses a different angle: Friendly and Engaging, Professional and Polished, Aesthetic and Minimal, Direct and Action-Oriented, and Story-Driven and Personal. This lets you pick the one that best matches your brand without having to regenerate multiple times.",
+  },
+  {
+    question: "Can I customize the emoji usage?",
+    answer: "Yes. You can choose from four emoji levels: Lots (6-10 emojis for maximum visual appeal), Moderate (3-5 strategically placed), Minimal (1-2 for a clean look), or None (text only). The AI adjusts its output based on your preference to match your personal style.",
+  },
+  {
+    question: "What niches does the tool support?",
+    answer: "The tool supports 24 different niches including Travel, Fitness and Health, Art and Design, Business, Fashion, Beauty, Food, Photography, Tech, Music, Education, Lifestyle, Pets, Sports, Parenting, Wellness, Gaming, Writing, Video and Film, Finance, Sustainability, DIY, Personal Brand, and Company/Brand. Each niche influences the language, tone, and emoji suggestions.",
+  },
+  {
+    question: "How do I choose the right bio style?",
+    answer: "Choose based on your brand and audience. Professional works best for B2B and business accounts. Fun and Playful suits lifestyle and entertainment creators. Aesthetic and Minimal appeals to artists and visual accounts. Friendly and Approachable is great for personal brands. Motivational fits coaches and wellness accounts. Direct and Clear works for service-based businesses.",
+  },
+  {
+    question: "Does the tool add line breaks to the bio?",
+    answer: "Yes, by default the tool includes line breaks to create visually structured bios that are easy to scan on mobile. You can toggle line breaks off in the Advanced Options if you prefer a more compact bio format.",
+  },
+  {
+    question: "Can I include a call-to-action in my bio?",
+    answer: "Yes. You can select Call-to-action from the Include in Bio options, and optionally specify your preferred Link in Bio text in the Advanced Options section. The AI will incorporate a natural CTA like directing visitors to your link, encouraging DMs, or promoting your latest content.",
+  },
+  {
+    question: "How do I copy a bio to Instagram?",
+    answer: "Each generated bio has a Copy Bio button that copies the text to your clipboard with proper formatting. Simply open Instagram, go to Edit Profile, tap on Bio, clear the existing text, and paste. The line breaks and emojis will be preserved exactly as shown in the preview.",
+  },
+  {
+    question: "What is the Instagram Bio Preview feature?",
+    answer: "Each generated bio includes a mobile preview that shows you exactly how the bio will look when displayed on an Instagram profile. This helps you evaluate the visual impact, line break formatting, and emoji placement before copying it to your actual profile.",
+  },
+  {
+    question: "Can I save my favorite bios?",
+    answer: "Yes. Each bio card has a Favorite button that lets you mark bios you like. Your generation history is also saved automatically in your browser's local storage, so you can reference previous generations. The tool keeps your 15 most recent generation sessions.",
+  },
+  {
+    question: "How does the character counter work?",
+    answer: "Each bio displays a real-time character count showing the current count out of 150. The counter is color-coded: green means you are well under the limit, yellow means you are approaching it, and red means you have exceeded it. This helps you quickly identify which bios will fit perfectly.",
+  },
+  {
+    question: "Does the tool work for business accounts?",
+    answer: "Yes. The tool is designed for both personal and business Instagram accounts. Select the Business, Company/Brand, or relevant industry niche, choose a Professional or Direct style, and the AI will generate bios focused on value propositions, credentials, and clear calls-to-action that drive business results.",
+  },
+  {
+    question: "Can I include my location in the bio?",
+    answer: "Yes. There is an optional Location field where you can enter your city or region. You can also toggle the location pin emoji option to add a pin icon next to your location for visual clarity. The AI will naturally incorporate your location into the bio.",
+  },
+  {
+    question: "What makes a good Instagram bio?",
+    answer: "A good Instagram bio clearly communicates who you are and what you do in the first line, provides value or personality that makes people want to follow, uses strategic emoji placement without overdoing it, includes a call-to-action or link direction, and stays well within the 150-character limit. The AI generator handles all of these elements automatically.",
+  },
+  {
+    question: "How often should I update my Instagram bio?",
+    answer: "Update your bio whenever you launch a new product, achieve a milestone, change your content focus, or run a seasonal promotion. Many successful creators update their bio monthly or quarterly. Using this tool makes updates quick and easy since you can generate fresh options in seconds.",
+  },
+  {
+    question: "Is my data kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your name, profession, niche, and generated bios never leave your device. No data is sent to any server, making this tool completely private and secure.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate Instagram bios without an internet connection, making it perfect for on-the-go bio updates.",
+  },
+  {
+    question: "Can I use special characters and symbols?",
+    answer: "Yes. In the Advanced Options, you can enable the Use symbols toggle to include separators like pipes, ampersands, and dashes in your bio. These symbols help create clean visual structure and are commonly used in professional and aesthetic Instagram bios.",
+  },
+];
