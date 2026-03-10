@@ -23,6 +23,7 @@ const ALL_TOOLS: ToolEntry[] = [
   { name: "AI Startup Name Generator", path: "/ai-startup-name-generator", category: "ProductivityApplication" },
   { name: "AI Business Idea Generator", path: "/ai-business-idea-generator", category: "ProductivityApplication" },
   { name: "AI Call-to-Action Generator", path: "/ai-cta-generator", category: "ProductivityApplication" },
+  { name: "AI Sales Email Generator", path: "/ai-sales-email-generator", category: "BusinessApplication" },
   { name: "AI Meta Description Generator", path: "/ai-meta-description-generator", category: "BusinessApplication" },
   { name: "AI SEO Title Generator", path: "/ai-seo-title-generator", category: "BusinessApplication" },
   { name: "AI Keyword Generator", path: "/ai-keyword-generator", category: "BusinessApplication" },

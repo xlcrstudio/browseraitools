@@ -1857,3 +1857,46 @@ export const goalPlannerFAQs: FAQItem[] = [
     answer: "Yes! After the first use, the AI model is cached in your browser's storage. Once downloaded, you can generate goal plans without an internet connection. The initial model download is required only once and takes about 1-2 minutes depending on your connection speed.",
   },
 ];
+
+export const salesEmailFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Sales Email Generator?",
+    answer: "The AI Sales Email Generator is a free, browser-based tool that creates personalized cold outreach emails for sales professionals. It generates 5 unique email variations with subject line options, spam risk analysis, and response probability predictions. The AI runs locally in your browser using WebLLM technology.",
+  },
+  {
+    question: "Is the AI Sales Email Generator really free?",
+    answer: "Yes, the AI Sales Email Generator is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser, so there are no server costs. Generate as many sales emails as you need without any restrictions.",
+  },
+  {
+    question: "How does the sales email generator work?",
+    answer: "The tool uses WebLLM to run an AI language model (Qwen 2.5 1.5B) directly in your browser using WebGPU. You describe your product/service and target customer, choose your email objective and tone, and the AI generates 5 complete email variations with subject lines, email body, spam risk scoring, and response probability analysis.",
+  },
+  {
+    question: "Is my data private when writing sales emails?",
+    answer: "Absolutely. Unlike cloud-based tools, the AI Sales Email Generator runs 100% locally in your browser. Your product details, customer information, and generated emails never leave your device. There is no server processing, no data collection, and no tracking.",
+  },
+  {
+    question: "What email objectives can I choose from?",
+    answer: "The tool supports six email objectives: book a meeting, schedule a demo, sell a product directly, introduce a service, propose a partnership or collaboration, and request an introduction. Each objective changes how the AI structures the email and call-to-action.",
+  },
+  {
+    question: "How does the spam risk scoring work?",
+    answer: "The AI analyzes each generated email for common spam triggers like excessive capitalization, spam trigger words, aggressive language, and suspicious formatting. It assigns a Low, Medium, or High spam risk rating and structures emails to maximize deliverability.",
+  },
+  {
+    question: "Can I customize the email length and tone?",
+    answer: "Yes. You can choose from three email lengths: Short (2-3 sentences), Medium (4-6 sentences), or Long (full pitch). For tone, choose from Professional, Friendly, Persuasive, Casual, or Executive (C-level). The AI adapts its writing style accordingly.",
+  },
+  {
+    question: "What are personalization fields?",
+    answer: "Personalization fields are merge tags like {{firstName}}, {{companyName}}, and {{industry}} that the AI includes in your emails. These placeholders can be replaced with actual recipient data when you send the emails through your CRM or email platform.",
+  },
+  {
+    question: "Can I save and download my generated emails?",
+    answer: "Yes. You can save emails to your browser's local storage for later reference, download all variations as a text file, or copy individual emails to your clipboard. Saved emails persist across browser sessions.",
+  },
+  {
+    question: "Does it work offline?",
+    answer: "Yes! After the first use, the AI model is cached in your browser's storage. Once downloaded, you can generate sales emails without an internet connection. The initial model download is required only once.",
+  },
+];
