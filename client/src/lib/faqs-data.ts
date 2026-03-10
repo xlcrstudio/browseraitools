@@ -1578,3 +1578,86 @@ export const igBioFAQs: FAQItem[] = [
     answer: "Yes. In the Advanced Options, you can enable the Use symbols toggle to include separators like pipes, ampersands, and dashes in your bio. These symbols help create clean visual structure and are commonly used in professional and aesthetic Instagram bios.",
   },
 ];
+
+export const debateFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Debate Generator?",
+    answer: "The AI Debate Generator is a free, browser-based tool that creates balanced Pro and Con arguments for any debate topic. It uses advanced AI (Qwen 2.5) running directly in your browser to generate structured arguments with optional rebuttals and evidence suggestions, tailored to school, college, or professional levels.",
+  },
+  {
+    question: "Is the AI Debate Generator really free?",
+    answer: "Yes, it is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser, so there are no server costs. Generate debate arguments for as many topics as you want.",
+  },
+  {
+    question: "How does it generate balanced arguments?",
+    answer: "The tool generates Pro and Con arguments in separate AI calls, ensuring each side receives equal attention and effort. It creates the same number of arguments for each perspective and applies the same depth and quality standards to both sides, so neither position is favored.",
+  },
+  {
+    question: "What audience levels are available?",
+    answer: "Three levels are available. School/High School uses simple, clear language suitable for grade 9-10 students. College/University uses moderate complexity with academic vocabulary. Professional/Advanced uses sophisticated analysis with expert-level reasoning and theoretical frameworks.",
+  },
+  {
+    question: "What argument styles can I choose?",
+    answer: "You can choose from three styles. Logical/Rational focuses on facts, data, statistics, and cause-and-effect reasoning. Emotional/Persuasive focuses on values, ethics, human impact, and moral arguments. Balanced combines both approaches for comprehensive, well-rounded arguments.",
+  },
+  {
+    question: "How many arguments does it generate?",
+    answer: "You can choose 3, 5, or 7 arguments per side. The default is 5, which means 5 Pro arguments plus 5 Con arguments for 10 total. You can adjust this based on how comprehensive you need the debate preparation to be.",
+  },
+  {
+    question: "What are rebuttals and how do they work?",
+    answer: "Rebuttals are counter-arguments that address the strongest points from the opposing side. When enabled, each argument includes a rebuttal paragraph that anticipates what the other side might say and provides a response. This helps you prepare for cross-examination in actual debates.",
+  },
+  {
+    question: "What debate formats are supported?",
+    answer: "The tool supports five formats: General (no specific format restrictions), Lincoln-Douglas (value-focused debate), Policy Debate (plan-focused with inherency and solvency), Parliamentary (impromptu style), and Public Forum (audience-friendly). The format selection influences how arguments are structured.",
+  },
+  {
+    question: "Can I use this for essay writing?",
+    answer: "Yes. The Pro and Con arguments generated are excellent starting points for persuasive essays, argumentative papers, and opinion pieces. The balanced perspective helps you understand all angles of an issue, which strengthens your writing even if you are arguing one side.",
+  },
+  {
+    question: "How do I use the quick topic suggestions?",
+    answer: "Click any of the quick topic buttons above the input area to instantly fill in a common debate topic. These are popular debate resolutions covering technology, education, social issues, and more. You can also type your own custom topic in the text area.",
+  },
+  {
+    question: "What does the evidence suggestions option do?",
+    answer: "When enabled, each argument includes specific supporting facts, statistics, and real-world examples that strengthen the point. While these are AI-generated suggestions and should be verified, they provide useful starting points for further research.",
+  },
+  {
+    question: "Can I copy individual sides?",
+    answer: "Yes. Each panel (Pro and Con) has its own copy button that copies just that side's arguments. There is also a Copy All button that copies both sides together. This makes it easy to use the arguments in documents, presentations, or study materials.",
+  },
+  {
+    question: "How does the mobile layout work?",
+    answer: "On mobile devices, the Pro and Con arguments are displayed as tabs that you can switch between, rather than side-by-side columns. Tap the PRO or CON tab to view that side's arguments. On desktop, both sides are shown simultaneously in a split-screen layout.",
+  },
+  {
+    question: "Is my data kept private?",
+    answer: "Yes. The AI model runs entirely in your browser using WebLLM technology. Your debate topics, generated arguments, and preferences never leave your device. No data is sent to any server, making this tool safe for sensitive or controversial topics.",
+  },
+  {
+    question: "Does the tool work offline?",
+    answer: "Yes. After the AI model is downloaded on first use, it is cached in your browser. You can generate debate arguments without an internet connection, which is useful for debate preparation in areas with limited connectivity.",
+  },
+  {
+    question: "Can I save my generated debates?",
+    answer: "Yes. Your generation history is automatically saved in your browser's local storage. The tool keeps your 15 most recent debate sessions, which you can reference later. Each saved entry includes the topic, settings, and all generated arguments.",
+  },
+  {
+    question: "What is the logical fallacies option?",
+    answer: "When enabled, the tool identifies common logical fallacies that are relevant to your specific debate topic. It explains each fallacy with an example of how it might incorrectly be used in this context and why it is problematic. This helps you avoid weak reasoning in your own arguments and identify it in your opponent's.",
+  },
+  {
+    question: "How can debate teams use this tool?",
+    answer: "Debate teams can use the tool to quickly explore both sides of a resolution, generate practice arguments for scrimmages, prepare rebuttals for expected opposing points, and study different argument styles. The different audience levels let teams practice at their competition level.",
+  },
+  {
+    question: "Can teachers use this for classroom exercises?",
+    answer: "Yes. Teachers can generate balanced arguments on any topic to facilitate classroom discussions, assign students to defend different positions, or use the arguments as examples of effective reasoning. The school level setting ensures the language is appropriate for younger students.",
+  },
+  {
+    question: "How does it handle controversial topics?",
+    answer: "The tool generates balanced arguments for both sides of any issue without taking a moral or political stance. It presents the strongest possible case for each position, helping users understand multiple perspectives. Since everything runs locally in your browser, controversial topics remain completely private.",
+  },
+];

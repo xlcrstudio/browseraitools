@@ -45,6 +45,7 @@ import TweetPage from "@/pages/TweetPage";
 import YTTitlePage from "@/pages/YTTitlePage";
 import YTDescPage from "@/pages/YTDescPage";
 import IGBioPage from "@/pages/IGBioPage";
+import DebatePage from "@/pages/DebatePage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -93,6 +94,7 @@ function Router() {
       <Route path="/ai-youtube-title-generator" component={YTTitlePage} />
       <Route path="/ai-youtube-description-generator" component={YTDescPage} />
       <Route path="/ai-instagram-bio-generator" component={IGBioPage} />
+      <Route path="/ai-debate-generator" component={DebatePage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
