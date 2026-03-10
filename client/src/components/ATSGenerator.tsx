@@ -127,9 +127,12 @@ function parseRecommendation(text: string): string {
   return match ? match[1].replace(/^[\s\-*•]+/, "").trim() : "";
 }
 
-function ScoreGauge({ score, label, size = "lg" }: { score: number; label: string; size?: "sm" | "lg" }) {
-  const color = score >= 80 ? "text-green-500 dark:text-green-400" : score >= 60 ? "text-amber-500 dark:text-amber-400" : "text-red-500 dark:text-red-400";
-  const bgColor = score >= 80 ? "stroke-green-500" : score >= 60 ? "stroke-amber-500" : "stroke-red-500";
+function ScoreGauge({ score, label, size = "lg", target }: { score: number; label: string; size?: "sm" | "lg"; target?: number }) {
+  const threshold = target ?? 80;
+  const isGreen = score >= threshold;
+  const isAmber = !isGreen && score >= threshold - 20;
+  const color = isGreen ? "text-green-500 dark:text-green-400" : isAmber ? "text-amber-500 dark:text-amber-400" : "text-red-500 dark:text-red-400";
+  const bgColor = isGreen ? "stroke-green-500" : isAmber ? "stroke-amber-500" : "stroke-red-500";
   const radius = size === "lg" ? 54 : 32;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (score / 100) * circumference;
@@ -529,7 +532,7 @@ Final Recommendation:
             </div>
 
             <div className="flex flex-wrap justify-center gap-6 mb-8 p-6 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700" data-testid="container-scores">
-              <ScoreGauge score={result.overallScore} label="Overall Match" size="lg" />
+              <ScoreGauge score={result.overallScore} label="Overall Match" size="lg" target={targetScore} />
               <div className="flex gap-6">
                 <ScoreGauge score={result.keywordScore} label="Keywords" size="sm" />
                 <ScoreGauge score={result.skillsScore} label="Skills" size="sm" />
@@ -653,7 +656,7 @@ Final Recommendation:
             <h3 className="text-lg font-display font-bold text-slate-800 dark:text-slate-100 mb-4">Recent Analyses</h3>
             <div className="space-y-3">
               {history.slice(0, 5).map((record) => {
-                const scoreColor = record.overallScore >= 80 ? "text-green-600 dark:text-green-400" : record.overallScore >= 60 ? "text-amber-600 dark:text-amber-400" : "text-red-600 dark:text-red-400";
+                const scoreColor = record.overallScore >= targetScore ? "text-green-600 dark:text-green-400" : record.overallScore >= targetScore - 20 ? "text-amber-600 dark:text-amber-400" : "text-red-600 dark:text-red-400";
                 return (
                   <div
                     key={record.id}
