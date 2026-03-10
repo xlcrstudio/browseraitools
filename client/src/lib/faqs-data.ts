@@ -1787,3 +1787,38 @@ export const todoListFAQs: FAQItem[] = [
     answer: "The experience level adjusts task complexity and detail. Complete Beginner gets more detailed explanations, learning tasks, and slower time estimates. Some Experience gets balanced detail with standard estimates. Experienced users get less explanation with faster estimates. Expert level provides minimal explanation focused purely on organization and execution.",
   },
 ];
+
+export const goalPlannerFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Goal Planner?",
+    answer: "The AI Goal Planner is a free, browser-based tool that transforms any ambition into a detailed, milestone-based roadmap. It uses AI (Qwen 2.5) running directly in your browser to generate actionable milestones with timelines, weekly action plans, resources, obstacle strategies, and progress tracking for goals spanning 3 to 12 months.",
+  },
+  {
+    question: "Is the AI Goal Planner really free?",
+    answer: "Yes, the AI Goal Planner is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser using WebGPU, so there are no server costs. You can generate unlimited goal plans without creating an account.",
+  },
+  {
+    question: "How does the AI create a goal roadmap?",
+    answer: "The AI analyzes your goal, timeframe, starting point, available weekly hours, and constraints to generate a structured milestone-based plan. Each milestone includes specific outcomes, week-by-week action items, recommended resources, potential obstacles with solutions, and celebration ideas. The number of milestones scales with your timeframe: 3 months gets 3 milestones, 6 months gets 5-6, and 12 months gets 6-8.",
+  },
+  {
+    question: "Is my data private when using this tool?",
+    answer: "Absolutely. The AI runs 100% locally in your browser. Your goals, personal details, and generated plans never leave your device. There is no server processing, no data collection, and no tracking. Your goal planning stays completely private.",
+  },
+  {
+    question: "What types of goals can I plan?",
+    answer: "The tool works with any type of goal: career advancement (get promoted, switch careers), business goals (launch a startup, grow revenue), health and fitness (run a marathon, lose weight), learning goals (master a skill, earn a certification), financial goals (save for a house, pay off debt), creative projects (write a novel, learn an instrument), and personal growth (build habits, improve relationships).",
+  },
+  {
+    question: "Can I track my progress on the generated plan?",
+    answer: "Yes, each milestone has an interactive completion toggle. You can mark milestones as complete and see your overall progress update in real-time with a progress bar showing completion percentage. Your progress is saved to your browser's local storage, so you can close the page and return later without losing your progress.",
+  },
+  {
+    question: "What export formats are available?",
+    answer: "You can export your goal plan in multiple formats: copy the entire roadmap as formatted text, download as Markdown (.md) for use in Notion or Obsidian, or download as CSV for spreadsheets and project management tools. All exports preserve milestone details including timelines, weekly actions, resources, and obstacles.",
+  },
+  {
+    question: "Does it work offline?",
+    answer: "Yes! After the first use, the AI model is cached in your browser's storage. Once downloaded, you can generate goal plans without an internet connection. The initial model download is required only once and takes about 1-2 minutes depending on your connection speed.",
+  },
+];

@@ -48,6 +48,7 @@ import IGBioPage from "@/pages/IGBioPage";
 import DebatePage from "@/pages/DebatePage";
 import ATSMatcherPage from "@/pages/ATSMatcherPage";
 import TodoListPage from "@/pages/TodoListPage";
+import GoalPlannerPage from "@/pages/GoalPlannerPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -99,6 +100,7 @@ function Router() {
       <Route path="/ai-debate-generator" component={DebatePage} />
       <Route path="/ai-ats-resume-matcher" component={ATSMatcherPage} />
       <Route path="/ai-todo-list-generator" component={TodoListPage} />
+      <Route path="/ai-goal-planner" component={GoalPlannerPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
