@@ -206,21 +206,24 @@ export function ATSGenerator() {
     const industryLine = industry !== "Auto-Detect" ? `\nIndustry/Role Category: ${industry}` : "";
     const modeLine = analyzeMode === "experience" ? "\nNote: The candidate has provided only their experience section. Focus analysis on work experience keywords and skills." : "";
 
-    return `You must carefully compare this job description against this resume. Extract every important term from the job description and check if it appears in the resume.${industryLine}${modeLine}
+    return `You must carefully compare this job description against this resume. Your job is to find what is TRULY MISSING — not what is present.${industryLine}${modeLine}
 
 JOB DESCRIPTION:
-${jobDesc.trim().slice(0, 4500)}
+${jobDesc.trim().slice(0, 6000)}
 
 RESUME:
-${resumeText.trim().slice(0, 4500)}
+${resumeText.trim().slice(0, 6000)}
 
-IMPORTANT INSTRUCTIONS:
-- Keywords are specific terms, phrases, tools, technologies, methodologies, certifications, domain knowledge, and industry jargon mentioned in the job description.
-- Skills are abilities and competencies the job requires: technical skills (programming languages, software, platforms), soft skills (leadership, communication), and domain expertise.
-- Keywords and skills are DIFFERENT categories. A keyword might be "Enterprise Architecture" while a skill might be "cross-functional team leadership."
-- You MUST list every keyword from the job description that does NOT appear anywhere in the resume. Be thorough. Most job descriptions contain 15-30 important keywords. Check each one.
-- You MUST list every skill from the job description that the resume does NOT demonstrate. If skills match is below 100%, there MUST be missing skills listed.
-- A score below 100% means there ARE gaps. List them all.
+CRITICAL RULES - READ CAREFULLY:
+1. Before listing ANY item as "missing", you MUST search the ENTIRE resume text for that term, its abbreviation, and its synonym. For example:
+   - If the job mentions "PMP" and the resume contains "PMP" anywhere, it is NOT missing.
+   - If the job mentions "SDLC" and the resume contains "SDLC" anywhere, it is NOT missing.
+   - If the job mentions "Agile" and the resume says "Agile", it is NOT missing.
+   - If the job says "ITIL" and the resume says "ITIL", it is NOT missing.
+2. Only list items that are genuinely ABSENT from the resume. Double-check each one.
+3. Keywords = specific terms, tools, technologies, methodologies, certifications, and jargon from the job description that do not appear in the resume.
+4. Skills = abilities and competencies required by the job that the resume does not demonstrate at all. A skill is only missing if neither the skill name nor evidence of that skill appears anywhere in the resume.
+5. Do NOT group multiple items into one bullet. List each missing item separately on its own line.
 
 Write your analysis now:
 
@@ -228,11 +231,11 @@ Overall Match Score: (percentage, be strict and realistic)
 
 Keyword Match: (percentage)
 Missing Keywords:
-- (list EVERY important keyword/term/phrase from the job description not found in the resume, one per line, be thorough and list at least 5-10 if the keyword match is below 90%)
+- (list each keyword/term from the job description that is genuinely NOT found anywhere in the resume, one item per line)
 
 Skills Match: (percentage)
 Missing Skills:
-- (list EVERY skill required by the job that the resume does not demonstrate, one per line, if skills match is below 100% you MUST list the missing skills here)
+- (list each skill the job requires that the resume truly does not mention or demonstrate, one item per line)
 
 Experience Alignment: (percentage)
 
@@ -314,13 +317,13 @@ Final Recommendation:
               <textarea
                 data-testid="input-job-description"
                 value={jobDesc}
-                onChange={(e) => setJobDesc(e.target.value.slice(0, 10000))}
+                onChange={(e) => setJobDesc(e.target.value.slice(0, 15000))}
                 placeholder="Paste the full job description or job ad here..."
                 rows={10}
                 className="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-3 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-2 focus:ring-indigo-400 dark:focus:ring-indigo-500 focus:border-transparent outline-none transition-all resize-none text-sm"
-                maxLength={10000}
+                maxLength={15000}
               />
-              <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">{jobDesc.length}/10,000</p>
+              <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">{jobDesc.length}/15,000</p>
             </div>
             <div>
               <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
@@ -329,13 +332,13 @@ Final Recommendation:
               <textarea
                 data-testid="input-resume"
                 value={resumeText}
-                onChange={(e) => setResumeText(e.target.value.slice(0, 10000))}
+                onChange={(e) => setResumeText(e.target.value.slice(0, 15000))}
                 placeholder="Paste your full resume (or just the experience section) here..."
                 rows={10}
                 className="w-full rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 px-4 py-3 text-slate-800 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:ring-2 focus:ring-indigo-400 dark:focus:ring-indigo-500 focus:border-transparent outline-none transition-all resize-none text-sm"
-                maxLength={10000}
+                maxLength={15000}
               />
-              <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">{resumeText.length}/10,000</p>
+              <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">{resumeText.length}/15,000</p>
             </div>
           </div>
 
