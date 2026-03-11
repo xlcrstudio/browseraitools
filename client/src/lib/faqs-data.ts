@@ -2073,6 +2073,49 @@ export const landingPageFAQs = [
   },
 ];
 
+export const paragraphRewriterFAQs = [
+  {
+    question: "What does the AI Paragraph Rewriter do?",
+    answer: "It rewrites any paragraph you provide to improve clarity, tone, and readability while preserving the original meaning. You get 3 different versions to compare and choose from, each with word count analysis and key change highlights.",
+  },
+  {
+    question: "What writing styles are available?",
+    answer: "Five styles: Formal (professional, polished language for business documents), Casual (friendly, conversational for blogs and social media), Academic (scholarly, precise for essays and research), Creative (engaging, vivid for marketing and storytelling), and Professional (clear, direct for emails and reports).",
+  },
+  {
+    question: "What does rewrite strength control?",
+    answer: "Strength determines how much the paragraph changes. Light keeps about 70% of original words with minor improvements. Moderate rephrases significantly, keeping 40-50% of original words. Complete is a total rewrite with the same meaning but entirely new language, keeping only 10-20% of original words.",
+  },
+  {
+    question: "Why does it generate 3 versions?",
+    answer: "Multiple versions give you options. Version 1 is the recommended optimal rewrite. Version 2 takes an alternative approach. Version 3 offers a different angle or emphasis. You can pick the best one or combine elements from different versions for the perfect result.",
+  },
+  {
+    question: "What is the character limit?",
+    answer: "You can rewrite paragraphs up to 2,000 characters (roughly 300-400 words). The minimum is 20 characters. This is designed for paragraph-level rewriting rather than full documents. For longer content, rewrite one paragraph at a time for best results.",
+  },
+  {
+    question: "Does it preserve the original meaning?",
+    answer: "Yes. The AI is specifically instructed to preserve meaning completely. It does not add new information, remove key points, or change facts. Only the wording, structure, and style change. The core message stays the same.",
+  },
+  {
+    question: "Can I save and export rewrites?",
+    answer: "Yes. You can copy individual versions or all versions to your clipboard, download as a plain text file, and save rewrites to your browser for later reference. Up to 10 saved rewrites are stored locally.",
+  },
+  {
+    question: "Is my text kept private?",
+    answer: "Absolutely. The AI runs 100% locally in your browser using WebLLM. Your paragraphs, rewrites, and all text processing happen entirely on your device. Nothing is sent to any server. This is especially important for confidential business or personal content.",
+  },
+  {
+    question: "What is the Load Example button?",
+    answer: "It fills the input with a sample paragraph so you can immediately try the tool without typing anything. This helps you see how the different styles and strength levels work before pasting your own content.",
+  },
+  {
+    question: "Does this work offline?",
+    answer: "Yes. After the initial AI model download, the paragraph rewriter works completely offline. The model is cached in your browser, so you can rewrite text anytime without an internet connection.",
+  },
+];
+
 export const meetingSummaryFAQs = [
   {
     question: "What does this meeting summary generator do?",

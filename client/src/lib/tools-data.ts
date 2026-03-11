@@ -31,7 +31,7 @@ export const toolCategories: ToolCategory[] = [
     description: "Enhance your writing with AI-powered tools",
     tools: [
       { id: 1, name: "AI Hook Generator", slug: "/ai-hook-generator", icon: Sparkles, available: true },
-      { id: 2, name: "AI Paragraph Rewriter", slug: "/paragraph-rewriter", icon: RefreshCw, available: false },
+      { id: 2, name: "AI Paragraph Rewriter", slug: "/ai-paragraph-rewriter", icon: RefreshCw, available: true },
       { id: 3, name: "AI Sentence Simplifier", slug: "/sentence-simplifier", icon: AlignLeft, available: false },
       { id: 4, name: "AI Sentence Expander", slug: "/sentence-expander", icon: Maximize2, available: false },
       { id: 5, name: "AI Sentence Shortener", slug: "/sentence-shortener", icon: Minimize2, available: false },
