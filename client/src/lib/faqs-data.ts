@@ -2073,6 +2073,49 @@ export const landingPageFAQs = [
   },
 ];
 
+export const meetingSummaryFAQs = [
+  {
+    question: "What does this meeting summary generator do?",
+    answer: "The tool transforms raw meeting notes, transcripts, or recordings into structured professional summaries. It extracts key discussion points, decisions made, action items with owners and deadlines, follow-up tasks, blockers, and can generate a follow-up email draft. Just paste your notes in any format.",
+  },
+  {
+    question: "What meeting types are supported?",
+    answer: "Six meeting types are supported: Team Meeting (standups, syncs, sprint planning), Client Meeting (customer calls, sales, demos), Strategy Meeting (planning, brainstorming, decisions), 1-on-1 Meeting (check-ins, reviews, coaching), All-Hands (company-wide updates, Q&A), and Project Meeting (status, milestones, risks). Each type adjusts the summary structure and focus areas.",
+  },
+  {
+    question: "What format should my notes be in?",
+    answer: "Any format works. You can paste rough handwritten notes, Zoom or Teams transcripts, voice-to-text recordings, bullet points, full paragraphs, or any combination. The messier your notes, the more the tool helps. The AI is designed to extract structure from unstructured input.",
+  },
+  {
+    question: "What are the summary style options?",
+    answer: "Three styles are available: Executive (brief, high-level, decisions only - 2-3 sentences), Standard (balanced and comprehensive - 3-5 sentences), and Detailed (full context with all points covered - 5-8 sentences). The style affects the depth and length of the generated summary.",
+  },
+  {
+    question: "What sections can the summary include?",
+    answer: "Up to 8 sections: Meeting summary, Key discussion points, Decisions made, Action items with owners, Follow-up tasks, Follow-up email draft, Blockers and concerns, and Deadlines and milestones. The first 5 are enabled by default. Toggle any section on or off based on your needs.",
+  },
+  {
+    question: "How does action item extraction work?",
+    answer: "The AI identifies tasks from phrases like 'will do,' 'needs to,' 'by Friday,' and assigns ownership when participants are named. Each action item includes the task description, owner, deadline (explicit or inferred), and priority level. This ensures nothing falls through the cracks after the meeting.",
+  },
+  {
+    question: "Can it generate a follow-up email?",
+    answer: "Yes. Enable the Follow-up email draft option to get a professional email with a subject line, greeting, key decisions summary, action items list, next meeting details, and closing. You can copy it directly and send to your team or client.",
+  },
+  {
+    question: "Can I export the meeting summary?",
+    answer: "Yes. You can copy individual sections or the entire summary to your clipboard, download as a plain text file, or download as a Markdown file. You can also save summaries to your browser for later reference.",
+  },
+  {
+    question: "Is my meeting data kept private?",
+    answer: "Absolutely. The AI runs 100% locally in your browser using WebLLM. Your meeting notes, transcripts, participant information, decisions, and generated summaries never leave your device. This is critical for sensitive business discussions.",
+  },
+  {
+    question: "Does this work offline?",
+    answer: "Yes. After the initial AI model download, the meeting summary generator works completely offline. The model is cached in your browser, so you can process meeting notes anytime without an internet connection.",
+  },
+];
+
 export const businessNameFAQs = [
   {
     question: "How many business names does it generate?",

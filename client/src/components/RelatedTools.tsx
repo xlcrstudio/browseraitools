@@ -31,6 +31,7 @@ const ALL_TOOLS: ToolEntry[] = [
   { name: "AI Target Audience Generator", path: "/ai-target-audience-generator", category: "BusinessApplication" },
   { name: "AI Value Proposition Generator", path: "/ai-value-proposition-generator", category: "BusinessApplication" },
   { name: "AI Business Name Generator", path: "/ai-business-name-generator", category: "BusinessApplication" },
+  { name: "AI Meeting Summary Generator", path: "/ai-meeting-summary-generator", category: "BusinessApplication" },
   { name: "AI Meta Description Generator", path: "/ai-meta-description-generator", category: "BusinessApplication" },
   { name: "AI SEO Title Generator", path: "/ai-seo-title-generator", category: "BusinessApplication" },
   { name: "AI Keyword Generator", path: "/ai-keyword-generator", category: "BusinessApplication" },
