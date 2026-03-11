@@ -348,8 +348,8 @@ Make each bullet clear, concise, and scannable. Use parallel grammatical structu
               <p className="text-sm font-semibold text-slate-700">Include Sub-Points</p>
               <p className="text-xs text-slate-400 mt-0.5">Add nested detail under each main point</p>
             </div>
-            <button data-testid="button-toggle-subpoints" type="button" onClick={() => setIncludeSubPoints(!includeSubPoints)} role="switch" aria-checked={includeSubPoints} className={cn("relative w-12 h-7 rounded-full transition-colors", includeSubPoints ? "bg-purple-500" : "bg-slate-300")}>
-              <span className={cn("absolute top-0.5 w-6 h-6 rounded-full bg-white shadow-sm transition-transform", includeSubPoints ? "translate-x-5" : "translate-x-0.5")} />
+            <button data-testid="button-toggle-subpoints" type="button" onClick={() => setIncludeSubPoints(!includeSubPoints)} role="switch" aria-checked={includeSubPoints} className={cn("relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors", includeSubPoints ? "bg-purple-500" : "bg-slate-300")}>
+              <span className={cn("inline-block h-5 w-5 rounded-full bg-white shadow-sm transition-transform", includeSubPoints ? "translate-x-[22px]" : "translate-x-[2px]")} />
             </button>
           </div>
         </div>
