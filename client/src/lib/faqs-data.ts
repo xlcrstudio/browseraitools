@@ -2029,3 +2029,46 @@ export const coldOutreachFAQs = [
     answer: "Yes! After the initial AI model download, the cold outreach generator works completely offline. The model is cached in your browser, so you can craft outreach messages anytime without an internet connection.",
   },
 ];
+
+export const landingPageFAQs = [
+  {
+    question: "What sections does this landing page copy generator create?",
+    answer: "The tool generates 6 complete sections: Hero Section (3 headline options, subheadline, primary and secondary CTAs), Features (5-7 key features with benefit-focused descriptions), Benefits (before/after transformation format), Social Proof (statistics, testimonials, trust elements), FAQ (common objections with reassuring answers), and Final CTA (closing headline, supporting text, risk reversal). Each section receives a conversion score.",
+  },
+  {
+    question: "What types of landing pages can I create?",
+    answer: "You can generate copy for 6 landing page types: SaaS/Software (apps, platforms, tools), E-commerce/Product (physical products), Online Course/Digital Product (courses, ebooks), Service/Agency (consulting, done-for-you), Mobile App (iOS/Android), and Lead Generation (free trial, demo, consultation). Each page type adjusts the copy structure and focus areas to match the specific needs of that business model.",
+  },
+  {
+    question: "What are the tone options?",
+    answer: "You can choose from 5 tone styles: Professional/Authoritative (trustworthy, expert), Friendly/Conversational (approachable, warm), Bold/Confident (strong, direct), Luxury/Premium (sophisticated, exclusive), and Fun/Playful (energetic, casual). The AI adjusts language, sentence structure, and word choice based on your selection.",
+  },
+  {
+    question: "What is the conversion score?",
+    answer: "Each generated section receives a conversion score out of 10 based on copywriting best practices. The score considers factors like benefit clarity, specificity, emotional resonance, social proof usage, call-to-action effectiveness, and scanability. Higher scores indicate copy that follows proven conversion optimization principles.",
+  },
+  {
+    question: "Can I export the generated copy?",
+    answer: "Yes. You can copy individual sections or all sections at once to your clipboard, download the complete landing page as a plain text file, or download it as a Markdown file for easy formatting. You can also save pages to your browser for later reference.",
+  },
+  {
+    question: "How does the social proof section work?",
+    answer: "You can optionally provide your own social proof data including user count, rating/reviews, a testimonial quote, company logos or press mentions, and success statistics. The AI uses this real data to create an authentic social proof section. If you do not provide social proof data, the AI generates plausible examples based on your product type.",
+  },
+  {
+    question: "Is my product information kept private?",
+    answer: "Absolutely. The AI runs 100% locally in your browser using WebLLM. Your product details, descriptions, social proof data, and generated landing page copy never leave your device. There is no server processing, data collection, or tracking.",
+  },
+  {
+    question: "Can I generate multiple landing pages?",
+    answer: "Yes. You can generate as many landing page variations as you want. Use the Save feature to store successful pages in your browser, and use Regenerate to create new variations with the same inputs. Each generation produces fresh copy with different angles and approaches.",
+  },
+  {
+    question: "What makes good landing page copy?",
+    answer: "Effective landing page copy leads with benefits (not features), addresses objections proactively, includes social proof, uses specific numbers, keeps paragraphs short and scannable, and ends with a clear call to action. This tool applies these principles automatically to every section it generates.",
+  },
+  {
+    question: "Does this work offline?",
+    answer: "Yes. After the initial AI model download, the landing page copy generator works completely offline. The model is cached in your browser, so you can create landing page copy anytime without an internet connection.",
+  },
+];
