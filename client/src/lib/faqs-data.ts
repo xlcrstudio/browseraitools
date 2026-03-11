@@ -1986,3 +1986,46 @@ export const elevatorPitchFAQs = [
     answer: "Yes! After the initial AI model download, the elevator pitch generator works completely offline. The model is cached in your browser's storage, so you can generate pitches anytime without an internet connection.",
   },
 ];
+
+export const coldOutreachFAQs = [
+  {
+    question: "What is cold outreach?",
+    answer: "Cold outreach is reaching out to someone you do not have a prior relationship with for professional purposes such as networking, partnerships, collaborations, or advice. Unlike cold sales, effective cold outreach focuses on building genuine relationships and providing mutual value rather than making a hard sell.",
+  },
+  {
+    question: "How many message variations does this tool generate?",
+    answer: "The tool generates 5 outreach message variations using different approaches: Value-First (lead with what you offer), Mutual Connection (leverage shared communities), Content Appreciation (reference their work), Direct/Concise (straight to the point), and Question/Advice (position them as expert). Each angle suits different situations.",
+  },
+  {
+    question: "What message formats are supported?",
+    answer: "You can generate messages in four formats: LinkedIn Connection Request (300 character limit), LinkedIn Message (full format), Email (with subject line), and Both LinkedIn and Email. Each format is optimized for the platform's best practices and character limits.",
+  },
+  {
+    question: "What is the response probability score?",
+    answer: "Each generated message receives a response probability rating (Very High, High, Medium-High, or Medium) and a structure score out of 10. These are based on personalization quality, value proposition clarity, the type of ask, and alignment with proven outreach best practices.",
+  },
+  {
+    question: "How is this different from a sales email generator?",
+    answer: "This tool focuses on relationship-first outreach, not sales. It generates networking messages for partnerships, collaborations, interviews, advice-seeking, and general professional connections. The messages are designed to feel authentic and genuine, not salesy or transactional.",
+  },
+  {
+    question: "Does the tool generate follow-up messages?",
+    answer: "Yes. Each message variation includes a follow-up suggestion for when you do not receive a response after 5-7 days. The follow-ups are designed to be brief, non-pushy, and leave the door open for future connection.",
+  },
+  {
+    question: "Is my outreach data kept private?",
+    answer: "Absolutely. The AI runs 100% locally in your browser. Your professional information, recipient details, and generated messages never leave your device. There is no server processing, data storage, or tracking of any kind.",
+  },
+  {
+    question: "What tone options are available?",
+    answer: "You can choose from four tone styles: Friendly/Warm (approachable and personable), Professional (polished but personable), Direct/Concise (straight to the point), and Casual (relaxed and conversational). The AI adapts the language and formality level based on your selection.",
+  },
+  {
+    question: "Can I save and reuse my messages?",
+    answer: "Yes. You can save generated messages to your browser's local storage, copy individual messages or all variations to your clipboard, and download the full set as a text file. Saved messages persist between visits until you clear your browser data.",
+  },
+  {
+    question: "Does this work offline?",
+    answer: "Yes! After the initial AI model download, the cold outreach generator works completely offline. The model is cached in your browser, so you can craft outreach messages anytime without an internet connection.",
+  },
+];

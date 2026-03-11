@@ -78,7 +78,7 @@ export const toolCategories: ToolCategory[] = [
     tools: [
       { id: 25, name: "AI Ad Copy Generator", slug: "/ai-ad-copy-generator", icon: Megaphone, available: true },
       { id: 26, name: "AI Sales Email Generator", slug: "/ai-sales-email-generator", icon: Mail, available: true },
-      { id: 27, name: "AI Cold Outreach Generator", slug: "/cold-outreach-generator", icon: MessageSquare, available: false },
+      { id: 27, name: "AI Cold Outreach Generator", slug: "/ai-cold-outreach-generator", icon: MessageSquare, available: true },
       { id: 28, name: "AI Call-to-Action Generator", slug: "/ai-cta-generator", icon: MousePointerClick, available: true },
       { id: 29, name: "AI Landing Page Copy Generator", slug: "/landing-page-copy-generator", icon: Layout, available: false },
     ],
