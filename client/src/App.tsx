@@ -56,6 +56,7 @@ import ElevatorPitchPage from "@/pages/ElevatorPitchPage";
 import ColdOutreachPage from "@/pages/ColdOutreachPage";
 import LandingPageCopyPage from "@/pages/LandingPageCopyPage";
 import TargetAudiencePage from "@/pages/TargetAudiencePage";
+import ValuePropPage from "@/pages/ValuePropPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -115,6 +116,7 @@ function Router() {
       <Route path="/ai-cold-outreach-generator" component={ColdOutreachPage} />
       <Route path="/ai-landing-page-copy-generator" component={LandingPageCopyPage} />
       <Route path="/ai-target-audience-generator" component={TargetAudiencePage} />
+      <Route path="/ai-value-proposition-generator" component={ValuePropPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />

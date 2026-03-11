@@ -2073,6 +2073,49 @@ export const landingPageFAQs = [
   },
 ];
 
+export const valuePropFAQs = [
+  {
+    question: "What does this value proposition generator create?",
+    answer: "The tool generates 5 value proposition variations in different formats: Tagline (5-8 words), One-Liner (15-25 words), Detailed (2-3 sentences), Problem-Solution-Outcome, and Comparison. Each variation includes a clarity score out of 10, analysis of what works, and guidance on when to use it.",
+  },
+  {
+    question: "What is a clarity score?",
+    answer: "The clarity score rates each value proposition from 0 to 10 based on seven dimensions: audience specificity, benefit clarity, differentiation strength, simplicity of language, memorability, believability, and customer-centricity. Higher scores indicate a proposition that communicates value more clearly and effectively.",
+  },
+  {
+    question: "What frameworks does it use?",
+    answer: "The generator produces variations using five proven frameworks: Tagline format for quick impact, One-Liner format combining audience and benefit, Detailed format with specifics and differentiation, Problem-Solution-Outcome format leading with customer pain, and Comparison format for competitive positioning.",
+  },
+  {
+    question: "What inputs are required?",
+    answer: "Three fields are required: your product or service description (what you offer), your target audience (who it is for), and your main benefit or outcome (what result they get). You can optionally add a key differentiator and select your industry category for more tailored results.",
+  },
+  {
+    question: "Where should I use my value proposition?",
+    answer: "Use the Tagline format for social media bios and email signatures. Use the One-Liner for website hero sections and pitch deck openers. Use the Detailed format for about pages, investor decks, and sales conversations. Use Problem-Solution-Outcome for discovery calls and ad copy. Use Comparison for competitive landing pages.",
+  },
+  {
+    question: "Can I export the value propositions?",
+    answer: "Yes. You can copy individual variations or all variations to your clipboard, download the complete set as a plain text file, or download as a Markdown file. You can also save sets to your browser for later reference and comparison.",
+  },
+  {
+    question: "How do I improve a low clarity score?",
+    answer: "Focus on these areas: be more specific about outcomes (use numbers when possible), clearly identify your target audience, remove jargon and buzzwords, state what makes you different from alternatives, and ensure the benefit is tangible and believable. Regenerate with more specific inputs for better results.",
+  },
+  {
+    question: "What industries are supported?",
+    answer: "The generator supports SaaS and Software, E-commerce, Services, Education, Healthcare, Finance, and a general Other category. The industry selection helps the AI tailor language, benefits, and competitive positioning to match your market context.",
+  },
+  {
+    question: "Is my business information kept private?",
+    answer: "Absolutely. The AI runs 100% locally in your browser using WebLLM. Your product descriptions, competitive information, and generated value propositions never leave your device. There is no server processing, data collection, or tracking of any kind.",
+  },
+  {
+    question: "Does this work offline?",
+    answer: "Yes. After the initial AI model download, the value proposition generator works completely offline. The model is cached in your browser, so you can craft and refine your messaging anytime without an internet connection.",
+  },
+];
+
 export const targetAudienceFAQs = [
   {
     question: "What does this target audience generator create?",
