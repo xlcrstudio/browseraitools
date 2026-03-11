@@ -2073,6 +2073,49 @@ export const landingPageFAQs = [
   },
 ];
 
+export const businessNameFAQs = [
+  {
+    question: "How many business names does it generate?",
+    answer: "The tool generates 20 or more business name suggestions in a single run. Names are created using different approaches including compound words, modified words, descriptive names, Latin and Greek roots, and modern tech-style names. You can regenerate for a completely new set of ideas.",
+  },
+  {
+    question: "What is the brandability score?",
+    answer: "Each name receives a brandability score from 0 to 10 based on memorability, pronounceability, spellability, uniqueness, industry relevance, and overall brand potential. Higher scores indicate names that are more likely to succeed as long-term brand assets. The top-scoring name is highlighted for easy identification.",
+  },
+  {
+    question: "What naming styles are available?",
+    answer: "Five naming styles are available: Modern/Tech (clean, digital-native names like Stripe or Slack), Creative/Playful (fun, approachable names like Snapchat or TikTok), Professional/Corporate (authoritative names like McKinsey or Deloitte), Descriptive (names that describe the business like Salesforce), and Invented/Unique (original words like Google or Xerox).",
+  },
+  {
+    question: "Can I choose the name length?",
+    answer: "Yes. Three length options are available: Short (1 word, 4-8 letters), Medium (1-2 words, 8-15 letters, selected by default), and Flexible (any length). The AI adapts its naming approach based on your length preference while maintaining brandability.",
+  },
+  {
+    question: "Does it suggest domain names?",
+    answer: "Yes. Each business name includes domain suggestions based on your preferred extensions. You can select from .com, .io, .ai, and .co. The AI provides domain recommendations for each name. Note that actual domain availability must be verified separately through a domain registrar.",
+  },
+  {
+    question: "Can I favorite and compare names?",
+    answer: "Yes. Each name card has a favorite button (star icon) that lets you mark names you like. Favorited names are highlighted with an amber border. You can copy all favorited names at once using the Copy Favorites button for easy comparison and sharing.",
+  },
+  {
+    question: "Can I export the name suggestions?",
+    answer: "Yes. You can copy individual names or all names to your clipboard, download the complete set as a plain text file, or download as a Markdown file. You can also save sets to your browser for later reference. Favorited names can be copied separately.",
+  },
+  {
+    question: "What information does each name card show?",
+    answer: "Each name card displays the name, brandability score with star rating, pronunciation guide, and an expand button for more details. Expanded details include why the name works (strength analysis), domain suggestions, and industry fit assessment. The highest-scoring name is marked with a Top badge.",
+  },
+  {
+    question: "Is my business information kept private?",
+    answer: "Absolutely. The AI runs 100% locally in your browser using WebLLM. Your business descriptions, keywords, and generated names never leave your device. There is no server processing, data collection, or tracking of any kind.",
+  },
+  {
+    question: "Does this work offline?",
+    answer: "Yes. After the initial AI model download, the business name generator works completely offline. The model is cached in your browser, so you can brainstorm business names anytime without an internet connection.",
+  },
+];
+
 export const valuePropFAQs = [
   {
     question: "What does this value proposition generator create?",
