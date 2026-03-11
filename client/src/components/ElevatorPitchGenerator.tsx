@@ -32,15 +32,7 @@ const OUTCOMES = [
   { value: "interest", label: "General Interest" },
 ];
 
-const SYSTEM_PROMPT = `You are an expert startup pitch coach and public speaking consultant specializing in concise, compelling business pitches. You have 15+ years of experience coaching founders for investor meetings, pitch competitions, and networking events.
-
-You craft pitches that:
-- Hook attention in the first 7 seconds
-- Use simple, jargon-free language
-- Include specific numbers and proof points
-- End with a clear, specific call to action
-- Sound natural and conversational, not rehearsed
-- Are tailored to the specific audience`;
+const SYSTEM_PROMPT = `You are an expert startup pitch coach. You write concise, compelling elevator pitches that hook attention, use simple language, include specific numbers, and end with clear calls to action. You always output exactly 5 pitch variations when asked.`;
 
 interface ParsedPitch {
   id: string;
@@ -57,81 +49,103 @@ interface ParsedPitch {
 
 function parsePitches(raw: string): ParsedPitch[] {
   const pitches: ParsedPitch[] = [];
-  const sections = raw.split(/(?:PITCH\s*#?\s*\d)/i);
+
+  const sections = raw.split(/(?:PITCH\s*#?\s*\d|pitch\s*#?\s*\d|\n\d+[\.\)]\s+[A-Z])/i);
+
+  if (sections.length <= 1) {
+    const altSections = raw.split(/(?:---+|\*\*\*+|===+|#{2,}\s)/);
+    if (altSections.length > 1) {
+      sections.length = 0;
+      sections.push("", ...altSections.filter(s => s.trim().length > 30));
+    }
+  }
+
+  const ANGLE_NAMES = ["Problem-First", "Vision-First", "Traction-First", "Story Approach", "Contrarian"];
 
   for (let i = 1; i < sections.length && pitches.length < 5; i++) {
     const section = sections[i];
 
-    const angleMatch = section.match(/^[:\s\-]*(.+?)(?:\n|$)/);
-    let angle = angleMatch ? angleMatch[1].replace(/^[:\s*\-]+/, "").trim() : `Pitch ${i}`;
+    const angleMatch = section.match(/^[:\s.\-)*]*(.+?)(?:\n|$)/);
+    let angle = angleMatch ? angleMatch[1].replace(/^[:\s*\-)+.]+/, "").trim() : "";
     angle = angle.replace(/\(.*?\)/, "").trim();
+    if (!angle || angle.length > 50) angle = ANGLE_NAMES[pitches.length] || `Pitch ${pitches.length + 1}`;
 
-    const durationMatch = section.match(/(\d+)[- ](?:second|sec)/i);
-    const duration = durationMatch ? `${durationMatch[1]}s` : "30s";
+    const durationMatch = section.match(/(\d+)[- ]?(?:second|sec)/i);
+    const duration = durationMatch ? `${durationMatch[1]}s` : ["30s", "60s", "30s", "45s", "30s"][pitches.length] || "30s";
 
     let pitchText = "";
-    const quoteBlocks = section.match(/"([\s\S]*?)"/);
+
+    const quoteBlocks = section.match(/"([^"]{20,})"/s);
     if (quoteBlocks) {
       pitchText = quoteBlocks[1].trim();
-    } else {
-      const bodyMatch = section.match(/(?:^[:\s\-]*[^\n]+\n)([\s\S]*?)(?=word\s*count|speaking\s*time|pitch\s*strength|score|analysis|what\s*works|when\s*to\s*use|follow|framework|━|───)/i);
-      if (bodyMatch) {
-        pitchText = bodyMatch[1]
-          .split("\n")
-          .map(l => l.replace(/^[\s"]+|["]+$/g, "").trim())
-          .filter(l => l.length > 0 && !l.match(/^(word count|speaking|pitch strength|score|analysis|when to|follow|what works|framework)/i))
-          .join("\n\n")
-          .trim();
-      }
     }
 
-    const wordCount = pitchText ? pitchText.split(/\s+/).filter(w => w.length > 0).length : 0;
+    if (!pitchText || pitchText.length < 20) {
+      const lines = section.split("\n");
+      const bodyLines: string[] = [];
+      let inBody = false;
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!inBody) {
+          if (trimmed.length > 20 && !trimmed.match(/^(PITCH|pitch|word\s*count|speaking|score|strength|analysis|what\s*works|when\s*to|follow|framework|approach|angle|#|\d+[\.\)])/i)) {
+            inBody = true;
+            bodyLines.push(trimmed.replace(/^["]+|["]+$/g, ""));
+          }
+          continue;
+        }
+        if (trimmed.match(/^(word\s*count|speaking\s*time|pitch\s*strength|score|analysis|what\s*works|when\s*to\s*use|follow|framework|━|───|---)/i)) break;
+        if (trimmed.length === 0) { bodyLines.push(""); continue; }
+        bodyLines.push(trimmed.replace(/^["]+|["]+$/g, ""));
+      }
+      const candidate = bodyLines.join("\n").trim();
+      if (candidate.length > pitchText.length) pitchText = candidate;
+    }
 
-    const timeMatch = section.match(/speaking\s*time\s*[:\s]*(\d+)\s*seconds?/i);
+    if (!pitchText || pitchText.length < 20) continue;
+
+    const wordCount = pitchText.split(/\s+/).filter(w => w.length > 0).length;
+
+    const timeMatch = section.match(/speaking\s*time\s*[:\s]*~?(\d+)\s*seconds?/i);
     const speakingTime = timeMatch ? `${timeMatch[1]} seconds` : `~${Math.round(wordCount / 2.5)} seconds`;
 
     const scoreMatch = section.match(/(?:pitch\s*strength|score)\s*[:\s]*(\d+(?:\.\d+)?)\s*\/\s*10/i);
     const score = scoreMatch ? parseFloat(scoreMatch[1]) : 7.5;
 
     const analysis: string[] = [];
-    const analysisBlock = section.match(/(?:analysis|what\s*works)\s*[:\s]*([\s\S]*?)(?=when\s*to\s*use|follow|likely|pitch\s*#|\n\s*\n\s*\n|$)/i);
+    const analysisBlock = section.match(/(?:analysis|what\s*works|strengths?)\s*[:\s]*([\s\S]*?)(?=when\s*to\s*use|follow|likely|pitch\s*#|\d+[\.\)]\s|---|\n\s*\n\s*\n|$)/i);
     if (analysisBlock) {
-      const lines = analysisBlock[1].split("\n");
-      for (const line of lines) {
+      for (const line of analysisBlock[1].split("\n")) {
         const cleaned = line.replace(/^[\s\-*•✓✅]+/, "").trim();
         if (cleaned.length > 5) analysis.push(cleaned);
       }
     }
 
-    const whenMatch = section.match(/when\s*to\s*use\s*[:\s]*([\s\S]*?)(?=follow|likely|pitch\s*#|\n\s*\n\s*\n|$)/i);
+    const whenMatch = section.match(/when\s*to\s*use\s*[:\s]*([\s\S]*?)(?=follow|likely|pitch\s*#|\d+[\.\)]\s|---|\n\s*\n\s*\n|$)/i);
     const whenToUse = whenMatch
       ? whenMatch[1].split("\n").map(l => l.replace(/^[\s\-*•]+/, "").trim()).filter(l => l.length > 3).join(", ")
       : "";
 
     const followUpQuestions: string[] = [];
-    const followBlock = section.match(/(?:follow[- ]?up\s*questions?|likely\s*follow)\s*[:\s]*([\s\S]*?)(?=pitch\s*#|\n\s*\n\s*\n|$)/i);
+    const followBlock = section.match(/(?:follow[- ]?up\s*questions?|likely\s*follow|questions?\s*they\s*might)\s*[:\s]*([\s\S]*?)(?=pitch\s*#|\d+[\.\)]\s|---|\n\s*\n\s*\n|$)/i);
     if (followBlock) {
-      const lines = followBlock[1].split("\n");
-      for (const line of lines) {
+      for (const line of followBlock[1].split("\n")) {
         const cleaned = line.replace(/^[\s\-*•"]+/, "").replace(/["]+$/, "").trim();
         if (cleaned.length > 5 && cleaned.includes("?")) followUpQuestions.push(cleaned);
       }
     }
 
-    if (pitchText.length > 20) {
-      pitches.push({
-        id: generateId(),
-        angle,
-        duration,
-        pitchText,
-        wordCount,
-        speakingTime,
-        score: Math.round(score * 10) / 10,
-        analysis: analysis.slice(0, 6),
-        whenToUse,
-        followUpQuestions: followUpQuestions.slice(0, 5),
-      });
-    }
+    pitches.push({
+      id: generateId(),
+      angle,
+      duration,
+      pitchText,
+      wordCount,
+      speakingTime,
+      score: Math.round(score * 10) / 10,
+      analysis: analysis.slice(0, 6),
+      whenToUse,
+      followUpQuestions: followUpQuestions.slice(0, 5),
+    });
   }
 
   return pitches;
@@ -327,78 +341,56 @@ export function ElevatorPitchGenerator() {
       audienceInstructions = "Keep it memorable, conversational, and easy to understand. Focus on creating interest.";
     }
 
-    let prompt = `Generate 5 elevator pitch variations for different situations.
+    let prompt = `Write 5 short elevator pitches for this business. Each pitch uses a different angle.
 
-BUSINESS/IDEA: ${business}
-TARGET AUDIENCE: ${audienceLabel}
-BUSINESS STAGE: ${stageLabel}
-UNIQUE ANGLE: ${uniqueAngle}`;
+Business: ${business}
+Audience: ${audienceLabel}
+Stage: ${stageLabel}
+Differentiator: ${uniqueAngle}`;
 
-    if (traction.trim()) prompt += `\nTRACTION/PROOF: ${traction}`;
+    if (traction.trim()) prompt += `\nTraction: ${traction}`;
 
-    prompt += `\nDESIRED OUTCOME: ${outcomeLabel}
+    prompt += `\nGoal: ${outcomeLabel}
+Note: ${audienceInstructions}
 
-AUDIENCE-SPECIFIC INSTRUCTIONS:
-${audienceInstructions}
+Write exactly 5 pitches in this format:
 
-Generate 5 pitches using these different approaches:
+PITCH #1: Problem-First
+"(30-second pitch starting with a pain point, then solution, proof, and ask)"
+Score: X/10
+What Works: (2-3 bullet points)
+When to Use: (one line)
+Follow-up Questions: (2-3 questions with ?)
 
-PITCH #1: Problem-First (30 seconds)
-- Open with a relatable pain point
-- Present your solution
-- Include proof/traction
-- End with a specific ask
+PITCH #2: Vision-First
+"(60-second pitch starting with big picture vision, then problem, solution, proof, ask)"
+Score: X/10
+What Works: (2-3 bullet points)
+When to Use: (one line)
+Follow-up Questions: (2-3 questions with ?)
 
-PITCH #2: Vision-First (60 seconds)
-- Start with big picture vision
-- Explain the problem
-- Present your solution
-- Include proof
-- End with ask
+PITCH #3: Traction-First
+"(30-second pitch leading with numbers/proof, then explanation, ask)"
+Score: X/10
+What Works: (2-3 bullet points)
+When to Use: (one line)
+Follow-up Questions: (2-3 questions with ?)
 
-PITCH #3: Traction-First (30 seconds)
-- Lead with your strongest numbers/proof
-- Explain how you achieved it
-- State what is next
-- End with ask
+PITCH #4: Story Approach
+"(45-second pitch with personal story hook, problem, solution, results, ask)"
+Score: X/10
+What Works: (2-3 bullet points)
+When to Use: (one line)
+Follow-up Questions: (2-3 questions with ?)
 
-PITCH #4: Story Approach (45 seconds)
-- Start with a personal story hook
-- Describe the problem you encountered
-- Explain the solution you created
-- Share results
-- End with ask
+PITCH #5: Contrarian
+"(30-second pitch challenging an assumption, different approach, why it works, ask)"
+Score: X/10
+What Works: (2-3 bullet points)
+When to Use: (one line)
+Follow-up Questions: (2-3 questions with ?)
 
-PITCH #5: Contrarian (30 seconds)
-- Challenge a common assumption
-- Present your different approach
-- Explain why it works
-- End with ask
-
-For EACH pitch, output in this exact format:
-
-PITCH #(number): (Angle Name)
-
-"(Write the complete pitch text here, as natural spoken words)"
-
-Word Count: (number) words
-Speaking Time: (number) seconds
-Pitch Strength: X/10
-
-What Works:
-- (strength 1)
-- (strength 2)
-- (strength 3)
-
-When to Use:
-- (scenario)
-
-Follow-up Questions:
-- "(likely question 1)?"
-- "(likely question 2)?"
-- "(likely question 3)?"
-
-Make every pitch sound natural and conversational, not like a sales script. Use simple language. Include specific numbers when possible. Every pitch must end with a clear call to action.`;
+Keep pitches natural and conversational. Use specific numbers. End each with a clear call to action.`;
 
     return prompt;
   };
@@ -421,7 +413,7 @@ Make every pitch sound natural and conversational, not like a sales script. Use 
         { role: "user", content: buildPrompt() },
       ],
       temperature: 0.7,
-      maxTokens: 3000,
+      maxTokens: 4096,
       onChunk: (chunk) => setStreamedContent(chunk),
     });
 
@@ -737,14 +729,13 @@ Examples:
           </div>
         </div>
 
-        {(state === "checking-gpu" || state === "downloading" || state === "preparing") && (
+        {(state === "checking-gpu" || state === "downloading") && (
           <div className="mb-4 p-4 bg-purple-50 rounded-xl border border-purple-200">
             <div className="flex items-center gap-3 mb-2">
               <Loader2 className="w-5 h-5 text-purple-600 animate-spin" />
               <span className="text-sm font-semibold text-purple-700">
                 {state === "checking-gpu" && "Verifying hardware..."}
                 {state === "downloading" && "Loading AI Engine..."}
-                {state === "preparing" && "Preparing model..."}
               </span>
             </div>
             {state === "downloading" && (
