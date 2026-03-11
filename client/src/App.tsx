@@ -60,6 +60,7 @@ import ValuePropPage from "@/pages/ValuePropPage";
 import BusinessNamePage from "@/pages/BusinessNamePage";
 import MeetingSummaryPage from "@/pages/MeetingSummaryPage";
 import ParagraphRewriterPage from "@/pages/ParagraphRewriterPage";
+import BulletPointsPage from "@/pages/BulletPointsPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -123,6 +124,7 @@ function Router() {
       <Route path="/ai-business-name-generator" component={BusinessNamePage} />
       <Route path="/ai-meeting-summary-generator" component={MeetingSummaryPage} />
       <Route path="/ai-paragraph-rewriter" component={ParagraphRewriterPage} />
+      <Route path="/ai-bullet-points-generator" component={BulletPointsPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />

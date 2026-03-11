@@ -33,6 +33,7 @@ const ALL_TOOLS: ToolEntry[] = [
   { name: "AI Business Name Generator", path: "/ai-business-name-generator", category: "BusinessApplication" },
   { name: "AI Meeting Summary Generator", path: "/ai-meeting-summary-generator", category: "BusinessApplication" },
   { name: "AI Paragraph Rewriter", path: "/ai-paragraph-rewriter", category: "UtilitiesApplication" },
+  { name: "AI Bullet Points Generator", path: "/ai-bullet-points-generator", category: "UtilitiesApplication" },
   { name: "AI Meta Description Generator", path: "/ai-meta-description-generator", category: "BusinessApplication" },
   { name: "AI SEO Title Generator", path: "/ai-seo-title-generator", category: "BusinessApplication" },
   { name: "AI Keyword Generator", path: "/ai-keyword-generator", category: "BusinessApplication" },

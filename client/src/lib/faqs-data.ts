@@ -2073,6 +2073,49 @@ export const landingPageFAQs = [
   },
 ];
 
+export const bulletPointsFAQs = [
+  {
+    question: "What does the AI Bullet Points Generator do?",
+    answer: "It converts any paragraph or text into organized bullet point lists. You paste your text, choose a style and icon format, and the AI extracts key information into clear, scannable bullets. It can also add nested sub-points for extra detail.",
+  },
+  {
+    question: "What bullet styles are available?",
+    answer: "Four styles: Key Points (extracts main takeaways in order of importance), Step-by-Step (sequential numbered process), Pros and Cons (balanced positive/negative comparison), and Summary (comprehensive overview of all key information).",
+  },
+  {
+    question: "What icon options can I choose?",
+    answer: "Five icon styles for your bullet markers: Dots (standard bullet points), Checkmarks, Arrows, Stars, and Numbers. The icon style affects how the generated list is formatted and displayed.",
+  },
+  {
+    question: "What are nested sub-points?",
+    answer: "When enabled, the AI adds 2-3 indented detail points under each main bullet, creating a two-level hierarchy. This is useful for complex topics where main points need supporting evidence, examples, or additional context.",
+  },
+  {
+    question: "What export formats are available?",
+    answer: "You can copy your bullet list as plain text, Markdown (for documentation and note-taking apps), or HTML (for web content). You can also download as a text file or Markdown file, and save to your browser for later reference.",
+  },
+  {
+    question: "What is the character limit?",
+    answer: "You can convert text up to 2,000 characters (roughly 300-400 words). The minimum is 20 characters. For longer content, process one section at a time for the best results.",
+  },
+  {
+    question: "How does the Pros and Cons style work?",
+    answer: "The AI analyzes your text and identifies both positive and negative aspects, then organizes them into balanced PROS and CONS sections. It aims for an equal number of points on each side for objective analysis.",
+  },
+  {
+    question: "Can I save and reload my bullet lists?",
+    answer: "Yes. Click Save to store the generated bullet list along with your original text and settings. Up to 10 saved lists are stored in your browser. You can reload any saved list to view, copy, or regenerate it.",
+  },
+  {
+    question: "Is my text kept private?",
+    answer: "Absolutely. The AI runs 100% locally in your browser using WebLLM. Your text is never sent to any server. All processing happens on your device, making it safe for confidential or sensitive content.",
+  },
+  {
+    question: "Does this work offline?",
+    answer: "Yes. After the initial AI model download, the bullet points generator works completely offline. The model is cached in your browser, so you can convert text anytime without an internet connection.",
+  },
+];
+
 export const paragraphRewriterFAQs = [
   {
     question: "What does the AI Paragraph Rewriter do?",
