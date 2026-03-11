@@ -39,7 +39,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 7, name: "AI Headline Improver", slug: "/headline-improver", icon: Heading, available: false },
       { id: 8, name: "AI Bullet Points Generator", slug: "/ai-bullet-points-generator", icon: List, available: true },
       { id: 9, name: "AI Blog Outline Generator", slug: "/ai-blog-outline-generator", icon: FileText, available: true },
-      { id: 10, name: "AI FAQ Generator", slug: "/faq-generator", icon: HelpCircle, available: false },
+      { id: 10, name: "AI FAQ Generator", slug: "/ai-faq-generator", icon: HelpCircle, available: true },
       { id: 54, name: "AI Essay Writer", slug: "/ai-essay-writer", icon: ScrollText, available: true },
     ],
   },

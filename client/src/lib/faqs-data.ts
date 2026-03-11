@@ -2116,6 +2116,49 @@ export const bulletPointsFAQs = [
   },
 ];
 
+export const faqGeneratorFAQs = [
+  {
+    question: "What does the AI FAQ Generator do?",
+    answer: "It generates comprehensive FAQ (Frequently Asked Questions) sections for your website, blog, or landing page. You provide a topic or paste content, and the AI creates professional Q&A pairs with SEO-optimized questions and clear answers.",
+  },
+  {
+    question: "How many questions can it generate?",
+    answer: "You can choose to generate 5, 10, or 20 questions per session. For landing pages, 5-7 questions usually work best. For help centers or comprehensive guides, 10-20 questions provide thorough coverage.",
+  },
+  {
+    question: "What is FAQ schema markup?",
+    answer: "FAQ schema markup is JSON-LD structured data code that tells search engines your page contains FAQs. When added to your page, Google can display your questions and answers directly in search results as rich snippets, increasing visibility and click-through rates.",
+  },
+  {
+    question: "How do I use the schema markup?",
+    answer: "After generating FAQs, click the Schema Markup button to reveal the JSON-LD code. Copy it and paste it into a script tag in the head section of your HTML page. Use Google's Rich Results Test to validate the markup.",
+  },
+  {
+    question: "What FAQ types are available?",
+    answer: "Four types: General Information (concepts, definitions, benefits), How-To/Tutorial (processes, steps, best practices), Product/Service (features, pricing, comparisons), and Technical Support (troubleshooting, errors, setup guidance).",
+  },
+  {
+    question: "What answer length options are there?",
+    answer: "Three options: Brief (1-2 sentences for quick, direct answers), Standard (2-3 sentences balancing detail and readability), and Detailed (full paragraph for comprehensive coverage). Standard is recommended for most websites.",
+  },
+  {
+    question: "What export formats are available?",
+    answer: "You can copy all FAQs as plain text, download as formatted HTML ready for your website, or download the JSON-LD schema file. You can also copy individual Q&A pairs and the schema markup separately.",
+  },
+  {
+    question: "Can I save and reload my FAQs?",
+    answer: "Yes. Click Save to store generated FAQs along with your topic and settings. Up to 10 saved sets are stored in your browser. You can reload any saved set to view, copy, export, or regenerate it.",
+  },
+  {
+    question: "Is my content kept private?",
+    answer: "Absolutely. The AI runs 100% locally in your browser using WebLLM. Your topic and content are never sent to any server. All processing happens on your device, making it safe for confidential or proprietary content.",
+  },
+  {
+    question: "Does this work offline?",
+    answer: "Yes. After the initial AI model download, the FAQ generator works completely offline. The model is cached in your browser, so you can generate FAQs anytime without an internet connection.",
+  },
+];
+
 export const paragraphRewriterFAQs = [
   {
     question: "What does the AI Paragraph Rewriter do?",

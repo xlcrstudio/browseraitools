@@ -61,6 +61,7 @@ import BusinessNamePage from "@/pages/BusinessNamePage";
 import MeetingSummaryPage from "@/pages/MeetingSummaryPage";
 import ParagraphRewriterPage from "@/pages/ParagraphRewriterPage";
 import BulletPointsPage from "@/pages/BulletPointsPage";
+import FAQGeneratorPage from "@/pages/FAQGeneratorPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -125,6 +126,7 @@ function Router() {
       <Route path="/ai-meeting-summary-generator" component={MeetingSummaryPage} />
       <Route path="/ai-paragraph-rewriter" component={ParagraphRewriterPage} />
       <Route path="/ai-bullet-points-generator" component={BulletPointsPage} />
+      <Route path="/ai-faq-generator" component={FAQGeneratorPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
