@@ -28,6 +28,7 @@ const ALL_TOOLS: ToolEntry[] = [
   { name: "AI Elevator Pitch Generator", path: "/ai-elevator-pitch-generator", category: "BusinessApplication" },
   { name: "AI Cold Outreach Generator", path: "/ai-cold-outreach-generator", category: "BusinessApplication" },
   { name: "AI Landing Page Copy Generator", path: "/ai-landing-page-copy-generator", category: "BusinessApplication" },
+  { name: "AI Target Audience Generator", path: "/ai-target-audience-generator", category: "BusinessApplication" },
   { name: "AI Meta Description Generator", path: "/ai-meta-description-generator", category: "BusinessApplication" },
   { name: "AI SEO Title Generator", path: "/ai-seo-title-generator", category: "BusinessApplication" },
   { name: "AI Keyword Generator", path: "/ai-keyword-generator", category: "BusinessApplication" },

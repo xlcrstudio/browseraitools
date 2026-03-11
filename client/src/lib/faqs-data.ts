@@ -2072,3 +2072,46 @@ export const landingPageFAQs = [
     answer: "Yes. After the initial AI model download, the landing page copy generator works completely offline. The model is cached in your browser, so you can create landing page copy anytime without an internet connection.",
   },
 ];
+
+export const targetAudienceFAQs = [
+  {
+    question: "What does this target audience generator create?",
+    answer: "The tool generates 3 detailed buyer personas, each containing demographics (age, gender, income, education, location), professional profile (role, industry, company size), psychographics (values, personality, lifestyle), goals and motivations, pain points with specific quotes, buying behavior (triggers, decision process, objections), channel preferences, and messaging recommendations. Each persona receives a market fit score.",
+  },
+  {
+    question: "What market types are supported?",
+    answer: "You can generate personas for B2C (Business to Consumer), B2B (Business to Business), or both. The market type affects how personas are structured. B2B personas include company-level details like organization size, budget authority, and procurement processes. B2C personas focus more on personal lifestyle, emotional triggers, and individual buying habits.",
+  },
+  {
+    question: "How many personas does it generate?",
+    answer: "The tool generates 3 personas ranked by priority: Primary (your core target customer), Secondary (a strong adjacent audience), and Tertiary (an emerging or niche opportunity). Each persona is a complete buyer profile you can use directly in marketing strategy, ad targeting, and content creation.",
+  },
+  {
+    question: "What industries are supported?",
+    answer: "The tool supports 16 industry categories including Technology/Software, Healthcare/Wellness, Education/E-learning, Finance/Fintech, E-commerce/Retail, Marketing/Advertising, Fitness/Sports, Food/Beverage, Travel/Hospitality, Real Estate, Entertainment/Media, Beauty/Fashion, Home/Garden, Automotive, Professional Services, and Other. The AI adapts persona details based on industry-specific buyer behavior.",
+  },
+  {
+    question: "How does the price point affect personas?",
+    answer: "The price point (Budget, Mid-Range, Premium, or Enterprise) significantly influences the generated personas. Higher price points shift demographics toward higher income levels, longer decision cycles, and more stakeholders. Lower price points produce personas with impulse buying tendencies, price sensitivity, and shorter sales cycles.",
+  },
+  {
+    question: "What is the market fit score?",
+    answer: "Each persona receives a market fit score out of 10 indicating how well the persona aligns with your product description, value proposition, and market type. Higher scores suggest a stronger match between your offering and the persona's needs, pain points, and buying behavior.",
+  },
+  {
+    question: "Can I export the personas?",
+    answer: "Yes. You can copy individual personas or all personas to your clipboard, download the complete set as a plain text file, or download as a Markdown file for easy formatting. You can also save persona sets to your browser for later reference.",
+  },
+  {
+    question: "Is my business information kept private?",
+    answer: "Absolutely. The AI runs 100% locally in your browser using WebLLM. Your product descriptions, business details, customer insights, and generated personas never leave your device. There is no server processing, data collection, or tracking of any kind.",
+  },
+  {
+    question: "What are the advanced options?",
+    answer: "The advanced options section includes two optional fields: Current Customer Insights (describe your existing customers to help refine personas) and Competitor Focus (name your main competitors to help identify market gaps and differentiation opportunities). Both fields improve persona accuracy but are not required.",
+  },
+  {
+    question: "Does this work offline?",
+    answer: "Yes. After the initial AI model download, the target audience generator works completely offline. The model is cached in your browser, so you can create buyer personas anytime without an internet connection.",
+  },
+];
