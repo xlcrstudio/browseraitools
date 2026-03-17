@@ -13,6 +13,7 @@ import { usePlaygroundProjects, type PlaygroundProject } from "@/hooks/use-playg
 
 const TEMPLATES: Array<{ name: string; language: string; code: string; prompt: string }> = [
   { name: "Hello World (JS)", language: "javascript", prompt: "Hello World in JavaScript", code: '// Hello World in JavaScript\nconsole.log("Hello, World!");\nconsole.log("Welcome to the AI Code Playground");' },
+  { name: "React Todo (JSX)", language: "javascript", prompt: "React todo app", code: '// React Todo App - runs with JSX in the preview\nconst { useState } = React;\n\nfunction App() {\n  const [todos, setTodos] = useState([]);\n  const [input, setInput] = useState("");\n\n  const addTodo = () => {\n    if (!input.trim()) return;\n    setTodos([...todos, { id: Date.now(), text: input, done: false }]);\n    setInput("");\n  };\n\n  const toggle = (id) => setTodos(todos.map(t => t.id === id ? { ...t, done: !t.done } : t));\n  const remove = (id) => setTodos(todos.filter(t => t.id !== id));\n\n  return (\n    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 flex items-center justify-center p-4">\n      <div className="bg-slate-800 border border-slate-700 rounded-2xl shadow-xl p-6 w-full max-w-md">\n        <h1 className="text-2xl font-bold text-white mb-4">Todo List</h1>\n        <div className="flex gap-2 mb-4">\n          <input value={input} onChange={e => setInput(e.target.value)}\n            onKeyDown={e => e.key === "Enter" && addTodo()}\n            placeholder="Add a task..." className="flex-1 px-4 py-2 bg-slate-700 text-white border border-slate-600 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" />\n          <button onClick={addTodo} className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Add</button>\n        </div>\n        <ul className="space-y-2">\n          {todos.map(t => (\n            <li key={t.id} className="flex items-center gap-3 p-3 bg-slate-700/50 rounded-lg group">\n              <input type="checkbox" checked={t.done} onChange={() => toggle(t.id)} className="w-4 h-4" />\n              <span className={\"flex-1 text-white \" + (t.done ? \"line-through opacity-50\" : \"\")}>{t.text}</span>\n              <button onClick={() => remove(t.id)} className="text-red-400 hover:text-red-300 opacity-0 group-hover:opacity-100">Delete</button>\n            </li>\n          ))}\n        </ul>\n        {todos.length === 0 && <p className="text-slate-500 text-center py-4">No tasks yet. Add one above.</p>}\n      </div>\n    </div>\n  );\n}\n\nReactDOM.createRoot(document.getElementById("root")).render(<App />);' },
   { name: "React Component", language: "html", prompt: "React component", code: '<!DOCTYPE html>\n<html><head>\n<script src="https://unpkg.com/react@18/umd/react.development.js"><\/script>\n<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"><\/script>\n<script src="https://unpkg.com/@babel/standalone/babel.min.js"><\/script>\n<script src="https://cdn.tailwindcss.com"><\/script>\n</head><body>\n<div id="root"></div>\n<script type="text/babel">\nfunction App() {\n  const [count, setCount] = React.useState(0);\n  return (\n    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">\n      <div className="bg-white rounded-2xl shadow-xl p-8 text-center">\n        <h1 className="text-3xl font-bold text-gray-800 mb-4">Counter App</h1>\n        <p className="text-6xl font-mono text-indigo-600 mb-6">{count}</p>\n        <div className="flex gap-3 justify-center">\n          <button onClick={() => setCount(c => c - 1)} className="px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">-1</button>\n          <button onClick={() => setCount(0)} className="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">Reset</button>\n          <button onClick={() => setCount(c => c + 1)} className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">+1</button>\n        </div>\n      </div>\n    </div>\n  );\n}\nReactDOM.createRoot(document.getElementById("root")).render(<App />);\n<\/script>\n</body></html>' },
   { name: "Tailwind Page", language: "html", prompt: "Tailwind landing page", code: '<!DOCTYPE html>\n<html><head>\n<script src="https://cdn.tailwindcss.com"><\/script>\n</head><body class="bg-gray-50">\n<div class="min-h-screen flex items-center justify-center">\n  <div class="max-w-md mx-auto bg-white rounded-2xl shadow-lg p-8 text-center">\n    <h1 class="text-4xl font-bold text-gray-900 mb-3">Welcome</h1>\n    <p class="text-gray-600 mb-6">This is a Tailwind CSS page generated in your browser.</p>\n    <button class="px-6 py-3 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition">Get Started</button>\n  </div>\n</div>\n</body></html>' },
   { name: "Todo App", language: "html", prompt: "Todo app with HTML, CSS, and JavaScript", code: '<!DOCTYPE html>\n<html><head>\n<script src="https://cdn.tailwindcss.com"><\/script>\n</head><body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">\n<div class="bg-white rounded-2xl shadow-lg p-6 w-full max-w-md">\n  <h1 class="text-2xl font-bold text-gray-800 mb-4">Todo List</h1>\n  <div class="flex gap-2 mb-4">\n    <input id="inp" type="text" placeholder="Add a task..." class="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none" />\n    <button onclick="addTodo()" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">Add</button>\n  </div>\n  <ul id="list" class="space-y-2"></ul>\n</div>\n<script>\nvar list = document.getElementById("list");\nvar inp = document.getElementById("inp");\nfunction addTodo() {\n  var text = inp.value.trim();\n  if (!text) return;\n  var li = document.createElement("li");\n  li.className = "flex items-center gap-3 p-3 bg-gray-50 rounded-lg group";\n  li.innerHTML = \'<input type="checkbox" onchange="this.parentElement.classList.toggle(\\\'line-through\\\')" class="w-4 h-4"><span class="flex-1">\' + text + \'</span><button onclick="this.parentElement.remove()" class="text-red-400 hover:text-red-600 opacity-0 group-hover:opacity-100">Delete</button>\';\n  list.appendChild(li);\n  inp.value = "";\n}\ninp.addEventListener("keydown", function(e) { if (e.key === "Enter") addTodo(); });\n<\/script>\n</body></html>' },
@@ -80,9 +81,14 @@ export function CodePlayground() {
 
   useEffect(() => {
     const handler = (e: MessageEvent) => {
-      if (e.data && e.data.type === "playground-result" && runResolverRef.current) {
+      if (!e.data) return;
+      if (e.data.type === "playground-result" && runResolverRef.current) {
         runResolverRef.current({ output: e.data.output || [], error: e.data.error || "" });
         runResolverRef.current = null;
+      }
+      if (e.data.type === "playground-preview-error") {
+        setConsoleOutput(prev => [...prev, "[ERROR] " + e.data.error]);
+        setConsoleError(e.data.error);
       }
     };
     window.addEventListener("message", handler);
@@ -95,26 +101,54 @@ export function CodePlayground() {
 
   const [showJsPreview, setShowJsPreview] = useState(false);
 
+  const buildReactPreviewHTML = useCallback((jsCode: string): string => {
+    const stripped = jsCode
+      .replace(/^\s*import\s+.*?from\s+["'][^"']*["'];?\s*$/gm, '')
+      .replace(/^\s*import\s+["'][^"']*["'];?\s*$/gm, '');
+    const encoded = stripped
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    return [
+      '<!DOCTYPE html><html><head>',
+      '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">',
+      '<script src="https://unpkg.com/react@18/umd/react.development.js"></script>',
+      '<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>',
+      '<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>',
+      '<script src="https://cdn.tailwindcss.com"></script>',
+      '<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif}',
+      '#__err{display:none;padding:16px;background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5;',
+      'border-radius:8px;margin:16px;font-family:monospace;font-size:13px;white-space:pre-wrap}</style>',
+      '</head><body><div id="root"></div><div id="__err"></div>',
+      '<script id="__user_code" type="text/plain">' + encoded + '</script>',
+      '<script>',
+      'window.onerror=function(m){',
+      '  var e=document.getElementById("__err");e.style.display="block";e.textContent="Runtime Error: "+m;',
+      '  parent.postMessage({type:"playground-preview-error",error:String(m)},"*");',
+      '};',
+      'function __run(){',
+      '  var raw=document.getElementById("__user_code").textContent;',
+      '  try{',
+      '    var code=Babel.transform(raw,{presets:["react"]}).code;',
+      '    var fn=new Function("React","ReactDOM",code);',
+      '    fn(React,ReactDOM);',
+      '  }catch(err){',
+      '    var e=document.getElementById("__err");e.style.display="block";',
+      '    e.textContent="Error: "+err.message;',
+      '    parent.postMessage({type:"playground-preview-error",error:err.message},"*");',
+      '  }',
+      '}',
+      'if(typeof Babel!=="undefined"){__run()}',
+      'else{document.querySelector("script[src*=\\"babel\\"]").onload=__run}',
+      '</script></body></html>'
+    ].join('\n');
+  }, []);
+
   const runJavaScript = useCallback((jsCode: string): Promise<{ output: string[]; error: string }> => {
     if (needsVisualPreview(jsCode)) {
       setShowJsPreview(true);
-      const escaped = jsCode.replace(/<\/script>/gi, '<\\/script>');
-      const stripped = escaped
-        .replace(/^\s*import\s+.*?from\s+["'][^"']*["'];?\s*$/gm, '')
-        .replace(/^\s*import\s+["'][^"']*["'];?\s*$/gm, '');
-      const previewHTML = '<!DOCTYPE html><html><head>' +
-        '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
-        '<script src="https://unpkg.com/react@18/umd/react.development.js"><\/script>' +
-        '<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"><\/script>' +
-        '<script src="https://unpkg.com/@babel/standalone/babel.min.js"><\/script>' +
-        '<link href="https://cdn.tailwindcss.com" rel="stylesheet">' +
-        '<script src="https://cdn.tailwindcss.com"><\/script>' +
-        '<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif}</style>' +
-        '</head><body><div id="root"></div>' +
-        '<script type="text/babel">' + stripped + '<\/script>' +
-        '</body></html>';
       if (htmlIframeRef.current) {
-        htmlIframeRef.current.srcdoc = previewHTML;
+        htmlIframeRef.current.srcdoc = buildReactPreviewHTML(jsCode);
       }
       return Promise.resolve({ output: ["React/JSX code rendered in preview below."], error: "" });
     }
@@ -148,7 +182,7 @@ export function CodePlayground() {
         jsIframeRef.current.srcdoc = sandboxHTML;
       }
     });
-  }, [needsVisualPreview]);
+  }, [needsVisualPreview, buildReactPreviewHTML]);
 
   const runHTML = useCallback((htmlCode: string) => {
     if (!htmlIframeRef.current) return;
