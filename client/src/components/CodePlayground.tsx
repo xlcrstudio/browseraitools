@@ -150,7 +150,9 @@ export function CodePlayground() {
       '</head><body><div id="root"></div><div id="__err"></div>' +
       '<div id="__load">Loading React + Babel...</div>' +
       '<script>' +
+      'var __running=false;' +
       'window.onerror=function(m,s,l,c,err){' +
+      '  if(!__running)return false;' +
       '  document.getElementById("__load").style.display="none";' +
       '  var e=document.getElementById("__err");e.style.display="block";' +
       '  var msg=err?err.message:String(m);' +
@@ -159,39 +161,35 @@ export function CodePlayground() {
       '  return true;' +
       '};' +
       'var __b64="' + b64 + '";' +
-      'var __scripts=[' +
+      'function __loadSeq(urls,i,cb){' +
+      '  if(i>=urls.length){cb();return}' +
+      '  var s=document.createElement("script");s.src=urls[i];' +
+      '  s.onload=function(){__loadSeq(urls,i+1,cb)};' +
+      '  s.onerror=function(){' +
+      '    document.getElementById("__load").style.display="none";' +
+      '    var e=document.getElementById("__err");e.style.display="block";' +
+      '    e.textContent="Failed to load: "+urls[i];' +
+      '    parent.postMessage({type:"playground-preview-error",error:"Failed to load: "+urls[i]},"*");' +
+      '  };' +
+      '  document.head.appendChild(s);' +
+      '}' +
+      '__loadSeq([' +
       '  "https://unpkg.com/react@18/umd/react.development.js",' +
       '  "https://unpkg.com/react-dom@18/umd/react-dom.development.js",' +
       '  "https://unpkg.com/@babel/standalone@7/babel.min.js",' +
       '  "https://cdn.tailwindcss.com"' +
-      '];' +
-      'var __loaded=0;' +
-      'function __onLoad(){' +
-      '  __loaded++;' +
-      '  if(__loaded<__scripts.length)return;' +
+      '],0,function(){' +
       '  document.getElementById("__load").style.display="none";' +
+      '  __running=true;' +
       '  try{' +
       '    var raw=decodeURIComponent(escape(atob(__b64)));' +
       '    var code=Babel.transform(raw,{presets:[["react",{runtime:"classic"}]]}).code;' +
-      '    var fn=new Function("React","ReactDOM","document",code);' +
-      '    fn(React,ReactDOM,document);' +
+      '    eval(code);' +
       '  }catch(err){' +
       '    var e=document.getElementById("__err");e.style.display="block";' +
       '    e.textContent="Error: "+err.message;' +
       '    parent.postMessage({type:"playground-preview-error",error:err.message},"*");' +
       '  }' +
-      '}' +
-      'function __onFail(url){' +
-      '  document.getElementById("__load").style.display="none";' +
-      '  var e=document.getElementById("__err");e.style.display="block";' +
-      '  e.textContent="Failed to load: "+url;' +
-      '  parent.postMessage({type:"playground-preview-error",error:"Failed to load: "+url},"*");' +
-      '}' +
-      '__scripts.forEach(function(src){' +
-      '  var s=document.createElement("script");s.src=src;' +
-      '  s.onload=__onLoad;' +
-      '  s.onerror=function(){__onFail(src)};' +
-      '  document.head.appendChild(s);' +
       '});' +
       '<\/script></body></html>';
   }, []);
