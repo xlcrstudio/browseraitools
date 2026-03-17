@@ -2416,3 +2416,46 @@ export const targetAudienceFAQs = [
     answer: "Yes. After the initial AI model download, the target audience generator works completely offline. The model is cached in your browser, so you can create buyer personas anytime without an internet connection.",
   },
 ];
+
+export const sentenceExpanderFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Sentence Expander?",
+    answer: "The AI Sentence Expander is a free, browser-based tool that transforms short sentences into detailed, comprehensive writing. It uses advanced AI (Qwen 2.5) running directly in your browser to add context, examples, statistics, and depth to your ideas.",
+  },
+  {
+    question: "Is this sentence expander free to use?",
+    answer: "Yes, the AI Sentence Expander is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser, so there are no server costs to pass on to you.",
+  },
+  {
+    question: "How does the sentence expansion work?",
+    answer: "Enter a short sentence (up to 200 characters), choose your expansion level (Slightly Longer, Paragraph, or Detailed), select optional enhancements, and click Expand Sentence. The AI generates multiple expanded versions with different angles and an analysis of what was added.",
+  },
+  {
+    question: "What are the three expansion levels?",
+    answer: "Slightly Longer makes your sentence 2-3x longer by adding one or two supporting details. Paragraph Expansion creates a full paragraph (4-6x length) with context, examples, and explanation. Detailed Explanation provides comprehensive coverage (8-12x length) with multiple examples, statistics, and thorough analysis.",
+  },
+  {
+    question: "What are the enhancement options?",
+    answer: "You can enable four optional enhancements: Include Examples adds concrete, specific examples to your expansion. Add Context provides background and circumstances. Include Statistics incorporates relevant data and numbers. Expert Perspective adds professional insight and authority to the expanded text.",
+  },
+  {
+    question: "How many versions does it generate?",
+    answer: "The tool generates three expanded versions of your sentence: a primary expansion, an alternative angle version, and a third variation. Each version takes a different approach to expanding your original sentence, giving you options to choose from.",
+  },
+  {
+    question: "What is the expansion analysis?",
+    answer: "After expanding your sentence, the tool shows an analysis including the original word count, expanded word count, and length multiplier. It also lists the specific expansion techniques used, such as method explanation, concrete examples, quantification, and context addition.",
+  },
+  {
+    question: "Is my text kept private?",
+    answer: "Absolutely. The AI runs 100% locally in your browser using WebLLM. Your sentences and expanded text never leave your device. There is no server processing, data collection, or tracking of any kind.",
+  },
+  {
+    question: "Can I save and export my expanded sentences?",
+    answer: "Yes. You can copy individual versions or all versions to your clipboard, download the complete expansion as a plain text file, or save expansions to your browser for later reference. The tool stores up to 10 saved expansions locally.",
+  },
+  {
+    question: "Does this work offline?",
+    answer: "Yes. After the initial AI model download, the sentence expander works completely offline. The model is cached in your browser, so you can expand sentences anytime without an internet connection.",
+  },
+];

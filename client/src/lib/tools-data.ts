@@ -33,7 +33,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 1, name: "AI Hook Generator", slug: "/ai-hook-generator", icon: Sparkles, available: true },
       { id: 2, name: "AI Paragraph Rewriter", slug: "/ai-paragraph-rewriter", icon: RefreshCw, available: true },
       { id: 3, name: "AI Sentence Simplifier", slug: "/ai-sentence-simplifier", icon: AlignLeft, available: true },
-      { id: 4, name: "AI Sentence Expander", slug: "/sentence-expander", icon: Maximize2, available: false },
+      { id: 4, name: "AI Sentence Expander", slug: "/ai-sentence-expander", icon: Maximize2, available: true },
       { id: 5, name: "AI Sentence Shortener", slug: "/sentence-shortener", icon: Minimize2, available: false },
       { id: 6, name: "AI Tone Converter", slug: "/ai-tone-converter", icon: Type, available: true },
       { id: 7, name: "AI Headline Improver", slug: "/headline-improver", icon: Heading, available: false },
