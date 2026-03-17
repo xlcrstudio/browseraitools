@@ -65,7 +65,7 @@ function parseHeadlines(raw: string): HeadlineResult | null {
 
   const HEADLINE_START = /^(?:#{1,3}\s*)?(?:\*{2})?\s*HEADLINE\s*#?\s*(\d)/i;
   const ORIGINAL_RE = /^(?:#{1,3}\s*)?(?:\*{2})?\s*(?:ORIGINAL|ANALYSIS|ORIGINAL\s*(?:VS|HEADLINE|SCORE|ANALYSIS))/i;
-  const CLICK_SCORE_RE = /click\s*(?:score|potential|rating)[:\s]*(\d+(?:\.\d+)?)\s*\/?\s*10/i;
+  const CLICK_SCORE_RE = /(?:click\s*)?(?:score|potential|rating)[:\s]*(\d+(?:\.\d+)?)\s*\/?\s*10/i;
   const STYLE_RE = /(?:style|type|format)[:\s]*([A-Za-z\s-]+)/i;
 
   const STOP_RE = /^(?:#{1,3}\s*)?(?:\*{2})?\s*(?:A\/B\s*TEST|RECOMMENDATION|WINNER|COMPARE|SET UP)/i;
@@ -142,16 +142,37 @@ function parseHeadlines(raw: string): HeadlineResult | null {
       continue;
     }
 
-    if (/^(?:#{1,4}\s*)?(?:\*{2})?\s*(?:WHY\s*IT\s*WORKS|WHY\s*THIS\s*WORKS)/i.test(trimmed)) {
+    if (/^(?:#{1,4}\s*)?(?:\*{2})?\s*(?:WHY\s*(?:IT\s*WORKS|THIS\s*WORKS)?|WHY)[:\s]*(?:\*{2})?$/i.test(trimmed) || /^(?:#{1,4}\s*)?(?:\*{2})?\s*WHY\s*(?:IT\s*WORKS|THIS\s*WORKS)/i.test(trimmed)) {
       currentSection = "why";
+      const afterColon = trimmed.replace(/^.*?:\s*/, "").replace(/\*{2}/g, "").trim();
+      if (afterColon.length > 5 && afterColon !== trimmed.trim() && currentVariation?.whyItWorks) {
+        afterColon.split(/[,;]/).forEach(item => {
+          const cleaned = item.replace(/^[-*\s]+/, "").trim();
+          if (cleaned.length > 3) currentVariation!.whyItWorks!.push(cleaned);
+        });
+      }
       continue;
     }
-    if (/^(?:#{1,4}\s*)?(?:\*{2})?\s*(?:EMOTIONAL\s*TRIGGER)/i.test(trimmed)) {
+    if (/^(?:#{1,4}\s*)?(?:\*{2})?\s*(?:EMOTIONAL\s*TRIGGER|TRIGGER)/i.test(trimmed)) {
       currentSection = "emotion";
+      const afterColon = trimmed.replace(/^.*?:\s*/, "").replace(/\*{2}/g, "").trim();
+      if (afterColon.length > 5 && afterColon !== trimmed.trim() && currentVariation?.emotionalTriggers) {
+        afterColon.split(/[,;]/).forEach(item => {
+          const cleaned = item.replace(/^[-*\s]+/, "").trim();
+          if (cleaned.length > 3) currentVariation!.emotionalTriggers!.push(cleaned);
+        });
+      }
       continue;
     }
-    if (/^(?:#{1,4}\s*)?(?:\*{2})?\s*(?:BEST\s*FOR|BEST\s*USE|IDEAL\s*FOR)/i.test(trimmed)) {
+    if (/^(?:#{1,4}\s*)?(?:\*{2})?\s*(?:BEST\s*(?:FOR|USE)?|IDEAL\s*FOR)/i.test(trimmed)) {
       currentSection = "bestfor";
+      const afterColon = trimmed.replace(/^.*?:\s*/, "").replace(/\*{2}/g, "").trim();
+      if (afterColon.length > 5 && afterColon !== trimmed.trim() && currentVariation?.bestFor) {
+        afterColon.split(/[,;]/).forEach(item => {
+          const cleaned = item.replace(/^[-*\s]+/, "").trim();
+          if (cleaned.length > 3) currentVariation!.bestFor!.push(cleaned);
+        });
+      }
       continue;
     }
 
@@ -183,7 +204,7 @@ function parseHeadlines(raw: string): HeadlineResult | null {
         .replace(/(?:\*{2})?$/, "")
         .replace(/^["']+|["']+$/g, "")
         .trim();
-      if (candidate.length > 8 && !candidate.match(/^(?:click|score|char|word|style|type|format|why|emotional|best|seo|headline\s*#)/i)) {
+      if (candidate.length > 8 && !candidate.match(/^(?:click|score|char|word|style|type|format|why|emotional|best|seo|headline\s*#|trigger|original|issue|improvement|---)/i)) {
         currentVariation.headline = candidate;
         currentSection = "";
       }
@@ -233,53 +254,49 @@ export function HeadlineGenerator() {
     const platformName = PLATFORMS.find(p => p.id === platform)?.label || "Blog Post";
 
     const prompt = `Improve this headline: "${originalHeadline}"
+Style: ${styleName} | Platform: ${platformName}
 
-Preferred Style: ${styleName}
-Target Platform: ${platformName}
+IMPORTANT: Generate ALL 5 headlines FIRST. Keep analysis brief. Do NOT write an original analysis section first.
 
-Generate exactly 5 improved headline variations. For each one, use this exact format:
+HEADLINE #1: List Style
+Score: 8/10
+"[headline]"
+Why: [2-3 bullet points]
+Triggers: [1-2 triggers]
+Best: [1-2 uses]
 
-HEADLINE #1: [Style Name]
-Click Score: [X.X]/10
-"[The improved headline text]"
+HEADLINE #2: Curiosity Gap
+Score: 9/10
+"[headline]"
+Why: [2-3 bullet points]
+Triggers: [1-2 triggers]
+Best: [1-2 uses]
 
-Why It Works:
-- [point 1]
-- [point 2]
-- [point 3]
+HEADLINE #3: Question Format
+Score: 8/10
+"[headline]"
+Why: [2-3 bullet points]
+Triggers: [1-2 triggers]
+Best: [1-2 uses]
 
-Emotional Triggers:
-- [trigger 1]
-- [trigger 2]
+HEADLINE #4: SEO Optimized
+Score: 8/10
+"[headline]"
+Why: [2-3 bullet points]
+Triggers: [1-2 triggers]
+Best: [1-2 uses]
 
-Best For:
-- [use case 1]
-- [use case 2]
+HEADLINE #5: Professional
+Score: 7/10
+"[headline]"
+Why: [2-3 bullet points]
+Triggers: [1-2 triggers]
+Best: [1-2 uses]
 
-HEADLINE #2: [Style Name]
-Click Score: [X.X]/10
-"[headline text]"
-...continue same format...
+ORIGINAL: Score [X]/10
+Issues: [2-3 issues]
 
-HEADLINE #3: [Style Name]
-...
-
-HEADLINE #4: [Style Name]
-...
-
-HEADLINE #5: [Style Name]
-...
-
-After all 5 headlines, analyze the original:
-
-ORIGINAL ANALYSIS:
-Score: [X.X]/10
-Issues:
-- [issue 1]
-- [issue 2]
-- [issue 3]
-
-Make each headline dramatically better than the original. Use different styles: list format, curiosity gap, question, SEO-optimized, and professional. Score honestly.`;
+Generate 5 unique, dramatically improved headlines now. Each must be a different style. Score honestly 1-10.`;
 
     const finalContent = await generateRaw({
       messages: [
@@ -287,7 +304,7 @@ Make each headline dramatically better than the original. Use different styles: 
         { role: "user", content: prompt },
       ],
       temperature: 0.7,
-      maxTokens: 3500,
+      maxTokens: 4000,
       onChunk: (chunk) => setStreamedContent(chunk),
     });
 
