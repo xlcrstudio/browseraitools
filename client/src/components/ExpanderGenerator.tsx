@@ -47,33 +47,52 @@ interface ExpanderResult {
   techniques: string[];
 }
 
+function isHeaderLine(line: string): boolean {
+  return /^(?:#{1,3}\s*)?(?:\*{2})?\s*(?:VERSION\s*#?\s*\d|PRIMARY|EXPANDED|MAIN|ALTERNATIVE|DIFFERENT\s*ANGLE|THIRD|WITH\s*STATISTICS|STATISTICAL)/i.test(line);
+}
+
+function stripHeaderPrefix(text: string): string {
+  return text
+    .replace(/^(?:#{1,3}\s*)?(?:\*{2})?\s*VERSION\s*#?\s*\d[^:]*:\s*(?:\*{2})?\s*/i, "")
+    .replace(/^(?:#{1,3}\s*)?(?:\*{2})?\s*(?:PRIMARY|EXPANDED|MAIN|ALTERNATIVE|DIFFERENT\s*ANGLE|THIRD|WITH\s*STATISTICS|STATISTICAL)[^:]*:\s*(?:\*{2})?\s*/i, "")
+    .replace(/^["*]+|["*]+$/g, "")
+    .trim();
+}
+
 function parseExpansions(raw: string, originalWords: number, originalChars: number): ExpanderResult | null {
   const versions: ExpandedVersion[] = [];
   const techniques: string[] = [];
 
-  const versionLabels = [
-    { patterns: [/(?:VERSION\s*(?:#?\s*)?1|PRIMARY|EXPANDED|MAIN)/i], label: "Primary Expansion" },
-    { patterns: [/(?:VERSION\s*(?:#?\s*)?2|ALTERNATIVE|DIFFERENT\s*ANGLE)/i], label: "Alternative Angle" },
-    { patterns: [/(?:VERSION\s*(?:#?\s*)?3|THIRD|WITH\s*STATISTICS|STATISTICAL)/i], label: "Third Variation" },
+  const VERSION_PATTERNS: Array<{ re: RegExp; label: string }> = [
+    { re: /(?:VERSION\s*(?:#?\s*)?1|PRIMARY\s*EXPAN|EXPANDED\s*VERSION|MAIN\s*EXPAN)/i, label: "Primary Expansion" },
+    { re: /(?:VERSION\s*(?:#?\s*)?2|ALTERNATIVE|DIFFERENT\s*ANGLE)/i, label: "Alternative Angle" },
+    { re: /(?:VERSION\s*(?:#?\s*)?3|THIRD|WITH\s*STATISTICS|STATISTICAL)/i, label: "Third Variation" },
   ];
+
+  const STOP_RE = /^(?:#{1,3}\s*)?(?:\*{2})?\s*(?:BREAKDOWN|TECHNIQUE|ANALYSIS|WHAT WAS ADDED|EXPANSION TECHNIQUE)/i;
 
   const lines = raw.split("\n");
   let currentLabel = "";
   let currentLines: string[] = [];
   let inTechniques = false;
 
-  const STOP_RE = /^(?:#{1,3}\s*)?(?:\*{2})?\s*(?:BREAKDOWN|TECHNIQUE|ANALYSIS|WHAT WAS ADDED|EXPANSION TECHNIQUE)/i;
-
   const flushVersion = () => {
     if (currentLabel && currentLines.length > 0) {
-      const text = currentLines.join(" ").replace(/\s+/g, " ").replace(/^["*]+|["*]+$/g, "").trim();
-      if (text.length > 15) {
-        versions.push({
-          id: generateId(),
-          label: currentLabel,
-          text,
-          wordCount: text.split(/\s+/).length,
-        });
+      let text = currentLines.join(" ").replace(/\s+/g, " ").replace(/^["*]+|["*]+$/g, "").trim();
+      text = stripHeaderPrefix(text);
+      if (text.length > 30 && !isHeaderLine(text)) {
+        const existing = versions.find(v => v.label === currentLabel);
+        if (existing) {
+          existing.text = text;
+          existing.wordCount = text.split(/\s+/).length;
+        } else {
+          versions.push({
+            id: generateId(),
+            label: currentLabel,
+            text,
+            wordCount: text.split(/\s+/).length,
+          });
+        }
       }
     }
     currentLabel = "";
@@ -97,26 +116,31 @@ function parseExpansions(raw: string, originalWords: number, originalChars: numb
     }
 
     let matched = false;
-    for (const vl of versionLabels) {
-      for (const pattern of vl.patterns) {
-        if (pattern.test(trimmed)) {
-          flushVersion();
-          currentLabel = vl.label;
-          const afterHeader = trimmed.replace(/^(?:#{1,3}\s*)?(?:\*{2})?.*?(?:\*{2})?:?\s*/, "").trim();
-          if (afterHeader.length > 15) currentLines.push(afterHeader);
-          matched = true;
-          break;
+    for (const vp of VERSION_PATTERNS) {
+      if (vp.re.test(trimmed)) {
+        flushVersion();
+        currentLabel = vp.label;
+        const colonIdx = trimmed.indexOf(":");
+        if (colonIdx !== -1) {
+          const after = trimmed.slice(colonIdx + 1).replace(/^[\s*"]+|[\s*"]+$/g, "").trim();
+          if (after.length > 30 && !isHeaderLine(after)) {
+            currentLines.push(after);
+          }
         }
+        matched = true;
+        break;
       }
-      if (matched) break;
     }
     if (matched) continue;
 
     if (currentLabel) {
-      currentLines.push(trimmed.replace(/^["*]+|["*]+$/g, ""));
+      const cleaned = trimmed.replace(/^["*]+|["*]+$/g, "").trim();
+      if (!isHeaderLine(cleaned)) {
+        currentLines.push(cleaned);
+      }
     } else if (versions.length === 0 && !currentLabel) {
       const cleaned = trimmed.replace(/^["*]+|["*]+$/g, "").trim();
-      if (cleaned.length > 15 && !cleaned.match(/^(#{1,3}|VERSION|EXPAND|ORIGINAL)/i)) {
+      if (cleaned.length > 30 && !isHeaderLine(cleaned) && !cleaned.match(/^(#{1,3}|EXPAND|ORIGINAL)/i)) {
         currentLabel = "Primary Expansion";
         currentLines.push(cleaned);
       }
@@ -127,7 +151,7 @@ function parseExpansions(raw: string, originalWords: number, originalChars: numb
   if (versions.length === 0) {
     const allText = raw.replace(/^(#{1,3}.*|VERSION.*|\*{2}.*\*{2})\n/gim, "").trim();
     const cleaned = allText.replace(/\s+/g, " ").replace(/^["*]+|["*]+$/g, "").trim();
-    if (cleaned.length > 15) {
+    if (cleaned.length > 30) {
       versions.push({
         id: generateId(),
         label: "Expanded Version",
