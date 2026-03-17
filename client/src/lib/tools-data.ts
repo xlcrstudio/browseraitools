@@ -34,7 +34,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 2, name: "AI Paragraph Rewriter", slug: "/ai-paragraph-rewriter", icon: RefreshCw, available: true },
       { id: 3, name: "AI Sentence Simplifier", slug: "/ai-sentence-simplifier", icon: AlignLeft, available: true },
       { id: 4, name: "AI Sentence Expander", slug: "/ai-sentence-expander", icon: Maximize2, available: true },
-      { id: 5, name: "AI Sentence Shortener", slug: "/sentence-shortener", icon: Minimize2, available: false },
+      { id: 5, name: "AI Sentence Shortener", slug: "/ai-sentence-shortener", icon: Minimize2, available: true },
       { id: 6, name: "AI Tone Converter", slug: "/ai-tone-converter", icon: Type, available: true },
       { id: 7, name: "AI Headline Improver", slug: "/ai-headline-improver", icon: Heading, available: true },
       { id: 8, name: "AI Bullet Points Generator", slug: "/ai-bullet-points-generator", icon: List, available: true },

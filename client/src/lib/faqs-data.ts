@@ -2502,3 +2502,38 @@ export const headlineImproverFAQs: FAQItem[] = [
     answer: "Yes. After the initial AI model download, the headline improver works completely offline. The model is cached in your browser, so you can improve headlines anytime without an internet connection.",
   },
 ];
+
+export const sentenceShortenerFAQs: FAQItem[] = [
+  {
+    question: "How does the AI Sentence Shortener work?",
+    answer: "The AI Sentence Shortener runs entirely in your browser using WebLLM. It analyzes your sentence for wordiness, redundancy, and unnecessary qualifiers, then generates concise versions at your chosen shortening level. No data is sent to any server.",
+  },
+  {
+    question: "What are the three shortening levels?",
+    answer: "Slightly Shorter removes obvious wordiness with minimal structural changes (20-30% reduction). Concise significantly restructures for clarity (40-60% reduction). Ultra Concise strips down to absolute essential words for maximum impact (60-80% reduction).",
+  },
+  {
+    question: "What output formats are available?",
+    answer: "You can generate three formats: Standard Short (the primary shortened version), Tweet-Length (guaranteed under 280 characters for Twitter/X), and Headline (10 words or fewer, ideal for titles and subject lines).",
+  },
+  {
+    question: "Will shortening change the meaning of my sentence?",
+    answer: "The AI preserves the core meaning while removing unnecessary words. The removal breakdown shows exactly what was changed and why, so you can verify the meaning is intact. Minor nuance shifts are possible with ultra-concise mode.",
+  },
+  {
+    question: "What types of wordiness does it detect?",
+    answer: "It identifies wordy phrases (like 'due to the fact that'), redundancies (like 'past history'), unnecessary qualifiers (like 'very' and 'really'), passive voice inflation, and nominalizations (turning verb-nouns back into verbs).",
+  },
+  {
+    question: "Can I use this for social media posts?",
+    answer: "Yes. The Tweet-Length format is specifically designed for Twitter/X with a 280-character limit. The Headline format works great for Instagram captions, LinkedIn posts, and any platform where concise text performs better.",
+  },
+  {
+    question: "Is my data private?",
+    answer: "Completely. The AI model runs in your browser using WebGPU. Your sentences never leave your device. No data is sent to any server, stored in any cloud, or accessible to anyone else.",
+  },
+  {
+    question: "Does this work offline?",
+    answer: "Yes. After the initial AI model download, the sentence shortener works completely offline. The model is cached in your browser, so you can shorten sentences anytime without an internet connection.",
+  },
+];
