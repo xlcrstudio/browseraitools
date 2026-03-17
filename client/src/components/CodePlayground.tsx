@@ -594,15 +594,13 @@ Fix this error. Return the FULL corrected code. Add a comment at the top explain
             </div>
           </div>
 
-          {(language === "html" || showJsPreview) && (
-            <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-              <div className="px-4 py-2 border-b border-slate-200 flex items-center gap-2">
-                <Code className="w-4 h-4 text-emerald-500" />
-                <span className="text-xs font-semibold text-slate-500">Live Preview</span>
-              </div>
-              <iframe ref={htmlIframeRef} data-testid="iframe-preview" title="Code Preview" sandbox="allow-scripts allow-modals allow-same-origin" className="w-full h-[400px] bg-white" />
+          <div className={cn("bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden", !(language === "html" || showJsPreview) && "hidden")}>
+            <div className="px-4 py-2 border-b border-slate-200 flex items-center gap-2">
+              <Code className="w-4 h-4 text-emerald-500" />
+              <span className="text-xs font-semibold text-slate-500">Live Preview</span>
             </div>
-          )}
+            <iframe ref={htmlIframeRef} data-testid="iframe-preview" title="Code Preview" sandbox="allow-scripts allow-modals allow-same-origin" className="w-full h-[400px] bg-white" />
+          </div>
         </div>
       </div>
       <iframe ref={jsIframeRef} title="JS Sandbox" sandbox="allow-scripts allow-same-origin" className="hidden" aria-hidden="true" />
