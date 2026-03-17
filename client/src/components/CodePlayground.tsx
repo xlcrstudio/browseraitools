@@ -34,9 +34,31 @@ Core rules:
 
 IMPORTANT - JavaScript execution environment:
 - When the language is JavaScript:
-  - For React/JSX code: Write JSX directly. React and ReactDOM are available as globals (React 18 UMD). Babel transpiles JSX automatically. Tailwind CSS is available via CDN. Do NOT use import statements. Use React.useState, React.useEffect etc. directly. Always render to document.getElementById("root") using ReactDOM.createRoot.
+  - For React/JSX code: Write JSX directly. React 18 and ReactDOM 18 are available as GLOBALS (UMD). Babel transpiles JSX automatically. Tailwind CSS is available via CDN.
+  - NEVER use import statements. NEVER use require().
+  - Destructure hooks from React: const { useState, useEffect, useRef, useCallback } = React;
+  - Always use proper React state management. NEVER mutate state directly. Use useState for ALL dynamic data.
+  - Wire up ALL event handlers (onChange, onClick, onKeyDown). Every input MUST have both value and onChange.
+  - Always render with: ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  - Use className="..." with Tailwind utility classes for styling. NEVER use tailwind() as a function.
   - For plain JS (no UI): Write vanilla JavaScript. console.log output appears in the console panel.
 - When the language is HTML/CSS/JS: Write a complete HTML document with inline styles and scripts.
+
+EXAMPLE of correct React code in JavaScript mode:
+const { useState } = React;
+function App() {
+  const [items, setItems] = useState([]);
+  const [text, setText] = useState("");
+  const addItem = () => { if (!text.trim()) return; setItems([...items, { id: Date.now(), text }]); setText(""); };
+  return (
+    <div className="p-4">
+      <input value={text} onChange={e => setText(e.target.value)} onKeyDown={e => e.key === "Enter" && addItem()} className="border p-2 rounded" />
+      <button onClick={addItem} className="ml-2 px-4 py-2 bg-blue-600 text-white rounded">Add</button>
+      <ul>{items.map(i => <li key={i.id}>{i.text}</li>)}</ul>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 
 When fixing errors:
 - Read the exact error message.
@@ -277,13 +299,12 @@ export function CodePlayground() {
     setConsoleOutput([]); setConsoleError("");
 
     const jsEnvNote = language === "javascript" ? `
-CRITICAL ENVIRONMENT RULES FOR JAVASCRIPT:
-- React 18 and ReactDOM 18 are available as GLOBALS. Do NOT use import statements.
-- Use React.useState, React.useEffect, React.useRef etc. directly (or destructure: const { useState, useEffect } = React).
-- Babel transpiles JSX automatically. Write JSX directly.
-- Tailwind CSS is loaded. Use className="..." with Tailwind classes.
-- Always render with: ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-- For non-UI code, just use console.log for output.
+CRITICAL: Follow the JavaScript environment rules and EXAMPLE in your system prompt exactly.
+- NEVER use import/require. React and ReactDOM are globals.
+- Destructure: const { useState, useEffect } = React;
+- Every input needs value={} and onChange={}.
+- Use className="..." with Tailwind classes. NEVER call tailwind() as a function.
+- End with: ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ` : "";
     const userPrompt = `USER REQUEST: ${prompt}
 
@@ -316,11 +337,12 @@ Return ONLY the code block. No markdown fences. No explanations outside code com
     if (!consoleError) return;
 
     const jsFixNote = language === "javascript" ? `
-CRITICAL ENVIRONMENT RULES:
-- React 18 and ReactDOM 18 are available as GLOBALS. Do NOT use import/require statements.
-- Destructure from React: const { useState, useEffect, useRef } = React;
-- Babel transpiles JSX automatically. Tailwind CSS is loaded.
-- Render with: ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+CRITICAL: Follow the JavaScript environment rules and EXAMPLE in your system prompt exactly.
+- NEVER use import/require. React and ReactDOM are globals.
+- Destructure: const { useState, useEffect } = React;
+- Every input needs value={} and onChange={}.
+- Use className="..." with Tailwind classes. NEVER call tailwind() as a function.
+- End with: ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 ` : "";
     const userPrompt = `CURRENT CODE IN EDITOR:
 ${code}
