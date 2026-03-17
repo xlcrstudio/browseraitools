@@ -105,27 +105,60 @@ export function CodePlayground() {
     const stripped = jsCode
       .replace(/^\s*import\s+.*?from\s+["'][^"']*["'];?\s*$/gm, '')
       .replace(/^\s*import\s+["'][^"']*["'];?\s*$/gm, '');
-    const safeCode = stripped.replace(/<\/script>/gi, '<\\/script>');
+    const b64 = btoa(unescape(encodeURIComponent(stripped)));
     return '<!DOCTYPE html><html><head>' +
       '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
-      '<script src="https://unpkg.com/react@18/umd/react.development.js"><\/script>' +
-      '<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"><\/script>' +
-      '<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"><\/script>' +
-      '<script src="https://cdn.tailwindcss.com"><\/script>' +
       '<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif}' +
       '#__err{display:none;padding:16px;background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5;' +
-      'border-radius:8px;margin:16px;font-family:monospace;font-size:13px;white-space:pre-wrap}</style>' +
+      'border-radius:8px;margin:16px;font-family:monospace;font-size:13px;white-space:pre-wrap}' +
+      '#__load{padding:24px;text-align:center;color:#64748b;font-size:14px}</style>' +
       '</head><body><div id="root"></div><div id="__err"></div>' +
+      '<div id="__load">Loading React + Babel...</div>' +
       '<script>' +
       'window.onerror=function(m,s,l,c,err){' +
+      '  document.getElementById("__load").style.display="none";' +
       '  var e=document.getElementById("__err");e.style.display="block";' +
-      '  e.textContent="Error: "+(err?err.message:m);' +
-      '  parent.postMessage({type:"playground-preview-error",error:err?err.message:String(m)},"*");' +
+      '  var msg=err?err.message:String(m);' +
+      '  e.textContent="Error: "+msg;' +
+      '  parent.postMessage({type:"playground-preview-error",error:msg},"*");' +
       '  return true;' +
       '};' +
-      '<\/script>' +
-      '<script type="text/babel" data-type="module">' + safeCode + '<\/script>' +
-      '</body></html>';
+      'var __b64="' + b64 + '";' +
+      'var __scripts=[' +
+      '  "https://unpkg.com/react@18/umd/react.development.js",' +
+      '  "https://unpkg.com/react-dom@18/umd/react-dom.development.js",' +
+      '  "https://unpkg.com/@babel/standalone@7/babel.min.js",' +
+      '  "https://cdn.tailwindcss.com"' +
+      '];' +
+      'var __loaded=0;' +
+      'function __onLoad(){' +
+      '  __loaded++;' +
+      '  if(__loaded<__scripts.length)return;' +
+      '  document.getElementById("__load").style.display="none";' +
+      '  try{' +
+      '    var raw=decodeURIComponent(escape(atob(__b64)));' +
+      '    var code=Babel.transform(raw,{presets:["react"]}).code;' +
+      '    var fn=new Function("React","ReactDOM","document",code);' +
+      '    fn(React,ReactDOM,document);' +
+      '  }catch(err){' +
+      '    var e=document.getElementById("__err");e.style.display="block";' +
+      '    e.textContent="Error: "+err.message;' +
+      '    parent.postMessage({type:"playground-preview-error",error:err.message},"*");' +
+      '  }' +
+      '}' +
+      'function __onFail(url){' +
+      '  document.getElementById("__load").style.display="none";' +
+      '  var e=document.getElementById("__err");e.style.display="block";' +
+      '  e.textContent="Failed to load: "+url;' +
+      '  parent.postMessage({type:"playground-preview-error",error:"Failed to load: "+url},"*");' +
+      '}' +
+      '__scripts.forEach(function(src){' +
+      '  var s=document.createElement("script");s.src=src;' +
+      '  s.onload=__onLoad;' +
+      '  s.onerror=function(){__onFail(src)};' +
+      '  document.head.appendChild(s);' +
+      '});' +
+      '<\/script></body></html>';
   }, []);
 
   const runJavaScript = useCallback((jsCode: string): Promise<{ output: string[]; error: string }> => {
