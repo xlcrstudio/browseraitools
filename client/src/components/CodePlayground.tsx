@@ -140,74 +140,24 @@ export function CodePlayground() {
 
   const buildReactPreviewHTML = useCallback((jsCode: string): string => {
     const prepared = prepareReactCode(jsCode);
-    const b64 = btoa(unescape(encodeURIComponent(prepared)));
+    const safe = prepared.replace(/<\/script>/gi, '<\\/script>');
     return '<!DOCTYPE html><html><head>' +
       '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
+      '<script src="https://unpkg.com/react@18/umd/react.development.js"><\/script>' +
+      '<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"><\/script>' +
+      '<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"><\/script>' +
+      '<script src="https://cdn.tailwindcss.com"><\/script>' +
       '<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif}' +
       '#__err{display:none;padding:16px;background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5;' +
-      'border-radius:8px;margin:16px;font-family:monospace;font-size:13px;white-space:pre-wrap}' +
-      '#__load{padding:24px;text-align:center;color:#64748b;font-size:14px}</style>' +
+      'border-radius:8px;margin:16px;font-family:monospace;font-size:13px;white-space:pre-wrap}</style>' +
       '</head><body><div id="root"></div><div id="__err"></div>' +
-      '<div id="__load">Loading React + Babel...</div>' +
-      '<script>' +
-      'var __running=false;' +
-      'window.onerror=function(m,s,l,c,err){' +
-      '  if(!__running)return false;' +
-      '  document.getElementById("__load").style.display="none";' +
-      '  var e=document.getElementById("__err");e.style.display="block";' +
-      '  var msg=err?err.message:String(m);' +
-      '  e.textContent="Error: "+msg;' +
-      '  parent.postMessage({type:"playground-preview-error",error:msg},"*");' +
-      '  return true;' +
-      '};' +
-      'var __b64="' + b64 + '";' +
-      'function __loadSeq(urls,i,cb){' +
-      '  if(i>=urls.length){cb();return}' +
-      '  var s=document.createElement("script");s.src=urls[i];' +
-      '  s.onload=function(){__loadSeq(urls,i+1,cb)};' +
-      '  s.onerror=function(){' +
-      '    document.getElementById("__load").style.display="none";' +
-      '    var e=document.getElementById("__err");e.style.display="block";' +
-      '    e.textContent="Failed to load: "+urls[i];' +
-      '    parent.postMessage({type:"playground-preview-error",error:"Failed to load: "+urls[i]},"*");' +
-      '  };' +
-      '  document.head.appendChild(s);' +
-      '}' +
-      '__loadSeq([' +
-      '  "https://unpkg.com/react@18/umd/react.development.js",' +
-      '  "https://unpkg.com/react-dom@18/umd/react-dom.development.js",' +
-      '  "https://unpkg.com/@babel/standalone@7/babel.min.js"' +
-      '],0,function(){' +
-      '  var tw=document.createElement("script");tw.src="https://cdn.tailwindcss.com";document.head.appendChild(tw);' +
-      '  document.getElementById("__load").style.display="none";' +
-      '  var raw,code;' +
-      '  try{' +
-      '    raw=decodeURIComponent(escape(atob(__b64)));' +
-      '  }catch(err){' +
-      '    var e=document.getElementById("__err");e.style.display="block";' +
-      '    e.textContent="Decode error: "+err.message;' +
-      '    parent.postMessage({type:"playground-preview-error",error:err.message},"*");' +
-      '    return;' +
-      '  }' +
-      '  try{' +
-      '    code=Babel.transform(raw,{plugins:[["transform-react-jsx",{pragma:"React.createElement",pragmaFrag:"React.Fragment"}]]}).code;' +
-      '  }catch(err){' +
-      '    var e=document.getElementById("__err");e.style.display="block";' +
-      '    e.textContent="JSX Compile Error: "+err.message;' +
-      '    parent.postMessage({type:"playground-preview-error",error:"Compile: "+err.message},"*");' +
-      '    return;' +
-      '  }' +
-      '  __running=true;' +
-      '  try{' +
-      '    eval(code);' +
-      '  }catch(err){' +
-      '    var e=document.getElementById("__err");e.style.display="block";' +
-      '    e.textContent="Runtime Error: "+err.message;' +
-      '    parent.postMessage({type:"playground-preview-error",error:err.message},"*");' +
-      '  }' +
-      '  __running=false;' +
-      '});' +
-      '<\/script></body></html>';
+      '<script>window.addEventListener("error",function(ev){' +
+      '  if(ev.filename&&(ev.filename.indexOf("babel")!==-1||ev.filename.indexOf("tailwindcss")!==-1||ev.filename.indexOf("unpkg")!==-1))return;' +
+      '  var e=document.getElementById("__err");if(e){e.style.display="block";e.textContent="Error: "+(ev.error?ev.error.message:ev.message);}' +
+      '  parent.postMessage({type:"playground-preview-error",error:ev.error?ev.error.message:ev.message},"*");' +
+      '});<\/script>' +
+      '<script type="text/babel" data-presets="react">' + safe + '<\/script>' +
+      '</body></html>';
   }, []);
 
   const runJavaScript = useCallback((jsCode: string): Promise<{ output: string[]; error: string }> => {
