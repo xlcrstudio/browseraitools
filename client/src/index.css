@@ -103,6 +103,88 @@
   }
 }
 
+.dark .text-slate-900 { color: rgb(241 245 249) !important; }
+.dark .text-slate-800 { color: rgb(226 232 240) !important; }
+.dark .text-slate-700 { color: rgb(203 213 225) !important; }
+.dark .text-slate-600 { color: rgb(186 199 213) !important; }
+.dark .text-slate-500 { color: rgb(168 181 196) !important; }
+.dark .text-slate-400 { color: rgb(148 163 184) !important; }
+
+.dark .text-purple-800 { color: rgb(192 168 255) !important; }
+.dark .text-purple-700 { color: rgb(183 148 255) !important; }
+.dark .text-purple-600 { color: rgb(168 128 255) !important; }
+
+.dark .text-amber-600 { color: rgb(251 191 36) !important; }
+.dark .text-amber-700 { color: rgb(251 191 36) !important; }
+
+.dark .text-red-500 { color: rgb(252 129 129) !important; }
+.dark .text-red-700 { color: rgb(252 165 165) !important; }
+
+.dark .text-emerald-600 { color: rgb(110 231 183) !important; }
+.dark .text-emerald-700 { color: rgb(110 231 183) !important; }
+
+.dark .bg-slate-50 { background-color: rgb(30 41 59) !important; }
+.dark .bg-slate-100 { background-color: rgb(30 41 59) !important; }
+.dark .bg-white { background-color: rgb(15 23 42) !important; }
+
+.dark .bg-purple-50 { background-color: rgba(88, 28, 135, 0.2) !important; }
+.dark .bg-purple-100 { background-color: rgba(88, 28, 135, 0.3) !important; }
+.dark .bg-amber-50 { background-color: rgba(120, 53, 15, 0.2) !important; }
+.dark .bg-red-50 { background-color: rgba(127, 29, 29, 0.2) !important; }
+.dark .bg-emerald-50 { background-color: rgba(6, 78, 59, 0.2) !important; }
+
+.dark .border-slate-200 { border-color: rgb(51 65 85) !important; }
+.dark .border-slate-100 { border-color: rgb(51 65 85) !important; }
+.dark .border-purple-200 { border-color: rgba(147, 51, 234, 0.4) !important; }
+.dark .border-purple-500 { border-color: rgb(147 51 234) !important; }
+.dark .border-amber-200 { border-color: rgba(217, 119, 6, 0.4) !important; }
+.dark .border-red-200 { border-color: rgba(239, 68, 68, 0.3) !important; }
+.dark .border-emerald-200 { border-color: rgba(16, 185, 129, 0.3) !important; }
+.dark .border-emerald-100 { border-color: rgba(16, 185, 129, 0.2) !important; }
+
+.dark .prose h2, .dark .prose h3, .dark .prose h4 {
+  color: rgb(241 245 249) !important;
+}
+.dark .prose p, .dark .prose li {
+  color: rgb(186 199 213) !important;
+}
+.dark .prose strong {
+  color: rgb(226 232 240) !important;
+}
+
+.dark .border-purple-400 { border-color: rgba(147, 51, 234, 0.6) !important; }
+.dark .border-white\/20 { border-color: rgba(51, 65, 85, 0.3) !important; }
+
+.dark .ring-purple-100 { --tw-ring-color: rgba(147, 51, 234, 0.2) !important; }
+.dark .ring-purple-200\/50 { --tw-ring-color: rgba(147, 51, 234, 0.3) !important; }
+
+.dark .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3) !important; }
+
+.dark .bg-gradient-to-b.from-slate-50 { --tw-gradient-from: rgb(15 23 42) !important; }
+.dark .bg-gradient-to-b.to-white { --tw-gradient-to: rgb(15 23 42) !important; }
+
+.dark input, .dark textarea, .dark select {
+  color: rgb(226 232 240) !important;
+  background-color: rgb(30 41 59) !important;
+}
+.dark input::placeholder, .dark textarea::placeholder {
+  color: rgb(100 116 139) !important;
+}
+
+.dark .hover\:bg-slate-100:hover { background-color: rgb(30 41 59) !important; }
+.dark .hover\:bg-slate-50:hover { background-color: rgb(30 41 59) !important; }
+.dark .hover\:bg-purple-50:hover { background-color: rgba(88, 28, 135, 0.2) !important; }
+.dark .hover\:bg-red-50:hover { background-color: rgba(127, 29, 29, 0.2) !important; }
+.dark .hover\:border-purple-200:hover { border-color: rgba(147, 51, 234, 0.4) !important; }
+.dark .hover\:border-purple-300:hover { border-color: rgba(147, 51, 234, 0.5) !important; }
+.dark .hover\:text-purple-600:hover { color: rgb(168 128 255) !important; }
+.dark .hover\:text-purple-700:hover { color: rgb(183 148 255) !important; }
+.dark .hover\:text-purple-800:hover { color: rgb(192 168 255) !important; }
+.dark .hover\:text-red-500:hover { color: rgb(252 129 129) !important; }
+
+.dark .focus\:border-purple-500:focus { border-color: rgb(147 51 234) !important; }
+.dark .focus\:ring-purple-500\/10:focus { --tw-ring-color: rgba(147, 51, 234, 0.15) !important; }
+
 /* Custom Scrollbar for better aesthetics */
 ::-webkit-scrollbar {
   width: 8px;
