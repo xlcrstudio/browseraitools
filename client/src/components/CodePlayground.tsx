@@ -123,11 +123,24 @@ export function CodePlayground() {
 
   const [showJsPreview, setShowJsPreview] = useState(false);
 
-  const buildReactPreviewHTML = useCallback((jsCode: string): string => {
-    const stripped = jsCode
+  const prepareReactCode = useCallback((jsCode: string): string => {
+    let code = jsCode
       .replace(/^\s*import\s+.*?from\s+["'][^"']*["'];?\s*$/gm, '')
       .replace(/^\s*import\s+["'][^"']*["'];?\s*$/gm, '');
-    const b64 = btoa(unescape(encodeURIComponent(stripped)));
+    const hooks = ['useState','useEffect','useRef','useCallback','useMemo','useContext','useReducer','createContext','Fragment','memo','forwardRef'];
+    const used = hooks.filter(h => new RegExp('\\b' + h + '\\b').test(code));
+    if (used.length > 0) {
+      const alreadyDestructured = /const\s*\{[^}]*\}\s*=\s*React\s*;/.test(code);
+      if (!alreadyDestructured) {
+        code = 'const { ' + used.join(', ') + ' } = React;\n' + code;
+      }
+    }
+    return code;
+  }, []);
+
+  const buildReactPreviewHTML = useCallback((jsCode: string): string => {
+    const prepared = prepareReactCode(jsCode);
+    const b64 = btoa(unescape(encodeURIComponent(prepared)));
     return '<!DOCTYPE html><html><head>' +
       '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
       '<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif}' +
