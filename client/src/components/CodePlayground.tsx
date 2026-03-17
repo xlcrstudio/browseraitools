@@ -172,7 +172,7 @@ export function CodePlayground() {
       '  document.getElementById("__load").style.display="none";' +
       '  try{' +
       '    var raw=decodeURIComponent(escape(atob(__b64)));' +
-      '    var code=Babel.transform(raw,{presets:["react"]}).code;' +
+      '    var code=Babel.transform(raw,{presets:[["react",{runtime:"classic"}]]}).code;' +
       '    var fn=new Function("React","ReactDOM","document",code);' +
       '    fn(React,ReactDOM,document);' +
       '  }catch(err){' +
