@@ -68,14 +68,16 @@ function parseShortened(raw: string, origWords: number, origChars: number, wantS
   let currentLabel = "";
   let currentLines: string[] = [];
 
-  const SECTION_RE: Array<{ re: RegExp; section: string; label: string }> = [
-    { re: /(?:STANDARD|SHORT(?:ENED)?\s*VERSION|PRIMARY)/i, section: "version", label: "Standard Short" },
-    { re: /(?:TWEET|280\s*CHAR|TWITTER)/i, section: "version", label: "Tweet-Length" },
-    { re: /(?:HEADLINE|10\s*WORD)/i, section: "version", label: "Headline" },
-    { re: /(?:ALTERNATIVE|VERSION\s*[23]|DIFFERENT)/i, section: "version", label: "Alternative" },
-    { re: /(?:WHAT\s*WAS\s*REMOVED|REMOVAL|WORDINESS|REDUNDAN)/i, section: "removals", label: "" },
-    { re: /(?:IMPROVEMENT|WHY\s*(?:THIS|IT)\s*WORKS|NOTES|CLARITY)/i, section: "improvements", label: "" },
-    { re: /(?:REDUCTION|ANALYSIS|STATISTICS|STATS)/i, section: "skip", label: "" },
+  let altCounter = 0;
+
+  const SECTION_RE: Array<{ re: RegExp; section: string; label: string | (() => string) }> = [
+    { re: /^(?:#{1,3}\s*)?(?:\*{2})?\s*(?:STANDARD\s*SHORT|SHORTENED?\s*VERSION|PRIMARY)/i, section: "version", label: "Standard Short" },
+    { re: /^(?:#{1,3}\s*)?(?:\*{2})?\s*(?:TWEET|280\s*CHAR|TWITTER)/i, section: "version", label: "Tweet-Length" },
+    { re: /^(?:#{1,3}\s*)?(?:\*{2})?\s*(?:HEADLINE|10\s*WORD)/i, section: "version", label: "Headline" },
+    { re: /^(?:#{1,3}\s*)?(?:\*{2})?\s*(?:ALTERNATIVE\s*(?:VERSION)?\s*\d?|VERSION\s*[2-5]|DIFFERENT\s*(?:VERSION|APPROACH))/i, section: "version", label: () => `Alternative ${++altCounter}` },
+    { re: /^(?:#{1,3}\s*)?(?:\*{2})?\s*(?:WHAT\s*WAS\s*REMOVED|REMOVAL|CHANGES\s*MADE)/i, section: "removals", label: "" },
+    { re: /^(?:#{1,3}\s*)?(?:\*{2})?\s*(?:IMPROVEMENT|NOTES|WHY\s*(?:THIS|IT)\s*WORKS)/i, section: "improvements", label: "" },
+    { re: /^(?:#{1,3}\s*)?(?:\*{2})?\s*(?:REDUCTION|ANALYSIS|STATISTICS|STATS|WORDINESS\s*PATTERN|COMMON\s*PROBLEM)/i, section: "skip", label: "" },
   ];
 
   const STOP_RE = /^(?:#{1,3}\s*)?(?:\*{2})?\s*(?:LEARN\s*MORE|WORDINESS\s*PATTERN|COMMON\s*PROBLEM)/i;
@@ -110,7 +112,7 @@ function parseShortened(raw: string, origWords: number, origChars: number, wantS
       if (sr.re.test(trimmed)) {
         flushVersion();
         currentSection = sr.section;
-        if (sr.section === "version") currentLabel = sr.label;
+        if (sr.section === "version") currentLabel = typeof sr.label === "function" ? sr.label() : sr.label;
 
         const colonIdx = trimmed.indexOf(":");
         if (colonIdx !== -1 && sr.section === "version") {
@@ -125,7 +127,13 @@ function parseShortened(raw: string, origWords: number, origChars: number, wantS
 
     if (currentSection === "version" && currentLabel) {
       const cleaned = trimmed.replace(/^["*]+|["*]+$/g, "").trim();
-      if (cleaned.length > 5 && !cleaned.match(/^(?:character|word|char)\s*(?:count|:)/i) && !cleaned.match(/^(?:perfect|ideal)\s*for/i) && !cleaned.match(/^\d+\s*\/\s*\d+/)) {
+      if (cleaned.length > 5
+        && !cleaned.match(/^(?:character|word|char)\s*(?:count|:)/i)
+        && !cleaned.match(/^(?:perfect|ideal)\s*for/i)
+        && !cleaned.match(/^\d+\s*\/\s*\d+/)
+        && !cleaned.match(/^(?:CHANGES?\s*MADE|REMOVED|TYPE|CATEGORY|SAVED?|REDUCTION)/i)
+        && !cleaned.match(/^[-*]\s*[""]/)
+      ) {
         currentLines.push(cleaned);
       }
     } else if (currentSection === "removals") {
@@ -171,7 +179,15 @@ function parseShortened(raw: string, origWords: number, origChars: number, wantS
     return true;
   });
 
-  for (const v of filteredVersions) {
+  const seen = new Set<string>();
+  const deduped = filteredVersions.filter(v => {
+    const key = v.text.toLowerCase().replace(/\s+/g, " ").trim();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+
+  for (const v of deduped) {
     if (v.label === "Tweet-Length" && v.charCount > 280) {
       v.text = v.text.slice(0, 277) + "...";
       v.charCount = v.text.length;
@@ -185,7 +201,7 @@ function parseShortened(raw: string, origWords: number, origChars: number, wantS
     }
   }
 
-  return { id: generateId(), versions: filteredVersions.length > 0 ? filteredVersions : versions, removals, improvements, originalWords: origWords, originalChars: origChars };
+  return { id: generateId(), versions: deduped.length > 0 ? deduped : versions, removals, improvements, originalWords: origWords, originalChars: origChars };
 }
 
 export function ShortenerGenerator() {
@@ -224,30 +240,38 @@ export function ShortenerGenerator() {
     setCopiedId(null); setSaved(false); setEmptyError("");
 
     const levelInst = LEVEL_INSTRUCTIONS[level] || LEVEL_INSTRUCTIONS.concise;
-    const formatInstructions: string[] = [];
-    if (includeStandard) formatInstructions.push("STANDARD SHORT:\n\"[shortened version]\"");
-    if (includeTweet) formatInstructions.push("TWEET-LENGTH (280 chars max):\n\"[tweet version]\"");
-    if (includeHeadline) formatInstructions.push("HEADLINE (10 words max):\n\"[headline version]\"");
 
-    const prompt = `Shorten this sentence: "${sourceText}"
+    const prompt = `Shorten this sentence. ${levelInst}
 
-Level: ${LEVELS.find(l => l.id === level)?.label || "Concise"}
-${levelInst}
+SENTENCE: "${sourceText}"
 
-Generate these shortened versions:
+Write EXACTLY this output, filling in the quotes:
 
-${formatInstructions.join("\n\n")}
+${includeStandard ? `STANDARD SHORT:
+"[write a shortened version here]"
 
-WHAT WAS REMOVED:
-- "[original phrase]" -> "[shorter replacement]" (Type: [category])
-List 3-5 specific changes made.
+` : ""}${includeTweet ? `TWEET-LENGTH:
+"[write a version under 280 characters here]"
 
-IMPROVEMENT NOTES:
-- [why the shortened version is better]
-- [what was preserved]
-- [clarity/impact assessment]
+` : ""}${includeHeadline ? `HEADLINE:
+"[write a version of 10 words or fewer here]"
 
-Keep the core meaning. Remove wordiness, redundancy, and unnecessary qualifiers. Make it direct and powerful.`;
+` : ""}ALTERNATIVE VERSION 1:
+"[write a different shortened version using different word choices]"
+
+ALTERNATIVE VERSION 2:
+"[write yet another shortened version with a different structure]"
+
+REMOVALS:
+- "[original phrase]" -> "[replacement]" ([category])
+- "[original phrase]" -> "[replacement]" ([category])
+- "[original phrase]" -> "[replacement]" ([category])
+
+NOTES:
+- [improvement note 1]
+- [improvement note 2]
+
+Do NOT add any other sections. Do NOT repeat the original sentence. Just fill in the template above.`;
 
     const origW = wordCount(sourceText);
     const origC = sourceText.trim().length;
@@ -257,8 +281,8 @@ Keep the core meaning. Remove wordiness, redundancy, and unnecessary qualifiers.
         { role: "system", content: SYSTEM_PROMPT },
         { role: "user", content: prompt },
       ],
-      temperature: 0.5,
-      maxTokens: 2500,
+      temperature: 0.6,
+      maxTokens: 3000,
       onChunk: (chunk) => setStreamedContent(chunk),
     });
 
