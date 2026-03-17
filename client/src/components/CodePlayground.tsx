@@ -202,7 +202,7 @@ export function CodePlayground() {
       '    eval(code);' +
       '  }catch(err){' +
       '    var e=document.getElementById("__err");e.style.display="block";' +
-      '    e.textContent="Runtime Error: "+err.message;' +
+      '    e.textContent="Runtime Error: "+err.message+"\\n\\nTransformed code (first 500 chars):\\n"+code.substring(0,500);' +
       '    parent.postMessage({type:"playground-preview-error",error:err.message},"*");' +
       '  }' +
       '  __running=false;' +
