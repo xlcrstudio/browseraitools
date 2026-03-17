@@ -2459,3 +2459,46 @@ export const sentenceExpanderFAQs: FAQItem[] = [
     answer: "Yes. After the initial AI model download, the sentence expander works completely offline. The model is cached in your browser, so you can expand sentences anytime without an internet connection.",
   },
 ];
+
+export const headlineImproverFAQs: FAQItem[] = [
+  {
+    question: "What is the AI Headline Improver?",
+    answer: "The AI Headline Improver is a free, browser-based tool that transforms weak, generic headlines into compelling, high-engagement titles. It uses advanced AI (Qwen 2.5) running directly in your browser to generate 5 improved headline variations with click scores, emotional analysis, and platform-specific insights.",
+  },
+  {
+    question: "Is this headline improver free to use?",
+    answer: "Yes, the AI Headline Improver is completely free with no hidden costs, subscriptions, or usage limits. The AI model runs locally in your browser, so there are no server costs to pass on to you.",
+  },
+  {
+    question: "How does the headline improvement work?",
+    answer: "Enter your original headline (up to 200 characters), choose a headline style (clickbait, SEO, professional, list, curiosity gap, or question), select your target platform, and click Improve Headline. The AI generates 5 improved variations, each with a click potential score, analysis of why it works, and emotional triggers.",
+  },
+  {
+    question: "What are the 6 headline styles?",
+    answer: "The tool offers 6 styles: Clickbait creates attention-grabbing, curiosity-driven headlines. SEO Optimized focuses on keyword-rich, search-friendly titles. Professional produces credible, authoritative headlines. List Style uses numbered formats. Curiosity Gap creates compelling mystery headlines. Question Format engages readers with thought-provoking questions.",
+  },
+  {
+    question: "What platforms can I optimize headlines for?",
+    answer: "You can optimize headlines for 5 platforms: Blog Posts (SEO-focused titles under 60 characters), Social Media (engagement-driven headlines), YouTube Videos (click-worthy video titles), Email Subject Lines (open-rate optimized), and Ad Copy (conversion-focused headlines).",
+  },
+  {
+    question: "What is the click potential score?",
+    answer: "Each headline variation receives a click potential score from 0 to 10, based on factors like emotional impact, specificity, length optimization, power words, and clarity of benefit. The highest-scoring headline is highlighted as the best option. The tool also analyzes your original headline's score so you can see the improvement.",
+  },
+  {
+    question: "What are emotional triggers in headlines?",
+    answer: "Emotional triggers are psychological elements that make headlines more compelling. The tool identifies triggers like curiosity (secrets, mysteries), urgency (time-sensitive language), fear of missing out (exclusive information), achievement (success-oriented), and security (safety-focused). Headlines with strong emotional triggers consistently outperform neutral ones.",
+  },
+  {
+    question: "Is my headline text kept private?",
+    answer: "Absolutely. The AI runs 100% locally in your browser using WebLLM. Your headlines and generated variations never leave your device. There is no server processing, data collection, or tracking of any kind.",
+  },
+  {
+    question: "Can I save and export my improved headlines?",
+    answer: "Yes. You can copy individual headlines or all variations to your clipboard, download the complete analysis as a plain text file, or save headline sets to your browser for later reference. The tool stores up to 10 saved sets locally.",
+  },
+  {
+    question: "Does this work offline?",
+    answer: "Yes. After the initial AI model download, the headline improver works completely offline. The model is cached in your browser, so you can improve headlines anytime without an internet connection.",
+  },
+];

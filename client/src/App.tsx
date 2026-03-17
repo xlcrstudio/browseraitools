@@ -64,6 +64,7 @@ import BulletPointsPage from "@/pages/BulletPointsPage";
 import FAQGeneratorPage from "@/pages/FAQGeneratorPage";
 import SimplifierPage from "@/pages/SimplifierPage";
 import ExpanderPage from "@/pages/ExpanderPage";
+import HeadlineImproverPage from "@/pages/HeadlineImproverPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -131,6 +132,7 @@ function Router() {
       <Route path="/ai-faq-generator" component={FAQGeneratorPage} />
       <Route path="/ai-sentence-simplifier" component={SimplifierPage} />
       <Route path="/ai-sentence-expander" component={ExpanderPage} />
+      <Route path="/ai-headline-improver" component={HeadlineImproverPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
