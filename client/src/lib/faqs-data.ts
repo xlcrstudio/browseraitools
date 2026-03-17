@@ -2116,6 +2116,49 @@ export const bulletPointsFAQs = [
   },
 ];
 
+export const sentenceSimplifierFAQs = [
+  {
+    question: "What does the AI Sentence Simplifier do?",
+    answer: "It takes complex sentences and rewrites them in simpler, easier-to-understand language while preserving the original meaning. It also provides step-by-step explanations of what changed, vocabulary definitions, and readability scoring.",
+  },
+  {
+    question: "What simplification levels are available?",
+    answer: "Three levels: Slightly Simpler (replaces uncommon words while keeping structure), Moderately Simpler (adjusts both vocabulary and structure for everyday language), and ELI5 or Explain Like I'm 5 (uses the simplest possible words a young child would understand).",
+  },
+  {
+    question: "What is the step-by-step breakdown?",
+    answer: "When enabled, the tool shows each word or phrase that was changed, the simpler replacement, and the reason for the change. This helps you understand why certain words are considered complex and what alternatives exist.",
+  },
+  {
+    question: "How does the vocabulary learning feature work?",
+    answer: "The tool identifies complex words in your sentence and provides definitions, part of speech, and simpler alternatives. This is especially useful for ESL learners building their English vocabulary.",
+  },
+  {
+    question: "What is the readability scoring?",
+    answer: "The tool estimates the grade level of both your original sentence and the simplified version, showing how much easier the text became. Grade levels range from elementary school through college level.",
+  },
+  {
+    question: "Is this useful for ESL learners?",
+    answer: "Absolutely. ESL learners can paste complex English text and see it simplified with explanations. The vocabulary feature helps learn formal and informal word pairs, and the step-by-step breakdown teaches grammar and writing patterns.",
+  },
+  {
+    question: "What is the character limit?",
+    answer: "You can simplify sentences up to 500 characters (roughly 1-3 sentences). For best results, enter one complex sentence at a time so the AI can provide detailed analysis of each change.",
+  },
+  {
+    question: "Can I save my simplified sentences?",
+    answer: "Yes. Click Save to store the simplified result along with your original text and settings. Up to 10 saved simplifications are stored in your browser for later reference.",
+  },
+  {
+    question: "Is my text kept private?",
+    answer: "Yes. The AI runs 100% locally in your browser using WebLLM. Your text is never sent to any server. All processing happens on your device, making it safe for any content.",
+  },
+  {
+    question: "Does this work offline?",
+    answer: "Yes. After the initial AI model download, the sentence simplifier works completely offline. The model is cached in your browser for use anytime without an internet connection.",
+  },
+];
+
 export const faqGeneratorFAQs = [
   {
     question: "What does the AI FAQ Generator do?",
