@@ -176,20 +176,36 @@ export function CodePlayground() {
       '__loadSeq([' +
       '  "https://unpkg.com/react@18/umd/react.development.js",' +
       '  "https://unpkg.com/react-dom@18/umd/react-dom.development.js",' +
-      '  "https://unpkg.com/@babel/standalone@7/babel.min.js",' +
-      '  "https://cdn.tailwindcss.com"' +
+      '  "https://unpkg.com/@babel/standalone@7/babel.min.js"' +
       '],0,function(){' +
+      '  var tw=document.createElement("script");tw.src="https://cdn.tailwindcss.com";document.head.appendChild(tw);' +
       '  document.getElementById("__load").style.display="none";' +
+      '  var raw,code;' +
+      '  try{' +
+      '    raw=decodeURIComponent(escape(atob(__b64)));' +
+      '  }catch(err){' +
+      '    var e=document.getElementById("__err");e.style.display="block";' +
+      '    e.textContent="Decode error: "+err.message;' +
+      '    parent.postMessage({type:"playground-preview-error",error:err.message},"*");' +
+      '    return;' +
+      '  }' +
+      '  try{' +
+      '    code=Babel.transform(raw,{presets:[["react",{runtime:"classic"}]]}).code;' +
+      '  }catch(err){' +
+      '    var e=document.getElementById("__err");e.style.display="block";' +
+      '    e.textContent="JSX Compile Error: "+err.message;' +
+      '    parent.postMessage({type:"playground-preview-error",error:"Compile: "+err.message},"*");' +
+      '    return;' +
+      '  }' +
       '  __running=true;' +
       '  try{' +
-      '    var raw=decodeURIComponent(escape(atob(__b64)));' +
-      '    var code=Babel.transform(raw,{presets:[["react",{runtime:"classic"}]]}).code;' +
       '    eval(code);' +
       '  }catch(err){' +
       '    var e=document.getElementById("__err");e.style.display="block";' +
-      '    e.textContent="Error: "+err.message;' +
+      '    e.textContent="Runtime Error: "+err.message;' +
       '    parent.postMessage({type:"playground-preview-error",error:err.message},"*");' +
       '  }' +
+      '  __running=false;' +
       '});' +
       '<\/script></body></html>';
   }, []);
