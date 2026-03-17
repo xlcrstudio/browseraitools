@@ -29,8 +29,13 @@ Core rules:
 - Use modern, clean syntax with helpful comments.
 - Prefer simple solutions over clever ones.
 - Never use external dependencies unless absolutely necessary (and then list them clearly).
-- For HTML/JS: include Tailwind via CDN when it makes sense.
 - For Python: use only standard library + common Pyodide-supported packages.
+
+IMPORTANT - JavaScript execution environment:
+- When the language is JavaScript:
+  - For React/JSX code: Write JSX directly. React and ReactDOM are available as globals (React 18 UMD). Babel transpiles JSX automatically. Tailwind CSS is available via CDN. Do NOT use import statements. Use React.useState, React.useEffect etc. directly. Always render to document.getElementById("root") using ReactDOM.createRoot.
+  - For plain JS (no UI): Write vanilla JavaScript. console.log output appears in the console panel.
+- When the language is HTML/CSS/JS: Write a complete HTML document with inline styles and scripts.
 
 When fixing errors:
 - Read the exact error message.
@@ -84,7 +89,37 @@ export function CodePlayground() {
     return () => window.removeEventListener("message", handler);
   }, []);
 
+  const needsVisualPreview = useCallback((jsCode: string): boolean => {
+    return /\bReact\b|\bReactDOM\b|\bJSX\b|\bcreateRoot\b|\bcreateElement\b|\brender\s*\(|<\w+[\s/>]|import\s+.*from\s+["']/.test(jsCode);
+  }, []);
+
+  const [showJsPreview, setShowJsPreview] = useState(false);
+
   const runJavaScript = useCallback((jsCode: string): Promise<{ output: string[]; error: string }> => {
+    if (needsVisualPreview(jsCode)) {
+      setShowJsPreview(true);
+      const escaped = jsCode.replace(/<\/script>/gi, '<\\/script>');
+      const stripped = escaped
+        .replace(/^\s*import\s+.*?from\s+["'][^"']*["'];?\s*$/gm, '')
+        .replace(/^\s*import\s+["'][^"']*["'];?\s*$/gm, '');
+      const previewHTML = '<!DOCTYPE html><html><head>' +
+        '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
+        '<script src="https://unpkg.com/react@18/umd/react.development.js"><\/script>' +
+        '<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"><\/script>' +
+        '<script src="https://unpkg.com/@babel/standalone/babel.min.js"><\/script>' +
+        '<link href="https://cdn.tailwindcss.com" rel="stylesheet">' +
+        '<script src="https://cdn.tailwindcss.com"><\/script>' +
+        '<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif}</style>' +
+        '</head><body><div id="root"></div>' +
+        '<script type="text/babel">' + stripped + '<\/script>' +
+        '</body></html>';
+      if (htmlIframeRef.current) {
+        htmlIframeRef.current.srcdoc = previewHTML;
+      }
+      return Promise.resolve({ output: ["React/JSX code rendered in preview below."], error: "" });
+    }
+
+    setShowJsPreview(false);
     return new Promise((resolve) => {
       const timeout = setTimeout(() => {
         runResolverRef.current = null;
@@ -96,6 +131,7 @@ export function CodePlayground() {
         resolve(val);
       };
 
+      const escaped = jsCode.replace(/<\/script>/gi, '<\\/script>');
       const sandboxHTML = '<!DOCTYPE html><html><head></head><body><script>' +
         'var __output = []; var __error = "";' +
         'var console = {' +
@@ -104,7 +140,7 @@ export function CodePlayground() {
         '  warn: function() { __output.push("[WARN] " + Array.prototype.slice.call(arguments).join(" ")); },' +
         '  info: function() { __output.push("[INFO] " + Array.prototype.slice.call(arguments).join(" ")); }' +
         '};' +
-        'try { ' + jsCode.replace(/<\/script>/gi, "<\\/script>") + ' } catch(e) { __error = e.message || String(e); __output.push("[ERROR] " + __error); }' +
+        'try { ' + escaped + ' } catch(e) { __error = e.message || String(e); __output.push("[ERROR] " + __error); }' +
         'parent.postMessage({ type: "playground-result", output: __output, error: __error }, "*");' +
         '<\/script></body></html>';
 
@@ -112,7 +148,7 @@ export function CodePlayground() {
         jsIframeRef.current.srcdoc = sandboxHTML;
       }
     });
-  }, []);
+  }, [needsVisualPreview]);
 
   const runHTML = useCallback((htmlCode: string) => {
     if (!htmlIframeRef.current) return;
@@ -276,7 +312,7 @@ Fix this error. Return the FULL corrected code. Add a comment at the top explain
   const handleNewProject = useCallback(() => {
     setCode(""); setPrompt(""); setProjectName("Untitled");
     setLanguage("javascript");
-    setConsoleOutput([]); setConsoleError("");
+    setConsoleOutput([]); setConsoleError(""); setShowJsPreview(false);
     setActiveId(null);
   }, [setActiveId]);
 
@@ -297,7 +333,7 @@ Fix this error. Return the FULL corrected code. Add a comment at the top explain
   const handleTemplate = (t: typeof TEMPLATES[0]) => {
     setCode(t.code); setLanguage(t.language); setPrompt(t.prompt);
     setProjectName(t.name);
-    setConsoleOutput([]); setConsoleError("");
+    setConsoleOutput([]); setConsoleError(""); setShowJsPreview(false);
     setShowTemplates(false);
     setActiveId(null);
   };
@@ -491,18 +527,18 @@ Fix this error. Return the FULL corrected code. Add a comment at the top explain
             </div>
           </div>
 
-          {language === "html" && (
+          {(language === "html" || showJsPreview) && (
             <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
               <div className="px-4 py-2 border-b border-slate-200 flex items-center gap-2">
                 <Code className="w-4 h-4 text-emerald-500" />
                 <span className="text-xs font-semibold text-slate-500">Live Preview</span>
               </div>
-              <iframe ref={htmlIframeRef} data-testid="iframe-preview" title="Code Preview" sandbox="allow-scripts allow-modals" className="w-full h-[400px] bg-white" />
+              <iframe ref={htmlIframeRef} data-testid="iframe-preview" title="Code Preview" sandbox="allow-scripts allow-modals allow-same-origin" className="w-full h-[400px] bg-white" />
             </div>
           )}
         </div>
       </div>
-      <iframe ref={jsIframeRef} title="JS Sandbox" sandbox="allow-scripts" className="hidden" aria-hidden="true" />
+      <iframe ref={jsIframeRef} title="JS Sandbox" sandbox="allow-scripts allow-same-origin" className="hidden" aria-hidden="true" />
     </div>
   );
 }
