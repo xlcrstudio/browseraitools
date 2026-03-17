@@ -39,6 +39,7 @@ const ALL_TOOLS: ToolEntry[] = [
   { name: "AI Sentence Expander", path: "/ai-sentence-expander", category: "UtilitiesApplication" },
   { name: "AI Headline Improver", path: "/ai-headline-improver", category: "UtilitiesApplication" },
   { name: "AI Sentence Shortener", path: "/ai-sentence-shortener", category: "UtilitiesApplication" },
+  { name: "Private AI Code Playground", path: "/ai-code-playground", category: "DeveloperApplication" },
   { name: "AI Meta Description Generator", path: "/ai-meta-description-generator", category: "BusinessApplication" },
   { name: "AI SEO Title Generator", path: "/ai-seo-title-generator", category: "BusinessApplication" },
   { name: "AI Keyword Generator", path: "/ai-keyword-generator", category: "BusinessApplication" },

@@ -2537,3 +2537,38 @@ export const sentenceShortenerFAQs: FAQItem[] = [
     answer: "Yes. After the initial AI model download, the sentence shortener works completely offline. The model is cached in your browser, so you can shorten sentences anytime without an internet connection.",
   },
 ];
+
+export const codePlaygroundFAQs: FAQItem[] = [
+  {
+    question: "How does the Private AI Code Playground work?",
+    answer: "The playground runs entirely in your browser. The AI model (WebLLM) generates code from your prompts, Monaco Editor provides VS Code-quality editing, and code executes in sandboxed iframes (JavaScript/HTML) or Pyodide WebAssembly (Python). Nothing is sent to any server.",
+  },
+  {
+    question: "What programming languages are supported?",
+    answer: "JavaScript, HTML/CSS/JS, and Python are fully supported. JavaScript and HTML execute instantly in sandboxed iframes. Python runs through Pyodide, a complete CPython interpreter compiled to WebAssembly, with access to NumPy, Pandas, and standard library modules.",
+  },
+  {
+    question: "How does the Fix This Error button work?",
+    answer: "When your code produces a runtime error, the Fix This Error button sends both your full code and the exact error message to the local AI model. It generates a corrected version with a comment explaining what was wrong and why the fix works.",
+  },
+  {
+    question: "Are my projects saved?",
+    answer: "Yes. Projects are stored in your browser's IndexedDB, which persists across sessions and page refreshes. You can create multiple projects, switch between them, and pick up where you left off. You can also download code files for use in VS Code or other editors.",
+  },
+  {
+    question: "Is my code private?",
+    answer: "Completely. The AI model runs locally in your browser using WebGPU. Code execution happens in sandboxed environments on your device. No code, prompts, or outputs are ever sent to any server. This is a true zero-upload playground.",
+  },
+  {
+    question: "What templates are available?",
+    answer: "The playground includes templates for Hello World, React Components, Tailwind Pages, Todo Apps, Python Scripts, Data Dashboards, API Endpoint Mocks, and Sorting Algorithms. Each template loads complete, runnable code you can modify and learn from.",
+  },
+  {
+    question: "Can I use external libraries?",
+    answer: "For HTML projects, you can include CDN scripts like Tailwind CSS, React, or Chart.js. For Python, Pyodide supports many popular packages including NumPy, Pandas, and Matplotlib. Pure JavaScript runs in a sandboxed environment with standard browser APIs.",
+  },
+  {
+    question: "Does it work offline?",
+    answer: "Yes. After the initial AI model download and Pyodide loading, the entire playground works offline. The AI model, code editor, and execution environments are all cached in your browser.",
+  },
+];

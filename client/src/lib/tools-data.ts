@@ -6,7 +6,7 @@ import {
   Search, Tag, Key, BookOpen, Link2,
   Briefcase, ScrollText, UserCheck, MessageCircle, ScanSearch,
   ListChecks, ClipboardList, CalendarDays, Flag,
-  Scale, ThumbsUp, Swords, ShieldQuestion, Heart, Flame, BookOpenCheck, Sparkles, UtensilsCrossed, MapPin, Code,
+  Scale, ThumbsUp, Swords, ShieldQuestion, Heart, Flame, BookOpenCheck, Sparkles, UtensilsCrossed, MapPin, Code, Terminal,
 } from "lucide-react";
 
 export interface Tool {
@@ -140,6 +140,14 @@ export const toolCategories: ToolCategory[] = [
       { id: 55, name: "AI Dating Profile Generator", slug: "/ai-dating-profile-generator", icon: Heart, available: true },
       { id: 56, name: "AI Meal Planner", slug: "/ai-meal-planner", icon: UtensilsCrossed, available: true },
       { id: 57, name: "AI Travel Planner", slug: "/ai-travel-itinerary-planner", icon: MapPin, available: true },
+    ],
+  },
+  {
+    name: "Developer Tools",
+    slug: "developer",
+    description: "AI-powered tools for developers and coders",
+    tools: [
+      { id: 63, name: "Private AI Code Playground", slug: "/ai-code-playground", icon: Terminal, available: true },
     ],
   },
 ];
