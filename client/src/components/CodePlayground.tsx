@@ -105,43 +105,27 @@ export function CodePlayground() {
     const stripped = jsCode
       .replace(/^\s*import\s+.*?from\s+["'][^"']*["'];?\s*$/gm, '')
       .replace(/^\s*import\s+["'][^"']*["'];?\s*$/gm, '');
-    const encoded = stripped
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-    return [
-      '<!DOCTYPE html><html><head>',
-      '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">',
-      '<script src="https://unpkg.com/react@18/umd/react.development.js"></script>',
-      '<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>',
-      '<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>',
-      '<script src="https://cdn.tailwindcss.com"></script>',
-      '<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif}',
-      '#__err{display:none;padding:16px;background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5;',
-      'border-radius:8px;margin:16px;font-family:monospace;font-size:13px;white-space:pre-wrap}</style>',
-      '</head><body><div id="root"></div><div id="__err"></div>',
-      '<script id="__user_code" type="text/plain">' + encoded + '</script>',
-      '<script>',
-      'window.onerror=function(m){',
-      '  var e=document.getElementById("__err");e.style.display="block";e.textContent="Runtime Error: "+m;',
-      '  parent.postMessage({type:"playground-preview-error",error:String(m)},"*");',
-      '};',
-      'function __run(){',
-      '  var raw=document.getElementById("__user_code").textContent;',
-      '  try{',
-      '    var code=Babel.transform(raw,{presets:["react"]}).code;',
-      '    var fn=new Function("React","ReactDOM",code);',
-      '    fn(React,ReactDOM);',
-      '  }catch(err){',
-      '    var e=document.getElementById("__err");e.style.display="block";',
-      '    e.textContent="Error: "+err.message;',
-      '    parent.postMessage({type:"playground-preview-error",error:err.message},"*");',
-      '  }',
-      '}',
-      'if(typeof Babel!=="undefined"){__run()}',
-      'else{document.querySelector("script[src*=\\"babel\\"]").onload=__run}',
-      '</script></body></html>'
-    ].join('\n');
+    const safeCode = stripped.replace(/<\/script>/gi, '<\\/script>');
+    return '<!DOCTYPE html><html><head>' +
+      '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
+      '<script src="https://unpkg.com/react@18/umd/react.development.js"><\/script>' +
+      '<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"><\/script>' +
+      '<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"><\/script>' +
+      '<script src="https://cdn.tailwindcss.com"><\/script>' +
+      '<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif}' +
+      '#__err{display:none;padding:16px;background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5;' +
+      'border-radius:8px;margin:16px;font-family:monospace;font-size:13px;white-space:pre-wrap}</style>' +
+      '</head><body><div id="root"></div><div id="__err"></div>' +
+      '<script>' +
+      'window.onerror=function(m,s,l,c,err){' +
+      '  var e=document.getElementById("__err");e.style.display="block";' +
+      '  e.textContent="Error: "+(err?err.message:m);' +
+      '  parent.postMessage({type:"playground-preview-error",error:err?err.message:String(m)},"*");' +
+      '  return true;' +
+      '};' +
+      '<\/script>' +
+      '<script type="text/babel" data-type="module">' + safeCode + '<\/script>' +
+      '</body></html>';
   }, []);
 
   const runJavaScript = useCallback((jsCode: string): Promise<{ output: string[]; error: string }> => {
@@ -259,10 +243,19 @@ export function CodePlayground() {
     if (!prompt.trim()) return;
     setConsoleOutput([]); setConsoleError("");
 
+    const jsEnvNote = language === "javascript" ? `
+CRITICAL ENVIRONMENT RULES FOR JAVASCRIPT:
+- React 18 and ReactDOM 18 are available as GLOBALS. Do NOT use import statements.
+- Use React.useState, React.useEffect, React.useRef etc. directly (or destructure: const { useState, useEffect } = React).
+- Babel transpiles JSX automatically. Write JSX directly.
+- Tailwind CSS is loaded. Use className="..." with Tailwind classes.
+- Always render with: ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+- For non-UI code, just use console.log for output.
+` : "";
     const userPrompt = `USER REQUEST: ${prompt}
 
 CURRENT LANGUAGE: ${language}
-
+${jsEnvNote}
 ${code.trim() ? `CURRENT CODE IN EDITOR:\n${code}\n` : ""}
 TASK: Generate complete runnable ${language === "html" ? "HTML" : language === "python" ? "Python" : "JavaScript"} code for this request.
 Return ONLY the code block. No markdown fences. No explanations outside code comments.`;
@@ -289,6 +282,13 @@ Return ONLY the code block. No markdown fences. No explanations outside code com
   const handleFixError = useCallback(async () => {
     if (!consoleError) return;
 
+    const jsFixNote = language === "javascript" ? `
+CRITICAL ENVIRONMENT RULES:
+- React 18 and ReactDOM 18 are available as GLOBALS. Do NOT use import/require statements.
+- Destructure from React: const { useState, useEffect, useRef } = React;
+- Babel transpiles JSX automatically. Tailwind CSS is loaded.
+- Render with: ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+` : "";
     const userPrompt = `CURRENT CODE IN EDITOR:
 ${code}
 
@@ -296,7 +296,7 @@ RUNTIME ERROR:
 ${consoleError}
 
 LANGUAGE: ${language}
-
+${jsFixNote}
 Fix this error. Return the FULL corrected code. Add a comment at the top explaining the fix. No markdown fences.`;
 
     const result = await generateRaw({
