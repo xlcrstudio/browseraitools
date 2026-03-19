@@ -30,30 +30,38 @@ function computeAIRisk(text: string): number {
   const wc = words.length;
   const lower = text.toLowerCase();
 
+  // Primary signal: AI marker words/phrases (most reliable indicator)
   let hits = 0;
   for (const m of AI_MARKERS) {
     const rx = new RegExp(`\\b${m.replace(/[-]/g, "\\-")}\\b`, "gi");
     const found = lower.match(rx);
     if (found) hits += found.length;
   }
-  score += Math.min(35, (hits / wc) * 500);
+  score += Math.min(50, (hits / wc) * 700);
 
+  // Sentence uniformity — only meaningful with 5+ complete sentences.
+  // Natural prose has sd 3-6; very uniform AI prose has sd < 2.
+  // Notes/bullets rarely form complete sentences so this check is skipped.
   const sentences = text.match(/[^.!?]+[.!?]+/g) || [];
-  if (sentences.length >= 3) {
+  if (sentences.length >= 5) {
     const lens = sentences.map(s => s.trim().split(/\s+/).length);
     const avg = lens.reduce((a, b) => a + b, 0) / lens.length;
     const sd = Math.sqrt(lens.reduce((s, l) => s + (l - avg) ** 2, 0) / lens.length);
-    score += Math.max(0, Math.min(25, 25 - sd * 1.8));
+    // Only penalise very uniform text (sd < 2); natural varied prose scores near 0
+    score += Math.max(0, Math.min(12, 12 - sd * 3.5));
   }
 
+  // Lack of contractions — AI text rarely uses them
   const contractions = text.match(/\b(don't|can't|won't|it's|I'm|I've|we're|they're|isn't|aren't|wasn't|weren't|I'll|you'll|he's|she's|that's|there's|we've)\b/gi) || [];
-  score += Math.max(0, Math.min(20, 20 - contractions.length * 4));
+  score += Math.max(0, Math.min(18, 18 - contractions.length * 3));
 
+  // Passive voice constructions
   const passive = text.match(/\b(is|are|was|were|be|been|being)\s+\w+ed\b/gi) || [];
-  score += Math.min(15, passive.length * 5);
+  score += Math.min(12, passive.length * 4);
 
+  // Formal sentence openers (loudest AI signal)
   const formalStart = (text.match(/\b(Furthermore|Moreover|Additionally|Consequently|Subsequently|Notwithstanding)\b/g) || []).length;
-  score += Math.min(5, formalStart * 3);
+  score += Math.min(8, formalStart * 4);
 
   return Math.round(Math.min(100, score));
 }
@@ -381,21 +389,38 @@ export function AIHumanizerGenerator() {
               <motion.div key="results" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="space-y-4">
 
                 {/* Detection comparison */}
-                {versions.length > 0 && (
-                  <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 space-y-3">
-                    <div className="flex items-center gap-2 font-semibold text-slate-800 dark:text-slate-100 text-sm mb-1">
-                      <ArrowLeftRight className="w-4 h-4 text-indigo-500" />
-                      AI Detection Risk
+                {versions.length > 0 && (() => {
+                  const afterRisk = Math.round(computeAIRisk(versions[0].content));
+                  const delta = inputRisk - afterRisk;
+                  const inputIsLow = inputRisk < 35;
+                  return (
+                    <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 space-y-3">
+                      <div className="flex items-center gap-2 font-semibold text-slate-800 dark:text-slate-100 text-sm mb-1">
+                        <ArrowLeftRight className="w-4 h-4 text-indigo-500" />
+                        AI Detection Risk
+                      </div>
+                      <RiskMeter score={inputRisk} label="Before (Original)" />
+                      <RiskMeter score={afterRisk} label="After (Humanized)" />
+                      {inputIsLow ? (
+                        <p className="text-xs text-slate-500 dark:text-slate-400">
+                          Your original text was already low-risk — the humanized version keeps it natural.
+                        </p>
+                      ) : delta >= 10 ? (
+                        <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
+                          {delta} point reduction in AI patterns
+                        </p>
+                      ) : delta > 0 ? (
+                        <p className="text-xs text-amber-600 dark:text-amber-400 font-medium">
+                          Small improvement — try Heavy level or regenerate for a bigger difference
+                        </p>
+                      ) : (
+                        <p className="text-xs text-slate-500 dark:text-slate-400">
+                          Both versions show similar patterns — try Heavy level or a different tone
+                        </p>
+                      )}
                     </div>
-                    <RiskMeter score={inputRisk} label="Before (Original)" />
-                    <RiskMeter score={Math.max(5, Math.round(computeAIRisk(versions[0].content)))} label="After (Humanized)" />
-                    {inputRisk > 0 && (
-                      <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
-                        {Math.max(0, inputRisk - computeAIRisk(versions[0].content))} point reduction in AI patterns
-                      </p>
-                    )}
-                  </div>
-                )}
+                  );
+                })()}
 
                 {/* Regenerate + Compare row */}
                 <div className="flex items-center gap-2">
@@ -436,7 +461,7 @@ export function AIHumanizerGenerator() {
 
                 {/* 3 Version cards */}
                 {versions.map((v, vi) => {
-                  const versionRisk = Math.max(5, Math.round(computeAIRisk(v.content)));
+                  const versionRisk = Math.round(computeAIRisk(v.content));
                   const vRiskMeta = riskMeta(versionRisk);
                   const isFirst = vi === 0;
                   return (
