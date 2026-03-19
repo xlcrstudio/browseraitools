@@ -1,5 +1,4 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { flushSync } from "react-dom";
 import * as pdfjsLib from "pdfjs-dist";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { motion, AnimatePresence } from "framer-motion";
@@ -120,6 +119,27 @@ export function PDFSummarizerGenerator() {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const qaInputRef = useRef<HTMLInputElement>(null);
+  // Refs for streaming — tokens land here instantly, state polls at 30fps
+  const summaryStreamRef = useRef("");
+  const answerStreamRef = useRef("");
+
+  // Poll summary stream into state at ~30fps while generating
+  useEffect(() => {
+    if (!isGenerating) return;
+    const id = setInterval(() => {
+      setSummaryOutput(summaryStreamRef.current);
+    }, 33);
+    return () => clearInterval(id);
+  }, [isGenerating]);
+
+  // Poll answer stream into state at ~30fps while answering
+  useEffect(() => {
+    if (!isAnswering) return;
+    const id = setInterval(() => {
+      setStreamingAnswer(answerStreamRef.current);
+    }, 33);
+    return () => clearInterval(id);
+  }, [isAnswering]);
 
   const isReady = state === "ready" || state === "generating";
   const isModelLoading = state === "checking-gpu" || state === "downloading";
@@ -190,10 +210,9 @@ export function PDFSummarizerGenerator() {
 
   const handleGenerate = useCallback(async () => {
     if (!docInfo || !isReady) return;
-    flushSync(() => {
-      setIsGenerating(true);
-      setSummaryOutput("");
-    });
+    summaryStreamRef.current = "";
+    setSummaryOutput("");
+    setIsGenerating(true);
 
     const userPrompt = buildSummaryPrompt(docInfo, summaryType, length, includeQuotes);
     const maxTokens = length === "detailed" ? 3000 : length === "medium" ? 2000 : 1200;
@@ -205,12 +224,14 @@ export function PDFSummarizerGenerator() {
       ],
       temperature: 0.3,
       maxTokens,
-      onChunk: (text) => flushSync(() => setSummaryOutput(text)),
+      onChunk: (text) => { summaryStreamRef.current = text; },
     });
 
-    if (result) setSummaryOutput(result);
+    // Final sync — ensure last tokens are shown
+    const final = result ?? summaryStreamRef.current;
+    setSummaryOutput(final);
     setIsGenerating(false);
-    if (result) setShowQA(true);
+    if (final) setShowQA(true);
   }, [docInfo, isReady, summaryType, length, includeQuotes, generateRaw]);
 
   const handleAskQuestion = useCallback(async () => {
@@ -227,12 +248,13 @@ export function PDFSummarizerGenerator() {
       ],
       temperature: 0.2,
       maxTokens: 1000,
-      onChunk: (text) => flushSync(() => setStreamingAnswer(text)),
+      onChunk: (text) => { answerStreamRef.current = text; },
     });
 
-    const finalAnswer = result || "Unable to answer based on the document.";
-    setQaItems(prev => [{ question, answer: finalAnswer }, ...prev]);
+    const finalAnswer = (result ?? answerStreamRef.current) || "Unable to answer based on the document.";
+    answerStreamRef.current = "";
     setStreamingAnswer("");
+    setQaItems(prev => [{ question, answer: finalAnswer }, ...prev]);
     setIsAnswering(false);
   }, [docInfo, qaInput, isReady, isAnswering, generateRaw]);
 
