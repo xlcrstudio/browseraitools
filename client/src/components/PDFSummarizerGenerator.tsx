@@ -113,6 +113,7 @@ export function PDFSummarizerGenerator() {
   const [qaInput, setQaInput] = useState("");
   const [qaItems, setQaItems] = useState<QAItem[]>([]);
   const [isAnswering, setIsAnswering] = useState(false);
+  const [streamingAnswer, setStreamingAnswer] = useState("");
   const [dragOver, setDragOver] = useState(false);
   const [showQA, setShowQA] = useState(false);
 
@@ -212,20 +213,22 @@ export function PDFSummarizerGenerator() {
     if (!docInfo || !qaInput.trim() || !isReady || isAnswering) return;
     const question = qaInput.trim();
     setIsAnswering(true);
+    setStreamingAnswer("");
     setQaInput("");
 
-    let answer = "";
-    await generateRaw({
+    const result = await generateRaw({
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
         { role: "user", content: buildQAPrompt(docInfo, question) },
       ],
       temperature: 0.2,
       maxTokens: 600,
-      onChunk: (text) => { answer = text; },
+      onChunk: setStreamingAnswer,
     });
 
-    setQaItems(prev => [{ question, answer: answer || "Unable to answer based on the document." }, ...prev]);
+    const finalAnswer = result || "Unable to answer based on the document.";
+    setQaItems(prev => [{ question, answer: finalAnswer }, ...prev]);
+    setStreamingAnswer("");
     setIsAnswering(false);
   }, [docInfo, qaInput, isReady, isAnswering, generateRaw]);
 
@@ -442,26 +445,29 @@ export function PDFSummarizerGenerator() {
             </button>
           </div>
 
-          {/* Summary Output */}
+          {/* Summary Output — appears as soon as generation starts */}
           <AnimatePresence>
-            {summaryOutput && (
+            {(isGenerating || summaryOutput) && (
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
+                transition={{ duration: 0.3 }}
                 className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden"
               >
                 <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-100 dark:border-slate-700">
                   <div className="flex items-center gap-2 font-semibold text-slate-800 dark:text-slate-100">
                     <FileText className="w-4 h-4 text-purple-500" />
                     PDF Summary
+                    {isGenerating && (
+                      <span className="text-xs font-normal text-slate-400 dark:text-slate-500 ml-1">Writing…</span>
+                    )}
                   </div>
                   <div className="flex items-center gap-2">
                     <button
                       data-testid="button-regenerate"
                       onClick={handleGenerate}
                       disabled={isGenerating}
-                      className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                      className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors disabled:opacity-40"
                       aria-label="Regenerate"
                     >
                       <RotateCcw className="w-4 h-4" />
@@ -469,7 +475,8 @@ export function PDFSummarizerGenerator() {
                     <button
                       data-testid="button-copy-summary"
                       onClick={handleCopy}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-purple-50 dark:hover:bg-purple-900/30 text-slate-600 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-400 text-sm font-medium transition-colors"
+                      disabled={!summaryOutput || isGenerating}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-purple-50 dark:hover:bg-purple-900/30 text-slate-600 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-400 text-sm font-medium transition-colors disabled:opacity-40"
                     >
                       {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
                       {copied ? "Copied!" : "Copy"}
@@ -478,9 +485,12 @@ export function PDFSummarizerGenerator() {
                 </div>
                 <div
                   data-testid="text-summary-output"
-                  className="p-5 prose prose-sm dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 whitespace-pre-wrap leading-relaxed text-sm"
+                  className="p-5 text-slate-700 dark:text-slate-300 whitespace-pre-wrap leading-relaxed text-sm min-h-[80px]"
                 >
-                  {summaryOutput}
+                  {summaryOutput || (isGenerating && <span className="text-slate-300 dark:text-slate-600 italic text-xs">Starting…</span>)}
+                  {isGenerating && summaryOutput && (
+                    <span className="inline-block w-0.5 h-4 bg-purple-500 ml-0.5 align-middle animate-pulse" />
+                  )}
                 </div>
               </motion.div>
             )}
@@ -542,11 +552,18 @@ export function PDFSummarizerGenerator() {
                     </div>
                   )}
 
-                  {/* Q&A history */}
+                  {/* Streaming answer */}
                   {isAnswering && (
-                    <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
-                      <Loader2 className="w-4 h-4 animate-spin text-purple-500" />
-                      Searching document…
+                    <div className="space-y-2">
+                      <div className="flex items-start gap-2.5">
+                        <div className="w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center shrink-0 mt-0.5">
+                          <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">A</span>
+                        </div>
+                        <p className="text-sm text-slate-600 dark:text-slate-300 whitespace-pre-wrap">
+                          {streamingAnswer || <span className="italic text-slate-300 dark:text-slate-600 text-xs">Searching document…</span>}
+                          {streamingAnswer && <span className="inline-block w-0.5 h-3.5 bg-purple-500 ml-0.5 align-middle animate-pulse" />}
+                        </p>
+                      </div>
                     </div>
                   )}
 
