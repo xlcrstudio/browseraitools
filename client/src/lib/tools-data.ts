@@ -6,7 +6,7 @@ import {
   Search, Tag, Key, BookOpen, Link2,
   Briefcase, ScrollText, UserCheck, MessageCircle, ScanSearch,
   ListChecks, ClipboardList, CalendarDays, Flag,
-  Scale, ThumbsUp, Swords, ShieldQuestion, Heart, Flame, BookOpenCheck, Sparkles, UtensilsCrossed, MapPin, Code, Terminal, Wand2, Newspaper, Clapperboard,
+  Scale, ThumbsUp, Swords, ShieldQuestion, Heart, Flame, BookOpenCheck, Sparkles, UtensilsCrossed, MapPin, Code, Terminal, Wand2, Newspaper, Clapperboard, Bot,
 } from "lucide-react";
 
 export interface Tool {
@@ -25,6 +25,14 @@ export interface ToolCategory {
 }
 
 export const toolCategories: ToolCategory[] = [
+  {
+    name: "AI Assistant",
+    slug: "ai-assistant",
+    description: "Private, unlimited AI chat that runs entirely in your browser",
+    tools: [
+      { id: 68, name: "AI Chatbot", slug: "/ai-chatbot", icon: Bot, available: true },
+    ],
+  },
   {
     name: "Writing Tools",
     slug: "writing",

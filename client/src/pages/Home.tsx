@@ -1,8 +1,9 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { Lock, Zap, Cpu, ArrowRight, Sparkles, ChevronRight } from "lucide-react";
+import { Lock, Zap, Cpu, Sparkles, ChevronRight } from "lucide-react";
 import { toolCategories, type ToolCategory, type Tool } from "@/lib/tools-data";
 import { AdBlock } from "@/components/AdBlock";
+import { AIChatWidget } from "@/components/AIChatWidget";
 
 export default function Home() {
   return (
@@ -52,20 +53,7 @@ function HomeHero() {
         Private, free, and offline-ready AI tools for content creators, marketers, and professionals. No signups. No data collection. Just powerful AI.
       </motion.p>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-      >
-        <Link
-          href="/ai-hook-generator"
-          data-testid="link-try-hook-generator"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white bg-gradient-primary shadow-xl shadow-purple-500/25 hover:shadow-2xl hover:shadow-purple-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 text-lg"
-        >
-          Try AI Hook Generator <ArrowRight className="w-5 h-5" />
-        </Link>
-        <p className="mt-3 text-sm text-slate-400 dark:text-slate-500">Our first tool is live - more coming soon</p>
-      </motion.div>
+      <AIChatWidget />
     </section>
   );
 }
