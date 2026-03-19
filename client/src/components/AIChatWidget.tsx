@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, Loader2, Bot, ArrowRight, Lock } from "lucide-react";
+import { MsgContent } from "@/components/MsgContent";
 
 const SYSTEM = "You are a helpful AI assistant running locally in the user's browser. All conversations are completely private — nothing leaves their device. Give concise, useful responses.";
 
@@ -134,7 +135,7 @@ export function AIChatWidget() {
                   ? "bg-slate-50 dark:bg-slate-700/60 text-slate-700 dark:text-slate-200 rounded-tl-sm"
                   : "bg-gradient-primary text-white rounded-tr-sm"
               }`}>
-                {msg.content}
+                {msg.role === "assistant" ? <MsgContent text={msg.content} /> : msg.content}
               </div>
             </div>
           ))}
@@ -146,7 +147,7 @@ export function AIChatWidget() {
               </div>
               <div className="max-w-[82%] px-3.5 py-2.5 rounded-2xl rounded-tl-sm bg-slate-50 dark:bg-slate-700/60 text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
                 {streamText
-                  ? <>{streamText}<span className="inline-block w-0.5 h-3.5 bg-purple-500 ml-0.5 align-middle animate-pulse" /></>
+                  ? <><MsgContent text={streamText} /><span className="inline-block w-0.5 h-3.5 bg-purple-500 ml-0.5 align-middle animate-pulse" /></>
                   : <Loader2 className="w-3.5 h-3.5 text-purple-400 animate-spin" />
                 }
               </div>

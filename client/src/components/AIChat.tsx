@@ -8,6 +8,7 @@ import {
   AlignLeft, ZoomIn, MessageSquare,
 } from "lucide-react";
 import { loadThreads, saveThreads, genId, makeTitle, type ChatThread, type Message } from "@/lib/chat-storage";
+import { MsgContent } from "@/components/MsgContent";
 
 const SYSTEM = "You are a helpful, knowledgeable AI assistant running privately in the user's browser. Give clear, accurate, concise responses. Format with markdown bullet points and headers where helpful.";
 
@@ -28,58 +29,6 @@ function formatTime(ts: number) {
   const sameDay = d.toDateString() === now.toDateString();
   if (sameDay) return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   return d.toLocaleDateString([], { month: "short", day: "numeric" });
-}
-
-// ─── Markdown-lite renderer ───────────────────────────────────────────────────
-function MsgContent({ text }: { text: string }) {
-  const lines = text.split("\n");
-  const els: JSX.Element[] = [];
-  let listItems: string[] = [];
-  let key = 0;
-
-  const renderInline = (s: string) => {
-    const parts = s.split(/(\*\*[^*]+\*\*|`[^`]+`)/g);
-    return parts.map((p, i) => {
-      if (p.startsWith("**") && p.endsWith("**")) return <strong key={i} className="font-semibold">{p.slice(2, -2)}</strong>;
-      if (p.startsWith("`") && p.endsWith("`")) return <code key={i} className="px-1 py-0.5 rounded bg-slate-200 dark:bg-slate-600 text-xs font-mono">{p.slice(1, -1)}</code>;
-      return <span key={i}>{p}</span>;
-    });
-  };
-
-  const flushList = () => {
-    if (!listItems.length) return;
-    els.push(
-      <ul key={key++} className="space-y-0.5 my-1.5">
-        {listItems.map((item, i) => (
-          <li key={i} className="flex items-start gap-1.5 text-sm leading-relaxed">
-            <span className="shrink-0 text-purple-400 font-bold mt-0.5">•</span>
-            <span>{renderInline(item)}</span>
-          </li>
-        ))}
-      </ul>
-    );
-    listItems = [];
-  };
-
-  for (const line of lines) {
-    if (line.startsWith("# ")) {
-      flushList();
-      els.push(<p key={key++} className="font-bold text-base mt-2 mb-1">{renderInline(line.slice(2))}</p>);
-    } else if (line.startsWith("## ") || line.startsWith("### ")) {
-      flushList();
-      const level = line.startsWith("### ") ? 4 : 3;
-      els.push(<p key={key++} className={`font-semibold ${level === 3 ? "text-sm" : "text-xs"} mt-2 mb-0.5`}>{renderInline(line.replace(/^#{2,3} /, ""))}</p>);
-    } else if (line.startsWith("- ") || line.startsWith("* ") || /^\d+\.\s/.test(line)) {
-      listItems.push(line.replace(/^[-*]\s|\d+\.\s/, ""));
-    } else if (line.trim() === "") {
-      flushList();
-    } else {
-      flushList();
-      els.push(<p key={key++} className="text-sm leading-relaxed mb-1">{renderInline(line)}</p>);
-    }
-  }
-  flushList();
-  return <>{els}</>;
 }
 
 // ─── Message bubble ───────────────────────────────────────────────────────────
