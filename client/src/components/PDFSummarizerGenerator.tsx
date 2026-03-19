@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
+import { flushSync } from "react-dom";
 import * as pdfjsLib from "pdfjs-dist";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { motion, AnimatePresence } from "framer-motion";
@@ -189,10 +190,13 @@ export function PDFSummarizerGenerator() {
 
   const handleGenerate = useCallback(async () => {
     if (!docInfo || !isReady) return;
-    setIsGenerating(true);
-    setSummaryOutput("");
+    flushSync(() => {
+      setIsGenerating(true);
+      setSummaryOutput("");
+    });
 
     const userPrompt = buildSummaryPrompt(docInfo, summaryType, length, includeQuotes);
+    const maxTokens = length === "detailed" ? 3000 : length === "medium" ? 2000 : 1200;
 
     const result = await generateRaw({
       messages: [
@@ -200,8 +204,8 @@ export function PDFSummarizerGenerator() {
         { role: "user", content: userPrompt },
       ],
       temperature: 0.3,
-      maxTokens: length === "detailed" ? 1500 : length === "medium" ? 900 : 600,
-      onChunk: setSummaryOutput,
+      maxTokens,
+      onChunk: (text) => flushSync(() => setSummaryOutput(text)),
     });
 
     if (result) setSummaryOutput(result);
@@ -222,8 +226,8 @@ export function PDFSummarizerGenerator() {
         { role: "user", content: buildQAPrompt(docInfo, question) },
       ],
       temperature: 0.2,
-      maxTokens: 600,
-      onChunk: setStreamingAnswer,
+      maxTokens: 1000,
+      onChunk: (text) => flushSync(() => setStreamingAnswer(text)),
     });
 
     const finalAnswer = result || "Unable to answer based on the document.";
@@ -487,10 +491,18 @@ export function PDFSummarizerGenerator() {
                   data-testid="text-summary-output"
                   className="p-5 text-slate-700 dark:text-slate-300 whitespace-pre-wrap leading-relaxed text-sm min-h-[80px]"
                 >
-                  {summaryOutput || (isGenerating && <span className="text-slate-300 dark:text-slate-600 italic text-xs">Starting…</span>)}
-                  {isGenerating && summaryOutput && (
-                    <span className="inline-block w-0.5 h-4 bg-purple-500 ml-0.5 align-middle animate-pulse" />
-                  )}
+                  {summaryOutput
+                    ? <>
+                        {summaryOutput}
+                        {isGenerating && <span className="inline-block w-0.5 h-4 bg-purple-500 ml-0.5 align-middle animate-pulse" />}
+                      </>
+                    : isGenerating && (
+                        <span className="flex items-center gap-2 text-slate-400 dark:text-slate-500 text-xs italic">
+                          <Loader2 className="w-3.5 h-3.5 animate-spin shrink-0" />
+                          Reading your document — first words will appear shortly…
+                        </span>
+                      )
+                  }
                 </div>
               </motion.div>
             )}
