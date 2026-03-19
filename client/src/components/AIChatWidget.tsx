@@ -27,7 +27,7 @@ export function AIChatWidget() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [streamText, setStreamText] = useState("");
   const streamRef = useRef("");
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const isReady = state === "ready" || state === "generating";
@@ -40,7 +40,8 @@ export function AIChatWidget() {
   }, [isGenerating]);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    const el = messagesContainerRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
   }, [messages, streamText]);
 
   const send = useCallback(async (text?: string) => {
@@ -115,7 +116,7 @@ export function AIChatWidget() {
         </AnimatePresence>
 
         {/* Messages */}
-        <div className="h-56 overflow-y-auto p-4 space-y-3" data-testid="chat-widget-messages">
+        <div ref={messagesContainerRef} className="h-56 overflow-y-auto p-4 space-y-3" data-testid="chat-widget-messages">
           {messages.map((msg, i) => (
             <div key={i} className={`flex items-start gap-2.5 ${msg.role === "user" ? "flex-row-reverse" : ""}`}>
               <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 ${
@@ -151,7 +152,6 @@ export function AIChatWidget() {
               </div>
             </div>
           )}
-          <div ref={messagesEndRef} />
         </div>
 
         {/* Suggestions */}

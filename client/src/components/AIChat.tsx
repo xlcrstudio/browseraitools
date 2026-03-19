@@ -219,7 +219,7 @@ export function AIChat() {
   const [actionLoadingId, setActionLoadingId] = useState<string | null>(null);
 
   const streamRef = useRef("");
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const isReady = state === "ready" || state === "generating";
@@ -235,9 +235,10 @@ export function AIChat() {
     return () => clearInterval(id);
   }, [isGenerating]);
 
-  // Scroll to bottom
+  // Scroll to bottom — scroll the container, not the page
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    const el = messagesContainerRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
   }, [threads, streamText, activeId]);
 
   const activeThread = threads.find(t => t.id === activeId) ?? null;
@@ -485,7 +486,7 @@ export function AIChat() {
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto px-4 py-5 space-y-5 bg-slate-50/50 dark:bg-slate-900/50" data-testid="chat-messages">
+        <div ref={messagesContainerRef} className="flex-1 overflow-y-auto px-4 py-5 space-y-5 bg-slate-50/50 dark:bg-slate-900/50" data-testid="chat-messages">
           {displayMessages.length === 0 && !isGenerating && (
             <div className="h-full flex flex-col items-center justify-center text-center py-8">
               <div className="w-14 h-14 rounded-2xl bg-gradient-primary flex items-center justify-center mb-4 shadow-lg shadow-purple-500/20">
@@ -534,7 +535,6 @@ export function AIChat() {
               </div>
             </div>
           )}
-          <div ref={messagesEndRef} />
         </div>
 
         {/* Prompt suggestions bar */}
