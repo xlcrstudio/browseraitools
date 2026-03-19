@@ -70,6 +70,7 @@ import CodePlaygroundPage from "@/pages/CodePlaygroundPage";
 import PDFSummarizerPage from "@/pages/PDFSummarizerPage";
 import AIHumanizerPage from "@/pages/AIHumanizerPage";
 import AIBlogGeneratorPage from "@/pages/AIBlogGeneratorPage";
+import YouTubeScriptPage from "@/pages/YouTubeScriptPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -143,6 +144,7 @@ function Router() {
       <Route path="/ai-pdf-summarizer" component={PDFSummarizerPage} />
       <Route path="/ai-humanizer" component={AIHumanizerPage} />
       <Route path="/ai-blog-post-generator" component={AIBlogGeneratorPage} />
+      <Route path="/ai-youtube-script-generator" component={YouTubeScriptPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />

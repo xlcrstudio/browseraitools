@@ -2665,3 +2665,34 @@ export const aiBlogGeneratorFAQs: FAQItem[] = [
     answer: "Long-tail keywords (3-5 words) tend to produce more focused, useful articles because the AI can target a specific angle. For example, 'best productivity apps for students 2026' produces better output than just 'productivity apps'. Including a year or modifier helps the model understand the angle you want.",
   },
 ];
+
+export const youtubeScriptFAQs: FAQItem[] = [
+  {
+    question: "Is this YouTube script generator completely free?",
+    answer: "Yes. The tool runs entirely in your browser using WebLLM. There are no usage limits, subscriptions, or sign-ups required. The AI model downloads once (about 1GB) and is cached locally for all future use.",
+  },
+  {
+    question: "Will my video ideas be kept private?",
+    answer: "Completely. Unlike cloud-based script generators that process your ideas on remote servers, this tool runs locally using WebGPU. Your topic ideas, channel strategy, and generated scripts never leave your device.",
+  },
+  {
+    question: "What is the virality score and how is it calculated?",
+    answer: "The virality score (0–10) estimates the engagement potential of your script based on several factors: hook strength (curiosity gap, specificity, bold claims), use of the second person 'you,' specific numbers and examples, timestamps for chapter structure, CTA quality, and overall word count. A score of 7+ indicates strong engagement potential.",
+  },
+  {
+    question: "How long does it take to generate a script?",
+    answer: "Generation time depends on your device's GPU and the video length you selected. A short script (3–5 minutes) typically takes 30–60 seconds. A long-form script (15–20 minutes) may take 2–4 minutes. The first use also requires a one-time model download of about 1GB.",
+  },
+  {
+    question: "Which script style should I choose?",
+    answer: "List-Based works for most videos because numbers in titles (Top 10, 5 Ways, 7 Mistakes) consistently outperform titles without them. Storytelling is best for personal vlogs and case studies that build emotional connection. Educational is ideal for tutorials and how-to content. Viral/Hook-Heavy is for trending topics where you need to grab attention in the first 3 seconds or lose the viewer.",
+  },
+  {
+    question: "How do I use the generated script effectively?",
+    answer: "Use the generated script as a strong first draft. Personalize it by adding your own specific stories, examples, and data. Adjust the tone to match your authentic on-camera personality. Practice reading it aloud — your speaking time is estimated from the word count. Edit for natural pauses and emphasis. The best creators treat AI scripts as an outline they make their own, not a teleprompter to read verbatim.",
+  },
+  {
+    question: "What makes a YouTube hook effective?",
+    answer: "The best hooks create a curiosity gap — they promise something valuable the viewer doesn't yet know. Effective hooks are specific ('I tested 47 apps' beats 'I tested many apps'), address the viewer directly with 'you,' include stakes (what you'll gain or avoid losing), and often make a counterintuitive or bold claim. The goal is to make clicking away feel like a loss.",
+  },
+];
