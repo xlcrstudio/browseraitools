@@ -9,6 +9,24 @@ import {
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+// Parse "## Section Title\ncontent\n\n## Next..." into array of {title, content}
+function parseSections(text: string): { title: string; content: string }[] {
+  const result: { title: string; content: string }[] = [];
+  const parts = text.split(/\n(?=##\s)/);
+  for (const part of parts) {
+    const match = part.match(/^##\s+(.+?)\n([\s\S]*)$/);
+    if (match) {
+      result.push({ title: match[1].trim(), content: match[2].trim() });
+    }
+  }
+  return result;
+}
+
+// Strip bold markdown **text** → text, and leading numbers like "1. "
+function cleanLine(line: string) {
+  return line.replace(/\*\*(.+?)\*\*/g, "$1").trim();
+}
+
 pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
 
 const SUMMARY_TYPES = [
@@ -113,6 +131,7 @@ export function PDFSummarizerGenerator() {
   const [summaryOutput, setSummaryOutput] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [copiedSection, setCopiedSection] = useState<string | null>(null);
   const [qaInput, setQaInput] = useState("");
   const [qaItems, setQaItems] = useState<QAItem[]>([]);
   const [isAnswering, setIsAnswering] = useState(false);
@@ -267,6 +286,12 @@ export function PDFSummarizerGenerator() {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   }, [summaryOutput]);
+
+  const copySection = useCallback((key: string, text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedSection(key);
+    setTimeout(() => setCopiedSection(null), 2000);
+  }, []);
 
   const suggestedQuestions = [
     "What are the main conclusions?",
@@ -474,63 +499,161 @@ export function PDFSummarizerGenerator() {
             </button>
           </div>
 
-          {/* Summary Output — appears as soon as generation starts */}
+          {/* Streaming view — raw text while generating */}
           <AnimatePresence>
-            {(isGenerating || summaryOutput) && (
+            {isGenerating && (
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.3 }}
                 className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden"
               >
-                <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-100 dark:border-slate-700">
-                  <div className="flex items-center gap-2 font-semibold text-slate-800 dark:text-slate-100">
-                    <FileText className="w-4 h-4 text-purple-500" />
-                    PDF Summary
-                    {isGenerating && (
-                      <span className="text-xs font-normal text-slate-400 dark:text-slate-500 ml-1">Writing…</span>
-                    )}
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <button
-                      data-testid="button-regenerate"
-                      onClick={handleGenerate}
-                      disabled={isGenerating}
-                      className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors disabled:opacity-40"
-                      aria-label="Regenerate"
-                    >
-                      <RotateCcw className="w-4 h-4" />
-                    </button>
-                    <button
-                      data-testid="button-copy-summary"
-                      onClick={handleCopy}
-                      disabled={!summaryOutput || isGenerating}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-purple-50 dark:hover:bg-purple-900/30 text-slate-600 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-400 text-sm font-medium transition-colors disabled:opacity-40"
-                    >
-                      {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                      {copied ? "Copied!" : "Copy"}
-                    </button>
-                  </div>
+                <div className="flex items-center gap-2 px-5 py-3.5 border-b border-slate-100 dark:border-slate-700 font-semibold text-slate-800 dark:text-slate-100">
+                  <Loader2 className="w-4 h-4 text-purple-500 animate-spin" />
+                  Writing summary…
                 </div>
-                <div
-                  data-testid="text-summary-output"
-                  className="p-5 text-slate-700 dark:text-slate-300 whitespace-pre-wrap leading-relaxed text-sm min-h-[80px]"
-                >
+                <div className="p-5 text-slate-700 dark:text-slate-300 whitespace-pre-wrap leading-relaxed text-sm min-h-[80px]">
                   {summaryOutput
-                    ? <>
-                        {summaryOutput}
-                        {isGenerating && <span className="inline-block w-0.5 h-4 bg-purple-500 ml-0.5 align-middle animate-pulse" />}
-                      </>
-                    : isGenerating && (
-                        <span className="flex items-center gap-2 text-slate-400 dark:text-slate-500 text-xs italic">
-                          <Loader2 className="w-3.5 h-3.5 animate-spin shrink-0" />
-                          Reading your document — first words will appear shortly…
-                        </span>
-                      )
+                    ? <>{summaryOutput}<span className="inline-block w-0.5 h-4 bg-purple-500 ml-0.5 align-middle animate-pulse" /></>
+                    : <span className="flex items-center gap-2 text-slate-400 dark:text-slate-500 text-xs italic">
+                        <Loader2 className="w-3.5 h-3.5 animate-spin shrink-0" />
+                        Reading your document — first words will appear shortly…
+                      </span>
                   }
                 </div>
               </motion.div>
             )}
+          </AnimatePresence>
+
+          {/* Final parsed sections — shown after generation completes */}
+          <AnimatePresence>
+            {!isGenerating && summaryOutput && (() => {
+              const sections = parseSections(summaryOutput);
+              // Fallback: no parseable sections → show raw text in one card
+              if (sections.length === 0) {
+                return (
+                  <motion.div key="raw" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
+                    className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden">
+                    <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-100 dark:border-slate-700">
+                      <div className="flex items-center gap-2 font-semibold text-slate-800 dark:text-slate-100">
+                        <FileText className="w-4 h-4 text-purple-500" /> PDF Summary
+                      </div>
+                      <div className="flex gap-2">
+                        <button data-testid="button-regenerate" onClick={handleGenerate} className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 transition-colors" aria-label="Regenerate"><RotateCcw className="w-4 h-4" /></button>
+                        <button data-testid="button-copy-summary" onClick={handleCopy} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm font-medium transition-colors">
+                          {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}{copied ? "Copied!" : "Copy"}
+                        </button>
+                      </div>
+                    </div>
+                    <div data-testid="text-summary-output" className="p-5 text-slate-700 dark:text-slate-300 whitespace-pre-wrap leading-relaxed text-sm">{summaryOutput}</div>
+                  </motion.div>
+                );
+              }
+
+              const sectionMeta: Record<string, { icon: typeof FileText; accent: string; bg: string; border: string }> = {
+                "Summary": { icon: FileText, accent: "text-purple-600 dark:text-purple-400", bg: "bg-purple-50 dark:bg-purple-900/20", border: "border-purple-200 dark:border-purple-700/40" },
+                "Key Insights": { icon: Lightbulb, accent: "text-blue-600 dark:text-blue-400", bg: "bg-blue-50 dark:bg-blue-900/20", border: "border-blue-200 dark:border-blue-700/40" },
+                "Key Quotes": { icon: Quote, accent: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-900/20", border: "border-emerald-200 dark:border-emerald-700/40" },
+              };
+              const defaultMeta = { icon: FileText, accent: "text-slate-600 dark:text-slate-300", bg: "bg-slate-50 dark:bg-slate-800", border: "border-slate-200 dark:border-slate-700" };
+
+              return (
+                <motion.div key="sections" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="space-y-4">
+                  {/* Copy All + Regenerate row */}
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-slate-400 dark:text-slate-500">{sections.length} section{sections.length !== 1 ? "s" : ""} generated</span>
+                    <div className="flex gap-2">
+                      <button data-testid="button-regenerate" onClick={handleGenerate}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:text-purple-600 dark:hover:text-purple-400 text-sm font-medium transition-colors">
+                        <RotateCcw className="w-3.5 h-3.5" /> Regenerate
+                      </button>
+                      <button data-testid="button-copy-summary" onClick={handleCopy}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:text-purple-600 dark:hover:text-purple-400 text-sm font-medium transition-colors">
+                        {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}{copied ? "Copied!" : "Copy All"}
+                      </button>
+                    </div>
+                  </div>
+
+                  {sections.map((section, si) => {
+                    const meta = sectionMeta[section.title] || defaultMeta;
+                    const Icon = meta.icon;
+                    const lines = section.content.split("\n").filter(l => l.trim());
+                    const isInsights = section.title === "Key Insights";
+                    const isQuotes = section.title === "Key Quotes";
+
+                    return (
+                      <motion.div key={section.title} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, delay: si * 0.08 }}
+                        className={`rounded-2xl border ${meta.border} overflow-hidden`}>
+                        {/* Section header */}
+                        <div className={`flex items-center justify-between px-5 py-3.5 ${meta.bg} border-b ${meta.border}`}>
+                          <div className={`flex items-center gap-2 font-semibold text-sm ${meta.accent}`}>
+                            <Icon className="w-4 h-4" />
+                            {section.title}
+                          </div>
+                          <button
+                            data-testid={`button-copy-section-${si}`}
+                            onClick={() => copySection(section.title, section.content)}
+                            className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/60 dark:bg-slate-800/60 hover:bg-white dark:hover:bg-slate-700 text-xs font-medium text-slate-500 dark:text-slate-400 transition-colors"
+                          >
+                            {copiedSection === section.title ? <Check className="w-3 h-3 text-emerald-500" /> : <Copy className="w-3 h-3" />}
+                            {copiedSection === section.title ? "Copied" : "Copy"}
+                          </button>
+                        </div>
+
+                        {/* Section body */}
+                        <div className="p-5 bg-white dark:bg-slate-800">
+                          {isInsights ? (
+                            // Numbered insight cards
+                            <ol className="space-y-3" data-testid="text-key-insights">
+                              {lines.map((line, li) => {
+                                const clean = cleanLine(line.replace(/^\d+\.\s*/, ""));
+                                const colonIdx = clean.indexOf(":");
+                                const label = colonIdx > 0 ? clean.slice(0, colonIdx).trim() : null;
+                                const body = colonIdx > 0 ? clean.slice(colonIdx + 1).trim() : clean;
+                                return (
+                                  <li key={li} className="flex items-start gap-3">
+                                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 text-xs font-bold flex items-center justify-center mt-0.5">{li + 1}</span>
+                                    <span className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                                      {label && <strong className="font-semibold text-slate-800 dark:text-slate-100">{label}: </strong>}{body}
+                                    </span>
+                                  </li>
+                                );
+                              })}
+                            </ol>
+                          ) : isQuotes ? (
+                            // Quote blocks
+                            <div className="space-y-3" data-testid="text-key-quotes">
+                              {lines.map((line, li) => {
+                                const clean = line.replace(/^\d+\.\s*/, "").trim();
+                                // Extract [Page X] citation if present
+                                const pageMatch = clean.match(/\[Page\s*\d+\]/i);
+                                const citation = pageMatch ? pageMatch[0] : null;
+                                const quoteText = clean.replace(/\[Page\s*\d+\]/gi, "").replace(/^[""]|[""]$/g, "").trim();
+                                return (
+                                  <div key={li} className="flex gap-3">
+                                    <span className="text-emerald-300 dark:text-emerald-600 text-xl font-serif leading-none mt-1 shrink-0">"</span>
+                                    <div>
+                                      <p className="text-sm text-slate-700 dark:text-slate-300 italic leading-relaxed">{quoteText}</p>
+                                      {citation && <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-1 font-medium">{citation}</p>}
+                                    </div>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          ) : (
+                            // Summary prose
+                            <div data-testid="text-summary-output" className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-wrap">
+                              {section.content}
+                            </div>
+                          )}
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </motion.div>
+              );
+            })()}
           </AnimatePresence>
 
           {/* Q&A Section */}
