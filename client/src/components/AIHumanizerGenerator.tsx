@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Wand2, Copy, Check, RotateCcw, Loader2, AlertCircle,
   Bot, User, ArrowLeftRight, ChevronRight, ListChecks,
+  TrendingDown, TrendingUp, Minus, Sparkles,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -64,6 +65,24 @@ function computeAIRisk(text: string): number {
   score += Math.min(8, formalStart * 4);
 
   return Math.round(Math.min(100, score));
+}
+
+// ─── Text improvement metrics ────────────────────────────────────────────────
+function computeTextMetrics(text: string) {
+  const sentences = text.match(/[^.!?]+[.!?]+/g) || [];
+  const contractions = (text.match(/\b(don't|can't|won't|it's|I'm|I've|we're|they're|isn't|aren't|wasn't|weren't|I'll|you'll|he's|she's|that's|there's|we've)\b/gi) || []).length;
+  const passive = (text.match(/\b(is|are|was|were|be|been|being)\s+\w+ed\b/gi) || []).length;
+  let aiMarkers = 0;
+  for (const m of AI_MARKERS) {
+    const rx = new RegExp(`\\b${m.replace(/[-]/g, "\\-")}\\b`, "gi");
+    aiMarkers += (text.match(rx)?.length || 0);
+  }
+  const sentLens = sentences.map(s => s.trim().split(/\s+/).length);
+  const avgLen = sentLens.length > 0 ? sentLens.reduce((a, b) => a + b, 0) / sentLens.length : 0;
+  const sdLen = sentLens.length > 1
+    ? Math.sqrt(sentLens.reduce((s, l) => s + (l - avgLen) ** 2, 0) / sentLens.length)
+    : 0;
+  return { contractions, passive, aiMarkers, sentVariety: Math.round(sdLen * 10) / 10, sentCount: sentences.length };
 }
 
 function riskMeta(score: number) {
@@ -388,36 +407,76 @@ export function AIHumanizerGenerator() {
             {!isGenerating && output && (
               <motion.div key="results" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="space-y-4">
 
-                {/* Detection comparison */}
+                {/* What Changed card — always shows concrete improvements */}
                 {versions.length > 0 && (() => {
+                  const before = computeTextMetrics(inputText);
+                  const after = computeTextMetrics(versions[0].content);
                   const afterRisk = Math.round(computeAIRisk(versions[0].content));
-                  const delta = inputRisk - afterRisk;
-                  const inputIsLow = inputRisk < 35;
+                  const riskDelta = inputRisk - afterRisk;
+
+                  const rows: { label: string; before: number | string; after: number | string; delta: number; good: "up" | "down"; unit?: string }[] = [
+                    { label: "Contractions", before: before.contractions, after: after.contractions, delta: after.contractions - before.contractions, good: "up" },
+                    { label: "AI signal words", before: before.aiMarkers, after: after.aiMarkers, delta: after.aiMarkers - before.aiMarkers, good: "down" },
+                    { label: "Passive voice", before: before.passive, after: after.passive, delta: after.passive - before.passive, good: "down" },
+                    { label: "Sentence variety", before: before.sentVariety, after: after.sentVariety, delta: after.sentVariety - before.sentVariety, good: "up", unit: " σ" },
+                  ];
+
+                  const improvements = rows.filter(r => r.good === "up" ? r.delta > 0 : r.delta < 0).length;
+
                   return (
-                    <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 space-y-3">
-                      <div className="flex items-center gap-2 font-semibold text-slate-800 dark:text-slate-100 text-sm mb-1">
-                        <ArrowLeftRight className="w-4 h-4 text-indigo-500" />
-                        AI Detection Risk
+                    <div className="rounded-2xl border border-indigo-100 dark:border-indigo-800/40 bg-indigo-50 dark:bg-indigo-900/10 overflow-hidden">
+                      {/* Header */}
+                      <div className="flex items-center justify-between px-5 py-3.5 border-b border-indigo-100 dark:border-indigo-800/40">
+                        <div className="flex items-center gap-2 font-semibold text-indigo-800 dark:text-indigo-200 text-sm">
+                          <Sparkles className="w-4 h-4 text-indigo-500" />
+                          What Changed
+                        </div>
+                        {improvements > 0 && (
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 font-semibold">
+                            {improvements} improvement{improvements !== 1 ? "s" : ""}
+                          </span>
+                        )}
                       </div>
-                      <RiskMeter score={inputRisk} label="Before (Original)" />
-                      <RiskMeter score={afterRisk} label="After (Humanized)" />
-                      {inputIsLow ? (
-                        <p className="text-xs text-slate-500 dark:text-slate-400">
-                          Your original text was already low-risk — the humanized version keeps it natural.
-                        </p>
-                      ) : delta >= 10 ? (
-                        <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
-                          {delta} point reduction in AI patterns
-                        </p>
-                      ) : delta > 0 ? (
-                        <p className="text-xs text-amber-600 dark:text-amber-400 font-medium">
-                          Small improvement — try Heavy level or regenerate for a bigger difference
-                        </p>
-                      ) : (
-                        <p className="text-xs text-slate-500 dark:text-slate-400">
-                          Both versions show similar patterns — try Heavy level or a different tone
-                        </p>
-                      )}
+
+                      {/* Metric rows */}
+                      <div className="divide-y divide-indigo-100 dark:divide-indigo-800/30">
+                        {rows.map(row => {
+                          const isGood = row.good === "up" ? row.delta > 0 : row.delta < 0;
+                          const isNeutral = row.delta === 0;
+                          const Icon = isNeutral ? Minus : row.delta > 0 ? TrendingUp : TrendingDown;
+                          const iconColor = isNeutral ? "text-slate-400" : isGood ? "text-emerald-500" : "text-amber-500";
+                          const badgeColor = isNeutral
+                            ? "bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400"
+                            : isGood
+                              ? "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400"
+                              : "bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400";
+                          const changeText = isNeutral ? "no change"
+                            : row.delta > 0
+                              ? `+${row.delta}${row.unit ?? ""}`
+                              : `${row.delta}${row.unit ?? ""}`;
+                          return (
+                            <div key={row.label} className="flex items-center justify-between px-5 py-2.5 bg-white dark:bg-slate-800">
+                              <span className="text-sm text-slate-600 dark:text-slate-300">{row.label}</span>
+                              <div className="flex items-center gap-3">
+                                <span className="text-xs text-slate-400">{row.before}{row.unit ?? ""} → {row.after}{row.unit ?? ""}</span>
+                                <span className={`flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full ${badgeColor}`}>
+                                  <Icon className={`w-3 h-3 ${iconColor}`} />
+                                  {changeText}
+                                </span>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      {/* Detection risk summary — de-emphasised at the bottom */}
+                      <div className="px-5 py-3 flex items-center justify-between border-t border-indigo-100 dark:border-indigo-800/40">
+                        <span className="text-xs text-slate-500 dark:text-slate-400">AI detection risk</span>
+                        <span className={`text-xs font-semibold ${riskDelta >= 5 ? "text-emerald-600 dark:text-emerald-400" : "text-slate-500 dark:text-slate-400"}`}>
+                          {inputRisk}% → {afterRisk}%
+                          {riskDelta >= 5 ? ` (−${riskDelta} pts)` : riskDelta > 0 ? " (slight drop)" : " (similar)"}
+                        </span>
+                      </div>
                     </div>
                   );
                 })()}
