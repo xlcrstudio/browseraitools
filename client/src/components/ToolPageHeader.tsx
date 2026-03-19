@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Home, ChevronRight } from "lucide-react";
+import { ModelSelector } from "@/components/ModelSelector";
 
 interface ToolPageHeaderProps {
   toolName: string;
@@ -21,13 +22,14 @@ export function ToolPageHeader({ toolName, icon: Icon }: ToolPageHeaderProps) {
         <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
       </Link>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2.5">
+        <ModelSelector />
         {Icon && (
           <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center shadow-sm">
             <Icon className="w-4 h-4 text-white" />
           </div>
         )}
-        <h1 className="text-lg md:text-xl font-bold font-display text-slate-800" data-testid="text-tool-title">
+        <h1 className="text-lg md:text-xl font-bold font-display text-slate-800 dark:text-slate-100" data-testid="text-tool-title">
           {toolName}
         </h1>
       </div>

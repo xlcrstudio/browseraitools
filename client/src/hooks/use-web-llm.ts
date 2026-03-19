@@ -1,13 +1,13 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { CreateMLCEngine, MLCEngine, hasModelInCache, deleteModelAllInfoInCache } from '@mlc-ai/web-llm';
+import { getSelectedModelId } from '@/lib/models';
 
-const MODEL_ID = "Qwen2.5-1.5B-Instruct-q4f16_1-MLC";
-const PREV_MODEL_IDS = ["Llama-3.1-8B-Instruct-q4f16_1-MLC"];
+const STALE_MODEL_IDS = ["Llama-3.1-8B-Instruct-q4f16_1-MLC"];
 
 export type WebLLMState = 'idle' | 'checking-gpu' | 'downloading' | 'ready' | 'generating' | 'error';
 
 async function clearStaleModelCache() {
-  for (const oldId of PREV_MODEL_IDS) {
+  for (const oldId of STALE_MODEL_IDS) {
     try {
       const cached = await hasModelInCache(oldId);
       if (cached) {
@@ -42,6 +42,8 @@ export function useWebLLM() {
     if (engineRef.current) return true;
     if (initStarted.current) return false;
     initStarted.current = true;
+
+    const modelId = getSelectedModelId();
     
     setState('checking-gpu');
     setError(null);
@@ -57,7 +59,7 @@ export function useWebLLM() {
     try {
       setState('downloading');
       
-      const engine = await CreateMLCEngine(MODEL_ID, { initProgressCallback });
+      const engine = await CreateMLCEngine(modelId, { initProgressCallback });
       
       engineRef.current = engine;
       setState('ready');
@@ -67,8 +69,8 @@ export function useWebLLM() {
       if (err.message?.includes("Instance") || err.message?.includes("external")) {
         try {
           console.log("Clearing model cache and retrying...");
-          await deleteModelAllInfoInCache(MODEL_ID);
-          const engine = await CreateMLCEngine(MODEL_ID, { initProgressCallback });
+          await deleteModelAllInfoInCache(modelId);
+          const engine = await CreateMLCEngine(modelId, { initProgressCallback });
           engineRef.current = engine;
           setState('ready');
           return true;
@@ -168,7 +170,7 @@ Just 5 lines of text, nothing else.`;
           initStarted.current = false;
           setState('downloading');
           opts.onChunk("");
-          const engine = await CreateMLCEngine(MODEL_ID, { initProgressCallback });
+          const engine = await CreateMLCEngine(getSelectedModelId(), { initProgressCallback });
           engineRef.current = engine;
           const result = await doGenerate(opts);
           setState('ready');
