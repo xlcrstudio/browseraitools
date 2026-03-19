@@ -6,7 +6,7 @@ import {
   Search, Tag, Key, BookOpen, Link2,
   Briefcase, ScrollText, UserCheck, MessageCircle, ScanSearch,
   ListChecks, ClipboardList, CalendarDays, Flag,
-  Scale, ThumbsUp, Swords, ShieldQuestion, Heart, Flame, BookOpenCheck, Sparkles, UtensilsCrossed, MapPin, Code, Terminal,
+  Scale, ThumbsUp, Swords, ShieldQuestion, Heart, Flame, BookOpenCheck, Sparkles, UtensilsCrossed, MapPin, Code, Terminal, Wand2,
 } from "lucide-react";
 
 export interface Tool {
@@ -40,6 +40,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 8, name: "AI Bullet Points Generator", slug: "/ai-bullet-points-generator", icon: List, available: true },
       { id: 9, name: "AI Blog Outline Generator", slug: "/ai-blog-outline-generator", icon: FileText, available: true },
       { id: 64, name: "AI PDF Summarizer", slug: "/ai-pdf-summarizer", icon: FileText, available: true },
+      { id: 65, name: "AI Text Humanizer", slug: "/ai-humanizer", icon: Wand2, available: true },
       { id: 10, name: "AI FAQ Generator", slug: "/ai-faq-generator", icon: HelpCircle, available: true },
       { id: 54, name: "AI Essay Writer", slug: "/ai-essay-writer", icon: ScrollText, available: true },
     ],

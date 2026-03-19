@@ -2603,3 +2603,34 @@ export const pdfSummarizerFAQs: FAQItem[] = [
     answer: "Yes. The AI summarization requires WebGPU, which is available in Chrome 113+, Edge 113+, and recent versions of Firefox and Safari with the appropriate flags. PDF text extraction works in any browser since it is JavaScript-based.",
   },
 ];
+
+export const aiHumanizerFAQs: FAQItem[] = [
+  {
+    question: "Is my text uploaded to a server when I use this humanizer?",
+    answer: "No. All processing happens locally in your browser using WebLLM, which runs the AI model directly on your device via WebGPU. Your text is never sent to any server, stored, or shared. This makes it safe for sensitive content like academic work, business documents, or personal writing.",
+  },
+  {
+    question: "What is the AI detection risk meter?",
+    answer: "The live meter scores your text based on known AI writing patterns: density of formal connectors (furthermore, moreover), sentence length uniformity, lack of contractions, passive voice usage, and formal vocabulary. A high score means the text has many AI-typical patterns. It updates as you type. Note: this is a heuristic estimate, not a certified AI detector like GPTZero or Turnitin.",
+  },
+  {
+    question: "Which humanization level should I choose?",
+    answer: "Light makes subtle changes — fixing the most obvious AI patterns while keeping your structure. Moderate is the best default for most use cases: it naturally varies sentences, adds contractions, and simplifies vocabulary. Heavy does a deep transformation and is best for text that sounds very robotic or for informal content where naturalness matters most.",
+  },
+  {
+    question: "Why does the tool generate 3 versions?",
+    answer: "Different contexts need different styles. Version 1 is the recommended balanced rewrite. Version 2 tries a different approach or emphasis. Version 3 offers another structural variation. Having 3 options lets you pick the one that best matches your voice or purpose, or mix elements from different versions.",
+  },
+  {
+    question: "What text length works best?",
+    answer: "The tool works well on paragraphs up to about 400 words. The AI model processes up to 1,500 characters of text (about 250 words) for best results — longer text is truncated before sending to the model. For longer documents, humanize section by section for the best output quality.",
+  },
+  {
+    question: "Will this bypass AI detectors like Turnitin or GPTZero?",
+    answer: "The humanizer significantly reduces AI writing patterns, which lowers detection risk across most tools. However, no humanizer guarantees bypassing every detector — especially advanced ones used by academic institutions. Use this tool to improve naturalness and readability, not to misrepresent AI-assisted work in academic or professional contexts where that would be dishonest.",
+  },
+  {
+    question: "Do I need a GPU to use this?",
+    answer: "Yes. The AI model runs locally using WebGPU, which requires a GPU-enabled browser. Chrome 113+ and Edge 113+ support WebGPU by default. Most laptops and desktops from the past 5 years have compatible GPUs. The first time you use any tool on this site, the model downloads once (about 1GB) and is cached for future use.",
+  },
+];
