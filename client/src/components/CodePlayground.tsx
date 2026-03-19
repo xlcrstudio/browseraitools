@@ -125,8 +125,10 @@ export function CodePlayground() {
 
   const prepareReactCode = useCallback((jsCode: string): string => {
     let code = jsCode
-      .replace(/^\s*import\s+.*?from\s+["'][^"']*["'];?\s*$/gm, '')
-      .replace(/^\s*import\s+["'][^"']*["'];?\s*$/gm, '');
+      .replace(/import\s+.*?from\s+['"][^'"]+['"];?\n?/g, '')
+      .replace(/import\s+\{[^}]+\}\s+from\s+['"][^'"]+['"];?\n?/g, '')
+      .replace(/import\s+React.*?from.*?;?\n?/g, '')
+      .trim();
     const hooks = ['useState','useEffect','useRef','useCallback','useMemo','useContext','useReducer','createContext','Fragment','memo','forwardRef'];
     const used = hooks.filter(h => new RegExp('\\b' + h + '\\b').test(code));
     if (used.length > 0) {
@@ -134,6 +136,9 @@ export function CodePlayground() {
       if (!alreadyDestructured) {
         code = 'const { ' + used.join(', ') + ' } = React;\n' + code;
       }
+    }
+    if (!code.includes('ReactDOM') && !code.includes('createRoot')) {
+      code += "\n\nReactDOM.createRoot(document.getElementById('root')).render(<App />);";
     }
     return code;
   }, []);
@@ -143,20 +148,27 @@ export function CodePlayground() {
     const safe = prepared.replace(/<\/script>/gi, '<\\/script>');
     return '<!DOCTYPE html><html><head>' +
       '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
-      '<script src="https://unpkg.com/react@18/umd/react.development.js"><\/script>' +
-      '<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"><\/script>' +
-      '<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"><\/script>' +
-      '<script src="https://cdn.tailwindcss.com"><\/script>' +
+      '<script>' +
+      'window.Babel={presets:[["react",{runtime:"classic",pragma:"React.createElement"}]]};' +
+      '<\/script>' +
+      '<script src="https://unpkg.com/react@18/umd/react.production.min.js"><\/script>' +
+      '<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"><\/script>' +
+      '<script src="https://unpkg.com/@babel/standalone/babel.min.js"><\/script>' +
       '<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif}' +
-      '#__err{display:none;padding:16px;background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5;' +
-      'border-radius:8px;margin:16px;font-family:monospace;font-size:13px;white-space:pre-wrap}</style>' +
-      '</head><body><div id="root"></div><div id="__err"></div>' +
-      '<script>window.addEventListener("error",function(ev){' +
-      '  if(ev.filename&&(ev.filename.indexOf("babel")!==-1||ev.filename.indexOf("tailwindcss")!==-1||ev.filename.indexOf("unpkg")!==-1))return;' +
-      '  var e=document.getElementById("__err");if(e){e.style.display="block";e.textContent="Error: "+(ev.error?ev.error.message:ev.message);}' +
-      '  parent.postMessage({type:"playground-preview-error",error:ev.error?ev.error.message:ev.message},"*");' +
-      '});<\/script>' +
-      '<script type="text/babel" data-presets="react">' + safe + '<\/script>' +
+      '.error-box{background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5;border-radius:8px;' +
+      'margin:16px;padding:16px;font-family:monospace;font-size:13px;white-space:pre-wrap}</style>' +
+      '</head><body><div id="root"></div>' +
+      '<script>' +
+      'window.onerror=function(msg,url,line,col,error){' +
+      '  if(url&&(url.indexOf("unpkg.com")!==-1||url.indexOf("cdn.tailwind")!==-1||url.indexOf("cdn.jsdelivr")!==-1))return true;' +
+      '  var r=document.getElementById("root");' +
+      '  if(r)r.innerHTML=\'<div class="error-box"><strong>Error:</strong> \'+(error?error.message:msg)+\'<\/div>\';' +
+      '  parent.postMessage({type:"playground-preview-error",error:error?error.message:msg},"*");' +
+      '  return true;' +
+      '};' +
+      '<\/script>' +
+      '<script type="text/babel">' + safe + '<\/script>' +
+      '<script src="https://cdn.tailwindcss.com"><\/script>' +
       '</body></html>';
   }, []);
 
