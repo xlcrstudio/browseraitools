@@ -23,49 +23,51 @@ const TEMPLATES: Array<{ name: string; language: string; code: string; prompt: s
   { name: "Algorithm: Sorting", language: "javascript", prompt: "Sorting algorithms comparison", code: '// Sorting Algorithms Comparison\n\nfunction bubbleSort(arr) {\n  var a = arr.slice();\n  for (var i = 0; i < a.length; i++)\n    for (var j = 0; j < a.length - i - 1; j++)\n      if (a[j] > a[j+1]) { var tmp = a[j]; a[j] = a[j+1]; a[j+1] = tmp; }\n  return a;\n}\n\nfunction quickSort(arr) {\n  if (arr.length <= 1) return arr;\n  var pivot = arr[arr.length - 1];\n  var left = arr.filter(function(x, i) { return x <= pivot && i !== arr.length - 1; });\n  var right = arr.filter(function(x) { return x > pivot; });\n  return quickSort(left).concat([pivot], quickSort(right));\n}\n\nfunction mergeSort(arr) {\n  if (arr.length <= 1) return arr;\n  var mid = Math.floor(arr.length / 2);\n  var left = mergeSort(arr.slice(0, mid));\n  var right = mergeSort(arr.slice(mid));\n  var result = [], i = 0, j = 0;\n  while (i < left.length && j < right.length)\n    result.push(left[i] < right[j] ? left[i++] : right[j++]);\n  return result.concat(left.slice(i), right.slice(j));\n}\n\nvar data = [];\nfor (var k = 0; k < 20; k++) data.push(Math.floor(Math.random() * 100));\nconsole.log("Original:", data);\nconsole.log("Bubble Sort:", bubbleSort(data));\nconsole.log("Quick Sort:", quickSort(data));\nconsole.log("Merge Sort:", mergeSort(data));\n\nvar big = [];\nfor (var k = 0; k < 5000; k++) big.push(Math.random());\nvar t;\nt = performance.now(); bubbleSort(big); console.log("Bubble: " + (performance.now()-t).toFixed(1) + "ms");\nt = performance.now(); quickSort(big); console.log("Quick: " + (performance.now()-t).toFixed(1) + "ms");\nt = performance.now(); mergeSort(big); console.log("Merge: " + (performance.now()-t).toFixed(1) + "ms");' },
 ];
 
-const SYSTEM_PROMPT = `You are a practical, production-ready coding assistant running entirely in the user's browser.
+const SYSTEM_PROMPT = `You are generating COMPLETE, RUNNABLE React code for a browser sandbox.
 
-Core rules:
-- Always output COMPLETE, runnable code in a single file when possible.
-- Use modern, clean syntax with helpful comments.
-- Prefer simple solutions over clever ones.
-- Never use external dependencies unless absolutely necessary (and then list them clearly).
-- For Python: use only standard library + common Pyodide-supported packages.
+CRITICAL RULES:
+1. ALWAYS include ALL state declarations at the top of the component
+2. ALWAYS define ALL functions before using them in JSX
+3. Use const { useState, useEffect, useRef } = React; (hooks are destructured from global React)
+4. NEVER use import statements. NEVER use require(). React and ReactDOM are globals.
+5. ALWAYS end with: ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+6. Every input MUST have value={} and onChange={}. NEVER leave inputs uncontrolled.
+7. Use className="..." with Tailwind utility classes. NEVER call tailwind() as a function.
+8. Generate ONLY complete, working code. No placeholders. No '// ... rest of code'. Every function must be fully written.
 
-IMPORTANT - JavaScript execution environment:
-- When the language is JavaScript:
-  - For React/JSX code: Write JSX directly. React 18 and ReactDOM 18 are available as GLOBALS (UMD). Babel transpiles JSX automatically. Tailwind CSS is available via CDN.
-  - NEVER use import statements. NEVER use require().
-  - Destructure hooks from React: const { useState, useEffect, useRef, useCallback } = React;
-  - Always use proper React state management. NEVER mutate state directly. Use useState for ALL dynamic data.
-  - Wire up ALL event handlers (onChange, onClick, onKeyDown). Every input MUST have both value and onChange.
-  - Always render with: ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-  - Use className="..." with Tailwind utility classes for styling. NEVER use tailwind() as a function.
-  - For plain JS (no UI): Write vanilla JavaScript. console.log output appears in the console panel.
-- When the language is HTML/CSS/JS: Write a complete HTML document with inline styles and scripts.
-
-EXAMPLE of correct React code in JavaScript mode:
+REQUIRED CODE STRUCTURE (follow this exactly):
 const { useState } = React;
-function App() {
+
+const App = () => {
+  // ALL STATE FIRST
   const [items, setItems] = useState([]);
-  const [text, setText] = useState("");
-  const addItem = () => { if (!text.trim()) return; setItems([...items, { id: Date.now(), text }]); setText(""); };
+  const [input, setInput] = useState('');
+
+  // ALL FUNCTIONS NEXT
+  const handleAdd = () => {
+    if (!input.trim()) return;
+    setItems([...items, { id: Date.now(), text: input }]);
+    setInput('');
+  };
+
+  // RETURN LAST
   return (
-    <div className="p-4">
-      <input value={text} onChange={e => setText(e.target.value)} onKeyDown={e => e.key === "Enter" && addItem()} className="border p-2 rounded" />
-      <button onClick={addItem} className="ml-2 px-4 py-2 bg-blue-600 text-white rounded">Add</button>
-      <ul>{items.map(i => <li key={i.id}>{i.text}</li>)}</ul>
+    <div className="p-4 bg-gray-900 min-h-screen text-white">
+      <input value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => e.key === 'Enter' && handleAdd()} className="border p-2 rounded bg-gray-800 text-white" />
+      <button onClick={handleAdd} className="ml-2 px-4 py-2 bg-blue-600 text-white rounded">Add</button>
+      <ul className="mt-4">{items.map(i => <li key={i.id} className="py-1">{i.text}</li>)}</ul>
     </div>
   );
-}
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+};
 
-When fixing errors:
-- Read the exact error message.
-- Provide the FULL corrected code.
-- Add a short explanation of what was wrong and why the fix works as a comment at the top.
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
 
-Never apologize. Never say "I can't run code". Focus only on delivering working code.`;
+For plain JavaScript (no UI): Write vanilla JS. console.log() output appears in the console panel.
+For HTML/CSS/JS mode: Write a complete HTML document with inline styles and scripts.
+For Python: Use only standard library + common Pyodide-supported packages.
+
+When fixing errors: read the exact error, provide the FULL corrected code, add a comment at the top explaining the fix.
+Never apologize. Never say "I can't run code". Output ONLY code — no explanations outside of code comments.`;
 
 const LANGS = [
   { id: "javascript", label: "JavaScript", monacoLang: "javascript" },
@@ -288,20 +290,20 @@ export function CodePlayground() {
     setConsoleOutput([]); setConsoleError("");
 
     const jsEnvNote = language === "javascript" ? `
-CRITICAL: Follow the JavaScript environment rules and EXAMPLE in your system prompt exactly.
-- NEVER use import/require. React and ReactDOM are globals.
-- Destructure: const { useState, useEffect } = React;
-- Every input needs value={} and onChange={}.
-- Use className="..." with Tailwind classes. NEVER call tailwind() as a function.
-- End with: ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+RULES (follow exactly):
+- NO import statements. NO require(). React/ReactDOM are globals.
+- Start with: const { useState, useEffect, useRef } = React;
+- ALL state at top of component. ALL functions defined before JSX return.
+- Every input must have value={} and onChange={}.
+- End with: ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+- Output ONLY code. No markdown fences. No explanations. No placeholders. No '// rest of code'.
 ` : "";
     const userPrompt = `USER REQUEST: ${prompt}
 
-CURRENT LANGUAGE: ${language}
+LANGUAGE: ${language}
 ${jsEnvNote}
-${code.trim() ? `CURRENT CODE IN EDITOR:\n${code}\n` : ""}
-TASK: Generate complete runnable ${language === "html" ? "HTML" : language === "python" ? "Python" : "JavaScript"} code for this request.
-Return ONLY the code block. No markdown fences. No explanations outside code comments.`;
+${code.trim() ? `CURRENT CODE:\n${code}\n` : ""}
+Generate COMPLETE, WORKING code. Every function fully written. No omissions. No markdown fences.`;
 
     const result = await generateRaw({
       messages: [
@@ -326,22 +328,22 @@ Return ONLY the code block. No markdown fences. No explanations outside code com
     if (!consoleError) return;
 
     const jsFixNote = language === "javascript" ? `
-CRITICAL: Follow the JavaScript environment rules and EXAMPLE in your system prompt exactly.
-- NEVER use import/require. React and ReactDOM are globals.
-- Destructure: const { useState, useEffect } = React;
-- Every input needs value={} and onChange={}.
-- Use className="..." with Tailwind classes. NEVER call tailwind() as a function.
-- End with: ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+RULES (follow exactly):
+- NO import statements. NO require(). React/ReactDOM are globals.
+- Start with: const { useState, useEffect, useRef } = React;
+- ALL state at top of component. ALL functions defined before JSX return.
+- Every input must have value={} and onChange={}.
+- End with: ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+- Output ONLY code. No markdown fences. No explanations. No placeholders.
 ` : "";
-    const userPrompt = `CURRENT CODE IN EDITOR:
+    const userPrompt = `CURRENT CODE:
 ${code}
 
-RUNTIME ERROR:
-${consoleError}
+ERROR: ${consoleError}
 
 LANGUAGE: ${language}
 ${jsFixNote}
-Fix this error. Return the FULL corrected code. Add a comment at the top explaining the fix. No markdown fences.`;
+Return the FULL corrected code. Add a comment at top explaining the fix. No markdown fences.`;
 
     const result = await generateRaw({
       messages: [
