@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Link } from "wouter";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, Loader2, Bot, ArrowRight, Lock } from "lucide-react";
+import { Send, Loader2, Bot, ArrowRight, Lock, Plus } from "lucide-react";
 import { MsgContent } from "@/components/MsgContent";
 
 const SYSTEM = "You are a helpful AI assistant running locally in the user's browser. All conversations are completely private — nothing leaves their device. Give concise, useful responses.";
@@ -33,6 +33,15 @@ export function AIChatWidget() {
 
   const isReady = state === "ready" || state === "generating";
   const isModelLoading = state === "checking-gpu" || state === "downloading";
+  const hasConversation = messages.length > 1;
+
+  const newChat = useCallback(() => {
+    if (isGenerating) return;
+    setMessages([{ role: "assistant", content: WELCOME }]);
+    setInput("");
+    setStreamText("");
+    streamRef.current = "";
+  }, [isGenerating]);
 
   useEffect(() => {
     if (!isGenerating) return;
@@ -97,10 +106,23 @@ export function AIChatWidget() {
               </div>
             </div>
           </div>
-          <Link href="/ai-chatbot" data-testid="link-open-full-chatbot"
-            className="flex items-center gap-1.5 text-xs font-semibold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors">
-            Open Full Chatbot <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          <div className="flex items-center gap-2">
+            {hasConversation && (
+              <button
+                onClick={newChat}
+                disabled={isGenerating}
+                data-testid="button-new-chat-widget"
+                className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700/60 transition-colors disabled:opacity-40"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                New Chat
+              </button>
+            )}
+            <Link href="/ai-chatbot" data-testid="link-open-full-chatbot"
+              className="flex items-center gap-1.5 text-xs font-semibold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors">
+              Open Full Chatbot <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
 
         {/* Model loading banner */}
