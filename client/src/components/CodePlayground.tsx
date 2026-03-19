@@ -125,53 +125,45 @@ export function CodePlayground() {
 
   const [showJsPreview, setShowJsPreview] = useState(false);
 
-  const prepareReactCode = useCallback((jsCode: string): string => {
-    let code = jsCode
-      .replace(/import\s+.*?from\s+['"][^'"]+['"];?\n?/g, '')
-      .replace(/import\s+\{[^}]+\}\s+from\s+['"][^'"]+['"];?\n?/g, '')
-      .replace(/import\s+React.*?from.*?;?\n?/g, '')
-      .trim();
-    const hooks = ['useState','useEffect','useRef','useCallback','useMemo','useContext','useReducer','createContext','Fragment','memo','forwardRef'];
-    const used = hooks.filter(h => new RegExp('\\b' + h + '\\b').test(code));
-    if (used.length > 0) {
-      const alreadyDestructured = /const\s*\{[^}]*\}\s*=\s*React\s*;/.test(code);
-      if (!alreadyDestructured) {
-        code = 'const { ' + used.join(', ') + ' } = React;\n' + code;
-      }
-    }
-    if (!code.includes('ReactDOM') && !code.includes('createRoot')) {
-      code += "\n\nReactDOM.createRoot(document.getElementById('root')).render(<App />);";
-    }
-    return code;
-  }, []);
-
   const buildReactPreviewHTML = useCallback((jsCode: string): string => {
-    const prepared = prepareReactCode(jsCode);
-    const safe = prepared.replace(/<\/script>/gi, '<\\/script>');
-    return '<!DOCTYPE html><html><head>' +
-      '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
-      '<script>' +
-      'window.Babel={presets:[["react",{runtime:"classic",pragma:"React.createElement"}]]};' +
-      '<\/script>' +
-      '<script src="https://unpkg.com/react@18/umd/react.production.min.js"><\/script>' +
-      '<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"><\/script>' +
-      '<script src="https://unpkg.com/@babel/standalone/babel.min.js"><\/script>' +
-      '<style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,sans-serif}' +
-      '.error-box{background:#fef2f2;color:#b91c1c;border:1px solid #fca5a5;border-radius:8px;' +
-      'margin:16px;padding:16px;font-family:monospace;font-size:13px;white-space:pre-wrap}</style>' +
-      '</head><body><div id="root"></div>' +
-      '<script>' +
-      'window.onerror=function(msg,url,line,col,error){' +
-      '  if(url&&(url.indexOf("unpkg.com")!==-1||url.indexOf("cdn.tailwind")!==-1||url.indexOf("cdn.jsdelivr")!==-1))return true;' +
-      '  var r=document.getElementById("root");' +
-      '  if(r)r.innerHTML=\'<div class="error-box"><strong>Error:</strong> \'+(error?error.message:msg)+\'<\/div>\';' +
-      '  parent.postMessage({type:"playground-preview-error",error:error?error.message:msg},"*");' +
-      '  return true;' +
-      '};' +
-      '<\/script>' +
-      '<script type="text/babel">' + safe + '<\/script>' +
-      '<script src="https://cdn.tailwindcss.com"><\/script>' +
-      '</body></html>';
+    const cleanCode = jsCode
+      .replace(/import\s+.*?from\s+['"][^'"]+['"];?\n?/g, '')
+      .trim()
+      .replace(/<\/script>/gi, '<\\/script>');
+    return `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script>
+    window.Babel = { presets: [['react', { runtime: 'classic', pragma: 'React.createElement' }]] };
+  <\/script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"><\/script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"><\/script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"><\/script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; }
+    #root { min-height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    window.onerror = function(msg, url, line, col, error) {
+      if (url && url.includes('unpkg.com')) return;
+      var errorDiv = document.createElement('div');
+      errorDiv.style.cssText = 'background:#fee;color:#c00;padding:20px;margin:20px;border-radius:8px;font-family:monospace;font-size:13px;';
+      errorDiv.innerHTML = '<strong>Error:</strong> ' + (error ? error.message : msg);
+      document.getElementById('root').appendChild(errorDiv);
+      window.parent.postMessage({ type: 'playground-preview-error', error: error ? error.message : msg }, '*');
+    };
+  <\/script>
+  <script type="text/babel" data-type="module">
+${cleanCode}
+  <\/script>
+  <script src="https://cdn.tailwindcss.com"><\/script>
+</body>
+</html>`;
   }, []);
 
   const runJavaScript = useCallback((jsCode: string): Promise<{ output: string[]; error: string }> => {

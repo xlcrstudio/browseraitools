@@ -1,0 +1,68 @@
+The system prompt is updated correctly, but the PREVIEW GENERATION CODE needs to change.
+
+Find the code that creates the preview iframe (the part that sets iframe.srcdoc = ... or generates the HTML for the Live Preview panel).
+
+Replace the entire preview HTML generation with this exact structure:
+
+const generatePreviewHTML = (userCode) => {
+  // Strip import statements
+  const cleanCode = userCode
+    .replace(/import\s+.*?from\s+['"][^'"]+['"];?\n?/g, '')
+    .trim();
+  
+  return `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script>
+    // CRITICAL: Configure Babel BEFORE loading it
+    window.Babel = {
+      presets: [['react', { runtime: 'classic', pragma: 'React.createElement' }]]
+    };
+  </script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; }
+    #root { min-height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  
+  <script>
+    window.onerror = function(msg, url, line, col, error) {
+      // CRITICAL: Ignore errors from CDN scripts
+      if (url && url.includes('unpkg.com')) return;
+      
+      const errorDiv = document.createElement('div');
+      errorDiv.style.cssText = 'background:#fee;color:#c00;padding:20px;margin:20px;border-radius:8px;';
+      errorDiv.innerHTML = '<strong>Error:</strong> ' + msg;
+      document.getElementById('root').appendChild(errorDiv);
+      
+      window.parent.postMessage({ type: 'preview-error', error: msg }, '*');
+    };
+  </script>
+  
+  <script type="text/babel" data-type="module">
+    ${cleanCode}
+  </script>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>`;
+};
+
+Then use it like:
+const previewHTML = generatePreviewHTML(generatedCode);
+previewIframe.srcdoc = previewHTML;
+
+The KEY CHANGES needed in the preview generation:
+1. window.Babel config MUST be set in a <script> tag BEFORE the Babel script loads
+2. Use type="text/babel" natively (not manual Babel.transform)
+3. Error handler must filter unpkg.com URLs
+4. Tailwind loads last
+
+Show me the current preview generation code so I can verify it matches this structure.
