@@ -2634,3 +2634,34 @@ export const aiHumanizerFAQs: FAQItem[] = [
     answer: "Yes. The AI model runs locally using WebGPU, which requires a GPU-enabled browser. Chrome 113+ and Edge 113+ support WebGPU by default. Most laptops and desktops from the past 5 years have compatible GPUs. The first time you use any tool on this site, the model downloads once (about 1GB) and is cached for future use.",
   },
 ];
+
+export const aiBlogGeneratorFAQs: FAQItem[] = [
+  {
+    question: "Is this blog post generator completely free?",
+    answer: "Yes. The tool runs entirely in your browser using WebLLM, which processes everything locally on your device. There are no usage limits, no accounts required, and no charges. The AI model downloads once (about 1GB) and is cached for future use.",
+  },
+  {
+    question: "Will my content ideas and keywords be kept private?",
+    answer: "Completely. Unlike cloud-based content generators that send your prompts to a server, this tool processes everything locally using WebGPU. Your keywords, topic ideas, and generated content never leave your device.",
+  },
+  {
+    question: "How long does it take to generate a blog post?",
+    answer: "Generation time depends on your device's GPU and the article length. A quick read (500-800 words) typically takes 30-60 seconds. A comprehensive or authority piece (1,500-2,000 words) may take 2-4 minutes. The first use also requires a one-time model download of about 1GB.",
+  },
+  {
+    question: "What does the SEO score measure?",
+    answer: "The SEO score (0-100) checks: keyword presence in the title, meta description, first paragraph, and subheadings; title length (ideal: 40-65 characters); meta description length (ideal: 130-165 characters); number of H2 sections; word count; presence of a FAQ section; and use of bullet points. A score of 70+ means the article follows most on-page SEO best practices.",
+  },
+  {
+    question: "Can I export the generated blog post?",
+    answer: "Yes. You can copy the full article as Markdown (for static site generators, Notion, or Obsidian) or as HTML (ready to paste into WordPress or any HTML editor). Individual sections — title, meta description, and article body — each have their own copy button.",
+  },
+  {
+    question: "How should I edit the generated content before publishing?",
+    answer: "AI-generated content works best as a strong first draft. Add specific facts, statistics, and personal examples that only you know. Verify any claims the AI made. Adjust the voice to match your brand. Add internal links to your existing content. Run it through your standard editing process before publishing.",
+  },
+  {
+    question: "What keyword length works best?",
+    answer: "Long-tail keywords (3-5 words) tend to produce more focused, useful articles because the AI can target a specific angle. For example, 'best productivity apps for students 2026' produces better output than just 'productivity apps'. Including a year or modifier helps the model understand the angle you want.",
+  },
+];
