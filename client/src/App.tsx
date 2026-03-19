@@ -67,6 +67,7 @@ import ExpanderPage from "@/pages/ExpanderPage";
 import HeadlineImproverPage from "@/pages/HeadlineImproverPage";
 import ShortenerPage from "@/pages/ShortenerPage";
 import CodePlaygroundPage from "@/pages/CodePlaygroundPage";
+import PDFSummarizerPage from "@/pages/PDFSummarizerPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -137,6 +138,7 @@ function Router() {
       <Route path="/ai-headline-improver" component={HeadlineImproverPage} />
       <Route path="/ai-sentence-shortener" component={ShortenerPage} />
       <Route path="/ai-code-playground" component={CodePlaygroundPage} />
+      <Route path="/ai-pdf-summarizer" component={PDFSummarizerPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
