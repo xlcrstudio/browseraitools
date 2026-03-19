@@ -14,7 +14,7 @@ export function YTDescHero() {
           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-sm font-semibold mb-6 ring-1 ring-emerald-200/50 dark:ring-emerald-700/50 shadow-sm"
         >
           <Sparkles className="w-4 h-4" />
-          Powered by Qwen 2.5
+          Powered by WebLLM
         </div>
       </motion.div>
 

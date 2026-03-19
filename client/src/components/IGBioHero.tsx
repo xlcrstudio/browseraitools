@@ -14,7 +14,7 @@ export function IGBioHero() {
           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-pink-100 dark:bg-pink-900/40 text-pink-700 dark:text-pink-300 text-sm font-semibold mb-6 ring-1 ring-pink-200/50 dark:ring-pink-700/50 shadow-sm"
         >
           <Sparkles className="w-4 h-4" />
-          Powered by Qwen 2.5
+          Powered by WebLLM
         </div>
       </motion.div>
 

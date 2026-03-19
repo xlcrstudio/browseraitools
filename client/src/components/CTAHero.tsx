@@ -11,7 +11,7 @@ export function CTAHero() {
       >
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-100 text-purple-700 text-sm font-semibold mb-6 ring-1 ring-purple-200/50 shadow-sm">
           <MousePointerClick className="w-4 h-4" />
-          Powered by Qwen 2.5
+          Powered by WebLLM
         </div>
       </motion.div>
 

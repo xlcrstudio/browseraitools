@@ -14,7 +14,7 @@ export function ATSHero() {
           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 text-sm font-semibold mb-6 ring-1 ring-indigo-200/50 dark:ring-indigo-700/50 shadow-sm"
         >
           <Sparkles className="w-4 h-4" />
-          Powered by Qwen 2.5
+          Powered by WebLLM
         </div>
       </motion.div>
 
