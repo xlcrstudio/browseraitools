@@ -24,7 +24,10 @@ const LENGTHS = [
   { id: "detailed", label: "Detailed", words: "~500 words" },
 ];
 
-const MAX_CONTEXT_CHARS = 18000;
+// Qwen2.5-1.5B (default) has a 4096-token context window.
+// System prompt (~150 tokens) + prompt instructions (~300 tokens) + PDF text must leave room for output.
+// 5000 chars ≈ 1250 tokens → total input ~1700 tokens → ~2300 tokens free for output.
+const MAX_CONTEXT_CHARS = 5000;
 
 interface DocInfo {
   name: string;
@@ -215,7 +218,7 @@ export function PDFSummarizerGenerator() {
     setIsGenerating(true);
 
     const userPrompt = buildSummaryPrompt(docInfo, summaryType, length, includeQuotes);
-    const maxTokens = length === "detailed" ? 3000 : length === "medium" ? 2000 : 1200;
+    const maxTokens = length === "detailed" ? 1500 : length === "medium" ? 1000 : 700;
 
     const result = await generateRaw({
       messages: [
