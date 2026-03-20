@@ -93,6 +93,7 @@ export default function ImageAnalyzerPage() {
       <ToolSchema
         toolName="AI Image Analyzer"
         toolDescription="Free AI-powered image analysis tool. Upload any image and instantly get objects, text, mood, colors, composition, and more."
+        faqs={IMAGE_ANALYZER_FAQS}
       />
 
       <RelatedTools currentToolName="AI Image Analyzer" currentCategory="Unique & Viral Tools" />
