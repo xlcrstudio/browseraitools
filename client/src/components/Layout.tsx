@@ -120,45 +120,52 @@ function DesktopToolsMenu() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 8 }}
             transition={{ duration: 0.15 }}
-            className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[720px] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl shadow-slate-200/60 dark:shadow-black/40 border border-slate-100 dark:border-slate-700 p-5 grid grid-cols-2 gap-x-6 gap-y-4 max-h-[70vh] overflow-y-auto"
+            className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-[720px] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl shadow-slate-200/60 dark:shadow-black/40 border border-slate-100 dark:border-slate-700 p-5 max-h-[70vh] overflow-y-auto"
           >
-            {toolCategories.map((category) => (
-              <div key={category.slug}>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2 px-1">
-                  {category.name}
-                </h4>
-                <div className="space-y-0.5">
-                  {category.tools.map((tool) => {
-                    const Icon = tool.icon;
-                    if (tool.available) {
+            {(() => {
+              const left = toolCategories.filter((_, i) => i % 2 === 0);
+              const right = toolCategories.filter((_, i) => i % 2 !== 0);
+              const renderCategory = (category: typeof toolCategories[0]) => (
+                <div key={category.slug} className="mb-4">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2 px-1">
+                    {category.name}
+                  </h4>
+                  <div className="space-y-0.5">
+                    {category.tools.map((tool) => {
+                      const Icon = tool.icon;
+                      if (tool.available) {
+                        return (
+                          <Link
+                            key={tool.id}
+                            href={tool.slug}
+                            data-testid={`menu-tool-${tool.id}`}
+                            className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-colors group"
+                            onClick={() => setOpen(false)}
+                          >
+                            <Icon className="w-4 h-4 text-purple-500 shrink-0" />
+                            <span className="text-sm font-medium text-slate-700 dark:text-slate-200 group-hover:text-purple-700 dark:group-hover:text-purple-300 truncate">{tool.name}</span>
+                            <ChevronRight className="w-3 h-3 text-purple-400 ml-auto opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                          </Link>
+                        );
+                      }
                       return (
-                        <Link
-                          key={tool.id}
-                          href={tool.slug}
-                          data-testid={`menu-tool-${tool.id}`}
-                          className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-colors group"
-                          onClick={() => setOpen(false)}
-                        >
-                          <Icon className="w-4 h-4 text-purple-500 shrink-0" />
-                          <span className="text-sm font-medium text-slate-700 dark:text-slate-200 group-hover:text-purple-700 dark:group-hover:text-purple-300 truncate">{tool.name}</span>
-                          <ChevronRight className="w-3 h-3 text-purple-400 ml-auto opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
-                        </Link>
+                        <div key={tool.id} className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg opacity-50">
+                          <Icon className="w-4 h-4 text-slate-400 shrink-0" />
+                          <span className="text-sm text-slate-400 truncate">{tool.name}</span>
+                          <span className="text-[10px] text-slate-300 ml-auto shrink-0">Soon</span>
+                        </div>
                       );
-                    }
-                    return (
-                      <div
-                        key={tool.id}
-                        className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg opacity-50"
-                      >
-                        <Icon className="w-4 h-4 text-slate-400 shrink-0" />
-                        <span className="text-sm text-slate-400 truncate">{tool.name}</span>
-                        <span className="text-[10px] text-slate-300 ml-auto shrink-0">Soon</span>
-                      </div>
-                    );
-                  })}
+                    })}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+              return (
+                <div className="flex gap-x-6">
+                  <div className="flex-1 min-w-0">{left.map(renderCategory)}</div>
+                  <div className="flex-1 min-w-0">{right.map(renderCategory)}</div>
+                </div>
+              );
+            })()}
           </motion.div>
         )}
       </AnimatePresence>
