@@ -1,10 +1,12 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Upload, Image as ImageIcon, Loader2, Copy, Check, Download,
   Eye, Tag, Type, Smile, Palette, Info, Sparkles, X, RefreshCw,
+  HardDrive, Cpu, AlertCircle, ChevronRight,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useGemma3n } from "@/hooks/useGemma3n";
 
 interface Analysis {
   description: string;
@@ -32,6 +34,50 @@ const CARD_VARIANTS = {
   hidden: { opacity: 0, y: 16 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.12, duration: 0.35 } }),
 };
+
+const ANALYSIS_PROMPT = `Analyze this image carefully. Return ONLY valid JSON with no extra text, no markdown fences. Use exactly this structure:
+{"description":"2-3 sentence description","objects":["obj1","obj2","obj3"],"text_content":["any visible text"],"emotions":{"mood":"mood in 2-4 words","indicators":["indicator1","indicator2"]},"context":"1-2 sentences about context/purpose","colors":{"dominant":["color1","color2","color3"],"palette_mood":"2-3 word color mood"},"composition":"1 sentence about framing/lighting","insights":"1-2 interesting observations","tags":["tag1","tag2","tag3","tag4","tag5"]}`;
+
+function parseAnalysis(raw: string): Analysis | null {
+  try {
+    const match = raw.match(/\{[\s\S]*\}/);
+    if (!match) return null;
+    const parsed = JSON.parse(match[0]);
+    return {
+      description: parsed.description || "",
+      objects: Array.isArray(parsed.objects) ? parsed.objects : [],
+      text_content: Array.isArray(parsed.text_content) ? parsed.text_content : [],
+      emotions: {
+        mood: parsed.emotions?.mood || "neutral",
+        indicators: Array.isArray(parsed.emotions?.indicators) ? parsed.emotions.indicators : [],
+      },
+      context: parsed.context || "",
+      colors: {
+        dominant: Array.isArray(parsed.colors?.dominant) ? parsed.colors.dominant : [],
+        palette_mood: parsed.colors?.palette_mood || "",
+      },
+      composition: parsed.composition || "",
+      insights: parsed.insights || "",
+      tags: Array.isArray(parsed.tags) ? parsed.tags : [],
+    };
+  } catch {
+    return null;
+  }
+}
+
+function fallbackAnalysis(raw: string): Analysis {
+  return {
+    description: raw.slice(0, 400),
+    objects: [],
+    text_content: [],
+    emotions: { mood: "unknown", indicators: [] },
+    context: "",
+    colors: { dominant: [], palette_mood: "" },
+    composition: "",
+    insights: "",
+    tags: [],
+  };
+}
 
 function CopyBtn({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
@@ -80,13 +126,13 @@ function colorSwatch(name: string) {
   return match ? COLOR_NAME_MAP[match] : "#94a3b8";
 }
 
-async function resizeAndEncode(file: File): Promise<ImageData> {
+async function resizeAndEncode(file: File): Promise<{ imageData: ImageData; imgEl: HTMLImageElement }> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = (e) => {
       const img = new window.Image();
       img.onload = () => {
-        const MAX = 1600;
+        const MAX = 1024;
         let w = img.width, h = img.height;
         if (w > MAX || h > MAX) {
           if (w > h) { h = Math.round((h / w) * MAX); w = MAX; }
@@ -101,14 +147,20 @@ async function resizeAndEncode(file: File): Promise<ImageData> {
           r2.onload = (ev) => {
             const dataUrl = ev.target!.result as string;
             const b64 = dataUrl.split(",")[1];
-            resolve({
-              base64: b64,
-              mediaType: "image/jpeg",
-              url: URL.createObjectURL(blob!),
-              name: file.name,
-              width: w,
-              height: h,
-              sizeKB: Math.round(blob!.size / 1024),
+            const objectUrl = URL.createObjectURL(blob!);
+            const imgEl = new window.Image();
+            imgEl.src = objectUrl;
+            imgEl.onload = () => resolve({
+              imageData: {
+                base64: b64,
+                mediaType: "image/jpeg",
+                url: objectUrl,
+                name: file.name,
+                width: w,
+                height: h,
+                sizeKB: Math.round(blob!.size / 1024),
+              },
+              imgEl,
             });
           };
           r2.readAsDataURL(blob!);
@@ -122,43 +174,159 @@ async function resizeAndEncode(file: File): Promise<ImageData> {
   });
 }
 
+function ModelLoader({
+  state, progress, downloadPct, isCached, error, onLoad,
+}: {
+  state: string; progress: string; downloadPct: number;
+  isCached: boolean; error: string | null; onLoad: () => void;
+}) {
+  const isLoading = state === "checking-cache" || state === "downloading" || state === "loading";
+
+  return (
+    <div className="rounded-2xl border border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-800 p-8 flex flex-col items-center gap-6 text-center shadow-sm">
+      <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/40 dark:to-indigo-900/40 flex items-center justify-center shadow-sm">
+        <Cpu className="w-7 h-7 text-purple-500" />
+      </div>
+
+      <div className="space-y-1">
+        <h3 className="font-bold text-slate-800 dark:text-slate-100 text-lg">Gemma 3n Vision Model</h3>
+        <p className="text-slate-500 dark:text-slate-400 text-sm max-w-sm">
+          Analyzes images 100% in your browser — private, offline-capable, no cloud.
+        </p>
+      </div>
+
+      {!isLoading && state !== "error" && (
+        <div className="w-full max-w-sm space-y-4">
+          <div className="flex items-center justify-between text-xs text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700/50 rounded-xl px-4 py-3">
+            <div className="flex items-center gap-2">
+              <HardDrive className="w-3.5 h-3.5" />
+              <span>{isCached ? "Model cached — instant load" : "One-time download: ~4.2 GB"}</span>
+            </div>
+            {isCached && <Check className="w-3.5 h-3.5 text-emerald-500" />}
+          </div>
+          {!isCached && (
+            <p className="text-xs text-slate-400 dark:text-slate-500">
+              Saved to your browser — future visits load instantly.
+            </p>
+          )}
+          <button
+            onClick={onLoad}
+            data-testid="button-load-model"
+            className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-purple-600 text-white font-semibold hover:bg-purple-700 transition-colors shadow-sm"
+          >
+            {isCached ? "Load Model" : "Download & Load Gemma 3n"}
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+      )}
+
+      {isLoading && (
+        <div className="w-full max-w-sm space-y-3">
+          <div className="flex items-center justify-center gap-2 text-sm text-purple-600 dark:text-purple-400 font-medium">
+            <Loader2 className="w-4 h-4 animate-spin" />
+            <span>{progress || "Loading…"}</span>
+          </div>
+          {state === "downloading" && downloadPct > 0 && (
+            <div className="space-y-1.5">
+              <div className="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
+                <motion.div
+                  className="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${downloadPct}%` }}
+                  transition={{ duration: 0.4 }}
+                />
+              </div>
+              <p className="text-xs text-slate-400 text-right">{downloadPct}%</p>
+            </div>
+          )}
+          {state === "loading" && (
+            <div className="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
+              <motion.div
+                className="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full"
+                animate={{ width: ["30%", "85%", "30%"] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              />
+            </div>
+          )}
+          <p className="text-xs text-slate-400 dark:text-slate-500">
+            {state === "downloading" ? "Keep this tab open while downloading." : "Setting up the model…"}
+          </p>
+        </div>
+      )}
+
+      {state === "error" && error && (
+        <div className="w-full max-w-sm space-y-3">
+          <div className="flex items-start gap-2 p-3 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800/30 text-left">
+            <AlertCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+            <p className="text-xs text-red-600 dark:text-red-400">{error}</p>
+          </div>
+          <button
+            onClick={onLoad}
+            data-testid="button-retry-load"
+            className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-purple-600 text-white font-semibold hover:bg-purple-700 transition-colors"
+          >
+            <RefreshCw className="w-4 h-4" />
+            Retry
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function ImageAnalyzer() {
   const { toast } = useToast();
+  const { state, progress, downloadPct, error, isCached, initialize, analyzeImage } = useGemma3n();
+
   const [imageData, setImageData] = useState<ImageData | null>(null);
+  const [imgEl, setImgEl] = useState<HTMLImageElement | null>(null);
   const [analysis, setAnalysis] = useState<Analysis | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [analyzing, setAnalyzing] = useState(false);
   const [dragOver, setDragOver] = useState(false);
   const [copiedAll, setCopiedAll] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    checkCachedStatus();
+  }, []);
+
+  async function checkCachedStatus() {
+    try {
+      const root = await navigator.storage.getDirectory();
+      await root.getFileHandle("gemma-3n-e4b-int4-web.litertlm");
+    } catch {}
+  }
 
   const processFile = useCallback(async (file: File) => {
     if (!file.type.match(/image\/(jpeg|jpg|png|webp|gif)/)) {
       toast({ title: "Unsupported format", description: "Please upload JPG, PNG, WebP, or GIF.", variant: "destructive" });
       return;
     }
-    if (file.size > 8 * 1024 * 1024) {
-      toast({ title: "File too large", description: "Maximum size is 8MB.", variant: "destructive" });
+    if (file.size > 20 * 1024 * 1024) {
+      toast({ title: "File too large", description: "Maximum size is 20 MB.", variant: "destructive" });
       return;
     }
-    setAnalysis(null);
-    setLoading(true);
-    try {
-      const data = await resizeAndEncode(file);
-      setImageData(data);
-      const res = await fetch("/api/analyze-image", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ base64Image: data.base64, mediaType: data.mediaType }),
-      });
-      if (!res.ok) throw new Error((await res.json()).error || "Analysis failed");
-      const json = await res.json();
-      setAnalysis(json.analysis);
-    } catch (err: any) {
-      toast({ title: "Analysis failed", description: err.message, variant: "destructive" });
-    } finally {
-      setLoading(false);
+    if (state !== "ready") {
+      toast({ title: "Model not loaded", description: "Please load the AI model first.", variant: "destructive" });
+      return;
     }
-  }, [toast]);
+
+    setAnalysis(null);
+    setAnalyzing(true);
+    try {
+      const result = await resizeAndEncode(file);
+      setImageData(result.imageData);
+      setImgEl(result.imgEl);
+
+      const raw = await analyzeImage(result.imgEl, ANALYSIS_PROMPT);
+      const parsed = parseAnalysis(raw);
+      setAnalysis(parsed ?? fallbackAnalysis(raw));
+    } catch (err: any) {
+      toast({ title: "Analysis failed", description: err.message || "Something went wrong.", variant: "destructive" });
+    } finally {
+      setAnalyzing(false);
+    }
+  }, [state, analyzeImage, toast]);
 
   const onDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -175,8 +343,9 @@ export function ImageAnalyzer() {
 
   const reset = () => {
     setImageData(null);
+    setImgEl(null);
     setAnalysis(null);
-    setLoading(false);
+    setAnalyzing(false);
   };
 
   const copyAllText = () => {
@@ -206,8 +375,7 @@ ${analysis.description}
 ## Objects Detected
 ${analysis.objects.map(o => `- ${o}`).join("\n")}
 
-${analysis.text_content.length ? `## Text Found\n${analysis.text_content.map(t => `- ${t}`).join("\n")}\n` : ""}
-## Mood & Emotions
+${analysis.text_content.length ? `## Text Found\n${analysis.text_content.map(t => `- ${t}`).join("\n")}\n` : ""}## Mood & Emotions
 **Mood:** ${analysis.emotions.mood}
 ${analysis.emotions.indicators.map(i => `- ${i}`).join("\n")}
 
@@ -234,50 +402,69 @@ ${analysis.tags.map(t => "#" + t).join(" ")}
     URL.revokeObjectURL(url);
   };
 
+  const modelLoaded = state === "ready" || state === "generating";
+
   return (
     <div className="space-y-6">
-      {/* Upload zone */}
-      {!imageData && !loading && (
-        <div
-          data-testid="dropzone-image"
-          onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
-          onDragLeave={() => setDragOver(false)}
-          onDrop={onDrop}
-          onClick={() => fileRef.current?.click()}
-          className={`relative cursor-pointer rounded-2xl border-2 border-dashed transition-all duration-200 p-12 flex flex-col items-center justify-center gap-4 text-center
-            ${dragOver
-              ? "border-purple-400 bg-purple-50/60 dark:bg-purple-900/20 scale-[1.01]"
-              : "border-slate-200 dark:border-slate-700 hover:border-purple-300 dark:hover:border-purple-600 hover:bg-purple-50/30 dark:hover:bg-purple-900/10"
-            }`}
-        >
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/40 dark:to-indigo-900/40 flex items-center justify-center shadow-sm">
-            <Upload className="w-7 h-7 text-purple-500" />
+      {/* Model loader panel */}
+      <AnimatePresence mode="wait">
+        {!modelLoaded && (
+          <motion.div key="loader" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}>
+            <ModelLoader
+              state={state}
+              progress={progress}
+              downloadPct={downloadPct}
+              isCached={isCached}
+              error={error}
+              onLoad={initialize}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Upload zone — only when model is ready and no image yet */}
+      {modelLoaded && !imageData && !analyzing && (
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
+          <div
+            data-testid="dropzone-image"
+            onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
+            onDragLeave={() => setDragOver(false)}
+            onDrop={onDrop}
+            onClick={() => fileRef.current?.click()}
+            className={`relative cursor-pointer rounded-2xl border-2 border-dashed transition-all duration-200 p-12 flex flex-col items-center justify-center gap-4 text-center
+              ${dragOver
+                ? "border-purple-400 bg-purple-50/60 dark:bg-purple-900/20 scale-[1.01]"
+                : "border-slate-200 dark:border-slate-700 hover:border-purple-300 dark:hover:border-purple-600 hover:bg-purple-50/30 dark:hover:bg-purple-900/10"
+              }`}
+          >
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-900/40 dark:to-indigo-900/40 flex items-center justify-center shadow-sm">
+              <Upload className="w-7 h-7 text-purple-500" />
+            </div>
+            <div>
+              <p className="font-semibold text-slate-700 dark:text-slate-200 text-lg">Drop your image here</p>
+              <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">or click to browse — JPG, PNG, WebP, GIF · max 20 MB</p>
+            </div>
+            <input ref={fileRef} type="file" accept="image/jpeg,image/png,image/webp,image/gif"
+              className="hidden" onChange={onFileChange} data-testid="input-image-upload" />
           </div>
-          <div>
-            <p className="font-semibold text-slate-700 dark:text-slate-200 text-lg">Drop your image here</p>
-            <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">or click to browse — JPG, PNG, WebP, GIF · max 8 MB</p>
-          </div>
-          <input ref={fileRef} type="file" accept="image/jpeg,image/png,image/webp,image/gif"
-            className="hidden" onChange={onFileChange} data-testid="input-image-upload" />
-        </div>
+        </motion.div>
       )}
 
-      {/* Loading state */}
-      {loading && (
+      {/* Analyzing state */}
+      {analyzing && (
         <div className="rounded-2xl border border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-800 p-12 flex flex-col items-center gap-4">
           {imageData && (
-            <img src={imageData.url} alt="Uploading" className="max-h-48 rounded-xl object-contain opacity-60" />
+            <img src={imageData.url} alt="Analyzing" className="max-h-48 rounded-xl object-contain opacity-60" />
           )}
           <Loader2 className="w-8 h-8 text-purple-500 animate-spin" />
-          <p className="text-slate-600 dark:text-slate-300 font-medium">Analyzing image with AI vision…</p>
-          <p className="text-slate-400 text-sm">This takes a few seconds</p>
+          <p className="text-slate-600 dark:text-slate-300 font-medium">Analyzing image with Gemma 3n…</p>
+          <p className="text-slate-400 text-sm">Running locally on your device</p>
         </div>
       )}
 
-      {/* Image + results */}
-      {imageData && analysis && !loading && (
+      {/* Results */}
+      {imageData && analysis && !analyzing && (
         <div className="space-y-5">
-          {/* Image preview + action bar */}
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
             <div className="relative">
               <img src={imageData.url} alt={imageData.name}
@@ -315,18 +502,17 @@ ${analysis.tags.map(t => "#" + t).join(" ")}
             </div>
           </div>
 
-          {/* Tags row */}
-          <div className="flex flex-wrap gap-2" data-testid="tags-container">
-            {analysis.tags.map((tag) => (
-              <span key={tag} className="px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 text-xs font-medium border border-purple-100 dark:border-purple-800/40">
-                #{tag}
-              </span>
-            ))}
-          </div>
+          {analysis.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2" data-testid="tags-container">
+              {analysis.tags.map((tag) => (
+                <span key={tag} className="px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 text-xs font-medium border border-purple-100 dark:border-purple-800/40">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          )}
 
-          {/* Analysis cards grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Description */}
             <AnalysisCard icon={Eye} title="Description" index={0}>
               <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" data-testid="text-description">{analysis.description}</p>
               {analysis.insights && (
@@ -334,49 +520,59 @@ ${analysis.tags.map(t => "#" + t).join(" ")}
               )}
             </AnalysisCard>
 
-            {/* Objects */}
-            <AnalysisCard icon={Tag} title="Objects Detected" index={1}>
-              <div className="flex flex-wrap gap-1.5" data-testid="objects-container">
-                {analysis.objects.map((obj, i) => (
-                  <span key={i} className="px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium border border-slate-100 dark:border-slate-600">
-                    {obj}
-                  </span>
-                ))}
-              </div>
-            </AnalysisCard>
+            {analysis.objects.length > 0 && (
+              <AnalysisCard icon={Tag} title="Objects Detected" index={1}>
+                <div className="flex flex-wrap gap-1.5" data-testid="objects-container">
+                  {analysis.objects.map((obj, i) => (
+                    <span key={i} className="px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-medium border border-slate-100 dark:border-slate-600">
+                      {obj}
+                    </span>
+                  ))}
+                </div>
+              </AnalysisCard>
+            )}
 
-            {/* Mood & Context */}
-            <AnalysisCard icon={Smile} title="Mood & Context" index={2}>
-              <div className="mb-3">
-                <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-xs font-semibold border border-amber-100 dark:border-amber-800/40" data-testid="text-mood">
-                  {analysis.emotions.mood}
-                </span>
-              </div>
-              <ul className="space-y-1 mb-3">
-                {analysis.emotions.indicators.map((ind, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-500 dark:text-slate-400">
-                    <span className="text-purple-400 mt-0.5">•</span>{ind}
-                  </li>
-                ))}
-              </ul>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-50 dark:border-slate-700 pt-2" data-testid="text-context">{analysis.context}</p>
-            </AnalysisCard>
-
-            {/* Color Palette */}
-            <AnalysisCard icon={Palette} title="Color Palette" index={3}>
-              <div className="space-y-2" data-testid="colors-container">
-                {analysis.colors.dominant.map((color, i) => (
-                  <div key={i} className="flex items-center gap-2.5">
-                    <div className="w-6 h-6 rounded-md shadow-sm border border-white/20 shrink-0"
-                      style={{ backgroundColor: colorSwatch(color) }} />
-                    <span className="text-sm text-slate-600 dark:text-slate-300 capitalize">{color}</span>
+            {(analysis.emotions.mood || analysis.context) && (
+              <AnalysisCard icon={Smile} title="Mood & Context" index={2}>
+                {analysis.emotions.mood && (
+                  <div className="mb-3">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-full bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-xs font-semibold border border-amber-100 dark:border-amber-800/40" data-testid="text-mood">
+                      {analysis.emotions.mood}
+                    </span>
                   </div>
-                ))}
-                <p className="text-xs text-slate-400 dark:text-slate-500 italic mt-2">{analysis.colors.palette_mood}</p>
-              </div>
-            </AnalysisCard>
+                )}
+                {analysis.emotions.indicators.length > 0 && (
+                  <ul className="space-y-1 mb-3">
+                    {analysis.emotions.indicators.map((ind, i) => (
+                      <li key={i} className="flex items-start gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+                        <span className="text-purple-400 mt-0.5">•</span>{ind}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {analysis.context && (
+                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed border-t border-slate-50 dark:border-slate-700 pt-2" data-testid="text-context">{analysis.context}</p>
+                )}
+              </AnalysisCard>
+            )}
 
-            {/* Text / OCR */}
+            {analysis.colors.dominant.length > 0 && (
+              <AnalysisCard icon={Palette} title="Color Palette" index={3}>
+                <div className="space-y-2" data-testid="colors-container">
+                  {analysis.colors.dominant.map((color, i) => (
+                    <div key={i} className="flex items-center gap-2.5">
+                      <div className="w-6 h-6 rounded-md shadow-sm border border-white/20 shrink-0"
+                        style={{ backgroundColor: colorSwatch(color) }} />
+                      <span className="text-sm text-slate-600 dark:text-slate-300 capitalize">{color}</span>
+                    </div>
+                  ))}
+                  {analysis.colors.palette_mood && (
+                    <p className="text-xs text-slate-400 dark:text-slate-500 italic mt-2">{analysis.colors.palette_mood}</p>
+                  )}
+                </div>
+              </AnalysisCard>
+            )}
+
             {analysis.text_content.length > 0 && (
               <AnalysisCard icon={Type} title="Text Found in Image" index={4}>
                 <div className="space-y-1.5" data-testid="text-content-container">
@@ -390,36 +586,38 @@ ${analysis.tags.map(t => "#" + t).join(" ")}
               </AnalysisCard>
             )}
 
-            {/* Composition */}
-            <AnalysisCard icon={ImageIcon} title="Composition & Lighting" index={5}>
-              <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" data-testid="text-composition">{analysis.composition}</p>
-              <div className="mt-3 flex items-center gap-2 text-xs text-slate-400">
-                <Info className="w-3.5 h-3.5 shrink-0" />
-                <span>{imageData.width} × {imageData.height} px · {imageData.sizeKB} KB</span>
-              </div>
-            </AnalysisCard>
+            {analysis.composition && (
+              <AnalysisCard icon={ImageIcon} title="Composition & Lighting" index={5}>
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" data-testid="text-composition">{analysis.composition}</p>
+                <div className="mt-3 flex items-center gap-2 text-xs text-slate-400">
+                  <Info className="w-3.5 h-3.5 shrink-0" />
+                  <span>{imageData.width} × {imageData.height} px · {imageData.sizeKB} KB</span>
+                </div>
+              </AnalysisCard>
+            )}
           </div>
 
-          {/* Viral actions */}
-          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
-            className="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/10 rounded-2xl border border-purple-100 dark:border-purple-800/30 p-5">
-            <div className="flex items-center gap-2 mb-3">
-              <Sparkles className="w-4 h-4 text-purple-500" />
-              <h3 className="font-semibold text-sm text-slate-800 dark:text-slate-100">Quick Copy</h3>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              {[
-                { label: "Description", value: analysis.description },
-                { label: "Tags", value: analysis.tags.map(t => "#" + t).join(" ") },
-                { label: "Mood", value: analysis.emotions.mood },
-                { label: "Context", value: analysis.context },
-                { label: "Colors", value: analysis.colors.dominant.join(", ") },
-                { label: "Objects", value: analysis.objects.join(", ") },
-              ].map(({ label, value }) => (
-                <QuickCopyBtn key={label} label={label} value={value} />
-              ))}
-            </div>
-          </motion.div>
+          {analysis.description && (
+            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
+              className="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/10 rounded-2xl border border-purple-100 dark:border-purple-800/30 p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="w-4 h-4 text-purple-500" />
+                <h3 className="font-semibold text-sm text-slate-800 dark:text-slate-100">Quick Copy</h3>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {[
+                  { label: "Description", value: analysis.description },
+                  { label: "Tags", value: analysis.tags.map(t => "#" + t).join(" ") },
+                  { label: "Mood", value: analysis.emotions.mood },
+                  { label: "Context", value: analysis.context },
+                  { label: "Colors", value: analysis.colors.dominant.join(", ") },
+                  { label: "Objects", value: analysis.objects.join(", ") },
+                ].filter(({ value }) => value.trim()).map(({ label, value }) => (
+                  <QuickCopyBtn key={label} label={label} value={value} />
+                ))}
+              </div>
+            </motion.div>
+          )}
         </div>
       )}
     </div>

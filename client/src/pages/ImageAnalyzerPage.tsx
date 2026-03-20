@@ -45,7 +45,7 @@ export default function ImageAnalyzerPage() {
           </span>
         </h1>
         <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
-          Understand what's in any image — objects, text, mood, colors, and composition — powered by advanced AI vision. Free and private.
+          Understand what's in any image — objects, text, mood, colors, and composition — powered by Gemma 3n, running 100% in your browser. Free and private.
         </p>
       </section>
 
@@ -68,10 +68,10 @@ export default function ImageAnalyzerPage() {
           The Private AI Vision Tool That Runs in Your Browser
         </h2>
         <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-          The AI Image Analyzer uses Claude's advanced vision capabilities to give you a comprehensive breakdown of any image. Upload a photo, screenshot, artwork, product image, or anything else — and get instant, detailed analysis covering everything from detected objects and visible text to emotional tone and color palette.
+          The AI Image Analyzer runs Google's Gemma 3n vision model directly in your browser — no servers, no uploads, no cloud. Upload a photo, screenshot, artwork, or product image and get instant, detailed analysis covering detected objects, visible text, emotional tone, color palette, and more.
         </p>
         <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-          Unlike other image analysis tools, your images are processed securely and never stored. You get actionable insights you can copy and use directly — perfect for content creators, marketers, designers, and anyone who works with visual content.
+          Because the model runs locally on your device, your images never leave your browser. You get actionable insights you can copy and use directly — perfect for content creators, marketers, designers, and anyone who works with visual content.
         </p>
         <h3 className="font-semibold text-xl text-slate-800 dark:text-slate-100 mt-6 mb-3">What does the AI analyze?</h3>
         <ul className="space-y-2 text-slate-600 dark:text-slate-400">
