@@ -6,7 +6,7 @@ import {
   Search, Tag, Key, BookOpen, Link2,
   Briefcase, ScrollText, UserCheck, MessageCircle, ScanSearch,
   ListChecks, ClipboardList, CalendarDays, Flag,
-  Scale, ThumbsUp, Swords, ShieldQuestion, Heart, Flame, BookOpenCheck, Sparkles, UtensilsCrossed, MapPin, Code, Terminal, Wand2, Newspaper, Clapperboard, Bot, GraduationCap, ShieldCheck,
+  Scale, ThumbsUp, Swords, ShieldQuestion, Heart, Flame, BookOpenCheck, Sparkles, UtensilsCrossed, MapPin, Code, Terminal, Wand2, Newspaper, Clapperboard, Bot, GraduationCap, ShieldCheck, FileSearch,
 } from "lucide-react";
 
 export interface Tool {
@@ -154,6 +154,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 57, name: "AI Travel Planner", slug: "/ai-travel-itinerary-planner", icon: MapPin, available: true },
       { id: 70, name: "AI Homework Solver", slug: "/ai-homework-solver", icon: GraduationCap, available: true },
       { id: 71, name: "AI Text Detector", slug: "/ai-text-detector", icon: ShieldCheck, available: true },
+      { id: 72, name: "AI PDF Chat", slug: "/ai-pdf-chat", icon: FileSearch, available: true },
     ],
   },
   {

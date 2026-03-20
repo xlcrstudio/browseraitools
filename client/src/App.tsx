@@ -74,6 +74,7 @@ import YouTubeScriptPage from "@/pages/YouTubeScriptPage";
 import AIChatPage from "@/pages/AIChatPage";
 import HomeworkSolverPage from "@/pages/HomeworkSolverPage";
 import AITextDetectorPage from "@/pages/AITextDetectorPage";
+import AIPDFChatPage from "@/pages/AIPDFChatPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -151,6 +152,7 @@ function Router() {
       <Route path="/ai-chatbot" component={AIChatPage} />
       <Route path="/ai-homework-solver" component={HomeworkSolverPage} />
       <Route path="/ai-text-detector" component={AITextDetectorPage} />
+      <Route path="/ai-pdf-chat" component={AIPDFChatPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
