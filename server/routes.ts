@@ -66,7 +66,16 @@ export async function registerRoutes(
       res.json({ analysis });
     } catch (err: any) {
       console.error("Image analysis error:", err);
-      res.status(500).json({ error: err.message || "Analysis failed" });
+      let userMessage = "Image analysis failed. Please try again.";
+      const raw = err.message || "";
+      if (raw.includes("credit") || raw.includes("balance") || err.status === 400) {
+        userMessage = "The AI service is temporarily unavailable due to billing limits. Please try again later.";
+      } else if (err.status === 429 || raw.includes("rate")) {
+        userMessage = "Too many requests. Please wait a moment and try again.";
+      } else if (err.status === 401 || raw.includes("auth")) {
+        userMessage = "Authentication error with the AI service. Please contact support.";
+      }
+      res.status(500).json({ error: userMessage });
     }
   });
 
