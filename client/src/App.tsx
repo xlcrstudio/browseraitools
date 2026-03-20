@@ -72,7 +72,6 @@ import AIHumanizerPage from "@/pages/AIHumanizerPage";
 import AIBlogGeneratorPage from "@/pages/AIBlogGeneratorPage";
 import YouTubeScriptPage from "@/pages/YouTubeScriptPage";
 import AIChatPage from "@/pages/AIChatPage";
-import ImageAnalyzerPage from "@/pages/ImageAnalyzerPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -148,7 +147,6 @@ function Router() {
       <Route path="/ai-blog-post-generator" component={AIBlogGeneratorPage} />
       <Route path="/ai-youtube-script-generator" component={YouTubeScriptPage} />
       <Route path="/ai-chatbot" component={AIChatPage} />
-      <Route path="/ai-image-analyzer" component={ImageAnalyzerPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
