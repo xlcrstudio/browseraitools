@@ -45,7 +45,7 @@ export default function ImageAnalyzerPage() {
           </span>
         </h1>
         <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
-          Understand what's in any image — objects, text, mood, colors, and composition — powered by SmolVLM, running 100% in your browser. Free and private.
+          Understand what's in any image — objects, text, mood, colors, and composition — powered by Claude Vision. Free, instant, and private.
         </p>
       </section>
 
@@ -65,13 +65,13 @@ export default function ImageAnalyzerPage() {
       {/* About section */}
       <section className="mb-10 prose prose-slate dark:prose-invert max-w-none">
         <h2 className="font-display font-bold text-2xl text-slate-800 dark:text-slate-100 mb-4">
-          The Private AI Vision Tool That Runs in Your Browser
+          Instant AI Image Analysis — Powered by Claude Vision
         </h2>
         <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-          The AI Image Analyzer runs SmolVLM, a compact vision-language model, directly in your browser using WebGPU — no servers, no uploads, no cloud. Upload a photo, screenshot, artwork, or product image and get instant, detailed analysis covering detected objects, visible text, emotional tone, color palette, and more.
+          The AI Image Analyzer uses Claude Vision to understand your images in seconds. Upload a photo, screenshot, artwork, or product image and get a detailed analysis covering detected objects, visible text, emotional tone, color palette, and more — no account required.
         </p>
         <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-          Because the model runs locally on your device, your images never leave your browser. You get actionable insights you can copy and use directly — perfect for content creators, marketers, designers, and anyone who works with visual content.
+          Your image is sent only for analysis and never stored or retained. You get actionable insights you can copy and use directly — perfect for content creators, marketers, designers, and anyone who works with visual content.
         </p>
         <h3 className="font-semibold text-xl text-slate-800 dark:text-slate-100 mt-6 mb-3">What does the AI analyze?</h3>
         <ul className="space-y-2 text-slate-600 dark:text-slate-400">
