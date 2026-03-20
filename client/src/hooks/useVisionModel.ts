@@ -13,7 +13,11 @@ export interface VisionModelHook {
   downloadPct: number;
   error: string | null;
   initialize: () => Promise<void>;
-  analyzeImage: (imgEl: HTMLImageElement, prompt: string) => Promise<string>;
+  analyzeImage: (
+    imgEl: HTMLImageElement,
+    prompt: string,
+    onStream?: (text: string) => void
+  ) => Promise<string>;
 }
 
 const MODEL_ID = "HuggingFaceTB/SmolVLM-256M-Instruct";
@@ -62,9 +66,7 @@ export function useVisionModel(): VisionModelHook {
         progress_callback: onProgress,
       });
 
-      setProgress("Loading vision model…");
-      // Use WASM/CPU — WebGPU fires device-loss as an unhandled async window
-      // event that bypasses try-catch, crashing the page.
+      setProgress("Loading vision model (CPU)…");
       modelRef.current = await AutoModelForVision2Seq.from_pretrained(MODEL_ID, {
         dtype: "q4",
         device: "wasm",
@@ -91,13 +93,17 @@ export function useVisionModel(): VisionModelHook {
   }, [onProgress]);
 
   const analyzeImage = useCallback(
-    async (imgEl: HTMLImageElement, prompt: string): Promise<string> => {
+    async (
+      imgEl: HTMLImageElement,
+      prompt: string,
+      onStream?: (text: string) => void
+    ): Promise<string> => {
       if (!processorRef.current || !modelRef.current) {
         throw new Error("Model not loaded");
       }
       setState("generating");
       try {
-        const { RawImage } = await import("@huggingface/transformers");
+        const { RawImage, TextStreamer } = await import("@huggingface/transformers");
 
         const image = await RawImage.fromURL(imgEl.src);
 
@@ -119,20 +125,26 @@ export function useVisionModel(): VisionModelHook {
           return_tensors: "pt",
         });
 
-        const generatedIds = await modelRef.current.generate({
-          ...inputs,
-          max_new_tokens: 768,
-          do_sample: false,
+        let accumulated = "";
+
+        const streamer = new TextStreamer(processorRef.current, {
+          skip_prompt: true,
+          skip_special_tokens: true,
+          callback_function: (newText: string) => {
+            accumulated += newText;
+            onStream?.(accumulated);
+          },
         });
 
-        const inputLen = inputs.input_ids.dims[1];
-        const newTokens = generatedIds.slice(null, [inputLen, null]);
-        const decoded: string[] = processorRef.current.batch_decode(newTokens, {
-          skip_special_tokens: true,
+        await modelRef.current.generate({
+          ...inputs,
+          max_new_tokens: 250,
+          do_sample: false,
+          streamer,
         });
 
         setState("ready");
-        return decoded[0]?.trim() ?? "";
+        return accumulated.trim();
       } catch (err: any) {
         setState("ready");
         throw err;

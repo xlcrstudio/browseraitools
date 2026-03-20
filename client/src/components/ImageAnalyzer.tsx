@@ -35,8 +35,8 @@ const CARD_VARIANTS = {
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.12, duration: 0.35 } }),
 };
 
-const ANALYSIS_PROMPT = `Analyze this image carefully. Return ONLY valid JSON with no extra text, no markdown fences. Use exactly this structure:
-{"description":"2-3 sentence description","objects":["obj1","obj2","obj3"],"text_content":["any visible text"],"emotions":{"mood":"mood in 2-4 words","indicators":["indicator1","indicator2"]},"context":"1-2 sentences about context/purpose","colors":{"dominant":["color1","color2","color3"],"palette_mood":"2-3 word color mood"},"composition":"1 sentence about framing/lighting","insights":"1-2 interesting observations","tags":["tag1","tag2","tag3","tag4","tag5"]}`;
+const ANALYSIS_PROMPT = `Analyze this image. Reply with ONLY valid JSON, no markdown, no extra text. Use this exact structure (keep values short):
+{"description":"1-2 sentence description","objects":["obj1","obj2","obj3"],"text_content":["visible text or empty array"],"emotions":{"mood":"2-3 word mood","indicators":["indicator1"]},"context":"1 sentence","colors":{"dominant":["color1","color2"],"palette_mood":"2 word mood"},"composition":"1 sentence","insights":"1 observation","tags":["tag1","tag2","tag3","tag4"]}`;
 
 function parseAnalysis(raw: string): Analysis | null {
   try {
@@ -275,6 +275,7 @@ export function ImageAnalyzer() {
   const [imageData, setImageData] = useState<ImageData | null>(null);
   const [analysis, setAnalysis] = useState<Analysis | null>(null);
   const [analyzing, setAnalyzing] = useState(false);
+  const [streamingText, setStreamingText] = useState("");
   const [dragOver, setDragOver] = useState(false);
   const [copiedAll, setCopiedAll] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
@@ -294,18 +295,22 @@ export function ImageAnalyzer() {
     }
 
     setAnalysis(null);
+    setStreamingText("");
     setAnalyzing(true);
     try {
       const result = await resizeAndEncode(file);
       setImageData(result.imageData);
 
-      const raw = await analyzeImage(result.imgEl, ANALYSIS_PROMPT);
+      const raw = await analyzeImage(result.imgEl, ANALYSIS_PROMPT, (text) => {
+        setStreamingText(text);
+      });
       const parsed = parseAnalysis(raw);
       setAnalysis(parsed ?? fallbackAnalysis(raw));
     } catch (err: any) {
       toast({ title: "Analysis failed", description: err.message || "Something went wrong.", variant: "destructive" });
     } finally {
       setAnalyzing(false);
+      setStreamingText("");
     }
   }, [state, analyzeImage, toast]);
 
@@ -431,13 +436,28 @@ ${analysis.tags.map(t => "#" + t).join(" ")}
 
       {/* Analyzing state */}
       {analyzing && (
-        <div className="rounded-2xl border border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-800 p-12 flex flex-col items-center gap-4">
+        <div className="rounded-2xl border border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden shadow-sm">
           {imageData && (
-            <img src={imageData.url} alt="Analyzing" className="max-h-48 rounded-xl object-contain opacity-60" />
+            <img src={imageData.url} alt="Analyzing"
+              className="w-full max-h-64 object-contain bg-slate-50 dark:bg-slate-900" />
           )}
-          <Loader2 className="w-8 h-8 text-purple-500 animate-spin" />
-          <p className="text-slate-600 dark:text-slate-300 font-medium">Analyzing image with SmolVLM…</p>
-          <p className="text-slate-400 text-sm">Running locally on your device</p>
+          <div className="p-6 space-y-4">
+            <div className="flex items-center gap-2 text-sm font-medium text-purple-600 dark:text-purple-400">
+              <Loader2 className="w-4 h-4 animate-spin shrink-0" />
+              <span>{streamingText ? "Generating analysis…" : "Preparing image…"}</span>
+            </div>
+            {streamingText ? (
+              <div className="rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700 p-4 font-mono text-xs text-slate-500 dark:text-slate-400 leading-relaxed max-h-40 overflow-y-auto whitespace-pre-wrap break-all">
+                {streamingText}
+                <span className="inline-block w-1.5 h-3.5 bg-purple-400 animate-pulse ml-0.5 align-text-bottom" />
+              </div>
+            ) : (
+              <div className="h-10 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700 animate-pulse" />
+            )}
+            <p className="text-xs text-slate-400 dark:text-slate-500">
+              Running SmolVLM on your device — this may take 1–3 minutes on CPU.
+            </p>
+          </div>
         </div>
       )}
 
