@@ -14,6 +14,7 @@
     "@anthropic-ai/sdk": "^0.80.0",
     "@google/generative-ai": "^0.24.1",
     "@hookform/resolvers": "^3.10.0",
+    "@huggingface/transformers": "^3.8.1",
     "@jridgewell/trace-mapping": "^0.3.25",
     "@mediapipe/tasks-genai": "^0.10.26",
     "@mlc-ai/web-llm": "^0.2.81",

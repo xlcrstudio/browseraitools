@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Upload, Image as ImageIcon, Loader2, Copy, Check, Download,
@@ -6,7 +6,7 @@ import {
   HardDrive, Cpu, AlertCircle, ChevronRight,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { useGemma3n } from "@/hooks/useGemma3n";
+import { useVisionModel } from "@/hooks/useVisionModel";
 
 interface Analysis {
   description: string;
@@ -175,12 +175,12 @@ async function resizeAndEncode(file: File): Promise<{ imageData: ImageData; imgE
 }
 
 function ModelLoader({
-  state, progress, downloadPct, isCached, error, onLoad,
+  state, progress, downloadPct, error, onLoad,
 }: {
   state: string; progress: string; downloadPct: number;
-  isCached: boolean; error: string | null; onLoad: () => void;
+  error: string | null; onLoad: () => void;
 }) {
-  const isLoading = state === "checking-cache" || state === "downloading" || state === "loading";
+  const isLoading = state === "downloading";
 
   return (
     <div className="rounded-2xl border border-slate-100 dark:border-slate-700 bg-white dark:bg-slate-800 p-8 flex flex-col items-center gap-6 text-center shadow-sm">
@@ -189,9 +189,9 @@ function ModelLoader({
       </div>
 
       <div className="space-y-1">
-        <h3 className="font-bold text-slate-800 dark:text-slate-100 text-lg">Gemma 3n Vision Model</h3>
+        <h3 className="font-bold text-slate-800 dark:text-slate-100 text-lg">SmolVLM Vision Model</h3>
         <p className="text-slate-500 dark:text-slate-400 text-sm max-w-sm">
-          Analyzes images 100% in your browser — private, offline-capable, no cloud.
+          Analyzes images 100% in your browser — private, no cloud, powered by WebGPU.
         </p>
       </div>
 
@@ -200,21 +200,15 @@ function ModelLoader({
           <div className="flex items-center justify-between text-xs text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700/50 rounded-xl px-4 py-3">
             <div className="flex items-center gap-2">
               <HardDrive className="w-3.5 h-3.5" />
-              <span>{isCached ? "Model cached — instant load" : "One-time download: ~4.2 GB"}</span>
+              <span>~300 MB download · cached after first load</span>
             </div>
-            {isCached && <Check className="w-3.5 h-3.5 text-emerald-500" />}
           </div>
-          {!isCached && (
-            <p className="text-xs text-slate-400 dark:text-slate-500">
-              Saved to your browser — future visits load instantly.
-            </p>
-          )}
           <button
             onClick={onLoad}
             data-testid="button-load-model"
             className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-purple-600 text-white font-semibold hover:bg-purple-700 transition-colors shadow-sm"
           >
-            {isCached ? "Load Model" : "Download & Load Gemma 3n"}
+            Load Vision Model
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>
@@ -276,26 +270,14 @@ function ModelLoader({
 
 export function ImageAnalyzer() {
   const { toast } = useToast();
-  const { state, progress, downloadPct, error, isCached, initialize, analyzeImage } = useGemma3n();
+  const { state, progress, downloadPct, error, initialize, analyzeImage } = useVisionModel();
 
   const [imageData, setImageData] = useState<ImageData | null>(null);
-  const [imgEl, setImgEl] = useState<HTMLImageElement | null>(null);
   const [analysis, setAnalysis] = useState<Analysis | null>(null);
   const [analyzing, setAnalyzing] = useState(false);
   const [dragOver, setDragOver] = useState(false);
   const [copiedAll, setCopiedAll] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    checkCachedStatus();
-  }, []);
-
-  async function checkCachedStatus() {
-    try {
-      const root = await navigator.storage.getDirectory();
-      await root.getFileHandle("gemma-3n-e4b-int4-web.litertlm");
-    } catch {}
-  }
 
   const processFile = useCallback(async (file: File) => {
     if (!file.type.match(/image\/(jpeg|jpg|png|webp|gif)/)) {
@@ -316,7 +298,6 @@ export function ImageAnalyzer() {
     try {
       const result = await resizeAndEncode(file);
       setImageData(result.imageData);
-      setImgEl(result.imgEl);
 
       const raw = await analyzeImage(result.imgEl, ANALYSIS_PROMPT);
       const parsed = parseAnalysis(raw);
@@ -343,7 +324,6 @@ export function ImageAnalyzer() {
 
   const reset = () => {
     setImageData(null);
-    setImgEl(null);
     setAnalysis(null);
     setAnalyzing(false);
   };
@@ -414,7 +394,6 @@ ${analysis.tags.map(t => "#" + t).join(" ")}
               state={state}
               progress={progress}
               downloadPct={downloadPct}
-              isCached={isCached}
               error={error}
               onLoad={initialize}
             />
