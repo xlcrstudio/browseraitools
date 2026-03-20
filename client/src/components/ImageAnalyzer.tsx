@@ -191,7 +191,7 @@ function ModelLoader({
       <div className="space-y-1">
         <h3 className="font-bold text-slate-800 dark:text-slate-100 text-lg">SmolVLM Vision Model</h3>
         <p className="text-slate-500 dark:text-slate-400 text-sm max-w-sm">
-          Analyzes images 100% in your browser — private, no cloud, powered by WebGPU.
+          Analyzes images 100% in your browser — private, no cloud, no account required.
         </p>
       </div>
 

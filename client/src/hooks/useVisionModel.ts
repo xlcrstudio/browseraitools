@@ -18,39 +18,6 @@ export interface VisionModelHook {
 
 const MODEL_ID = "HuggingFaceTB/SmolVLM-256M-Instruct";
 
-function isGpuLostError(err: any): boolean {
-  const msg: string = err?.message ?? "";
-  return (
-    msg.includes("Device is lost") ||
-    msg.includes("device is lost") ||
-    msg.includes("mapAsync") ||
-    msg.includes("GPUBuffer") ||
-    msg.includes("GPU device") ||
-    msg.includes("lost")
-  );
-}
-
-async function loadModel(
-  device: "webgpu" | "wasm",
-  onProgress: (d: any) => void
-): Promise<{ processor: any; model: any }> {
-  const { AutoProcessor, AutoModelForVision2Seq } = await import(
-    "@huggingface/transformers"
-  );
-
-  const processor = await AutoProcessor.from_pretrained(MODEL_ID, {
-    progress_callback: onProgress,
-  });
-
-  const model = await AutoModelForVision2Seq.from_pretrained(MODEL_ID, {
-    dtype: device === "webgpu" ? "q4" : "q4",
-    device,
-    progress_callback: onProgress,
-  });
-
-  return { processor, model };
-}
-
 export function useVisionModel(): VisionModelHook {
   const [state, setState] = useState<VisionModelState>("idle");
   const [progress, setProgress] = useState("");
@@ -58,7 +25,6 @@ export function useVisionModel(): VisionModelHook {
   const [error, setError] = useState<string | null>(null);
   const processorRef = useRef<any>(null);
   const modelRef = useRef<any>(null);
-  const deviceRef = useRef<"webgpu" | "wasm">("webgpu");
   const initStarted = useRef(false);
 
   const onProgress = useCallback((data: any) => {
@@ -81,30 +47,29 @@ export function useVisionModel(): VisionModelHook {
     setError(null);
     setState("downloading");
     setDownloadPct(0);
+    setProgress("Initializing…");
 
     try {
-      const { env } = await import("@huggingface/transformers");
+      const { AutoProcessor, AutoModelForVision2Seq, env } = await import(
+        "@huggingface/transformers"
+      );
+
       env.allowRemoteModels = true;
       env.useBrowserCache = true;
 
-      // Try WebGPU first
-      try {
-        setProgress("Checking GPU support…");
-        const { processor, model } = await loadModel("webgpu", onProgress);
-        processorRef.current = processor;
-        modelRef.current = model;
-        deviceRef.current = "webgpu";
-      } catch (gpuErr: any) {
-        // WebGPU unavailable or failed — fall back to CPU/WASM
-        console.warn("WebGPU failed, falling back to CPU:", gpuErr.message);
-        processorRef.current = null;
-        modelRef.current = null;
-        setProgress("GPU unavailable, loading on CPU…");
-        const { processor, model } = await loadModel("wasm", onProgress);
-        processorRef.current = processor;
-        modelRef.current = model;
-        deviceRef.current = "wasm";
-      }
+      setProgress("Loading image processor…");
+      processorRef.current = await AutoProcessor.from_pretrained(MODEL_ID, {
+        progress_callback: onProgress,
+      });
+
+      setProgress("Loading vision model…");
+      // Use WASM/CPU — WebGPU fires device-loss as an unhandled async window
+      // event that bypasses try-catch, crashing the page.
+      modelRef.current = await AutoModelForVision2Seq.from_pretrained(MODEL_ID, {
+        dtype: "q4",
+        device: "wasm",
+        progress_callback: onProgress,
+      });
 
       setState("ready");
       setProgress("");
@@ -125,43 +90,6 @@ export function useVisionModel(): VisionModelHook {
     }
   }, [onProgress]);
 
-  const runInference = useCallback(async (imgEl: HTMLImageElement, prompt: string): Promise<string> => {
-    const { RawImage } = await import("@huggingface/transformers");
-    const image = await RawImage.fromURL(imgEl.src);
-
-    const messages = [
-      {
-        role: "user",
-        content: [
-          { type: "image" },
-          { type: "text", text: prompt },
-        ],
-      },
-    ];
-
-    const textInput = processorRef.current.apply_chat_template(messages, {
-      add_generation_prompt: true,
-    });
-
-    const inputs = await processorRef.current(textInput, image, {
-      return_tensors: "pt",
-    });
-
-    const generatedIds = await modelRef.current.generate({
-      ...inputs,
-      max_new_tokens: 768,
-      do_sample: false,
-    });
-
-    const inputLen = inputs.input_ids.dims[1];
-    const newTokens = generatedIds.slice(null, [inputLen, null]);
-    const decoded: string[] = processorRef.current.batch_decode(newTokens, {
-      skip_special_tokens: true,
-    });
-
-    return decoded[0]?.trim() ?? "";
-  }, []);
-
   const analyzeImage = useCallback(
     async (imgEl: HTMLImageElement, prompt: string): Promise<string> => {
       if (!processorRef.current || !modelRef.current) {
@@ -169,31 +97,48 @@ export function useVisionModel(): VisionModelHook {
       }
       setState("generating");
       try {
-        const result = await runInference(imgEl, prompt);
+        const { RawImage } = await import("@huggingface/transformers");
+
+        const image = await RawImage.fromURL(imgEl.src);
+
+        const messages = [
+          {
+            role: "user",
+            content: [
+              { type: "image" },
+              { type: "text", text: prompt },
+            ],
+          },
+        ];
+
+        const textInput = processorRef.current.apply_chat_template(messages, {
+          add_generation_prompt: true,
+        });
+
+        const inputs = await processorRef.current(textInput, image, {
+          return_tensors: "pt",
+        });
+
+        const generatedIds = await modelRef.current.generate({
+          ...inputs,
+          max_new_tokens: 768,
+          do_sample: false,
+        });
+
+        const inputLen = inputs.input_ids.dims[1];
+        const newTokens = generatedIds.slice(null, [inputLen, null]);
+        const decoded: string[] = processorRef.current.batch_decode(newTokens, {
+          skip_special_tokens: true,
+        });
+
         setState("ready");
-        return result;
+        return decoded[0]?.trim() ?? "";
       } catch (err: any) {
-        // If GPU device was lost during inference, reload on CPU and retry once
-        if (isGpuLostError(err) && deviceRef.current === "webgpu") {
-          console.warn("GPU device lost during inference, reloading on CPU…");
-          processorRef.current = null;
-          modelRef.current = null;
-          deviceRef.current = "wasm";
-          setState("downloading");
-          setProgress("GPU unavailable, switching to CPU…");
-          const { processor, model } = await loadModel("wasm", onProgress);
-          processorRef.current = processor;
-          modelRef.current = model;
-          setState("generating");
-          const retryResult = await runInference(imgEl, prompt);
-          setState("ready");
-          return retryResult;
-        }
         setState("ready");
         throw err;
       }
     },
-    [runInference, onProgress]
+    []
   );
 
   return { state, progress, downloadPct, error, initialize, analyzeImage };
