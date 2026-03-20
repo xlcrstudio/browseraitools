@@ -436,7 +436,7 @@ ${analysis.tags.map(t => "#" + t).join(" ")}
             <img src={imageData.url} alt="Analyzing" className="max-h-48 rounded-xl object-contain opacity-60" />
           )}
           <Loader2 className="w-8 h-8 text-purple-500 animate-spin" />
-          <p className="text-slate-600 dark:text-slate-300 font-medium">Analyzing image with Gemma 3n…</p>
+          <p className="text-slate-600 dark:text-slate-300 font-medium">Analyzing image with SmolVLM…</p>
           <p className="text-slate-400 text-sm">Running locally on your device</p>
         </div>
       )}
