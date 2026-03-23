@@ -139,11 +139,33 @@ function buildMessages(
     "Preserve proper nouns, brand names, URLs, and numbers exactly.",
   ].filter(l => l !== null).join("\n");
 
+  // Language-specific quality hints
+  const langHints: Partial<Record<string, string>> = {
+    ur: "You are a native-level Urdu translator. Use authentic, natural Urdu vocabulary — NOT transliterated Hindi or English words when proper Urdu equivalents exist. Write in correct Nastaliq Urdu script (right-to-left). Use correct Urdu grammar: verb-final sentence order (subject-object-verb), proper case markers (ne, ko, se, per, ka/ki/ke), and grammatically correct verb conjugations. Do NOT produce a literal word-for-word mapping — produce fluent, idiomatic Urdu as a native speaker would say it.",
+    ar: "You are a native-level Arabic translator. Use Modern Standard Arabic (MSA) with correct grammar, proper verb conjugations, correct plural forms (broken plurals), and accurate case endings. Write in correct right-to-left Arabic script. Produce fluent, natural Arabic — not a word-for-word mapping.",
+    fa: "You are a native-level Persian (Farsi) translator. Use natural Persian vocabulary and correct grammar. Write in correct right-to-left Nastaliq/Naskh Persian script. Use SOV sentence order and proper verb conjugations. Produce fluent, idiomatic Persian.",
+    zh: "You are a native-level Simplified Chinese translator. Use natural Mandarin Chinese (Simplified characters). Prefer concise, idiomatic Chinese expressions. Ensure correct measure words (量词), proper aspect markers, and natural word order.",
+    "zh-tw": "You are a native-level Traditional Chinese translator. Use natural Mandarin Chinese (Traditional characters as used in Taiwan). Prefer concise, idiomatic expressions with correct measure words and natural flow.",
+    ja: "You are a native-level Japanese translator. Use natural, fluent Japanese with correct polite forms (です/ます) unless casual is requested. Ensure correct particle usage (は、が、を、に、で、へ、と、から、まで), proper verb conjugations, and natural phrasing.",
+    ko: "You are a native-level Korean translator. Use natural Korean with correct honorific levels, proper particles, and correct verb endings. Produce fluent, idiomatic Korean.",
+    hi: "You are a native-level Hindi translator. Use authentic, natural Hindi in Devanagari script. Use correct gender agreement, case markers, and verb conjugations. Produce idiomatic Hindi as a native speaker would say it.",
+    ru: "You are a native-level Russian translator. Use natural Russian with correct grammatical case endings (six cases), proper verb aspect (perfective/imperfective), and gender agreement. Produce fluent, idiomatic Russian.",
+    el: "You are a native-level Greek translator. Use natural Modern Greek with correct inflections, verb conjugations, and natural phrasing. Write in proper Greek script.",
+  };
+
+  const targetCode = targetLang.replace(/-.*/, "");
+  const langHint = langHints[targetLang] ?? langHints[targetCode] ?? "";
+
+  const systemContent = [
+    "You are an expert professional translator with native-level fluency in all languages.",
+    "Your goal is to produce translations that sound completely natural to a native speaker of the target language — not literal word-for-word mappings.",
+    "Always use correct grammar, idiomatic expressions, proper script, and appropriate vocabulary.",
+    "Never add information not present in the original. Never refuse to translate.",
+    langHint,
+  ].filter(Boolean).join(" ");
+
   return [
-    {
-      role: "system",
-      content: "You are an expert translation assistant. Translate text accurately while preserving meaning, tone, and cultural nuance. Handle idioms appropriately. Never add content not in the original.",
-    },
+    { role: "system", content: systemContent },
     { role: "user", content: userMsg },
   ];
 }
