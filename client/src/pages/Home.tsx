@@ -1,6 +1,7 @@
+import { useState, useRef } from "react";
 import { Link } from "wouter";
-import { motion } from "framer-motion";
-import { Lock, Zap, Cpu, Sparkles, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Lock, Zap, Cpu, Sparkles, ChevronRight, Search, X } from "lucide-react";
 import { toolCategories, type ToolCategory, type Tool } from "@/lib/tools-data";
 import { AdBlock } from "@/components/AdBlock";
 import { AIChatWidget } from "@/components/AIChatWidget";
@@ -86,10 +87,25 @@ function TrustBar() {
   );
 }
 
+// Flat list of all tools across every category, with category label attached
+const allTools: (Tool & { categoryName: string })[] = toolCategories.flatMap((cat) =>
+  cat.tools.map((tool) => ({ ...tool, categoryName: cat.name }))
+);
+
 function ToolsCatalog() {
+  const [query, setQuery] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const trimmed = query.trim().toLowerCase();
+  const isSearching = trimmed.length > 0;
+
+  const results = isSearching
+    ? allTools.filter((t) => t.name.toLowerCase().includes(trimmed))
+    : [];
+
   return (
     <section className="mb-16 md:mb-20" id="tools">
-      <div className="text-center mb-10">
+      <div className="text-center mb-8">
         <h2 className="text-2xl md:text-3xl font-bold font-display mb-2">
           All AI Tools
         </h2>
@@ -98,19 +114,141 @@ function ToolsCatalog() {
         </p>
       </div>
 
-      <div className="space-y-8">
-        {toolCategories.map((category, i) => (
-          <motion.div
-            key={category.slug}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.05 * i }}
-          >
-            <CategorySection category={category} />
-          </motion.div>
-        ))}
+      {/* Search bar */}
+      <div className="relative max-w-lg mx-auto mb-10">
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+        <input
+          ref={inputRef}
+          data-testid="input-tool-search"
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search tools…"
+          className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 pl-10 pr-10 py-3 text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+        />
+        <AnimatePresence>
+          {query && (
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              data-testid="button-clear-search"
+              onClick={() => { setQuery(""); inputRef.current?.focus(); }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+            >
+              <X className="w-3.5 h-3.5" />
+            </motion.button>
+          )}
+        </AnimatePresence>
       </div>
+
+      {/* Search results */}
+      <AnimatePresence mode="wait">
+        {isSearching ? (
+          <motion.div
+            key="results"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {results.length === 0 ? (
+              <div className="text-center py-16 text-slate-400 dark:text-slate-500">
+                <Search className="w-8 h-8 mx-auto mb-3 opacity-40" />
+                <p className="font-medium">No tools found for "{query}"</p>
+                <p className="text-sm mt-1">Try a different keyword</p>
+              </div>
+            ) : (
+              <div>
+                <p className="text-xs text-slate-400 dark:text-slate-500 mb-4 text-center">
+                  {results.length} result{results.length !== 1 ? "s" : ""} for "{query}"
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                  {results.map((tool) => (
+                    <SearchResultCard key={tool.id} tool={tool} query={trimmed} />
+                  ))}
+                </div>
+              </div>
+            )}
+          </motion.div>
+        ) : (
+          <motion.div
+            key="catalog"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="space-y-8"
+          >
+            {toolCategories.map((category, i) => (
+              <motion.div
+                key={category.slug}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.05 * i }}
+              >
+                <CategorySection category={category} />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
+  );
+}
+
+function HighlightMatch({ text, query }: { text: string; query: string }) {
+  if (!query) return <>{text}</>;
+  const idx = text.toLowerCase().indexOf(query);
+  if (idx === -1) return <>{text}</>;
+  return (
+    <>
+      {text.slice(0, idx)}
+      <mark className="bg-purple-200 dark:bg-purple-700 text-purple-900 dark:text-purple-100 rounded px-0.5">
+        {text.slice(idx, idx + query.length)}
+      </mark>
+      {text.slice(idx + query.length)}
+    </>
+  );
+}
+
+function SearchResultCard({ tool, query }: { tool: Tool & { categoryName: string }; query: string }) {
+  const Icon = tool.icon;
+  if (tool.available) {
+    return (
+      <Link
+        href={tool.slug}
+        data-testid={`link-tool-${tool.id}`}
+        className="flex items-center gap-3 px-3.5 py-3 rounded-xl border border-purple-100 dark:border-purple-800/50 bg-purple-50/50 dark:bg-purple-900/20 group hover:border-purple-200 dark:hover:border-purple-700 hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-all"
+      >
+        <div className="w-9 h-9 rounded-lg bg-gradient-primary flex items-center justify-center shrink-0 shadow-sm">
+          <Icon className="w-4 h-4 text-white" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="text-sm font-semibold text-slate-800 dark:text-slate-200 truncate">
+            <HighlightMatch text={tool.name} query={query} />
+          </div>
+          <div className="text-xs text-slate-400 dark:text-slate-500">{tool.categoryName}</div>
+        </div>
+        <ChevronRight className="w-4 h-4 text-purple-400 shrink-0 group-hover:translate-x-0.5 transition-transform" />
+      </Link>
+    );
+  }
+  return (
+    <div
+      data-testid={`card-tool-${tool.id}`}
+      className="flex items-center gap-3 px-3.5 py-3 rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-800/20"
+    >
+      <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0">
+        <Icon className="w-4 h-4 text-slate-400 dark:text-slate-600" />
+      </div>
+      <div className="flex-1 min-w-0">
+        <div className="text-sm font-medium text-slate-500 dark:text-slate-500 truncate">
+          <HighlightMatch text={tool.name} query={query} />
+        </div>
+        <div className="text-xs text-slate-400 dark:text-slate-600">Coming Soon</div>
+      </div>
+    </div>
   );
 }
 
