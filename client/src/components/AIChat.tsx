@@ -160,7 +160,7 @@ export function AIChat() {
     return ts.length > 0 ? ts[0].id : null;
   });
   const [input, setInput] = useState("");
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(() => window.innerWidth >= 768);
   const [search, setSearch] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [streamText, setStreamText] = useState("");
@@ -204,6 +204,7 @@ export function AIChat() {
     setThreads(prev => [thread, ...prev]);
     setActiveId(id);
     setInput("");
+    if (window.innerWidth < 768) setSidebarOpen(false);
     textareaRef.current?.focus();
   }, []);
 
@@ -338,19 +339,39 @@ export function AIChat() {
     if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); }
   };
 
+  const handleThreadSelect = (id: string) => {
+    setActiveId(id);
+    if (window.innerWidth < 768) setSidebarOpen(false);
+  };
+
   return (
-    <div className="flex rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 overflow-hidden shadow-xl" style={{ height: "calc(100vh - 140px)", minHeight: "560px" }}>
+    <div className="relative flex rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 overflow-hidden shadow-xl" style={{ height: "calc(100vh - 140px)", minHeight: "560px" }}>
+
+      {/* Mobile backdrop */}
+      <AnimatePresence>
+        {sidebarOpen && (
+          <motion.div
+            key="backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setSidebarOpen(false)}
+            className="md:hidden absolute inset-0 z-10 bg-black/40 backdrop-blur-sm"
+          />
+        )}
+      </AnimatePresence>
 
       {/* ── Sidebar ── */}
       <AnimatePresence initial={false}>
         {sidebarOpen && (
           <motion.aside
             key="sidebar"
-            initial={{ width: 0, opacity: 0 }}
-            animate={{ width: 260, opacity: 1 }}
-            exit={{ width: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="flex-shrink-0 border-r border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 flex flex-col overflow-hidden"
+            initial={{ x: -280, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -280, opacity: 0 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
+            className="absolute md:relative inset-y-0 left-0 z-20 w-[260px] flex-shrink-0 border-r border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 flex flex-col overflow-hidden md:shadow-none shadow-2xl"
           >
             {/* Sidebar header */}
             <div className="p-3 border-b border-slate-100 dark:border-slate-800">
@@ -377,7 +398,7 @@ export function AIChat() {
                   <p className="px-2 py-1.5 text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Pinned</p>
                   {filteredPinned.map(t => (
                     <ThreadItem key={t.id} thread={t} isActive={t.id === activeId}
-                      onSelect={() => setActiveId(t.id)}
+                      onSelect={() => handleThreadSelect(t.id)}
                       onDelete={() => deleteThread(t.id)}
                       onPin={() => pinThread(t.id)} />
                   ))}
@@ -389,7 +410,7 @@ export function AIChat() {
                   {filteredPinned.length > 0 && <p className="px-2 py-1 text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Recent</p>}
                   {filteredRecent.map(t => (
                     <ThreadItem key={t.id} thread={t} isActive={t.id === activeId}
-                      onSelect={() => setActiveId(t.id)}
+                      onSelect={() => handleThreadSelect(t.id)}
                       onDelete={() => deleteThread(t.id)}
                       onPin={() => pinThread(t.id)} />
                   ))}
