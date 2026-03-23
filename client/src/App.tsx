@@ -83,6 +83,7 @@ import ParaphrasingToolPage from "@/pages/ParaphrasingToolPage";
 import ImagePromptGeneratorPage from "@/pages/ImagePromptGeneratorPage";
 import CodeExplainerPage from "@/pages/CodeExplainerPage";
 import FlashcardGeneratorPage from "@/pages/FlashcardGeneratorPage";
+import PersonalStatementGeneratorPage from "@/pages/PersonalStatementGeneratorPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -169,6 +170,7 @@ function Router() {
       <Route path="/ai-image-prompt-generator" component={ImagePromptGeneratorPage} />
       <Route path="/ai-code-explainer" component={CodeExplainerPage} />
       <Route path="/ai-flashcard-generator" component={FlashcardGeneratorPage} />
+      <Route path="/ai-personal-statement-generator" component={PersonalStatementGeneratorPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
