@@ -90,6 +90,7 @@ export const toolCategories: ToolCategory[] = [
     description: "Supercharge your marketing campaigns",
     tools: [
       { id: 25, name: "AI Ad Copy Generator", slug: "/ai-ad-copy-generator", icon: Megaphone, available: true },
+      { id: 74, name: "AI Email Response Generator", slug: "/ai-email-response-generator", icon: Mail, available: true },
       { id: 26, name: "AI Sales Email Generator", slug: "/ai-sales-email-generator", icon: Mail, available: true },
       { id: 27, name: "AI Cold Outreach Generator", slug: "/ai-cold-outreach-generator", icon: MessageSquare, available: true },
       { id: 28, name: "AI Call-to-Action Generator", slug: "/ai-cta-generator", icon: MousePointerClick, available: true },
