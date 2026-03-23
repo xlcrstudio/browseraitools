@@ -394,34 +394,37 @@ function HomeHero({
         transition={{ duration: 0.5, delay: 0.3 }}
         className="relative max-w-lg mx-auto mb-8 text-left"
       >
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none z-10" />
-        <input
-          ref={inputRef}
-          data-testid="input-tool-search"
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={(e) => e.key === "Escape" && setQuery("")}
-          placeholder="Search tools…"
-          autoComplete="off"
-          className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 pl-10 pr-10 py-3.5 text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
-        />
-        <AnimatePresence>
-          {query && (
-            <motion.button
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              data-testid="button-clear-search"
-              onClick={() => { setQuery(""); inputRef.current?.focus(); }}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-full text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors z-10"
-            >
-              <X className="w-4 h-4" />
-            </motion.button>
-          )}
-        </AnimatePresence>
+        {/* Input row — own relative context so top-1/2 centers against input only */}
+        <div className="relative">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none z-10" />
+          <input
+            ref={inputRef}
+            data-testid="input-tool-search"
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => e.key === "Escape" && setQuery("")}
+            placeholder="Search tools…"
+            autoComplete="off"
+            className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 pl-10 pr-10 py-3.5 text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+          />
+          <AnimatePresence>
+            {query && (
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                data-testid="button-clear-search"
+                onClick={() => { setQuery(""); inputRef.current?.focus(); }}
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-full text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors z-10"
+              >
+                <X className="w-4 h-4" />
+              </motion.button>
+            )}
+          </AnimatePresence>
+        </div>
 
-        {/* Predictive dropdown */}
+        {/* Predictive dropdown — positioned relative to the outer container */}
         <AnimatePresence>
           {query.trim() && (
             <SearchDropdown query={query.trim().toLowerCase()} onSelect={() => setQuery("")} />
