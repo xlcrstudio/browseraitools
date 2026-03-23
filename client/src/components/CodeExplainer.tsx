@@ -561,7 +561,7 @@ export function CodeExplainer() {
             {/* ── FIX / IMPROVE mode ── */}
             {currentAction !== "explain" && (
               <>
-                {result.changes.length > 0 && (
+                {(result.changes?.length ?? 0) > 0 && (
                   <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
                     className="glass-panel rounded-2xl p-4"
                   >

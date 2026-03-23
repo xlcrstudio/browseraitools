@@ -159,6 +159,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 55, name: "AI Dating Profile Generator", slug: "/ai-dating-profile-generator", icon: Heart, available: true },
       { id: 56, name: "AI Meal Planner", slug: "/ai-meal-planner", icon: UtensilsCrossed, available: true },
       { id: 57, name: "AI Travel Planner", slug: "/ai-travel-itinerary-planner", icon: MapPin, available: true },
+      { id: 80, name: "AI Flashcard Generator", slug: "/ai-flashcard-generator", icon: BookOpen, available: true },
       { id: 70, name: "AI Homework Solver", slug: "/ai-homework-solver", icon: GraduationCap, available: true },
       { id: 71, name: "AI Text Detector", slug: "/ai-text-detector", icon: ShieldCheck, available: true },
       { id: 72, name: "AI PDF Chat", slug: "/ai-pdf-chat", icon: FileSearch, available: true },
