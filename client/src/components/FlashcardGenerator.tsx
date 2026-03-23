@@ -81,33 +81,32 @@ function buildMessages(notes: string, count: number, mode: string) {
   const wantCards = mode !== "guide-only";
   const wantGuide = mode !== "cards-only";
 
-  const systemPrompt = `You are an expert study tool that creates high-quality flashcards and study guides. Generate content that is accurate, concise, and pedagogically effective. Use spaced-repetition principles for flashcards: questions should be atomic (test one concept), answers should be short and memorable.
+  const cardSection = wantCards ? `Generate exactly ${count} flashcards. Each card MUST use this exact format:
+FRONT: [one clear question or term]
+BACK: [concise answer, 1–2 sentences max]
 
-Output the following sections in order. Use the exact headers shown.
+Repeat for all ${count} cards without skipping any.` : "";
 
-${wantGuide ? `SUBJECT: [detected subject/topic in 3–6 words]
+  const guideSection = wantGuide ? `After the cards, output:
+SUBJECT: [topic in 4–6 words]
 DIFFICULTY: [Beginner / Intermediate / Advanced]
 SUMMARY:
-[2–4 sentence overview of the key concepts covered]
+[2–3 sentences covering the main ideas]
 KEY TERMS:
-[Each term on its own line, format: "Term — definition"]
-` : ""}
-${wantCards ? `FLASHCARDS: [${count} cards total, every card in the format below]
-FRONT: [question or term]
-BACK: [concise answer, max 2 sentences]
+[5–8 terms, one per line, format: Term — definition]
+PRACTICE QUESTIONS:
+[5 numbered questions]` : "";
 
-[Repeat FRONT/BACK for all ${count} cards]
-` : ""}
-${wantGuide ? `PRACTICE QUESTIONS:
-[10 practice questions, numbered, mixing short answer and conceptual]` : ""}
-
-Follow this format exactly. Do not add extra commentary.`;
+  const systemPrompt = `You are a flashcard and study guide generator. Be concise. Every answer must be short enough to memorize.
+${cardSection}
+${guideSection}
+Output ONLY the requested content. No preamble, no commentary.`;
 
   return [
     { role: "system" as const, content: systemPrompt },
     {
       role: "user" as const,
-      content: `Generate ${wantCards ? `${count} flashcards` : "a study guide"} from these notes:\n\n${notes}`,
+      content: `Notes to study:\n${notes}`,
     },
   ];
 }
@@ -292,8 +291,8 @@ export function FlashcardGenerator() {
   const { state, progress, error, generateRaw } = useWebLLM();
 
   const [notes, setNotes] = useState("");
-  const [cardCount, setCardCount] = useState(20);
-  const [mode, setMode] = useState("flashcards");
+  const [cardCount, setCardCount] = useState(10);
+  const [mode, setMode] = useState("cards-only");
   const [guide, setGuide] = useState<StudyGuide | null>(null);
   const [streaming, setStreaming] = useState("");
   const [isDone, setIsDone] = useState(false);
@@ -314,7 +313,7 @@ export function FlashcardGenerator() {
     const raw = await generateRaw({
       messages: buildMessages(text, cardCount, mode),
       temperature: 0.4,
-      maxTokens: 4000,
+      maxTokens: 2000,
       onChunk: (chunk) => setStreaming(chunk),
     });
 
