@@ -79,6 +79,7 @@ import TextSummarizerPage from "@/pages/TextSummarizerPage";
 import EmailResponseGeneratorPage from "@/pages/EmailResponseGeneratorPage";
 import GrammarCheckerPage from "@/pages/GrammarCheckerPage";
 import TranslatorPage from "@/pages/TranslatorPage";
+import ParaphrasingToolPage from "@/pages/ParaphrasingToolPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -161,6 +162,7 @@ function Router() {
       <Route path="/ai-email-response-generator" component={EmailResponseGeneratorPage} />
       <Route path="/ai-grammar-checker" component={GrammarCheckerPage} />
       <Route path="/ai-translator" component={TranslatorPage} />
+      <Route path="/ai-paraphrasing-tool" component={ParaphrasingToolPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
