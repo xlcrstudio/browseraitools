@@ -7,12 +7,15 @@ import { AdBlock } from "@/components/AdBlock";
 import { AIChatWidget } from "@/components/AIChatWidget";
 
 export default function Home() {
+  const [query, setQuery] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
   return (
     <>
-      <HomeHero />
+      <HomeHero query={query} setQuery={setQuery} inputRef={inputRef} />
       <TrustBar />
       <AdBlock slot="home-top" format="horizontal" className="mb-10 md:mb-14" />
-      <ToolsCatalog />
+      <ToolsCatalog query={query} />
       <AdBlock slot="home-mid" format="horizontal" className="mb-10 md:mb-14" />
       <PrivacySection />
       <AdBlock slot="home-bottom" format="horizontal" className="mb-10 md:mb-14" />
@@ -20,7 +23,15 @@ export default function Home() {
   );
 }
 
-function HomeHero() {
+function HomeHero({
+  query,
+  setQuery,
+  inputRef,
+}: {
+  query: string;
+  setQuery: (q: string) => void;
+  inputRef: React.RefObject<HTMLInputElement>;
+}) {
   return (
     <section className="text-center max-w-4xl mx-auto pt-4 pb-12 md:pt-8 md:pb-16">
       <motion.div
@@ -53,6 +64,39 @@ function HomeHero() {
       >
         Private, free, and offline-ready AI tools for content creators, marketers, and professionals. No signups. No data collection. Just powerful AI.
       </motion.p>
+
+      {/* Search bar */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="relative max-w-lg mx-auto mb-8"
+      >
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+        <input
+          ref={inputRef}
+          data-testid="input-tool-search"
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search tools…"
+          className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 pl-10 pr-10 py-3.5 text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+        />
+        <AnimatePresence>
+          {query && (
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              data-testid="button-clear-search"
+              onClick={() => { setQuery(""); inputRef.current?.focus(); }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+            >
+              <X className="w-3.5 h-3.5" />
+            </motion.button>
+          )}
+        </AnimatePresence>
+      </motion.div>
 
       <AIChatWidget />
     </section>
@@ -92,10 +136,7 @@ const allTools: (Tool & { categoryName: string })[] = toolCategories.flatMap((ca
   cat.tools.map((tool) => ({ ...tool, categoryName: cat.name }))
 );
 
-function ToolsCatalog() {
-  const [query, setQuery] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
-
+function ToolsCatalog({ query }: { query: string }) {
   const trimmed = query.trim().toLowerCase();
   const isSearching = trimmed.length > 0;
 
@@ -105,41 +146,13 @@ function ToolsCatalog() {
 
   return (
     <section className="mb-16 md:mb-20" id="tools">
-      <div className="text-center mb-8">
+      <div className="text-center mb-10">
         <h2 className="text-2xl md:text-3xl font-bold font-display mb-2">
           All AI Tools
         </h2>
         <p className="text-slate-500 dark:text-slate-400 max-w-lg mx-auto">
           Every tool runs locally in your browser using WebLLM. Your data never touches a server.
         </p>
-      </div>
-
-      {/* Search bar */}
-      <div className="relative max-w-lg mx-auto mb-10">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
-        <input
-          ref={inputRef}
-          data-testid="input-tool-search"
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search tools…"
-          className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 pl-10 pr-10 py-3 text-sm text-slate-800 dark:text-slate-100 placeholder:text-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
-        />
-        <AnimatePresence>
-          {query && (
-            <motion.button
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              data-testid="button-clear-search"
-              onClick={() => { setQuery(""); inputRef.current?.focus(); }}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
-            >
-              <X className="w-3.5 h-3.5" />
-            </motion.button>
-          )}
-        </AnimatePresence>
       </div>
 
       {/* Search results */}
