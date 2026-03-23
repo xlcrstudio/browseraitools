@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { Cpu, ChevronDown, Check, RefreshCw } from "lucide-react";
 import { AVAILABLE_MODELS, getSelectedModelId, setSelectedModelId } from "@/lib/models";
 
@@ -6,7 +6,9 @@ export function ModelSelector() {
   const [open, setOpen] = useState(false);
   const [switching, setSwitching] = useState(false);
   const [selectedId, setSelectedId] = useState(() => getSelectedModelId());
+  const [dropdownOffset, setDropdownOffset] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const selected = AVAILABLE_MODELS.find(m => m.id === selectedId) || AVAILABLE_MODELS[1];
 
@@ -19,6 +21,17 @@ export function ModelSelector() {
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
+
+  // After dropdown renders, check if it overflows the left edge and shift right
+  useLayoutEffect(() => {
+    if (!open || !dropdownRef.current) return;
+    const rect = dropdownRef.current.getBoundingClientRect();
+    if (rect.left < 8) {
+      setDropdownOffset(8 - rect.left);
+    } else {
+      setDropdownOffset(0);
+    }
+  }, [open]);
 
   function handleSelect(id: string) {
     if (id === selectedId) {
@@ -55,7 +68,11 @@ export function ModelSelector() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-1.5 z-50 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl shadow-slate-200/50 dark:shadow-black/30 overflow-hidden">
+        <div
+          ref={dropdownRef}
+          style={{ right: 0, transform: dropdownOffset ? `translateX(${dropdownOffset}px)` : undefined }}
+          className="absolute top-full mt-1.5 z-50 w-64 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-xl shadow-slate-200/50 dark:shadow-black/30 overflow-hidden"
+        >
           <div className="px-3 py-2 border-b border-slate-100 dark:border-slate-800">
             <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
               AI Model
