@@ -16,6 +16,8 @@ interface ExplainSection {
   issues: string[];
   improvements: string;
   improvedCode: string;
+  changes: string[];
+  code: string;
   raw: string;
 }
 
@@ -64,26 +66,21 @@ const SAMPLE_CODES: { label: string; code: string }[] = [
 
 function parseExplanation(raw: string): ExplainSection {
   const get = (tag: string): string => {
-    const rx = new RegExp(`${tag}[:\\s]*\\n?([\\s\\S]*?)(?=\\n[A-Z][A-Z ]+:|$)`, "i");
+    const rx = new RegExp(`${tag}[:\\s]*\\n?([\\s\\S]*?)(?=\\n[A-Z][A-Z \\-]+:|$)`, "i");
     return (raw.match(rx)?.[1] ?? "").trim();
   };
 
-  const lineByLineRaw = get("LINE[- ]BY[- ]LINE");
-  const lineByLine = lineByLineRaw
-    .split("\n")
-    .map(l => l.replace(/^[-•*]\s*/, "").trim())
-    .filter(Boolean);
+  // Extract any fenced code block
+  const firstCodeBlock = (raw.match(/```[\w]*\n?([\s\S]*?)```/) ?? [])[1]?.trim() ?? "";
 
-  const issuesRaw = get("ISSUES?|PROBLEMS?|POTENTIAL ISSUES?");
-  const issues = issuesRaw
-    .split("\n")
-    .map(l => l.replace(/^[-•*\d.]+\s*/, "").trim())
-    .filter(Boolean);
+  const lineByLine = get("LINE[- ]BY[- ]LINE")
+    .split("\n").map(l => l.replace(/^[-•*]\s*/, "").trim()).filter(Boolean);
 
-  // Extract improved code block
-  const codeBlockRx = /```[\w]*\n?([\s\S]*?)```/i;
-  const improvedCode = (get("IMPROVED CODE|FIXED CODE|IMPROVED VERSION|OPTIMIZED CODE").match(codeBlockRx)?.[1] ?? "").trim()
-    || (raw.match(/IMPROVED CODE[^`]*```[\w]*\n?([\s\S]*?)```/i)?.[1] ?? "").trim();
+  const issues = get("ISSUES?|PROBLEMS?|POTENTIAL ISSUES?")
+    .split("\n").map(l => l.replace(/^[-•*\d.]+\s*/, "").trim()).filter(Boolean);
+
+  const changes = get("CHANGES?")
+    .split("\n").map(l => l.replace(/^[-•*\d.]+\s*/, "").trim()).filter(Boolean);
 
   return {
     overview: get("OVERVIEW|SUMMARY|WHAT THIS CODE DOES|WHAT IT DOES"),
@@ -91,7 +88,9 @@ function parseExplanation(raw: string): ExplainSection {
     lineByLine,
     issues,
     improvements: get("IMPROVEMENT|IMPROVEMENTS|SUGGESTED IMPROVEMENT").replace(/```[\s\S]*?```/g, "").trim(),
-    improvedCode,
+    improvedCode: firstCodeBlock,
+    changes,
+    code: firstCodeBlock,
     raw,
   };
 }
@@ -99,7 +98,8 @@ function parseExplanation(raw: string): ExplainSection {
 function buildMessages(code: string, level: string, action: "explain" | "fix" | "improve") {
   const levelObj = LEVELS.find(l => l.id === level)!;
 
-  const systemPrompt = `You are an expert code analyst and educator. You break down code clearly, identify issues, and suggest improvements.
+  if (action === "explain") {
+    const systemPrompt = `You are an expert code analyst and educator. You break down code clearly, identify issues, and suggest improvements.
 ${levelObj.instruction}
 Output format — use these exact section headers (in order):
 
@@ -124,15 +124,33 @@ IMPROVED CODE:
 
 Follow this format exactly. Do not add extra headers or sections.`;
 
-  const actionMap = {
-    explain: `Explain this code:\n\`\`\`\n${code}\n\`\`\``,
-    fix: `Find and fix all bugs in this code. Explain what was wrong and show the corrected version:\n\`\`\`\n${code}\n\`\`\``,
-    improve: `Refactor and optimize this code for production quality. Explain every improvement made:\n\`\`\`\n${code}\n\`\`\``,
-  };
+    return [
+      { role: "system" as const, content: systemPrompt },
+      { role: "user" as const, content: `Explain this code:\n\`\`\`\n${code}\n\`\`\`` },
+    ];
+  }
+
+  // Fix / Improve: output ONLY changes summary + clean code block
+  const systemPrompt = `You are an expert software engineer. ${levelObj.instruction}
+Output format — use these exact two sections only:
+
+CHANGES:
+[Bullet list of every change made, one per line starting with "-". Be specific and concise.]
+
+CODE:
+\`\`\`[language]
+[Complete updated code — nothing else inside the code block]
+\`\`\`
+
+Do not output any other sections, headers, or commentary.`;
+
+  const userMsg = action === "fix"
+    ? `Find and fix all bugs in this code:\n\`\`\`\n${code}\n\`\`\``
+    : `Refactor and optimize this code for production quality:\n\`\`\`\n${code}\n\`\`\``;
 
   return [
     { role: "system" as const, content: systemPrompt },
-    { role: "user" as const, content: actionMap[action] },
+    { role: "user" as const, content: userMsg },
   ];
 }
 
@@ -446,12 +464,9 @@ export function CodeExplainer() {
       {/* Parsed result */}
       <AnimatePresence>
         {isDone && result && (
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="space-y-4"
-          >
-            {/* Header */}
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
+
+            {/* Header row */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <p className="text-sm font-bold text-slate-700 dark:text-slate-300">
@@ -461,96 +476,135 @@ export function CodeExplainer() {
                   <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500">{result.language}</span>
                 )}
               </div>
-              <CopyButton text={result.raw} />
+              <CopyButton text={currentAction === "explain" ? result.raw : result.code} />
             </div>
 
-            {/* Overview */}
-            {result.overview && (
-              <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
-                className="glass-panel rounded-2xl p-4"
-              >
-                <SectionBlock title="What This Code Does" color="text-purple-600 dark:text-purple-400">
-                  <p className="text-sm text-slate-700 dark:text-slate-200 leading-relaxed">{result.overview}</p>
-                </SectionBlock>
-              </motion.div>
-            )}
+            {/* ── EXPLAIN mode ── */}
+            {currentAction === "explain" && (
+              <>
+                {result.overview && (
+                  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
+                    className="glass-panel rounded-2xl p-4"
+                  >
+                    <SectionBlock title="What This Code Does" color="text-purple-600 dark:text-purple-400">
+                      <p className="text-sm text-slate-700 dark:text-slate-200 leading-relaxed">{result.overview}</p>
+                    </SectionBlock>
+                  </motion.div>
+                )}
 
-            {/* Line by line */}
-            {result.lineByLine.length > 0 && (
-              <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-                className="glass-panel rounded-2xl p-4"
-              >
-                <SectionBlock title="Line-by-Line Breakdown">
-                  <div className="space-y-2">
-                    {result.lineByLine.map((line, i) => (
-                      <div key={i} className="flex gap-3 text-sm">
-                        <span className="text-purple-400 font-mono text-xs mt-0.5 shrink-0 w-3">{i + 1}</span>
-                        <p className="text-slate-700 dark:text-slate-200 leading-relaxed">{line}</p>
+                {result.lineByLine.length > 0 && (
+                  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+                    className="glass-panel rounded-2xl p-4"
+                  >
+                    <SectionBlock title="Line-by-Line Breakdown">
+                      <div className="space-y-2">
+                        {result.lineByLine.map((line, i) => (
+                          <div key={i} className="flex gap-3 text-sm">
+                            <span className="text-purple-400 font-mono text-xs mt-0.5 shrink-0 w-3">{i + 1}</span>
+                            <p className="text-slate-700 dark:text-slate-200 leading-relaxed">{line}</p>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </SectionBlock>
-              </motion.div>
+                    </SectionBlock>
+                  </motion.div>
+                )}
+
+                {result.issues.length > 0 && (
+                  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
+                    className="glass-panel rounded-2xl p-4 border-l-4 border-orange-400"
+                  >
+                    <SectionBlock title="Potential Issues" color="text-orange-600 dark:text-orange-400">
+                      <ul className="space-y-1.5">
+                        {result.issues.map((issue, i) => (
+                          <li key={i} className="flex gap-2 text-sm text-slate-700 dark:text-slate-200">
+                            <span className="text-orange-400 shrink-0 mt-0.5">▸</span>
+                            <span className="leading-relaxed">{issue}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </SectionBlock>
+                  </motion.div>
+                )}
+
+                {result.improvements && (
+                  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
+                    className="glass-panel rounded-2xl p-4"
+                  >
+                    <SectionBlock title="Suggested Improvements" color="text-blue-600 dark:text-blue-400">
+                      <p className="text-sm text-slate-700 dark:text-slate-200 leading-relaxed whitespace-pre-wrap">{result.improvements}</p>
+                    </SectionBlock>
+                  </motion.div>
+                )}
+
+                {result.improvedCode && (
+                  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}
+                    className="rounded-2xl overflow-hidden border border-slate-700"
+                  >
+                    <div className="flex items-center justify-between px-4 py-2 bg-slate-800">
+                      <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Improved Code</span>
+                      <div className="flex items-center gap-2">
+                        <button type="button" data-testid="button-use-improved"
+                          onClick={() => { setCode(result.improvedCode); setResult(null); setIsDone(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                          className="text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors"
+                        >Use this code ↑</button>
+                        <CopyButton text={result.improvedCode} />
+                      </div>
+                    </div>
+                    <pre data-testid="output-improved-code" className="bg-slate-950 text-green-400 font-mono text-xs leading-relaxed p-4 overflow-x-auto">
+                      {result.improvedCode}
+                    </pre>
+                  </motion.div>
+                )}
+              </>
             )}
 
-            {/* Issues */}
-            {result.issues.length > 0 && (
-              <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
-                className="glass-panel rounded-2xl p-4 border-l-4 border-orange-400"
-              >
-                <SectionBlock title="Potential Issues" color="text-orange-600 dark:text-orange-400">
-                  <ul className="space-y-1.5">
-                    {result.issues.map((issue, i) => (
-                      <li key={i} className="flex gap-2 text-sm text-slate-700 dark:text-slate-200">
-                        <span className="text-orange-400 shrink-0 mt-0.5">▸</span>
-                        <span className="leading-relaxed">{issue}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </SectionBlock>
-              </motion.div>
-            )}
-
-            {/* Improvements */}
-            {result.improvements && (
-              <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-                className="glass-panel rounded-2xl p-4"
-              >
-                <SectionBlock title="Suggested Improvements" color="text-blue-600 dark:text-blue-400">
-                  <p className="text-sm text-slate-700 dark:text-slate-200 leading-relaxed whitespace-pre-wrap">{result.improvements}</p>
-                </SectionBlock>
-              </motion.div>
-            )}
-
-            {/* Improved code */}
-            {result.improvedCode && (
-              <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }}
-                className="rounded-2xl overflow-hidden border border-slate-700"
-              >
-                <div className="flex items-center justify-between px-4 py-2 bg-slate-800">
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                    {currentAction === "fix" ? "Fixed Code" : "Improved Code"}
-                  </span>
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      data-testid="button-use-improved"
-                      onClick={() => { setCode(result.improvedCode); setResult(null); setIsDone(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                      className="text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors"
+            {/* ── FIX / IMPROVE mode ── */}
+            {currentAction !== "explain" && (
+              <>
+                {result.changes.length > 0 && (
+                  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
+                    className="glass-panel rounded-2xl p-4"
+                  >
+                    <SectionBlock
+                      title={currentAction === "fix" ? "Bugs Fixed" : "Changes Made"}
+                      color={currentAction === "fix" ? "text-orange-600 dark:text-orange-400" : "text-blue-600 dark:text-blue-400"}
                     >
-                      Use this code ↑
-                    </button>
-                    <CopyButton text={result.improvedCode} />
-                  </div>
-                </div>
-                <pre
-                  data-testid="output-improved-code"
-                  className="bg-slate-950 text-green-400 font-mono text-xs leading-relaxed p-4 overflow-x-auto"
-                >
-                  {result.improvedCode}
-                </pre>
-              </motion.div>
+                      <ul className="space-y-1.5">
+                        {result.changes.map((c, i) => (
+                          <li key={i} className="flex gap-2 text-sm text-slate-700 dark:text-slate-200">
+                            <span className={cn("shrink-0 mt-0.5", currentAction === "fix" ? "text-orange-400" : "text-blue-400")}>▸</span>
+                            <span className="leading-relaxed">{c}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </SectionBlock>
+                  </motion.div>
+                )}
+
+                {result.code && (
+                  <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
+                    className="rounded-2xl overflow-hidden border border-slate-700"
+                  >
+                    <div className="flex items-center justify-between px-4 py-2 bg-slate-800">
+                      <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                        {currentAction === "fix" ? "Fixed Code" : "Improved Code"}
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <button type="button" data-testid="button-use-improved"
+                          onClick={() => { setCode(result.code); setResult(null); setIsDone(false); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                          className="text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors"
+                        >Use this code ↑</button>
+                        <CopyButton text={result.code} />
+                      </div>
+                    </div>
+                    <pre data-testid="output-code" className="bg-slate-950 text-green-400 font-mono text-xs leading-relaxed p-4 overflow-x-auto">
+                      {result.code}
+                    </pre>
+                  </motion.div>
+                )}
+              </>
             )}
+
           </motion.div>
         )}
       </AnimatePresence>
