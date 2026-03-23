@@ -77,6 +77,7 @@ import AITextDetectorPage from "@/pages/AITextDetectorPage";
 import AIPDFChatPage from "@/pages/AIPDFChatPage";
 import TextSummarizerPage from "@/pages/TextSummarizerPage";
 import EmailResponseGeneratorPage from "@/pages/EmailResponseGeneratorPage";
+import GrammarCheckerPage from "@/pages/GrammarCheckerPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -157,6 +158,7 @@ function Router() {
       <Route path="/ai-pdf-chat" component={AIPDFChatPage} />
       <Route path="/ai-text-summarizer" component={TextSummarizerPage} />
       <Route path="/ai-email-response-generator" component={EmailResponseGeneratorPage} />
+      <Route path="/ai-grammar-checker" component={GrammarCheckerPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
