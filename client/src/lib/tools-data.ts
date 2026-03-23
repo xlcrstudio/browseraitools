@@ -7,7 +7,7 @@ import {
   Briefcase, ScrollText, UserCheck, MessageCircle, ScanSearch,
   ListChecks, ClipboardList, CalendarDays, Flag,
   Scale, ThumbsUp, Swords, ShieldQuestion, Heart, Flame, BookOpenCheck, Sparkles, UtensilsCrossed, MapPin, Code, Terminal, Wand2, Newspaper, Clapperboard, Bot, GraduationCap, ShieldCheck, FileSearch,
-  CheckSquare, Languages, Shuffle,
+  CheckSquare, Languages, Shuffle, Palette,
 } from "lucide-react";
 
 export interface Tool {
@@ -52,6 +52,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 75, name: "AI Grammar Checker", slug: "/ai-grammar-checker", icon: CheckSquare, available: true },
       { id: 76, name: "AI Translator", slug: "/ai-translator", icon: Languages, available: true },
       { id: 77, name: "AI Paraphrasing Tool", slug: "/ai-paraphrasing-tool", icon: Shuffle, available: true },
+      { id: 78, name: "AI Image Prompt Generator", slug: "/ai-image-prompt-generator", icon: Palette, available: true },
       { id: 64, name: "AI PDF Summarizer", slug: "/ai-pdf-summarizer", icon: FileText, available: true },
       { id: 65, name: "AI Text Humanizer", slug: "/ai-humanizer", icon: Wand2, available: true },
       { id: 66, name: "AI Blog Post Generator", slug: "/ai-blog-post-generator", icon: Newspaper, available: true },

@@ -1,0 +1,72 @@
+ai-image-prompt-generator-command.md
+Markdown## Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI Image Prompt Generator for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Image Prompt Generator
+URL Slug: /ai-image-prompt-generator
+Tagline: "Perfect Prompts for Midjourney, DALL-E & Stable Diffusion"
+Mission: Turn any idea into highly detailed, ready-to-copy prompts that produce stunning AI art in seconds.
+=== PRODUCT OVERVIEW ===
+High-traffic tool (~210,000 monthly searches in 2026).
+Purpose: Describe your idea → get 8 optimized prompts for Midjourney, DALL-E 3, Flux, SD3, and Leonardo.
+Target Users: Digital artists, Midjourney users, content creators, designers, NFT creators
+Search Demand: Millions search daily for "Midjourney prompts", "AI art prompts", "image generation prompts"
+Key Value: Studio-quality prompts in 15 seconds vs hours of trial and error
+=== UNIQUE SELLING POINTS ===
+✅ Style-specific optimization (Midjourney v6, DALL-E 3, Flux, etc.)
+✅ Parameters included (--ar, --v, --stylize, --quality)
+✅ 8 variations per generation (different aspect ratios & moods)
+✅ One-click copy + “Copy for Midjourney” button
+✅ 100% Private — runs entirely in your browser
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm
+Model: Llama-3.1-8B-Instruct-q4f16_1-MLC
+Storage: LocalStorage (saved prompts & history)
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Image Prompt Generator"
+Subheadline: "Turn any idea into perfect Midjourney / DALL-E / Flux prompts instantly. Private. No login."
+Trust Badges:
+
+🎨 Midjourney / DALL-E / Flux Optimized
+⚡ 8 Variations Every Time
+📏 Parameters Included
+🔒 100% Private & Local
+
+=== INPUT FORM ===
+Field 1: Describe your image*
+Field 2: Style / Aesthetic (cards: Cyberpunk, Studio Ghibli, Oil Painting, etc.)
+Field 3: Aspect Ratio preference
+Advanced toggles: Add --ar, --stylize, --v 6, negative prompt
+=== OUTPUT SECTION ===
+Example Input:
+"cyberpunk samurai girl standing on a rainy Tokyo rooftop at night, neon signs, flying cars"
+Example Output (8 cards):
+Card 1 – Midjourney Optimized
+A beautiful cyberpunk samurai girl with glowing katana standing on a rainy Tokyo rooftop at night, neon signs reflecting in puddles, flying cars in the background, cinematic lighting, ultra-detailed, --ar 16:9 --v 6 --stylize 750
+Card 2 – DALL-E 3 Style
+Photorealistic cyberpunk female samurai on a neon-drenched Tokyo rooftop during heavy rain, flying cars, dramatic atmosphere --ar 3:2
+[Continue with 6 more variations + platform badges + one-click copy buttons]
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are an expert AI image prompt engineer for Midjourney, DALL-E 3, Flux, and Stable Diffusion. You create extremely detailed, highly effective prompts that produce cinematic, artistic, or realistic results.
+User Prompt Template:
+textGenerate 8 optimized image prompts for: {description}
+Style: {style}
+Platform focus: {platforms}
+
+Include proper parameters and negative prompt where useful.
+=== SEO ARTICLE SECTION ===
+Below the tool: 2800-word guide “Best AI Image Prompt Generator 2026 – Midjourney & DALL-E Prompts That Actually Work”
+=== SPECIAL FEATURES ===
+
+Platform-specific copy buttons
+Prompt history library
+“Remix this prompt” button
+Negative prompt generator
+
+Build this as the #1 AI Image Prompt Generator on the internet — the daily tool every AI artist will bookmark.
