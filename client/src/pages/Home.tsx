@@ -414,9 +414,9 @@ function HomeHero({
               exit={{ opacity: 0, scale: 0.8 }}
               data-testid="button-clear-search"
               onClick={() => { setQuery(""); inputRef.current?.focus(); }}
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-full text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors z-10"
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-full text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors z-10"
             >
-              <X className="w-3.5 h-3.5" />
+              <X className="w-4 h-4" />
             </motion.button>
           )}
         </AnimatePresence>
