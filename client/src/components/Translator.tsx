@@ -131,7 +131,7 @@ function buildMessages(
     "",
     "Output format — follow EXACTLY:",
     "TRANSLATION: [the translated text here]",
-    latinScript ? "" : "PRONUNCIATION: [romanized phonetic pronunciation in Latin script — how to say it out loud]",
+    latinScript ? "" : "PRONUNCIATION: [write ONLY using A-Z Latin alphabet letters — how the translation sounds when spoken aloud, using English letter combinations that an English speaker could read to approximate the pronunciation. No native script characters at all in this line.]",
     "",
     "Then, if auto-detecting source language, add on its own line: Detected language: [Name]",
     "Then, add a 'Translation notes:' section ONLY if there are genuinely important notes about idioms, cultural adaptations, or ambiguities. Skip if the translation is straightforward.",
