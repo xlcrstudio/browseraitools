@@ -117,6 +117,9 @@ function buildMessages(
   const contextLine = context.trim() ? `\nContext: ${context.trim()}` : "";
   const sourceStr = sourceLang === "auto" ? "Auto-detect (identify and state the detected language on the first line as: Detected language: [Language Name])" : sourceName;
 
+  // Latin-script languages don't need pronunciation
+  const latinScript = ["en","es","fr","de","it","pt","pt-pt","nl","pl","sv","no","da","fi","ro","cs","hu","sk","hr","bg","sr","ca","id","ms","tl","af","lt","lv","et","sl","sq","mk","az","is","mt","cy","ga","eu","gl","lb","sq","sw","ha","yo","ig","zu","xh","so"].includes(targetLang);
+
   const userMsg = [
     `Source language: ${sourceStr}`,
     `Target language: ${targetName}`,
@@ -126,11 +129,14 @@ function buildMessages(
     "Text to translate:",
     text,
     "",
-    "Instructions:",
-    "- Output only the translation (plus the detected language line if auto-detecting).",
-    "- Do NOT add any preamble like 'Here is the translation:'.",
-    "- Add a 'Translation notes:' section at the end ONLY if there are important notes about idioms, cultural adaptations, or genuine ambiguities — skip it if the translation is straightforward.",
-    "- Preserve proper nouns, brand names, URLs, and numbers exactly.",
+    "Output format — follow EXACTLY:",
+    "TRANSLATION: [the translated text here]",
+    latinScript ? "" : "PRONUNCIATION: [romanized phonetic pronunciation in Latin script — how to say it out loud]",
+    "",
+    "Then, if auto-detecting source language, add on its own line: Detected language: [Name]",
+    "Then, add a 'Translation notes:' section ONLY if there are genuinely important notes about idioms, cultural adaptations, or ambiguities. Skip if the translation is straightforward.",
+    "Do NOT add any other preamble, explanation, or commentary.",
+    "Preserve proper nouns, brand names, URLs, and numbers exactly.",
   ].filter(l => l !== null).join("\n");
 
   return [
@@ -238,6 +244,114 @@ function LangDropdown({
       </AnimatePresence>
     </div>
   );
+}
+
+// ─── Styled output renderer ───────────────────────────────────────────────────
+function TranslationOutput({ text, isStreaming }: { text: string; isStreaming: boolean }) {
+  if (!text) {
+    return isStreaming ? (
+      <span className="inline-block w-1 h-4 bg-purple-500 animate-pulse rounded-sm" />
+    ) : null;
+  }
+
+  const lines = text.split("\n");
+  const elements: React.ReactNode[] = [];
+  let inNotes = false;
+  let noteLines: string[] = [];
+  let i = 0;
+
+  const flushNotes = () => {
+    if (noteLines.length === 0) return;
+    elements.push(
+      <div key={`notes-${i}`} className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800">
+        <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">Translation Notes</p>
+        <div className="space-y-1">
+          {noteLines.map((nl, ni) => (
+            <p key={ni} className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{nl.replace(/^-\s*/, "")}</p>
+          ))}
+        </div>
+      </div>
+    );
+    noteLines = [];
+    inNotes = false;
+  };
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    i++;
+
+    if (/^TRANSLATION:\s*/i.test(trimmed)) {
+      const val = trimmed.replace(/^TRANSLATION:\s*/i, "");
+      if (val) {
+        elements.push(
+          <div key={`tr-${i}`} className="py-1">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1">Translation</p>
+            <p className="text-2xl font-bold text-purple-600 dark:text-purple-400 leading-snug">
+              {val}
+              {isStreaming && !text.includes("PRONUNCIATION") && (
+                <span className="inline-block w-1 h-6 bg-purple-500 animate-pulse ml-1 rounded-sm align-middle" />
+              )}
+            </p>
+          </div>
+        );
+      }
+      continue;
+    }
+
+    if (/^PRONUNCIATION:\s*/i.test(trimmed)) {
+      const val = trimmed.replace(/^PRONUNCIATION:\s*/i, "");
+      if (val) {
+        elements.push(
+          <p key={`pr-${i}`} className="text-base text-indigo-500 dark:text-indigo-400 italic font-medium tracking-wide leading-relaxed">
+            {val}
+            {isStreaming && (
+              <span className="inline-block w-1 h-4 bg-purple-500 animate-pulse ml-1 rounded-sm align-middle" />
+            )}
+          </p>
+        );
+      }
+      continue;
+    }
+
+    if (/^Detected language:\s*/i.test(trimmed)) {
+      const val = trimmed.replace(/^Detected language:\s*/i, "");
+      elements.push(
+        <p key={`dl-${i}`} className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 mt-1">
+          <Globe className="w-3 h-3" /> Detected: {val}
+        </p>
+      );
+      continue;
+    }
+
+    if (/^Translation notes?:/i.test(trimmed)) {
+      flushNotes();
+      inNotes = true;
+      continue;
+    }
+
+    if (trimmed === "") {
+      if (!inNotes) elements.push(<div key={`sp-${i}`} className="h-1" />);
+      continue;
+    }
+
+    if (inNotes) {
+      noteLines.push(trimmed);
+    } else {
+      elements.push(
+        <p key={`ln-${i}`} className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{trimmed}</p>
+      );
+    }
+  }
+
+  flushNotes();
+
+  if (isStreaming) {
+    elements.push(
+      <span key="cursor" className="inline-block w-1 h-4 bg-purple-500 animate-pulse ml-0.5 rounded-sm align-middle" />
+    );
+  }
+
+  return <div className="space-y-1">{elements}</div>;
 }
 
 // ─── Main component ───────────────────────────────────────────────────────────
@@ -575,12 +689,9 @@ export function Translator() {
             <div
               ref={outputRef}
               data-testid="output-translation"
-              className="max-h-[500px] overflow-y-auto text-sm text-slate-700 dark:text-slate-200 leading-relaxed whitespace-pre-wrap"
+              className="max-h-[500px] overflow-y-auto space-y-2"
             >
-              {output}
-              {isGenerating && (
-                <span className="inline-block w-1 h-4 bg-purple-500 animate-pulse ml-0.5 rounded-sm align-middle" />
-              )}
+              <TranslationOutput text={output} isStreaming={isGenerating} />
             </div>
           </motion.div>
         )}
