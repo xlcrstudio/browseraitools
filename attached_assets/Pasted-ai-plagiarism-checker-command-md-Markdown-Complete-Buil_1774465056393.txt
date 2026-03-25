@@ -1,0 +1,58 @@
+ai-plagiarism-checker-command.md
+Markdown## Complete Build Command for browseraitools.com
+Create a mobile-first, SEO-optimized AI Plagiarism Checker (Private) for browseraitools.com using WebLLM.
+=== BRAND IDENTITY ===
+Website: browseraitools.com
+Tool Name: AI Plagiarism Checker
+URL Slug: /ai-plagiarism-checker
+Tagline: "Check Plagiarism Instantly — Your Text Never Leaves Your Browser"
+Mission: Give students and writers a truly private plagiarism check that never uploads their work.
+=== PRODUCT OVERVIEW ===
+High-traffic student tool.
+Purpose: Paste text or upload file → get originality score, highlighted repeats, AI-pattern detection, and rewrite suggestions.
+Target Users: Students, bloggers, content writers, researchers
+Search Demand: Very high ("plagiarism checker free", "check plagiarism online", "ai plagiarism detector")
+=== UNIQUE SELLING POINTS ===
+✅ 100% Private — runs entirely in your browser
+✅ Detects both copied text and AI-like patterns
+✅ Sensitivity slider (Low / Medium / Strict)
+✅ One-click “Rewrite suggestions” (links to your rewriter tool)
+=== TECHNICAL FOUNDATION ===
+Framework: React 18 + Vite
+Styling: Tailwind CSS 3.4+
+State Management: React useState
+LLM Engine: @mlc-ai/web-llm
+Model: Llama-3.1-8B-Instruct-q4f16_1-MLC
+=== PAGE STRUCTURE ===
+HERO SECTION:
+Headline: "AI Plagiarism Checker (Private)"
+Subheadline: "Check plagiarism instantly — your text never leaves your browser."
+=== INPUT FORM ===
+Large textarea + file upload (.txt, .docx, .pdf)
+Sensitivity slider + toggles for AI patterns and repetition
+=== OUTPUT SECTION ===
+Example Input:
+"Paste your full essay here about the impact of artificial intelligence on modern education and how it is changing the way students learn..."
+Example Output:
+Originality Score: 87%
+Highlighted Issues:
+
+Repeated phrase “artificial intelligence” (4 times)
+AI-like predictable phrasing detected in paragraph 3
+
+Suggestions:
+• “Rewrite this section” button (links directly to AI Paragraph Rewriter)
+=== WEBLLM PROMPTS ===
+System Prompt:
+textYou are a private plagiarism and AI-pattern detector. Analyze text for repetition, generic phrasing, and AI-style predictability. Return a clear originality score and highlight problem areas.
+User Prompt Template:
+textAnalyze the following text for originality, repetition, and AI-like patterns.
+
+Text: {inputText}
+=== SPECIAL FEATURES ===
+
+Sensitivity slider
+AI-pattern detection toggle
+One-click rewrite suggestions
+
+Build this as the #1 private AI plagiarism checker on the internet.
