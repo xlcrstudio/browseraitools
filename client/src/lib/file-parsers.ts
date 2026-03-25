@@ -4,8 +4,8 @@
 
 async function parsePdf(buffer: ArrayBuffer): Promise<string> {
   const pdfjs = await import("pdfjs-dist");
-  // Use CDN worker — only the parser JS is fetched, never the document content
-  pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+  // Use locally bundled worker — no CDN dependency, no network request
+  pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.mjs";
 
   const pdf = await pdfjs.getDocument({ data: buffer }).promise;
   const parts: string[] = [];
