@@ -85,6 +85,7 @@ import CodeExplainerPage from "@/pages/CodeExplainerPage";
 import FlashcardGeneratorPage from "@/pages/FlashcardGeneratorPage";
 import PersonalStatementGeneratorPage from "@/pages/PersonalStatementGeneratorPage";
 import LocalKnowledgeChatPage from "@/pages/LocalKnowledgeChatPage";
+import CitationGeneratorPage from "@/pages/CitationGeneratorPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -173,6 +174,7 @@ function Router() {
       <Route path="/ai-flashcard-generator" component={FlashcardGeneratorPage} />
       <Route path="/ai-personal-statement-generator" component={PersonalStatementGeneratorPage} />
       <Route path="/ai-local-knowledge-chat" component={LocalKnowledgeChatPage} />
+      <Route path="/ai-citation-generator" component={CitationGeneratorPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
