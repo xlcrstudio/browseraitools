@@ -92,6 +92,7 @@ import YouTubeSummarizerPage from "@/pages/YouTubeSummarizerPage";
 import ContractSimplifierPage from "@/pages/ContractSimplifierPage";
 import ContentRepurposerPage from "@/pages/ContentRepurposerPage";
 import PiiRedactorPage from "@/pages/PiiRedactorPage";
+import WritingFeedbackCoachPage from "@/pages/WritingFeedbackCoachPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -187,6 +188,7 @@ function Router() {
       <Route path="/ai-contract-simplifier" component={ContractSimplifierPage} />
       <Route path="/ai-content-repurposer" component={ContentRepurposerPage} />
       <Route path="/ai-pii-redactor" component={PiiRedactorPage} />
+      <Route path="/ai-writing-feedback-coach" component={WritingFeedbackCoachPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
