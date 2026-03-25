@@ -386,7 +386,7 @@ export function EssayGrader() {
                     value={essay}
                     onChange={e => { setEssay(e.target.value); setInputError(""); }}
                     placeholder="Paste your full essay here — introduction, body paragraphs, and conclusion…"
-                    rows={12}
+                    rows={24}
                     className="w-full bg-slate-50 dark:bg-slate-800/60 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-purple-400 resize-none leading-relaxed placeholder:text-slate-400"
                   />
                   <div className="flex items-center justify-between mt-1">
