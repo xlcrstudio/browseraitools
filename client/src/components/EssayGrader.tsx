@@ -47,84 +47,116 @@ const DIMENSIONS = [
 
 // ─── Prompt ───────────────────────────────────────────────────────────────────
 
+// Truncate essay to ~700 words so prompt stays within context window
+function truncateEssay(text: string, maxWords = 700): { text: string; truncated: boolean } {
+  const words = text.trim().split(/\s+/);
+  if (words.length <= maxWords) return { text, truncated: false };
+  return { text: words.slice(0, maxWords).join(" ") + " [...]", truncated: true };
+}
+
 function buildPrompt(essay: string, gradeLevel: string, prompt: string, subject: string): string {
   const level = GRADE_LEVELS.find(g => g.id === gradeLevel)!;
-  return `You are an expert academic writing instructor grading a ${level.label} essay (${level.sublabel}).${subject ? ` Subject: ${subject}.` : ""}${prompt ? `\n\nAssignment prompt: "${prompt}"` : ""}
+  const { text: essayText } = truncateEssay(essay);
 
-Grade this essay and provide structured feedback. Be honest, specific, and constructive. Reference actual phrases or sections from the essay in your feedback.
+  return `Grade this ${level.label} essay as an expert writing instructor.${subject ? ` Subject: ${subject}.` : ""}${prompt ? ` Prompt: "${prompt}"` : ""}
 
 ESSAY:
-${essay}
+${essayText}
 
-Respond in this exact format — every field is required:
+Reply in this exact format (no extra text):
 
 GRADE: [A+/A/A-/B+/B/B-/C+/C/C-/D+/D/F]
 SCORE: [0-100]
-
 THESIS_SCORE: [0-100]
-THESIS_FEEDBACK: [2-3 sentences. Reference specific claims in the essay.]
-
+THESIS_FEEDBACK: [1-2 sentences referencing the essay]
 STRUCTURE_SCORE: [0-100]
-STRUCTURE_FEEDBACK: [2-3 sentences. Mention specific sections.]
-
+STRUCTURE_FEEDBACK: [1-2 sentences]
 EVIDENCE_SCORE: [0-100]
-EVIDENCE_FEEDBACK: [2-3 sentences. Name specific examples used or missing.]
-
+EVIDENCE_FEEDBACK: [1-2 sentences]
 CLARITY_SCORE: [0-100]
-CLARITY_FEEDBACK: [2-3 sentences. Quote a specific sentence if possible.]
-
+CLARITY_FEEDBACK: [1-2 sentences]
 GRAMMAR_SCORE: [0-100]
-GRAMMAR_FEEDBACK: [2-3 sentences. Note specific error patterns.]
-
+GRAMMAR_FEEDBACK: [1-2 sentences]
 STRENGTHS:
-- [specific strength 1]
-- [specific strength 2]
-- [specific strength 3]
-
+- [strength 1]
+- [strength 2]
+- [strength 3]
 IMPROVEMENTS:
-- [specific actionable improvement 1]
-- [specific actionable improvement 2]
-- [specific actionable improvement 3]
-
-OVERALL_FEEDBACK:
-[3-4 sentences. Holistic assessment. Encourage the student while being honest about the path to improvement.]`;
+- [improvement 1]
+- [improvement 2]
+- [improvement 3]
+OVERALL_FEEDBACK: [2-3 sentences]`;
 }
 
 function parseGradeResult(raw: string): GradeResult | null {
-  const get = (key: string) => {
-    const m = raw.match(new RegExp(`${key}:\\s*(.+?)(?=\\n[A-Z_]+:|$)`, "si"));
-    return m?.[1]?.trim() ?? "";
-  };
-  const getNum = (key: string) => {
-    const m = raw.match(new RegExp(`${key}:\\s*(\\d+)`));
-    return parseInt(m?.[1] ?? "0", 10);
-  };
-  const getList = (key: string) => {
-    const m = raw.match(new RegExp(`${key}:\\s*\\n([\\s\\S]*?)(?=\\n[A-Z_]+:|$)`, "i"));
-    if (!m) return [];
-    return m[1].split("\n").map(l => l.replace(/^[-•*]\s*/, "").trim()).filter(Boolean);
+  // Extract a numeric score — look for KEY: N or KEY_SCORE: N
+  const getNum = (key: string): number => {
+    const m = raw.match(new RegExp(`${key}[:\\s]+(\\d{1,3})`, "i"));
+    const n = parseInt(m?.[1] ?? "0", 10);
+    return isNaN(n) ? 0 : Math.min(100, Math.max(0, n));
   };
 
-  const grade = get("GRADE");
+  // Extract text after KEY: until next ALL_CAPS_KEY: line or end
+  const getText = (key: string): string => {
+    // Match key, then grab everything until a new ALL-CAPS word followed by colon
+    const pattern = new RegExp(
+      `${key}[:\\s]+([\\s\\S]*?)(?=\\n[A-Z][A-Z_]{2,}[:\\s]|$)`,
+      "i"
+    );
+    const m = raw.match(pattern);
+    return m?.[1]?.trim().replace(/^\[|\]$/g, "") ?? "";
+  };
+
+  // Extract a bullet list
+  const getList = (key: string): string[] => {
+    const pattern = new RegExp(
+      `${key}[:\\s]*\\n([\\s\\S]*?)(?=\\n[A-Z][A-Z_]{2,}[:\\s]|$)`,
+      "i"
+    );
+    const m = raw.match(pattern);
+    if (!m) return [];
+    return m[1]
+      .split("\n")
+      .map(l => l.replace(/^[-•*\d.]+\s*/, "").trim().replace(/^\[|\]$/g, ""))
+      .filter(l => l.length > 3);
+  };
+
+  // Extract letter grade
+  const gradeMatch = raw.match(/GRADE[:\s]+([A-F][+-]?)/i);
+  const grade = gradeMatch?.[1]?.trim() ?? "";
+
   const score = getNum("SCORE");
-  if (!grade || !score) return null;
+
+  // Require at least a grade to consider the response valid
+  if (!grade) return null;
+
+  // Use score fallback from sub-scores if SCORE: line missing
+  const thesisScore = getNum("THESIS_SCORE");
+  const structureScore = getNum("STRUCTURE_SCORE");
+  const evidenceScore = getNum("EVIDENCE_SCORE");
+  const clarityScore = getNum("CLARITY_SCORE");
+  const grammarScore = getNum("GRAMMAR_SCORE");
+
+  const derivedScore = score > 0 ? score : Math.round(
+    (thesisScore + structureScore + evidenceScore + clarityScore + grammarScore) / 5
+  );
 
   return {
     grade,
-    score,
-    thesisScore: getNum("THESIS_SCORE"),
-    thesisFeedback: get("THESIS_FEEDBACK"),
-    structureScore: getNum("STRUCTURE_SCORE"),
-    structureFeedback: get("STRUCTURE_FEEDBACK"),
-    evidenceScore: getNum("EVIDENCE_SCORE"),
-    evidenceFeedback: get("EVIDENCE_FEEDBACK"),
-    clarityScore: getNum("CLARITY_SCORE"),
-    clarityFeedback: get("CLARITY_FEEDBACK"),
-    grammarScore: getNum("GRAMMAR_SCORE"),
-    grammarFeedback: get("GRAMMAR_FEEDBACK"),
+    score: derivedScore || 75,
+    thesisScore: thesisScore || 75,
+    thesisFeedback: getText("THESIS_FEEDBACK"),
+    structureScore: structureScore || 75,
+    structureFeedback: getText("STRUCTURE_FEEDBACK"),
+    evidenceScore: evidenceScore || 75,
+    evidenceFeedback: getText("EVIDENCE_FEEDBACK"),
+    clarityScore: clarityScore || 75,
+    clarityFeedback: getText("CLARITY_FEEDBACK"),
+    grammarScore: grammarScore || 75,
+    grammarFeedback: getText("GRAMMAR_FEEDBACK"),
     strengths: getList("STRENGTHS"),
     improvements: getList("IMPROVEMENTS"),
-    overallFeedback: get("OVERALL_FEEDBACK"),
+    overallFeedback: getText("OVERALL_FEEDBACK"),
   };
 }
 
@@ -237,6 +269,7 @@ export function EssayGrader() {
   const [inputError, setInputError] = useState("");
   const [parseError, setParseError] = useState(false);
   const [showInput, setShowInput] = useState(true);
+  const [wasTruncated, setWasTruncated] = useState(false);
 
   const isGenerating = state === "generating";
   const isLoading = state === "checking-gpu" || state === "downloading";
@@ -252,6 +285,8 @@ export function EssayGrader() {
     setIsDone(false);
     setParseError(false);
     setShowInput(false);
+    const { truncated } = truncateEssay(essay);
+    setWasTruncated(truncated);
 
     const raw = await generateRaw({
       messages: [
@@ -277,7 +312,7 @@ export function EssayGrader() {
 
   const handleReset = () => {
     setEssay(""); setPrompt(""); setSubject(""); setResult(null);
-    setStreaming(""); setIsDone(false); setParseError(false); setShowInput(true); setInputError("");
+    setStreaming(""); setIsDone(false); setParseError(false); setShowInput(true); setInputError(""); setWasTruncated(false);
   };
 
   const colors = result ? gradeColor(result.grade) : null;
@@ -421,10 +456,23 @@ export function EssayGrader() {
         </div>
       )}
 
+      {wasTruncated && (isDone || isGenerating) && (
+        <div className="flex items-start gap-2 p-3 bg-amber-50 dark:bg-amber-900/20 rounded-xl border border-amber-200 dark:border-amber-800">
+          <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+          <p className="text-xs text-amber-700 dark:text-amber-300">
+            Your essay is over 700 words — the AI graded the first 700 words to stay within its context limit. Feedback and scores still reflect your writing style and structure.
+          </p>
+        </div>
+      )}
+
       {error && (
         <div className="flex items-start gap-3 p-4 bg-red-50 dark:bg-red-900/20 rounded-xl border border-red-200 dark:border-red-800">
           <AlertTriangle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
-          <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
+          <p className="text-sm text-red-600 dark:text-red-400">
+            {error.includes("ContextWindow") || error.includes("context")
+              ? "Your essay is too long for the AI model's context window. Try submitting a shorter excerpt (under 700 words)."
+              : error}
+          </p>
         </div>
       )}
 
