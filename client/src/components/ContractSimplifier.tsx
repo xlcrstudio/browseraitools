@@ -117,15 +117,43 @@ function HighlightedContract({ text, redFlags }: { text: string; redFlags: RedFl
     LOW: "bg-yellow-200 dark:bg-yellow-800/50 text-yellow-900 dark:text-yellow-100",
   };
 
+  // Normalize text: collapse all whitespace/newlines to single spaces for reliable matching
+  const displayText = text.replace(/\s+/g, " ").trim();
+
+  // Find a quote in the normalized text, tolerating whitespace differences
+  function findRange(quote: string): [number, number] | null {
+    const norm = displayText.toLowerCase();
+    const q = quote.toLowerCase().trim().replace(/\s+/g, " ");
+
+    // Exact match first
+    const idx = norm.indexOf(q);
+    if (idx !== -1) return [idx, idx + q.length];
+
+    // Flexible: allow any whitespace between words
+    const words = q.split(/\s+/).map(w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).filter(Boolean);
+    if (words.length < 2) return null;
+    const regex = new RegExp(words.join("\\s+"), "i");
+    const m = regex.exec(displayText);
+    if (m) return [m.index, m.index + m[0].length];
+
+    // Partial: try matching the first 4 words only
+    const partial = words.slice(0, 4).join("\\s+");
+    const regex2 = new RegExp(partial, "i");
+    const m2 = regex2.exec(displayText);
+    if (m2) return [m2.index, m2.index + m2[0].length];
+
+    return null;
+  }
+
   // Build highlight ranges from quotes
   type Range = { start: number; end: number; severity: Severity; risk: string };
   const ranges: Range[] = [];
 
   for (const flag of redFlags) {
     if (!flag.quote) continue;
-    const idx = text.toLowerCase().indexOf(flag.quote.toLowerCase());
-    if (idx !== -1) {
-      ranges.push({ start: idx, end: idx + flag.quote.length, severity: flag.severity, risk: flag.risk });
+    const found = findRange(flag.quote);
+    if (found) {
+      ranges.push({ start: found[0], end: found[1], severity: flag.severity, risk: flag.risk });
     }
   }
 
@@ -145,11 +173,11 @@ function HighlightedContract({ text, redFlags }: { text: string; redFlags: RedFl
   const segments: Segment[] = [];
   let pos = 0;
   for (const r of resolved) {
-    if (r.start > pos) segments.push({ text: text.slice(pos, r.start) });
-    segments.push({ text: text.slice(r.start, r.end), range: r });
+    if (r.start > pos) segments.push({ text: displayText.slice(pos, r.start) });
+    segments.push({ text: displayText.slice(r.start, r.end), range: r });
     pos = r.end;
   }
-  if (pos < text.length) segments.push({ text: text.slice(pos) });
+  if (pos < displayText.length) segments.push({ text: displayText.slice(pos) });
 
   const hasHighlights = resolved.length > 0;
 
