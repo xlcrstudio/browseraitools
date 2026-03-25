@@ -45,7 +45,7 @@ const HIGH_SENSITIVITY: PiiCategory[] = ["SSN", "CREDIT_CARD", "ACCOUNT_NUMBER",
 
 // ─── Prompt ───────────────────────────────────────────────────────────────────
 
-const MAX_WORDS = 600;
+const MAX_WORDS = 2000;
 
 function truncate(text: string): { text: string; truncated: boolean } {
   const words = text.trim().split(/\s+/);
@@ -220,7 +220,7 @@ export function PiiRedactor() {
         { role: "user", content: buildPrompt(input) },
       ],
       temperature: 0.05,
-      maxTokens: 1200,
+      maxTokens: 2000,
       onChunk: chunk => setStreaming(chunk),
     });
 

@@ -24,7 +24,7 @@ const FAQS = [
   },
   {
     question: "What is the word limit?",
-    answer: "The tool scans the first 600 words of your text. For longer documents, paste sections separately — the tool works best on individual paragraphs, records, or short documents. An amber notice appears if your text exceeds 600 words.",
+    answer: "The tool scans up to 2,000 words of your text. For longer documents, paste sections separately — an amber notice appears if your text exceeds 2,000 words.",
   },
   {
     question: "When should I use this tool?",
