@@ -57,11 +57,17 @@ function buildPrompt(text: string): string {
   const { text: t } = truncate(text);
   return `You are a privacy expert. Find ALL personally identifiable information (PII) in this text and replace each item with a labeled placeholder.
 
+CRITICAL RULES:
+1. Use the SAME placeholder label every time the same type of PII appears. Never use [OTHER] for a type that has its own label below.
+2. Blank lines or underscores used as fill-in fields (e.g. "Name: ______") still represent PII — replace the blank/underscore with the correct placeholder.
+3. If a field is clearly a person's name context (Name:, Signature:, Author:), always use [NAME] — never [OTHER].
+4. Only use [OTHER] for personal data that genuinely does not fit any of the categories below.
+
 TEXT:
 ${t}
 
-Use these placeholder labels:
-- Full names of people → [NAME]
+Placeholder labels to use:
+- Full names of people, or any Name/Signature blank field → [NAME]
 - Email addresses → [EMAIL]
 - Phone numbers → [PHONE]
 - Physical / mailing addresses → [ADDRESS]
@@ -74,7 +80,7 @@ Use these placeholder labels:
 - Medical conditions, diagnoses, medications → [MEDICAL]
 - Bank account or routing numbers → [ACCOUNT_NUMBER]
 - Passport or government ID numbers → [ID_NUMBER]
-- Any other personal identifiers → [OTHER]
+- Personal data that fits none of the above categories → [OTHER]
 
 Reply in this EXACT format:
 
@@ -84,7 +90,7 @@ REDACTED_TEXT:
 PII_DETECTED:
 - TYPE: NAME | VALUE: John Doe
 - TYPE: EMAIL | VALUE: john@example.com
-(one line per unique PII item; write "PII_DETECTED: none" if no PII found)`;
+(one line per unique PII item found; write "PII_DETECTED: none" if no PII found)`;
 }
 
 // ─── Parser ───────────────────────────────────────────────────────────────────
