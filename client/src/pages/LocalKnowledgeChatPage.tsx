@@ -8,7 +8,7 @@ import ToolSchema from "@/components/ToolSchema";
 const FAQS = [
   {
     question: "What file formats can I add?",
-    answer: "You can paste any text directly into the tool, or upload .txt, .md (Markdown), .csv, and .json files. You can also add content from PDFs or Word documents by copying and pasting the text. There's no limit on how many documents you can add in a session.",
+    answer: "PDF (.pdf), Word documents (.docx), Excel spreadsheets (.xlsx, .xls), PowerPoint presentations (.pptx), plain text (.txt), Markdown (.md), CSV (.csv), JSON (.json), XML, and HTML. You can also paste any text directly. Old .doc format (pre-2007 Word) is partially supported — saving as .docx gives better results. There's no limit on how many documents you can add in a session.",
   },
   {
     question: "How does the AI find answers in my documents?",

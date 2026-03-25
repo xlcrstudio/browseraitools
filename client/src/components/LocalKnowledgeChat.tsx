@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { parseFile, ACCEPTED_EXTENSIONS, ACCEPTED_MIME } from "@/lib/file-parsers";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -207,6 +208,8 @@ export function LocalKnowledgeChat() {
   const [pasteName, setPasteName] = useState("");
   const [pasteText, setPasteText] = useState("");
   const [pasteError, setPasteError] = useState("");
+  const [fileParsing, setFileParsing] = useState(false);
+  const [fileParseWarning, setFileParseWarning] = useState("");
   const [sessionSaved, setSessionSaved] = useState(false);
   const [savedMsg, setSavedMsg] = useState("");
 
@@ -235,21 +238,27 @@ export function LocalKnowledgeChat() {
     setSessionSaved(false);
   };
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    const allowed = ["text/plain", "text/markdown", "text/csv", "application/json"];
-    if (!allowed.includes(file.type) && !file.name.match(/\.(txt|md|csv|json)$/i)) {
-      setPasteError("Supported formats: .txt, .md, .csv, .json");
-      return;
-    }
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      const content = ev.target?.result as string;
-      addDoc(file.name.replace(/\.[^.]+$/, ""), content);
-    };
-    reader.readAsText(file);
     e.target.value = "";
+    setFileParseWarning("");
+    setFileParsing(true);
+    try {
+      const { text, warning } = await parseFile(file);
+      if (!text || text.trim().length < 10) {
+        setPasteError("Could not extract text from this file. Try pasting the content directly.");
+        setFileParsing(false);
+        return;
+      }
+      const docName = file.name.replace(/\.[^.]+$/, "");
+      addDoc(docName, text);
+      if (warning) setFileParseWarning(warning);
+    } catch (err: any) {
+      setPasteError(err?.message ?? "Failed to parse file. Try pasting the content instead.");
+    } finally {
+      setFileParsing(false);
+    }
   };
 
   const handleSend = useCallback(async () => {
@@ -362,8 +371,9 @@ export function LocalKnowledgeChat() {
 
                 {/* Empty state */}
                 {docs.length === 0 && addMode === null && (
-                  <div className="text-center py-4">
+                  <div className="text-center py-4 space-y-1">
                     <p className="text-sm text-slate-400">No documents yet. Add notes, articles, or files to chat with them.</p>
+                    <p className="text-[10px] text-slate-300 dark:text-slate-600">PDF, Word (.docx), Excel (.xlsx), PowerPoint (.pptx), .txt, .md, .csv, .json</p>
                   </div>
                 )}
 
@@ -378,11 +388,12 @@ export function LocalKnowledgeChat() {
                     </button>
                     <button type="button" data-testid="button-add-file"
                       onClick={() => fileInputRef.current?.click()}
-                      className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 text-slate-500 dark:text-slate-400 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-purple-300 hover:text-purple-600 transition-all"
+                      disabled={fileParsing}
+                      className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-700 text-slate-500 dark:text-slate-400 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-purple-300 hover:text-purple-600 transition-all disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      <Upload className="w-3.5 h-3.5" /> Upload File
+                      {fileParsing ? <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Parsing…</> : <><Upload className="w-3.5 h-3.5" /> Upload File</>}
                     </button>
-                    <input ref={fileInputRef} type="file" accept=".txt,.md,.csv,.json" className="hidden" onChange={handleFileUpload} data-testid="input-file-upload" />
+                    <input ref={fileInputRef} type="file" accept={ACCEPTED_MIME} className="hidden" onChange={handleFileUpload} data-testid="input-file-upload" />
                   </div>
                 )}
 
@@ -413,6 +424,14 @@ export function LocalKnowledgeChat() {
                       </button>
                     </div>
                   </motion.div>
+                )}
+
+                {/* File parse error / warning */}
+                {pasteError && addMode === null && (
+                  <p className="text-xs text-red-500 flex items-center gap-1.5"><AlertTriangle className="w-3 h-3 shrink-0" />{pasteError}</p>
+                )}
+                {fileParseWarning && (
+                  <p className="text-xs text-amber-600 dark:text-amber-400 flex items-start gap-1.5"><AlertTriangle className="w-3 h-3 shrink-0 mt-0.5" />{fileParseWarning}</p>
                 )}
 
                 {/* Session actions */}
