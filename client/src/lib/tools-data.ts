@@ -7,7 +7,7 @@ import {
   Briefcase, ScrollText, UserCheck, MessageCircle, ScanSearch,
   ListChecks, ClipboardList, CalendarDays, Flag,
   Scale, ThumbsUp, Swords, ShieldQuestion, Heart, Flame, BookOpenCheck, Sparkles, UtensilsCrossed, MapPin, Code, Terminal, Wand2, Newspaper, Clapperboard, Bot, GraduationCap, ShieldCheck, FileSearch,
-  CheckSquare, Languages, Shuffle, Palette, Code2, PenLine, Library, Quote, Gauge, ClipboardCheck, Youtube,
+  CheckSquare, Languages, Shuffle, Palette, Code2, PenLine, Library, Quote, Gauge, ClipboardCheck, FileSignature, ShieldAlert,
 } from "lucide-react";
 
 export interface Tool {
@@ -166,6 +166,8 @@ export const toolCategories: ToolCategory[] = [
       { id: 84, name: "AI Readability Analyzer", slug: "/ai-readability-analyzer", icon: Gauge, available: true },
       { id: 85, name: "AI Essay Grader", slug: "/ai-essay-grader", icon: ClipboardCheck, available: true },
       { id: 86, name: "AI YouTube Summarizer", slug: "/ai-youtube-summarizer", icon: Youtube, available: true },
+      { id: 87, name: "AI Contract Simplifier", slug: "/ai-contract-simplifier", icon: FileSignature, available: true },
+      { id: 88, name: "AI Contract Risk Analyzer", slug: "/ai-contract-simplifier", icon: ShieldAlert, available: true },
       { id: 70, name: "AI Homework Solver", slug: "/ai-homework-solver", icon: GraduationCap, available: true },
       { id: 71, name: "AI Text Detector", slug: "/ai-text-detector", icon: ShieldCheck, available: true },
       { id: 72, name: "AI PDF Chat", slug: "/ai-pdf-chat", icon: FileSearch, available: true },

@@ -89,6 +89,7 @@ import CitationGeneratorPage from "@/pages/CitationGeneratorPage";
 import ReadabilityAnalyzerPage from "@/pages/ReadabilityAnalyzerPage";
 import EssayGraderPage from "@/pages/EssayGraderPage";
 import YouTubeSummarizerPage from "@/pages/YouTubeSummarizerPage";
+import ContractSimplifierPage from "@/pages/ContractSimplifierPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -181,6 +182,7 @@ function Router() {
       <Route path="/ai-readability-analyzer" component={ReadabilityAnalyzerPage} />
       <Route path="/ai-essay-grader" component={EssayGraderPage} />
       <Route path="/ai-youtube-summarizer" component={YouTubeSummarizerPage} />
+      <Route path="/ai-contract-simplifier" component={ContractSimplifierPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
