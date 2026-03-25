@@ -91,6 +91,30 @@ export function useWebLLM() {
     initialize();
   }, [initialize]);
 
+  // Suppress WebGPU internal unhandled rejections so Vite's error overlay
+  // doesn't appear for GPU device-lost events we already handle gracefully.
+  useEffect(() => {
+    const suppress = (event: PromiseRejectionEvent) => {
+      const msg = String(
+        event.reason?.message ?? event.reason ?? ""
+      ).toLowerCase();
+      if (
+        msg.includes("instance dropped") ||
+        msg.includes("external instance") ||
+        msg.includes("a valid external") ||
+        msg.includes("poperrorscope") ||
+        msg.includes("device was lost") ||
+        msg.includes("device lost") ||
+        msg.includes("mapasync") ||
+        msg.includes("no longer exists")
+      ) {
+        event.preventDefault();
+      }
+    };
+    window.addEventListener("unhandledrejection", suppress);
+    return () => window.removeEventListener("unhandledrejection", suppress);
+  }, []);
+
   const generate = useCallback(async (
     platform: string, 
     tone: string, 
