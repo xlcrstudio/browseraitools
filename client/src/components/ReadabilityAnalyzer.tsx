@@ -536,11 +536,10 @@ export function ReadabilityAnalyzer() {
                 <p className="text-sm font-bold text-slate-700 dark:text-slate-200">Simplify this text automatically</p>
                 <p className="text-xs text-slate-500 mt-0.5">Paste your text into the AI Paraphrasing Tool on Simple mode for an instant rewrite.</p>
               </div>
-              <Link href="/ai-paraphrasing-tool">
-                <a data-testid="link-paraphrasing-tool"
-                  className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-gradient-primary text-white text-xs font-bold whitespace-nowrap hover:opacity-90 transition-all">
-                  Simplify All <ArrowRight className="w-3.5 h-3.5" />
-                </a>
+              <Link href="/ai-paraphrasing-tool"
+                data-testid="link-paraphrasing-tool"
+                className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-gradient-primary text-white text-xs font-bold whitespace-nowrap hover:opacity-90 transition-all">
+                Simplify All <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
 
