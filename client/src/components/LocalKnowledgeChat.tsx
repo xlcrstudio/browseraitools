@@ -239,26 +239,29 @@ export function LocalKnowledgeChat() {
   };
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
+    const files = Array.from(e.target.files ?? []);
+    if (!files.length) return;
     e.target.value = "";
     setFileParseWarning("");
+    setPasteError("");
     setFileParsing(true);
-    try {
-      const { text, warning } = await parseFile(file);
-      if (!text || text.trim().length < 10) {
-        setPasteError("Could not extract text from this file. Try pasting the content directly.");
-        setFileParsing(false);
-        return;
+    const warnings: string[] = [];
+    for (const file of files) {
+      try {
+        const { text, warning } = await parseFile(file);
+        if (!text || text.trim().length < 10) {
+          setPasteError(`Could not extract text from "${file.name}". Try pasting the content directly.`);
+          continue;
+        }
+        const docName = file.name.replace(/\.[^.]+$/, "");
+        addDoc(docName, text);
+        if (warning) warnings.push(warning);
+      } catch (err: any) {
+        setPasteError(err?.message ?? `Failed to parse "${file.name}". Try pasting the content instead.`);
       }
-      const docName = file.name.replace(/\.[^.]+$/, "");
-      addDoc(docName, text);
-      if (warning) setFileParseWarning(warning);
-    } catch (err: any) {
-      setPasteError(err?.message ?? "Failed to parse file. Try pasting the content instead.");
-    } finally {
-      setFileParsing(false);
     }
+    if (warnings.length) setFileParseWarning(warnings.join(" "));
+    setFileParsing(false);
   };
 
   const handleSend = useCallback(async () => {
@@ -393,7 +396,7 @@ export function LocalKnowledgeChat() {
                     >
                       {fileParsing ? <><Loader2 className="w-3.5 h-3.5 animate-spin" /> Parsing…</> : <><Upload className="w-3.5 h-3.5" /> Upload File</>}
                     </button>
-                    <input ref={fileInputRef} type="file" accept={ACCEPTED_MIME} className="hidden" onChange={handleFileUpload} data-testid="input-file-upload" />
+                    <input ref={fileInputRef} type="file" accept={ACCEPTED_MIME} multiple className="hidden" onChange={handleFileUpload} data-testid="input-file-upload" />
                   </div>
                 )}
 
