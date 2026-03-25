@@ -193,13 +193,18 @@ export function ContentRepurposer() {
   const [copiedAll, setCopiedAll] = useState(false);
 
   const isGenerating = state === "generating";
-  const isLoading = state === "checking-gpu" || state === "downloading";
-  const isBusy = isGenerating || isLoading;
+  const isModelLoading = state === "checking-gpu" || state === "downloading";
+  const isBusy = isGenerating || isModelLoading;
   const wordCount = content.trim() ? content.trim().split(/\s+/).length : 0;
+  const [parseError, setParseError] = useState<string | null>(null);
+  const [rawOutput, setRawOutput] = useState<string | null>(null);
 
   const handleRepurpose = useCallback(async () => {
     if (wordCount < 30) { setInputError("Please paste at least 30 words of content."); return; }
+    if (state !== "ready") { setInputError("AI model is still loading — please wait a moment."); return; }
     setInputError("");
+    setParseError(null);
+    setRawOutput(null);
     setResult(null);
     setStreaming("");
     setIsDone(false);
@@ -211,17 +216,24 @@ export function ContentRepurposer() {
         { role: "system", content: "You are an expert content strategist and copywriter. Repurpose content for multiple platforms with platform-native tone and style. Always follow the exact output format." },
         { role: "user", content: buildPrompt(content, contentType) },
       ],
-      temperature: 0.55,
-      maxTokens: 1500,
+      temperature: 0.45,
+      maxTokens: 1400,
       onChunk: chunk => setStreaming(chunk),
     });
 
     if (raw) {
       const parsed = parseResult(raw);
-      if (parsed) { setResult(parsed); setIsDone(true); setActiveTab("tweets"); }
+      if (parsed) {
+        setResult(parsed);
+        setIsDone(true);
+        setActiveTab("tweets");
+      } else {
+        setRawOutput(raw);
+        setParseError("The AI responded but in an unexpected format. Raw output shown below — you can still copy and use it.");
+      }
     }
     setStreaming("");
-  }, [content, contentType, wordCount, generateRaw]);
+  }, [content, contentType, wordCount, state, generateRaw]);
 
   const handleReset = () => {
     setContent(""); setResult(null); setStreaming(""); setIsDone(false); setInputError(""); setWasTruncated(false);
@@ -274,6 +286,23 @@ export function ContentRepurposer() {
             )}
           </div>
 
+          {/* Model loading banner */}
+          {isModelLoading && (
+            <div className="flex items-center gap-3 px-4 py-3 bg-purple-50 dark:bg-purple-900/20 border-t border-purple-100 dark:border-purple-800">
+              <Loader2 className="w-3.5 h-3.5 text-purple-500 animate-spin shrink-0" />
+              <div className="flex-1 min-w-0">
+                <p className="text-xs font-semibold text-purple-700 dark:text-purple-300">
+                  {state === "checking-gpu" ? "Checking GPU…" : `Loading AI model — ${Math.round(progress?.percent ?? 0)}%`}
+                </p>
+                {state === "downloading" && (
+                  <div className="w-full bg-purple-200 dark:bg-purple-800 rounded-full h-1 mt-1.5">
+                    <div className="bg-purple-600 h-1 rounded-full transition-all" style={{ width: `${Math.round(progress?.percent ?? 0)}%` }} />
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
           <div className="px-4 py-3 border-t border-slate-100 dark:border-slate-800 space-y-3">
             <div className="flex items-center gap-1.5 text-xs text-slate-400">
               <Lock className="w-3 h-3" />
@@ -293,30 +322,32 @@ export function ContentRepurposer() {
                   ? "bg-slate-100 dark:bg-slate-800 text-slate-400 cursor-not-allowed"
                   : "bg-gradient-primary text-white hover:opacity-90 active:scale-[0.98] shadow-sm shadow-purple-500/20"
               )}>
-              {isBusy
+              {isGenerating
                 ? <><Loader2 className="w-4 h-4 animate-spin" /> Repurposing…</>
+                : isModelLoading
+                ? <><Loader2 className="w-4 h-4 animate-spin" /> Model loading…</>
                 : "Repurpose Content"}
             </button>
           </div>
         </div>
       )}
 
-      {/* Model loading */}
-      <AnimatePresence>
-        {state === "downloading" && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl border border-purple-200 dark:border-purple-800">
-            <div className="flex items-center gap-3 mb-2">
-              <Loader2 className="w-4 h-4 text-purple-600 animate-spin" />
-              <span className="text-sm font-semibold text-purple-700 dark:text-purple-300">Loading AI model…</span>
+      {/* Parse error fallback — shows raw output */}
+      {parseError && rawOutput && (
+        <div className="space-y-3">
+          <div className="flex items-start gap-2 p-3 bg-amber-50 dark:bg-amber-900/20 rounded-xl border border-amber-200 dark:border-amber-800">
+            <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+            <p className="text-xs text-amber-700 dark:text-amber-300">{parseError}</p>
+          </div>
+          <div className="glass-panel rounded-xl overflow-hidden">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 dark:border-slate-800">
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Raw Output</p>
+              <RawCopyButton text={rawOutput} />
             </div>
-            <div className="w-full bg-purple-200 dark:bg-purple-800 rounded-full h-1.5 mb-1">
-              <div className="bg-purple-600 h-1.5 rounded-full transition-all" style={{ width: `${Math.round(progress?.percent ?? 0)}%` }} />
-            </div>
-            <p className="text-xs text-purple-600 dark:text-purple-400">{Math.round(progress?.percent ?? 0)}%</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            <pre className="p-4 text-xs text-slate-600 dark:text-slate-300 whitespace-pre-wrap leading-relaxed max-h-96 overflow-y-auto">{rawOutput}</pre>
+          </div>
+        </div>
+      )}
 
       {/* Streaming */}
       {isGenerating && (
@@ -457,6 +488,20 @@ export function ContentRepurposer() {
         )}
       </AnimatePresence>
     </div>
+  );
+}
+
+// ─── Raw output copy button ───────────────────────────────────────────────────
+
+function RawCopyButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false);
+  return (
+    <button type="button"
+      onClick={() => { navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 2000); }}
+      className="flex items-center gap-1 text-xs text-slate-400 hover:text-purple-600 transition-colors">
+      {copied ? <Check className="w-3 h-3 text-green-500" /> : <Copy className="w-3 h-3" />}
+      {copied ? "Copied" : "Copy"}
+    </button>
   );
 }
 
