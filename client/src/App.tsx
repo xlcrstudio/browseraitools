@@ -101,6 +101,7 @@ import JsonValidatorPage from "@/pages/JsonValidatorPage";
 import MarkdownConverterPage from "@/pages/MarkdownConverterPage";
 import DiffCheckerPage from "@/pages/DiffCheckerPage";
 import ColorPaletteGeneratorPage from "@/pages/ColorPaletteGeneratorPage";
+import RegexTesterPage from "@/pages/RegexTesterPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -205,6 +206,7 @@ function Router() {
       <Route path="/markdown-converter" component={MarkdownConverterPage} />
       <Route path="/diff-checker" component={DiffCheckerPage} />
       <Route path="/color-palette-generator" component={ColorPaletteGeneratorPage} />
+      <Route path="/regex-tester" component={RegexTesterPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
