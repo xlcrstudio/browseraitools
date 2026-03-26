@@ -99,6 +99,7 @@ import CaseConverterPage from "@/pages/CaseConverterPage";
 import RandomGeneratorPage from "@/pages/RandomGeneratorPage";
 import JsonValidatorPage from "@/pages/JsonValidatorPage";
 import MarkdownConverterPage from "@/pages/MarkdownConverterPage";
+import DiffCheckerPage from "@/pages/DiffCheckerPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -201,6 +202,7 @@ function Router() {
       <Route path="/random-number-generator" component={RandomGeneratorPage} />
       <Route path="/json-validator" component={JsonValidatorPage} />
       <Route path="/markdown-converter" component={MarkdownConverterPage} />
+      <Route path="/diff-checker" component={DiffCheckerPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
