@@ -180,6 +180,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 98, name: "Diff Checker", slug: "/diff-checker", icon: ArrowLeftRight, available: true },
       { id: 99, name: "Color Palette Generator", slug: "/color-palette-generator", icon: Palette, available: true },
       { id: 100, name: "Regex Tester", slug: "/regex-tester", icon: Terminal, available: true },
+      { id: 101, name: "Lorem Ipsum Generator", slug: "/lorem-ipsum-generator", icon: AlignLeft, available: true },
       { id: 70, name: "AI Homework Solver", slug: "/ai-homework-solver", icon: GraduationCap, available: true },
       { id: 71, name: "AI Text Detector", slug: "/ai-text-detector", icon: ShieldCheck, available: true },
       { id: 72, name: "AI PDF Chat", slug: "/ai-pdf-chat", icon: FileSearch, available: true },
