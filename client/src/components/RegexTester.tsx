@@ -222,7 +222,7 @@ HTML:
   const [aiPrompt, setAiPrompt] = useState("");
   const [aiResult, setAiResult] = useState("");
 
-  const { state: llmState, progress, error: llmError, initialize, generate } = useWebLLM();
+  const { state: llmState, progress, error: llmError, generateRaw } = useWebLLM();
 
   const flags = Array.from(activeFlags).join("");
 
@@ -245,20 +245,23 @@ HTML:
   };
 
   const handleAiGenerate = async () => {
-    if (!aiPrompt.trim() || llmState === "generating") return;
-    if (llmState === "idle") { await initialize(); return; }
+    if (!aiPrompt.trim() || llmState === "generating" || llmState === "downloading") return;
     setAiResult("");
     let out = "";
-    await generate(
-      `You are a regex expert. The user wants a JavaScript regex pattern. Respond with EXACTLY two sections:
-PATTERN: <regex pattern, no slashes, no flags>
-EXPLANATION: <one sentence per part, each on new line starting with •>
+    await generateRaw({
+      messages: [{
+        role: "user",
+        content: `You are a regex expert. The user wants a JavaScript regular expression. Respond with EXACTLY two sections and nothing else:
+PATTERN: <the regex pattern only, no slashes, no flags>
+EXPLANATION: <one bullet per token, each starting with •>
 
 User request: "${aiPrompt}"`,
-      { maxTokens: 300, temperature: 0.1 },
-      chunk => { out = chunk; setAiResult(chunk); }
-    );
-    // Try to auto-load the pattern
+      }],
+      temperature: 0.1,
+      maxTokens: 300,
+      onChunk: chunk => { out = chunk; setAiResult(chunk); },
+    });
+    // Auto-load the generated pattern
     const m = out.match(/PATTERN:\s*(.+)/);
     if (m) {
       setPattern(m[1].trim().replace(/^\/|\/[gimsuy]*$/g, ""));
@@ -440,13 +443,13 @@ User request: "${aiPrompt}"`,
               placeholder="Describe what you want to match — e.g. 'valid email address' or 'UK postcode'"
               className="flex-1 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-purple-400 text-slate-800 dark:text-slate-100 placeholder:text-slate-400" />
             <button type="button" onClick={handleAiGenerate}
-              disabled={!aiPrompt.trim() || llmState === "generating"}
+              disabled={!aiPrompt.trim() || llmState === "generating" || llmState === "downloading" || llmState === "checking-gpu"}
               data-testid="button-ai-generate"
               className="px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white text-xs font-black disabled:opacity-50 transition-colors whitespace-nowrap">
-              {llmState === "idle" ? "Load AI" : llmState === "loading" ? `Loading… ${(progress?.percent ?? 0).toFixed(0)}%` : llmState === "generating" ? "Generating…" : "Generate"}
+              {llmState === "checking-gpu" ? "Checking GPU…" : llmState === "downloading" ? `Loading… ${(progress?.percent ?? 0).toFixed(0)}%` : llmState === "generating" ? "Generating…" : "Generate"}
             </button>
           </div>
-          {llmState === "loading" && (
+          {llmState === "downloading" && (
             <div className="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-1.5">
               <div className="bg-purple-500 h-1.5 rounded-full transition-all" style={{ width: `${progress?.percent ?? 0}%` }} />
             </div>
