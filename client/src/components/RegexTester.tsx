@@ -194,7 +194,29 @@ const FLAG_INFO: Record<string, string> = {
 export function RegexTester() {
   const [pattern, setPattern] = useState("[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}");
   const [activeFlags, setActiveFlags] = useState<Set<string>>(new Set(["g"]));
-  const [testText, setTestText] = useState("Send billing questions to billing@example.com and tech support to support@company.co.uk. Invalid: @missinguser, missingatsign.com");
+  const [testText, setTestText] = useState(
+`Contact details:
+  Email: alice@example.com, bob.smith+tag@company.co.uk
+  Phone: (555) 123-4567 or 800-555-0199 or +1 415 222 3333
+  Website: https://www.example.com/path?q=test or http://site.org
+  Server: 192.168.1.1 (also 10.0.0.255, not 999.0.0.1)
+
+Schedule:
+  Meeting on 03/15/2025 and follow-up 12/31/2025
+
+Design tokens:
+  Primary: #6366F1, Accent: #F59E0B, Neutral: #64748b, Short: #FFF
+
+Payment:
+  Card: 4111 1111 1111 1111 or 4111-1111-1111-1111
+  ZIP: 90210 or 10001-1234
+
+Social:
+  Trending: #JavaScript #web_dev #regex2025
+
+HTML:
+  <h1 class="title">Hello</h1> <br/> <a href="#">Link</a>`
+  );
   const [showBreakdown, setShowBreakdown] = useState(false);
   const [showLibrary, setShowLibrary] = useState(false);
   const [aiPrompt, setAiPrompt] = useState("");
