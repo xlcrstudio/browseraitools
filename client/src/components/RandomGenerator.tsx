@@ -116,8 +116,18 @@ function NumberMode({ onResult }: { onResult: (entry: HistoryEntry) => void }) {
     setError("");
     let nums: number[];
     if (unique) {
-      const pool = Array.from({ length: range }, (_, i) => i + min);
-      nums = shuffle(pool).slice(0, qty);
+      if (range <= 100_000) {
+        // Small range: build full pool and shuffle
+        const pool = Array.from({ length: range }, (_, i) => i + min);
+        nums = shuffle(pool).slice(0, qty);
+      } else {
+        // Large range: use a Set to avoid building a massive array
+        const set = new Set<number>();
+        while (set.size < qty) {
+          set.add(randomInt(min, max));
+        }
+        nums = [...set];
+      }
     } else {
       nums = Array.from({ length: qty }, () => randomInt(min, max));
     }
