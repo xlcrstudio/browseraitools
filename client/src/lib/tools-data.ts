@@ -7,7 +7,7 @@ import {
   Briefcase, ScrollText, UserCheck, MessageCircle, ScanSearch,
   ListChecks, ClipboardList, CalendarDays, Flag,
   Scale, ThumbsUp, Swords, ShieldQuestion, Heart, Flame, BookOpenCheck, Sparkles, UtensilsCrossed, MapPin, Code, Terminal, Wand2, Newspaper, Clapperboard, Bot, GraduationCap, ShieldCheck, FileSearch,
-  CheckSquare, Languages, Shuffle, Palette, Code2, PenLine, Library, Quote, Gauge, ClipboardCheck, FileSignature, ShieldAlert, Layers, EyeOff, MessageSquareDiff, Hash,
+  CheckSquare, Languages, Shuffle, Palette, Code2, PenLine, Library, Quote, Gauge, ClipboardCheck, FileSignature, ShieldAlert, Layers, EyeOff, MessageSquareDiff, Hash, Type,
 } from "lucide-react";
 
 export interface Tool {
@@ -173,6 +173,7 @@ export const toolCategories: ToolCategory[] = [
       { id: 91, name: "AI Writing Feedback Coach", slug: "/ai-writing-feedback-coach", icon: MessageSquareDiff, available: true },
       { id: 92, name: "Word Counter", slug: "/word-counter", icon: Hash, available: true },
       { id: 93, name: "AI Plagiarism Checker", slug: "/ai-plagiarism-checker", icon: ScanSearch, available: true },
+      { id: 94, name: "Case Converter", slug: "/case-converter", icon: Type, available: true },
       { id: 70, name: "AI Homework Solver", slug: "/ai-homework-solver", icon: GraduationCap, available: true },
       { id: 71, name: "AI Text Detector", slug: "/ai-text-detector", icon: ShieldCheck, available: true },
       { id: 72, name: "AI PDF Chat", slug: "/ai-pdf-chat", icon: FileSearch, available: true },

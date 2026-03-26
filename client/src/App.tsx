@@ -95,6 +95,7 @@ import PiiRedactorPage from "@/pages/PiiRedactorPage";
 import WritingFeedbackCoachPage from "@/pages/WritingFeedbackCoachPage";
 import WordCounterPage from "@/pages/WordCounterPage";
 import PlagiarismCheckerPage from "@/pages/PlagiarismCheckerPage";
+import CaseConverterPage from "@/pages/CaseConverterPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import NotFound from "@/pages/not-found";
@@ -193,6 +194,7 @@ function Router() {
       <Route path="/ai-writing-feedback-coach" component={WritingFeedbackCoachPage} />
       <Route path="/word-counter" component={WordCounterPage} />
       <Route path="/ai-plagiarism-checker" component={PlagiarismCheckerPage} />
+      <Route path="/case-converter" component={CaseConverterPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
