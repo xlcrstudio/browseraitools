@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { DiffChecker } from "@/components/DiffChecker";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import { SimilarTools } from "@/components/RelatedTools";
 
 const FAQS = [
   {
@@ -161,6 +162,8 @@ export default function DiffCheckerPage() {
           </div>
         ))}
       </article>
+
+      <SimilarTools slugs={["/regex-tester", "/json-validator", "/markdown-converter", "/password-generator", "/lorem-ipsum-generator", "/color-palette-generator"]} />
 
       <AdBlock slot="diff-checker-bottom" format="horizontal" className="mt-10" />
 

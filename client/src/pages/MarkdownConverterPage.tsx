@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { MarkdownConverter } from "@/components/MarkdownConverter";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import { SimilarTools } from "@/components/RelatedTools";
 
 const FAQS = [
   {
@@ -154,6 +155,8 @@ export default function MarkdownConverterPage() {
           </div>
         ))}
       </article>
+
+      <SimilarTools slugs={["/lorem-ipsum-generator", "/diff-checker", "/regex-tester", "/json-validator", "/color-palette-generator", "/password-generator"]} />
 
       <AdBlock slot="markdown-converter-bottom" format="horizontal" className="mt-10" />
 

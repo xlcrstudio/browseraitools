@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { JsonValidator } from "@/components/JsonValidator";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import { SimilarTools } from "@/components/RelatedTools";
 
 const FAQS = [
   {
@@ -161,6 +162,8 @@ export default function JsonValidatorPage() {
           </div>
         ))}
       </article>
+
+      <SimilarTools slugs={["/diff-checker", "/regex-tester", "/markdown-converter", "/password-generator", "/lorem-ipsum-generator", "/color-palette-generator"]} />
 
       <AdBlock slot="json-validator-bottom" format="horizontal" className="mt-10" />
 

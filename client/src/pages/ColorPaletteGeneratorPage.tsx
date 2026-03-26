@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ColorPaletteGenerator } from "@/components/ColorPaletteGenerator";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import { SimilarTools } from "@/components/RelatedTools";
 
 const FAQS = [
   {
@@ -153,6 +154,8 @@ export default function ColorPaletteGeneratorPage() {
           </div>
         ))}
       </article>
+
+      <SimilarTools slugs={["/lorem-ipsum-generator", "/markdown-converter", "/regex-tester", "/json-validator", "/password-generator", "/diff-checker"]} />
 
       <AdBlock slot="color-palette-bottom" format="horizontal" className="mt-10" />
 

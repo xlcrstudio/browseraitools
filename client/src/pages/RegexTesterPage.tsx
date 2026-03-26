@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { RegexTester } from "@/components/RegexTester";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import { SimilarTools } from "@/components/RelatedTools";
 
 const FAQS = [
   {
@@ -181,6 +182,8 @@ export default function RegexTesterPage() {
           </div>
         ))}
       </article>
+
+      <SimilarTools slugs={["/diff-checker", "/json-validator", "/markdown-converter", "/lorem-ipsum-generator", "/password-generator", "/color-palette-generator"]} />
 
       <AdBlock slot="regex-tester-bottom" format="horizontal" className="mt-10" />
 

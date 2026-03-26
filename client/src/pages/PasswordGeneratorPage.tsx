@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { PasswordGenerator } from "@/components/PasswordGenerator";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import { SimilarTools } from "@/components/RelatedTools";
 
 const FAQS = [
   {
@@ -165,6 +166,8 @@ export default function PasswordGeneratorPage() {
           </div>
         ))}
       </article>
+
+      <SimilarTools slugs={["/regex-tester", "/json-validator", "/diff-checker", "/lorem-ipsum-generator", "/markdown-converter", "/color-palette-generator"]} />
 
       <AdBlock slot="password-generator-bottom" format="horizontal" className="mt-10" />
 

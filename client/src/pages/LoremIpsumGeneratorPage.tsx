@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { LoremIpsumGenerator } from "@/components/LoremIpsumGenerator";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import { SimilarTools } from "@/components/RelatedTools";
 
 const FAQS = [
   {
@@ -159,6 +160,8 @@ export default function LoremIpsumGeneratorPage() {
           </div>
         ))}
       </article>
+
+      <SimilarTools slugs={["/markdown-converter", "/diff-checker", "/color-palette-generator", "/regex-tester", "/json-validator", "/password-generator"]} />
 
       <AdBlock slot="lorem-ipsum-bottom" format="horizontal" className="mt-10" />
 
