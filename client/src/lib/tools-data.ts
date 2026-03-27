@@ -176,10 +176,8 @@ export const toolCategories: ToolCategory[] = [
       { id: 94, name: "Case Converter", slug: "/case-converter", icon: Type, available: true },
       { id: 95, name: "Random Number Generator", slug: "/random-number-generator", icon: Shuffle, available: true },
       { id: 96, name: "JSON Validator & Formatter", slug: "/json-validator", icon: Braces, available: true },
-      { id: 97, name: "Markdown Converter", slug: "/markdown-converter", icon: FileCode, available: true },
       { id: 98, name: "Diff Checker", slug: "/diff-checker", icon: ArrowLeftRight, available: true },
       { id: 99, name: "Color Palette Generator", slug: "/color-palette-generator", icon: Palette, available: true },
-      { id: 100, name: "Regex Tester", slug: "/regex-tester", icon: Terminal, available: true },
       { id: 101, name: "Lorem Ipsum Generator", slug: "/lorem-ipsum-generator", icon: AlignLeft, available: true },
       { id: 102, name: "Password Generator", slug: "/password-generator", icon: KeyRound, available: true },
       { id: 70, name: "AI Homework Solver", slug: "/ai-homework-solver", icon: GraduationCap, available: true },
@@ -194,6 +192,8 @@ export const toolCategories: ToolCategory[] = [
     tools: [
       { id: 63, name: "Private AI Code Playground", slug: "/ai-code-playground", icon: Terminal, available: true },
       { id: 79, name: "AI Code Explainer", slug: "/ai-code-explainer", icon: Code2, available: true },
+      { id: 100, name: "Regex Tester", slug: "/regex-tester", icon: Terminal, available: true },
+      { id: 97, name: "Markdown Converter", slug: "/markdown-converter", icon: FileCode, available: true },
     ],
   },
 ];
