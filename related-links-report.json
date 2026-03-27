@@ -1,0 +1,3575 @@
+{
+  "mode": "full",
+  "processedAt": "2026-03-27T18:10:01.752Z",
+  "totalFiles": 594,
+  "totalModified": 594,
+  "totalSkipped": 0,
+  "totalLinks": 5346,
+  "avgLinksPerPage": 9,
+  "files": [
+    {
+      "filename": "ai-ad-copy-generator-free-unlimited.html",
+      "slug": "ai-ad-copy-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-ad-copy-generator-no-signup.html",
+      "slug": "ai-ad-copy-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-ad-copy-generator-runs-in-browser.html",
+      "slug": "ai-ad-copy-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-ats-resume-matcher-free-unlimited.html",
+      "slug": "ai-ats-resume-matcher",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-ats-resume-matcher-no-signup.html",
+      "slug": "ai-ats-resume-matcher",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-ats-resume-matcher-runs-in-browser.html",
+      "slug": "ai-ats-resume-matcher",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-blog-outline-generator-free-unlimited.html",
+      "slug": "ai-blog-outline-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-blog-outline-generator-no-signup.html",
+      "slug": "ai-blog-outline-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-blog-outline-generator-runs-in-browser.html",
+      "slug": "ai-blog-outline-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-blog-post-generator-free-unlimited.html",
+      "slug": "ai-blog-post-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-blog-post-generator-no-signup.html",
+      "slug": "ai-blog-post-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-blog-post-generator-runs-in-browser.html",
+      "slug": "ai-blog-post-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-bullet-points-generator-free-unlimited.html",
+      "slug": "ai-bullet-points-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-bullet-points-generator-no-signup.html",
+      "slug": "ai-bullet-points-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-bullet-points-generator-runs-in-browser.html",
+      "slug": "ai-bullet-points-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-business-idea-generator-free-unlimited.html",
+      "slug": "ai-business-idea-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-business-idea-generator-no-signup.html",
+      "slug": "ai-business-idea-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-business-idea-generator-runs-in-browser.html",
+      "slug": "ai-business-idea-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-business-name-generator-free-unlimited.html",
+      "slug": "ai-business-name-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-business-name-generator-no-signup.html",
+      "slug": "ai-business-name-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-business-name-generator-runs-in-browser.html",
+      "slug": "ai-business-name-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-call-to-action-generator-free-unlimited.html",
+      "slug": "ai-cta-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-call-to-action-generator-no-signup.html",
+      "slug": "ai-cta-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-call-to-action-generator-runs-in-browser.html",
+      "slug": "ai-cta-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-chatbot-free-unlimited.html",
+      "slug": "ai-chatbot",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-chatbot-no-signup.html",
+      "slug": "ai-chatbot",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-chatbot-runs-in-browser.html",
+      "slug": "ai-chatbot",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-citation-generator-free-unlimited.html",
+      "slug": "ai-citation-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-citation-generator-no-signup.html",
+      "slug": "ai-citation-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-citation-generator-runs-in-browser.html",
+      "slug": "ai-citation-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-code-explainer-free-unlimited.html",
+      "slug": "ai-code-explainer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-code-explainer-no-signup.html",
+      "slug": "ai-code-explainer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-code-explainer-runs-in-browser.html",
+      "slug": "ai-code-explainer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-code-playground-free-unlimited.html",
+      "slug": "ai-code-playground",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-code-playground-no-signup.html",
+      "slug": "ai-code-playground",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-code-playground-runs-in-browser.html",
+      "slug": "ai-code-playground",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-cold-outreach-generator-free-unlimited.html",
+      "slug": "ai-cold-outreach-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-cold-outreach-generator-no-signup.html",
+      "slug": "ai-cold-outreach-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-cold-outreach-generator-runs-in-browser.html",
+      "slug": "ai-cold-outreach-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-compliment-generator-free-unlimited.html",
+      "slug": "ai-compliment-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-compliment-generator-no-signup.html",
+      "slug": "ai-compliment-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-compliment-generator-runs-in-browser.html",
+      "slug": "ai-compliment-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-content-brief-generator-free-unlimited.html",
+      "slug": "ai-content-brief-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-content-brief-generator-no-signup.html",
+      "slug": "ai-content-brief-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-content-brief-generator-runs-in-browser.html",
+      "slug": "ai-content-brief-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-content-gap-analyzer-free-unlimited.html",
+      "slug": "ai-content-gap-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-content-gap-analyzer-no-signup.html",
+      "slug": "ai-content-gap-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-content-gap-analyzer-runs-in-browser.html",
+      "slug": "ai-content-gap-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-content-repurposer-free-unlimited.html",
+      "slug": "ai-content-repurposer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-content-repurposer-no-signup.html",
+      "slug": "ai-content-repurposer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-content-repurposer-runs-in-browser.html",
+      "slug": "ai-content-repurposer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-contract-simplifier-free-unlimited.html",
+      "slug": "ai-contract-simplifier",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-contract-simplifier-no-signup.html",
+      "slug": "ai-contract-simplifier",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-contract-simplifier-runs-in-browser.html",
+      "slug": "ai-contract-simplifier",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-cover-letter-generator-free-unlimited.html",
+      "slug": "ai-cover-letter-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-cover-letter-generator-no-signup.html",
+      "slug": "ai-cover-letter-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-cover-letter-generator-runs-in-browser.html",
+      "slug": "ai-cover-letter-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-dating-profile-generator-free-unlimited.html",
+      "slug": "ai-dating-profile-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-dating-profile-generator-no-signup.html",
+      "slug": "ai-dating-profile-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-dating-profile-generator-runs-in-browser.html",
+      "slug": "ai-dating-profile-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-debate-generator-free-unlimited.html",
+      "slug": "ai-debate-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-debate-generator-no-signup.html",
+      "slug": "ai-debate-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-debate-generator-runs-in-browser.html",
+      "slug": "ai-debate-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-decision-maker-free-unlimited.html",
+      "slug": "ai-decision-maker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-decision-maker-no-signup.html",
+      "slug": "ai-decision-maker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-decision-maker-runs-in-browser.html",
+      "slug": "ai-decision-maker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-document-analyzer-free-unlimited.html",
+      "slug": "ai-document-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-document-analyzer-no-signup.html",
+      "slug": "ai-document-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-document-analyzer-runs-in-browser.html",
+      "slug": "ai-document-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-elevator-pitch-generator-free-unlimited.html",
+      "slug": "ai-elevator-pitch-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-elevator-pitch-generator-no-signup.html",
+      "slug": "ai-elevator-pitch-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-elevator-pitch-generator-runs-in-browser.html",
+      "slug": "ai-elevator-pitch-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-email-response-generator-free-unlimited.html",
+      "slug": "ai-email-response-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-email-response-generator-no-signup.html",
+      "slug": "ai-email-response-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-email-response-generator-runs-in-browser.html",
+      "slug": "ai-email-response-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-essay-grader-free-unlimited.html",
+      "slug": "ai-essay-grader",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-essay-grader-no-signup.html",
+      "slug": "ai-essay-grader",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-essay-grader-runs-in-browser.html",
+      "slug": "ai-essay-grader",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-essay-writer-free-unlimited.html",
+      "slug": "ai-essay-writer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-essay-writer-no-signup.html",
+      "slug": "ai-essay-writer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-essay-writer-runs-in-browser.html",
+      "slug": "ai-essay-writer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-excuse-generator-free-unlimited.html",
+      "slug": "ai-excuse-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-excuse-generator-no-signup.html",
+      "slug": "ai-excuse-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-excuse-generator-runs-in-browser.html",
+      "slug": "ai-excuse-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-explain-this-free-unlimited.html",
+      "slug": "explain-this-ai",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-explain-this-no-signup.html",
+      "slug": "explain-this-ai",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-explain-this-runs-in-browser.html",
+      "slug": "explain-this-ai",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-faq-generator-free-unlimited.html",
+      "slug": "ai-faq-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-faq-generator-no-signup.html",
+      "slug": "ai-faq-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-faq-generator-runs-in-browser.html",
+      "slug": "ai-faq-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-flashcard-generator-free-unlimited.html",
+      "slug": "ai-flashcard-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-flashcard-generator-no-signup.html",
+      "slug": "ai-flashcard-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-flashcard-generator-runs-in-browser.html",
+      "slug": "ai-flashcard-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-goal-planner-free-unlimited.html",
+      "slug": "ai-goal-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-goal-planner-no-signup.html",
+      "slug": "ai-goal-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-goal-planner-runs-in-browser.html",
+      "slug": "ai-goal-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-grammar-checker-free-unlimited.html",
+      "slug": "ai-grammar-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-grammar-checker-no-signup.html",
+      "slug": "ai-grammar-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-grammar-checker-runs-in-browser.html",
+      "slug": "ai-grammar-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-hashtag-generator-free-unlimited.html",
+      "slug": "ai-hashtag-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-hashtag-generator-no-signup.html",
+      "slug": "ai-hashtag-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-hashtag-generator-runs-in-browser.html",
+      "slug": "ai-hashtag-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-headline-improver-free-unlimited.html",
+      "slug": "ai-headline-improver",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-headline-improver-no-signup.html",
+      "slug": "ai-headline-improver",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-headline-improver-runs-in-browser.html",
+      "slug": "ai-headline-improver",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-homework-solver-free-unlimited.html",
+      "slug": "ai-homework-solver",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-homework-solver-no-signup.html",
+      "slug": "ai-homework-solver",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-homework-solver-runs-in-browser.html",
+      "slug": "ai-homework-solver",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-hook-generator-free-unlimited.html",
+      "slug": "ai-hook-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-hook-generator-no-signup.html",
+      "slug": "ai-hook-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-hook-generator-runs-in-browser.html",
+      "slug": "ai-hook-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-image-prompt-generator-free-unlimited.html",
+      "slug": "ai-image-prompt-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-image-prompt-generator-no-signup.html",
+      "slug": "ai-image-prompt-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-image-prompt-generator-runs-in-browser.html",
+      "slug": "ai-image-prompt-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-instagram-bio-generator-free-unlimited.html",
+      "slug": "ai-instagram-bio-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-instagram-bio-generator-no-signup.html",
+      "slug": "ai-instagram-bio-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-instagram-bio-generator-runs-in-browser.html",
+      "slug": "ai-instagram-bio-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-instagram-caption-generator-free-unlimited.html",
+      "slug": "ai-instagram-caption-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-instagram-caption-generator-no-signup.html",
+      "slug": "ai-instagram-caption-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-instagram-caption-generator-runs-in-browser.html",
+      "slug": "ai-instagram-caption-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-internal-link-suggestion-tool-free-unlimited.html",
+      "slug": "ai-internal-link-suggestion-tool",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-internal-link-suggestion-tool-no-signup.html",
+      "slug": "ai-internal-link-suggestion-tool",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-internal-link-suggestion-tool-runs-in-browser.html",
+      "slug": "ai-internal-link-suggestion-tool",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-interview-answer-generator-free-unlimited.html",
+      "slug": "ai-interview-answer-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-interview-answer-generator-no-signup.html",
+      "slug": "ai-interview-answer-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-interview-answer-generator-runs-in-browser.html",
+      "slug": "ai-interview-answer-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-keyword-generator-free-unlimited.html",
+      "slug": "ai-keyword-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-keyword-generator-no-signup.html",
+      "slug": "ai-keyword-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-keyword-generator-runs-in-browser.html",
+      "slug": "ai-keyword-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-landing-page-copy-generator-free-unlimited.html",
+      "slug": "ai-landing-page-copy-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-landing-page-copy-generator-no-signup.html",
+      "slug": "ai-landing-page-copy-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-landing-page-copy-generator-runs-in-browser.html",
+      "slug": "ai-landing-page-copy-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-linkedin-post-generator-free-unlimited.html",
+      "slug": "ai-linkedin-post-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-linkedin-post-generator-no-signup.html",
+      "slug": "ai-linkedin-post-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-linkedin-post-generator-runs-in-browser.html",
+      "slug": "ai-linkedin-post-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-linkedin-summary-generator-free-unlimited.html",
+      "slug": "ai-linkedin-summary-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-linkedin-summary-generator-no-signup.html",
+      "slug": "ai-linkedin-summary-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-linkedin-summary-generator-runs-in-browser.html",
+      "slug": "ai-linkedin-summary-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-local-knowledge-chat-free-unlimited.html",
+      "slug": "ai-local-knowledge-chat",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-local-knowledge-chat-no-signup.html",
+      "slug": "ai-local-knowledge-chat",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-local-knowledge-chat-runs-in-browser.html",
+      "slug": "ai-local-knowledge-chat",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-meal-planner-free-unlimited.html",
+      "slug": "ai-meal-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-meal-planner-no-signup.html",
+      "slug": "ai-meal-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-meal-planner-runs-in-browser.html",
+      "slug": "ai-meal-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-meeting-summary-generator-free-unlimited.html",
+      "slug": "ai-meeting-summary-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-meeting-summary-generator-no-signup.html",
+      "slug": "ai-meeting-summary-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-meeting-summary-generator-runs-in-browser.html",
+      "slug": "ai-meeting-summary-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-message-analyzer-free-unlimited.html",
+      "slug": "ai-message-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-message-analyzer-no-signup.html",
+      "slug": "ai-message-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-message-analyzer-runs-in-browser.html",
+      "slug": "ai-message-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-meta-description-generator-free-unlimited.html",
+      "slug": "ai-meta-description-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-meta-description-generator-no-signup.html",
+      "slug": "ai-meta-description-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-meta-description-generator-runs-in-browser.html",
+      "slug": "ai-meta-description-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-paragraph-rewriter-free-unlimited.html",
+      "slug": "ai-paragraph-rewriter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-paragraph-rewriter-no-signup.html",
+      "slug": "ai-paragraph-rewriter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-paragraph-rewriter-runs-in-browser.html",
+      "slug": "ai-paragraph-rewriter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-paraphrasing-tool-free-unlimited.html",
+      "slug": "ai-paraphrasing-tool",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-paraphrasing-tool-no-signup.html",
+      "slug": "ai-paraphrasing-tool",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-paraphrasing-tool-runs-in-browser.html",
+      "slug": "ai-paraphrasing-tool",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-pdf-chat-free-unlimited.html",
+      "slug": "ai-pdf-chat",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-pdf-chat-no-signup.html",
+      "slug": "ai-pdf-chat",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-pdf-chat-runs-in-browser.html",
+      "slug": "ai-pdf-chat",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-pdf-summarizer-free-unlimited.html",
+      "slug": "ai-pdf-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-pdf-summarizer-no-signup.html",
+      "slug": "ai-pdf-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-pdf-summarizer-runs-in-browser.html",
+      "slug": "ai-pdf-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-personal-statement-generator-free-unlimited.html",
+      "slug": "ai-personal-statement-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-personal-statement-generator-no-signup.html",
+      "slug": "ai-personal-statement-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-personal-statement-generator-runs-in-browser.html",
+      "slug": "ai-personal-statement-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-pii-redactor-free-unlimited.html",
+      "slug": "ai-pii-redactor",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-pii-redactor-no-signup.html",
+      "slug": "ai-pii-redactor",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-pii-redactor-runs-in-browser.html",
+      "slug": "ai-pii-redactor",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-plagiarism-checker-free-unlimited.html",
+      "slug": "ai-plagiarism-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-plagiarism-checker-no-signup.html",
+      "slug": "ai-plagiarism-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-plagiarism-checker-runs-in-browser.html",
+      "slug": "ai-plagiarism-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-prompt-generator-free-unlimited.html",
+      "slug": "ai-prompt-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-prompt-generator-no-signup.html",
+      "slug": "ai-prompt-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-prompt-generator-runs-in-browser.html",
+      "slug": "ai-prompt-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-pros-cons-generator-free-unlimited.html",
+      "slug": "ai-pros-and-cons-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-pros-cons-generator-no-signup.html",
+      "slug": "ai-pros-and-cons-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-pros-cons-generator-runs-in-browser.html",
+      "slug": "ai-pros-and-cons-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-readability-analyzer-free-unlimited.html",
+      "slug": "ai-readability-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-readability-analyzer-no-signup.html",
+      "slug": "ai-readability-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-readability-analyzer-runs-in-browser.html",
+      "slug": "ai-readability-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-resume-bullet-generator-free-unlimited.html",
+      "slug": "ai-resume-bullet-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-resume-bullet-generator-no-signup.html",
+      "slug": "ai-resume-bullet-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-resume-bullet-generator-runs-in-browser.html",
+      "slug": "ai-resume-bullet-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-roast-generator-free-unlimited.html",
+      "slug": "ai-roast-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-roast-generator-no-signup.html",
+      "slug": "ai-roast-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-roast-generator-runs-in-browser.html",
+      "slug": "ai-roast-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-sales-email-generator-free-unlimited.html",
+      "slug": "ai-sales-email-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-sales-email-generator-no-signup.html",
+      "slug": "ai-sales-email-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-sales-email-generator-runs-in-browser.html",
+      "slug": "ai-sales-email-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-schema-markup-generator-free-unlimited.html",
+      "slug": "ai-schema-markup-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-schema-markup-generator-no-signup.html",
+      "slug": "ai-schema-markup-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-schema-markup-generator-runs-in-browser.html",
+      "slug": "ai-schema-markup-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-sentence-expander-free-unlimited.html",
+      "slug": "ai-sentence-expander",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-sentence-expander-no-signup.html",
+      "slug": "ai-sentence-expander",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-sentence-expander-runs-in-browser.html",
+      "slug": "ai-sentence-expander",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-sentence-shortener-free-unlimited.html",
+      "slug": "ai-sentence-shortener",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-sentence-shortener-no-signup.html",
+      "slug": "ai-sentence-shortener",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-sentence-shortener-runs-in-browser.html",
+      "slug": "ai-sentence-shortener",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-sentence-simplifier-free-unlimited.html",
+      "slug": "ai-sentence-simplifier",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-sentence-simplifier-no-signup.html",
+      "slug": "ai-sentence-simplifier",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-sentence-simplifier-runs-in-browser.html",
+      "slug": "ai-sentence-simplifier",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-seo-title-generator-free-unlimited.html",
+      "slug": "ai-seo-title-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-seo-title-generator-no-signup.html",
+      "slug": "ai-seo-title-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-seo-title-generator-runs-in-browser.html",
+      "slug": "ai-seo-title-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-serp-intent-analyzer-free-unlimited.html",
+      "slug": "ai-serp-intent-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-serp-intent-analyzer-no-signup.html",
+      "slug": "ai-serp-intent-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-serp-intent-analyzer-runs-in-browser.html",
+      "slug": "ai-serp-intent-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-startup-name-generator-free-unlimited.html",
+      "slug": "ai-startup-name-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-startup-name-generator-no-signup.html",
+      "slug": "ai-startup-name-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-startup-name-generator-runs-in-browser.html",
+      "slug": "ai-startup-name-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-story-starter-free-unlimited.html",
+      "slug": "ai-story-starter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-story-starter-no-signup.html",
+      "slug": "ai-story-starter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-story-starter-runs-in-browser.html",
+      "slug": "ai-story-starter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-target-audience-generator-free-unlimited.html",
+      "slug": "ai-target-audience-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-target-audience-generator-no-signup.html",
+      "slug": "ai-target-audience-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-target-audience-generator-runs-in-browser.html",
+      "slug": "ai-target-audience-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-text-detector-free-unlimited.html",
+      "slug": "ai-text-detector",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-text-detector-no-signup.html",
+      "slug": "ai-text-detector",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-text-detector-runs-in-browser.html",
+      "slug": "ai-text-detector",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-text-humanizer-free-unlimited.html",
+      "slug": "ai-humanizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-text-humanizer-no-signup.html",
+      "slug": "ai-humanizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-text-humanizer-runs-in-browser.html",
+      "slug": "ai-humanizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-text-summarizer-free-unlimited.html",
+      "slug": "ai-text-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-text-summarizer-no-signup.html",
+      "slug": "ai-text-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-text-summarizer-runs-in-browser.html",
+      "slug": "ai-text-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-tiktok-caption-generator-free-unlimited.html",
+      "slug": "ai-tiktok-caption-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-tiktok-caption-generator-no-signup.html",
+      "slug": "ai-tiktok-caption-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-tiktok-caption-generator-runs-in-browser.html",
+      "slug": "ai-tiktok-caption-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-to-do-list-generator-free-unlimited.html",
+      "slug": "ai-todo-list-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-to-do-list-generator-no-signup.html",
+      "slug": "ai-todo-list-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-to-do-list-generator-runs-in-browser.html",
+      "slug": "ai-todo-list-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-tone-converter-free-unlimited.html",
+      "slug": "ai-tone-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-tone-converter-no-signup.html",
+      "slug": "ai-tone-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-tone-converter-runs-in-browser.html",
+      "slug": "ai-tone-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-translator-free-unlimited.html",
+      "slug": "ai-translator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-translator-no-signup.html",
+      "slug": "ai-translator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-translator-runs-in-browser.html",
+      "slug": "ai-translator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-travel-planner-free-unlimited.html",
+      "slug": "ai-travel-itinerary-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-travel-planner-no-signup.html",
+      "slug": "ai-travel-itinerary-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-travel-planner-runs-in-browser.html",
+      "slug": "ai-travel-itinerary-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-tweet-generator-free-unlimited.html",
+      "slug": "ai-tweet-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-tweet-generator-no-signup.html",
+      "slug": "ai-tweet-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-tweet-generator-runs-in-browser.html",
+      "slug": "ai-tweet-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-value-proposition-generator-free-unlimited.html",
+      "slug": "ai-value-proposition-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-value-proposition-generator-no-signup.html",
+      "slug": "ai-value-proposition-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-value-proposition-generator-runs-in-browser.html",
+      "slug": "ai-value-proposition-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-weekly-planner-generator-free-unlimited.html",
+      "slug": "ai-weekly-planner-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-weekly-planner-generator-no-signup.html",
+      "slug": "ai-weekly-planner-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-weekly-planner-generator-runs-in-browser.html",
+      "slug": "ai-weekly-planner-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-writing-feedback-coach-free-unlimited.html",
+      "slug": "ai-writing-feedback-coach",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-writing-feedback-coach-no-signup.html",
+      "slug": "ai-writing-feedback-coach",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-writing-feedback-coach-runs-in-browser.html",
+      "slug": "ai-writing-feedback-coach",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-youtube-description-generator-free-unlimited.html",
+      "slug": "ai-youtube-description-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-youtube-description-generator-no-signup.html",
+      "slug": "ai-youtube-description-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-youtube-description-generator-runs-in-browser.html",
+      "slug": "ai-youtube-description-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-youtube-script-generator-free-unlimited.html",
+      "slug": "ai-youtube-script-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-youtube-script-generator-no-signup.html",
+      "slug": "ai-youtube-script-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-youtube-script-generator-runs-in-browser.html",
+      "slug": "ai-youtube-script-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-youtube-summarizer-free-unlimited.html",
+      "slug": "ai-youtube-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-youtube-summarizer-no-signup.html",
+      "slug": "ai-youtube-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-youtube-summarizer-runs-in-browser.html",
+      "slug": "ai-youtube-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-youtube-title-generator-free-unlimited.html",
+      "slug": "ai-youtube-title-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-youtube-title-generator-no-signup.html",
+      "slug": "ai-youtube-title-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "ai-youtube-title-generator-runs-in-browser.html",
+      "slug": "ai-youtube-title-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-ad-copy-generator-2025.html",
+      "slug": "ai-ad-copy-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-ats-resume-matcher-2025.html",
+      "slug": "ai-ats-resume-matcher",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-blog-outline-generator-2025.html",
+      "slug": "ai-blog-outline-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-blog-post-generator-2025.html",
+      "slug": "ai-blog-post-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-bullet-points-generator-2025.html",
+      "slug": "ai-bullet-points-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-business-idea-generator-2025.html",
+      "slug": "ai-business-idea-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-business-name-generator-2025.html",
+      "slug": "ai-business-name-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-call-to-action-generator-2025.html",
+      "slug": "ai-cta-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-chatbot-2025.html",
+      "slug": "ai-chatbot",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-citation-generator-2025.html",
+      "slug": "ai-citation-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-code-explainer-2025.html",
+      "slug": "ai-code-explainer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-code-playground-2025.html",
+      "slug": "ai-code-playground",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-cold-outreach-generator-2025.html",
+      "slug": "ai-cold-outreach-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-compliment-generator-2025.html",
+      "slug": "ai-compliment-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-content-brief-generator-2025.html",
+      "slug": "ai-content-brief-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-content-gap-analyzer-2025.html",
+      "slug": "ai-content-gap-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-content-repurposer-2025.html",
+      "slug": "ai-content-repurposer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-contract-simplifier-2025.html",
+      "slug": "ai-contract-simplifier",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-cover-letter-generator-2025.html",
+      "slug": "ai-cover-letter-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-dating-profile-generator-2025.html",
+      "slug": "ai-dating-profile-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-debate-generator-2025.html",
+      "slug": "ai-debate-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-decision-maker-2025.html",
+      "slug": "ai-decision-maker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-document-analyzer-2025.html",
+      "slug": "ai-document-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-elevator-pitch-generator-2025.html",
+      "slug": "ai-elevator-pitch-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-email-response-generator-2025.html",
+      "slug": "ai-email-response-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-essay-grader-2025.html",
+      "slug": "ai-essay-grader",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-essay-writer-2025.html",
+      "slug": "ai-essay-writer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-excuse-generator-2025.html",
+      "slug": "ai-excuse-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-explain-this-2025.html",
+      "slug": "explain-this-ai",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-faq-generator-2025.html",
+      "slug": "ai-faq-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-flashcard-generator-2025.html",
+      "slug": "ai-flashcard-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-goal-planner-2025.html",
+      "slug": "ai-goal-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-grammar-checker-2025.html",
+      "slug": "ai-grammar-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-hashtag-generator-2025.html",
+      "slug": "ai-hashtag-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-headline-improver-2025.html",
+      "slug": "ai-headline-improver",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-homework-solver-2025.html",
+      "slug": "ai-homework-solver",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-hook-generator-2025.html",
+      "slug": "ai-hook-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-image-prompt-generator-2025.html",
+      "slug": "ai-image-prompt-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-instagram-bio-generator-2025.html",
+      "slug": "ai-instagram-bio-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-instagram-caption-generator-2025.html",
+      "slug": "ai-instagram-caption-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-internal-link-suggestion-tool-2025.html",
+      "slug": "ai-internal-link-suggestion-tool",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-interview-answer-generator-2025.html",
+      "slug": "ai-interview-answer-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-keyword-generator-2025.html",
+      "slug": "ai-keyword-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-landing-page-copy-generator-2025.html",
+      "slug": "ai-landing-page-copy-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-linkedin-post-generator-2025.html",
+      "slug": "ai-linkedin-post-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-linkedin-summary-generator-2025.html",
+      "slug": "ai-linkedin-summary-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-local-knowledge-chat-2025.html",
+      "slug": "ai-local-knowledge-chat",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-meal-planner-2025.html",
+      "slug": "ai-meal-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-meeting-summary-generator-2025.html",
+      "slug": "ai-meeting-summary-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-message-analyzer-2025.html",
+      "slug": "ai-message-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-meta-description-generator-2025.html",
+      "slug": "ai-meta-description-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-paragraph-rewriter-2025.html",
+      "slug": "ai-paragraph-rewriter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-paraphrasing-tool-2025.html",
+      "slug": "ai-paraphrasing-tool",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-pdf-chat-2025.html",
+      "slug": "ai-pdf-chat",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-pdf-summarizer-2025.html",
+      "slug": "ai-pdf-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-personal-statement-generator-2025.html",
+      "slug": "ai-personal-statement-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-pii-redactor-2025.html",
+      "slug": "ai-pii-redactor",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-plagiarism-checker-2025.html",
+      "slug": "ai-plagiarism-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-prompt-generator-2025.html",
+      "slug": "ai-prompt-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-pros-cons-generator-2025.html",
+      "slug": "ai-pros-and-cons-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-readability-analyzer-2025.html",
+      "slug": "ai-readability-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-resume-bullet-generator-2025.html",
+      "slug": "ai-resume-bullet-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-roast-generator-2025.html",
+      "slug": "ai-roast-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-sales-email-generator-2025.html",
+      "slug": "ai-sales-email-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-schema-markup-generator-2025.html",
+      "slug": "ai-schema-markup-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-sentence-expander-2025.html",
+      "slug": "ai-sentence-expander",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-sentence-shortener-2025.html",
+      "slug": "ai-sentence-shortener",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-sentence-simplifier-2025.html",
+      "slug": "ai-sentence-simplifier",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-seo-title-generator-2025.html",
+      "slug": "ai-seo-title-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-serp-intent-analyzer-2025.html",
+      "slug": "ai-serp-intent-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-startup-name-generator-2025.html",
+      "slug": "ai-startup-name-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-story-starter-2025.html",
+      "slug": "ai-story-starter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-target-audience-generator-2025.html",
+      "slug": "ai-target-audience-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-text-detector-2025.html",
+      "slug": "ai-text-detector",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-text-humanizer-2025.html",
+      "slug": "ai-humanizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-text-summarizer-2025.html",
+      "slug": "ai-text-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-tiktok-caption-generator-2025.html",
+      "slug": "ai-tiktok-caption-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-to-do-list-generator-2025.html",
+      "slug": "ai-todo-list-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-tone-converter-2025.html",
+      "slug": "ai-tone-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-translator-2025.html",
+      "slug": "ai-translator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-travel-planner-2025.html",
+      "slug": "ai-travel-itinerary-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-tweet-generator-2025.html",
+      "slug": "ai-tweet-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-value-proposition-generator-2025.html",
+      "slug": "ai-value-proposition-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-weekly-planner-generator-2025.html",
+      "slug": "ai-weekly-planner-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-writing-feedback-coach-2025.html",
+      "slug": "ai-writing-feedback-coach",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-youtube-description-generator-2025.html",
+      "slug": "ai-youtube-description-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-youtube-script-generator-2025.html",
+      "slug": "ai-youtube-script-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-youtube-summarizer-2025.html",
+      "slug": "ai-youtube-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-ai-youtube-title-generator-2025.html",
+      "slug": "ai-youtube-title-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-case-converter-2025.html",
+      "slug": "case-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-color-palette-generator-2025.html",
+      "slug": "color-palette-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-diff-checker-2025.html",
+      "slug": "diff-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-json-validator-formatter-2025.html",
+      "slug": "json-validator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-lorem-ipsum-generator-2025.html",
+      "slug": "lorem-ipsum-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-markdown-converter-2025.html",
+      "slug": "markdown-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-password-generator-2025.html",
+      "slug": "password-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-random-number-generator-2025.html",
+      "slug": "random-number-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-regex-tester-2025.html",
+      "slug": "regex-tester",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "best-word-counter-2025.html",
+      "slug": "word-counter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "case-converter-free-unlimited.html",
+      "slug": "case-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "case-converter-no-signup.html",
+      "slug": "case-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "case-converter-runs-in-browser.html",
+      "slug": "case-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "color-palette-generator-free-unlimited.html",
+      "slug": "color-palette-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "color-palette-generator-no-signup.html",
+      "slug": "color-palette-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "color-palette-generator-runs-in-browser.html",
+      "slug": "color-palette-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "diff-checker-free-unlimited.html",
+      "slug": "diff-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "diff-checker-no-signup.html",
+      "slug": "diff-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "diff-checker-runs-in-browser.html",
+      "slug": "diff-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-ad-copy-generator.html",
+      "slug": "ai-ad-copy-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-ats-resume-matcher.html",
+      "slug": "ai-ats-resume-matcher",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-blog-outline-generator.html",
+      "slug": "ai-blog-outline-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-blog-post-generator.html",
+      "slug": "ai-blog-post-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-bullet-points-generator.html",
+      "slug": "ai-bullet-points-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-business-idea-generator.html",
+      "slug": "ai-business-idea-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-business-name-generator.html",
+      "slug": "ai-business-name-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-call-to-action-generator.html",
+      "slug": "ai-cta-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-chatbot.html",
+      "slug": "ai-chatbot",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-citation-generator.html",
+      "slug": "ai-citation-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-code-explainer.html",
+      "slug": "ai-code-explainer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-code-playground.html",
+      "slug": "ai-code-playground",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-cold-outreach-generator.html",
+      "slug": "ai-cold-outreach-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-compliment-generator.html",
+      "slug": "ai-compliment-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-content-brief-generator.html",
+      "slug": "ai-content-brief-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-content-gap-analyzer.html",
+      "slug": "ai-content-gap-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-content-repurposer.html",
+      "slug": "ai-content-repurposer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-contract-simplifier.html",
+      "slug": "ai-contract-simplifier",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-cover-letter-generator.html",
+      "slug": "ai-cover-letter-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-dating-profile-generator.html",
+      "slug": "ai-dating-profile-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-debate-generator.html",
+      "slug": "ai-debate-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-decision-maker.html",
+      "slug": "ai-decision-maker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-document-analyzer.html",
+      "slug": "ai-document-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-elevator-pitch-generator.html",
+      "slug": "ai-elevator-pitch-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-email-response-generator.html",
+      "slug": "ai-email-response-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-essay-grader.html",
+      "slug": "ai-essay-grader",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-essay-writer.html",
+      "slug": "ai-essay-writer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-excuse-generator.html",
+      "slug": "ai-excuse-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-explain-this.html",
+      "slug": "explain-this-ai",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-faq-generator.html",
+      "slug": "ai-faq-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-flashcard-generator.html",
+      "slug": "ai-flashcard-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-goal-planner.html",
+      "slug": "ai-goal-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-grammar-checker.html",
+      "slug": "ai-grammar-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-hashtag-generator.html",
+      "slug": "ai-hashtag-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-headline-improver.html",
+      "slug": "ai-headline-improver",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-homework-solver.html",
+      "slug": "ai-homework-solver",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-hook-generator.html",
+      "slug": "ai-hook-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-image-prompt-generator.html",
+      "slug": "ai-image-prompt-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-instagram-bio-generator.html",
+      "slug": "ai-instagram-bio-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-instagram-caption-generator.html",
+      "slug": "ai-instagram-caption-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-internal-link-suggestion-tool.html",
+      "slug": "ai-internal-link-suggestion-tool",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-interview-answer-generator.html",
+      "slug": "ai-interview-answer-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-keyword-generator.html",
+      "slug": "ai-keyword-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-landing-page-copy-generator.html",
+      "slug": "ai-landing-page-copy-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-linkedin-post-generator.html",
+      "slug": "ai-linkedin-post-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-linkedin-summary-generator.html",
+      "slug": "ai-linkedin-summary-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-local-knowledge-chat.html",
+      "slug": "ai-local-knowledge-chat",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-meal-planner.html",
+      "slug": "ai-meal-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-meeting-summary-generator.html",
+      "slug": "ai-meeting-summary-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-message-analyzer.html",
+      "slug": "ai-message-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-meta-description-generator.html",
+      "slug": "ai-meta-description-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-paragraph-rewriter.html",
+      "slug": "ai-paragraph-rewriter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-paraphrasing-tool.html",
+      "slug": "ai-paraphrasing-tool",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-pdf-chat.html",
+      "slug": "ai-pdf-chat",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-pdf-summarizer.html",
+      "slug": "ai-pdf-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-personal-statement-generator.html",
+      "slug": "ai-personal-statement-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-pii-redactor.html",
+      "slug": "ai-pii-redactor",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-plagiarism-checker.html",
+      "slug": "ai-plagiarism-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-prompt-generator.html",
+      "slug": "ai-prompt-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-pros-cons-generator.html",
+      "slug": "ai-pros-and-cons-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-readability-analyzer.html",
+      "slug": "ai-readability-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-resume-bullet-generator.html",
+      "slug": "ai-resume-bullet-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-roast-generator.html",
+      "slug": "ai-roast-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-sales-email-generator.html",
+      "slug": "ai-sales-email-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-schema-markup-generator.html",
+      "slug": "ai-schema-markup-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-sentence-expander.html",
+      "slug": "ai-sentence-expander",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-sentence-shortener.html",
+      "slug": "ai-sentence-shortener",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-sentence-simplifier.html",
+      "slug": "ai-sentence-simplifier",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-seo-title-generator.html",
+      "slug": "ai-seo-title-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-serp-intent-analyzer.html",
+      "slug": "ai-serp-intent-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-startup-name-generator.html",
+      "slug": "ai-startup-name-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-story-starter.html",
+      "slug": "ai-story-starter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-target-audience-generator.html",
+      "slug": "ai-target-audience-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-text-detector.html",
+      "slug": "ai-text-detector",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-text-humanizer.html",
+      "slug": "ai-humanizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-text-summarizer.html",
+      "slug": "ai-text-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-tiktok-caption-generator.html",
+      "slug": "ai-tiktok-caption-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-to-do-list-generator.html",
+      "slug": "ai-todo-list-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-tone-converter.html",
+      "slug": "ai-tone-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-translator.html",
+      "slug": "ai-translator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-travel-planner.html",
+      "slug": "ai-travel-itinerary-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-tweet-generator.html",
+      "slug": "ai-tweet-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-value-proposition-generator.html",
+      "slug": "ai-value-proposition-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-weekly-planner-generator.html",
+      "slug": "ai-weekly-planner-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-writing-feedback-coach.html",
+      "slug": "ai-writing-feedback-coach",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-youtube-description-generator.html",
+      "slug": "ai-youtube-description-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-youtube-script-generator.html",
+      "slug": "ai-youtube-script-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-youtube-summarizer.html",
+      "slug": "ai-youtube-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-ai-youtube-title-generator.html",
+      "slug": "ai-youtube-title-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-case-converter.html",
+      "slug": "case-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-color-palette-generator.html",
+      "slug": "color-palette-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-diff-checker.html",
+      "slug": "diff-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-json-validator-formatter.html",
+      "slug": "json-validator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-lorem-ipsum-generator.html",
+      "slug": "lorem-ipsum-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-markdown-converter.html",
+      "slug": "markdown-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-password-generator.html",
+      "slug": "password-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-random-number-generator.html",
+      "slug": "random-number-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-regex-tester.html",
+      "slug": "regex-tester",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "free-word-counter.html",
+      "slug": "word-counter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "json-validator-formatter-free-unlimited.html",
+      "slug": "json-validator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "json-validator-formatter-no-signup.html",
+      "slug": "json-validator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "json-validator-formatter-runs-in-browser.html",
+      "slug": "json-validator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "lorem-ipsum-generator-free-unlimited.html",
+      "slug": "lorem-ipsum-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "lorem-ipsum-generator-no-signup.html",
+      "slug": "lorem-ipsum-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "lorem-ipsum-generator-runs-in-browser.html",
+      "slug": "lorem-ipsum-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "markdown-converter-free-unlimited.html",
+      "slug": "markdown-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "markdown-converter-no-signup.html",
+      "slug": "markdown-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "markdown-converter-runs-in-browser.html",
+      "slug": "markdown-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "password-generator-free-unlimited.html",
+      "slug": "password-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "password-generator-no-signup.html",
+      "slug": "password-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "password-generator-runs-in-browser.html",
+      "slug": "password-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-ad-copy-generator-no-data.html",
+      "slug": "ai-ad-copy-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-ats-resume-matcher-no-data.html",
+      "slug": "ai-ats-resume-matcher",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-blog-outline-generator-no-data.html",
+      "slug": "ai-blog-outline-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-blog-post-generator-no-data.html",
+      "slug": "ai-blog-post-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-bullet-points-generator-no-data.html",
+      "slug": "ai-bullet-points-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-business-idea-generator-no-data.html",
+      "slug": "ai-business-idea-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-business-name-generator-no-data.html",
+      "slug": "ai-business-name-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-call-to-action-generator-no-data.html",
+      "slug": "ai-cta-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-chatbot-no-data.html",
+      "slug": "ai-chatbot",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-citation-generator-no-data.html",
+      "slug": "ai-citation-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-code-explainer-no-data.html",
+      "slug": "ai-code-explainer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-code-playground-no-data.html",
+      "slug": "ai-code-playground",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-cold-outreach-generator-no-data.html",
+      "slug": "ai-cold-outreach-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-compliment-generator-no-data.html",
+      "slug": "ai-compliment-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-content-brief-generator-no-data.html",
+      "slug": "ai-content-brief-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-content-gap-analyzer-no-data.html",
+      "slug": "ai-content-gap-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-content-repurposer-no-data.html",
+      "slug": "ai-content-repurposer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-contract-simplifier-no-data.html",
+      "slug": "ai-contract-simplifier",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-cover-letter-generator-no-data.html",
+      "slug": "ai-cover-letter-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-dating-profile-generator-no-data.html",
+      "slug": "ai-dating-profile-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-debate-generator-no-data.html",
+      "slug": "ai-debate-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-decision-maker-no-data.html",
+      "slug": "ai-decision-maker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-document-analyzer-no-data.html",
+      "slug": "ai-document-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-elevator-pitch-generator-no-data.html",
+      "slug": "ai-elevator-pitch-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-email-response-generator-no-data.html",
+      "slug": "ai-email-response-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-essay-grader-no-data.html",
+      "slug": "ai-essay-grader",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-essay-writer-no-data.html",
+      "slug": "ai-essay-writer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-excuse-generator-no-data.html",
+      "slug": "ai-excuse-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-explain-this-no-data.html",
+      "slug": "explain-this-ai",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-faq-generator-no-data.html",
+      "slug": "ai-faq-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-flashcard-generator-no-data.html",
+      "slug": "ai-flashcard-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-goal-planner-no-data.html",
+      "slug": "ai-goal-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-grammar-checker-no-data.html",
+      "slug": "ai-grammar-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-hashtag-generator-no-data.html",
+      "slug": "ai-hashtag-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-headline-improver-no-data.html",
+      "slug": "ai-headline-improver",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-homework-solver-no-data.html",
+      "slug": "ai-homework-solver",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-hook-generator-no-data.html",
+      "slug": "ai-hook-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-image-prompt-generator-no-data.html",
+      "slug": "ai-image-prompt-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-instagram-bio-generator-no-data.html",
+      "slug": "ai-instagram-bio-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-instagram-caption-generator-no-data.html",
+      "slug": "ai-instagram-caption-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-internal-link-suggestion-tool-no-data.html",
+      "slug": "ai-internal-link-suggestion-tool",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-interview-answer-generator-no-data.html",
+      "slug": "ai-interview-answer-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-keyword-generator-no-data.html",
+      "slug": "ai-keyword-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-landing-page-copy-generator-no-data.html",
+      "slug": "ai-landing-page-copy-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-linkedin-post-generator-no-data.html",
+      "slug": "ai-linkedin-post-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-linkedin-summary-generator-no-data.html",
+      "slug": "ai-linkedin-summary-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-local-knowledge-chat-no-data.html",
+      "slug": "ai-local-knowledge-chat",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-meal-planner-no-data.html",
+      "slug": "ai-meal-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-meeting-summary-generator-no-data.html",
+      "slug": "ai-meeting-summary-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-message-analyzer-no-data.html",
+      "slug": "ai-message-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-meta-description-generator-no-data.html",
+      "slug": "ai-meta-description-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-paragraph-rewriter-no-data.html",
+      "slug": "ai-paragraph-rewriter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-paraphrasing-tool-no-data.html",
+      "slug": "ai-paraphrasing-tool",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-pdf-chat-no-data.html",
+      "slug": "ai-pdf-chat",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-pdf-summarizer-no-data.html",
+      "slug": "ai-pdf-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-personal-statement-generator-no-data.html",
+      "slug": "ai-personal-statement-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-pii-redactor-no-data.html",
+      "slug": "ai-pii-redactor",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-plagiarism-checker-no-data.html",
+      "slug": "ai-plagiarism-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-prompt-generator-no-data.html",
+      "slug": "ai-prompt-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-pros-cons-generator-no-data.html",
+      "slug": "ai-pros-and-cons-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-readability-analyzer-no-data.html",
+      "slug": "ai-readability-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-resume-bullet-generator-no-data.html",
+      "slug": "ai-resume-bullet-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-roast-generator-no-data.html",
+      "slug": "ai-roast-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-sales-email-generator-no-data.html",
+      "slug": "ai-sales-email-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-schema-markup-generator-no-data.html",
+      "slug": "ai-schema-markup-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-sentence-expander-no-data.html",
+      "slug": "ai-sentence-expander",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-sentence-shortener-no-data.html",
+      "slug": "ai-sentence-shortener",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-sentence-simplifier-no-data.html",
+      "slug": "ai-sentence-simplifier",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-seo-title-generator-no-data.html",
+      "slug": "ai-seo-title-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-serp-intent-analyzer-no-data.html",
+      "slug": "ai-serp-intent-analyzer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-startup-name-generator-no-data.html",
+      "slug": "ai-startup-name-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-story-starter-no-data.html",
+      "slug": "ai-story-starter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-target-audience-generator-no-data.html",
+      "slug": "ai-target-audience-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-text-detector-no-data.html",
+      "slug": "ai-text-detector",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-text-humanizer-no-data.html",
+      "slug": "ai-humanizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-text-summarizer-no-data.html",
+      "slug": "ai-text-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-tiktok-caption-generator-no-data.html",
+      "slug": "ai-tiktok-caption-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-to-do-list-generator-no-data.html",
+      "slug": "ai-todo-list-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-tone-converter-no-data.html",
+      "slug": "ai-tone-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-translator-no-data.html",
+      "slug": "ai-translator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-travel-planner-no-data.html",
+      "slug": "ai-travel-itinerary-planner",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-tweet-generator-no-data.html",
+      "slug": "ai-tweet-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-value-proposition-generator-no-data.html",
+      "slug": "ai-value-proposition-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-weekly-planner-generator-no-data.html",
+      "slug": "ai-weekly-planner-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-writing-feedback-coach-no-data.html",
+      "slug": "ai-writing-feedback-coach",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-youtube-description-generator-no-data.html",
+      "slug": "ai-youtube-description-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-youtube-script-generator-no-data.html",
+      "slug": "ai-youtube-script-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-youtube-summarizer-no-data.html",
+      "slug": "ai-youtube-summarizer",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-ai-youtube-title-generator-no-data.html",
+      "slug": "ai-youtube-title-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-case-converter-no-data.html",
+      "slug": "case-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-color-palette-generator-no-data.html",
+      "slug": "color-palette-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-diff-checker-no-data.html",
+      "slug": "diff-checker",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-json-validator-formatter-no-data.html",
+      "slug": "json-validator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-lorem-ipsum-generator-no-data.html",
+      "slug": "lorem-ipsum-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-markdown-converter-no-data.html",
+      "slug": "markdown-converter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-password-generator-no-data.html",
+      "slug": "password-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-random-number-generator-no-data.html",
+      "slug": "random-number-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-regex-tester-no-data.html",
+      "slug": "regex-tester",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "private-word-counter-no-data.html",
+      "slug": "word-counter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "random-number-generator-free-unlimited.html",
+      "slug": "random-number-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "random-number-generator-no-signup.html",
+      "slug": "random-number-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "random-number-generator-runs-in-browser.html",
+      "slug": "random-number-generator",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "regex-tester-free-unlimited.html",
+      "slug": "regex-tester",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "regex-tester-no-signup.html",
+      "slug": "regex-tester",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "regex-tester-runs-in-browser.html",
+      "slug": "regex-tester",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "word-counter-free-unlimited.html",
+      "slug": "word-counter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "word-counter-no-signup.html",
+      "slug": "word-counter",
+      "linksInjected": 9,
+      "skipped": false
+    },
+    {
+      "filename": "word-counter-runs-in-browser.html",
+      "slug": "word-counter",
+      "linksInjected": 9,
+      "skipped": false
+    }
+  ]
+}
