@@ -1,17 +1,15 @@
 /**
  * generate-react-seo.js
- * Generates SEO infrastructure for browseraitools.com React app.
+ * Generates client-side SEO infrastructure for browseraitools.com.
+ * This is a 100% client-side site — Express only serves static files.
  *
  * Usage:
- *   node generate-react-seo.js --preview    (preview only — creates files, no prod edits)
- *   node generate-react-seo.js              (full run — same output, no extra steps)
+ *   node generate-react-seo.js --preview    show output + create files
+ *   node generate-react-seo.js              same (no extra steps needed)
  *
  * Creates:
- *   client/src/seo-metadata.json
- *   client/src/hooks/useToolSEO.ts
- *   server/seoMiddleware.ts
- *
- * Does NOT touch server/index.ts — prints the exact snippet to add manually.
+ *   client/src/seo-metadata.json       — SEO data for all 99 tools + homepage
+ *   client/src/hooks/useToolSEO.ts     — React hook to set meta tags in-browser
  */
 
 import fs from "fs";
@@ -24,11 +22,10 @@ const IS_PREVIEW = process.argv.includes("--preview");
 const BASE_URL   = "https://browseraitools.com";
 
 const PATHS = {
-  config:       path.join(__dirname, "tools-config.json"),
-  reactLinks:   path.join(__dirname, "react-tool-links.json"),
-  seoMeta:      path.join(__dirname, "client", "src", "seo-metadata.json"),
-  hook:         path.join(__dirname, "client", "src", "hooks", "useToolSEO.ts"),
-  middleware:   path.join(__dirname, "server", "seoMiddleware.ts"),
+  config:     path.join(__dirname, "tools-config.json"),
+  reactLinks: path.join(__dirname, "react-tool-links.json"),
+  seoMeta:    path.join(__dirname, "client", "src", "seo-metadata.json"),
+  hook:       path.join(__dirname, "client", "src", "hooks", "useToolSEO.ts"),
 };
 
 // ─── Load data ────────────────────────────────────────────────────────────────
@@ -41,13 +38,11 @@ function buildTitle(name) {
   if (full.length <= 60) return full;
   const shorter = `Free ${name} | BrowserAITools`;
   if (shorter.length <= 60) return shorter;
-  // Absolute fallback — truncate name
   const maxNameLen = 60 - " | BrowserAITools".length - 5;
   return `Free ${name.slice(0, maxNameLen)}... | BrowserAITools`;
 }
 
 // ─── Description builder (~150 chars, unique per category) ───────────────────
-// Template chosen so the final string stays ≤160 chars for all tool names
 const DESC_TEMPLATES = {
   "Writing Tools":
     (n) => `Use the free ${n}: no signup, no data sent. AI runs 100% in your browser via WebLLM. Rewrite, generate, and improve content privately.`,
@@ -98,7 +93,7 @@ function buildKeywords(tool) {
   return `${tool.name.toLowerCase()}, free ${tool.name.toLowerCase()}, ${base}, free AI tool, browser AI, private AI, no signup AI, WebLLM`;
 }
 
-// ─── Build full seo-metadata.json ─────────────────────────────────────────────
+// ─── Build seo-metadata.json ──────────────────────────────────────────────────
 function buildSeoMetadata() {
   const toolsMeta = {};
 
@@ -138,7 +133,7 @@ function buildSeoMetadata() {
   };
 }
 
-// ─── useToolSEO.ts ────────────────────────────────────────────────────────────
+// ─── useToolSEO.ts (client-side only) ────────────────────────────────────────
 const USE_TOOL_SEO_TS = `import { useEffect } from "react";
 import seoData from "../seo-metadata.json";
 
@@ -177,7 +172,7 @@ type SeoData = {
 
 const data = seoData as SeoData;
 
-/** Set a <meta> tag by name, creating it if absent. */
+/** Set or create a <meta name="..."> tag */
 function setMeta(name: string, content: string) {
   let el = document.querySelector<HTMLMetaElement>(\`meta[name="\${name}"]\`);
   if (!el) {
@@ -188,7 +183,7 @@ function setMeta(name: string, content: string) {
   el.setAttribute("content", content);
 }
 
-/** Set an Open Graph <meta> tag by property. */
+/** Set or create a <meta property="og:..."> tag */
 function setOG(property: string, content: string) {
   let el = document.querySelector<HTMLMetaElement>(\`meta[property="\${property}"]\`);
   if (!el) {
@@ -199,7 +194,7 @@ function setOG(property: string, content: string) {
   el.setAttribute("content", content);
 }
 
-/** Set <link rel="canonical"> */
+/** Set or create <link rel="canonical"> */
 function setCanonical(url: string) {
   let el = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (!el) {
@@ -214,15 +209,22 @@ const DEFAULT_TITLE = "BrowserAITools — Free Private AI Tools | No Signup";
 
 /**
  * useToolSEO
- * Pass a tool slug (e.g. "ai-chatbot") to get its SEO metadata
- * and automatically update document.title + meta tags on mount.
- * Pass null for the homepage.
+ *
+ * Reads pre-generated metadata from seo-metadata.json (bundled by Vite at
+ * build time — no network request). Updates document.title + all meta tags
+ * in the browser on every route change, which is enough for Google (which
+ * executes JavaScript) and for internal navigation.
+ *
+ * For social-share crawlers that don't execute JS, the static variant pages
+ * in client/public/tools/variants/ already contain all required meta tags.
+ *
+ * Usage:
+ *   const meta = useToolSEO("ai-chatbot");   // tool page
+ *   const meta = useToolSEO(null);           // homepage
  */
 export function useToolSEO(slug: string | null): ToolSEOMeta | null {
   const meta: ToolSEOMeta | null =
-    slug === null
-      ? data.homepage
-      : data.tools[slug] ?? null;
+    slug === null ? data.homepage : data.tools[slug] ?? null;
 
   useEffect(() => {
     if (!meta) return;
@@ -246,142 +248,12 @@ export function useToolSEO(slug: string | null): ToolSEOMeta | null {
 }
 `;
 
-// ─── seoMiddleware.ts ─────────────────────────────────────────────────────────
-const SEO_MIDDLEWARE_TS = `import { type Request, type Response, type NextFunction } from "express";
-import fs from "fs";
-import path from "path";
-
-// ── Types ──────────────────────────────────────────────────────────────────────
-interface OgMeta {
-  title: string;
-  description: string;
-  url: string;
-  image: string;
-}
-
-interface PageMeta {
-  title: string;
-  description: string;
-  keywords: string;
-  og: OgMeta;
-  canonical: string;
-}
-
-interface SeoData {
-  homepage: PageMeta;
-  tools: Record<string, PageMeta>;
-}
-
-// ── Load SEO metadata once at startup ────────────────────────────────────────
-// In production the file is in client/src/ (source), accessible at build time.
-// If the JSON was bundled by Vite, import it directly instead.
-let seoData: SeoData | null = null;
-
-const SEO_PATHS = [
-  path.join(process.cwd(), "client", "src", "seo-metadata.json"),
-  path.join(__dirname, "..", "client", "src", "seo-metadata.json"),
-];
-
-for (const p of SEO_PATHS) {
-  if (fs.existsSync(p)) {
-    try {
-      seoData = JSON.parse(fs.readFileSync(p, "utf8")) as SeoData;
-      break;
-    } catch {
-      // continue
-    }
-  }
-}
-
-if (!seoData) {
-  console.warn("[seoMiddleware] seo-metadata.json not found — middleware disabled.");
-}
-
-// ── Inject meta tags into index.html HTML string ─────────────────────────────
-function injectMeta(html: string, meta: PageMeta): string {
-  return html
-    // Replace <title>
-    .replace(/<title>[^<]*<\\/title>/, \`<title>\${meta.title}</title>\`)
-    // Replace meta description
-    .replace(
-      /<meta name="description" content="[^"]*"/,
-      \`<meta name="description" content="\${meta.description}"\`
-    )
-    // Inject before </head>: OG tags + keywords + canonical
-    .replace(
-      /<\\/head>/,
-      \`  <meta property="og:title" content="\${meta.og.title}" />
-  <meta property="og:description" content="\${meta.og.description}" />
-  <meta property="og:url" content="\${meta.og.url}" />
-  <meta property="og:image" content="\${meta.og.image}" />
-  <meta property="og:type" content="website" />
-  <meta name="keywords" content="\${meta.keywords}" />
-  <link rel="canonical" href="\${meta.canonical}" />
-</head>\`
-    );
-}
-
-// ── Resolve index.html path ───────────────────────────────────────────────────
-function getIndexHtml(): string | null {
-  const candidates = [
-    path.join(process.cwd(), "server", "public", "index.html"),
-    path.join(__dirname, "public", "index.html"),
-  ];
-  for (const p of candidates) {
-    if (fs.existsSync(p)) return p;
-  }
-  return null;
-}
-
-// ── Middleware ────────────────────────────────────────────────────────────────
-export function seoMiddleware(req: Request, res: Response, next: NextFunction): void {
-  // Only handle GET requests for page routes
-  if (req.method !== "GET") return next();
-  if (req.path.startsWith("/api")) return next();
-  if (req.path.startsWith("/tools/variants")) return next();
-  if (req.path.includes(".")) return next(); // skip static assets
-
-  if (!seoData) return next();
-
-  const slug = req.path.replace(/^\\//, "") || null;
-  const meta: PageMeta | null =
-    slug === null || slug === ""
-      ? seoData.homepage
-      : seoData.tools[slug] ?? null;
-
-  if (!meta) return next();
-
-  const indexPath = getIndexHtml();
-  if (!indexPath) return next();
-
-  try {
-    const html = fs.readFileSync(indexPath, "utf8");
-    const modified = injectMeta(html, meta);
-    res.setHeader("Content-Type", "text/html; charset=utf-8");
-    res.setHeader("Cache-Control", "public, max-age=3600");
-    res.send(modified);
-  } catch {
-    next();
-  }
-}
-`;
-
-// ─── server/index.ts snippet ──────────────────────────────────────────────────
-const INDEX_TS_SNIPPET = `// ── Add at the top of server/index.ts (with other imports): ──────────────────
-import { seoMiddleware } from "./seoMiddleware";
-
-// ── Add inside the async IIFE, inside the production block: ───────────────────
-if (process.env.NODE_ENV === "production") {
-  app.use(seoMiddleware);   // ← ADD THIS LINE (before serveStatic)
-  serveStatic(app);
-}
-`;
-
 // ─── Main ─────────────────────────────────────────────────────────────────────
 function main() {
-  console.log(`\n${IS_PREVIEW ? "[PREVIEW MODE]" : "[FULL RUN]"} generate-react-seo.js\n`);
+  console.log(`\n${IS_PREVIEW ? "[PREVIEW MODE]" : "[FULL RUN]"} generate-react-seo.js`);
+  console.log("100% client-side — no server middleware generated.\n");
 
-  // 1. Build seo-metadata.json
+  // 1. Build and write seo-metadata.json
   const seoMeta = buildSeoMetadata();
   fs.writeFileSync(PATHS.seoMeta, JSON.stringify(seoMeta, null, 2), "utf8");
   console.log(`✓  client/src/seo-metadata.json  (${Object.keys(seoMeta.tools).length} tools + homepage)`);
@@ -390,22 +262,14 @@ function main() {
   fs.writeFileSync(PATHS.hook, USE_TOOL_SEO_TS, "utf8");
   console.log("✓  client/src/hooks/useToolSEO.ts");
 
-  // 3. Write seoMiddleware.ts
-  fs.writeFileSync(PATHS.middleware, SEO_MIDDLEWARE_TS, "utf8");
-  console.log("✓  server/seoMiddleware.ts");
-
-  console.log("\n✗  server/index.ts  — NOT modified (see snippet below)\n");
-
-  // ── Show first 3 seo-metadata.json entries ─────────────────────────────────
+  // ── Show first 3 tool entries ───────────────────────────────────────────────
   const sampleSlugs = Object.keys(seoMeta.tools).slice(0, 3);
-  const sample = Object.fromEntries(
-    sampleSlugs.map((slug) => [slug, seoMeta.tools[slug]])
-  );
 
-  console.log("─────────────────────────────────────────────────────────────");
+  console.log("\n─────────────────────────────────────────────────────────────");
   console.log("seo-metadata.json — first 3 tool entries:");
   console.log("─────────────────────────────────────────────────────────────");
-  for (const [slug, meta] of Object.entries(sample)) {
+  for (const slug of sampleSlugs) {
+    const meta = seoMeta.tools[slug];
     console.log(`\n  [${slug}]`);
     console.log(`    title       (${meta.title.length}ch): ${meta.title}`);
     console.log(`    description (${meta.description.length}ch): ${meta.description}`);
@@ -414,25 +278,13 @@ function main() {
     console.log(`    related     : ${meta.related?.length ?? 0} links`);
   }
 
-  // ── Show useToolSEO.ts ─────────────────────────────────────────────────────
+  // ── Show hook code ──────────────────────────────────────────────────────────
   console.log("\n─────────────────────────────────────────────────────────────");
   console.log("client/src/hooks/useToolSEO.ts:");
   console.log("─────────────────────────────────────────────────────────────");
   console.log(USE_TOOL_SEO_TS);
 
-  // ── Show seoMiddleware.ts ──────────────────────────────────────────────────
-  console.log("─────────────────────────────────────────────────────────────");
-  console.log("server/seoMiddleware.ts:");
-  console.log("─────────────────────────────────────────────────────────────");
-  console.log(SEO_MIDDLEWARE_TS);
-
-  // ── Show server/index.ts snippet ───────────────────────────────────────────
-  console.log("─────────────────────────────────────────────────────────────");
-  console.log("Snippet to add to server/index.ts (NOT auto-applied):");
-  console.log("─────────────────────────────────────────────────────────────");
-  console.log(INDEX_TS_SNIPPET);
-
-  // ── Meta stats ─────────────────────────────────────────────────────────────
+  // ── Validation stats ────────────────────────────────────────────────────────
   const titles = Object.values(seoMeta.tools).map((m) => m.title);
   const descs  = Object.values(seoMeta.tools).map((m) => m.description);
   const maxTitle = Math.max(...titles.map((t) => t.length));
@@ -446,16 +298,10 @@ function main() {
   console.log(`  Desc length    : ${minDesc}–${maxDesc} chars (limit: 160)`);
   console.log(`  Titles >60ch   : ${titles.filter((t) => t.length > 60).length}`);
   console.log(`  Descs >160ch   : ${descs.filter((d) => d.length > 160).length}`);
-  console.log("─────────────────────────────────────────────────────────────\n");
-
-  if (IS_PREVIEW) {
-    console.log("Preview complete. Files created:");
-    console.log("  client/src/seo-metadata.json");
-    console.log("  client/src/hooks/useToolSEO.ts");
-    console.log("  server/seoMiddleware.ts");
-    console.log("\nTo apply server/index.ts changes, copy the snippet above manually.");
-    console.log("(Note: files use .ts extension to match the existing TypeScript codebase.)\n");
-  }
+  console.log("─────────────────────────────────────────────────────────────");
+  console.log("\nFiles written:");
+  console.log("  client/src/seo-metadata.json");
+  console.log("  client/src/hooks/useToolSEO.ts\n");
 }
 
 main();

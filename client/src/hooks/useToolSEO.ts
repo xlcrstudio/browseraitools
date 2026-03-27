@@ -36,7 +36,7 @@ type SeoData = {
 
 const data = seoData as SeoData;
 
-/** Set a <meta> tag by name, creating it if absent. */
+/** Set or create a <meta name="..."> tag */
 function setMeta(name: string, content: string) {
   let el = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
   if (!el) {
@@ -47,7 +47,7 @@ function setMeta(name: string, content: string) {
   el.setAttribute("content", content);
 }
 
-/** Set an Open Graph <meta> tag by property. */
+/** Set or create a <meta property="og:..."> tag */
 function setOG(property: string, content: string) {
   let el = document.querySelector<HTMLMetaElement>(`meta[property="${property}"]`);
   if (!el) {
@@ -58,7 +58,7 @@ function setOG(property: string, content: string) {
   el.setAttribute("content", content);
 }
 
-/** Set <link rel="canonical"> */
+/** Set or create <link rel="canonical"> */
 function setCanonical(url: string) {
   let el = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (!el) {
@@ -73,15 +73,22 @@ const DEFAULT_TITLE = "BrowserAITools — Free Private AI Tools | No Signup";
 
 /**
  * useToolSEO
- * Pass a tool slug (e.g. "ai-chatbot") to get its SEO metadata
- * and automatically update document.title + meta tags on mount.
- * Pass null for the homepage.
+ *
+ * Reads pre-generated metadata from seo-metadata.json (bundled by Vite at
+ * build time — no network request). Updates document.title + all meta tags
+ * in the browser on every route change, which is enough for Google (which
+ * executes JavaScript) and for internal navigation.
+ *
+ * For social-share crawlers that don't execute JS, the static variant pages
+ * in client/public/tools/variants/ already contain all required meta tags.
+ *
+ * Usage:
+ *   const meta = useToolSEO("ai-chatbot");   // tool page
+ *   const meta = useToolSEO(null);           // homepage
  */
 export function useToolSEO(slug: string | null): ToolSEOMeta | null {
   const meta: ToolSEOMeta | null =
-    slug === null
-      ? data.homepage
-      : data.tools[slug] ?? null;
+    slug === null ? data.homepage : data.tools[slug] ?? null;
 
   useEffect(() => {
     if (!meta) return;
