@@ -15,7 +15,9 @@ const ShareResultButtons: React.FC<ShareResultButtonsProps> = ({
 }) => {
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  const currentUrl = url || (typeof window !== "undefined" ? window.location.href : "");
+  const currentUrl = url || (typeof window !== "undefined"
+    ? `https://browseraitools.com${window.location.pathname}`
+    : "https://browseraitools.com");
 
   const shareText = resultText
     ? `Just used ${toolName} — ${resultText.slice(0, 120)}...`

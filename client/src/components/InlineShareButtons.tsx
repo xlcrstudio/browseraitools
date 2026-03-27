@@ -11,7 +11,9 @@ interface InlineShareButtonsProps {
 export function InlineShareButtons({ text, className }: InlineShareButtonsProps) {
   const [copiedLink, setCopiedLink] = useState(false);
 
-  const url = typeof window !== "undefined" ? window.location.href : "";
+  const url = typeof window !== "undefined"
+    ? `https://browseraitools.com${window.location.pathname}`
+    : "https://browseraitools.com";
   const toolName =
     typeof document !== "undefined"
       ? (document.querySelector<HTMLElement>('[data-testid="text-tool-title"]')?.textContent?.trim() ||

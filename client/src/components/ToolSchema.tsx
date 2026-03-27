@@ -37,7 +37,7 @@ const ToolSchema: React.FC<ToolSchemaProps> = ({
           "@type": "Organization",
           "name": "BrowserAITools"
         },
-        "url": typeof window !== "undefined" ? window.location.href : "",
+        "url": typeof window !== "undefined" ? `https://browseraitools.com${window.location.pathname}` : "https://browseraitools.com",
         "featureList": [
           "Runs 100% in-browser with WebLLM",
           "100% Private - nothing leaves your device",

@@ -15,7 +15,9 @@ function ShareDropdown({ toolName }: { toolName: string }) {
   const [copied, setCopied] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const url = typeof window !== "undefined" ? window.location.href : "";
+  const url = typeof window !== "undefined"
+    ? `https://browseraitools.com${window.location.pathname}`
+    : "https://browseraitools.com";
   const text = `Just used "${toolName}" — a free AI tool that runs 100% in your browser, no data sent to any server.`;
 
   const platforms = [

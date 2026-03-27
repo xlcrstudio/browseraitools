@@ -396,7 +396,7 @@ TWEET #5 (Virality: X.X/10)
                         <SiX className="w-3.5 h-3.5" />
                       </a>
                       <a
-                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}&quote=${encodeURIComponent(tweet.text)}`}
+                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(typeof window !== "undefined" ? `https://browseraitools.com${window.location.pathname}` : "https://browseraitools.com")}&quote=${encodeURIComponent(tweet.text)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         data-testid={`link-share-facebook-${idx}`}
@@ -406,7 +406,7 @@ TWEET #5 (Virality: X.X/10)
                         <SiFacebook className="w-3.5 h-3.5" />
                       </a>
                       <a
-                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`}
+                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(typeof window !== "undefined" ? `https://browseraitools.com${window.location.pathname}` : "https://browseraitools.com")}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         data-testid={`link-share-linkedin-${idx}`}
@@ -416,7 +416,7 @@ TWEET #5 (Virality: X.X/10)
                         <SiLinkedin className="w-3.5 h-3.5" />
                       </a>
                       <a
-                        href={`https://wa.me/?text=${encodeURIComponent(tweet.text + "\n" + (typeof window !== "undefined" ? window.location.href : ""))}`}
+                        href={`https://wa.me/?text=${encodeURIComponent(tweet.text + "\n" + (typeof window !== "undefined" ? `https://browseraitools.com${window.location.pathname}` : "https://browseraitools.com"))}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         data-testid={`link-share-whatsapp-${idx}`}
