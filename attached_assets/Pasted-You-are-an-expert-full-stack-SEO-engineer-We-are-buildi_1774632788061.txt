@@ -1,0 +1,50 @@
+You are an expert full-stack SEO engineer. We are building browseraitools.com — a 100% free, 100% private, 100% in-browser AI tools website with 60+ tools (list provided at the end).
+Goal: Implement programmatic SEO by generating multiple keyword-variant landing pages for the SAME tool.
+For every tool we will create 6–10 unique static HTML pages, each optimized for a different long-tail keyword variation (e.g., “free AI Instagram caption generator”, “best private browser AI Instagram caption generator 2026”, “Instagram caption generator no signup no data sent”, etc.).
+Requirements for each generated page:
+
+Unique <title> (under 60 chars, keyword-first).
+Unique <meta name="description"> (150–160 chars, compelling + keyword-rich + mentions “free private browser”).
+H1 that matches the target keyword naturally.
+First paragraph (150–200 words) that is unique and optimized for the exact keyword + highlights “100% runs in your browser • zero data leaves your device • completely free & private”.
+Embedded tool UI: include the exact same tool component that already exists on the main tool page (use a shared JS module or copy the tool’s HTML/JS into a <div id="tool-embed"> so the page is fully functional).
+Strong internal links: link to the main canonical tool page (/tools/[tool-slug]) + 8–10 related tools.
+Add basic JSON-LD schema (SoftwareApplication + FAQPage with 4–5 common questions for that tool).
+Fast-loading: defer non-critical JS, add proper alt texts, and meta viewport.
+Filename: kebab-case version of the keyword, e.g. free-ai-instagram-caption-generator.html
+All pages go into a folder: /pages/tools/variants/ (create it if needed) so we can serve them statically.
+
+Tech setup:
+
+Create a new file: generate-programmatic-pages.js (Node.js script).
+Use Node’s fs and path only (no extra npm installs unless you suggest one safe one).
+Use a simple EJS-style template or plain string templates.
+First, create a tools-config.json file with this structure:
+
+JSON[
+  {
+    "toolName": "AI Instagram Caption Generator",
+    "mainSlug": "ai-instagram-caption-generator",
+    "variants": [
+      "free ai instagram caption generator",
+      "best ai instagram caption generator 2026",
+      "instagram caption generator ai private browser",
+      "ai caption generator for instagram no signup",
+      "free private ai instagram captions generator",
+      "instagram ai caption maker browser only"
+    ]
+  },
+  // repeat for every tool below
+]
+Full list of tools to include in tools-config.json (add all of them):
+AI Assistant, AI Chatbot, AI Instagram Caption Generator, AI TikTok Caption Generator, AI LinkedIn Post Generator, AI Tweet Generator, AI Hashtag Generator, AI YouTube Title Generator, AI YouTube Description Generator, AI Instagram Bio Generator, AI YouTube Summarizer, AI Ad Copy Generator, AI Email Response Generator, AI Sales Email Generator, AI Cold Outreach Generator, AI Call-to-Action Generator, AI Landing Page Copy Generator, AI Resume Bullet Generator, AI Cover Letter Generator, AI LinkedIn Summary Generator, AI Interview Answer Generator, AI ATS Resume Matcher, AI Decision Maker, AI Pros & Cons Generator, AI Debate Generator, AI Excuse Generator, AI Compliment Generator, AI Roast Generator, AI Story Starter, AI Prompt Generator, AI Document Analyzer, AI Message Analyzer, AI Explain This, AI Dating Profile Generator, AI Meal Planner, AI Travel Planner, AI Flashcard Generator, AI Personal Statement Generator, AI Local Knowledge Chat, AI Citation Generator, AI Readability Analyzer, AI Contract Simplifier, AI Contract Risk Analyzer, AI PII Redactor, Random Number Generator, Diff Checker, Color Palette Generator, Password Generator, AI Homework Solver, AI Text Detector, AI PDF Chat, AI Hook Generator, AI Paragraph Rewriter, AI Sentence Simplifier, AI Sentence Expander, AI Sentence Shortener, AI Tone Converter, AI Headline Improver, AI Bullet Points Generator, AI Blog Outline Generator, AI Text Summarizer, AI Grammar Checker, AI Translator, AI Paraphrasing Tool, AI Image Prompt Generator, AI PDF Summarizer, AI Text Humanizer, AI Blog Post Generator, AI YouTube Script Generator, AI FAQ Generator, AI Essay Writer, AI Essay Grader, AI Content Repurposer, AI Writing Feedback Coach, Word Counter, AI Plagiarism Checker, Case Converter, Lorem Ipsum Generator, AI Business Name Generator, AI Startup Name Generator, AI Business Idea Generator, AI Value Proposition Generator, AI Elevator Pitch Generator, AI Target Audience Generator, AI Meta Description Generator, AI SEO Title Generator, AI Keyword Generator, AI Content Brief Generator, AI Internal Link Suggestion Tool, AI Content Gap Analyzer, AI Schema Markup Generator, AI SERP Intent Analyzer, AI To-Do List Generator, AI Meeting Summary Generator, AI Weekly Planner Generator, AI Goal Planner, Private AI Code Playground, AI Code Explainer, Regex Tester, Markdown Converter, JSON Validator & Formatter.
+Instructions for the script:
+
+Load tools-config.json.
+For each tool + each variant, generate one complete HTML file.
+Use a clean, modern HTML5 template (Tailwind or plain CSS — match whatever the rest of the site uses).
+Make the tool fully functional on every page (no broken embeds).
+At the end of the script, console.log how many pages were generated and the path to the variants folder.
+Also generate a sitemap-variants.xml that includes every new page with lastmod = today.
+
+Run this script every time we add a new tool or want to refresh keywords. Start by creating the config file and the generator script. Show me the first 3 generated HTML files as examples so I can review before running the full batch.
