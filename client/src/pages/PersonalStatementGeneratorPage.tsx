@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { PersonalStatementGenerator } from "@/components/PersonalStatementGenerator";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -173,6 +174,8 @@ export default function PersonalStatementGeneratorPage() {
         toolDescription="Free AI personal statement and college essay generator for Common App, UC, Harvard, Stanford, MIT supplemental essays, and graduate school SOP. 2 versions, 5 refinement options. 100% private."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Personal Statement Generator" />
     </>
   );
 }

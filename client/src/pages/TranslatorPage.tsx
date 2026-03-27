@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { Translator } from "@/components/Translator";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -149,6 +150,8 @@ export default function TranslatorPage() {
         toolDescription="Free AI translator supporting 80+ languages with five translation modes. Handles idioms and cultural context. Runs 100% in your browser — private, unlimited, no signup."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Translator" />
     </>
   );
 }

@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { PlagiarismChecker } from "@/components/PlagiarismChecker";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -165,6 +166,8 @@ export default function PlagiarismCheckerPage() {
         toolDescription="Free private AI plagiarism checker. Detect internal repetition and AI-like writing patterns. Get an originality score with highlighted issues and rewrite suggestions. Your text never leaves your browser."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Plagiarism Checker" />
     </>
   );
 }

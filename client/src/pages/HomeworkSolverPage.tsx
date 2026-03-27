@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { HomeworkSolver } from "@/components/HomeworkSolver";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -128,6 +129,8 @@ export default function HomeworkSolverPage() {
         toolDescription="Free AI homework solver with step-by-step explanations. Supports math, science, history, and more. Upload a photo or type your question. 100% private, runs in your browser."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Homework Solver" />
     </>
   );
 }

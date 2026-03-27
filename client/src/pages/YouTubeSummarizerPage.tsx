@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { YouTubeSummarizer } from "@/components/YouTubeSummarizer";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -157,6 +158,8 @@ export default function YouTubeSummarizerPage() {
         toolDescription="Free AI YouTube summarizer. Paste any video transcript and get an instant full summary, key takeaways, action steps, and a ready-to-post tweet thread. 100% private."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI YouTube Summarizer" />
     </>
   );
 }

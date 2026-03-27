@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { RandomGenerator } from "@/components/RandomGenerator";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -153,6 +154,8 @@ export default function RandomGeneratorPage() {
         toolDescription="Free random number generator, list picker, dice roller, coin flip, and weighted random selector. Five modes, cryptographically secure randomness, result history. 100% private."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="Random Generator" />
     </>
   );
 }

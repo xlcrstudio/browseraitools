@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { EmailResponseGenerator } from "@/components/EmailResponseGenerator";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -161,6 +162,8 @@ export default function EmailResponseGeneratorPage() {
         toolDescription="Free AI email response generator. Paste any email and get a professional reply instantly — 7 response types, 5 tones. Runs 100% in your browser, private and unlimited."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Email Response Generator" />
     </>
   );
 }

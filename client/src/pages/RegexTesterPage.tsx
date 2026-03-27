@@ -5,6 +5,7 @@ import { RegexTester } from "@/components/RegexTester";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import { SimilarTools } from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -192,6 +193,8 @@ export default function RegexTesterPage() {
         toolDescription="Free online regex tester with live match highlighting. Test regular expressions with instant visual feedback, token-by-token pattern breakdown, 12 common patterns library, g/i/m/s flag toggles, and AI generation from plain English. 100% private."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="Regex Tester" />
     </>
   );
 }

@@ -3,6 +3,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import RelatedTools from "@/components/RelatedTools";
 import ToolSchema from "@/components/ToolSchema";
 import { FileSearch } from "lucide-react";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -142,6 +143,8 @@ export default function AIPDFChatPage() {
         />
 
         <RelatedTools currentToolName="AI PDF Chat" currentCategory="Productivity" />
+
+        <ShareResultButtons toolName="AI PDF Chat" />
       </div>
     </div>
   );

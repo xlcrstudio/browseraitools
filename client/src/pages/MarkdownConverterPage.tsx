@@ -5,6 +5,7 @@ import { MarkdownConverter } from "@/components/MarkdownConverter";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import { SimilarTools } from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -165,6 +166,8 @@ export default function MarkdownConverterPage() {
         toolDescription="Free Markdown to HTML converter with live preview. Convert Markdown to HTML or HTML to clean Markdown. Supports GitHub Flavored Markdown, tables, fenced code blocks, task lists, blockquotes. 100% private."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="Markdown Converter" />
     </>
   );
 }

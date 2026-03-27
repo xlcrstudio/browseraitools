@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { AIChat } from "@/components/AIChat";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const chatFAQs = [
   { question: "Is this AI chatbot completely free?", answer: "Yes. It runs entirely in your browser using WebLLM — no subscriptions, no accounts, no usage limits. The AI model downloads once and is cached locally for all future sessions." },
@@ -89,6 +90,8 @@ export default function AIChatPage() {
 
       <AdBlock slot="ai-chatbot-bottom" format="horizontal" className="mb-10" />
       <ToolSchema faqs={chatFAQs} toolName="AI Chatbot" toolDescription="Free private AI chatbot. Runs entirely in your browser. No signup, no data tracking, works offline after first load." category="UtilitiesApplication" />
+
+      <ShareResultButtons toolName="AI Chatbot" />
     </>
   );
 }

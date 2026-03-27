@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ImagePromptGenerator } from "@/components/ImagePromptGenerator";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -178,6 +179,8 @@ export default function ImagePromptGeneratorPage() {
         toolDescription="Free AI image prompt generator — get 8 platform-specific prompts for Midjourney v6, DALL-E 3, Flux 1.1, Stable Diffusion 3, Leonardo AI, and Adobe Firefly. Private, unlimited, no login."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Image Prompt Generator" />
     </>
   );
 }

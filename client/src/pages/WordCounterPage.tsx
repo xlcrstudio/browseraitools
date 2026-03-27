@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { WordCounter } from "@/components/WordCounter";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -171,6 +172,8 @@ export default function WordCounterPage() {
         toolDescription="Free word counter and character counter. Instant live stats — words, characters, sentences, reading time, Flesch readability score, keyword density, and platform character limits for Twitter, LinkedIn, Instagram and more. 100% private."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="Word Counter" />
     </>
   );
 }

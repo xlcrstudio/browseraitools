@@ -5,6 +5,7 @@ import { ColorPaletteGenerator } from "@/components/ColorPaletteGenerator";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import { SimilarTools } from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -164,6 +165,8 @@ export default function ColorPaletteGeneratorPage() {
         toolDescription="Free color palette generator. Create harmonious palettes from any base color using 7 color theory harmony types. Includes WCAG AA/AAA contrast checking, full shade scales, and CSS variables export."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="Color Palette Generator" />
     </>
   );
 }

@@ -5,6 +5,7 @@ import { LoremIpsumGenerator } from "@/components/LoremIpsumGenerator";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import { SimilarTools } from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -170,6 +171,8 @@ export default function LoremIpsumGeneratorPage() {
         toolDescription="Free Lorem Ipsum generator with classic Latin placeholder text and 8 realistic themed alternatives. Control length in paragraphs, sentences, or words. Output as Plain Text, HTML, Markdown, or JSON with optional headings support."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="Lorem Ipsum Generator" />
     </>
   );
 }

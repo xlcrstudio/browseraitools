@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { CitationGenerator } from "@/components/CitationGenerator";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -164,6 +165,8 @@ export default function CitationGeneratorPage() {
         toolDescription="Free AI citation generator for APA 7th, MLA 9th, Chicago, Harvard, IEEE, and Vancouver. 14 source types, bibliography builder with export. 100% private, no login required."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Citation Generator" />
     </>
   );
 }

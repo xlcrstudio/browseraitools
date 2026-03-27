@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { LocalKnowledgeChat } from "@/components/LocalKnowledgeChat";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -167,6 +168,8 @@ export default function LocalKnowledgeChatPage() {
         toolDescription="Free AI chat with your documents. Paste notes, upload files, ask questions with source citations. Session save and load. 100% private, no upload to server."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Local Knowledge Chat" />
     </>
   );
 }

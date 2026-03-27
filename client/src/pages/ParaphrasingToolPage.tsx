@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ParaphrasingTool } from "@/components/ParaphrasingTool";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -155,6 +156,8 @@ export default function ParaphrasingToolPage() {
         toolDescription="Free AI paraphrasing tool with 6 modes: Standard, Fluency, Creative, Formal, Simple, Academic. Rewrites text while preserving meaning. Private, unlimited, no signup required."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Paraphrasing Tool" />
     </>
   );
 }

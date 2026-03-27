@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { GrammarChecker } from "@/components/GrammarChecker";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -155,6 +156,8 @@ export default function GrammarCheckerPage() {
         toolDescription="Free AI grammar checker. Fix grammar, spelling, and punctuation errors with clear explanations. Before/after comparison. Runs 100% in your browser — private and unlimited."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Grammar Checker" />
     </>
   );
 }

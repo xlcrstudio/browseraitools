@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { CaseConverter } from "@/components/CaseConverter";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -162,6 +163,8 @@ export default function CaseConverterPage() {
         toolDescription="Free online case converter. Convert text to UPPERCASE, lowercase, Title Case, Sentence case, camelCase, PascalCase, snake_case, SCREAMING_SNAKE_CASE, kebab-case, SCREAMING-KEBAB-CASE, Train-Case, dot.case and more. Instant, private, no signup."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="Case Converter" />
     </>
   );
 }

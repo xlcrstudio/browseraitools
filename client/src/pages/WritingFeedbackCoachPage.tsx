@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { WritingFeedbackCoach } from "@/components/WritingFeedbackCoach";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -150,6 +151,8 @@ export default function WritingFeedbackCoachPage() {
         toolDescription="Free AI writing coach. Get Clarity, Engagement, Conciseness and Structure scores plus specific suggestions with exact quotes and fixes. 100% private — runs in your browser."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Writing Feedback Coach" />
     </>
   );
 }

@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ReadabilityAnalyzer } from "@/components/ReadabilityAnalyzer";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -158,6 +159,8 @@ export default function ReadabilityAnalyzerPage() {
         toolDescription="Free AI readability analyzer with instant Flesch score, Kincaid grade level, Gunning Fog, passive voice detection, and highlighted problem sentences. AI rewrites for hard sentences. 100% private."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Readability Analyzer" />
     </>
   );
 }

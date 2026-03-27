@@ -5,6 +5,7 @@ import { JsonValidator } from "@/components/JsonValidator";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import { SimilarTools } from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -172,6 +173,8 @@ export default function JsonValidatorPage() {
         toolDescription="Free JSON validator, formatter, and beautifier. Validate syntax, auto-fix errors (trailing commas, unquoted keys, single quotes, comments), format or minify, and explore with an interactive tree view. 100% private."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="JSON Validator" />
     </>
   );
 }

@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { TextSummarizer } from "@/components/TextSummarizer";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -162,6 +163,8 @@ export default function TextSummarizerPage() {
         toolDescription="Free AI text summarizer. Paste any text and get instant summaries — Quick, Key Points, Detailed, Executive, TL;DR, or By Section. Runs 100% in your browser, private and unlimited."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Text Summarizer" />
     </>
   );
 }

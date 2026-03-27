@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { PiiRedactor } from "@/components/PiiRedactor";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -168,6 +169,8 @@ export default function PiiRedactorPage() {
         toolDescription="Free AI PII redactor. Detect and remove names, emails, phone numbers, SSNs, addresses, credit cards, and more from any text. Color-coded results, per-item toggle. 100% private."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI PII Redactor" />
     </>
   );
 }

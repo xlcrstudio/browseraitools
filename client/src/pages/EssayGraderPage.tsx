@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { EssayGrader } from "@/components/EssayGrader";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -161,6 +162,8 @@ export default function EssayGraderPage() {
         toolDescription="Free AI essay grader with instant letter grade, scores for thesis, structure, evidence, clarity, and grammar, plus specific feedback. Middle school through graduate level. 100% private."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Essay Grader" />
     </>
   );
 }

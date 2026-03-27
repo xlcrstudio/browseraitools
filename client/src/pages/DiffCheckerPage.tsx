@@ -5,6 +5,7 @@ import { DiffChecker } from "@/components/DiffChecker";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import { SimilarTools } from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -172,6 +173,8 @@ export default function DiffCheckerPage() {
         toolDescription="Free diff checker to compare two texts side by side. Line, word, and character diff with split and unified views, word-level highlighting within modified lines, ignore case and whitespace options. 100% private."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="Diff Checker" />
     </>
   );
 }

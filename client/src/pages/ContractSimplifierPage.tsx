@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ContractSimplifier } from "@/components/ContractSimplifier";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -164,6 +165,8 @@ export default function ContractSimplifierPage() {
         toolDescription="Free AI contract simplifier and risk analyzer. Paste any NDA, employment contract, or legal agreement for a plain English summary, key clauses explained, and red flags highlighted by severity. 100% private."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Contract Simplifier" />
     </>
   );
 }

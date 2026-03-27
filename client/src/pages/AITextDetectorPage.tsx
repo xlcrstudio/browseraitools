@@ -3,6 +3,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import RelatedTools from "@/components/RelatedTools";
 import ToolSchema from "@/components/ToolSchema";
 import { ShieldCheck } from "lucide-react";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -140,6 +141,8 @@ export default function AITextDetectorPage() {
         />
 
         <RelatedTools currentToolName="AI Text Detector" currentCategory="Unique & Viral Tools" />
+
+        <ShareResultButtons toolName="AI Text Detector" />
       </div>
     </div>
   );

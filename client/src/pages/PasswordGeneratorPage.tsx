@@ -5,6 +5,7 @@ import { PasswordGenerator } from "@/components/PasswordGenerator";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
 import { SimilarTools } from "@/components/RelatedTools";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -176,6 +177,8 @@ export default function PasswordGeneratorPage() {
         toolDescription="Free cryptographically secure password generator and strength checker. Supports random passwords, passphrases, pronounceable passwords, and PINs. Strength analysis includes entropy, crack time estimates, and detailed feedback. 100% client-side."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="Password Generator" />
     </>
   );
 }

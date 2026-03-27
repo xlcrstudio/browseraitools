@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { CodeExplainer } from "@/components/CodeExplainer";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -172,6 +173,8 @@ export default function CodeExplainerPage() {
         toolDescription="Free AI code explainer — paste any code and get a line-by-line breakdown, bug detection, and improved version. JavaScript, Python, SQL, React, and any language. 100% private, runs in your browser."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Code Explainer" />
     </>
   );
 }

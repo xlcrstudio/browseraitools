@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { FlashcardGenerator } from "@/components/FlashcardGenerator";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -173,6 +174,8 @@ export default function FlashcardGeneratorPage() {
         toolDescription="Free AI flashcard and study guide generator. Paste any notes and get instant flashcards, key terms, summary, and practice questions. Export to Anki. Any subject. 100% private."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Flashcard & Study Guide Generator" />
     </>
   );
 }

@@ -4,6 +4,7 @@ import { ToolPageHeader } from "@/components/ToolPageHeader";
 import { ContentRepurposer } from "@/components/ContentRepurposer";
 import { AdBlock } from "@/components/AdBlock";
 import ToolSchema from "@/components/ToolSchema";
+import ShareResultButtons from "@/components/ShareResultButtons";
 
 const FAQS = [
   {
@@ -154,6 +155,8 @@ export default function ContentRepurposerPage() {
         toolDescription="Free AI content repurposer. Turn any blog post, article, or transcript into tweets, a LinkedIn post, an email newsletter, ad hooks, and an Instagram caption instantly. 100% private."
         faqs={FAQS}
       />
+
+      <ShareResultButtons toolName="AI Content Repurposer" />
     </>
   );
 }
