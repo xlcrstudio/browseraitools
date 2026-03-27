@@ -1,0 +1,4160 @@
+{
+  "ai-chatbot": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-chatbot-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-chatbot-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-chatbot-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-homework-solver",
+        "name": "AI Homework Solver",
+        "mainUrl": "/ai-homework-solver",
+        "variantUrl": "/tools/variants/ai-homework-solver-free-unlimited.html"
+      },
+      {
+        "slug": "explain-this-ai",
+        "name": "AI Explain This",
+        "mainUrl": "/explain-this-ai",
+        "variantUrl": "/tools/variants/ai-explain-this-free-unlimited.html"
+      },
+      {
+        "slug": "ai-document-analyzer",
+        "name": "AI Document Analyzer",
+        "mainUrl": "/ai-document-analyzer",
+        "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-message-analyzer",
+        "name": "AI Message Analyzer",
+        "mainUrl": "/ai-message-analyzer",
+        "variantUrl": "/tools/variants/ai-message-analyzer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-hook-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-hook-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-hook-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-hook-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-headline-improver",
+        "name": "AI Headline Improver",
+        "mainUrl": "/ai-headline-improver",
+        "variantUrl": "/tools/variants/ai-headline-improver-free-unlimited.html"
+      },
+      {
+        "slug": "ai-cta-generator",
+        "name": "AI Call-to-Action Generator",
+        "mainUrl": "/ai-cta-generator",
+        "variantUrl": "/tools/variants/ai-call-to-action-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-blog-outline-generator",
+        "name": "AI Blog Outline Generator",
+        "mainUrl": "/ai-blog-outline-generator",
+        "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-paragraph-rewriter",
+        "name": "AI Paragraph Rewriter",
+        "mainUrl": "/ai-paragraph-rewriter",
+        "variantUrl": "/tools/variants/ai-paragraph-rewriter-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-paragraph-rewriter": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-paragraph-rewriter-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-paragraph-rewriter-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-paragraph-rewriter-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-paraphrasing-tool",
+        "name": "AI Paraphrasing Tool",
+        "mainUrl": "/ai-paraphrasing-tool",
+        "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
+      },
+      {
+        "slug": "ai-tone-converter",
+        "name": "AI Tone Converter",
+        "mainUrl": "/ai-tone-converter",
+        "variantUrl": "/tools/variants/ai-tone-converter-free-unlimited.html"
+      },
+      {
+        "slug": "ai-sentence-simplifier",
+        "name": "AI Sentence Simplifier",
+        "mainUrl": "/ai-sentence-simplifier",
+        "variantUrl": "/tools/variants/ai-sentence-simplifier-free-unlimited.html"
+      },
+      {
+        "slug": "ai-humanizer",
+        "name": "AI Text Humanizer",
+        "mainUrl": "/ai-humanizer",
+        "variantUrl": "/tools/variants/ai-text-humanizer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-sentence-simplifier": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-sentence-simplifier-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-sentence-simplifier-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-sentence-simplifier-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-paraphrasing-tool",
+        "name": "AI Paraphrasing Tool",
+        "mainUrl": "/ai-paraphrasing-tool",
+        "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
+      },
+      {
+        "slug": "ai-paragraph-rewriter",
+        "name": "AI Paragraph Rewriter",
+        "mainUrl": "/ai-paragraph-rewriter",
+        "variantUrl": "/tools/variants/ai-paragraph-rewriter-free-unlimited.html"
+      },
+      {
+        "slug": "ai-readability-analyzer",
+        "name": "AI Readability Analyzer",
+        "mainUrl": "/ai-readability-analyzer",
+        "variantUrl": "/tools/variants/ai-readability-analyzer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-humanizer",
+        "name": "AI Text Humanizer",
+        "mainUrl": "/ai-humanizer",
+        "variantUrl": "/tools/variants/ai-text-humanizer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-sentence-expander": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-sentence-expander-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-sentence-expander-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-sentence-expander-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-paragraph-rewriter",
+        "name": "AI Paragraph Rewriter",
+        "mainUrl": "/ai-paragraph-rewriter",
+        "variantUrl": "/tools/variants/ai-paragraph-rewriter-free-unlimited.html"
+      },
+      {
+        "slug": "ai-blog-post-generator",
+        "name": "AI Blog Post Generator",
+        "mainUrl": "/ai-blog-post-generator",
+        "variantUrl": "/tools/variants/ai-blog-post-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-bullet-points-generator",
+        "name": "AI Bullet Points Generator",
+        "mainUrl": "/ai-bullet-points-generator",
+        "variantUrl": "/tools/variants/ai-bullet-points-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-essay-writer",
+        "name": "AI Essay Writer",
+        "mainUrl": "/ai-essay-writer",
+        "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-sentence-shortener": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-sentence-shortener-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-sentence-shortener-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-sentence-shortener-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-paraphrasing-tool",
+        "name": "AI Paraphrasing Tool",
+        "mainUrl": "/ai-paraphrasing-tool",
+        "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
+      },
+      {
+        "slug": "ai-text-summarizer",
+        "name": "AI Text Summarizer",
+        "mainUrl": "/ai-text-summarizer",
+        "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-sentence-simplifier",
+        "name": "AI Sentence Simplifier",
+        "mainUrl": "/ai-sentence-simplifier",
+        "variantUrl": "/tools/variants/ai-sentence-simplifier-free-unlimited.html"
+      },
+      {
+        "slug": "ai-readability-analyzer",
+        "name": "AI Readability Analyzer",
+        "mainUrl": "/ai-readability-analyzer",
+        "variantUrl": "/tools/variants/ai-readability-analyzer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-tone-converter": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-tone-converter-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-tone-converter-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-tone-converter-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-paragraph-rewriter",
+        "name": "AI Paragraph Rewriter",
+        "mainUrl": "/ai-paragraph-rewriter",
+        "variantUrl": "/tools/variants/ai-paragraph-rewriter-free-unlimited.html"
+      },
+      {
+        "slug": "ai-paraphrasing-tool",
+        "name": "AI Paraphrasing Tool",
+        "mainUrl": "/ai-paraphrasing-tool",
+        "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
+      },
+      {
+        "slug": "ai-humanizer",
+        "name": "AI Text Humanizer",
+        "mainUrl": "/ai-humanizer",
+        "variantUrl": "/tools/variants/ai-text-humanizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-email-response-generator",
+        "name": "AI Email Response Generator",
+        "mainUrl": "/ai-email-response-generator",
+        "variantUrl": "/tools/variants/ai-email-response-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-headline-improver": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-headline-improver-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-headline-improver-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-headline-improver-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-hook-generator",
+        "name": "AI Hook Generator",
+        "mainUrl": "/ai-hook-generator",
+        "variantUrl": "/tools/variants/ai-hook-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-seo-title-generator",
+        "name": "AI SEO Title Generator",
+        "mainUrl": "/ai-seo-title-generator",
+        "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-cta-generator",
+        "name": "AI Call-to-Action Generator",
+        "mainUrl": "/ai-cta-generator",
+        "variantUrl": "/tools/variants/ai-call-to-action-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-blog-outline-generator",
+        "name": "AI Blog Outline Generator",
+        "mainUrl": "/ai-blog-outline-generator",
+        "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-bullet-points-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-bullet-points-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-bullet-points-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-bullet-points-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-blog-outline-generator",
+        "name": "AI Blog Outline Generator",
+        "mainUrl": "/ai-blog-outline-generator",
+        "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-resume-bullet-generator",
+        "name": "AI Resume Bullet Generator",
+        "mainUrl": "/ai-resume-bullet-generator",
+        "variantUrl": "/tools/variants/ai-resume-bullet-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-faq-generator",
+        "name": "AI FAQ Generator",
+        "mainUrl": "/ai-faq-generator",
+        "variantUrl": "/tools/variants/ai-faq-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-meeting-summary-generator",
+        "name": "AI Meeting Summary Generator",
+        "mainUrl": "/ai-meeting-summary-generator",
+        "variantUrl": "/tools/variants/ai-meeting-summary-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-blog-outline-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-blog-outline-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-blog-outline-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-blog-outline-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-blog-post-generator",
+        "name": "AI Blog Post Generator",
+        "mainUrl": "/ai-blog-post-generator",
+        "variantUrl": "/tools/variants/ai-blog-post-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-content-brief-generator",
+        "name": "AI Content Brief Generator",
+        "mainUrl": "/ai-content-brief-generator",
+        "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-faq-generator",
+        "name": "AI FAQ Generator",
+        "mainUrl": "/ai-faq-generator",
+        "variantUrl": "/tools/variants/ai-faq-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-keyword-generator",
+        "name": "AI Keyword Generator",
+        "mainUrl": "/ai-keyword-generator",
+        "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-text-summarizer": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-text-summarizer-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-text-summarizer-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-text-summarizer-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-pdf-summarizer",
+        "name": "AI PDF Summarizer",
+        "mainUrl": "/ai-pdf-summarizer",
+        "variantUrl": "/tools/variants/ai-pdf-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-youtube-summarizer",
+        "name": "AI YouTube Summarizer",
+        "mainUrl": "/ai-youtube-summarizer",
+        "variantUrl": "/tools/variants/ai-youtube-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-document-analyzer",
+        "name": "AI Document Analyzer",
+        "mainUrl": "/ai-document-analyzer",
+        "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-meeting-summary-generator",
+        "name": "AI Meeting Summary Generator",
+        "mainUrl": "/ai-meeting-summary-generator",
+        "variantUrl": "/tools/variants/ai-meeting-summary-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-grammar-checker": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-grammar-checker-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-grammar-checker-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-grammar-checker-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-plagiarism-checker",
+        "name": "AI Plagiarism Checker",
+        "mainUrl": "/ai-plagiarism-checker",
+        "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
+      },
+      {
+        "slug": "ai-paraphrasing-tool",
+        "name": "AI Paraphrasing Tool",
+        "mainUrl": "/ai-paraphrasing-tool",
+        "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
+      },
+      {
+        "slug": "ai-writing-feedback-coach",
+        "name": "AI Writing Feedback Coach",
+        "mainUrl": "/ai-writing-feedback-coach",
+        "variantUrl": "/tools/variants/ai-writing-feedback-coach-free-unlimited.html"
+      },
+      {
+        "slug": "ai-readability-analyzer",
+        "name": "AI Readability Analyzer",
+        "mainUrl": "/ai-readability-analyzer",
+        "variantUrl": "/tools/variants/ai-readability-analyzer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-translator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-translator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-translator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-translator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-paraphrasing-tool",
+        "name": "AI Paraphrasing Tool",
+        "mainUrl": "/ai-paraphrasing-tool",
+        "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
+      },
+      {
+        "slug": "ai-grammar-checker",
+        "name": "AI Grammar Checker",
+        "mainUrl": "/ai-grammar-checker",
+        "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
+      },
+      {
+        "slug": "ai-paragraph-rewriter",
+        "name": "AI Paragraph Rewriter",
+        "mainUrl": "/ai-paragraph-rewriter",
+        "variantUrl": "/tools/variants/ai-paragraph-rewriter-free-unlimited.html"
+      },
+      {
+        "slug": "ai-humanizer",
+        "name": "AI Text Humanizer",
+        "mainUrl": "/ai-humanizer",
+        "variantUrl": "/tools/variants/ai-text-humanizer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-paraphrasing-tool": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-paraphrasing-tool-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-paraphrasing-tool-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-paragraph-rewriter",
+        "name": "AI Paragraph Rewriter",
+        "mainUrl": "/ai-paragraph-rewriter",
+        "variantUrl": "/tools/variants/ai-paragraph-rewriter-free-unlimited.html"
+      },
+      {
+        "slug": "ai-grammar-checker",
+        "name": "AI Grammar Checker",
+        "mainUrl": "/ai-grammar-checker",
+        "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
+      },
+      {
+        "slug": "ai-humanizer",
+        "name": "AI Text Humanizer",
+        "mainUrl": "/ai-humanizer",
+        "variantUrl": "/tools/variants/ai-text-humanizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-plagiarism-checker",
+        "name": "AI Plagiarism Checker",
+        "mainUrl": "/ai-plagiarism-checker",
+        "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-image-prompt-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-image-prompt-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-image-prompt-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-image-prompt-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-prompt-generator",
+        "name": "AI Prompt Generator",
+        "mainUrl": "/ai-prompt-generator",
+        "variantUrl": "/tools/variants/ai-prompt-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-blog-post-generator",
+        "name": "AI Blog Post Generator",
+        "mainUrl": "/ai-blog-post-generator",
+        "variantUrl": "/tools/variants/ai-blog-post-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-content-brief-generator",
+        "name": "AI Content Brief Generator",
+        "mainUrl": "/ai-content-brief-generator",
+        "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-instagram-caption-generator",
+        "name": "AI Instagram Caption Generator",
+        "mainUrl": "/ai-instagram-caption-generator",
+        "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-pdf-summarizer": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-pdf-summarizer-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-pdf-summarizer-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-pdf-summarizer-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-text-summarizer",
+        "name": "AI Text Summarizer",
+        "mainUrl": "/ai-text-summarizer",
+        "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-document-analyzer",
+        "name": "AI Document Analyzer",
+        "mainUrl": "/ai-document-analyzer",
+        "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-pdf-chat",
+        "name": "AI PDF Chat",
+        "mainUrl": "/ai-pdf-chat",
+        "variantUrl": "/tools/variants/ai-pdf-chat-free-unlimited.html"
+      },
+      {
+        "slug": "ai-youtube-summarizer",
+        "name": "AI YouTube Summarizer",
+        "mainUrl": "/ai-youtube-summarizer",
+        "variantUrl": "/tools/variants/ai-youtube-summarizer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-humanizer": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-text-humanizer-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-text-humanizer-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-text-humanizer-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-paraphrasing-tool",
+        "name": "AI Paraphrasing Tool",
+        "mainUrl": "/ai-paraphrasing-tool",
+        "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
+      },
+      {
+        "slug": "ai-tone-converter",
+        "name": "AI Tone Converter",
+        "mainUrl": "/ai-tone-converter",
+        "variantUrl": "/tools/variants/ai-tone-converter-free-unlimited.html"
+      },
+      {
+        "slug": "ai-paragraph-rewriter",
+        "name": "AI Paragraph Rewriter",
+        "mainUrl": "/ai-paragraph-rewriter",
+        "variantUrl": "/tools/variants/ai-paragraph-rewriter-free-unlimited.html"
+      },
+      {
+        "slug": "ai-plagiarism-checker",
+        "name": "AI Plagiarism Checker",
+        "mainUrl": "/ai-plagiarism-checker",
+        "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-blog-post-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-blog-post-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-blog-post-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-blog-post-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-blog-outline-generator",
+        "name": "AI Blog Outline Generator",
+        "mainUrl": "/ai-blog-outline-generator",
+        "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-content-brief-generator",
+        "name": "AI Content Brief Generator",
+        "mainUrl": "/ai-content-brief-generator",
+        "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-seo-title-generator",
+        "name": "AI SEO Title Generator",
+        "mainUrl": "/ai-seo-title-generator",
+        "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-faq-generator",
+        "name": "AI FAQ Generator",
+        "mainUrl": "/ai-faq-generator",
+        "variantUrl": "/tools/variants/ai-faq-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-youtube-script-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-youtube-script-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-youtube-script-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-youtube-script-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-youtube-title-generator",
+        "name": "AI YouTube Title Generator",
+        "mainUrl": "/ai-youtube-title-generator",
+        "variantUrl": "/tools/variants/ai-youtube-title-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-youtube-description-generator",
+        "name": "AI YouTube Description Generator",
+        "mainUrl": "/ai-youtube-description-generator",
+        "variantUrl": "/tools/variants/ai-youtube-description-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-hook-generator",
+        "name": "AI Hook Generator",
+        "mainUrl": "/ai-hook-generator",
+        "variantUrl": "/tools/variants/ai-hook-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-blog-outline-generator",
+        "name": "AI Blog Outline Generator",
+        "mainUrl": "/ai-blog-outline-generator",
+        "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-faq-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-faq-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-faq-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-faq-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-blog-outline-generator",
+        "name": "AI Blog Outline Generator",
+        "mainUrl": "/ai-blog-outline-generator",
+        "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-content-brief-generator",
+        "name": "AI Content Brief Generator",
+        "mainUrl": "/ai-content-brief-generator",
+        "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-schema-markup-generator",
+        "name": "AI Schema Markup Generator",
+        "mainUrl": "/ai-schema-markup-generator",
+        "variantUrl": "/tools/variants/ai-schema-markup-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-landing-page-copy-generator",
+        "name": "AI Landing Page Copy Generator",
+        "mainUrl": "/ai-landing-page-copy-generator",
+        "variantUrl": "/tools/variants/ai-landing-page-copy-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-essay-writer": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-essay-writer-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-essay-writer-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-essay-writer-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-essay-grader",
+        "name": "AI Essay Grader",
+        "mainUrl": "/ai-essay-grader",
+        "variantUrl": "/tools/variants/ai-essay-grader-free-unlimited.html"
+      },
+      {
+        "slug": "ai-writing-feedback-coach",
+        "name": "AI Writing Feedback Coach",
+        "mainUrl": "/ai-writing-feedback-coach",
+        "variantUrl": "/tools/variants/ai-writing-feedback-coach-free-unlimited.html"
+      },
+      {
+        "slug": "ai-personal-statement-generator",
+        "name": "AI Personal Statement Generator",
+        "mainUrl": "/ai-personal-statement-generator",
+        "variantUrl": "/tools/variants/ai-personal-statement-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-plagiarism-checker",
+        "name": "AI Plagiarism Checker",
+        "mainUrl": "/ai-plagiarism-checker",
+        "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-essay-grader": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-essay-grader-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-essay-grader-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-essay-grader-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-essay-writer",
+        "name": "AI Essay Writer",
+        "mainUrl": "/ai-essay-writer",
+        "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-writing-feedback-coach",
+        "name": "AI Writing Feedback Coach",
+        "mainUrl": "/ai-writing-feedback-coach",
+        "variantUrl": "/tools/variants/ai-writing-feedback-coach-free-unlimited.html"
+      },
+      {
+        "slug": "ai-plagiarism-checker",
+        "name": "AI Plagiarism Checker",
+        "mainUrl": "/ai-plagiarism-checker",
+        "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
+      },
+      {
+        "slug": "ai-grammar-checker",
+        "name": "AI Grammar Checker",
+        "mainUrl": "/ai-grammar-checker",
+        "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-content-repurposer": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-content-repurposer-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-content-repurposer-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-content-repurposer-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-blog-post-generator",
+        "name": "AI Blog Post Generator",
+        "mainUrl": "/ai-blog-post-generator",
+        "variantUrl": "/tools/variants/ai-blog-post-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-text-summarizer",
+        "name": "AI Text Summarizer",
+        "mainUrl": "/ai-text-summarizer",
+        "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-instagram-caption-generator",
+        "name": "AI Instagram Caption Generator",
+        "mainUrl": "/ai-instagram-caption-generator",
+        "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-linkedin-post-generator",
+        "name": "AI LinkedIn Post Generator",
+        "mainUrl": "/ai-linkedin-post-generator",
+        "variantUrl": "/tools/variants/ai-linkedin-post-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-writing-feedback-coach": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-writing-feedback-coach-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-writing-feedback-coach-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-writing-feedback-coach-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-essay-grader",
+        "name": "AI Essay Grader",
+        "mainUrl": "/ai-essay-grader",
+        "variantUrl": "/tools/variants/ai-essay-grader-free-unlimited.html"
+      },
+      {
+        "slug": "ai-grammar-checker",
+        "name": "AI Grammar Checker",
+        "mainUrl": "/ai-grammar-checker",
+        "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
+      },
+      {
+        "slug": "ai-readability-analyzer",
+        "name": "AI Readability Analyzer",
+        "mainUrl": "/ai-readability-analyzer",
+        "variantUrl": "/tools/variants/ai-readability-analyzer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-plagiarism-checker",
+        "name": "AI Plagiarism Checker",
+        "mainUrl": "/ai-plagiarism-checker",
+        "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
+      }
+    ]
+  },
+  "word-counter": {
+    "variants": [
+      {
+        "url": "/tools/variants/best-word-counter-2025.html",
+        "label": "Best 2025"
+      },
+      {
+        "url": "/tools/variants/free-word-counter.html",
+        "label": "Free Version"
+      },
+      {
+        "url": "/tools/variants/private-word-counter-no-data.html",
+        "label": "Private & Secure"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-readability-analyzer",
+        "name": "AI Readability Analyzer",
+        "mainUrl": "/ai-readability-analyzer",
+        "variantUrl": "/tools/variants/ai-readability-analyzer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-grammar-checker",
+        "name": "AI Grammar Checker",
+        "mainUrl": "/ai-grammar-checker",
+        "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
+      },
+      {
+        "slug": "ai-text-summarizer",
+        "name": "AI Text Summarizer",
+        "mainUrl": "/ai-text-summarizer",
+        "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "case-converter",
+        "name": "Case Converter",
+        "mainUrl": "/case-converter",
+        "variantUrl": "/tools/variants/best-case-converter-2025.html"
+      }
+    ]
+  },
+  "ai-plagiarism-checker": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-plagiarism-checker-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-plagiarism-checker-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-plagiarism-checker-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-grammar-checker",
+        "name": "AI Grammar Checker",
+        "mainUrl": "/ai-grammar-checker",
+        "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
+      },
+      {
+        "slug": "ai-essay-grader",
+        "name": "AI Essay Grader",
+        "mainUrl": "/ai-essay-grader",
+        "variantUrl": "/tools/variants/ai-essay-grader-free-unlimited.html"
+      },
+      {
+        "slug": "ai-paraphrasing-tool",
+        "name": "AI Paraphrasing Tool",
+        "mainUrl": "/ai-paraphrasing-tool",
+        "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
+      },
+      {
+        "slug": "ai-humanizer",
+        "name": "AI Text Humanizer",
+        "mainUrl": "/ai-humanizer",
+        "variantUrl": "/tools/variants/ai-text-humanizer-free-unlimited.html"
+      }
+    ]
+  },
+  "case-converter": {
+    "variants": [
+      {
+        "url": "/tools/variants/best-case-converter-2025.html",
+        "label": "Best 2025"
+      },
+      {
+        "url": "/tools/variants/case-converter-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/case-converter-no-signup.html",
+        "label": "No Signup Required"
+      }
+    ],
+    "related": [
+      {
+        "slug": "word-counter",
+        "name": "Word Counter",
+        "mainUrl": "/word-counter",
+        "variantUrl": "/tools/variants/best-word-counter-2025.html"
+      },
+      {
+        "slug": "ai-grammar-checker",
+        "name": "AI Grammar Checker",
+        "mainUrl": "/ai-grammar-checker",
+        "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
+      },
+      {
+        "slug": "lorem-ipsum-generator",
+        "name": "Lorem Ipsum Generator",
+        "mainUrl": "/lorem-ipsum-generator",
+        "variantUrl": "/tools/variants/best-lorem-ipsum-generator-2025.html"
+      },
+      {
+        "slug": "ai-paraphrasing-tool",
+        "name": "AI Paraphrasing Tool",
+        "mainUrl": "/ai-paraphrasing-tool",
+        "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
+      }
+    ]
+  },
+  "lorem-ipsum-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/best-lorem-ipsum-generator-2025.html",
+        "label": "Best 2025"
+      },
+      {
+        "url": "/tools/variants/free-lorem-ipsum-generator.html",
+        "label": "Free Version"
+      },
+      {
+        "url": "/tools/variants/lorem-ipsum-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      }
+    ],
+    "related": [
+      {
+        "slug": "word-counter",
+        "name": "Word Counter",
+        "mainUrl": "/word-counter",
+        "variantUrl": "/tools/variants/best-word-counter-2025.html"
+      },
+      {
+        "slug": "case-converter",
+        "name": "Case Converter",
+        "mainUrl": "/case-converter",
+        "variantUrl": "/tools/variants/best-case-converter-2025.html"
+      },
+      {
+        "slug": "ai-blog-post-generator",
+        "name": "AI Blog Post Generator",
+        "mainUrl": "/ai-blog-post-generator",
+        "variantUrl": "/tools/variants/ai-blog-post-generator-free-unlimited.html"
+      },
+      {
+        "slug": "random-number-generator",
+        "name": "Random Number Generator",
+        "mainUrl": "/random-number-generator",
+        "variantUrl": "/tools/variants/best-random-number-generator-2025.html"
+      }
+    ]
+  },
+  "ai-instagram-caption-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-instagram-caption-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-instagram-caption-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-hashtag-generator",
+        "name": "AI Hashtag Generator",
+        "mainUrl": "/ai-hashtag-generator",
+        "variantUrl": "/tools/variants/ai-hashtag-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-tiktok-caption-generator",
+        "name": "AI TikTok Caption Generator",
+        "mainUrl": "/ai-tiktok-caption-generator",
+        "variantUrl": "/tools/variants/ai-tiktok-caption-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-instagram-bio-generator",
+        "name": "AI Instagram Bio Generator",
+        "mainUrl": "/ai-instagram-bio-generator",
+        "variantUrl": "/tools/variants/ai-instagram-bio-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-linkedin-post-generator",
+        "name": "AI LinkedIn Post Generator",
+        "mainUrl": "/ai-linkedin-post-generator",
+        "variantUrl": "/tools/variants/ai-linkedin-post-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-tiktok-caption-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-tiktok-caption-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-tiktok-caption-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-tiktok-caption-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-instagram-caption-generator",
+        "name": "AI Instagram Caption Generator",
+        "mainUrl": "/ai-instagram-caption-generator",
+        "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-hashtag-generator",
+        "name": "AI Hashtag Generator",
+        "mainUrl": "/ai-hashtag-generator",
+        "variantUrl": "/tools/variants/ai-hashtag-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-youtube-script-generator",
+        "name": "AI YouTube Script Generator",
+        "mainUrl": "/ai-youtube-script-generator",
+        "variantUrl": "/tools/variants/ai-youtube-script-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-hook-generator",
+        "name": "AI Hook Generator",
+        "mainUrl": "/ai-hook-generator",
+        "variantUrl": "/tools/variants/ai-hook-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-linkedin-post-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-linkedin-post-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-linkedin-post-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-linkedin-post-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-linkedin-summary-generator",
+        "name": "AI LinkedIn Summary Generator",
+        "mainUrl": "/ai-linkedin-summary-generator",
+        "variantUrl": "/tools/variants/ai-linkedin-summary-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-tweet-generator",
+        "name": "AI Tweet Generator",
+        "mainUrl": "/ai-tweet-generator",
+        "variantUrl": "/tools/variants/ai-tweet-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-instagram-caption-generator",
+        "name": "AI Instagram Caption Generator",
+        "mainUrl": "/ai-instagram-caption-generator",
+        "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-cold-outreach-generator",
+        "name": "AI Cold Outreach Generator",
+        "mainUrl": "/ai-cold-outreach-generator",
+        "variantUrl": "/tools/variants/ai-cold-outreach-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-tweet-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-tweet-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-tweet-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-tweet-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-linkedin-post-generator",
+        "name": "AI LinkedIn Post Generator",
+        "mainUrl": "/ai-linkedin-post-generator",
+        "variantUrl": "/tools/variants/ai-linkedin-post-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-instagram-caption-generator",
+        "name": "AI Instagram Caption Generator",
+        "mainUrl": "/ai-instagram-caption-generator",
+        "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-hashtag-generator",
+        "name": "AI Hashtag Generator",
+        "mainUrl": "/ai-hashtag-generator",
+        "variantUrl": "/tools/variants/ai-hashtag-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-hook-generator",
+        "name": "AI Hook Generator",
+        "mainUrl": "/ai-hook-generator",
+        "variantUrl": "/tools/variants/ai-hook-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-hashtag-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-hashtag-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-hashtag-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-hashtag-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-instagram-caption-generator",
+        "name": "AI Instagram Caption Generator",
+        "mainUrl": "/ai-instagram-caption-generator",
+        "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-tiktok-caption-generator",
+        "name": "AI TikTok Caption Generator",
+        "mainUrl": "/ai-tiktok-caption-generator",
+        "variantUrl": "/tools/variants/ai-tiktok-caption-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-keyword-generator",
+        "name": "AI Keyword Generator",
+        "mainUrl": "/ai-keyword-generator",
+        "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-tweet-generator",
+        "name": "AI Tweet Generator",
+        "mainUrl": "/ai-tweet-generator",
+        "variantUrl": "/tools/variants/ai-tweet-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-youtube-title-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-youtube-title-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-youtube-title-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-youtube-title-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-youtube-description-generator",
+        "name": "AI YouTube Description Generator",
+        "mainUrl": "/ai-youtube-description-generator",
+        "variantUrl": "/tools/variants/ai-youtube-description-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-youtube-script-generator",
+        "name": "AI YouTube Script Generator",
+        "mainUrl": "/ai-youtube-script-generator",
+        "variantUrl": "/tools/variants/ai-youtube-script-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-seo-title-generator",
+        "name": "AI SEO Title Generator",
+        "mainUrl": "/ai-seo-title-generator",
+        "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-headline-improver",
+        "name": "AI Headline Improver",
+        "mainUrl": "/ai-headline-improver",
+        "variantUrl": "/tools/variants/ai-headline-improver-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-youtube-description-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-youtube-description-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-youtube-description-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-youtube-description-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-youtube-title-generator",
+        "name": "AI YouTube Title Generator",
+        "mainUrl": "/ai-youtube-title-generator",
+        "variantUrl": "/tools/variants/ai-youtube-title-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-youtube-script-generator",
+        "name": "AI YouTube Script Generator",
+        "mainUrl": "/ai-youtube-script-generator",
+        "variantUrl": "/tools/variants/ai-youtube-script-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-meta-description-generator",
+        "name": "AI Meta Description Generator",
+        "mainUrl": "/ai-meta-description-generator",
+        "variantUrl": "/tools/variants/ai-meta-description-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-keyword-generator",
+        "name": "AI Keyword Generator",
+        "mainUrl": "/ai-keyword-generator",
+        "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-instagram-bio-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-instagram-bio-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-instagram-bio-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-instagram-bio-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-instagram-caption-generator",
+        "name": "AI Instagram Caption Generator",
+        "mainUrl": "/ai-instagram-caption-generator",
+        "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-linkedin-summary-generator",
+        "name": "AI LinkedIn Summary Generator",
+        "mainUrl": "/ai-linkedin-summary-generator",
+        "variantUrl": "/tools/variants/ai-linkedin-summary-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-hashtag-generator",
+        "name": "AI Hashtag Generator",
+        "mainUrl": "/ai-hashtag-generator",
+        "variantUrl": "/tools/variants/ai-hashtag-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-dating-profile-generator",
+        "name": "AI Dating Profile Generator",
+        "mainUrl": "/ai-dating-profile-generator",
+        "variantUrl": "/tools/variants/ai-dating-profile-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-youtube-summarizer": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-youtube-summarizer-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-youtube-summarizer-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-youtube-summarizer-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-text-summarizer",
+        "name": "AI Text Summarizer",
+        "mainUrl": "/ai-text-summarizer",
+        "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-pdf-summarizer",
+        "name": "AI PDF Summarizer",
+        "mainUrl": "/ai-pdf-summarizer",
+        "variantUrl": "/tools/variants/ai-pdf-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-youtube-script-generator",
+        "name": "AI YouTube Script Generator",
+        "mainUrl": "/ai-youtube-script-generator",
+        "variantUrl": "/tools/variants/ai-youtube-script-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-youtube-title-generator",
+        "name": "AI YouTube Title Generator",
+        "mainUrl": "/ai-youtube-title-generator",
+        "variantUrl": "/tools/variants/ai-youtube-title-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-business-name-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-business-name-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-business-name-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-business-name-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-startup-name-generator",
+        "name": "AI Startup Name Generator",
+        "mainUrl": "/ai-startup-name-generator",
+        "variantUrl": "/tools/variants/ai-startup-name-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-business-idea-generator",
+        "name": "AI Business Idea Generator",
+        "mainUrl": "/ai-business-idea-generator",
+        "variantUrl": "/tools/variants/ai-business-idea-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-value-proposition-generator",
+        "name": "AI Value Proposition Generator",
+        "mainUrl": "/ai-value-proposition-generator",
+        "variantUrl": "/tools/variants/ai-value-proposition-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-elevator-pitch-generator",
+        "name": "AI Elevator Pitch Generator",
+        "mainUrl": "/ai-elevator-pitch-generator",
+        "variantUrl": "/tools/variants/ai-elevator-pitch-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-startup-name-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-startup-name-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-startup-name-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-startup-name-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-business-name-generator",
+        "name": "AI Business Name Generator",
+        "mainUrl": "/ai-business-name-generator",
+        "variantUrl": "/tools/variants/ai-business-name-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-business-idea-generator",
+        "name": "AI Business Idea Generator",
+        "mainUrl": "/ai-business-idea-generator",
+        "variantUrl": "/tools/variants/ai-business-idea-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-elevator-pitch-generator",
+        "name": "AI Elevator Pitch Generator",
+        "mainUrl": "/ai-elevator-pitch-generator",
+        "variantUrl": "/tools/variants/ai-elevator-pitch-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-value-proposition-generator",
+        "name": "AI Value Proposition Generator",
+        "mainUrl": "/ai-value-proposition-generator",
+        "variantUrl": "/tools/variants/ai-value-proposition-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-business-idea-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-business-idea-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-business-idea-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-business-idea-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-startup-name-generator",
+        "name": "AI Startup Name Generator",
+        "mainUrl": "/ai-startup-name-generator",
+        "variantUrl": "/tools/variants/ai-startup-name-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-business-name-generator",
+        "name": "AI Business Name Generator",
+        "mainUrl": "/ai-business-name-generator",
+        "variantUrl": "/tools/variants/ai-business-name-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-value-proposition-generator",
+        "name": "AI Value Proposition Generator",
+        "mainUrl": "/ai-value-proposition-generator",
+        "variantUrl": "/tools/variants/ai-value-proposition-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-target-audience-generator",
+        "name": "AI Target Audience Generator",
+        "mainUrl": "/ai-target-audience-generator",
+        "variantUrl": "/tools/variants/ai-target-audience-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-value-proposition-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-value-proposition-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-value-proposition-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-value-proposition-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-elevator-pitch-generator",
+        "name": "AI Elevator Pitch Generator",
+        "mainUrl": "/ai-elevator-pitch-generator",
+        "variantUrl": "/tools/variants/ai-elevator-pitch-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-target-audience-generator",
+        "name": "AI Target Audience Generator",
+        "mainUrl": "/ai-target-audience-generator",
+        "variantUrl": "/tools/variants/ai-target-audience-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-landing-page-copy-generator",
+        "name": "AI Landing Page Copy Generator",
+        "mainUrl": "/ai-landing-page-copy-generator",
+        "variantUrl": "/tools/variants/ai-landing-page-copy-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-business-idea-generator",
+        "name": "AI Business Idea Generator",
+        "mainUrl": "/ai-business-idea-generator",
+        "variantUrl": "/tools/variants/ai-business-idea-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-elevator-pitch-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-elevator-pitch-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-elevator-pitch-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-elevator-pitch-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-value-proposition-generator",
+        "name": "AI Value Proposition Generator",
+        "mainUrl": "/ai-value-proposition-generator",
+        "variantUrl": "/tools/variants/ai-value-proposition-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-business-idea-generator",
+        "name": "AI Business Idea Generator",
+        "mainUrl": "/ai-business-idea-generator",
+        "variantUrl": "/tools/variants/ai-business-idea-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-target-audience-generator",
+        "name": "AI Target Audience Generator",
+        "mainUrl": "/ai-target-audience-generator",
+        "variantUrl": "/tools/variants/ai-target-audience-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-sales-email-generator",
+        "name": "AI Sales Email Generator",
+        "mainUrl": "/ai-sales-email-generator",
+        "variantUrl": "/tools/variants/ai-sales-email-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-target-audience-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-target-audience-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-target-audience-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-target-audience-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-value-proposition-generator",
+        "name": "AI Value Proposition Generator",
+        "mainUrl": "/ai-value-proposition-generator",
+        "variantUrl": "/tools/variants/ai-value-proposition-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-business-idea-generator",
+        "name": "AI Business Idea Generator",
+        "mainUrl": "/ai-business-idea-generator",
+        "variantUrl": "/tools/variants/ai-business-idea-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-content-brief-generator",
+        "name": "AI Content Brief Generator",
+        "mainUrl": "/ai-content-brief-generator",
+        "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-ad-copy-generator",
+        "name": "AI Ad Copy Generator",
+        "mainUrl": "/ai-ad-copy-generator",
+        "variantUrl": "/tools/variants/ai-ad-copy-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-ad-copy-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-ad-copy-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-ad-copy-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-ad-copy-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-landing-page-copy-generator",
+        "name": "AI Landing Page Copy Generator",
+        "mainUrl": "/ai-landing-page-copy-generator",
+        "variantUrl": "/tools/variants/ai-landing-page-copy-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-cta-generator",
+        "name": "AI Call-to-Action Generator",
+        "mainUrl": "/ai-cta-generator",
+        "variantUrl": "/tools/variants/ai-call-to-action-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-sales-email-generator",
+        "name": "AI Sales Email Generator",
+        "mainUrl": "/ai-sales-email-generator",
+        "variantUrl": "/tools/variants/ai-sales-email-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-headline-improver",
+        "name": "AI Headline Improver",
+        "mainUrl": "/ai-headline-improver",
+        "variantUrl": "/tools/variants/ai-headline-improver-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-email-response-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-email-response-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-email-response-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-email-response-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-sales-email-generator",
+        "name": "AI Sales Email Generator",
+        "mainUrl": "/ai-sales-email-generator",
+        "variantUrl": "/tools/variants/ai-sales-email-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-cold-outreach-generator",
+        "name": "AI Cold Outreach Generator",
+        "mainUrl": "/ai-cold-outreach-generator",
+        "variantUrl": "/tools/variants/ai-cold-outreach-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-tone-converter",
+        "name": "AI Tone Converter",
+        "mainUrl": "/ai-tone-converter",
+        "variantUrl": "/tools/variants/ai-tone-converter-free-unlimited.html"
+      },
+      {
+        "slug": "ai-meeting-summary-generator",
+        "name": "AI Meeting Summary Generator",
+        "mainUrl": "/ai-meeting-summary-generator",
+        "variantUrl": "/tools/variants/ai-meeting-summary-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-sales-email-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-sales-email-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-sales-email-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-sales-email-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-cold-outreach-generator",
+        "name": "AI Cold Outreach Generator",
+        "mainUrl": "/ai-cold-outreach-generator",
+        "variantUrl": "/tools/variants/ai-cold-outreach-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-email-response-generator",
+        "name": "AI Email Response Generator",
+        "mainUrl": "/ai-email-response-generator",
+        "variantUrl": "/tools/variants/ai-email-response-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-cta-generator",
+        "name": "AI Call-to-Action Generator",
+        "mainUrl": "/ai-cta-generator",
+        "variantUrl": "/tools/variants/ai-call-to-action-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-ad-copy-generator",
+        "name": "AI Ad Copy Generator",
+        "mainUrl": "/ai-ad-copy-generator",
+        "variantUrl": "/tools/variants/ai-ad-copy-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-cold-outreach-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-cold-outreach-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-cold-outreach-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-cold-outreach-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-sales-email-generator",
+        "name": "AI Sales Email Generator",
+        "mainUrl": "/ai-sales-email-generator",
+        "variantUrl": "/tools/variants/ai-sales-email-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-email-response-generator",
+        "name": "AI Email Response Generator",
+        "mainUrl": "/ai-email-response-generator",
+        "variantUrl": "/tools/variants/ai-email-response-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-linkedin-post-generator",
+        "name": "AI LinkedIn Post Generator",
+        "mainUrl": "/ai-linkedin-post-generator",
+        "variantUrl": "/tools/variants/ai-linkedin-post-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-cta-generator",
+        "name": "AI Call-to-Action Generator",
+        "mainUrl": "/ai-cta-generator",
+        "variantUrl": "/tools/variants/ai-call-to-action-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-cta-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-call-to-action-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-call-to-action-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-call-to-action-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-ad-copy-generator",
+        "name": "AI Ad Copy Generator",
+        "mainUrl": "/ai-ad-copy-generator",
+        "variantUrl": "/tools/variants/ai-ad-copy-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-landing-page-copy-generator",
+        "name": "AI Landing Page Copy Generator",
+        "mainUrl": "/ai-landing-page-copy-generator",
+        "variantUrl": "/tools/variants/ai-landing-page-copy-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-headline-improver",
+        "name": "AI Headline Improver",
+        "mainUrl": "/ai-headline-improver",
+        "variantUrl": "/tools/variants/ai-headline-improver-free-unlimited.html"
+      },
+      {
+        "slug": "ai-hook-generator",
+        "name": "AI Hook Generator",
+        "mainUrl": "/ai-hook-generator",
+        "variantUrl": "/tools/variants/ai-hook-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-landing-page-copy-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-landing-page-copy-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-landing-page-copy-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-landing-page-copy-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-ad-copy-generator",
+        "name": "AI Ad Copy Generator",
+        "mainUrl": "/ai-ad-copy-generator",
+        "variantUrl": "/tools/variants/ai-ad-copy-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-cta-generator",
+        "name": "AI Call-to-Action Generator",
+        "mainUrl": "/ai-cta-generator",
+        "variantUrl": "/tools/variants/ai-call-to-action-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-value-proposition-generator",
+        "name": "AI Value Proposition Generator",
+        "mainUrl": "/ai-value-proposition-generator",
+        "variantUrl": "/tools/variants/ai-value-proposition-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-faq-generator",
+        "name": "AI FAQ Generator",
+        "mainUrl": "/ai-faq-generator",
+        "variantUrl": "/tools/variants/ai-faq-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-meta-description-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-meta-description-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-meta-description-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-meta-description-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-seo-title-generator",
+        "name": "AI SEO Title Generator",
+        "mainUrl": "/ai-seo-title-generator",
+        "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-keyword-generator",
+        "name": "AI Keyword Generator",
+        "mainUrl": "/ai-keyword-generator",
+        "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-content-brief-generator",
+        "name": "AI Content Brief Generator",
+        "mainUrl": "/ai-content-brief-generator",
+        "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-schema-markup-generator",
+        "name": "AI Schema Markup Generator",
+        "mainUrl": "/ai-schema-markup-generator",
+        "variantUrl": "/tools/variants/ai-schema-markup-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-seo-title-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-seo-title-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-seo-title-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-seo-title-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-meta-description-generator",
+        "name": "AI Meta Description Generator",
+        "mainUrl": "/ai-meta-description-generator",
+        "variantUrl": "/tools/variants/ai-meta-description-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-keyword-generator",
+        "name": "AI Keyword Generator",
+        "mainUrl": "/ai-keyword-generator",
+        "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-headline-improver",
+        "name": "AI Headline Improver",
+        "mainUrl": "/ai-headline-improver",
+        "variantUrl": "/tools/variants/ai-headline-improver-free-unlimited.html"
+      },
+      {
+        "slug": "ai-blog-outline-generator",
+        "name": "AI Blog Outline Generator",
+        "mainUrl": "/ai-blog-outline-generator",
+        "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-keyword-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-keyword-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-keyword-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-keyword-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-content-brief-generator",
+        "name": "AI Content Brief Generator",
+        "mainUrl": "/ai-content-brief-generator",
+        "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-seo-title-generator",
+        "name": "AI SEO Title Generator",
+        "mainUrl": "/ai-seo-title-generator",
+        "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-meta-description-generator",
+        "name": "AI Meta Description Generator",
+        "mainUrl": "/ai-meta-description-generator",
+        "variantUrl": "/tools/variants/ai-meta-description-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-content-gap-analyzer",
+        "name": "AI Content Gap Analyzer",
+        "mainUrl": "/ai-content-gap-analyzer",
+        "variantUrl": "/tools/variants/ai-content-gap-analyzer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-content-brief-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-content-brief-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-content-brief-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-content-brief-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-blog-outline-generator",
+        "name": "AI Blog Outline Generator",
+        "mainUrl": "/ai-blog-outline-generator",
+        "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-keyword-generator",
+        "name": "AI Keyword Generator",
+        "mainUrl": "/ai-keyword-generator",
+        "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-seo-title-generator",
+        "name": "AI SEO Title Generator",
+        "mainUrl": "/ai-seo-title-generator",
+        "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-content-gap-analyzer",
+        "name": "AI Content Gap Analyzer",
+        "mainUrl": "/ai-content-gap-analyzer",
+        "variantUrl": "/tools/variants/ai-content-gap-analyzer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-internal-link-suggestion-tool": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-internal-link-suggestion-tool-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-internal-link-suggestion-tool-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-internal-link-suggestion-tool-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-content-brief-generator",
+        "name": "AI Content Brief Generator",
+        "mainUrl": "/ai-content-brief-generator",
+        "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-seo-title-generator",
+        "name": "AI SEO Title Generator",
+        "mainUrl": "/ai-seo-title-generator",
+        "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-keyword-generator",
+        "name": "AI Keyword Generator",
+        "mainUrl": "/ai-keyword-generator",
+        "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-schema-markup-generator",
+        "name": "AI Schema Markup Generator",
+        "mainUrl": "/ai-schema-markup-generator",
+        "variantUrl": "/tools/variants/ai-schema-markup-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-content-gap-analyzer": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-content-gap-analyzer-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-content-gap-analyzer-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-content-gap-analyzer-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-keyword-generator",
+        "name": "AI Keyword Generator",
+        "mainUrl": "/ai-keyword-generator",
+        "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-content-brief-generator",
+        "name": "AI Content Brief Generator",
+        "mainUrl": "/ai-content-brief-generator",
+        "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-serp-intent-analyzer",
+        "name": "AI SERP Intent Analyzer",
+        "mainUrl": "/ai-serp-intent-analyzer",
+        "variantUrl": "/tools/variants/ai-serp-intent-analyzer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-internal-link-suggestion-tool",
+        "name": "AI Internal Link Suggestion Tool",
+        "mainUrl": "/ai-internal-link-suggestion-tool",
+        "variantUrl": "/tools/variants/ai-internal-link-suggestion-tool-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-schema-markup-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-schema-markup-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-schema-markup-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-schema-markup-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-meta-description-generator",
+        "name": "AI Meta Description Generator",
+        "mainUrl": "/ai-meta-description-generator",
+        "variantUrl": "/tools/variants/ai-meta-description-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-faq-generator",
+        "name": "AI FAQ Generator",
+        "mainUrl": "/ai-faq-generator",
+        "variantUrl": "/tools/variants/ai-faq-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-seo-title-generator",
+        "name": "AI SEO Title Generator",
+        "mainUrl": "/ai-seo-title-generator",
+        "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-internal-link-suggestion-tool",
+        "name": "AI Internal Link Suggestion Tool",
+        "mainUrl": "/ai-internal-link-suggestion-tool",
+        "variantUrl": "/tools/variants/ai-internal-link-suggestion-tool-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-serp-intent-analyzer": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-serp-intent-analyzer-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-serp-intent-analyzer-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-serp-intent-analyzer-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-keyword-generator",
+        "name": "AI Keyword Generator",
+        "mainUrl": "/ai-keyword-generator",
+        "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-content-gap-analyzer",
+        "name": "AI Content Gap Analyzer",
+        "mainUrl": "/ai-content-gap-analyzer",
+        "variantUrl": "/tools/variants/ai-content-gap-analyzer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-content-brief-generator",
+        "name": "AI Content Brief Generator",
+        "mainUrl": "/ai-content-brief-generator",
+        "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-seo-title-generator",
+        "name": "AI SEO Title Generator",
+        "mainUrl": "/ai-seo-title-generator",
+        "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-resume-bullet-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-resume-bullet-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-resume-bullet-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-resume-bullet-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-cover-letter-generator",
+        "name": "AI Cover Letter Generator",
+        "mainUrl": "/ai-cover-letter-generator",
+        "variantUrl": "/tools/variants/ai-cover-letter-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-linkedin-summary-generator",
+        "name": "AI LinkedIn Summary Generator",
+        "mainUrl": "/ai-linkedin-summary-generator",
+        "variantUrl": "/tools/variants/ai-linkedin-summary-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-ats-resume-matcher",
+        "name": "AI ATS Resume Matcher",
+        "mainUrl": "/ai-ats-resume-matcher",
+        "variantUrl": "/tools/variants/ai-ats-resume-matcher-free-unlimited.html"
+      },
+      {
+        "slug": "ai-interview-answer-generator",
+        "name": "AI Interview Answer Generator",
+        "mainUrl": "/ai-interview-answer-generator",
+        "variantUrl": "/tools/variants/ai-interview-answer-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-cover-letter-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-cover-letter-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-cover-letter-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-cover-letter-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-resume-bullet-generator",
+        "name": "AI Resume Bullet Generator",
+        "mainUrl": "/ai-resume-bullet-generator",
+        "variantUrl": "/tools/variants/ai-resume-bullet-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-linkedin-summary-generator",
+        "name": "AI LinkedIn Summary Generator",
+        "mainUrl": "/ai-linkedin-summary-generator",
+        "variantUrl": "/tools/variants/ai-linkedin-summary-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-ats-resume-matcher",
+        "name": "AI ATS Resume Matcher",
+        "mainUrl": "/ai-ats-resume-matcher",
+        "variantUrl": "/tools/variants/ai-ats-resume-matcher-free-unlimited.html"
+      },
+      {
+        "slug": "ai-personal-statement-generator",
+        "name": "AI Personal Statement Generator",
+        "mainUrl": "/ai-personal-statement-generator",
+        "variantUrl": "/tools/variants/ai-personal-statement-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-linkedin-summary-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-linkedin-summary-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-linkedin-summary-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-linkedin-summary-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-resume-bullet-generator",
+        "name": "AI Resume Bullet Generator",
+        "mainUrl": "/ai-resume-bullet-generator",
+        "variantUrl": "/tools/variants/ai-resume-bullet-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-cover-letter-generator",
+        "name": "AI Cover Letter Generator",
+        "mainUrl": "/ai-cover-letter-generator",
+        "variantUrl": "/tools/variants/ai-cover-letter-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-linkedin-post-generator",
+        "name": "AI LinkedIn Post Generator",
+        "mainUrl": "/ai-linkedin-post-generator",
+        "variantUrl": "/tools/variants/ai-linkedin-post-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-elevator-pitch-generator",
+        "name": "AI Elevator Pitch Generator",
+        "mainUrl": "/ai-elevator-pitch-generator",
+        "variantUrl": "/tools/variants/ai-elevator-pitch-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-interview-answer-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-interview-answer-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-interview-answer-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-interview-answer-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-resume-bullet-generator",
+        "name": "AI Resume Bullet Generator",
+        "mainUrl": "/ai-resume-bullet-generator",
+        "variantUrl": "/tools/variants/ai-resume-bullet-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-cover-letter-generator",
+        "name": "AI Cover Letter Generator",
+        "mainUrl": "/ai-cover-letter-generator",
+        "variantUrl": "/tools/variants/ai-cover-letter-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-ats-resume-matcher",
+        "name": "AI ATS Resume Matcher",
+        "mainUrl": "/ai-ats-resume-matcher",
+        "variantUrl": "/tools/variants/ai-ats-resume-matcher-free-unlimited.html"
+      },
+      {
+        "slug": "ai-elevator-pitch-generator",
+        "name": "AI Elevator Pitch Generator",
+        "mainUrl": "/ai-elevator-pitch-generator",
+        "variantUrl": "/tools/variants/ai-elevator-pitch-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-ats-resume-matcher": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-ats-resume-matcher-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-ats-resume-matcher-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-ats-resume-matcher-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-resume-bullet-generator",
+        "name": "AI Resume Bullet Generator",
+        "mainUrl": "/ai-resume-bullet-generator",
+        "variantUrl": "/tools/variants/ai-resume-bullet-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-cover-letter-generator",
+        "name": "AI Cover Letter Generator",
+        "mainUrl": "/ai-cover-letter-generator",
+        "variantUrl": "/tools/variants/ai-cover-letter-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-interview-answer-generator",
+        "name": "AI Interview Answer Generator",
+        "mainUrl": "/ai-interview-answer-generator",
+        "variantUrl": "/tools/variants/ai-interview-answer-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-linkedin-summary-generator",
+        "name": "AI LinkedIn Summary Generator",
+        "mainUrl": "/ai-linkedin-summary-generator",
+        "variantUrl": "/tools/variants/ai-linkedin-summary-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-todo-list-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-to-do-list-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-to-do-list-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-to-do-list-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-weekly-planner-generator",
+        "name": "AI Weekly Planner Generator",
+        "mainUrl": "/ai-weekly-planner-generator",
+        "variantUrl": "/tools/variants/ai-weekly-planner-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-goal-planner",
+        "name": "AI Goal Planner",
+        "mainUrl": "/ai-goal-planner",
+        "variantUrl": "/tools/variants/ai-goal-planner-free-unlimited.html"
+      },
+      {
+        "slug": "ai-meeting-summary-generator",
+        "name": "AI Meeting Summary Generator",
+        "mainUrl": "/ai-meeting-summary-generator",
+        "variantUrl": "/tools/variants/ai-meeting-summary-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-decision-maker",
+        "name": "AI Decision Maker",
+        "mainUrl": "/ai-decision-maker",
+        "variantUrl": "/tools/variants/ai-decision-maker-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-meeting-summary-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-meeting-summary-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-meeting-summary-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-meeting-summary-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-text-summarizer",
+        "name": "AI Text Summarizer",
+        "mainUrl": "/ai-text-summarizer",
+        "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-todo-list-generator",
+        "name": "AI To-Do List Generator",
+        "mainUrl": "/ai-todo-list-generator",
+        "variantUrl": "/tools/variants/ai-to-do-list-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-weekly-planner-generator",
+        "name": "AI Weekly Planner Generator",
+        "mainUrl": "/ai-weekly-planner-generator",
+        "variantUrl": "/tools/variants/ai-weekly-planner-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-document-analyzer",
+        "name": "AI Document Analyzer",
+        "mainUrl": "/ai-document-analyzer",
+        "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-weekly-planner-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-weekly-planner-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-weekly-planner-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-weekly-planner-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-todo-list-generator",
+        "name": "AI To-Do List Generator",
+        "mainUrl": "/ai-todo-list-generator",
+        "variantUrl": "/tools/variants/ai-to-do-list-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-goal-planner",
+        "name": "AI Goal Planner",
+        "mainUrl": "/ai-goal-planner",
+        "variantUrl": "/tools/variants/ai-goal-planner-free-unlimited.html"
+      },
+      {
+        "slug": "ai-meal-planner",
+        "name": "AI Meal Planner",
+        "mainUrl": "/ai-meal-planner",
+        "variantUrl": "/tools/variants/ai-meal-planner-free-unlimited.html"
+      },
+      {
+        "slug": "ai-decision-maker",
+        "name": "AI Decision Maker",
+        "mainUrl": "/ai-decision-maker",
+        "variantUrl": "/tools/variants/ai-decision-maker-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-goal-planner": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-goal-planner-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-goal-planner-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-goal-planner-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-todo-list-generator",
+        "name": "AI To-Do List Generator",
+        "mainUrl": "/ai-todo-list-generator",
+        "variantUrl": "/tools/variants/ai-to-do-list-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-weekly-planner-generator",
+        "name": "AI Weekly Planner Generator",
+        "mainUrl": "/ai-weekly-planner-generator",
+        "variantUrl": "/tools/variants/ai-weekly-planner-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-decision-maker",
+        "name": "AI Decision Maker",
+        "mainUrl": "/ai-decision-maker",
+        "variantUrl": "/tools/variants/ai-decision-maker-free-unlimited.html"
+      },
+      {
+        "slug": "ai-pros-and-cons-generator",
+        "name": "AI Pros & Cons Generator",
+        "mainUrl": "/ai-pros-and-cons-generator",
+        "variantUrl": "/tools/variants/ai-pros-cons-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-decision-maker": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-decision-maker-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-decision-maker-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-decision-maker-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-pros-and-cons-generator",
+        "name": "AI Pros & Cons Generator",
+        "mainUrl": "/ai-pros-and-cons-generator",
+        "variantUrl": "/tools/variants/ai-pros-cons-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-goal-planner",
+        "name": "AI Goal Planner",
+        "mainUrl": "/ai-goal-planner",
+        "variantUrl": "/tools/variants/ai-goal-planner-free-unlimited.html"
+      },
+      {
+        "slug": "ai-debate-generator",
+        "name": "AI Debate Generator",
+        "mainUrl": "/ai-debate-generator",
+        "variantUrl": "/tools/variants/ai-debate-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-weekly-planner-generator",
+        "name": "AI Weekly Planner Generator",
+        "mainUrl": "/ai-weekly-planner-generator",
+        "variantUrl": "/tools/variants/ai-weekly-planner-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-pros-and-cons-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-pros-cons-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-pros-cons-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-pros-cons-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-decision-maker",
+        "name": "AI Decision Maker",
+        "mainUrl": "/ai-decision-maker",
+        "variantUrl": "/tools/variants/ai-decision-maker-free-unlimited.html"
+      },
+      {
+        "slug": "ai-debate-generator",
+        "name": "AI Debate Generator",
+        "mainUrl": "/ai-debate-generator",
+        "variantUrl": "/tools/variants/ai-debate-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-goal-planner",
+        "name": "AI Goal Planner",
+        "mainUrl": "/ai-goal-planner",
+        "variantUrl": "/tools/variants/ai-goal-planner-free-unlimited.html"
+      },
+      {
+        "slug": "ai-essay-writer",
+        "name": "AI Essay Writer",
+        "mainUrl": "/ai-essay-writer",
+        "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-debate-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-debate-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-debate-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-debate-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-pros-and-cons-generator",
+        "name": "AI Pros & Cons Generator",
+        "mainUrl": "/ai-pros-and-cons-generator",
+        "variantUrl": "/tools/variants/ai-pros-cons-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-essay-writer",
+        "name": "AI Essay Writer",
+        "mainUrl": "/ai-essay-writer",
+        "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-decision-maker",
+        "name": "AI Decision Maker",
+        "mainUrl": "/ai-decision-maker",
+        "variantUrl": "/tools/variants/ai-decision-maker-free-unlimited.html"
+      },
+      {
+        "slug": "ai-writing-feedback-coach",
+        "name": "AI Writing Feedback Coach",
+        "mainUrl": "/ai-writing-feedback-coach",
+        "variantUrl": "/tools/variants/ai-writing-feedback-coach-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-excuse-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-excuse-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-excuse-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-excuse-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-roast-generator",
+        "name": "AI Roast Generator",
+        "mainUrl": "/ai-roast-generator",
+        "variantUrl": "/tools/variants/ai-roast-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-compliment-generator",
+        "name": "AI Compliment Generator",
+        "mainUrl": "/ai-compliment-generator",
+        "variantUrl": "/tools/variants/ai-compliment-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-story-starter",
+        "name": "AI Story Starter",
+        "mainUrl": "/ai-story-starter",
+        "variantUrl": "/tools/variants/ai-story-starter-free-unlimited.html"
+      },
+      {
+        "slug": "ai-message-analyzer",
+        "name": "AI Message Analyzer",
+        "mainUrl": "/ai-message-analyzer",
+        "variantUrl": "/tools/variants/ai-message-analyzer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-compliment-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-compliment-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-compliment-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-compliment-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-roast-generator",
+        "name": "AI Roast Generator",
+        "mainUrl": "/ai-roast-generator",
+        "variantUrl": "/tools/variants/ai-roast-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-excuse-generator",
+        "name": "AI Excuse Generator",
+        "mainUrl": "/ai-excuse-generator",
+        "variantUrl": "/tools/variants/ai-excuse-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-dating-profile-generator",
+        "name": "AI Dating Profile Generator",
+        "mainUrl": "/ai-dating-profile-generator",
+        "variantUrl": "/tools/variants/ai-dating-profile-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-instagram-caption-generator",
+        "name": "AI Instagram Caption Generator",
+        "mainUrl": "/ai-instagram-caption-generator",
+        "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-roast-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-roast-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-roast-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-roast-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-compliment-generator",
+        "name": "AI Compliment Generator",
+        "mainUrl": "/ai-compliment-generator",
+        "variantUrl": "/tools/variants/ai-compliment-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-excuse-generator",
+        "name": "AI Excuse Generator",
+        "mainUrl": "/ai-excuse-generator",
+        "variantUrl": "/tools/variants/ai-excuse-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-story-starter",
+        "name": "AI Story Starter",
+        "mainUrl": "/ai-story-starter",
+        "variantUrl": "/tools/variants/ai-story-starter-free-unlimited.html"
+      },
+      {
+        "slug": "ai-debate-generator",
+        "name": "AI Debate Generator",
+        "mainUrl": "/ai-debate-generator",
+        "variantUrl": "/tools/variants/ai-debate-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-story-starter": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-story-starter-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-story-starter-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-story-starter-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-essay-writer",
+        "name": "AI Essay Writer",
+        "mainUrl": "/ai-essay-writer",
+        "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-blog-post-generator",
+        "name": "AI Blog Post Generator",
+        "mainUrl": "/ai-blog-post-generator",
+        "variantUrl": "/tools/variants/ai-blog-post-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-image-prompt-generator",
+        "name": "AI Image Prompt Generator",
+        "mainUrl": "/ai-image-prompt-generator",
+        "variantUrl": "/tools/variants/ai-image-prompt-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-hook-generator",
+        "name": "AI Hook Generator",
+        "mainUrl": "/ai-hook-generator",
+        "variantUrl": "/tools/variants/ai-hook-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-prompt-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-prompt-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-prompt-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-prompt-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-image-prompt-generator",
+        "name": "AI Image Prompt Generator",
+        "mainUrl": "/ai-image-prompt-generator",
+        "variantUrl": "/tools/variants/ai-image-prompt-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-story-starter",
+        "name": "AI Story Starter",
+        "mainUrl": "/ai-story-starter",
+        "variantUrl": "/tools/variants/ai-story-starter-free-unlimited.html"
+      },
+      {
+        "slug": "ai-chatbot",
+        "name": "AI Chatbot",
+        "mainUrl": "/ai-chatbot",
+        "variantUrl": "/tools/variants/ai-chatbot-free-unlimited.html"
+      },
+      {
+        "slug": "ai-code-explainer",
+        "name": "AI Code Explainer",
+        "mainUrl": "/ai-code-explainer",
+        "variantUrl": "/tools/variants/ai-code-explainer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-document-analyzer": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-document-analyzer-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-document-analyzer-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-document-analyzer-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-text-summarizer",
+        "name": "AI Text Summarizer",
+        "mainUrl": "/ai-text-summarizer",
+        "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-pdf-summarizer",
+        "name": "AI PDF Summarizer",
+        "mainUrl": "/ai-pdf-summarizer",
+        "variantUrl": "/tools/variants/ai-pdf-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-contract-simplifier",
+        "name": "AI Contract Simplifier",
+        "mainUrl": "/ai-contract-simplifier",
+        "variantUrl": "/tools/variants/ai-contract-simplifier-free-unlimited.html"
+      },
+      {
+        "slug": "ai-message-analyzer",
+        "name": "AI Message Analyzer",
+        "mainUrl": "/ai-message-analyzer",
+        "variantUrl": "/tools/variants/ai-message-analyzer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-message-analyzer": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-message-analyzer-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-message-analyzer-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-message-analyzer-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-document-analyzer",
+        "name": "AI Document Analyzer",
+        "mainUrl": "/ai-document-analyzer",
+        "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-email-response-generator",
+        "name": "AI Email Response Generator",
+        "mainUrl": "/ai-email-response-generator",
+        "variantUrl": "/tools/variants/ai-email-response-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-tone-converter",
+        "name": "AI Tone Converter",
+        "mainUrl": "/ai-tone-converter",
+        "variantUrl": "/tools/variants/ai-tone-converter-free-unlimited.html"
+      },
+      {
+        "slug": "ai-grammar-checker",
+        "name": "AI Grammar Checker",
+        "mainUrl": "/ai-grammar-checker",
+        "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
+      }
+    ]
+  },
+  "explain-this-ai": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-explain-this-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-explain-this-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-explain-this-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-homework-solver",
+        "name": "AI Homework Solver",
+        "mainUrl": "/ai-homework-solver",
+        "variantUrl": "/tools/variants/ai-homework-solver-free-unlimited.html"
+      },
+      {
+        "slug": "ai-document-analyzer",
+        "name": "AI Document Analyzer",
+        "mainUrl": "/ai-document-analyzer",
+        "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-text-summarizer",
+        "name": "AI Text Summarizer",
+        "mainUrl": "/ai-text-summarizer",
+        "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-chatbot",
+        "name": "AI Chatbot",
+        "mainUrl": "/ai-chatbot",
+        "variantUrl": "/tools/variants/ai-chatbot-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-dating-profile-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-dating-profile-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-dating-profile-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-dating-profile-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-instagram-bio-generator",
+        "name": "AI Instagram Bio Generator",
+        "mainUrl": "/ai-instagram-bio-generator",
+        "variantUrl": "/tools/variants/ai-instagram-bio-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-linkedin-summary-generator",
+        "name": "AI LinkedIn Summary Generator",
+        "mainUrl": "/ai-linkedin-summary-generator",
+        "variantUrl": "/tools/variants/ai-linkedin-summary-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-compliment-generator",
+        "name": "AI Compliment Generator",
+        "mainUrl": "/ai-compliment-generator",
+        "variantUrl": "/tools/variants/ai-compliment-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-message-analyzer",
+        "name": "AI Message Analyzer",
+        "mainUrl": "/ai-message-analyzer",
+        "variantUrl": "/tools/variants/ai-message-analyzer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-meal-planner": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-meal-planner-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-meal-planner-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-meal-planner-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-weekly-planner-generator",
+        "name": "AI Weekly Planner Generator",
+        "mainUrl": "/ai-weekly-planner-generator",
+        "variantUrl": "/tools/variants/ai-weekly-planner-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-todo-list-generator",
+        "name": "AI To-Do List Generator",
+        "mainUrl": "/ai-todo-list-generator",
+        "variantUrl": "/tools/variants/ai-to-do-list-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-goal-planner",
+        "name": "AI Goal Planner",
+        "mainUrl": "/ai-goal-planner",
+        "variantUrl": "/tools/variants/ai-goal-planner-free-unlimited.html"
+      },
+      {
+        "slug": "ai-travel-itinerary-planner",
+        "name": "AI Travel Planner",
+        "mainUrl": "/ai-travel-itinerary-planner",
+        "variantUrl": "/tools/variants/ai-travel-planner-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-travel-itinerary-planner": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-travel-planner-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-travel-planner-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-travel-planner-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-meal-planner",
+        "name": "AI Meal Planner",
+        "mainUrl": "/ai-meal-planner",
+        "variantUrl": "/tools/variants/ai-meal-planner-free-unlimited.html"
+      },
+      {
+        "slug": "ai-weekly-planner-generator",
+        "name": "AI Weekly Planner Generator",
+        "mainUrl": "/ai-weekly-planner-generator",
+        "variantUrl": "/tools/variants/ai-weekly-planner-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-todo-list-generator",
+        "name": "AI To-Do List Generator",
+        "mainUrl": "/ai-todo-list-generator",
+        "variantUrl": "/tools/variants/ai-to-do-list-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-decision-maker",
+        "name": "AI Decision Maker",
+        "mainUrl": "/ai-decision-maker",
+        "variantUrl": "/tools/variants/ai-decision-maker-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-flashcard-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-flashcard-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-flashcard-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-flashcard-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-homework-solver",
+        "name": "AI Homework Solver",
+        "mainUrl": "/ai-homework-solver",
+        "variantUrl": "/tools/variants/ai-homework-solver-free-unlimited.html"
+      },
+      {
+        "slug": "ai-text-summarizer",
+        "name": "AI Text Summarizer",
+        "mainUrl": "/ai-text-summarizer",
+        "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-faq-generator",
+        "name": "AI FAQ Generator",
+        "mainUrl": "/ai-faq-generator",
+        "variantUrl": "/tools/variants/ai-faq-generator-free-unlimited.html"
+      },
+      {
+        "slug": "explain-this-ai",
+        "name": "AI Explain This",
+        "mainUrl": "/explain-this-ai",
+        "variantUrl": "/tools/variants/ai-explain-this-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-personal-statement-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-personal-statement-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-personal-statement-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-personal-statement-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-cover-letter-generator",
+        "name": "AI Cover Letter Generator",
+        "mainUrl": "/ai-cover-letter-generator",
+        "variantUrl": "/tools/variants/ai-cover-letter-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-essay-writer",
+        "name": "AI Essay Writer",
+        "mainUrl": "/ai-essay-writer",
+        "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-linkedin-summary-generator",
+        "name": "AI LinkedIn Summary Generator",
+        "mainUrl": "/ai-linkedin-summary-generator",
+        "variantUrl": "/tools/variants/ai-linkedin-summary-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-resume-bullet-generator",
+        "name": "AI Resume Bullet Generator",
+        "mainUrl": "/ai-resume-bullet-generator",
+        "variantUrl": "/tools/variants/ai-resume-bullet-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-local-knowledge-chat": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-local-knowledge-chat-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-local-knowledge-chat-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-local-knowledge-chat-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-chatbot",
+        "name": "AI Chatbot",
+        "mainUrl": "/ai-chatbot",
+        "variantUrl": "/tools/variants/ai-chatbot-free-unlimited.html"
+      },
+      {
+        "slug": "ai-document-analyzer",
+        "name": "AI Document Analyzer",
+        "mainUrl": "/ai-document-analyzer",
+        "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-pdf-chat",
+        "name": "AI PDF Chat",
+        "mainUrl": "/ai-pdf-chat",
+        "variantUrl": "/tools/variants/ai-pdf-chat-free-unlimited.html"
+      },
+      {
+        "slug": "ai-text-summarizer",
+        "name": "AI Text Summarizer",
+        "mainUrl": "/ai-text-summarizer",
+        "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-citation-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-citation-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-citation-generator-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-citation-generator-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-essay-writer",
+        "name": "AI Essay Writer",
+        "mainUrl": "/ai-essay-writer",
+        "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-plagiarism-checker",
+        "name": "AI Plagiarism Checker",
+        "mainUrl": "/ai-plagiarism-checker",
+        "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
+      },
+      {
+        "slug": "ai-document-analyzer",
+        "name": "AI Document Analyzer",
+        "mainUrl": "/ai-document-analyzer",
+        "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-content-brief-generator",
+        "name": "AI Content Brief Generator",
+        "mainUrl": "/ai-content-brief-generator",
+        "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-readability-analyzer": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-readability-analyzer-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-readability-analyzer-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-readability-analyzer-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-grammar-checker",
+        "name": "AI Grammar Checker",
+        "mainUrl": "/ai-grammar-checker",
+        "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
+      },
+      {
+        "slug": "ai-writing-feedback-coach",
+        "name": "AI Writing Feedback Coach",
+        "mainUrl": "/ai-writing-feedback-coach",
+        "variantUrl": "/tools/variants/ai-writing-feedback-coach-free-unlimited.html"
+      },
+      {
+        "slug": "ai-sentence-simplifier",
+        "name": "AI Sentence Simplifier",
+        "mainUrl": "/ai-sentence-simplifier",
+        "variantUrl": "/tools/variants/ai-sentence-simplifier-free-unlimited.html"
+      },
+      {
+        "slug": "word-counter",
+        "name": "Word Counter",
+        "mainUrl": "/word-counter",
+        "variantUrl": "/tools/variants/best-word-counter-2025.html"
+      }
+    ]
+  },
+  "ai-contract-simplifier": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-contract-simplifier-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-contract-simplifier-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-contract-simplifier-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-document-analyzer",
+        "name": "AI Document Analyzer",
+        "mainUrl": "/ai-document-analyzer",
+        "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-pii-redactor",
+        "name": "AI PII Redactor",
+        "mainUrl": "/ai-pii-redactor",
+        "variantUrl": "/tools/variants/ai-pii-redactor-free-unlimited.html"
+      },
+      {
+        "slug": "ai-text-summarizer",
+        "name": "AI Text Summarizer",
+        "mainUrl": "/ai-text-summarizer",
+        "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-pdf-summarizer",
+        "name": "AI PDF Summarizer",
+        "mainUrl": "/ai-pdf-summarizer",
+        "variantUrl": "/tools/variants/ai-pdf-summarizer-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-pii-redactor": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-pii-redactor-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-pii-redactor-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-pii-redactor-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-contract-simplifier",
+        "name": "AI Contract Simplifier",
+        "mainUrl": "/ai-contract-simplifier",
+        "variantUrl": "/tools/variants/ai-contract-simplifier-free-unlimited.html"
+      },
+      {
+        "slug": "ai-document-analyzer",
+        "name": "AI Document Analyzer",
+        "mainUrl": "/ai-document-analyzer",
+        "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-text-summarizer",
+        "name": "AI Text Summarizer",
+        "mainUrl": "/ai-text-summarizer",
+        "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-pdf-summarizer",
+        "name": "AI PDF Summarizer",
+        "mainUrl": "/ai-pdf-summarizer",
+        "variantUrl": "/tools/variants/ai-pdf-summarizer-free-unlimited.html"
+      }
+    ]
+  },
+  "random-number-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/best-random-number-generator-2025.html",
+        "label": "Best 2025"
+      },
+      {
+        "url": "/tools/variants/free-random-number-generator.html",
+        "label": "Free Version"
+      },
+      {
+        "url": "/tools/variants/private-random-number-generator-no-data.html",
+        "label": "Private & Secure"
+      }
+    ],
+    "related": [
+      {
+        "slug": "password-generator",
+        "name": "Password Generator",
+        "mainUrl": "/password-generator",
+        "variantUrl": "/tools/variants/best-password-generator-2025.html"
+      },
+      {
+        "slug": "color-palette-generator",
+        "name": "Color Palette Generator",
+        "mainUrl": "/color-palette-generator",
+        "variantUrl": "/tools/variants/best-color-palette-generator-2025.html"
+      },
+      {
+        "slug": "lorem-ipsum-generator",
+        "name": "Lorem Ipsum Generator",
+        "mainUrl": "/lorem-ipsum-generator",
+        "variantUrl": "/tools/variants/best-lorem-ipsum-generator-2025.html"
+      },
+      {
+        "slug": "diff-checker",
+        "name": "Diff Checker",
+        "mainUrl": "/diff-checker",
+        "variantUrl": "/tools/variants/best-diff-checker-2025.html"
+      }
+    ]
+  },
+  "diff-checker": {
+    "variants": [
+      {
+        "url": "/tools/variants/best-diff-checker-2025.html",
+        "label": "Best 2025"
+      },
+      {
+        "url": "/tools/variants/diff-checker-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/diff-checker-no-signup.html",
+        "label": "No Signup Required"
+      }
+    ],
+    "related": [
+      {
+        "slug": "json-validator",
+        "name": "JSON Validator & Formatter",
+        "mainUrl": "/json-validator",
+        "variantUrl": "/tools/variants/best-json-validator-formatter-2025.html"
+      },
+      {
+        "slug": "markdown-converter",
+        "name": "Markdown Converter",
+        "mainUrl": "/markdown-converter",
+        "variantUrl": "/tools/variants/best-markdown-converter-2025.html"
+      },
+      {
+        "slug": "regex-tester",
+        "name": "Regex Tester",
+        "mainUrl": "/regex-tester",
+        "variantUrl": "/tools/variants/best-regex-tester-2025.html"
+      },
+      {
+        "slug": "word-counter",
+        "name": "Word Counter",
+        "mainUrl": "/word-counter",
+        "variantUrl": "/tools/variants/best-word-counter-2025.html"
+      }
+    ]
+  },
+  "color-palette-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/best-color-palette-generator-2025.html",
+        "label": "Best 2025"
+      },
+      {
+        "url": "/tools/variants/color-palette-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/color-palette-generator-no-signup.html",
+        "label": "No Signup Required"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-image-prompt-generator",
+        "name": "AI Image Prompt Generator",
+        "mainUrl": "/ai-image-prompt-generator",
+        "variantUrl": "/tools/variants/ai-image-prompt-generator-free-unlimited.html"
+      },
+      {
+        "slug": "random-number-generator",
+        "name": "Random Number Generator",
+        "mainUrl": "/random-number-generator",
+        "variantUrl": "/tools/variants/best-random-number-generator-2025.html"
+      },
+      {
+        "slug": "ai-instagram-caption-generator",
+        "name": "AI Instagram Caption Generator",
+        "mainUrl": "/ai-instagram-caption-generator",
+        "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-ad-copy-generator",
+        "name": "AI Ad Copy Generator",
+        "mainUrl": "/ai-ad-copy-generator",
+        "variantUrl": "/tools/variants/ai-ad-copy-generator-free-unlimited.html"
+      }
+    ]
+  },
+  "password-generator": {
+    "variants": [
+      {
+        "url": "/tools/variants/best-password-generator-2025.html",
+        "label": "Best 2025"
+      },
+      {
+        "url": "/tools/variants/free-password-generator.html",
+        "label": "Free Version"
+      },
+      {
+        "url": "/tools/variants/password-generator-free-unlimited.html",
+        "label": "Free & Unlimited"
+      }
+    ],
+    "related": [
+      {
+        "slug": "random-number-generator",
+        "name": "Random Number Generator",
+        "mainUrl": "/random-number-generator",
+        "variantUrl": "/tools/variants/best-random-number-generator-2025.html"
+      },
+      {
+        "slug": "ai-pii-redactor",
+        "name": "AI PII Redactor",
+        "mainUrl": "/ai-pii-redactor",
+        "variantUrl": "/tools/variants/ai-pii-redactor-free-unlimited.html"
+      },
+      {
+        "slug": "ai-local-knowledge-chat",
+        "name": "AI Local Knowledge Chat",
+        "mainUrl": "/ai-local-knowledge-chat",
+        "variantUrl": "/tools/variants/ai-local-knowledge-chat-free-unlimited.html"
+      },
+      {
+        "slug": "diff-checker",
+        "name": "Diff Checker",
+        "mainUrl": "/diff-checker",
+        "variantUrl": "/tools/variants/best-diff-checker-2025.html"
+      }
+    ]
+  },
+  "ai-homework-solver": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-homework-solver-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-homework-solver-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-homework-solver-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "explain-this-ai",
+        "name": "AI Explain This",
+        "mainUrl": "/explain-this-ai",
+        "variantUrl": "/tools/variants/ai-explain-this-free-unlimited.html"
+      },
+      {
+        "slug": "ai-flashcard-generator",
+        "name": "AI Flashcard Generator",
+        "mainUrl": "/ai-flashcard-generator",
+        "variantUrl": "/tools/variants/ai-flashcard-generator-free-unlimited.html"
+      },
+      {
+        "slug": "ai-essay-writer",
+        "name": "AI Essay Writer",
+        "mainUrl": "/ai-essay-writer",
+        "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-chatbot",
+        "name": "AI Chatbot",
+        "mainUrl": "/ai-chatbot",
+        "variantUrl": "/tools/variants/ai-chatbot-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-text-detector": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-text-detector-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-text-detector-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-text-detector-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-humanizer",
+        "name": "AI Text Humanizer",
+        "mainUrl": "/ai-humanizer",
+        "variantUrl": "/tools/variants/ai-text-humanizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-plagiarism-checker",
+        "name": "AI Plagiarism Checker",
+        "mainUrl": "/ai-plagiarism-checker",
+        "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
+      },
+      {
+        "slug": "ai-grammar-checker",
+        "name": "AI Grammar Checker",
+        "mainUrl": "/ai-grammar-checker",
+        "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
+      },
+      {
+        "slug": "ai-paraphrasing-tool",
+        "name": "AI Paraphrasing Tool",
+        "mainUrl": "/ai-paraphrasing-tool",
+        "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-pdf-chat": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-pdf-chat-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-pdf-chat-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-pdf-chat-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-pdf-summarizer",
+        "name": "AI PDF Summarizer",
+        "mainUrl": "/ai-pdf-summarizer",
+        "variantUrl": "/tools/variants/ai-pdf-summarizer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-document-analyzer",
+        "name": "AI Document Analyzer",
+        "mainUrl": "/ai-document-analyzer",
+        "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
+      },
+      {
+        "slug": "ai-local-knowledge-chat",
+        "name": "AI Local Knowledge Chat",
+        "mainUrl": "/ai-local-knowledge-chat",
+        "variantUrl": "/tools/variants/ai-local-knowledge-chat-free-unlimited.html"
+      },
+      {
+        "slug": "ai-contract-simplifier",
+        "name": "AI Contract Simplifier",
+        "mainUrl": "/ai-contract-simplifier",
+        "variantUrl": "/tools/variants/ai-contract-simplifier-free-unlimited.html"
+      }
+    ]
+  },
+  "ai-code-playground": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-code-playground-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-code-playground-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-code-playground-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-code-explainer",
+        "name": "AI Code Explainer",
+        "mainUrl": "/ai-code-explainer",
+        "variantUrl": "/tools/variants/ai-code-explainer-free-unlimited.html"
+      },
+      {
+        "slug": "regex-tester",
+        "name": "Regex Tester",
+        "mainUrl": "/regex-tester",
+        "variantUrl": "/tools/variants/best-regex-tester-2025.html"
+      },
+      {
+        "slug": "json-validator",
+        "name": "JSON Validator & Formatter",
+        "mainUrl": "/json-validator",
+        "variantUrl": "/tools/variants/best-json-validator-formatter-2025.html"
+      },
+      {
+        "slug": "diff-checker",
+        "name": "Diff Checker",
+        "mainUrl": "/diff-checker",
+        "variantUrl": "/tools/variants/best-diff-checker-2025.html"
+      }
+    ]
+  },
+  "ai-code-explainer": {
+    "variants": [
+      {
+        "url": "/tools/variants/ai-code-explainer-free-unlimited.html",
+        "label": "Free & Unlimited"
+      },
+      {
+        "url": "/tools/variants/ai-code-explainer-no-signup.html",
+        "label": "No Signup Required"
+      },
+      {
+        "url": "/tools/variants/ai-code-explainer-runs-in-browser.html",
+        "label": "Browser-Based"
+      }
+    ],
+    "related": [
+      {
+        "slug": "ai-code-playground",
+        "name": "AI Code Playground",
+        "mainUrl": "/ai-code-playground",
+        "variantUrl": "/tools/variants/ai-code-playground-free-unlimited.html"
+      },
+      {
+        "slug": "regex-tester",
+        "name": "Regex Tester",
+        "mainUrl": "/regex-tester",
+        "variantUrl": "/tools/variants/best-regex-tester-2025.html"
+      },
+      {
+        "slug": "json-validator",
+        "name": "JSON Validator & Formatter",
+        "mainUrl": "/json-validator",
+        "variantUrl": "/tools/variants/best-json-validator-formatter-2025.html"
+      },
+      {
+        "slug": "markdown-converter",
+        "name": "Markdown Converter",
+        "mainUrl": "/markdown-converter",
+        "variantUrl": "/tools/variants/best-markdown-converter-2025.html"
+      }
+    ]
+  },
+  "regex-tester": {
+    "variants": [
+      {
+        "url": "/tools/variants/best-regex-tester-2025.html",
+        "label": "Best 2025"
+      },
+      {
+        "url": "/tools/variants/free-regex-tester.html",
+        "label": "Free Version"
+      },
+      {
+        "url": "/tools/variants/private-regex-tester-no-data.html",
+        "label": "Private & Secure"
+      }
+    ],
+    "related": [
+      {
+        "slug": "json-validator",
+        "name": "JSON Validator & Formatter",
+        "mainUrl": "/json-validator",
+        "variantUrl": "/tools/variants/best-json-validator-formatter-2025.html"
+      },
+      {
+        "slug": "ai-code-explainer",
+        "name": "AI Code Explainer",
+        "mainUrl": "/ai-code-explainer",
+        "variantUrl": "/tools/variants/ai-code-explainer-free-unlimited.html"
+      },
+      {
+        "slug": "diff-checker",
+        "name": "Diff Checker",
+        "mainUrl": "/diff-checker",
+        "variantUrl": "/tools/variants/best-diff-checker-2025.html"
+      },
+      {
+        "slug": "markdown-converter",
+        "name": "Markdown Converter",
+        "mainUrl": "/markdown-converter",
+        "variantUrl": "/tools/variants/best-markdown-converter-2025.html"
+      }
+    ]
+  },
+  "markdown-converter": {
+    "variants": [
+      {
+        "url": "/tools/variants/best-markdown-converter-2025.html",
+        "label": "Best 2025"
+      },
+      {
+        "url": "/tools/variants/free-markdown-converter.html",
+        "label": "Free Version"
+      },
+      {
+        "url": "/tools/variants/markdown-converter-free-unlimited.html",
+        "label": "Free & Unlimited"
+      }
+    ],
+    "related": [
+      {
+        "slug": "json-validator",
+        "name": "JSON Validator & Formatter",
+        "mainUrl": "/json-validator",
+        "variantUrl": "/tools/variants/best-json-validator-formatter-2025.html"
+      },
+      {
+        "slug": "regex-tester",
+        "name": "Regex Tester",
+        "mainUrl": "/regex-tester",
+        "variantUrl": "/tools/variants/best-regex-tester-2025.html"
+      },
+      {
+        "slug": "diff-checker",
+        "name": "Diff Checker",
+        "mainUrl": "/diff-checker",
+        "variantUrl": "/tools/variants/best-diff-checker-2025.html"
+      },
+      {
+        "slug": "ai-code-explainer",
+        "name": "AI Code Explainer",
+        "mainUrl": "/ai-code-explainer",
+        "variantUrl": "/tools/variants/ai-code-explainer-free-unlimited.html"
+      }
+    ]
+  },
+  "json-validator": {
+    "variants": [
+      {
+        "url": "/tools/variants/best-json-validator-formatter-2025.html",
+        "label": "Best 2025"
+      },
+      {
+        "url": "/tools/variants/free-json-validator-formatter.html",
+        "label": "Free Version"
+      },
+      {
+        "url": "/tools/variants/json-validator-formatter-free-unlimited.html",
+        "label": "Free & Unlimited"
+      }
+    ],
+    "related": [
+      {
+        "slug": "regex-tester",
+        "name": "Regex Tester",
+        "mainUrl": "/regex-tester",
+        "variantUrl": "/tools/variants/best-regex-tester-2025.html"
+      },
+      {
+        "slug": "markdown-converter",
+        "name": "Markdown Converter",
+        "mainUrl": "/markdown-converter",
+        "variantUrl": "/tools/variants/best-markdown-converter-2025.html"
+      },
+      {
+        "slug": "diff-checker",
+        "name": "Diff Checker",
+        "mainUrl": "/diff-checker",
+        "variantUrl": "/tools/variants/best-diff-checker-2025.html"
+      },
+      {
+        "slug": "ai-schema-markup-generator",
+        "name": "AI Schema Markup Generator",
+        "mainUrl": "/ai-schema-markup-generator",
+        "variantUrl": "/tools/variants/ai-schema-markup-generator-free-unlimited.html"
+      }
+    ]
+  }
+}
