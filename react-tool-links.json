@@ -18,25 +18,25 @@
       {
         "slug": "ai-homework-solver",
         "name": "AI Homework Solver",
-        "mainUrl": "/ai-homework-solver",
+        "mainUrl": "/tools/ai-homework-solver.html",
         "variantUrl": "/tools/variants/ai-homework-solver-free-unlimited.html"
       },
       {
         "slug": "explain-this-ai",
         "name": "AI Explain This",
-        "mainUrl": "/explain-this-ai",
+        "mainUrl": "/tools/explain-this-ai.html",
         "variantUrl": "/tools/variants/ai-explain-this-free-unlimited.html"
       },
       {
         "slug": "ai-document-analyzer",
         "name": "AI Document Analyzer",
-        "mainUrl": "/ai-document-analyzer",
+        "mainUrl": "/tools/ai-document-analyzer.html",
         "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
       },
       {
         "slug": "ai-message-analyzer",
         "name": "AI Message Analyzer",
-        "mainUrl": "/ai-message-analyzer",
+        "mainUrl": "/tools/ai-message-analyzer.html",
         "variantUrl": "/tools/variants/ai-message-analyzer-free-unlimited.html"
       }
     ]
@@ -60,25 +60,25 @@
       {
         "slug": "ai-headline-improver",
         "name": "AI Headline Improver",
-        "mainUrl": "/ai-headline-improver",
+        "mainUrl": "/tools/ai-headline-improver.html",
         "variantUrl": "/tools/variants/ai-headline-improver-free-unlimited.html"
       },
       {
         "slug": "ai-cta-generator",
         "name": "AI Call-to-Action Generator",
-        "mainUrl": "/ai-cta-generator",
+        "mainUrl": "/tools/ai-cta-generator.html",
         "variantUrl": "/tools/variants/ai-call-to-action-generator-free-unlimited.html"
       },
       {
         "slug": "ai-blog-outline-generator",
         "name": "AI Blog Outline Generator",
-        "mainUrl": "/ai-blog-outline-generator",
+        "mainUrl": "/tools/ai-blog-outline-generator.html",
         "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
       },
       {
         "slug": "ai-paragraph-rewriter",
         "name": "AI Paragraph Rewriter",
-        "mainUrl": "/ai-paragraph-rewriter",
+        "mainUrl": "/tools/ai-paragraph-rewriter.html",
         "variantUrl": "/tools/variants/ai-paragraph-rewriter-free-unlimited.html"
       }
     ]
@@ -102,25 +102,25 @@
       {
         "slug": "ai-paraphrasing-tool",
         "name": "AI Paraphrasing Tool",
-        "mainUrl": "/ai-paraphrasing-tool",
+        "mainUrl": "/tools/ai-paraphrasing-tool.html",
         "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
       },
       {
         "slug": "ai-tone-converter",
         "name": "AI Tone Converter",
-        "mainUrl": "/ai-tone-converter",
+        "mainUrl": "/tools/ai-tone-converter.html",
         "variantUrl": "/tools/variants/ai-tone-converter-free-unlimited.html"
       },
       {
         "slug": "ai-sentence-simplifier",
         "name": "AI Sentence Simplifier",
-        "mainUrl": "/ai-sentence-simplifier",
+        "mainUrl": "/tools/ai-sentence-simplifier.html",
         "variantUrl": "/tools/variants/ai-sentence-simplifier-free-unlimited.html"
       },
       {
         "slug": "ai-humanizer",
         "name": "AI Text Humanizer",
-        "mainUrl": "/ai-humanizer",
+        "mainUrl": "/tools/ai-humanizer.html",
         "variantUrl": "/tools/variants/ai-text-humanizer-free-unlimited.html"
       }
     ]
@@ -144,25 +144,25 @@
       {
         "slug": "ai-paraphrasing-tool",
         "name": "AI Paraphrasing Tool",
-        "mainUrl": "/ai-paraphrasing-tool",
+        "mainUrl": "/tools/ai-paraphrasing-tool.html",
         "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
       },
       {
         "slug": "ai-paragraph-rewriter",
         "name": "AI Paragraph Rewriter",
-        "mainUrl": "/ai-paragraph-rewriter",
+        "mainUrl": "/tools/ai-paragraph-rewriter.html",
         "variantUrl": "/tools/variants/ai-paragraph-rewriter-free-unlimited.html"
       },
       {
         "slug": "ai-readability-analyzer",
         "name": "AI Readability Analyzer",
-        "mainUrl": "/ai-readability-analyzer",
+        "mainUrl": "/tools/ai-readability-analyzer.html",
         "variantUrl": "/tools/variants/ai-readability-analyzer-free-unlimited.html"
       },
       {
         "slug": "ai-humanizer",
         "name": "AI Text Humanizer",
-        "mainUrl": "/ai-humanizer",
+        "mainUrl": "/tools/ai-humanizer.html",
         "variantUrl": "/tools/variants/ai-text-humanizer-free-unlimited.html"
       }
     ]
@@ -186,25 +186,25 @@
       {
         "slug": "ai-paragraph-rewriter",
         "name": "AI Paragraph Rewriter",
-        "mainUrl": "/ai-paragraph-rewriter",
+        "mainUrl": "/tools/ai-paragraph-rewriter.html",
         "variantUrl": "/tools/variants/ai-paragraph-rewriter-free-unlimited.html"
       },
       {
         "slug": "ai-blog-post-generator",
         "name": "AI Blog Post Generator",
-        "mainUrl": "/ai-blog-post-generator",
+        "mainUrl": "/tools/ai-blog-post-generator.html",
         "variantUrl": "/tools/variants/ai-blog-post-generator-free-unlimited.html"
       },
       {
         "slug": "ai-bullet-points-generator",
         "name": "AI Bullet Points Generator",
-        "mainUrl": "/ai-bullet-points-generator",
+        "mainUrl": "/tools/ai-bullet-points-generator.html",
         "variantUrl": "/tools/variants/ai-bullet-points-generator-free-unlimited.html"
       },
       {
         "slug": "ai-essay-writer",
         "name": "AI Essay Writer",
-        "mainUrl": "/ai-essay-writer",
+        "mainUrl": "/tools/ai-essay-writer.html",
         "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
       }
     ]
@@ -228,25 +228,25 @@
       {
         "slug": "ai-paraphrasing-tool",
         "name": "AI Paraphrasing Tool",
-        "mainUrl": "/ai-paraphrasing-tool",
+        "mainUrl": "/tools/ai-paraphrasing-tool.html",
         "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
       },
       {
         "slug": "ai-text-summarizer",
         "name": "AI Text Summarizer",
-        "mainUrl": "/ai-text-summarizer",
+        "mainUrl": "/tools/ai-text-summarizer.html",
         "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
       },
       {
         "slug": "ai-sentence-simplifier",
         "name": "AI Sentence Simplifier",
-        "mainUrl": "/ai-sentence-simplifier",
+        "mainUrl": "/tools/ai-sentence-simplifier.html",
         "variantUrl": "/tools/variants/ai-sentence-simplifier-free-unlimited.html"
       },
       {
         "slug": "ai-readability-analyzer",
         "name": "AI Readability Analyzer",
-        "mainUrl": "/ai-readability-analyzer",
+        "mainUrl": "/tools/ai-readability-analyzer.html",
         "variantUrl": "/tools/variants/ai-readability-analyzer-free-unlimited.html"
       }
     ]
@@ -270,25 +270,25 @@
       {
         "slug": "ai-paragraph-rewriter",
         "name": "AI Paragraph Rewriter",
-        "mainUrl": "/ai-paragraph-rewriter",
+        "mainUrl": "/tools/ai-paragraph-rewriter.html",
         "variantUrl": "/tools/variants/ai-paragraph-rewriter-free-unlimited.html"
       },
       {
         "slug": "ai-paraphrasing-tool",
         "name": "AI Paraphrasing Tool",
-        "mainUrl": "/ai-paraphrasing-tool",
+        "mainUrl": "/tools/ai-paraphrasing-tool.html",
         "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
       },
       {
         "slug": "ai-humanizer",
         "name": "AI Text Humanizer",
-        "mainUrl": "/ai-humanizer",
+        "mainUrl": "/tools/ai-humanizer.html",
         "variantUrl": "/tools/variants/ai-text-humanizer-free-unlimited.html"
       },
       {
         "slug": "ai-email-response-generator",
         "name": "AI Email Response Generator",
-        "mainUrl": "/ai-email-response-generator",
+        "mainUrl": "/tools/ai-email-response-generator.html",
         "variantUrl": "/tools/variants/ai-email-response-generator-free-unlimited.html"
       }
     ]
@@ -312,25 +312,25 @@
       {
         "slug": "ai-hook-generator",
         "name": "AI Hook Generator",
-        "mainUrl": "/ai-hook-generator",
+        "mainUrl": "/tools/ai-hook-generator.html",
         "variantUrl": "/tools/variants/ai-hook-generator-free-unlimited.html"
       },
       {
         "slug": "ai-seo-title-generator",
         "name": "AI SEO Title Generator",
-        "mainUrl": "/ai-seo-title-generator",
+        "mainUrl": "/tools/ai-seo-title-generator.html",
         "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
       },
       {
         "slug": "ai-cta-generator",
         "name": "AI Call-to-Action Generator",
-        "mainUrl": "/ai-cta-generator",
+        "mainUrl": "/tools/ai-cta-generator.html",
         "variantUrl": "/tools/variants/ai-call-to-action-generator-free-unlimited.html"
       },
       {
         "slug": "ai-blog-outline-generator",
         "name": "AI Blog Outline Generator",
-        "mainUrl": "/ai-blog-outline-generator",
+        "mainUrl": "/tools/ai-blog-outline-generator.html",
         "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
       }
     ]
@@ -354,25 +354,25 @@
       {
         "slug": "ai-blog-outline-generator",
         "name": "AI Blog Outline Generator",
-        "mainUrl": "/ai-blog-outline-generator",
+        "mainUrl": "/tools/ai-blog-outline-generator.html",
         "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
       },
       {
         "slug": "ai-resume-bullet-generator",
         "name": "AI Resume Bullet Generator",
-        "mainUrl": "/ai-resume-bullet-generator",
+        "mainUrl": "/tools/ai-resume-bullet-generator.html",
         "variantUrl": "/tools/variants/ai-resume-bullet-generator-free-unlimited.html"
       },
       {
         "slug": "ai-faq-generator",
         "name": "AI FAQ Generator",
-        "mainUrl": "/ai-faq-generator",
+        "mainUrl": "/tools/ai-faq-generator.html",
         "variantUrl": "/tools/variants/ai-faq-generator-free-unlimited.html"
       },
       {
         "slug": "ai-meeting-summary-generator",
         "name": "AI Meeting Summary Generator",
-        "mainUrl": "/ai-meeting-summary-generator",
+        "mainUrl": "/tools/ai-meeting-summary-generator.html",
         "variantUrl": "/tools/variants/ai-meeting-summary-generator-free-unlimited.html"
       }
     ]
@@ -396,25 +396,25 @@
       {
         "slug": "ai-blog-post-generator",
         "name": "AI Blog Post Generator",
-        "mainUrl": "/ai-blog-post-generator",
+        "mainUrl": "/tools/ai-blog-post-generator.html",
         "variantUrl": "/tools/variants/ai-blog-post-generator-free-unlimited.html"
       },
       {
         "slug": "ai-content-brief-generator",
         "name": "AI Content Brief Generator",
-        "mainUrl": "/ai-content-brief-generator",
+        "mainUrl": "/tools/ai-content-brief-generator.html",
         "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
       },
       {
         "slug": "ai-faq-generator",
         "name": "AI FAQ Generator",
-        "mainUrl": "/ai-faq-generator",
+        "mainUrl": "/tools/ai-faq-generator.html",
         "variantUrl": "/tools/variants/ai-faq-generator-free-unlimited.html"
       },
       {
         "slug": "ai-keyword-generator",
         "name": "AI Keyword Generator",
-        "mainUrl": "/ai-keyword-generator",
+        "mainUrl": "/tools/ai-keyword-generator.html",
         "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
       }
     ]
@@ -438,25 +438,25 @@
       {
         "slug": "ai-pdf-summarizer",
         "name": "AI PDF Summarizer",
-        "mainUrl": "/ai-pdf-summarizer",
+        "mainUrl": "/tools/ai-pdf-summarizer.html",
         "variantUrl": "/tools/variants/ai-pdf-summarizer-free-unlimited.html"
       },
       {
         "slug": "ai-youtube-summarizer",
         "name": "AI YouTube Summarizer",
-        "mainUrl": "/ai-youtube-summarizer",
+        "mainUrl": "/tools/ai-youtube-summarizer.html",
         "variantUrl": "/tools/variants/ai-youtube-summarizer-free-unlimited.html"
       },
       {
         "slug": "ai-document-analyzer",
         "name": "AI Document Analyzer",
-        "mainUrl": "/ai-document-analyzer",
+        "mainUrl": "/tools/ai-document-analyzer.html",
         "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
       },
       {
         "slug": "ai-meeting-summary-generator",
         "name": "AI Meeting Summary Generator",
-        "mainUrl": "/ai-meeting-summary-generator",
+        "mainUrl": "/tools/ai-meeting-summary-generator.html",
         "variantUrl": "/tools/variants/ai-meeting-summary-generator-free-unlimited.html"
       }
     ]
@@ -480,25 +480,25 @@
       {
         "slug": "ai-plagiarism-checker",
         "name": "AI Plagiarism Checker",
-        "mainUrl": "/ai-plagiarism-checker",
+        "mainUrl": "/tools/ai-plagiarism-checker.html",
         "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
       },
       {
         "slug": "ai-paraphrasing-tool",
         "name": "AI Paraphrasing Tool",
-        "mainUrl": "/ai-paraphrasing-tool",
+        "mainUrl": "/tools/ai-paraphrasing-tool.html",
         "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
       },
       {
         "slug": "ai-writing-feedback-coach",
         "name": "AI Writing Feedback Coach",
-        "mainUrl": "/ai-writing-feedback-coach",
+        "mainUrl": "/tools/ai-writing-feedback-coach.html",
         "variantUrl": "/tools/variants/ai-writing-feedback-coach-free-unlimited.html"
       },
       {
         "slug": "ai-readability-analyzer",
         "name": "AI Readability Analyzer",
-        "mainUrl": "/ai-readability-analyzer",
+        "mainUrl": "/tools/ai-readability-analyzer.html",
         "variantUrl": "/tools/variants/ai-readability-analyzer-free-unlimited.html"
       }
     ]
@@ -522,25 +522,25 @@
       {
         "slug": "ai-paraphrasing-tool",
         "name": "AI Paraphrasing Tool",
-        "mainUrl": "/ai-paraphrasing-tool",
+        "mainUrl": "/tools/ai-paraphrasing-tool.html",
         "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
       },
       {
         "slug": "ai-grammar-checker",
         "name": "AI Grammar Checker",
-        "mainUrl": "/ai-grammar-checker",
+        "mainUrl": "/tools/ai-grammar-checker.html",
         "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
       },
       {
         "slug": "ai-paragraph-rewriter",
         "name": "AI Paragraph Rewriter",
-        "mainUrl": "/ai-paragraph-rewriter",
+        "mainUrl": "/tools/ai-paragraph-rewriter.html",
         "variantUrl": "/tools/variants/ai-paragraph-rewriter-free-unlimited.html"
       },
       {
         "slug": "ai-humanizer",
         "name": "AI Text Humanizer",
-        "mainUrl": "/ai-humanizer",
+        "mainUrl": "/tools/ai-humanizer.html",
         "variantUrl": "/tools/variants/ai-text-humanizer-free-unlimited.html"
       }
     ]
@@ -564,25 +564,25 @@
       {
         "slug": "ai-paragraph-rewriter",
         "name": "AI Paragraph Rewriter",
-        "mainUrl": "/ai-paragraph-rewriter",
+        "mainUrl": "/tools/ai-paragraph-rewriter.html",
         "variantUrl": "/tools/variants/ai-paragraph-rewriter-free-unlimited.html"
       },
       {
         "slug": "ai-grammar-checker",
         "name": "AI Grammar Checker",
-        "mainUrl": "/ai-grammar-checker",
+        "mainUrl": "/tools/ai-grammar-checker.html",
         "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
       },
       {
         "slug": "ai-humanizer",
         "name": "AI Text Humanizer",
-        "mainUrl": "/ai-humanizer",
+        "mainUrl": "/tools/ai-humanizer.html",
         "variantUrl": "/tools/variants/ai-text-humanizer-free-unlimited.html"
       },
       {
         "slug": "ai-plagiarism-checker",
         "name": "AI Plagiarism Checker",
-        "mainUrl": "/ai-plagiarism-checker",
+        "mainUrl": "/tools/ai-plagiarism-checker.html",
         "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
       }
     ]
@@ -606,25 +606,25 @@
       {
         "slug": "ai-prompt-generator",
         "name": "AI Prompt Generator",
-        "mainUrl": "/ai-prompt-generator",
+        "mainUrl": "/tools/ai-prompt-generator.html",
         "variantUrl": "/tools/variants/ai-prompt-generator-free-unlimited.html"
       },
       {
         "slug": "ai-blog-post-generator",
         "name": "AI Blog Post Generator",
-        "mainUrl": "/ai-blog-post-generator",
+        "mainUrl": "/tools/ai-blog-post-generator.html",
         "variantUrl": "/tools/variants/ai-blog-post-generator-free-unlimited.html"
       },
       {
         "slug": "ai-content-brief-generator",
         "name": "AI Content Brief Generator",
-        "mainUrl": "/ai-content-brief-generator",
+        "mainUrl": "/tools/ai-content-brief-generator.html",
         "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
       },
       {
         "slug": "ai-instagram-caption-generator",
         "name": "AI Instagram Caption Generator",
-        "mainUrl": "/ai-instagram-caption-generator",
+        "mainUrl": "/tools/ai-instagram-caption-generator.html",
         "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
       }
     ]
@@ -648,25 +648,25 @@
       {
         "slug": "ai-text-summarizer",
         "name": "AI Text Summarizer",
-        "mainUrl": "/ai-text-summarizer",
+        "mainUrl": "/tools/ai-text-summarizer.html",
         "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
       },
       {
         "slug": "ai-document-analyzer",
         "name": "AI Document Analyzer",
-        "mainUrl": "/ai-document-analyzer",
+        "mainUrl": "/tools/ai-document-analyzer.html",
         "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
       },
       {
         "slug": "ai-pdf-chat",
         "name": "AI PDF Chat",
-        "mainUrl": "/ai-pdf-chat",
+        "mainUrl": "/tools/ai-pdf-chat.html",
         "variantUrl": "/tools/variants/ai-pdf-chat-free-unlimited.html"
       },
       {
         "slug": "ai-youtube-summarizer",
         "name": "AI YouTube Summarizer",
-        "mainUrl": "/ai-youtube-summarizer",
+        "mainUrl": "/tools/ai-youtube-summarizer.html",
         "variantUrl": "/tools/variants/ai-youtube-summarizer-free-unlimited.html"
       }
     ]
@@ -690,25 +690,25 @@
       {
         "slug": "ai-paraphrasing-tool",
         "name": "AI Paraphrasing Tool",
-        "mainUrl": "/ai-paraphrasing-tool",
+        "mainUrl": "/tools/ai-paraphrasing-tool.html",
         "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
       },
       {
         "slug": "ai-tone-converter",
         "name": "AI Tone Converter",
-        "mainUrl": "/ai-tone-converter",
+        "mainUrl": "/tools/ai-tone-converter.html",
         "variantUrl": "/tools/variants/ai-tone-converter-free-unlimited.html"
       },
       {
         "slug": "ai-paragraph-rewriter",
         "name": "AI Paragraph Rewriter",
-        "mainUrl": "/ai-paragraph-rewriter",
+        "mainUrl": "/tools/ai-paragraph-rewriter.html",
         "variantUrl": "/tools/variants/ai-paragraph-rewriter-free-unlimited.html"
       },
       {
         "slug": "ai-plagiarism-checker",
         "name": "AI Plagiarism Checker",
-        "mainUrl": "/ai-plagiarism-checker",
+        "mainUrl": "/tools/ai-plagiarism-checker.html",
         "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
       }
     ]
@@ -732,25 +732,25 @@
       {
         "slug": "ai-blog-outline-generator",
         "name": "AI Blog Outline Generator",
-        "mainUrl": "/ai-blog-outline-generator",
+        "mainUrl": "/tools/ai-blog-outline-generator.html",
         "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
       },
       {
         "slug": "ai-content-brief-generator",
         "name": "AI Content Brief Generator",
-        "mainUrl": "/ai-content-brief-generator",
+        "mainUrl": "/tools/ai-content-brief-generator.html",
         "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
       },
       {
         "slug": "ai-seo-title-generator",
         "name": "AI SEO Title Generator",
-        "mainUrl": "/ai-seo-title-generator",
+        "mainUrl": "/tools/ai-seo-title-generator.html",
         "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
       },
       {
         "slug": "ai-faq-generator",
         "name": "AI FAQ Generator",
-        "mainUrl": "/ai-faq-generator",
+        "mainUrl": "/tools/ai-faq-generator.html",
         "variantUrl": "/tools/variants/ai-faq-generator-free-unlimited.html"
       }
     ]
@@ -774,25 +774,25 @@
       {
         "slug": "ai-youtube-title-generator",
         "name": "AI YouTube Title Generator",
-        "mainUrl": "/ai-youtube-title-generator",
+        "mainUrl": "/tools/ai-youtube-title-generator.html",
         "variantUrl": "/tools/variants/ai-youtube-title-generator-free-unlimited.html"
       },
       {
         "slug": "ai-youtube-description-generator",
         "name": "AI YouTube Description Generator",
-        "mainUrl": "/ai-youtube-description-generator",
+        "mainUrl": "/tools/ai-youtube-description-generator.html",
         "variantUrl": "/tools/variants/ai-youtube-description-generator-free-unlimited.html"
       },
       {
         "slug": "ai-hook-generator",
         "name": "AI Hook Generator",
-        "mainUrl": "/ai-hook-generator",
+        "mainUrl": "/tools/ai-hook-generator.html",
         "variantUrl": "/tools/variants/ai-hook-generator-free-unlimited.html"
       },
       {
         "slug": "ai-blog-outline-generator",
         "name": "AI Blog Outline Generator",
-        "mainUrl": "/ai-blog-outline-generator",
+        "mainUrl": "/tools/ai-blog-outline-generator.html",
         "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
       }
     ]
@@ -816,25 +816,25 @@
       {
         "slug": "ai-blog-outline-generator",
         "name": "AI Blog Outline Generator",
-        "mainUrl": "/ai-blog-outline-generator",
+        "mainUrl": "/tools/ai-blog-outline-generator.html",
         "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
       },
       {
         "slug": "ai-content-brief-generator",
         "name": "AI Content Brief Generator",
-        "mainUrl": "/ai-content-brief-generator",
+        "mainUrl": "/tools/ai-content-brief-generator.html",
         "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
       },
       {
         "slug": "ai-schema-markup-generator",
         "name": "AI Schema Markup Generator",
-        "mainUrl": "/ai-schema-markup-generator",
+        "mainUrl": "/tools/ai-schema-markup-generator.html",
         "variantUrl": "/tools/variants/ai-schema-markup-generator-free-unlimited.html"
       },
       {
         "slug": "ai-landing-page-copy-generator",
         "name": "AI Landing Page Copy Generator",
-        "mainUrl": "/ai-landing-page-copy-generator",
+        "mainUrl": "/tools/ai-landing-page-copy-generator.html",
         "variantUrl": "/tools/variants/ai-landing-page-copy-generator-free-unlimited.html"
       }
     ]
@@ -858,25 +858,25 @@
       {
         "slug": "ai-essay-grader",
         "name": "AI Essay Grader",
-        "mainUrl": "/ai-essay-grader",
+        "mainUrl": "/tools/ai-essay-grader.html",
         "variantUrl": "/tools/variants/ai-essay-grader-free-unlimited.html"
       },
       {
         "slug": "ai-writing-feedback-coach",
         "name": "AI Writing Feedback Coach",
-        "mainUrl": "/ai-writing-feedback-coach",
+        "mainUrl": "/tools/ai-writing-feedback-coach.html",
         "variantUrl": "/tools/variants/ai-writing-feedback-coach-free-unlimited.html"
       },
       {
         "slug": "ai-personal-statement-generator",
         "name": "AI Personal Statement Generator",
-        "mainUrl": "/ai-personal-statement-generator",
+        "mainUrl": "/tools/ai-personal-statement-generator.html",
         "variantUrl": "/tools/variants/ai-personal-statement-generator-free-unlimited.html"
       },
       {
         "slug": "ai-plagiarism-checker",
         "name": "AI Plagiarism Checker",
-        "mainUrl": "/ai-plagiarism-checker",
+        "mainUrl": "/tools/ai-plagiarism-checker.html",
         "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
       }
     ]
@@ -900,25 +900,25 @@
       {
         "slug": "ai-essay-writer",
         "name": "AI Essay Writer",
-        "mainUrl": "/ai-essay-writer",
+        "mainUrl": "/tools/ai-essay-writer.html",
         "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
       },
       {
         "slug": "ai-writing-feedback-coach",
         "name": "AI Writing Feedback Coach",
-        "mainUrl": "/ai-writing-feedback-coach",
+        "mainUrl": "/tools/ai-writing-feedback-coach.html",
         "variantUrl": "/tools/variants/ai-writing-feedback-coach-free-unlimited.html"
       },
       {
         "slug": "ai-plagiarism-checker",
         "name": "AI Plagiarism Checker",
-        "mainUrl": "/ai-plagiarism-checker",
+        "mainUrl": "/tools/ai-plagiarism-checker.html",
         "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
       },
       {
         "slug": "ai-grammar-checker",
         "name": "AI Grammar Checker",
-        "mainUrl": "/ai-grammar-checker",
+        "mainUrl": "/tools/ai-grammar-checker.html",
         "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
       }
     ]
@@ -942,25 +942,25 @@
       {
         "slug": "ai-blog-post-generator",
         "name": "AI Blog Post Generator",
-        "mainUrl": "/ai-blog-post-generator",
+        "mainUrl": "/tools/ai-blog-post-generator.html",
         "variantUrl": "/tools/variants/ai-blog-post-generator-free-unlimited.html"
       },
       {
         "slug": "ai-text-summarizer",
         "name": "AI Text Summarizer",
-        "mainUrl": "/ai-text-summarizer",
+        "mainUrl": "/tools/ai-text-summarizer.html",
         "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
       },
       {
         "slug": "ai-instagram-caption-generator",
         "name": "AI Instagram Caption Generator",
-        "mainUrl": "/ai-instagram-caption-generator",
+        "mainUrl": "/tools/ai-instagram-caption-generator.html",
         "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
       },
       {
         "slug": "ai-linkedin-post-generator",
         "name": "AI LinkedIn Post Generator",
-        "mainUrl": "/ai-linkedin-post-generator",
+        "mainUrl": "/tools/ai-linkedin-post-generator.html",
         "variantUrl": "/tools/variants/ai-linkedin-post-generator-free-unlimited.html"
       }
     ]
@@ -984,25 +984,25 @@
       {
         "slug": "ai-essay-grader",
         "name": "AI Essay Grader",
-        "mainUrl": "/ai-essay-grader",
+        "mainUrl": "/tools/ai-essay-grader.html",
         "variantUrl": "/tools/variants/ai-essay-grader-free-unlimited.html"
       },
       {
         "slug": "ai-grammar-checker",
         "name": "AI Grammar Checker",
-        "mainUrl": "/ai-grammar-checker",
+        "mainUrl": "/tools/ai-grammar-checker.html",
         "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
       },
       {
         "slug": "ai-readability-analyzer",
         "name": "AI Readability Analyzer",
-        "mainUrl": "/ai-readability-analyzer",
+        "mainUrl": "/tools/ai-readability-analyzer.html",
         "variantUrl": "/tools/variants/ai-readability-analyzer-free-unlimited.html"
       },
       {
         "slug": "ai-plagiarism-checker",
         "name": "AI Plagiarism Checker",
-        "mainUrl": "/ai-plagiarism-checker",
+        "mainUrl": "/tools/ai-plagiarism-checker.html",
         "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
       }
     ]
@@ -1026,25 +1026,25 @@
       {
         "slug": "ai-readability-analyzer",
         "name": "AI Readability Analyzer",
-        "mainUrl": "/ai-readability-analyzer",
+        "mainUrl": "/tools/ai-readability-analyzer.html",
         "variantUrl": "/tools/variants/ai-readability-analyzer-free-unlimited.html"
       },
       {
         "slug": "ai-grammar-checker",
         "name": "AI Grammar Checker",
-        "mainUrl": "/ai-grammar-checker",
+        "mainUrl": "/tools/ai-grammar-checker.html",
         "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
       },
       {
         "slug": "ai-text-summarizer",
         "name": "AI Text Summarizer",
-        "mainUrl": "/ai-text-summarizer",
+        "mainUrl": "/tools/ai-text-summarizer.html",
         "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
       },
       {
         "slug": "case-converter",
         "name": "Case Converter",
-        "mainUrl": "/case-converter",
+        "mainUrl": "/tools/case-converter.html",
         "variantUrl": "/tools/variants/best-case-converter-2025.html"
       }
     ]
@@ -1068,25 +1068,25 @@
       {
         "slug": "ai-grammar-checker",
         "name": "AI Grammar Checker",
-        "mainUrl": "/ai-grammar-checker",
+        "mainUrl": "/tools/ai-grammar-checker.html",
         "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
       },
       {
         "slug": "ai-essay-grader",
         "name": "AI Essay Grader",
-        "mainUrl": "/ai-essay-grader",
+        "mainUrl": "/tools/ai-essay-grader.html",
         "variantUrl": "/tools/variants/ai-essay-grader-free-unlimited.html"
       },
       {
         "slug": "ai-paraphrasing-tool",
         "name": "AI Paraphrasing Tool",
-        "mainUrl": "/ai-paraphrasing-tool",
+        "mainUrl": "/tools/ai-paraphrasing-tool.html",
         "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
       },
       {
         "slug": "ai-humanizer",
         "name": "AI Text Humanizer",
-        "mainUrl": "/ai-humanizer",
+        "mainUrl": "/tools/ai-humanizer.html",
         "variantUrl": "/tools/variants/ai-text-humanizer-free-unlimited.html"
       }
     ]
@@ -1110,25 +1110,25 @@
       {
         "slug": "word-counter",
         "name": "Word Counter",
-        "mainUrl": "/word-counter",
+        "mainUrl": "/tools/word-counter.html",
         "variantUrl": "/tools/variants/best-word-counter-2025.html"
       },
       {
         "slug": "ai-grammar-checker",
         "name": "AI Grammar Checker",
-        "mainUrl": "/ai-grammar-checker",
+        "mainUrl": "/tools/ai-grammar-checker.html",
         "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
       },
       {
         "slug": "lorem-ipsum-generator",
         "name": "Lorem Ipsum Generator",
-        "mainUrl": "/lorem-ipsum-generator",
+        "mainUrl": "/tools/lorem-ipsum-generator.html",
         "variantUrl": "/tools/variants/best-lorem-ipsum-generator-2025.html"
       },
       {
         "slug": "ai-paraphrasing-tool",
         "name": "AI Paraphrasing Tool",
-        "mainUrl": "/ai-paraphrasing-tool",
+        "mainUrl": "/tools/ai-paraphrasing-tool.html",
         "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
       }
     ]
@@ -1152,25 +1152,25 @@
       {
         "slug": "word-counter",
         "name": "Word Counter",
-        "mainUrl": "/word-counter",
+        "mainUrl": "/tools/word-counter.html",
         "variantUrl": "/tools/variants/best-word-counter-2025.html"
       },
       {
         "slug": "case-converter",
         "name": "Case Converter",
-        "mainUrl": "/case-converter",
+        "mainUrl": "/tools/case-converter.html",
         "variantUrl": "/tools/variants/best-case-converter-2025.html"
       },
       {
         "slug": "ai-blog-post-generator",
         "name": "AI Blog Post Generator",
-        "mainUrl": "/ai-blog-post-generator",
+        "mainUrl": "/tools/ai-blog-post-generator.html",
         "variantUrl": "/tools/variants/ai-blog-post-generator-free-unlimited.html"
       },
       {
         "slug": "random-number-generator",
         "name": "Random Number Generator",
-        "mainUrl": "/random-number-generator",
+        "mainUrl": "/tools/random-number-generator.html",
         "variantUrl": "/tools/variants/best-random-number-generator-2025.html"
       }
     ]
@@ -1194,25 +1194,25 @@
       {
         "slug": "ai-hashtag-generator",
         "name": "AI Hashtag Generator",
-        "mainUrl": "/ai-hashtag-generator",
+        "mainUrl": "/tools/ai-hashtag-generator.html",
         "variantUrl": "/tools/variants/ai-hashtag-generator-free-unlimited.html"
       },
       {
         "slug": "ai-tiktok-caption-generator",
         "name": "AI TikTok Caption Generator",
-        "mainUrl": "/ai-tiktok-caption-generator",
+        "mainUrl": "/tools/ai-tiktok-caption-generator.html",
         "variantUrl": "/tools/variants/ai-tiktok-caption-generator-free-unlimited.html"
       },
       {
         "slug": "ai-instagram-bio-generator",
         "name": "AI Instagram Bio Generator",
-        "mainUrl": "/ai-instagram-bio-generator",
+        "mainUrl": "/tools/ai-instagram-bio-generator.html",
         "variantUrl": "/tools/variants/ai-instagram-bio-generator-free-unlimited.html"
       },
       {
         "slug": "ai-linkedin-post-generator",
         "name": "AI LinkedIn Post Generator",
-        "mainUrl": "/ai-linkedin-post-generator",
+        "mainUrl": "/tools/ai-linkedin-post-generator.html",
         "variantUrl": "/tools/variants/ai-linkedin-post-generator-free-unlimited.html"
       }
     ]
@@ -1236,25 +1236,25 @@
       {
         "slug": "ai-instagram-caption-generator",
         "name": "AI Instagram Caption Generator",
-        "mainUrl": "/ai-instagram-caption-generator",
+        "mainUrl": "/tools/ai-instagram-caption-generator.html",
         "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
       },
       {
         "slug": "ai-hashtag-generator",
         "name": "AI Hashtag Generator",
-        "mainUrl": "/ai-hashtag-generator",
+        "mainUrl": "/tools/ai-hashtag-generator.html",
         "variantUrl": "/tools/variants/ai-hashtag-generator-free-unlimited.html"
       },
       {
         "slug": "ai-youtube-script-generator",
         "name": "AI YouTube Script Generator",
-        "mainUrl": "/ai-youtube-script-generator",
+        "mainUrl": "/tools/ai-youtube-script-generator.html",
         "variantUrl": "/tools/variants/ai-youtube-script-generator-free-unlimited.html"
       },
       {
         "slug": "ai-hook-generator",
         "name": "AI Hook Generator",
-        "mainUrl": "/ai-hook-generator",
+        "mainUrl": "/tools/ai-hook-generator.html",
         "variantUrl": "/tools/variants/ai-hook-generator-free-unlimited.html"
       }
     ]
@@ -1278,25 +1278,25 @@
       {
         "slug": "ai-linkedin-summary-generator",
         "name": "AI LinkedIn Summary Generator",
-        "mainUrl": "/ai-linkedin-summary-generator",
+        "mainUrl": "/tools/ai-linkedin-summary-generator.html",
         "variantUrl": "/tools/variants/ai-linkedin-summary-generator-free-unlimited.html"
       },
       {
         "slug": "ai-tweet-generator",
         "name": "AI Tweet Generator",
-        "mainUrl": "/ai-tweet-generator",
+        "mainUrl": "/tools/ai-tweet-generator.html",
         "variantUrl": "/tools/variants/ai-tweet-generator-free-unlimited.html"
       },
       {
         "slug": "ai-instagram-caption-generator",
         "name": "AI Instagram Caption Generator",
-        "mainUrl": "/ai-instagram-caption-generator",
+        "mainUrl": "/tools/ai-instagram-caption-generator.html",
         "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
       },
       {
         "slug": "ai-cold-outreach-generator",
         "name": "AI Cold Outreach Generator",
-        "mainUrl": "/ai-cold-outreach-generator",
+        "mainUrl": "/tools/ai-cold-outreach-generator.html",
         "variantUrl": "/tools/variants/ai-cold-outreach-generator-free-unlimited.html"
       }
     ]
@@ -1320,25 +1320,25 @@
       {
         "slug": "ai-linkedin-post-generator",
         "name": "AI LinkedIn Post Generator",
-        "mainUrl": "/ai-linkedin-post-generator",
+        "mainUrl": "/tools/ai-linkedin-post-generator.html",
         "variantUrl": "/tools/variants/ai-linkedin-post-generator-free-unlimited.html"
       },
       {
         "slug": "ai-instagram-caption-generator",
         "name": "AI Instagram Caption Generator",
-        "mainUrl": "/ai-instagram-caption-generator",
+        "mainUrl": "/tools/ai-instagram-caption-generator.html",
         "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
       },
       {
         "slug": "ai-hashtag-generator",
         "name": "AI Hashtag Generator",
-        "mainUrl": "/ai-hashtag-generator",
+        "mainUrl": "/tools/ai-hashtag-generator.html",
         "variantUrl": "/tools/variants/ai-hashtag-generator-free-unlimited.html"
       },
       {
         "slug": "ai-hook-generator",
         "name": "AI Hook Generator",
-        "mainUrl": "/ai-hook-generator",
+        "mainUrl": "/tools/ai-hook-generator.html",
         "variantUrl": "/tools/variants/ai-hook-generator-free-unlimited.html"
       }
     ]
@@ -1362,25 +1362,25 @@
       {
         "slug": "ai-instagram-caption-generator",
         "name": "AI Instagram Caption Generator",
-        "mainUrl": "/ai-instagram-caption-generator",
+        "mainUrl": "/tools/ai-instagram-caption-generator.html",
         "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
       },
       {
         "slug": "ai-tiktok-caption-generator",
         "name": "AI TikTok Caption Generator",
-        "mainUrl": "/ai-tiktok-caption-generator",
+        "mainUrl": "/tools/ai-tiktok-caption-generator.html",
         "variantUrl": "/tools/variants/ai-tiktok-caption-generator-free-unlimited.html"
       },
       {
         "slug": "ai-keyword-generator",
         "name": "AI Keyword Generator",
-        "mainUrl": "/ai-keyword-generator",
+        "mainUrl": "/tools/ai-keyword-generator.html",
         "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
       },
       {
         "slug": "ai-tweet-generator",
         "name": "AI Tweet Generator",
-        "mainUrl": "/ai-tweet-generator",
+        "mainUrl": "/tools/ai-tweet-generator.html",
         "variantUrl": "/tools/variants/ai-tweet-generator-free-unlimited.html"
       }
     ]
@@ -1404,25 +1404,25 @@
       {
         "slug": "ai-youtube-description-generator",
         "name": "AI YouTube Description Generator",
-        "mainUrl": "/ai-youtube-description-generator",
+        "mainUrl": "/tools/ai-youtube-description-generator.html",
         "variantUrl": "/tools/variants/ai-youtube-description-generator-free-unlimited.html"
       },
       {
         "slug": "ai-youtube-script-generator",
         "name": "AI YouTube Script Generator",
-        "mainUrl": "/ai-youtube-script-generator",
+        "mainUrl": "/tools/ai-youtube-script-generator.html",
         "variantUrl": "/tools/variants/ai-youtube-script-generator-free-unlimited.html"
       },
       {
         "slug": "ai-seo-title-generator",
         "name": "AI SEO Title Generator",
-        "mainUrl": "/ai-seo-title-generator",
+        "mainUrl": "/tools/ai-seo-title-generator.html",
         "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
       },
       {
         "slug": "ai-headline-improver",
         "name": "AI Headline Improver",
-        "mainUrl": "/ai-headline-improver",
+        "mainUrl": "/tools/ai-headline-improver.html",
         "variantUrl": "/tools/variants/ai-headline-improver-free-unlimited.html"
       }
     ]
@@ -1446,25 +1446,25 @@
       {
         "slug": "ai-youtube-title-generator",
         "name": "AI YouTube Title Generator",
-        "mainUrl": "/ai-youtube-title-generator",
+        "mainUrl": "/tools/ai-youtube-title-generator.html",
         "variantUrl": "/tools/variants/ai-youtube-title-generator-free-unlimited.html"
       },
       {
         "slug": "ai-youtube-script-generator",
         "name": "AI YouTube Script Generator",
-        "mainUrl": "/ai-youtube-script-generator",
+        "mainUrl": "/tools/ai-youtube-script-generator.html",
         "variantUrl": "/tools/variants/ai-youtube-script-generator-free-unlimited.html"
       },
       {
         "slug": "ai-meta-description-generator",
         "name": "AI Meta Description Generator",
-        "mainUrl": "/ai-meta-description-generator",
+        "mainUrl": "/tools/ai-meta-description-generator.html",
         "variantUrl": "/tools/variants/ai-meta-description-generator-free-unlimited.html"
       },
       {
         "slug": "ai-keyword-generator",
         "name": "AI Keyword Generator",
-        "mainUrl": "/ai-keyword-generator",
+        "mainUrl": "/tools/ai-keyword-generator.html",
         "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
       }
     ]
@@ -1488,25 +1488,25 @@
       {
         "slug": "ai-instagram-caption-generator",
         "name": "AI Instagram Caption Generator",
-        "mainUrl": "/ai-instagram-caption-generator",
+        "mainUrl": "/tools/ai-instagram-caption-generator.html",
         "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
       },
       {
         "slug": "ai-linkedin-summary-generator",
         "name": "AI LinkedIn Summary Generator",
-        "mainUrl": "/ai-linkedin-summary-generator",
+        "mainUrl": "/tools/ai-linkedin-summary-generator.html",
         "variantUrl": "/tools/variants/ai-linkedin-summary-generator-free-unlimited.html"
       },
       {
         "slug": "ai-hashtag-generator",
         "name": "AI Hashtag Generator",
-        "mainUrl": "/ai-hashtag-generator",
+        "mainUrl": "/tools/ai-hashtag-generator.html",
         "variantUrl": "/tools/variants/ai-hashtag-generator-free-unlimited.html"
       },
       {
         "slug": "ai-dating-profile-generator",
         "name": "AI Dating Profile Generator",
-        "mainUrl": "/ai-dating-profile-generator",
+        "mainUrl": "/tools/ai-dating-profile-generator.html",
         "variantUrl": "/tools/variants/ai-dating-profile-generator-free-unlimited.html"
       }
     ]
@@ -1530,25 +1530,25 @@
       {
         "slug": "ai-text-summarizer",
         "name": "AI Text Summarizer",
-        "mainUrl": "/ai-text-summarizer",
+        "mainUrl": "/tools/ai-text-summarizer.html",
         "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
       },
       {
         "slug": "ai-pdf-summarizer",
         "name": "AI PDF Summarizer",
-        "mainUrl": "/ai-pdf-summarizer",
+        "mainUrl": "/tools/ai-pdf-summarizer.html",
         "variantUrl": "/tools/variants/ai-pdf-summarizer-free-unlimited.html"
       },
       {
         "slug": "ai-youtube-script-generator",
         "name": "AI YouTube Script Generator",
-        "mainUrl": "/ai-youtube-script-generator",
+        "mainUrl": "/tools/ai-youtube-script-generator.html",
         "variantUrl": "/tools/variants/ai-youtube-script-generator-free-unlimited.html"
       },
       {
         "slug": "ai-youtube-title-generator",
         "name": "AI YouTube Title Generator",
-        "mainUrl": "/ai-youtube-title-generator",
+        "mainUrl": "/tools/ai-youtube-title-generator.html",
         "variantUrl": "/tools/variants/ai-youtube-title-generator-free-unlimited.html"
       }
     ]
@@ -1572,25 +1572,25 @@
       {
         "slug": "ai-startup-name-generator",
         "name": "AI Startup Name Generator",
-        "mainUrl": "/ai-startup-name-generator",
+        "mainUrl": "/tools/ai-startup-name-generator.html",
         "variantUrl": "/tools/variants/ai-startup-name-generator-free-unlimited.html"
       },
       {
         "slug": "ai-business-idea-generator",
         "name": "AI Business Idea Generator",
-        "mainUrl": "/ai-business-idea-generator",
+        "mainUrl": "/tools/ai-business-idea-generator.html",
         "variantUrl": "/tools/variants/ai-business-idea-generator-free-unlimited.html"
       },
       {
         "slug": "ai-value-proposition-generator",
         "name": "AI Value Proposition Generator",
-        "mainUrl": "/ai-value-proposition-generator",
+        "mainUrl": "/tools/ai-value-proposition-generator.html",
         "variantUrl": "/tools/variants/ai-value-proposition-generator-free-unlimited.html"
       },
       {
         "slug": "ai-elevator-pitch-generator",
         "name": "AI Elevator Pitch Generator",
-        "mainUrl": "/ai-elevator-pitch-generator",
+        "mainUrl": "/tools/ai-elevator-pitch-generator.html",
         "variantUrl": "/tools/variants/ai-elevator-pitch-generator-free-unlimited.html"
       }
     ]
@@ -1614,25 +1614,25 @@
       {
         "slug": "ai-business-name-generator",
         "name": "AI Business Name Generator",
-        "mainUrl": "/ai-business-name-generator",
+        "mainUrl": "/tools/ai-business-name-generator.html",
         "variantUrl": "/tools/variants/ai-business-name-generator-free-unlimited.html"
       },
       {
         "slug": "ai-business-idea-generator",
         "name": "AI Business Idea Generator",
-        "mainUrl": "/ai-business-idea-generator",
+        "mainUrl": "/tools/ai-business-idea-generator.html",
         "variantUrl": "/tools/variants/ai-business-idea-generator-free-unlimited.html"
       },
       {
         "slug": "ai-elevator-pitch-generator",
         "name": "AI Elevator Pitch Generator",
-        "mainUrl": "/ai-elevator-pitch-generator",
+        "mainUrl": "/tools/ai-elevator-pitch-generator.html",
         "variantUrl": "/tools/variants/ai-elevator-pitch-generator-free-unlimited.html"
       },
       {
         "slug": "ai-value-proposition-generator",
         "name": "AI Value Proposition Generator",
-        "mainUrl": "/ai-value-proposition-generator",
+        "mainUrl": "/tools/ai-value-proposition-generator.html",
         "variantUrl": "/tools/variants/ai-value-proposition-generator-free-unlimited.html"
       }
     ]
@@ -1656,25 +1656,25 @@
       {
         "slug": "ai-startup-name-generator",
         "name": "AI Startup Name Generator",
-        "mainUrl": "/ai-startup-name-generator",
+        "mainUrl": "/tools/ai-startup-name-generator.html",
         "variantUrl": "/tools/variants/ai-startup-name-generator-free-unlimited.html"
       },
       {
         "slug": "ai-business-name-generator",
         "name": "AI Business Name Generator",
-        "mainUrl": "/ai-business-name-generator",
+        "mainUrl": "/tools/ai-business-name-generator.html",
         "variantUrl": "/tools/variants/ai-business-name-generator-free-unlimited.html"
       },
       {
         "slug": "ai-value-proposition-generator",
         "name": "AI Value Proposition Generator",
-        "mainUrl": "/ai-value-proposition-generator",
+        "mainUrl": "/tools/ai-value-proposition-generator.html",
         "variantUrl": "/tools/variants/ai-value-proposition-generator-free-unlimited.html"
       },
       {
         "slug": "ai-target-audience-generator",
         "name": "AI Target Audience Generator",
-        "mainUrl": "/ai-target-audience-generator",
+        "mainUrl": "/tools/ai-target-audience-generator.html",
         "variantUrl": "/tools/variants/ai-target-audience-generator-free-unlimited.html"
       }
     ]
@@ -1698,25 +1698,25 @@
       {
         "slug": "ai-elevator-pitch-generator",
         "name": "AI Elevator Pitch Generator",
-        "mainUrl": "/ai-elevator-pitch-generator",
+        "mainUrl": "/tools/ai-elevator-pitch-generator.html",
         "variantUrl": "/tools/variants/ai-elevator-pitch-generator-free-unlimited.html"
       },
       {
         "slug": "ai-target-audience-generator",
         "name": "AI Target Audience Generator",
-        "mainUrl": "/ai-target-audience-generator",
+        "mainUrl": "/tools/ai-target-audience-generator.html",
         "variantUrl": "/tools/variants/ai-target-audience-generator-free-unlimited.html"
       },
       {
         "slug": "ai-landing-page-copy-generator",
         "name": "AI Landing Page Copy Generator",
-        "mainUrl": "/ai-landing-page-copy-generator",
+        "mainUrl": "/tools/ai-landing-page-copy-generator.html",
         "variantUrl": "/tools/variants/ai-landing-page-copy-generator-free-unlimited.html"
       },
       {
         "slug": "ai-business-idea-generator",
         "name": "AI Business Idea Generator",
-        "mainUrl": "/ai-business-idea-generator",
+        "mainUrl": "/tools/ai-business-idea-generator.html",
         "variantUrl": "/tools/variants/ai-business-idea-generator-free-unlimited.html"
       }
     ]
@@ -1740,25 +1740,25 @@
       {
         "slug": "ai-value-proposition-generator",
         "name": "AI Value Proposition Generator",
-        "mainUrl": "/ai-value-proposition-generator",
+        "mainUrl": "/tools/ai-value-proposition-generator.html",
         "variantUrl": "/tools/variants/ai-value-proposition-generator-free-unlimited.html"
       },
       {
         "slug": "ai-business-idea-generator",
         "name": "AI Business Idea Generator",
-        "mainUrl": "/ai-business-idea-generator",
+        "mainUrl": "/tools/ai-business-idea-generator.html",
         "variantUrl": "/tools/variants/ai-business-idea-generator-free-unlimited.html"
       },
       {
         "slug": "ai-target-audience-generator",
         "name": "AI Target Audience Generator",
-        "mainUrl": "/ai-target-audience-generator",
+        "mainUrl": "/tools/ai-target-audience-generator.html",
         "variantUrl": "/tools/variants/ai-target-audience-generator-free-unlimited.html"
       },
       {
         "slug": "ai-sales-email-generator",
         "name": "AI Sales Email Generator",
-        "mainUrl": "/ai-sales-email-generator",
+        "mainUrl": "/tools/ai-sales-email-generator.html",
         "variantUrl": "/tools/variants/ai-sales-email-generator-free-unlimited.html"
       }
     ]
@@ -1782,25 +1782,25 @@
       {
         "slug": "ai-value-proposition-generator",
         "name": "AI Value Proposition Generator",
-        "mainUrl": "/ai-value-proposition-generator",
+        "mainUrl": "/tools/ai-value-proposition-generator.html",
         "variantUrl": "/tools/variants/ai-value-proposition-generator-free-unlimited.html"
       },
       {
         "slug": "ai-business-idea-generator",
         "name": "AI Business Idea Generator",
-        "mainUrl": "/ai-business-idea-generator",
+        "mainUrl": "/tools/ai-business-idea-generator.html",
         "variantUrl": "/tools/variants/ai-business-idea-generator-free-unlimited.html"
       },
       {
         "slug": "ai-content-brief-generator",
         "name": "AI Content Brief Generator",
-        "mainUrl": "/ai-content-brief-generator",
+        "mainUrl": "/tools/ai-content-brief-generator.html",
         "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
       },
       {
         "slug": "ai-ad-copy-generator",
         "name": "AI Ad Copy Generator",
-        "mainUrl": "/ai-ad-copy-generator",
+        "mainUrl": "/tools/ai-ad-copy-generator.html",
         "variantUrl": "/tools/variants/ai-ad-copy-generator-free-unlimited.html"
       }
     ]
@@ -1824,25 +1824,25 @@
       {
         "slug": "ai-landing-page-copy-generator",
         "name": "AI Landing Page Copy Generator",
-        "mainUrl": "/ai-landing-page-copy-generator",
+        "mainUrl": "/tools/ai-landing-page-copy-generator.html",
         "variantUrl": "/tools/variants/ai-landing-page-copy-generator-free-unlimited.html"
       },
       {
         "slug": "ai-cta-generator",
         "name": "AI Call-to-Action Generator",
-        "mainUrl": "/ai-cta-generator",
+        "mainUrl": "/tools/ai-cta-generator.html",
         "variantUrl": "/tools/variants/ai-call-to-action-generator-free-unlimited.html"
       },
       {
         "slug": "ai-sales-email-generator",
         "name": "AI Sales Email Generator",
-        "mainUrl": "/ai-sales-email-generator",
+        "mainUrl": "/tools/ai-sales-email-generator.html",
         "variantUrl": "/tools/variants/ai-sales-email-generator-free-unlimited.html"
       },
       {
         "slug": "ai-headline-improver",
         "name": "AI Headline Improver",
-        "mainUrl": "/ai-headline-improver",
+        "mainUrl": "/tools/ai-headline-improver.html",
         "variantUrl": "/tools/variants/ai-headline-improver-free-unlimited.html"
       }
     ]
@@ -1866,25 +1866,25 @@
       {
         "slug": "ai-sales-email-generator",
         "name": "AI Sales Email Generator",
-        "mainUrl": "/ai-sales-email-generator",
+        "mainUrl": "/tools/ai-sales-email-generator.html",
         "variantUrl": "/tools/variants/ai-sales-email-generator-free-unlimited.html"
       },
       {
         "slug": "ai-cold-outreach-generator",
         "name": "AI Cold Outreach Generator",
-        "mainUrl": "/ai-cold-outreach-generator",
+        "mainUrl": "/tools/ai-cold-outreach-generator.html",
         "variantUrl": "/tools/variants/ai-cold-outreach-generator-free-unlimited.html"
       },
       {
         "slug": "ai-tone-converter",
         "name": "AI Tone Converter",
-        "mainUrl": "/ai-tone-converter",
+        "mainUrl": "/tools/ai-tone-converter.html",
         "variantUrl": "/tools/variants/ai-tone-converter-free-unlimited.html"
       },
       {
         "slug": "ai-meeting-summary-generator",
         "name": "AI Meeting Summary Generator",
-        "mainUrl": "/ai-meeting-summary-generator",
+        "mainUrl": "/tools/ai-meeting-summary-generator.html",
         "variantUrl": "/tools/variants/ai-meeting-summary-generator-free-unlimited.html"
       }
     ]
@@ -1908,25 +1908,25 @@
       {
         "slug": "ai-cold-outreach-generator",
         "name": "AI Cold Outreach Generator",
-        "mainUrl": "/ai-cold-outreach-generator",
+        "mainUrl": "/tools/ai-cold-outreach-generator.html",
         "variantUrl": "/tools/variants/ai-cold-outreach-generator-free-unlimited.html"
       },
       {
         "slug": "ai-email-response-generator",
         "name": "AI Email Response Generator",
-        "mainUrl": "/ai-email-response-generator",
+        "mainUrl": "/tools/ai-email-response-generator.html",
         "variantUrl": "/tools/variants/ai-email-response-generator-free-unlimited.html"
       },
       {
         "slug": "ai-cta-generator",
         "name": "AI Call-to-Action Generator",
-        "mainUrl": "/ai-cta-generator",
+        "mainUrl": "/tools/ai-cta-generator.html",
         "variantUrl": "/tools/variants/ai-call-to-action-generator-free-unlimited.html"
       },
       {
         "slug": "ai-ad-copy-generator",
         "name": "AI Ad Copy Generator",
-        "mainUrl": "/ai-ad-copy-generator",
+        "mainUrl": "/tools/ai-ad-copy-generator.html",
         "variantUrl": "/tools/variants/ai-ad-copy-generator-free-unlimited.html"
       }
     ]
@@ -1950,25 +1950,25 @@
       {
         "slug": "ai-sales-email-generator",
         "name": "AI Sales Email Generator",
-        "mainUrl": "/ai-sales-email-generator",
+        "mainUrl": "/tools/ai-sales-email-generator.html",
         "variantUrl": "/tools/variants/ai-sales-email-generator-free-unlimited.html"
       },
       {
         "slug": "ai-email-response-generator",
         "name": "AI Email Response Generator",
-        "mainUrl": "/ai-email-response-generator",
+        "mainUrl": "/tools/ai-email-response-generator.html",
         "variantUrl": "/tools/variants/ai-email-response-generator-free-unlimited.html"
       },
       {
         "slug": "ai-linkedin-post-generator",
         "name": "AI LinkedIn Post Generator",
-        "mainUrl": "/ai-linkedin-post-generator",
+        "mainUrl": "/tools/ai-linkedin-post-generator.html",
         "variantUrl": "/tools/variants/ai-linkedin-post-generator-free-unlimited.html"
       },
       {
         "slug": "ai-cta-generator",
         "name": "AI Call-to-Action Generator",
-        "mainUrl": "/ai-cta-generator",
+        "mainUrl": "/tools/ai-cta-generator.html",
         "variantUrl": "/tools/variants/ai-call-to-action-generator-free-unlimited.html"
       }
     ]
@@ -1992,25 +1992,25 @@
       {
         "slug": "ai-ad-copy-generator",
         "name": "AI Ad Copy Generator",
-        "mainUrl": "/ai-ad-copy-generator",
+        "mainUrl": "/tools/ai-ad-copy-generator.html",
         "variantUrl": "/tools/variants/ai-ad-copy-generator-free-unlimited.html"
       },
       {
         "slug": "ai-landing-page-copy-generator",
         "name": "AI Landing Page Copy Generator",
-        "mainUrl": "/ai-landing-page-copy-generator",
+        "mainUrl": "/tools/ai-landing-page-copy-generator.html",
         "variantUrl": "/tools/variants/ai-landing-page-copy-generator-free-unlimited.html"
       },
       {
         "slug": "ai-headline-improver",
         "name": "AI Headline Improver",
-        "mainUrl": "/ai-headline-improver",
+        "mainUrl": "/tools/ai-headline-improver.html",
         "variantUrl": "/tools/variants/ai-headline-improver-free-unlimited.html"
       },
       {
         "slug": "ai-hook-generator",
         "name": "AI Hook Generator",
-        "mainUrl": "/ai-hook-generator",
+        "mainUrl": "/tools/ai-hook-generator.html",
         "variantUrl": "/tools/variants/ai-hook-generator-free-unlimited.html"
       }
     ]
@@ -2034,25 +2034,25 @@
       {
         "slug": "ai-ad-copy-generator",
         "name": "AI Ad Copy Generator",
-        "mainUrl": "/ai-ad-copy-generator",
+        "mainUrl": "/tools/ai-ad-copy-generator.html",
         "variantUrl": "/tools/variants/ai-ad-copy-generator-free-unlimited.html"
       },
       {
         "slug": "ai-cta-generator",
         "name": "AI Call-to-Action Generator",
-        "mainUrl": "/ai-cta-generator",
+        "mainUrl": "/tools/ai-cta-generator.html",
         "variantUrl": "/tools/variants/ai-call-to-action-generator-free-unlimited.html"
       },
       {
         "slug": "ai-value-proposition-generator",
         "name": "AI Value Proposition Generator",
-        "mainUrl": "/ai-value-proposition-generator",
+        "mainUrl": "/tools/ai-value-proposition-generator.html",
         "variantUrl": "/tools/variants/ai-value-proposition-generator-free-unlimited.html"
       },
       {
         "slug": "ai-faq-generator",
         "name": "AI FAQ Generator",
-        "mainUrl": "/ai-faq-generator",
+        "mainUrl": "/tools/ai-faq-generator.html",
         "variantUrl": "/tools/variants/ai-faq-generator-free-unlimited.html"
       }
     ]
@@ -2076,25 +2076,25 @@
       {
         "slug": "ai-seo-title-generator",
         "name": "AI SEO Title Generator",
-        "mainUrl": "/ai-seo-title-generator",
+        "mainUrl": "/tools/ai-seo-title-generator.html",
         "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
       },
       {
         "slug": "ai-keyword-generator",
         "name": "AI Keyword Generator",
-        "mainUrl": "/ai-keyword-generator",
+        "mainUrl": "/tools/ai-keyword-generator.html",
         "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
       },
       {
         "slug": "ai-content-brief-generator",
         "name": "AI Content Brief Generator",
-        "mainUrl": "/ai-content-brief-generator",
+        "mainUrl": "/tools/ai-content-brief-generator.html",
         "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
       },
       {
         "slug": "ai-schema-markup-generator",
         "name": "AI Schema Markup Generator",
-        "mainUrl": "/ai-schema-markup-generator",
+        "mainUrl": "/tools/ai-schema-markup-generator.html",
         "variantUrl": "/tools/variants/ai-schema-markup-generator-free-unlimited.html"
       }
     ]
@@ -2118,25 +2118,25 @@
       {
         "slug": "ai-meta-description-generator",
         "name": "AI Meta Description Generator",
-        "mainUrl": "/ai-meta-description-generator",
+        "mainUrl": "/tools/ai-meta-description-generator.html",
         "variantUrl": "/tools/variants/ai-meta-description-generator-free-unlimited.html"
       },
       {
         "slug": "ai-keyword-generator",
         "name": "AI Keyword Generator",
-        "mainUrl": "/ai-keyword-generator",
+        "mainUrl": "/tools/ai-keyword-generator.html",
         "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
       },
       {
         "slug": "ai-headline-improver",
         "name": "AI Headline Improver",
-        "mainUrl": "/ai-headline-improver",
+        "mainUrl": "/tools/ai-headline-improver.html",
         "variantUrl": "/tools/variants/ai-headline-improver-free-unlimited.html"
       },
       {
         "slug": "ai-blog-outline-generator",
         "name": "AI Blog Outline Generator",
-        "mainUrl": "/ai-blog-outline-generator",
+        "mainUrl": "/tools/ai-blog-outline-generator.html",
         "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
       }
     ]
@@ -2160,25 +2160,25 @@
       {
         "slug": "ai-content-brief-generator",
         "name": "AI Content Brief Generator",
-        "mainUrl": "/ai-content-brief-generator",
+        "mainUrl": "/tools/ai-content-brief-generator.html",
         "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
       },
       {
         "slug": "ai-seo-title-generator",
         "name": "AI SEO Title Generator",
-        "mainUrl": "/ai-seo-title-generator",
+        "mainUrl": "/tools/ai-seo-title-generator.html",
         "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
       },
       {
         "slug": "ai-meta-description-generator",
         "name": "AI Meta Description Generator",
-        "mainUrl": "/ai-meta-description-generator",
+        "mainUrl": "/tools/ai-meta-description-generator.html",
         "variantUrl": "/tools/variants/ai-meta-description-generator-free-unlimited.html"
       },
       {
         "slug": "ai-content-gap-analyzer",
         "name": "AI Content Gap Analyzer",
-        "mainUrl": "/ai-content-gap-analyzer",
+        "mainUrl": "/tools/ai-content-gap-analyzer.html",
         "variantUrl": "/tools/variants/ai-content-gap-analyzer-free-unlimited.html"
       }
     ]
@@ -2202,25 +2202,25 @@
       {
         "slug": "ai-blog-outline-generator",
         "name": "AI Blog Outline Generator",
-        "mainUrl": "/ai-blog-outline-generator",
+        "mainUrl": "/tools/ai-blog-outline-generator.html",
         "variantUrl": "/tools/variants/ai-blog-outline-generator-free-unlimited.html"
       },
       {
         "slug": "ai-keyword-generator",
         "name": "AI Keyword Generator",
-        "mainUrl": "/ai-keyword-generator",
+        "mainUrl": "/tools/ai-keyword-generator.html",
         "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
       },
       {
         "slug": "ai-seo-title-generator",
         "name": "AI SEO Title Generator",
-        "mainUrl": "/ai-seo-title-generator",
+        "mainUrl": "/tools/ai-seo-title-generator.html",
         "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
       },
       {
         "slug": "ai-content-gap-analyzer",
         "name": "AI Content Gap Analyzer",
-        "mainUrl": "/ai-content-gap-analyzer",
+        "mainUrl": "/tools/ai-content-gap-analyzer.html",
         "variantUrl": "/tools/variants/ai-content-gap-analyzer-free-unlimited.html"
       }
     ]
@@ -2244,25 +2244,25 @@
       {
         "slug": "ai-content-brief-generator",
         "name": "AI Content Brief Generator",
-        "mainUrl": "/ai-content-brief-generator",
+        "mainUrl": "/tools/ai-content-brief-generator.html",
         "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
       },
       {
         "slug": "ai-seo-title-generator",
         "name": "AI SEO Title Generator",
-        "mainUrl": "/ai-seo-title-generator",
+        "mainUrl": "/tools/ai-seo-title-generator.html",
         "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
       },
       {
         "slug": "ai-keyword-generator",
         "name": "AI Keyword Generator",
-        "mainUrl": "/ai-keyword-generator",
+        "mainUrl": "/tools/ai-keyword-generator.html",
         "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
       },
       {
         "slug": "ai-schema-markup-generator",
         "name": "AI Schema Markup Generator",
-        "mainUrl": "/ai-schema-markup-generator",
+        "mainUrl": "/tools/ai-schema-markup-generator.html",
         "variantUrl": "/tools/variants/ai-schema-markup-generator-free-unlimited.html"
       }
     ]
@@ -2286,25 +2286,25 @@
       {
         "slug": "ai-keyword-generator",
         "name": "AI Keyword Generator",
-        "mainUrl": "/ai-keyword-generator",
+        "mainUrl": "/tools/ai-keyword-generator.html",
         "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
       },
       {
         "slug": "ai-content-brief-generator",
         "name": "AI Content Brief Generator",
-        "mainUrl": "/ai-content-brief-generator",
+        "mainUrl": "/tools/ai-content-brief-generator.html",
         "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
       },
       {
         "slug": "ai-serp-intent-analyzer",
         "name": "AI SERP Intent Analyzer",
-        "mainUrl": "/ai-serp-intent-analyzer",
+        "mainUrl": "/tools/ai-serp-intent-analyzer.html",
         "variantUrl": "/tools/variants/ai-serp-intent-analyzer-free-unlimited.html"
       },
       {
         "slug": "ai-internal-link-suggestion-tool",
         "name": "AI Internal Link Suggestion Tool",
-        "mainUrl": "/ai-internal-link-suggestion-tool",
+        "mainUrl": "/tools/ai-internal-link-suggestion-tool.html",
         "variantUrl": "/tools/variants/ai-internal-link-suggestion-tool-free-unlimited.html"
       }
     ]
@@ -2328,25 +2328,25 @@
       {
         "slug": "ai-meta-description-generator",
         "name": "AI Meta Description Generator",
-        "mainUrl": "/ai-meta-description-generator",
+        "mainUrl": "/tools/ai-meta-description-generator.html",
         "variantUrl": "/tools/variants/ai-meta-description-generator-free-unlimited.html"
       },
       {
         "slug": "ai-faq-generator",
         "name": "AI FAQ Generator",
-        "mainUrl": "/ai-faq-generator",
+        "mainUrl": "/tools/ai-faq-generator.html",
         "variantUrl": "/tools/variants/ai-faq-generator-free-unlimited.html"
       },
       {
         "slug": "ai-seo-title-generator",
         "name": "AI SEO Title Generator",
-        "mainUrl": "/ai-seo-title-generator",
+        "mainUrl": "/tools/ai-seo-title-generator.html",
         "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
       },
       {
         "slug": "ai-internal-link-suggestion-tool",
         "name": "AI Internal Link Suggestion Tool",
-        "mainUrl": "/ai-internal-link-suggestion-tool",
+        "mainUrl": "/tools/ai-internal-link-suggestion-tool.html",
         "variantUrl": "/tools/variants/ai-internal-link-suggestion-tool-free-unlimited.html"
       }
     ]
@@ -2370,25 +2370,25 @@
       {
         "slug": "ai-keyword-generator",
         "name": "AI Keyword Generator",
-        "mainUrl": "/ai-keyword-generator",
+        "mainUrl": "/tools/ai-keyword-generator.html",
         "variantUrl": "/tools/variants/ai-keyword-generator-free-unlimited.html"
       },
       {
         "slug": "ai-content-gap-analyzer",
         "name": "AI Content Gap Analyzer",
-        "mainUrl": "/ai-content-gap-analyzer",
+        "mainUrl": "/tools/ai-content-gap-analyzer.html",
         "variantUrl": "/tools/variants/ai-content-gap-analyzer-free-unlimited.html"
       },
       {
         "slug": "ai-content-brief-generator",
         "name": "AI Content Brief Generator",
-        "mainUrl": "/ai-content-brief-generator",
+        "mainUrl": "/tools/ai-content-brief-generator.html",
         "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
       },
       {
         "slug": "ai-seo-title-generator",
         "name": "AI SEO Title Generator",
-        "mainUrl": "/ai-seo-title-generator",
+        "mainUrl": "/tools/ai-seo-title-generator.html",
         "variantUrl": "/tools/variants/ai-seo-title-generator-free-unlimited.html"
       }
     ]
@@ -2412,25 +2412,25 @@
       {
         "slug": "ai-cover-letter-generator",
         "name": "AI Cover Letter Generator",
-        "mainUrl": "/ai-cover-letter-generator",
+        "mainUrl": "/tools/ai-cover-letter-generator.html",
         "variantUrl": "/tools/variants/ai-cover-letter-generator-free-unlimited.html"
       },
       {
         "slug": "ai-linkedin-summary-generator",
         "name": "AI LinkedIn Summary Generator",
-        "mainUrl": "/ai-linkedin-summary-generator",
+        "mainUrl": "/tools/ai-linkedin-summary-generator.html",
         "variantUrl": "/tools/variants/ai-linkedin-summary-generator-free-unlimited.html"
       },
       {
         "slug": "ai-ats-resume-matcher",
         "name": "AI ATS Resume Matcher",
-        "mainUrl": "/ai-ats-resume-matcher",
+        "mainUrl": "/tools/ai-ats-resume-matcher.html",
         "variantUrl": "/tools/variants/ai-ats-resume-matcher-free-unlimited.html"
       },
       {
         "slug": "ai-interview-answer-generator",
         "name": "AI Interview Answer Generator",
-        "mainUrl": "/ai-interview-answer-generator",
+        "mainUrl": "/tools/ai-interview-answer-generator.html",
         "variantUrl": "/tools/variants/ai-interview-answer-generator-free-unlimited.html"
       }
     ]
@@ -2454,25 +2454,25 @@
       {
         "slug": "ai-resume-bullet-generator",
         "name": "AI Resume Bullet Generator",
-        "mainUrl": "/ai-resume-bullet-generator",
+        "mainUrl": "/tools/ai-resume-bullet-generator.html",
         "variantUrl": "/tools/variants/ai-resume-bullet-generator-free-unlimited.html"
       },
       {
         "slug": "ai-linkedin-summary-generator",
         "name": "AI LinkedIn Summary Generator",
-        "mainUrl": "/ai-linkedin-summary-generator",
+        "mainUrl": "/tools/ai-linkedin-summary-generator.html",
         "variantUrl": "/tools/variants/ai-linkedin-summary-generator-free-unlimited.html"
       },
       {
         "slug": "ai-ats-resume-matcher",
         "name": "AI ATS Resume Matcher",
-        "mainUrl": "/ai-ats-resume-matcher",
+        "mainUrl": "/tools/ai-ats-resume-matcher.html",
         "variantUrl": "/tools/variants/ai-ats-resume-matcher-free-unlimited.html"
       },
       {
         "slug": "ai-personal-statement-generator",
         "name": "AI Personal Statement Generator",
-        "mainUrl": "/ai-personal-statement-generator",
+        "mainUrl": "/tools/ai-personal-statement-generator.html",
         "variantUrl": "/tools/variants/ai-personal-statement-generator-free-unlimited.html"
       }
     ]
@@ -2496,25 +2496,25 @@
       {
         "slug": "ai-resume-bullet-generator",
         "name": "AI Resume Bullet Generator",
-        "mainUrl": "/ai-resume-bullet-generator",
+        "mainUrl": "/tools/ai-resume-bullet-generator.html",
         "variantUrl": "/tools/variants/ai-resume-bullet-generator-free-unlimited.html"
       },
       {
         "slug": "ai-cover-letter-generator",
         "name": "AI Cover Letter Generator",
-        "mainUrl": "/ai-cover-letter-generator",
+        "mainUrl": "/tools/ai-cover-letter-generator.html",
         "variantUrl": "/tools/variants/ai-cover-letter-generator-free-unlimited.html"
       },
       {
         "slug": "ai-linkedin-post-generator",
         "name": "AI LinkedIn Post Generator",
-        "mainUrl": "/ai-linkedin-post-generator",
+        "mainUrl": "/tools/ai-linkedin-post-generator.html",
         "variantUrl": "/tools/variants/ai-linkedin-post-generator-free-unlimited.html"
       },
       {
         "slug": "ai-elevator-pitch-generator",
         "name": "AI Elevator Pitch Generator",
-        "mainUrl": "/ai-elevator-pitch-generator",
+        "mainUrl": "/tools/ai-elevator-pitch-generator.html",
         "variantUrl": "/tools/variants/ai-elevator-pitch-generator-free-unlimited.html"
       }
     ]
@@ -2538,25 +2538,25 @@
       {
         "slug": "ai-resume-bullet-generator",
         "name": "AI Resume Bullet Generator",
-        "mainUrl": "/ai-resume-bullet-generator",
+        "mainUrl": "/tools/ai-resume-bullet-generator.html",
         "variantUrl": "/tools/variants/ai-resume-bullet-generator-free-unlimited.html"
       },
       {
         "slug": "ai-cover-letter-generator",
         "name": "AI Cover Letter Generator",
-        "mainUrl": "/ai-cover-letter-generator",
+        "mainUrl": "/tools/ai-cover-letter-generator.html",
         "variantUrl": "/tools/variants/ai-cover-letter-generator-free-unlimited.html"
       },
       {
         "slug": "ai-ats-resume-matcher",
         "name": "AI ATS Resume Matcher",
-        "mainUrl": "/ai-ats-resume-matcher",
+        "mainUrl": "/tools/ai-ats-resume-matcher.html",
         "variantUrl": "/tools/variants/ai-ats-resume-matcher-free-unlimited.html"
       },
       {
         "slug": "ai-elevator-pitch-generator",
         "name": "AI Elevator Pitch Generator",
-        "mainUrl": "/ai-elevator-pitch-generator",
+        "mainUrl": "/tools/ai-elevator-pitch-generator.html",
         "variantUrl": "/tools/variants/ai-elevator-pitch-generator-free-unlimited.html"
       }
     ]
@@ -2580,25 +2580,25 @@
       {
         "slug": "ai-resume-bullet-generator",
         "name": "AI Resume Bullet Generator",
-        "mainUrl": "/ai-resume-bullet-generator",
+        "mainUrl": "/tools/ai-resume-bullet-generator.html",
         "variantUrl": "/tools/variants/ai-resume-bullet-generator-free-unlimited.html"
       },
       {
         "slug": "ai-cover-letter-generator",
         "name": "AI Cover Letter Generator",
-        "mainUrl": "/ai-cover-letter-generator",
+        "mainUrl": "/tools/ai-cover-letter-generator.html",
         "variantUrl": "/tools/variants/ai-cover-letter-generator-free-unlimited.html"
       },
       {
         "slug": "ai-interview-answer-generator",
         "name": "AI Interview Answer Generator",
-        "mainUrl": "/ai-interview-answer-generator",
+        "mainUrl": "/tools/ai-interview-answer-generator.html",
         "variantUrl": "/tools/variants/ai-interview-answer-generator-free-unlimited.html"
       },
       {
         "slug": "ai-linkedin-summary-generator",
         "name": "AI LinkedIn Summary Generator",
-        "mainUrl": "/ai-linkedin-summary-generator",
+        "mainUrl": "/tools/ai-linkedin-summary-generator.html",
         "variantUrl": "/tools/variants/ai-linkedin-summary-generator-free-unlimited.html"
       }
     ]
@@ -2622,25 +2622,25 @@
       {
         "slug": "ai-weekly-planner-generator",
         "name": "AI Weekly Planner Generator",
-        "mainUrl": "/ai-weekly-planner-generator",
+        "mainUrl": "/tools/ai-weekly-planner-generator.html",
         "variantUrl": "/tools/variants/ai-weekly-planner-generator-free-unlimited.html"
       },
       {
         "slug": "ai-goal-planner",
         "name": "AI Goal Planner",
-        "mainUrl": "/ai-goal-planner",
+        "mainUrl": "/tools/ai-goal-planner.html",
         "variantUrl": "/tools/variants/ai-goal-planner-free-unlimited.html"
       },
       {
         "slug": "ai-meeting-summary-generator",
         "name": "AI Meeting Summary Generator",
-        "mainUrl": "/ai-meeting-summary-generator",
+        "mainUrl": "/tools/ai-meeting-summary-generator.html",
         "variantUrl": "/tools/variants/ai-meeting-summary-generator-free-unlimited.html"
       },
       {
         "slug": "ai-decision-maker",
         "name": "AI Decision Maker",
-        "mainUrl": "/ai-decision-maker",
+        "mainUrl": "/tools/ai-decision-maker.html",
         "variantUrl": "/tools/variants/ai-decision-maker-free-unlimited.html"
       }
     ]
@@ -2664,25 +2664,25 @@
       {
         "slug": "ai-text-summarizer",
         "name": "AI Text Summarizer",
-        "mainUrl": "/ai-text-summarizer",
+        "mainUrl": "/tools/ai-text-summarizer.html",
         "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
       },
       {
         "slug": "ai-todo-list-generator",
         "name": "AI To-Do List Generator",
-        "mainUrl": "/ai-todo-list-generator",
+        "mainUrl": "/tools/ai-todo-list-generator.html",
         "variantUrl": "/tools/variants/ai-to-do-list-generator-free-unlimited.html"
       },
       {
         "slug": "ai-weekly-planner-generator",
         "name": "AI Weekly Planner Generator",
-        "mainUrl": "/ai-weekly-planner-generator",
+        "mainUrl": "/tools/ai-weekly-planner-generator.html",
         "variantUrl": "/tools/variants/ai-weekly-planner-generator-free-unlimited.html"
       },
       {
         "slug": "ai-document-analyzer",
         "name": "AI Document Analyzer",
-        "mainUrl": "/ai-document-analyzer",
+        "mainUrl": "/tools/ai-document-analyzer.html",
         "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
       }
     ]
@@ -2706,25 +2706,25 @@
       {
         "slug": "ai-todo-list-generator",
         "name": "AI To-Do List Generator",
-        "mainUrl": "/ai-todo-list-generator",
+        "mainUrl": "/tools/ai-todo-list-generator.html",
         "variantUrl": "/tools/variants/ai-to-do-list-generator-free-unlimited.html"
       },
       {
         "slug": "ai-goal-planner",
         "name": "AI Goal Planner",
-        "mainUrl": "/ai-goal-planner",
+        "mainUrl": "/tools/ai-goal-planner.html",
         "variantUrl": "/tools/variants/ai-goal-planner-free-unlimited.html"
       },
       {
         "slug": "ai-meal-planner",
         "name": "AI Meal Planner",
-        "mainUrl": "/ai-meal-planner",
+        "mainUrl": "/tools/ai-meal-planner.html",
         "variantUrl": "/tools/variants/ai-meal-planner-free-unlimited.html"
       },
       {
         "slug": "ai-decision-maker",
         "name": "AI Decision Maker",
-        "mainUrl": "/ai-decision-maker",
+        "mainUrl": "/tools/ai-decision-maker.html",
         "variantUrl": "/tools/variants/ai-decision-maker-free-unlimited.html"
       }
     ]
@@ -2748,25 +2748,25 @@
       {
         "slug": "ai-todo-list-generator",
         "name": "AI To-Do List Generator",
-        "mainUrl": "/ai-todo-list-generator",
+        "mainUrl": "/tools/ai-todo-list-generator.html",
         "variantUrl": "/tools/variants/ai-to-do-list-generator-free-unlimited.html"
       },
       {
         "slug": "ai-weekly-planner-generator",
         "name": "AI Weekly Planner Generator",
-        "mainUrl": "/ai-weekly-planner-generator",
+        "mainUrl": "/tools/ai-weekly-planner-generator.html",
         "variantUrl": "/tools/variants/ai-weekly-planner-generator-free-unlimited.html"
       },
       {
         "slug": "ai-decision-maker",
         "name": "AI Decision Maker",
-        "mainUrl": "/ai-decision-maker",
+        "mainUrl": "/tools/ai-decision-maker.html",
         "variantUrl": "/tools/variants/ai-decision-maker-free-unlimited.html"
       },
       {
         "slug": "ai-pros-and-cons-generator",
         "name": "AI Pros & Cons Generator",
-        "mainUrl": "/ai-pros-and-cons-generator",
+        "mainUrl": "/tools/ai-pros-and-cons-generator.html",
         "variantUrl": "/tools/variants/ai-pros-cons-generator-free-unlimited.html"
       }
     ]
@@ -2790,25 +2790,25 @@
       {
         "slug": "ai-pros-and-cons-generator",
         "name": "AI Pros & Cons Generator",
-        "mainUrl": "/ai-pros-and-cons-generator",
+        "mainUrl": "/tools/ai-pros-and-cons-generator.html",
         "variantUrl": "/tools/variants/ai-pros-cons-generator-free-unlimited.html"
       },
       {
         "slug": "ai-goal-planner",
         "name": "AI Goal Planner",
-        "mainUrl": "/ai-goal-planner",
+        "mainUrl": "/tools/ai-goal-planner.html",
         "variantUrl": "/tools/variants/ai-goal-planner-free-unlimited.html"
       },
       {
         "slug": "ai-debate-generator",
         "name": "AI Debate Generator",
-        "mainUrl": "/ai-debate-generator",
+        "mainUrl": "/tools/ai-debate-generator.html",
         "variantUrl": "/tools/variants/ai-debate-generator-free-unlimited.html"
       },
       {
         "slug": "ai-weekly-planner-generator",
         "name": "AI Weekly Planner Generator",
-        "mainUrl": "/ai-weekly-planner-generator",
+        "mainUrl": "/tools/ai-weekly-planner-generator.html",
         "variantUrl": "/tools/variants/ai-weekly-planner-generator-free-unlimited.html"
       }
     ]
@@ -2832,25 +2832,25 @@
       {
         "slug": "ai-decision-maker",
         "name": "AI Decision Maker",
-        "mainUrl": "/ai-decision-maker",
+        "mainUrl": "/tools/ai-decision-maker.html",
         "variantUrl": "/tools/variants/ai-decision-maker-free-unlimited.html"
       },
       {
         "slug": "ai-debate-generator",
         "name": "AI Debate Generator",
-        "mainUrl": "/ai-debate-generator",
+        "mainUrl": "/tools/ai-debate-generator.html",
         "variantUrl": "/tools/variants/ai-debate-generator-free-unlimited.html"
       },
       {
         "slug": "ai-goal-planner",
         "name": "AI Goal Planner",
-        "mainUrl": "/ai-goal-planner",
+        "mainUrl": "/tools/ai-goal-planner.html",
         "variantUrl": "/tools/variants/ai-goal-planner-free-unlimited.html"
       },
       {
         "slug": "ai-essay-writer",
         "name": "AI Essay Writer",
-        "mainUrl": "/ai-essay-writer",
+        "mainUrl": "/tools/ai-essay-writer.html",
         "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
       }
     ]
@@ -2874,25 +2874,25 @@
       {
         "slug": "ai-pros-and-cons-generator",
         "name": "AI Pros & Cons Generator",
-        "mainUrl": "/ai-pros-and-cons-generator",
+        "mainUrl": "/tools/ai-pros-and-cons-generator.html",
         "variantUrl": "/tools/variants/ai-pros-cons-generator-free-unlimited.html"
       },
       {
         "slug": "ai-essay-writer",
         "name": "AI Essay Writer",
-        "mainUrl": "/ai-essay-writer",
+        "mainUrl": "/tools/ai-essay-writer.html",
         "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
       },
       {
         "slug": "ai-decision-maker",
         "name": "AI Decision Maker",
-        "mainUrl": "/ai-decision-maker",
+        "mainUrl": "/tools/ai-decision-maker.html",
         "variantUrl": "/tools/variants/ai-decision-maker-free-unlimited.html"
       },
       {
         "slug": "ai-writing-feedback-coach",
         "name": "AI Writing Feedback Coach",
-        "mainUrl": "/ai-writing-feedback-coach",
+        "mainUrl": "/tools/ai-writing-feedback-coach.html",
         "variantUrl": "/tools/variants/ai-writing-feedback-coach-free-unlimited.html"
       }
     ]
@@ -2916,25 +2916,25 @@
       {
         "slug": "ai-roast-generator",
         "name": "AI Roast Generator",
-        "mainUrl": "/ai-roast-generator",
+        "mainUrl": "/tools/ai-roast-generator.html",
         "variantUrl": "/tools/variants/ai-roast-generator-free-unlimited.html"
       },
       {
         "slug": "ai-compliment-generator",
         "name": "AI Compliment Generator",
-        "mainUrl": "/ai-compliment-generator",
+        "mainUrl": "/tools/ai-compliment-generator.html",
         "variantUrl": "/tools/variants/ai-compliment-generator-free-unlimited.html"
       },
       {
         "slug": "ai-story-starter",
         "name": "AI Story Starter",
-        "mainUrl": "/ai-story-starter",
+        "mainUrl": "/tools/ai-story-starter.html",
         "variantUrl": "/tools/variants/ai-story-starter-free-unlimited.html"
       },
       {
         "slug": "ai-message-analyzer",
         "name": "AI Message Analyzer",
-        "mainUrl": "/ai-message-analyzer",
+        "mainUrl": "/tools/ai-message-analyzer.html",
         "variantUrl": "/tools/variants/ai-message-analyzer-free-unlimited.html"
       }
     ]
@@ -2958,25 +2958,25 @@
       {
         "slug": "ai-roast-generator",
         "name": "AI Roast Generator",
-        "mainUrl": "/ai-roast-generator",
+        "mainUrl": "/tools/ai-roast-generator.html",
         "variantUrl": "/tools/variants/ai-roast-generator-free-unlimited.html"
       },
       {
         "slug": "ai-excuse-generator",
         "name": "AI Excuse Generator",
-        "mainUrl": "/ai-excuse-generator",
+        "mainUrl": "/tools/ai-excuse-generator.html",
         "variantUrl": "/tools/variants/ai-excuse-generator-free-unlimited.html"
       },
       {
         "slug": "ai-dating-profile-generator",
         "name": "AI Dating Profile Generator",
-        "mainUrl": "/ai-dating-profile-generator",
+        "mainUrl": "/tools/ai-dating-profile-generator.html",
         "variantUrl": "/tools/variants/ai-dating-profile-generator-free-unlimited.html"
       },
       {
         "slug": "ai-instagram-caption-generator",
         "name": "AI Instagram Caption Generator",
-        "mainUrl": "/ai-instagram-caption-generator",
+        "mainUrl": "/tools/ai-instagram-caption-generator.html",
         "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
       }
     ]
@@ -3000,25 +3000,25 @@
       {
         "slug": "ai-compliment-generator",
         "name": "AI Compliment Generator",
-        "mainUrl": "/ai-compliment-generator",
+        "mainUrl": "/tools/ai-compliment-generator.html",
         "variantUrl": "/tools/variants/ai-compliment-generator-free-unlimited.html"
       },
       {
         "slug": "ai-excuse-generator",
         "name": "AI Excuse Generator",
-        "mainUrl": "/ai-excuse-generator",
+        "mainUrl": "/tools/ai-excuse-generator.html",
         "variantUrl": "/tools/variants/ai-excuse-generator-free-unlimited.html"
       },
       {
         "slug": "ai-story-starter",
         "name": "AI Story Starter",
-        "mainUrl": "/ai-story-starter",
+        "mainUrl": "/tools/ai-story-starter.html",
         "variantUrl": "/tools/variants/ai-story-starter-free-unlimited.html"
       },
       {
         "slug": "ai-debate-generator",
         "name": "AI Debate Generator",
-        "mainUrl": "/ai-debate-generator",
+        "mainUrl": "/tools/ai-debate-generator.html",
         "variantUrl": "/tools/variants/ai-debate-generator-free-unlimited.html"
       }
     ]
@@ -3042,25 +3042,25 @@
       {
         "slug": "ai-essay-writer",
         "name": "AI Essay Writer",
-        "mainUrl": "/ai-essay-writer",
+        "mainUrl": "/tools/ai-essay-writer.html",
         "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
       },
       {
         "slug": "ai-blog-post-generator",
         "name": "AI Blog Post Generator",
-        "mainUrl": "/ai-blog-post-generator",
+        "mainUrl": "/tools/ai-blog-post-generator.html",
         "variantUrl": "/tools/variants/ai-blog-post-generator-free-unlimited.html"
       },
       {
         "slug": "ai-image-prompt-generator",
         "name": "AI Image Prompt Generator",
-        "mainUrl": "/ai-image-prompt-generator",
+        "mainUrl": "/tools/ai-image-prompt-generator.html",
         "variantUrl": "/tools/variants/ai-image-prompt-generator-free-unlimited.html"
       },
       {
         "slug": "ai-hook-generator",
         "name": "AI Hook Generator",
-        "mainUrl": "/ai-hook-generator",
+        "mainUrl": "/tools/ai-hook-generator.html",
         "variantUrl": "/tools/variants/ai-hook-generator-free-unlimited.html"
       }
     ]
@@ -3084,25 +3084,25 @@
       {
         "slug": "ai-image-prompt-generator",
         "name": "AI Image Prompt Generator",
-        "mainUrl": "/ai-image-prompt-generator",
+        "mainUrl": "/tools/ai-image-prompt-generator.html",
         "variantUrl": "/tools/variants/ai-image-prompt-generator-free-unlimited.html"
       },
       {
         "slug": "ai-story-starter",
         "name": "AI Story Starter",
-        "mainUrl": "/ai-story-starter",
+        "mainUrl": "/tools/ai-story-starter.html",
         "variantUrl": "/tools/variants/ai-story-starter-free-unlimited.html"
       },
       {
         "slug": "ai-chatbot",
         "name": "AI Chatbot",
-        "mainUrl": "/ai-chatbot",
+        "mainUrl": "/tools/ai-chatbot.html",
         "variantUrl": "/tools/variants/ai-chatbot-free-unlimited.html"
       },
       {
         "slug": "ai-code-explainer",
         "name": "AI Code Explainer",
-        "mainUrl": "/ai-code-explainer",
+        "mainUrl": "/tools/ai-code-explainer.html",
         "variantUrl": "/tools/variants/ai-code-explainer-free-unlimited.html"
       }
     ]
@@ -3126,25 +3126,25 @@
       {
         "slug": "ai-text-summarizer",
         "name": "AI Text Summarizer",
-        "mainUrl": "/ai-text-summarizer",
+        "mainUrl": "/tools/ai-text-summarizer.html",
         "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
       },
       {
         "slug": "ai-pdf-summarizer",
         "name": "AI PDF Summarizer",
-        "mainUrl": "/ai-pdf-summarizer",
+        "mainUrl": "/tools/ai-pdf-summarizer.html",
         "variantUrl": "/tools/variants/ai-pdf-summarizer-free-unlimited.html"
       },
       {
         "slug": "ai-contract-simplifier",
         "name": "AI Contract Simplifier",
-        "mainUrl": "/ai-contract-simplifier",
+        "mainUrl": "/tools/ai-contract-simplifier.html",
         "variantUrl": "/tools/variants/ai-contract-simplifier-free-unlimited.html"
       },
       {
         "slug": "ai-message-analyzer",
         "name": "AI Message Analyzer",
-        "mainUrl": "/ai-message-analyzer",
+        "mainUrl": "/tools/ai-message-analyzer.html",
         "variantUrl": "/tools/variants/ai-message-analyzer-free-unlimited.html"
       }
     ]
@@ -3168,25 +3168,25 @@
       {
         "slug": "ai-document-analyzer",
         "name": "AI Document Analyzer",
-        "mainUrl": "/ai-document-analyzer",
+        "mainUrl": "/tools/ai-document-analyzer.html",
         "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
       },
       {
         "slug": "ai-email-response-generator",
         "name": "AI Email Response Generator",
-        "mainUrl": "/ai-email-response-generator",
+        "mainUrl": "/tools/ai-email-response-generator.html",
         "variantUrl": "/tools/variants/ai-email-response-generator-free-unlimited.html"
       },
       {
         "slug": "ai-tone-converter",
         "name": "AI Tone Converter",
-        "mainUrl": "/ai-tone-converter",
+        "mainUrl": "/tools/ai-tone-converter.html",
         "variantUrl": "/tools/variants/ai-tone-converter-free-unlimited.html"
       },
       {
         "slug": "ai-grammar-checker",
         "name": "AI Grammar Checker",
-        "mainUrl": "/ai-grammar-checker",
+        "mainUrl": "/tools/ai-grammar-checker.html",
         "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
       }
     ]
@@ -3210,25 +3210,25 @@
       {
         "slug": "ai-homework-solver",
         "name": "AI Homework Solver",
-        "mainUrl": "/ai-homework-solver",
+        "mainUrl": "/tools/ai-homework-solver.html",
         "variantUrl": "/tools/variants/ai-homework-solver-free-unlimited.html"
       },
       {
         "slug": "ai-document-analyzer",
         "name": "AI Document Analyzer",
-        "mainUrl": "/ai-document-analyzer",
+        "mainUrl": "/tools/ai-document-analyzer.html",
         "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
       },
       {
         "slug": "ai-text-summarizer",
         "name": "AI Text Summarizer",
-        "mainUrl": "/ai-text-summarizer",
+        "mainUrl": "/tools/ai-text-summarizer.html",
         "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
       },
       {
         "slug": "ai-chatbot",
         "name": "AI Chatbot",
-        "mainUrl": "/ai-chatbot",
+        "mainUrl": "/tools/ai-chatbot.html",
         "variantUrl": "/tools/variants/ai-chatbot-free-unlimited.html"
       }
     ]
@@ -3252,25 +3252,25 @@
       {
         "slug": "ai-instagram-bio-generator",
         "name": "AI Instagram Bio Generator",
-        "mainUrl": "/ai-instagram-bio-generator",
+        "mainUrl": "/tools/ai-instagram-bio-generator.html",
         "variantUrl": "/tools/variants/ai-instagram-bio-generator-free-unlimited.html"
       },
       {
         "slug": "ai-linkedin-summary-generator",
         "name": "AI LinkedIn Summary Generator",
-        "mainUrl": "/ai-linkedin-summary-generator",
+        "mainUrl": "/tools/ai-linkedin-summary-generator.html",
         "variantUrl": "/tools/variants/ai-linkedin-summary-generator-free-unlimited.html"
       },
       {
         "slug": "ai-compliment-generator",
         "name": "AI Compliment Generator",
-        "mainUrl": "/ai-compliment-generator",
+        "mainUrl": "/tools/ai-compliment-generator.html",
         "variantUrl": "/tools/variants/ai-compliment-generator-free-unlimited.html"
       },
       {
         "slug": "ai-message-analyzer",
         "name": "AI Message Analyzer",
-        "mainUrl": "/ai-message-analyzer",
+        "mainUrl": "/tools/ai-message-analyzer.html",
         "variantUrl": "/tools/variants/ai-message-analyzer-free-unlimited.html"
       }
     ]
@@ -3294,25 +3294,25 @@
       {
         "slug": "ai-weekly-planner-generator",
         "name": "AI Weekly Planner Generator",
-        "mainUrl": "/ai-weekly-planner-generator",
+        "mainUrl": "/tools/ai-weekly-planner-generator.html",
         "variantUrl": "/tools/variants/ai-weekly-planner-generator-free-unlimited.html"
       },
       {
         "slug": "ai-todo-list-generator",
         "name": "AI To-Do List Generator",
-        "mainUrl": "/ai-todo-list-generator",
+        "mainUrl": "/tools/ai-todo-list-generator.html",
         "variantUrl": "/tools/variants/ai-to-do-list-generator-free-unlimited.html"
       },
       {
         "slug": "ai-goal-planner",
         "name": "AI Goal Planner",
-        "mainUrl": "/ai-goal-planner",
+        "mainUrl": "/tools/ai-goal-planner.html",
         "variantUrl": "/tools/variants/ai-goal-planner-free-unlimited.html"
       },
       {
         "slug": "ai-travel-itinerary-planner",
         "name": "AI Travel Planner",
-        "mainUrl": "/ai-travel-itinerary-planner",
+        "mainUrl": "/tools/ai-travel-itinerary-planner.html",
         "variantUrl": "/tools/variants/ai-travel-planner-free-unlimited.html"
       }
     ]
@@ -3336,25 +3336,25 @@
       {
         "slug": "ai-meal-planner",
         "name": "AI Meal Planner",
-        "mainUrl": "/ai-meal-planner",
+        "mainUrl": "/tools/ai-meal-planner.html",
         "variantUrl": "/tools/variants/ai-meal-planner-free-unlimited.html"
       },
       {
         "slug": "ai-weekly-planner-generator",
         "name": "AI Weekly Planner Generator",
-        "mainUrl": "/ai-weekly-planner-generator",
+        "mainUrl": "/tools/ai-weekly-planner-generator.html",
         "variantUrl": "/tools/variants/ai-weekly-planner-generator-free-unlimited.html"
       },
       {
         "slug": "ai-todo-list-generator",
         "name": "AI To-Do List Generator",
-        "mainUrl": "/ai-todo-list-generator",
+        "mainUrl": "/tools/ai-todo-list-generator.html",
         "variantUrl": "/tools/variants/ai-to-do-list-generator-free-unlimited.html"
       },
       {
         "slug": "ai-decision-maker",
         "name": "AI Decision Maker",
-        "mainUrl": "/ai-decision-maker",
+        "mainUrl": "/tools/ai-decision-maker.html",
         "variantUrl": "/tools/variants/ai-decision-maker-free-unlimited.html"
       }
     ]
@@ -3378,25 +3378,25 @@
       {
         "slug": "ai-homework-solver",
         "name": "AI Homework Solver",
-        "mainUrl": "/ai-homework-solver",
+        "mainUrl": "/tools/ai-homework-solver.html",
         "variantUrl": "/tools/variants/ai-homework-solver-free-unlimited.html"
       },
       {
         "slug": "ai-text-summarizer",
         "name": "AI Text Summarizer",
-        "mainUrl": "/ai-text-summarizer",
+        "mainUrl": "/tools/ai-text-summarizer.html",
         "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
       },
       {
         "slug": "ai-faq-generator",
         "name": "AI FAQ Generator",
-        "mainUrl": "/ai-faq-generator",
+        "mainUrl": "/tools/ai-faq-generator.html",
         "variantUrl": "/tools/variants/ai-faq-generator-free-unlimited.html"
       },
       {
         "slug": "explain-this-ai",
         "name": "AI Explain This",
-        "mainUrl": "/explain-this-ai",
+        "mainUrl": "/tools/explain-this-ai.html",
         "variantUrl": "/tools/variants/ai-explain-this-free-unlimited.html"
       }
     ]
@@ -3420,25 +3420,25 @@
       {
         "slug": "ai-cover-letter-generator",
         "name": "AI Cover Letter Generator",
-        "mainUrl": "/ai-cover-letter-generator",
+        "mainUrl": "/tools/ai-cover-letter-generator.html",
         "variantUrl": "/tools/variants/ai-cover-letter-generator-free-unlimited.html"
       },
       {
         "slug": "ai-essay-writer",
         "name": "AI Essay Writer",
-        "mainUrl": "/ai-essay-writer",
+        "mainUrl": "/tools/ai-essay-writer.html",
         "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
       },
       {
         "slug": "ai-linkedin-summary-generator",
         "name": "AI LinkedIn Summary Generator",
-        "mainUrl": "/ai-linkedin-summary-generator",
+        "mainUrl": "/tools/ai-linkedin-summary-generator.html",
         "variantUrl": "/tools/variants/ai-linkedin-summary-generator-free-unlimited.html"
       },
       {
         "slug": "ai-resume-bullet-generator",
         "name": "AI Resume Bullet Generator",
-        "mainUrl": "/ai-resume-bullet-generator",
+        "mainUrl": "/tools/ai-resume-bullet-generator.html",
         "variantUrl": "/tools/variants/ai-resume-bullet-generator-free-unlimited.html"
       }
     ]
@@ -3462,25 +3462,25 @@
       {
         "slug": "ai-chatbot",
         "name": "AI Chatbot",
-        "mainUrl": "/ai-chatbot",
+        "mainUrl": "/tools/ai-chatbot.html",
         "variantUrl": "/tools/variants/ai-chatbot-free-unlimited.html"
       },
       {
         "slug": "ai-document-analyzer",
         "name": "AI Document Analyzer",
-        "mainUrl": "/ai-document-analyzer",
+        "mainUrl": "/tools/ai-document-analyzer.html",
         "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
       },
       {
         "slug": "ai-pdf-chat",
         "name": "AI PDF Chat",
-        "mainUrl": "/ai-pdf-chat",
+        "mainUrl": "/tools/ai-pdf-chat.html",
         "variantUrl": "/tools/variants/ai-pdf-chat-free-unlimited.html"
       },
       {
         "slug": "ai-text-summarizer",
         "name": "AI Text Summarizer",
-        "mainUrl": "/ai-text-summarizer",
+        "mainUrl": "/tools/ai-text-summarizer.html",
         "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
       }
     ]
@@ -3504,25 +3504,25 @@
       {
         "slug": "ai-essay-writer",
         "name": "AI Essay Writer",
-        "mainUrl": "/ai-essay-writer",
+        "mainUrl": "/tools/ai-essay-writer.html",
         "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
       },
       {
         "slug": "ai-plagiarism-checker",
         "name": "AI Plagiarism Checker",
-        "mainUrl": "/ai-plagiarism-checker",
+        "mainUrl": "/tools/ai-plagiarism-checker.html",
         "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
       },
       {
         "slug": "ai-document-analyzer",
         "name": "AI Document Analyzer",
-        "mainUrl": "/ai-document-analyzer",
+        "mainUrl": "/tools/ai-document-analyzer.html",
         "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
       },
       {
         "slug": "ai-content-brief-generator",
         "name": "AI Content Brief Generator",
-        "mainUrl": "/ai-content-brief-generator",
+        "mainUrl": "/tools/ai-content-brief-generator.html",
         "variantUrl": "/tools/variants/ai-content-brief-generator-free-unlimited.html"
       }
     ]
@@ -3546,25 +3546,25 @@
       {
         "slug": "ai-grammar-checker",
         "name": "AI Grammar Checker",
-        "mainUrl": "/ai-grammar-checker",
+        "mainUrl": "/tools/ai-grammar-checker.html",
         "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
       },
       {
         "slug": "ai-writing-feedback-coach",
         "name": "AI Writing Feedback Coach",
-        "mainUrl": "/ai-writing-feedback-coach",
+        "mainUrl": "/tools/ai-writing-feedback-coach.html",
         "variantUrl": "/tools/variants/ai-writing-feedback-coach-free-unlimited.html"
       },
       {
         "slug": "ai-sentence-simplifier",
         "name": "AI Sentence Simplifier",
-        "mainUrl": "/ai-sentence-simplifier",
+        "mainUrl": "/tools/ai-sentence-simplifier.html",
         "variantUrl": "/tools/variants/ai-sentence-simplifier-free-unlimited.html"
       },
       {
         "slug": "word-counter",
         "name": "Word Counter",
-        "mainUrl": "/word-counter",
+        "mainUrl": "/tools/word-counter.html",
         "variantUrl": "/tools/variants/best-word-counter-2025.html"
       }
     ]
@@ -3588,25 +3588,25 @@
       {
         "slug": "ai-document-analyzer",
         "name": "AI Document Analyzer",
-        "mainUrl": "/ai-document-analyzer",
+        "mainUrl": "/tools/ai-document-analyzer.html",
         "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
       },
       {
         "slug": "ai-pii-redactor",
         "name": "AI PII Redactor",
-        "mainUrl": "/ai-pii-redactor",
+        "mainUrl": "/tools/ai-pii-redactor.html",
         "variantUrl": "/tools/variants/ai-pii-redactor-free-unlimited.html"
       },
       {
         "slug": "ai-text-summarizer",
         "name": "AI Text Summarizer",
-        "mainUrl": "/ai-text-summarizer",
+        "mainUrl": "/tools/ai-text-summarizer.html",
         "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
       },
       {
         "slug": "ai-pdf-summarizer",
         "name": "AI PDF Summarizer",
-        "mainUrl": "/ai-pdf-summarizer",
+        "mainUrl": "/tools/ai-pdf-summarizer.html",
         "variantUrl": "/tools/variants/ai-pdf-summarizer-free-unlimited.html"
       }
     ]
@@ -3630,25 +3630,25 @@
       {
         "slug": "ai-contract-simplifier",
         "name": "AI Contract Simplifier",
-        "mainUrl": "/ai-contract-simplifier",
+        "mainUrl": "/tools/ai-contract-simplifier.html",
         "variantUrl": "/tools/variants/ai-contract-simplifier-free-unlimited.html"
       },
       {
         "slug": "ai-document-analyzer",
         "name": "AI Document Analyzer",
-        "mainUrl": "/ai-document-analyzer",
+        "mainUrl": "/tools/ai-document-analyzer.html",
         "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
       },
       {
         "slug": "ai-text-summarizer",
         "name": "AI Text Summarizer",
-        "mainUrl": "/ai-text-summarizer",
+        "mainUrl": "/tools/ai-text-summarizer.html",
         "variantUrl": "/tools/variants/ai-text-summarizer-free-unlimited.html"
       },
       {
         "slug": "ai-pdf-summarizer",
         "name": "AI PDF Summarizer",
-        "mainUrl": "/ai-pdf-summarizer",
+        "mainUrl": "/tools/ai-pdf-summarizer.html",
         "variantUrl": "/tools/variants/ai-pdf-summarizer-free-unlimited.html"
       }
     ]
@@ -3672,25 +3672,25 @@
       {
         "slug": "password-generator",
         "name": "Password Generator",
-        "mainUrl": "/password-generator",
+        "mainUrl": "/tools/password-generator.html",
         "variantUrl": "/tools/variants/best-password-generator-2025.html"
       },
       {
         "slug": "color-palette-generator",
         "name": "Color Palette Generator",
-        "mainUrl": "/color-palette-generator",
+        "mainUrl": "/tools/color-palette-generator.html",
         "variantUrl": "/tools/variants/best-color-palette-generator-2025.html"
       },
       {
         "slug": "lorem-ipsum-generator",
         "name": "Lorem Ipsum Generator",
-        "mainUrl": "/lorem-ipsum-generator",
+        "mainUrl": "/tools/lorem-ipsum-generator.html",
         "variantUrl": "/tools/variants/best-lorem-ipsum-generator-2025.html"
       },
       {
         "slug": "diff-checker",
         "name": "Diff Checker",
-        "mainUrl": "/diff-checker",
+        "mainUrl": "/tools/diff-checker.html",
         "variantUrl": "/tools/variants/best-diff-checker-2025.html"
       }
     ]
@@ -3714,25 +3714,25 @@
       {
         "slug": "json-validator",
         "name": "JSON Validator & Formatter",
-        "mainUrl": "/json-validator",
+        "mainUrl": "/tools/json-validator.html",
         "variantUrl": "/tools/variants/best-json-validator-formatter-2025.html"
       },
       {
         "slug": "markdown-converter",
         "name": "Markdown Converter",
-        "mainUrl": "/markdown-converter",
+        "mainUrl": "/tools/markdown-converter.html",
         "variantUrl": "/tools/variants/best-markdown-converter-2025.html"
       },
       {
         "slug": "regex-tester",
         "name": "Regex Tester",
-        "mainUrl": "/regex-tester",
+        "mainUrl": "/tools/regex-tester.html",
         "variantUrl": "/tools/variants/best-regex-tester-2025.html"
       },
       {
         "slug": "word-counter",
         "name": "Word Counter",
-        "mainUrl": "/word-counter",
+        "mainUrl": "/tools/word-counter.html",
         "variantUrl": "/tools/variants/best-word-counter-2025.html"
       }
     ]
@@ -3756,25 +3756,25 @@
       {
         "slug": "ai-image-prompt-generator",
         "name": "AI Image Prompt Generator",
-        "mainUrl": "/ai-image-prompt-generator",
+        "mainUrl": "/tools/ai-image-prompt-generator.html",
         "variantUrl": "/tools/variants/ai-image-prompt-generator-free-unlimited.html"
       },
       {
         "slug": "random-number-generator",
         "name": "Random Number Generator",
-        "mainUrl": "/random-number-generator",
+        "mainUrl": "/tools/random-number-generator.html",
         "variantUrl": "/tools/variants/best-random-number-generator-2025.html"
       },
       {
         "slug": "ai-instagram-caption-generator",
         "name": "AI Instagram Caption Generator",
-        "mainUrl": "/ai-instagram-caption-generator",
+        "mainUrl": "/tools/ai-instagram-caption-generator.html",
         "variantUrl": "/tools/variants/ai-instagram-caption-generator-free-unlimited.html"
       },
       {
         "slug": "ai-ad-copy-generator",
         "name": "AI Ad Copy Generator",
-        "mainUrl": "/ai-ad-copy-generator",
+        "mainUrl": "/tools/ai-ad-copy-generator.html",
         "variantUrl": "/tools/variants/ai-ad-copy-generator-free-unlimited.html"
       }
     ]
@@ -3798,25 +3798,25 @@
       {
         "slug": "random-number-generator",
         "name": "Random Number Generator",
-        "mainUrl": "/random-number-generator",
+        "mainUrl": "/tools/random-number-generator.html",
         "variantUrl": "/tools/variants/best-random-number-generator-2025.html"
       },
       {
         "slug": "ai-pii-redactor",
         "name": "AI PII Redactor",
-        "mainUrl": "/ai-pii-redactor",
+        "mainUrl": "/tools/ai-pii-redactor.html",
         "variantUrl": "/tools/variants/ai-pii-redactor-free-unlimited.html"
       },
       {
         "slug": "ai-local-knowledge-chat",
         "name": "AI Local Knowledge Chat",
-        "mainUrl": "/ai-local-knowledge-chat",
+        "mainUrl": "/tools/ai-local-knowledge-chat.html",
         "variantUrl": "/tools/variants/ai-local-knowledge-chat-free-unlimited.html"
       },
       {
         "slug": "diff-checker",
         "name": "Diff Checker",
-        "mainUrl": "/diff-checker",
+        "mainUrl": "/tools/diff-checker.html",
         "variantUrl": "/tools/variants/best-diff-checker-2025.html"
       }
     ]
@@ -3840,25 +3840,25 @@
       {
         "slug": "explain-this-ai",
         "name": "AI Explain This",
-        "mainUrl": "/explain-this-ai",
+        "mainUrl": "/tools/explain-this-ai.html",
         "variantUrl": "/tools/variants/ai-explain-this-free-unlimited.html"
       },
       {
         "slug": "ai-flashcard-generator",
         "name": "AI Flashcard Generator",
-        "mainUrl": "/ai-flashcard-generator",
+        "mainUrl": "/tools/ai-flashcard-generator.html",
         "variantUrl": "/tools/variants/ai-flashcard-generator-free-unlimited.html"
       },
       {
         "slug": "ai-essay-writer",
         "name": "AI Essay Writer",
-        "mainUrl": "/ai-essay-writer",
+        "mainUrl": "/tools/ai-essay-writer.html",
         "variantUrl": "/tools/variants/ai-essay-writer-free-unlimited.html"
       },
       {
         "slug": "ai-chatbot",
         "name": "AI Chatbot",
-        "mainUrl": "/ai-chatbot",
+        "mainUrl": "/tools/ai-chatbot.html",
         "variantUrl": "/tools/variants/ai-chatbot-free-unlimited.html"
       }
     ]
@@ -3882,25 +3882,25 @@
       {
         "slug": "ai-humanizer",
         "name": "AI Text Humanizer",
-        "mainUrl": "/ai-humanizer",
+        "mainUrl": "/tools/ai-humanizer.html",
         "variantUrl": "/tools/variants/ai-text-humanizer-free-unlimited.html"
       },
       {
         "slug": "ai-plagiarism-checker",
         "name": "AI Plagiarism Checker",
-        "mainUrl": "/ai-plagiarism-checker",
+        "mainUrl": "/tools/ai-plagiarism-checker.html",
         "variantUrl": "/tools/variants/ai-plagiarism-checker-free-unlimited.html"
       },
       {
         "slug": "ai-grammar-checker",
         "name": "AI Grammar Checker",
-        "mainUrl": "/ai-grammar-checker",
+        "mainUrl": "/tools/ai-grammar-checker.html",
         "variantUrl": "/tools/variants/ai-grammar-checker-free-unlimited.html"
       },
       {
         "slug": "ai-paraphrasing-tool",
         "name": "AI Paraphrasing Tool",
-        "mainUrl": "/ai-paraphrasing-tool",
+        "mainUrl": "/tools/ai-paraphrasing-tool.html",
         "variantUrl": "/tools/variants/ai-paraphrasing-tool-free-unlimited.html"
       }
     ]
@@ -3924,25 +3924,25 @@
       {
         "slug": "ai-pdf-summarizer",
         "name": "AI PDF Summarizer",
-        "mainUrl": "/ai-pdf-summarizer",
+        "mainUrl": "/tools/ai-pdf-summarizer.html",
         "variantUrl": "/tools/variants/ai-pdf-summarizer-free-unlimited.html"
       },
       {
         "slug": "ai-document-analyzer",
         "name": "AI Document Analyzer",
-        "mainUrl": "/ai-document-analyzer",
+        "mainUrl": "/tools/ai-document-analyzer.html",
         "variantUrl": "/tools/variants/ai-document-analyzer-free-unlimited.html"
       },
       {
         "slug": "ai-local-knowledge-chat",
         "name": "AI Local Knowledge Chat",
-        "mainUrl": "/ai-local-knowledge-chat",
+        "mainUrl": "/tools/ai-local-knowledge-chat.html",
         "variantUrl": "/tools/variants/ai-local-knowledge-chat-free-unlimited.html"
       },
       {
         "slug": "ai-contract-simplifier",
         "name": "AI Contract Simplifier",
-        "mainUrl": "/ai-contract-simplifier",
+        "mainUrl": "/tools/ai-contract-simplifier.html",
         "variantUrl": "/tools/variants/ai-contract-simplifier-free-unlimited.html"
       }
     ]
@@ -3966,25 +3966,25 @@
       {
         "slug": "ai-code-explainer",
         "name": "AI Code Explainer",
-        "mainUrl": "/ai-code-explainer",
+        "mainUrl": "/tools/ai-code-explainer.html",
         "variantUrl": "/tools/variants/ai-code-explainer-free-unlimited.html"
       },
       {
         "slug": "regex-tester",
         "name": "Regex Tester",
-        "mainUrl": "/regex-tester",
+        "mainUrl": "/tools/regex-tester.html",
         "variantUrl": "/tools/variants/best-regex-tester-2025.html"
       },
       {
         "slug": "json-validator",
         "name": "JSON Validator & Formatter",
-        "mainUrl": "/json-validator",
+        "mainUrl": "/tools/json-validator.html",
         "variantUrl": "/tools/variants/best-json-validator-formatter-2025.html"
       },
       {
         "slug": "diff-checker",
         "name": "Diff Checker",
-        "mainUrl": "/diff-checker",
+        "mainUrl": "/tools/diff-checker.html",
         "variantUrl": "/tools/variants/best-diff-checker-2025.html"
       }
     ]
@@ -4008,25 +4008,25 @@
       {
         "slug": "ai-code-playground",
         "name": "AI Code Playground",
-        "mainUrl": "/ai-code-playground",
+        "mainUrl": "/tools/ai-code-playground.html",
         "variantUrl": "/tools/variants/ai-code-playground-free-unlimited.html"
       },
       {
         "slug": "regex-tester",
         "name": "Regex Tester",
-        "mainUrl": "/regex-tester",
+        "mainUrl": "/tools/regex-tester.html",
         "variantUrl": "/tools/variants/best-regex-tester-2025.html"
       },
       {
         "slug": "json-validator",
         "name": "JSON Validator & Formatter",
-        "mainUrl": "/json-validator",
+        "mainUrl": "/tools/json-validator.html",
         "variantUrl": "/tools/variants/best-json-validator-formatter-2025.html"
       },
       {
         "slug": "markdown-converter",
         "name": "Markdown Converter",
-        "mainUrl": "/markdown-converter",
+        "mainUrl": "/tools/markdown-converter.html",
         "variantUrl": "/tools/variants/best-markdown-converter-2025.html"
       }
     ]
@@ -4050,25 +4050,25 @@
       {
         "slug": "json-validator",
         "name": "JSON Validator & Formatter",
-        "mainUrl": "/json-validator",
+        "mainUrl": "/tools/json-validator.html",
         "variantUrl": "/tools/variants/best-json-validator-formatter-2025.html"
       },
       {
         "slug": "ai-code-explainer",
         "name": "AI Code Explainer",
-        "mainUrl": "/ai-code-explainer",
+        "mainUrl": "/tools/ai-code-explainer.html",
         "variantUrl": "/tools/variants/ai-code-explainer-free-unlimited.html"
       },
       {
         "slug": "diff-checker",
         "name": "Diff Checker",
-        "mainUrl": "/diff-checker",
+        "mainUrl": "/tools/diff-checker.html",
         "variantUrl": "/tools/variants/best-diff-checker-2025.html"
       },
       {
         "slug": "markdown-converter",
         "name": "Markdown Converter",
-        "mainUrl": "/markdown-converter",
+        "mainUrl": "/tools/markdown-converter.html",
         "variantUrl": "/tools/variants/best-markdown-converter-2025.html"
       }
     ]
@@ -4092,25 +4092,25 @@
       {
         "slug": "json-validator",
         "name": "JSON Validator & Formatter",
-        "mainUrl": "/json-validator",
+        "mainUrl": "/tools/json-validator.html",
         "variantUrl": "/tools/variants/best-json-validator-formatter-2025.html"
       },
       {
         "slug": "regex-tester",
         "name": "Regex Tester",
-        "mainUrl": "/regex-tester",
+        "mainUrl": "/tools/regex-tester.html",
         "variantUrl": "/tools/variants/best-regex-tester-2025.html"
       },
       {
         "slug": "diff-checker",
         "name": "Diff Checker",
-        "mainUrl": "/diff-checker",
+        "mainUrl": "/tools/diff-checker.html",
         "variantUrl": "/tools/variants/best-diff-checker-2025.html"
       },
       {
         "slug": "ai-code-explainer",
         "name": "AI Code Explainer",
-        "mainUrl": "/ai-code-explainer",
+        "mainUrl": "/tools/ai-code-explainer.html",
         "variantUrl": "/tools/variants/ai-code-explainer-free-unlimited.html"
       }
     ]
@@ -4134,25 +4134,25 @@
       {
         "slug": "regex-tester",
         "name": "Regex Tester",
-        "mainUrl": "/regex-tester",
+        "mainUrl": "/tools/regex-tester.html",
         "variantUrl": "/tools/variants/best-regex-tester-2025.html"
       },
       {
         "slug": "markdown-converter",
         "name": "Markdown Converter",
-        "mainUrl": "/markdown-converter",
+        "mainUrl": "/tools/markdown-converter.html",
         "variantUrl": "/tools/variants/best-markdown-converter-2025.html"
       },
       {
         "slug": "diff-checker",
         "name": "Diff Checker",
-        "mainUrl": "/diff-checker",
+        "mainUrl": "/tools/diff-checker.html",
         "variantUrl": "/tools/variants/best-diff-checker-2025.html"
       },
       {
         "slug": "ai-schema-markup-generator",
         "name": "AI Schema Markup Generator",
-        "mainUrl": "/ai-schema-markup-generator",
+        "mainUrl": "/tools/ai-schema-markup-generator.html",
         "variantUrl": "/tools/variants/ai-schema-markup-generator-free-unlimited.html"
       }
     ]

@@ -153,10 +153,10 @@ function buildSection({ tool, currentFile, variantIndex }) {
       const relTool = toolBySlug[relSlug];
       if (!relTool) continue;
       cards.push(card({
-        href:     `${BASE_URL}/${relSlug}`,
+        href:     `${BASE_URL}/tools/${relSlug}.html`,
         icon:     toolIcon(relSlug),
         title:    relTool.name,
-        subtitle: `${relTool.category} · Main page`,
+        subtitle: `${relTool.category} · Free Tool`,
         badge:    null,
       }));
     }
@@ -234,7 +234,7 @@ function generateReactLinks(variantIndex) {
       return {
         slug,
         name:       toolBySlug[slug]?.name ?? slug,
-        mainUrl:    `/${slug}`,
+        mainUrl:    `/tools/${slug}.html`,
         variantUrl: picked ? `/tools/variants/${picked}` : null,
       };
     });
