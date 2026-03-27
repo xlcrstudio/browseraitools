@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Copy, Check, RotateCcw, ChevronDown, ChevronUp } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Case format types ────────────────────────────────────────────────────────
 
@@ -282,7 +283,7 @@ export function CaseConverter() {
               <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
                 {selectedMeta.label}
               </p>
-              <CopyBtn text={output} />
+              <div className="flex items-center gap-2"><InlineShareButtons /><CopyBtn text={output} /></div>
             </div>
             <div className="relative px-4 py-4 min-h-[80px]">
               {output ? (

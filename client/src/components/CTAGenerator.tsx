@@ -4,6 +4,7 @@ import { Wand2, Loader2, AlertTriangle, CheckCircle2, ChevronDown, RefreshCw, Do
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useCTAStorage, categorizeCTA, type GeneratedCTA } from "@/hooks/use-cta-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const GOALS = [
   "Get sign-ups",
@@ -542,6 +543,7 @@ function CTACard({ cta, index }: { cta: GeneratedCTA; index: number }) {
             {copied ? "Copied!" : "Copy"}
           </span>
         </button>
+        <InlineShareButtons />
       </div>
     </motion.div>
   );

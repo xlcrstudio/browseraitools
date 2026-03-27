@@ -10,6 +10,7 @@ import {
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { usePlaygroundProjects, type PlaygroundProject } from "@/hooks/use-playground-projects";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const TEMPLATES: Array<{ name: string; language: string; code: string; prompt: string }> = [
   { name: "Hello World (JS)", language: "javascript", prompt: "Hello World in JavaScript", code: '// Hello World in JavaScript\nconsole.log("Hello, World!");\nconsole.log("Welcome to the AI Code Playground");' },
@@ -525,6 +526,7 @@ Return the FULL corrected code. Add a comment at top explaining the fix. No mark
                 <button data-testid="button-copy-code" onClick={handleCopyCode} className="p-1.5 rounded-md hover:bg-slate-700 text-slate-400 hover:text-white transition-colors" aria-label="Copy code">
                   {copiedCode ? <CheckCircle2 className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
                 </button>
+                <InlineShareButtons />
                 <button data-testid="button-download-code" onClick={handleDownload} className="p-1.5 rounded-md hover:bg-slate-700 text-slate-400 hover:text-white transition-colors" aria-label="Download code">
                   <Download className="w-4 h-4" />
                 </button>

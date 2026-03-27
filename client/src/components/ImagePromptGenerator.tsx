@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -187,6 +188,7 @@ function PromptCardView({ card, index, aspectRatio }: { card: PromptCard; index:
               {copiedMJ ? "Copied!" : "Copy for MJ"}
             </button>
           )}
+          <InlineShareButtons />
           <button
             type="button"
             data-testid={`button-copy-${index}`}

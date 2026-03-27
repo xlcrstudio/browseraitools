@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { RotateCcw, ArrowLeftRight, AlignLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Diff types ───────────────────────────────────────────────────────────────
 
@@ -462,7 +463,7 @@ export function DiffChecker() {
               <span className="w-2 h-2 rounded-full bg-emerald-500" /> Texts are identical
             </span>
           )}
-          <div className="ml-auto flex items-center gap-2 text-[10px] text-slate-400 font-semibold">
+          <div className="ml-auto flex items-center gap-2 text-[10px] text-slate-400 font-semibold"><InlineShareButtons />
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-sm bg-red-100 dark:bg-red-900/40 inline-block" />removed</span>
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-sm bg-emerald-100 dark:bg-emerald-900/40 inline-block" />added</span>
           </div>

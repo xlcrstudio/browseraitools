@@ -3,6 +3,7 @@ import { Flame, Smile, Zap, Loader2, AlertTriangle, Copy, CheckCircle2, RefreshC
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useRoastStorage, type RoastResult } from "@/hooks/use-roast-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const ROAST_LEVELS = [
   { value: "light", label: "Light", icon: Smile, description: "Playful & safe" },
@@ -373,6 +374,7 @@ ROAST #3: [roast text here]`;
                   </>
                 )}
               </button>
+              <InlineShareButtons />
               <button
                 data-testid="button-reset-bottom"
                 onClick={handleReset}

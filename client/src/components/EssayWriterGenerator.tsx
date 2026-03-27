@@ -13,6 +13,7 @@ import {
   useEssayWriterStorage,
   type Essay,
 } from "@/hooks/use-essay-writer-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const ESSAY_TYPES = [
   { value: "argumentative", label: "Argumentative", icon: Scale, description: "Defend a position with evidence" },
@@ -617,6 +618,7 @@ References:`,
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
             </div>
           </div>
 

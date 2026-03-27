@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const MODES = [
   { id: "standard", label: "Standard", desc: "Errors + explanations", default: true },
@@ -508,6 +509,7 @@ export function GrammarChecker() {
                     {copiedAnalysis ? <CheckCircle2 className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                     {copiedAnalysis ? "Copied!" : "Copy all"}
                   </button>
+                  <InlineShareButtons />
                   <button
                     data-testid="button-download"
                     type="button"

@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const RESPONSE_TYPES = [
   { id: "standard", label: "Standard Reply", desc: "1–2 paragraphs, complete response", icon: Mail },
@@ -534,6 +535,7 @@ export function EmailResponseGenerator() {
                     {copied ? <CheckCircle2 className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                     {copied ? "Copied!" : "Copy"}
                   </button>
+                  <InlineShareButtons />
                   <button
                     data-testid="button-download"
                     type="button"

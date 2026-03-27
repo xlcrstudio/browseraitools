@@ -4,6 +4,7 @@ import { Wand2, Loader2, AlertTriangle, CheckCircle2, ChevronDown, RefreshCw, Ro
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useHookStorage } from "@/hooks/use-hook-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const PLATFORMS = ["X / Twitter", "LinkedIn", "YouTube", "TikTok", "Blog Post", "Ad Copy"];
 const TONES = ["Curiosity", "Controversial", "Data-Driven", "Storytelling", "FOMO", "Educational", "Humorous"];
@@ -261,22 +262,25 @@ function HookCard({ text, index, isDone }: { text: string, index: number, isDone
         </p>
         
         {isDone && (
-          <button
-            data-testid={`button-copy-${index}`}
-            onClick={handleCopy}
-            className={cn(
-              "shrink-0 p-2.5 rounded-xl border transition-all duration-200 flex items-center gap-2 group/btn",
-              copied 
-                ? "bg-emerald-50 border-emerald-200 text-emerald-600" 
-                : "bg-slate-50 border-slate-200 text-slate-500 hover:border-purple-200 hover:bg-purple-50 hover:text-purple-600"
-            )}
-            title="Copy to clipboard"
-          >
-            {copied ? <CheckCircle2 className="w-5 h-5" /> : <CopyIcon className="w-5 h-5" />}
-            <span className={cn("text-sm font-semibold hidden md:block", copied ? "block" : "hidden group-hover/btn:block")}>
-              {copied ? "Copied!" : "Copy"}
-            </span>
-          </button>
+          <>
+            <button
+              data-testid={`button-copy-${index}`}
+              onClick={handleCopy}
+              className={cn(
+                "shrink-0 p-2.5 rounded-xl border transition-all duration-200 flex items-center gap-2 group/btn",
+                copied 
+                  ? "bg-emerald-50 border-emerald-200 text-emerald-600" 
+                  : "bg-slate-50 border-slate-200 text-slate-500 hover:border-purple-200 hover:bg-purple-50 hover:text-purple-600"
+              )}
+              title="Copy to clipboard"
+            >
+              {copied ? <CheckCircle2 className="w-5 h-5" /> : <CopyIcon className="w-5 h-5" />}
+              <span className={cn("text-sm font-semibold hidden md:block", copied ? "block" : "hidden group-hover/btn:block")}>
+                {copied ? "Copied!" : "Copy"}
+              </span>
+            </button>
+            <InlineShareButtons />
+          </>
         )}
       </div>
     </motion.div>

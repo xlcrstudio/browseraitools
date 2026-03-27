@@ -14,6 +14,7 @@ import {
   useContentBriefStorage,
   type ContentBrief,
 } from "@/hooks/use-content-brief-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const CONTENT_TYPE_OPTIONS = [
   { value: "blog-post", label: "Blog Post", icon: FileText },
@@ -763,6 +764,7 @@ Be concise and actionable.`;
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
               <button
                 data-testid="button-copy-markdown"
                 onClick={copyAsMarkdown}

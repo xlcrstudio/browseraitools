@@ -8,6 +8,7 @@ import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useYTTitleStorage, type YTTitleResult } from "@/hooks/use-yt-title-storage";
 import { Badge } from "@/components/ui/badge";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const CATEGORIES = [
   { value: "Education", label: "Education", icon: BookOpen, description: "Learning & tutorials" },
@@ -577,6 +578,7 @@ TITLE #10 (SEO: X.X/10 | CTR: High)
                   </>
                 )}
               </button>
+              <InlineShareButtons />
               <button
                 data-testid="button-reset-bottom"
                 onClick={handleReset}

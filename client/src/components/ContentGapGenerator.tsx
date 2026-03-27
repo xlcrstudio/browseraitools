@@ -12,6 +12,7 @@ import {
   useContentGapStorage,
   type ContentGapAnalysis,
 } from "@/hooks/use-content-gap-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const ANALYSIS_DEPTH_OPTIONS = [
   { value: "quick", label: "Quick Scan", description: "Fastest" },
@@ -535,6 +536,7 @@ Quick Stats & Summary:`;
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
             </div>
           </div>
 

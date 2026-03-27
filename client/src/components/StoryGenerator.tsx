@@ -7,6 +7,7 @@ import {
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useStoryStorage, type StoryResult } from "@/hooks/use-story-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const GENRES = [
   { value: "Fantasy", icon: Wand2, desc: "Magic & wonder" },
@@ -426,6 +427,7 @@ STARTER #5: [text]`;
                   </>
                 )}
               </button>
+              <InlineShareButtons />
               <button
                 data-testid="button-reset-bottom"
                 onClick={handleReset}

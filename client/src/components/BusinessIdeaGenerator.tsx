@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 import {
   useBusinessIdeaStorage,
   type BusinessIdea,
@@ -1080,6 +1081,7 @@ function IdeaCard({
           <><Copy className="w-3.5 h-3.5" /> Copy Idea</>
         )}
       </button>
+      <InlineShareButtons />
     </motion.div>
   );
 }

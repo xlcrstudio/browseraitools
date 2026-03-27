@@ -14,6 +14,7 @@ import {
   type HashtagGenerationRecord,
   type HashtagVolume,
 } from "@/hooks/use-hashtag-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const PLATFORMS = [
   { id: "instagram", label: "Instagram", count: "30 hashtags" },
@@ -761,6 +762,7 @@ function CopyPasteSection({ allTags, copied, onCopy }: { allTags: string; copied
           {copied ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
           {copied ? "Copied!" : "Copy All"}
         </button>
+        <InlineShareButtons />
       </div>
       <div className="bg-slate-50 rounded-xl p-4 border border-slate-200">
         <p className="text-sm text-slate-700 leading-relaxed break-words" data-testid="text-all-hashtags">

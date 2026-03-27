@@ -7,6 +7,7 @@ import {
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useCoverLetterStorage } from "@/hooks/use-cover-letter-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const EXPERIENCE_LEVELS = [
   "Entry-level (0-2 years)",
@@ -727,6 +728,7 @@ Output ONLY the cover letter text. No explanations, no meta-commentary.`;
                   {copied ? <CheckCircle2 className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                   {copied ? "Copied!" : "Copy to Clipboard"}
                 </button>
+                <InlineShareButtons />
                 <button
                   data-testid="button-download-letter"
                   onClick={handleDownload}

@@ -12,6 +12,7 @@ import {
   useInternalLinkStorage,
   type InternalLinkAnalysis,
 } from "@/hooks/use-internal-link-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const LINKING_GOAL_OPTIONS = [
   { value: "topical-authority", label: "Topical Authority", description: "Build expertise cluster", icon: Brain },
@@ -621,6 +622,7 @@ Implementation Guide:`;
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
             </div>
           </div>
 

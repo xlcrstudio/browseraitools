@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useToast } from "@/hooks/use-toast";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -774,6 +775,7 @@ Rules:
                   {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
                   {copied ? "Copied!" : "Copy All"}
                 </button>
+                <InlineShareButtons />
                 <button
                   onClick={() => { setSolution(null); setStreamText(""); }}
                   data-testid="button-new-problem"

@@ -13,6 +13,7 @@ import {
   useMetaDescriptionStorage,
   type MetaDescription,
 } from "@/hooks/use-meta-description-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const TONE_OPTIONS = [
   { value: "professional", label: "Professional", description: "Authoritative and trustworthy", icon: Briefcase },
@@ -569,6 +570,7 @@ Description X:
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
             </div>
           </div>
 

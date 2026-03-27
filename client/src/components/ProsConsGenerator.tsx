@@ -21,6 +21,7 @@ import {
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useProsConsStorage, type ProsConsResult } from "@/hooks/use-pros-cons-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const CONTEXT_OPTIONS = [
   { value: "Buying Decision", label: "Buying Decision", icon: ShoppingCart },
@@ -458,6 +459,7 @@ FINAL RECOMMENDATION: [A brief, balanced recommendation paragraph]`;
                   </>
                 )}
               </button>
+              <InlineShareButtons />
               <button
                 data-testid="button-regenerate"
                 onClick={handleGenerate}

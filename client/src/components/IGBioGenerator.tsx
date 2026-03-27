@@ -10,6 +10,7 @@ import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useIGBioStorage, type IGBioResult } from "@/hooks/use-ig-bio-storage";
 import { Badge } from "@/components/ui/badge";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const NICHES = [
   { value: "Travel", icon: Plane },
@@ -637,6 +638,7 @@ Write the Instagram bio now. Output ONLY the bio text, nothing else:`;
                   {copiedAll ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
                   {copiedAll ? "Copied!" : "Copy All"}
                 </button>
+                <InlineShareButtons />
                 <button
                   type="button"
                   data-testid="button-regenerate"

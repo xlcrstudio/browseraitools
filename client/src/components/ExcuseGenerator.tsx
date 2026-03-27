@@ -4,6 +4,7 @@ import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useExcuseStorage, type ExcuseResult } from "@/hooks/use-excuse-storage";
 import { Badge } from "@/components/ui/badge";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const STYLES = [
   { value: "Funny", label: "Funny", icon: Smile, description: "Playful & witty" },
@@ -386,6 +387,7 @@ EXCUSE #5: [excuse text here]`;
                   </>
                 )}
               </button>
+              <InlineShareButtons />
               <button
                 data-testid="button-reset-bottom"
                 onClick={handleReset}

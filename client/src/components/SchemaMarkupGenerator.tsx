@@ -14,6 +14,7 @@ import {
   useSchemaMarkupStorage,
   type SchemaMarkup,
 } from "@/hooks/use-schema-markup-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const SCHEMA_TYPES = [
   { value: "FAQPage", label: "FAQPage", icon: HelpCircle },
@@ -912,6 +913,7 @@ Be concise and actionable.`;
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
             </div>
           </div>
 

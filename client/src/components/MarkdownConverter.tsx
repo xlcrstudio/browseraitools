@@ -4,6 +4,7 @@ import { Copy, Check, RotateCcw, Eye, Code } from "lucide-react";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
 import { cn } from "@/lib/utils";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Configure marked ─────────────────────────────────────────────────────────
 
@@ -309,7 +310,7 @@ export function MarkdownConverter() {
           <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 dark:border-slate-800 shrink-0">
             <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">{outputLabel}</p>
             <div className="flex items-center gap-3">
-              <CopyBtn text={output} />
+<div className="flex items-center gap-2"><InlineShareButtons /><CopyBtn text={output} /></div>
               {/* Preview toggle (only for MD→HTML) */}
               {mode === "md-html" && (
                 <div className="flex gap-0.5 p-0.5 bg-slate-100 dark:bg-slate-800 rounded-lg">

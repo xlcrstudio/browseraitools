@@ -12,6 +12,7 @@ import {
   useTravelPlannerStorage,
   type TravelItinerary,
 } from "@/hooks/use-travel-planner-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const BUDGET_OPTIONS = [
   { value: "backpacker", label: "Backpacker (<$50/day)" },
@@ -539,6 +540,7 @@ Trip Tips:`;
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
             </div>
           </div>
 

@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const MODES = [
   {
@@ -267,6 +268,7 @@ export function ParaphrasingTool() {
                   {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
                   {copied ? "Copied!" : "Copy"}
                 </button>
+                <InlineShareButtons />
                 <button
                   type="button"
                   data-testid="button-download"

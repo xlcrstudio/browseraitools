@@ -3,6 +3,7 @@ import { Heart, Users, Briefcase, UserPlus, Sparkles, Smile, TrendingUp, Loader2
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useComplimentStorage, type ComplimentResult } from "@/hooks/use-compliment-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const RECIPIENTS = [
   { value: "Friend", label: "Friend", icon: Users },
@@ -381,6 +382,7 @@ COMPLIMENT #5: [compliment text here]`;
                   </>
                 )}
               </button>
+              <InlineShareButtons />
               <button
                 data-testid="button-reset-bottom"
                 onClick={handleReset}

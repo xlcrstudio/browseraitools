@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -441,6 +442,7 @@ export function PiiRedactor() {
                         {copied ? <Check className="w-3 h-3 text-green-500" /> : <Copy className="w-3 h-3" />}
                         {copied ? "Copied" : "Copy"}
                       </button>
+                      <InlineShareButtons />
                     </div>
                     <div className="p-4 max-h-[50vh] overflow-y-auto">
                       <RedactedView text={displayText} items={items} />

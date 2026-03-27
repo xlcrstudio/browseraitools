@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 import {
   useLinkedInPostStorage,
   type LinkedInPostVersion,
@@ -640,6 +641,7 @@ Suggested first comment to post immediately after publishing for engagement boos
                     <Copy className="w-4 h-4 text-slate-400 hover:text-purple-500" />
                   )}
                 </button>
+                <InlineShareButtons />
               </div>
             </div>
           )}

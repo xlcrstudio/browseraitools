@@ -7,6 +7,7 @@ import {
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -457,6 +458,7 @@ export function PlagiarismChecker() {
                     <p className="text-sm text-slate-700 dark:text-slate-200 leading-relaxed">{result.summary}</p>
                   )}
                   <div className="flex flex-wrap gap-2">
+                    <InlineShareButtons />
                     <button type="button" data-testid="button-reset" onClick={handleReset}
                       className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-red-500 transition-colors px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
                       <RotateCcw className="w-3 h-3" /> New Check

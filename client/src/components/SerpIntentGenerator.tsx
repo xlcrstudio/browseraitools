@@ -12,6 +12,7 @@ import {
   useSerpIntentStorage,
   type SerpIntentAnalysis,
 } from "@/hooks/use-serp-intent-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const COUNTRY_OPTIONS = [
   { value: "global", label: "Global" },
@@ -485,6 +486,7 @@ QUICK STATS:
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
             </div>
           </div>
 

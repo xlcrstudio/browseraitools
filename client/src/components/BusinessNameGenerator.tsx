@@ -8,6 +8,7 @@ import {
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useBusinessNameStorage } from "@/hooks/use-business-name-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const NAMING_STYLES = [
   { id: "modern", label: "Modern / Tech", desc: "Stripe, Uber, Slack style", icon: Zap },
@@ -517,6 +518,7 @@ Make names memorable, easy to spell, professional for the industry, and unique. 
                   {copiedId === "all" ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
                   {copiedId === "all" ? "Copied!" : "Copy All"}
                 </button>
+                <InlineShareButtons />
                 {favCount > 0 && (
                   <button data-testid="button-copy-favorites" onClick={handleCopyFavorites} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border border-amber-200 bg-amber-50 hover:bg-amber-100 text-amber-700 transition-all">
                     {copiedId === "favs" ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Star className="w-4 h-4" />}

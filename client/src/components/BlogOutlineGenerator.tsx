@@ -16,6 +16,7 @@ import {
   type OutlineFAQ,
   type BlogOutlineRecord,
 } from "@/hooks/use-blog-outline-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const CONTENT_TYPES = [
   { value: "how-to", label: "How-To Guide / Tutorial" },
@@ -454,6 +455,7 @@ Now write the REAL outline about "${topic.trim()}" for ${audience.trim()}. Write
               {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               {copiedId === "all" ? "Copied!" : "Copy All"}
             </button>
+            <InlineShareButtons />
           </div>
 
           {currentRecord.titleOptions.length > 0 && (

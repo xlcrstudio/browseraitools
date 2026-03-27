@@ -11,6 +11,7 @@ import {
   useDocumentAnalyzerStorage,
   type DocumentAnalysis,
 } from "@/hooks/use-document-analyzer-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const DOC_TYPES = [
   { value: "research", label: "Research Paper" },
@@ -558,6 +559,7 @@ Q: `,
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
             </div>
           </div>
 

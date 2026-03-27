@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const SUMMARY_TYPES = [
   {
@@ -431,6 +432,7 @@ The AI will condense it into a clear, accurate summary that preserves every key 
                     {copied ? <CheckCircle2 className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                     {copied ? "Copied!" : "Copy"}
                   </button>
+                  <InlineShareButtons />
                   <button
                     data-testid="button-download"
                     type="button"

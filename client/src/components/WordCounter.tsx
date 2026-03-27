@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Copy, Check, RotateCcw } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Text analysis ────────────────────────────────────────────────────────────
 
@@ -180,7 +181,7 @@ export function WordCounter() {
         <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 dark:border-slate-800">
           <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Your Text</p>
           <div className="flex items-center gap-3">
-            {text && <CopyBtn text={text} />}
+            {text && <><InlineShareButtons /><CopyBtn text={text} /></>}
             {text && (
               <button type="button" onClick={() => setText("")}
                 data-testid="button-clear"

@@ -6,6 +6,7 @@ import {
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { usePromptStorage, type PromptResult } from "@/hooks/use-prompt-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const PURPOSES = [
   { value: "Marketing", icon: Megaphone },
@@ -436,6 +437,7 @@ EXPERT PROMPT: [prompt text here]`;
                   </>
                 )}
               </button>
+              <InlineShareButtons />
               <button
                 data-testid="button-reset-bottom"
                 onClick={handleReset}

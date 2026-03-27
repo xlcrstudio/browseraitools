@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Source Types & Fields ────────────────────────────────────────────────────
 
@@ -324,6 +325,7 @@ function CitationCard({
             {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
             {copied ? "Copied!" : "Copy"}
           </button>
+          <InlineShareButtons />
         </div>
       </div>
       <p className="px-4 py-3.5 text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-serif">

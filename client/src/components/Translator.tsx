@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const LANGUAGES = [
   { code: "auto", name: "Auto-detect" },
@@ -695,6 +696,7 @@ export function Translator() {
                     {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                     {copied ? "Copied!" : "Copy"}
                   </button>
+                  <InlineShareButtons />
                   <button
                     type="button"
                     data-testid="button-download"

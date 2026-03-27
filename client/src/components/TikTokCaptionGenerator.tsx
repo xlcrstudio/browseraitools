@@ -12,6 +12,7 @@ import {
   type FirstComment,
   type TikTokCaptionRecord,
 } from "@/hooks/use-tiktok-caption-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const NICHES = [
   "Fitness & Health", "Food & Cooking", "Beauty & Skincare",
@@ -660,6 +661,7 @@ C: a real first comment suggestion`;
               {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
               {copiedId === "all" ? "Copied!" : "Copy All"}
             </button>
+            <InlineShareButtons />
           </div>
 
           <div className="space-y-4">

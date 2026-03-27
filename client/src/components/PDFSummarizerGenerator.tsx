@@ -8,6 +8,7 @@ import {
   BookOpen, Lightbulb, Quote, MessageSquare, AlertCircle,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // Parse "## Section Title\ncontent\n\n## Next..." into array of {title, content}
 function parseSections(text: string): { title: string; content: string }[] {
@@ -544,6 +545,7 @@ export function PDFSummarizerGenerator() {
                         <button data-testid="button-copy-summary" onClick={handleCopy} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm font-medium transition-colors">
                           {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}{copied ? "Copied!" : "Copy"}
                         </button>
+                        <InlineShareButtons />
                       </div>
                     </div>
                     <div data-testid="text-summary-output" className="p-5 text-slate-700 dark:text-slate-300 whitespace-pre-wrap leading-relaxed text-sm">{summaryOutput}</div>

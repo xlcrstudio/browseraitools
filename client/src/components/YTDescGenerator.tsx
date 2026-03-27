@@ -8,6 +8,7 @@ import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useYTDescStorage, type YTDescResult } from "@/hooks/use-yt-desc-storage";
 import { Badge } from "@/components/ui/badge";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const VIDEO_TYPES = [
   { value: "Educational", label: "Educational / Tutorial", icon: BookOpen, description: "How-to, guides, teaching" },
@@ -703,6 +704,7 @@ Write the complete description now. Do NOT use placeholders or brackets. Write r
                   </>
                 )}
               </button>
+              <InlineShareButtons />
               <button
                 data-testid="button-reset-bottom"
                 onClick={handleReset}

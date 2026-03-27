@@ -12,6 +12,7 @@ import {
   useMealPlannerStorage,
   type MealPlan,
 } from "@/hooks/use-meal-planner-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const DIETARY_OPTIONS = [
   { value: "none", label: "None" },
@@ -584,6 +585,7 @@ Nutrition Summary:`;
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
             </div>
           </div>
 

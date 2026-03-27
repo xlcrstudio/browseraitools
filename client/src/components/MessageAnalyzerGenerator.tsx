@@ -12,6 +12,7 @@ import {
   useMessageAnalyzerStorage,
   type MessageAnalysis,
 } from "@/hooks/use-message-analyzer-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const RELATIONSHIP_CONTEXTS = [
   { value: "auto", label: "Auto-detect" },
@@ -523,6 +524,7 @@ Scam Detection:`,
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
             </div>
           </div>
 

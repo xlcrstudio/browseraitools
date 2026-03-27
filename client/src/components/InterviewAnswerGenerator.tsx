@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 import {
   useInterviewAnswerStorage,
   type InterviewAnswer,
@@ -631,6 +632,7 @@ Write ONLY the spoken answer in SAMPLE ANSWER. Use the EXACT same format section
                 {copiedId === "main" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "main" ? "Copied!" : "Copy Answer"}
               </button>
+              <InlineShareButtons />
               <button
                 data-testid="button-fav-answer"
                 onClick={() => {

@@ -8,6 +8,7 @@ import {
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useFAQStorage } from "@/hooks/use-faq-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const QUESTION_COUNTS = [
   { value: 5, label: "5 Questions" },
@@ -523,6 +524,7 @@ Start with a descriptive title, then list all ${questionCount} Q&A pairs.`;
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
               <button data-testid="button-toggle-schema" onClick={() => setShowSchema(!showSchema)} aria-expanded={showSchema} aria-controls="faq-schema-panel" className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-200 hover:border-purple-200 hover:bg-purple-50 text-slate-600 transition-all">
                 <Code2 className="w-4 h-4" /> {showSchema ? "Hide Schema" : "Schema Markup"}
               </button>

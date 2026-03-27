@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -476,7 +477,7 @@ export function CodeExplainer() {
                   <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500">{result.language}</span>
                 )}
               </div>
-              <CopyButton text={currentAction === "explain" ? result.raw : result.code} />
+              <div className="flex items-center gap-2"><InlineShareButtons /><CopyButton text={currentAction === "explain" ? result.raw : result.code} /></div>
             </div>
 
             {/* ── EXPLAIN mode ── */}

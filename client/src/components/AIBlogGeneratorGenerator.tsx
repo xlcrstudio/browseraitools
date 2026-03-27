@@ -6,6 +6,7 @@ import {
   ChevronRight, BarChart2, FileText, Download, Search,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const MAX_KEYWORD_CHARS = 100;
 const MAX_TOPIC_CHARS = 200;
@@ -487,6 +488,7 @@ export function AIBlogGeneratorGenerator() {
                         {copiedKey === "md" ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Download className="w-3.5 h-3.5" />}
                         {copiedKey === "md" ? "Copied!" : "Copy Markdown"}
                       </button>
+                      <InlineShareButtons />
                       <button data-testid="button-copy-html" onClick={() => copyText("html", toHTML(seoTitle, metaDesc, articleText))}
                         className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:text-emerald-600 text-sm font-medium transition-colors">
                         {copiedKey === "html" ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <FileText className="w-3.5 h-3.5" />}

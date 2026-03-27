@@ -4,6 +4,7 @@ import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useCaptionStorage, type CaptionResult } from "@/hooks/use-caption-storage";
 import { Badge } from "@/components/ui/badge";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const STYLES = [
   { value: "Funny", label: "Funny", icon: Smile, description: "Playful & witty" },
@@ -526,6 +527,7 @@ CAPTION #5 (Virality: X.X/10)
                   </>
                 )}
               </button>
+              <InlineShareButtons />
               <button
                 data-testid="button-reset-bottom"
                 onClick={handleReset}

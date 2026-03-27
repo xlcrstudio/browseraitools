@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 import {
   useKeywordStorage,
   type GeneratedKeyword,
@@ -834,6 +835,7 @@ Make keywords diverse, realistic, and SEO-valuable. No extra text outside the cl
                               >
                                 <Copy className="w-3.5 h-3.5" />
                               </button>
+                              <InlineShareButtons />
                               <button
                                 data-testid={`button-favorite-${kw.id}`}
                                 onClick={() => handleToggleFavorite(kw.id)}

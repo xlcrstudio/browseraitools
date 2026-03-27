@@ -12,6 +12,7 @@ import {
   useExplainerStorage,
   type Explanation,
 } from "@/hooks/use-explainer-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const EXPLANATION_MODES = [
   { value: "simple", label: "Simple", icon: Lightbulb, description: "Clear, plain language" },
@@ -595,6 +596,7 @@ Key Terms:`;
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
             </div>
           </div>
 

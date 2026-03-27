@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 import {
   useStartupNameStorage,
   estimateDomainAvailability,
@@ -827,6 +828,7 @@ function NameCard({
           <><Copy className="w-3.5 h-3.5" /> Copy Name</>
         )}
       </button>
+      <InlineShareButtons />
     </motion.div>
   );
 }

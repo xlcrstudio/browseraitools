@@ -9,6 +9,7 @@ import {
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useLinkedInSummaryStorage, type LinkedInSummary } from "@/hooks/use-linkedin-summary-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 interface SummaryVersion {
   text: string;
@@ -409,6 +410,7 @@ SCORE: 85
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
               <button
                 data-testid="button-regenerate-all"
                 onClick={handleGenerate}

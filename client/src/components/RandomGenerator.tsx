@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { RotateCcw, Plus, Trash2, Copy, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Secure random ────────────────────────────────────────────────────────────
 
@@ -189,8 +190,8 @@ function NumberMode({ onResult }: { onResult: (entry: HistoryEntry) => void }) {
             <ResultDisplay key={display} result={display}
               sub={qty === 1 ? `Random number from ${min} to ${max}` : `${qty} random numbers from ${min} to ${max}`} />
           </AnimatePresence>
-          <div className="px-4 pb-3 flex justify-center">
-            <CopyBtn text={display} />
+          <div className="px-4 pb-3 flex justify-center gap-3">
+            <InlineShareButtons /><CopyBtn text={display} />
           </div>
         </div>
       )}

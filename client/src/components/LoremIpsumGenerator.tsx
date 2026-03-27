@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { Copy, Check, RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Lorem Ipsum corpus ───────────────────────────────────────────────────────
 
@@ -463,6 +464,7 @@ export function LoremIpsumGenerator() {
             {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
             {copied ? "Copied!" : "Copy all"}
           </button>
+          <InlineShareButtons />
         </div>
         <textarea
           readOnly

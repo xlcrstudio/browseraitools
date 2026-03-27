@@ -7,6 +7,7 @@ import {
   TrendingDown, TrendingUp, Minus, Sparkles,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const MAX_INPUT_CHARS = 10000;
 const MAX_MODEL_CHARS = 1500; // keep within 4096-token context window
@@ -547,6 +548,7 @@ export function AIHumanizerGenerator() {
                             {copiedKey === `v${vi}` ? <Check className="w-3 h-3 text-emerald-500" /> : <Copy className="w-3 h-3" />}
                             {copiedKey === `v${vi}` ? "Copied" : "Copy"}
                           </button>
+                          <InlineShareButtons />
                         </div>
                       </div>
                       <div className="p-5 bg-white dark:bg-slate-800">

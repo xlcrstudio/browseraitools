@@ -7,6 +7,7 @@ import {
   List, Flame, Clock,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type ScriptLength = "short" | "medium" | "long" | "extended";
@@ -147,6 +148,7 @@ function SectionCard({ title, content, icon: Icon, accent, copiedKey, onCopy, co
           {copiedKey === copyKey ? <Check className="w-3 h-3 text-emerald-500" /> : <Copy className="w-3 h-3" />}
           {copiedKey === copyKey ? "Copied" : "Copy"}
         </button>
+        <InlineShareButtons />
       </div>
       <div className="p-5">
         <ScriptRenderer text={content} />

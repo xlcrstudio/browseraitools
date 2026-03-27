@@ -14,6 +14,7 @@ import {
   useSeoTitleStorage,
   type SeoTitle,
 } from "@/hooks/use-seo-title-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const CONTENT_TYPE_OPTIONS = [
   { value: "blog-post", label: "Blog Post", icon: FileText },
@@ -654,6 +655,7 @@ Title X:
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
             </div>
           </div>
 

@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 import {
   useTodoStorage,
   type TodoList,
@@ -959,6 +960,7 @@ Write Phase ${phaseNum} now:`;
                   {copiedList ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
                   {copiedList ? "Copied!" : "Copy Checklist"}
                 </button>
+                <InlineShareButtons />
                 <button
                   type="button"
                   data-testid="button-export-md"

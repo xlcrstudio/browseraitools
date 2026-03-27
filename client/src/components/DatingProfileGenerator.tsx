@@ -12,6 +12,7 @@ import {
   useDatingProfileStorage,
   type DatingProfile,
 } from "@/hooks/use-dating-profile-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const GENDER_OPTIONS = [
   { value: "man", label: "Man" },
@@ -641,6 +642,7 @@ Photo Captions:`;
                 {copiedId === "all" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "all" ? "Copied!" : "Copy All"}
               </button>
+              <InlineShareButtons />
             </div>
           </div>
 

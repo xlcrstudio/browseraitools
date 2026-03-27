@@ -2,6 +2,7 @@ import { useState, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Copy, Check, RotateCcw, ChevronRight, ChevronDown, Minimize2, Maximize2, Wrench } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -413,7 +414,7 @@ export function JsonValidator() {
               <div className="glass-panel rounded-2xl overflow-hidden">
                 <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-100 dark:border-slate-800">
                   <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">2-space indent</p>
-                  <CopyBtn text={formatted} />
+                  <div className="flex items-center gap-2"><InlineShareButtons /><CopyBtn text={formatted} /></div>
                 </div>
                 <pre className="px-4 py-4 text-xs text-slate-700 dark:text-slate-200 font-mono leading-relaxed overflow-x-auto whitespace-pre">
                   {formatted}

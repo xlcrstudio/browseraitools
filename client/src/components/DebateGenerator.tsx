@@ -7,6 +7,7 @@ import {
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useDebateStorage, type DebateResult } from "@/hooks/use-debate-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const LEVELS = [
   { value: "School", label: "School / High School", icon: Backpack, description: "Simple language, easy to understand" },
@@ -450,6 +451,7 @@ Begin writing the ${side} arguments now:`;
                   {copiedAll ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
                   {copiedAll ? "Copied!" : "Copy All"}
                 </button>
+                <InlineShareButtons />
                 <button
                   type="button"
                   data-testid="button-regenerate"

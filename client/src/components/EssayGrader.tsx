@@ -7,6 +7,7 @@ import {
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -494,10 +495,10 @@ export function EssayGrader() {
             {/* Action bar */}
             <div className="flex items-center justify-between">
               <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Grading Results</p>
-              <button type="button" data-testid="button-reset" onClick={handleReset}
+              <div className="flex items-center gap-2"><InlineShareButtons /><button type="button" data-testid="button-reset" onClick={handleReset}
                 className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-red-500 transition-colors">
                 <RotateCcw className="w-3 h-3" /> Grade New Essay
-              </button>
+              </button></div>
             </div>
 
             {/* Grade card */}

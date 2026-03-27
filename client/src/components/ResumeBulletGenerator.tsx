@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 import {
   useResumeBulletStorage,
   type BulletOption,
@@ -587,6 +588,7 @@ Generate ${bulletCount} distinct bullets with different focuses. Use the EXACT s
                 {copiedId === "combo" ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                 {copiedId === "combo" ? "Copied!" : "Copy All 3"}
               </button>
+              <InlineShareButtons />
             </div>
           )}
 

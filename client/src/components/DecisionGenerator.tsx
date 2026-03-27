@@ -18,6 +18,7 @@ import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useDecisionStorage, type DecisionResult } from "@/hooks/use-decision-storage";
 import { Badge } from "@/components/ui/badge";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const SYSTEM_PROMPT =
   "You are a rational, objective decision advisor and analyst. You evaluate options logically, fairly, and without bias. You provide clear pros and cons for each option, assign balanced scores based on typical real-world priorities, and give a final recommendation with transparent reasoning. You always remain neutral until the final recommendation step.";
@@ -566,6 +567,7 @@ REASONING: [2-3 sentences explaining why]`;
                   </>
                 )}
               </button>
+              <InlineShareButtons />
               <button
                 data-testid="button-reset-bottom"
                 onClick={handleReset}

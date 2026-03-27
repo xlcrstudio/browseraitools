@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -568,6 +569,7 @@ export function YouTubeSummarizer() {
                   {copiedAll ? <Check className="w-3 h-3 text-green-500" /> : <Copy className="w-3 h-3" />}
                   {copiedAll ? "Copied!" : "Copy All"}
                 </button>
+                <InlineShareButtons />
                 <button type="button" data-testid="button-reset" onClick={handleReset}
                   className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-red-500 transition-colors px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700">
                   <RotateCcw className="w-3 h-3" /> New Video

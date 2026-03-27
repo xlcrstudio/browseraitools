@@ -7,6 +7,7 @@ import {
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useATSStorage, type ATSResult, type SkillItem } from "@/hooks/use-ats-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const INDUSTRIES = [
   "Auto-Detect",
@@ -755,6 +756,7 @@ Write your analysis now:`,
                 {copiedReport ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
                 {copiedReport ? "Copied!" : "Copy Report"}
               </button>
+              <InlineShareButtons />
             </div>
 
             <div className="flex flex-col items-center gap-4 p-6 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700" data-testid="container-scores">

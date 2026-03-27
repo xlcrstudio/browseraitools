@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 import {
   useWeeklyPlannerStorage,
   type WeeklyPlan,
@@ -1172,6 +1173,7 @@ Write the ${dayName} schedule now:`;
                 {copiedPlan ? <Check className="w-4 h-4 text-green-500" /> : <Copy className="w-4 h-4" />}
                 {copiedPlan ? "Copied!" : "Copy Plan"}
               </button>
+              <InlineShareButtons />
               <button
                 type="button"
                 data-testid="button-download-md"

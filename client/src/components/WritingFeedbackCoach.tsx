@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -452,10 +453,10 @@ export function WritingFeedbackCoach() {
                   )}
                 </div>
               </div>
-              <button type="button" data-testid="button-reset" onClick={handleReset}
+              <div className="flex items-center gap-2"><InlineShareButtons /><button type="button" data-testid="button-reset" onClick={handleReset}
                 className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-red-500 transition-colors px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 shrink-0">
                 <RotateCcw className="w-3 h-3" /> New
-              </button>
+              </button></div>
             </div>
 
             {/* Scores grid */}

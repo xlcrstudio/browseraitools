@@ -7,6 +7,7 @@ import {
 import { Link } from "wouter";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Readability Engine (client-side, no AI) ──────────────────────────────────
 
@@ -548,12 +549,15 @@ export function ReadabilityAnalyzer() {
               <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 dark:border-slate-800">
                 <p className="text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-widest">AI Writing Suggestions</p>
                 {aiDone && (
-                  <button type="button" data-testid="button-copy-suggestions"
-                    onClick={() => { navigator.clipboard.writeText(aiSuggestions); setCopied(true); setTimeout(() => setCopied(false), 2000); }}
-                    className="flex items-center gap-1 text-xs text-slate-400 hover:text-purple-600 transition-colors">
-                    {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
-                    {copied ? "Copied" : "Copy"}
-                  </button>
+                  <>
+                    <button type="button" data-testid="button-copy-suggestions"
+                      onClick={() => { navigator.clipboard.writeText(aiSuggestions); setCopied(true); setTimeout(() => setCopied(false), 2000); }}
+                      className="flex items-center gap-1 text-xs text-slate-400 hover:text-purple-600 transition-colors">
+                      {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                      {copied ? "Copied" : "Copy"}
+                    </button>
+                    <InlineShareButtons />
+                  </>
                 )}
               </div>
 

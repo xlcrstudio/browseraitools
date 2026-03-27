@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { Copy, Check, RefreshCw, Eye, EyeOff, ShieldCheck, ShieldAlert, ShieldX, Shield } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Character sets ───────────────────────────────────────────────────────────
 
@@ -550,8 +551,9 @@ export function PasswordGenerator() {
           {/* Results */}
           {passwords.length > 0 && (
             <div className="glass-panel rounded-2xl overflow-hidden">
-              <div className="px-4 py-3 border-b border-slate-100 dark:border-slate-800">
+              <div className="px-4 py-3 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Generated Passwords</p>
+                <InlineShareButtons />
               </div>
               <div className="divide-y divide-slate-50 dark:divide-slate-800/50">
                 {passwords.map((pw, i) => {

@@ -8,6 +8,7 @@ import {
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useSalesEmailStorage } from "@/hooks/use-sales-email-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const OBJECTIVES = [
   "Book a meeting",
@@ -660,6 +661,7 @@ Generate 5 completely different approaches. Each must have unique subject lines,
                   {saved ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Save className="w-4 h-4" />}
                   {saved ? "Saved" : "Save"}
                 </button>
+                <InlineShareButtons />
                 <button
                   data-testid="button-download-all"
                   onClick={handleDownload}

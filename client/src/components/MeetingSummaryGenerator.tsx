@@ -9,6 +9,7 @@ import {
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useMeetingStorage } from "@/hooks/use-meeting-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const MEETING_TYPES = [
   { id: "team", label: "Team Meeting", desc: "Standups, syncs, sprint planning", icon: Users },
@@ -496,6 +497,7 @@ MEETING TYPE: ${selectedType.label}`;
                   {copiedId === "all" ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
                   {copiedId === "all" ? "Copied!" : "Copy All"}
                 </button>
+                <InlineShareButtons />
                 <button data-testid="button-save-all" onClick={handleSave} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-200 hover:border-purple-200 hover:bg-purple-50 text-slate-600 transition-all">
                   {saved ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Save className="w-4 h-4" />}
                   {saved ? "Saved" : "Save"}

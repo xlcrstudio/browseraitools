@@ -2,6 +2,7 @@ import { useState, useMemo, useRef } from "react";
 import { Copy, Check, ChevronDown, ChevronUp, Sparkles, AlertCircle, RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Regex execution ──────────────────────────────────────────────────────────
 
@@ -353,7 +354,7 @@ User request: "${aiPrompt}"`,
       <div className="glass-panel rounded-2xl overflow-hidden">
         <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 dark:border-slate-800">
           <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Match Preview</p>
-          <div className="flex items-center gap-1.5 text-[10px] text-slate-400 font-semibold">
+          <div className="flex items-center gap-1.5 text-[10px] text-slate-400 font-semibold"><InlineShareButtons />
             <mark className="bg-yellow-200 dark:bg-yellow-400/30 text-yellow-900 dark:text-yellow-100 rounded-sm px-1 font-mono not-italic">highlighted</mark>
             = matched text
           </div>

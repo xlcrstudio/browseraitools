@@ -9,6 +9,7 @@ import {
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useBulletStorage } from "@/hooks/use-bullet-storage";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 const BULLET_STYLES = [
   { id: "keypoints", label: "Key Points", desc: "Main takeaways", icon: FileText },
@@ -429,6 +430,7 @@ Make each bullet clear, concise, and scannable. Use parallel grammatical structu
                   {saved ? <CheckCircle2 className="w-4 h-4 text-emerald-500" /> : <Save className="w-4 h-4" />}
                   {saved ? "Saved" : "Save"}
                 </button>
+                <InlineShareButtons />
                 <button data-testid="button-download-txt" onClick={handleDownloadTxt} className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-200 hover:border-purple-200 hover:bg-purple-50 text-slate-600 transition-all">
                   <Download className="w-4 h-4" /> TXT
                 </button>

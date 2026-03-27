@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -152,6 +153,7 @@ function FlashcardViewer({ cards }: { cards: Flashcard[] }) {
             )}>
             {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />} {copied ? "Copied!" : "Copy All"}
           </button>
+          <InlineShareButtons />
         </div>
       </div>
       <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5">

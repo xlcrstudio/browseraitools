@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import { Copy, Check, RefreshCw } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 
 // ─── Color math ───────────────────────────────────────────────────────────────
 
@@ -399,11 +400,11 @@ export function ColorPaletteGenerator() {
       <div className="glass-panel rounded-2xl overflow-hidden">
         <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 dark:border-slate-800">
           <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">CSS Variables</p>
-          <button type="button" onClick={copyAll}
+          <div className="flex items-center gap-2"><InlineShareButtons /><button type="button" onClick={copyAll}
             className={cn("flex items-center gap-1.5 text-xs font-semibold transition-colors", copied ? "text-green-500" : "text-slate-400 hover:text-purple-600")}>
             {copied ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
             {copied ? "Copied!" : "Copy"}
-          </button>
+          </button></div>
         </div>
         <pre className="px-4 py-4 text-xs font-mono text-slate-600 dark:text-slate-300 leading-relaxed overflow-x-auto">
           {cssOutput}

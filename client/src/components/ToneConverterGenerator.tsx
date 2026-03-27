@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
+import { InlineShareButtons } from "@/components/InlineShareButtons";
 import {
   useToneConverterStorage,
   type ToneConversion,
@@ -682,6 +683,7 @@ function ConversionCard({
             {copied ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
             {copied ? "Copied!" : "Copy Text"}
           </button>
+          <InlineShareButtons />
           <button
             data-testid={`button-fav-${conversion.id}`}
             onClick={onToggleFavorite}
