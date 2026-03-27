@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Lightbulb, Smile, BarChart3, Flame, Loader2, AlertTriangle, Copy, Check, RefreshCw, RotateCcw, Twitter } from "lucide-react";
+import { SiX, SiFacebook, SiWhatsapp, SiLinkedin } from "react-icons/si";
 import { cn, generateId } from "@/lib/utils";
 import { useWebLLM } from "@/hooks/use-web-llm";
 import { useTweetStorage, type TweetResult } from "@/hooks/use-tweet-storage";
@@ -383,23 +384,66 @@ TWEET #5 (Virality: X.X/10)
                         {tweet.viralityScore.toFixed(1)}/10
                       </Badge>
                     </div>
-                    <button
-                      data-testid={`button-copy-tweet-${idx}`}
-                      onClick={() => copyToClipboard(tweet.text, idx)}
-                      className="flex items-center gap-1.5 text-xs font-medium text-slate-500 dark:text-slate-400 transition-colors"
-                    >
-                      {copiedIdx === idx ? (
-                        <>
-                          <Check className="w-3.5 h-3.5 text-green-500" />
-                          Copied
-                        </>
-                      ) : (
-                        <>
-                          <Copy className="w-3.5 h-3.5" />
-                          Copy
-                        </>
-                      )}
-                    </button>
+                    <div className="flex items-center gap-1.5">
+                      <a
+                        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(tweet.text)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-testid={`link-share-x-${idx}`}
+                        title="Post on X / Twitter"
+                        className="w-7 h-7 flex items-center justify-center rounded-lg text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >
+                        <SiX className="w-3.5 h-3.5" />
+                      </a>
+                      <a
+                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}&quote=${encodeURIComponent(tweet.text)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-testid={`link-share-facebook-${idx}`}
+                        title="Share on Facebook"
+                        className="w-7 h-7 flex items-center justify-center rounded-lg text-slate-400 hover:text-[#1877F2] hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >
+                        <SiFacebook className="w-3.5 h-3.5" />
+                      </a>
+                      <a
+                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-testid={`link-share-linkedin-${idx}`}
+                        title="Share on LinkedIn"
+                        className="w-7 h-7 flex items-center justify-center rounded-lg text-slate-400 hover:text-[#0A66C2] hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >
+                        <SiLinkedin className="w-3.5 h-3.5" />
+                      </a>
+                      <a
+                        href={`https://wa.me/?text=${encodeURIComponent(tweet.text + "\n" + (typeof window !== "undefined" ? window.location.href : ""))}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-testid={`link-share-whatsapp-${idx}`}
+                        title="Share on WhatsApp"
+                        className="w-7 h-7 flex items-center justify-center rounded-lg text-slate-400 hover:text-[#25D366] hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                      >
+                        <SiWhatsapp className="w-3.5 h-3.5" />
+                      </a>
+                      <div className="w-px h-4 bg-slate-200 dark:bg-slate-700 mx-0.5" />
+                      <button
+                        data-testid={`button-copy-tweet-${idx}`}
+                        onClick={() => copyToClipboard(tweet.text, idx)}
+                        className="flex items-center gap-1.5 text-xs font-medium text-slate-500 dark:text-slate-400 transition-colors"
+                      >
+                        {copiedIdx === idx ? (
+                          <>
+                            <Check className="w-3.5 h-3.5 text-green-500" />
+                            Copied
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-3.5 h-3.5" />
+                            Copy
+                          </>
+                        )}
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
