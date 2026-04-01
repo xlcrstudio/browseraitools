@@ -658,6 +658,19 @@
     .faq-item { border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; }
     .dark .faq-item { border-color: #334155; }
 
+    /* Use cases checklist */
+    .use-cases-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .use-case-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: #334155; line-height: 1.6; }
+    .dark .use-case-item { color: #cbd5e1; }
+    .use-case-check { width: 22px; height: 22px; border-radius: 6px; background: #dcfce7; color: #16a34a; font-weight: 900; font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .dark .use-case-check { background: rgba(22,163,74,.25); color: #4ade80; }
+
+    /* Why private section */
+    .why-private-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 1.5rem 2rem; }
+    .dark .why-private-card { background: rgba(30,41,59,.6); border-color: #334155; }
+    .why-private-card p { font-size: 1rem; color: #475569; line-height: 1.8; }
+    .dark .why-private-card p { color: #94a3b8; }
+
     /* Persona nav strip */
     .persona-strip { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 1.5rem 0; }
     .persona-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 9999px; border: 1px solid #e2e8f0; background: #fff; font-size: 13px; font-weight: 600; color: #475569; text-decoration: none; transition: all .15s; }
@@ -710,13 +723,12 @@
     <section class="hero">
       <div class="badges">
         <span class="badge badge-green">&#10003; 100% Free</span>
-        <span class="badge badge-purple">&#10003; No Signup</span>
+        <span class="badge badge-purple">&#10003; No Login</span>
         <span class="badge badge-blue">&#10003; 100% Private</span>
         <span class="badge badge-orange">&#10003; Runs in Browser</span>
       </div>
-      <h1><span style="font-size:2rem;margin-right:8px;">🎓</span><span class="gradient-text">Best Free AI Tools for Students</span></h1>
-      <p class="hero-tagline">Study smarter, write faster, and learn deeper — all without paying a cent or sharing your data.</p>
-      <p class="hero-intro">Students face constant pressure: essays due at midnight, lectures to catch up on, papers to cite, and concepts that just won't click. BrowserAITools gives you a full suite of AI-powered study tools that run entirely inside your browser — no cloud servers, no signup, and no subscription fees. Every generation happens on your own device using WebLLM technology, so your notes, drafts, and ideas never leave your machine.</p><p class="hero-intro" style="margin-top:1rem;">Whether you need to summarise a 40-page PDF in seconds, generate a properly formatted citation, check your essay for readability, or create flashcards from raw lecture notes, these tools handle the heavy lifting so you can focus on understanding the material. Unlike other "free" AI tools, there are no daily limits, no premium tiers, and no data collection. Open the tool, type your content, and get results in seconds. Compatible with Chrome and Edge on any device with WebGPU support — no extensions or downloads needed.</p>
+      <h1><span style="font-size:2rem;margin-right:8px;">🎓</span><span class="gradient-text">Best Free AI Tools for Students</span> <span style="font-size:clamp(1rem,2.5vw,1.5rem);font-weight:700;color:#7e22ce;">(No Login, 100% Private)</span></h1>
+      <p class="hero-intro">Discover the best free AI tools for students that run entirely in your browser. No login required. No data collection. Perfect for homework, essays, studying, and exam prep.</p>
     </section>
 
     <!-- Persona navigation strip -->
@@ -990,34 +1002,45 @@
       </div>
     </section>
 
-    <!-- How to Use -->
+    <!-- How persona uses these tools -->
     <section class="section">
-      <div class="how-card">
-        <h2 class="section-title">How to Use These Tools as a Student</h2>
-        <div class="how-steps">
-          
-    <div>
-      <div class="step-num">1</div>
-      <div class="step-title">Open any tool</div>
-      <p class="step-body">No download, no account. Click a tool from the grid below and it opens instantly in your browser.</p>
-    </div>
-    <div>
-      <div class="step-num">2</div>
-      <div class="step-title">Paste your content</div>
-      <p class="step-body">Paste your essay, notes, or question. The AI runs locally on your device — nothing is uploaded.</p>
-    </div>
-    <div>
-      <div class="step-num">3</div>
-      <div class="step-title">Get instant results</div>
-      <p class="step-body">Receive polished output in seconds. Copy, refine, or regenerate as many times as you need — it's unlimited and free.</p>
-    </div>
-        </div>
+      <h2 class="section-title">How Students Use These AI Tools</h2>
+      <ul class="use-cases-list">
+        
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Solve homework questions instantly with clear AI explanations</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Generate essays, outlines, and summaries in seconds</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Create flashcards from lecture notes for exam prep</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Check grammar and improve writing quality before submission</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Cite sources automatically without formatting errors</span>
+    </li>
+      </ul>
+    </section>
+
+    <!-- Why Use Private AI Tools? -->
+    <section class="section">
+      <h2 class="section-title">Why Use Private AI Tools?</h2>
+      <div class="why-private-card">
+        <p>Unlike cloud-based AI tools, every tool on this page runs entirely inside your browser using WebLLM technology. The AI model downloads once to your device and generates all output locally — nothing you type is ever sent to a server, stored in a database, or used for model training. That means there are no privacy risks, no data collection agreements, and no compliance concerns. Because there are no cloud servers involved, every tool is also completely free with no usage limits. Open any tool, start using it instantly, and keep your work private by default.</p>
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQs -->
     <section class="section">
-      <h2 class="section-title">Frequently Asked Questions</h2>
+      <h2 class="section-title">FAQs</h2>
       <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
         
     <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">

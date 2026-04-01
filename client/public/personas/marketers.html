@@ -646,6 +646,19 @@
     .faq-item { border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; }
     .dark .faq-item { border-color: #334155; }
 
+    /* Use cases checklist */
+    .use-cases-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .use-case-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: #334155; line-height: 1.6; }
+    .dark .use-case-item { color: #cbd5e1; }
+    .use-case-check { width: 22px; height: 22px; border-radius: 6px; background: #dcfce7; color: #16a34a; font-weight: 900; font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .dark .use-case-check { background: rgba(22,163,74,.25); color: #4ade80; }
+
+    /* Why private section */
+    .why-private-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 1.5rem 2rem; }
+    .dark .why-private-card { background: rgba(30,41,59,.6); border-color: #334155; }
+    .why-private-card p { font-size: 1rem; color: #475569; line-height: 1.8; }
+    .dark .why-private-card p { color: #94a3b8; }
+
     /* Persona nav strip */
     .persona-strip { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 1.5rem 0; }
     .persona-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 9999px; border: 1px solid #e2e8f0; background: #fff; font-size: 13px; font-weight: 600; color: #475569; text-decoration: none; transition: all .15s; }
@@ -698,13 +711,12 @@
     <section class="hero">
       <div class="badges">
         <span class="badge badge-green">&#10003; 100% Free</span>
-        <span class="badge badge-purple">&#10003; No Signup</span>
+        <span class="badge badge-purple">&#10003; No Login</span>
         <span class="badge badge-blue">&#10003; 100% Private</span>
         <span class="badge badge-orange">&#10003; Runs in Browser</span>
       </div>
-      <h1><span style="font-size:2rem;margin-right:8px;">📣</span><span class="gradient-text">Best Free AI Tools for Marketers</span></h1>
-      <p class="hero-tagline">Ship more campaigns, write better copy, and rank higher — without paying for another SaaS tool.</p>
-      <p class="hero-intro">Marketers are expected to produce more content than ever: social captions, ad copy, landing pages, SEO titles, meta descriptions, email sequences, hashtags, and keyword research — all on tight deadlines and tighter budgets. BrowserAITools gives you a professional-grade AI content suite that runs 100% inside your browser, powered by WebLLM. No subscription. No API key. No data sent to any server.</p><p class="hero-intro" style="margin-top:1rem;">Every tool in this collection was designed for the specific tasks marketers face daily. Generate scroll-stopping Instagram captions, A/B-testable ad copy, click-worthy SEO titles, and keyword clusters without touching your budget. Because the AI model runs locally on your device, your campaign ideas, brand messaging, and customer data stay completely private. You also get unlimited generations — no monthly word limits or "credits" to worry about. From solo freelancers to in-house marketing teams, BrowserAITools is the fastest way to 10× your content output without 10× the cost.</p>
+      <h1><span style="font-size:2rem;margin-right:8px;">📣</span><span class="gradient-text">Best Free AI Tools for Marketers</span> <span style="font-size:clamp(1rem,2.5vw,1.5rem);font-weight:700;color:#7e22ce;">(No Login, 100% Private)</span></h1>
+      <p class="hero-intro">Discover the best free AI tools for marketers that run entirely in your browser. No login required. No data sent to servers. Perfect for social media, ad copy, SEO, and content marketing.</p>
     </section>
 
     <!-- Persona navigation strip -->
@@ -972,34 +984,45 @@
       </div>
     </section>
 
-    <!-- How to Use -->
+    <!-- How persona uses these tools -->
     <section class="section">
-      <div class="how-card">
-        <h2 class="section-title">How to Use These Tools as a Marketer</h2>
-        <div class="how-steps">
-          
-    <div>
-      <div class="step-num">1</div>
-      <div class="step-title">Pick your format</div>
-      <p class="step-body">Choose from captions, ad copy, SEO titles, hashtags, and more. Each tool is purpose-built for a specific marketing output.</p>
-    </div>
-    <div>
-      <div class="step-num">2</div>
-      <div class="step-title">Enter your context</div>
-      <p class="step-body">Paste your product description, target keyword, or campaign brief. The AI is context-aware and produces on-brand results.</p>
-    </div>
-    <div>
-      <div class="step-num">3</div>
-      <div class="step-title">Copy and publish</div>
-      <p class="step-body">Copy the output directly into your CMS, ad manager, or social scheduler. Iterate in seconds with no usage limits.</p>
-    </div>
-        </div>
+      <h2 class="section-title">How Marketers Use These AI Tools</h2>
+      <ul class="use-cases-list">
+        
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Write scroll-stopping captions and ad copy for any platform</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Generate SEO titles and meta descriptions in bulk</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Repurpose one piece of content for five different channels</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Build content calendars with AI-assisted topic clusters</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Produce landing page copy without hiring a copywriter</span>
+    </li>
+      </ul>
+    </section>
+
+    <!-- Why Use Private AI Tools? -->
+    <section class="section">
+      <h2 class="section-title">Why Use Private AI Tools?</h2>
+      <div class="why-private-card">
+        <p>Unlike cloud-based AI tools, every tool on this page runs entirely inside your browser using WebLLM technology. The AI model downloads once to your device and generates all output locally — nothing you type is ever sent to a server, stored in a database, or used for model training. That means there are no privacy risks, no data collection agreements, and no compliance concerns. Because there are no cloud servers involved, every tool is also completely free with no usage limits. Open any tool, start using it instantly, and keep your work private by default.</p>
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQs -->
     <section class="section">
-      <h2 class="section-title">Frequently Asked Questions</h2>
+      <h2 class="section-title">FAQs</h2>
       <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
         
     <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">

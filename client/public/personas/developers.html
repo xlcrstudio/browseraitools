@@ -406,6 +406,19 @@
     .faq-item { border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; }
     .dark .faq-item { border-color: #334155; }
 
+    /* Use cases checklist */
+    .use-cases-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .use-case-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: #334155; line-height: 1.6; }
+    .dark .use-case-item { color: #cbd5e1; }
+    .use-case-check { width: 22px; height: 22px; border-radius: 6px; background: #dcfce7; color: #16a34a; font-weight: 900; font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .dark .use-case-check { background: rgba(22,163,74,.25); color: #4ade80; }
+
+    /* Why private section */
+    .why-private-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 1.5rem 2rem; }
+    .dark .why-private-card { background: rgba(30,41,59,.6); border-color: #334155; }
+    .why-private-card p { font-size: 1rem; color: #475569; line-height: 1.8; }
+    .dark .why-private-card p { color: #94a3b8; }
+
     /* Persona nav strip */
     .persona-strip { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 1.5rem 0; }
     .persona-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 9999px; border: 1px solid #e2e8f0; background: #fff; font-size: 13px; font-weight: 600; color: #475569; text-decoration: none; transition: all .15s; }
@@ -458,13 +471,12 @@
     <section class="hero">
       <div class="badges">
         <span class="badge badge-green">&#10003; 100% Free</span>
-        <span class="badge badge-purple">&#10003; No Signup</span>
+        <span class="badge badge-purple">&#10003; No Login</span>
         <span class="badge badge-blue">&#10003; 100% Private</span>
         <span class="badge badge-orange">&#10003; Runs in Browser</span>
       </div>
-      <h1><span style="font-size:2rem;margin-right:8px;">👨‍💻</span><span class="gradient-text">Best Free AI Tools for Developers</span></h1>
-      <p class="hero-tagline">Debug faster, document better, and ship cleaner code — all from your browser with zero data leaving your machine.</p>
-      <p class="hero-intro">Developers live in their browsers almost as much as their IDEs. BrowserAITools gives you a curated set of AI-powered utilities that slot into your workflow without adding another SaaS subscription. Every tool runs locally in your browser using WebLLM — no API keys, no cloud processing, no usage fees, and no data leaks. Your code snippets, regex patterns, and JSON payloads never leave your machine.</p><p class="hero-intro" style="margin-top:1rem;">Explain a confusing code block, validate and format JSON payloads, test regex patterns against live input, compare diffs, convert Markdown to HTML, generate placeholder text for wireframes, or ask the AI chatbot to debug a tricky bug — all in the same browser tab. Because the model runs on your GPU via WebGPU, generations are fast and there are no rate limits to interrupt your flow. Whether you're a solo developer, part of a team, or doing a security-sensitive project, these tools keep your intellectual property private by design.</p>
+      <h1><span style="font-size:2rem;margin-right:8px;">👨‍💻</span><span class="gradient-text">Best Free AI Tools for Developers</span> <span style="font-size:clamp(1rem,2.5vw,1.5rem);font-weight:700;color:#7e22ce;">(No Login, 100% Private)</span></h1>
+      <p class="hero-intro">Discover the best free AI tools for developers that run entirely in your browser. No login required. No cloud processing. Perfect for code explanation, JSON validation, regex testing, and more.</p>
     </section>
 
     <!-- Persona navigation strip -->
@@ -612,34 +624,45 @@
       </div>
     </section>
 
-    <!-- How to Use -->
+    <!-- How persona uses these tools -->
     <section class="section">
-      <div class="how-card">
-        <h2 class="section-title">How to Use These Tools as a Developer</h2>
-        <div class="how-steps">
-          
-    <div>
-      <div class="step-num">1</div>
-      <div class="step-title">Open the tool</div>
-      <p class="step-body">No install, no signup. Open any tool in Chrome or Edge. The AI model loads into your browser's local cache on first use.</p>
-    </div>
-    <div>
-      <div class="step-num">2</div>
-      <div class="step-title">Paste your input</div>
-      <p class="step-body">Paste code, JSON, regex, or Markdown. Everything runs on-device — your proprietary code never touches a server.</p>
-    </div>
-    <div>
-      <div class="step-num">3</div>
-      <div class="step-title">Get instant output</div>
-      <p class="step-body">Receive explained code, formatted JSON, or converted Markdown instantly. Unlimited iterations with no rate limits.</p>
-    </div>
-        </div>
+      <h2 class="section-title">How Developers Use These AI Tools</h2>
+      <ul class="use-cases-list">
+        
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Explain complex code blocks in plain English instantly</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Validate and format JSON, regex, and Markdown without leaving the browser</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Generate lorem ipsum and realistic placeholder data for wireframes</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Debug logic errors by describing the problem to the private AI chatbot</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Convert Markdown to HTML with zero build step</span>
+    </li>
+      </ul>
+    </section>
+
+    <!-- Why Use Private AI Tools? -->
+    <section class="section">
+      <h2 class="section-title">Why Use Private AI Tools?</h2>
+      <div class="why-private-card">
+        <p>Unlike cloud-based AI tools, every tool on this page runs entirely inside your browser using WebLLM technology. The AI model downloads once to your device and generates all output locally — nothing you type is ever sent to a server, stored in a database, or used for model training. That means there are no privacy risks, no data collection agreements, and no compliance concerns. Because there are no cloud servers involved, every tool is also completely free with no usage limits. Open any tool, start using it instantly, and keep your work private by default.</p>
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQs -->
     <section class="section">
-      <h2 class="section-title">Frequently Asked Questions</h2>
+      <h2 class="section-title">FAQs</h2>
       <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
         
     <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">

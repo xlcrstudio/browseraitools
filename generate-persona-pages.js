@@ -29,10 +29,18 @@ const PERSONAS = [
     title:       "Best Free AI Tools for Students — No Signup, 100% Private",
     metaDesc:    "Free AI tools built for students: essay writer, homework solver, flashcard generator, summarizer, citation generator & more. No signup. Runs 100% in your browser via WebLLM.",
     h1:          "Best Free AI Tools for Students",
+    shortIntro:  "Discover the best free AI tools for students that run entirely in your browser. No login required. No data collection. Perfect for homework, essays, studying, and exam prep.",
     tagline:     "Study smarter, write faster, and learn deeper — all without paying a cent or sharing your data.",
     intro:       `Students face constant pressure: essays due at midnight, lectures to catch up on, papers to cite, and concepts that just won't click. BrowserAITools gives you a full suite of AI-powered study tools that run entirely inside your browser — no cloud servers, no signup, and no subscription fees. Every generation happens on your own device using WebLLM technology, so your notes, drafts, and ideas never leave your machine.
 
 Whether you need to summarise a 40-page PDF in seconds, generate a properly formatted citation, check your essay for readability, or create flashcards from raw lecture notes, these tools handle the heavy lifting so you can focus on understanding the material. Unlike other "free" AI tools, there are no daily limits, no premium tiers, and no data collection. Open the tool, type your content, and get results in seconds. Compatible with Chrome and Edge on any device with WebGPU support — no extensions or downloads needed.`,
+    useCases: [
+      "Solve homework questions instantly with clear AI explanations",
+      "Generate essays, outlines, and summaries in seconds",
+      "Create flashcards from lecture notes for exam prep",
+      "Check grammar and improve writing quality before submission",
+      "Cite sources automatically without formatting errors",
+    ],
     categories:  ["Writing Tools", "AI Assistant", "Productivity Tools", "Job & Career Tools"],
     slugWhitelist: [
       "ai-essay-writer", "ai-homework-solver", "ai-flashcard-generator",
@@ -62,6 +70,14 @@ Whether you need to summarise a 40-page PDF in seconds, generate a properly form
     title:       "Best Free AI Tools for Marketers — No Signup, Runs in Browser",
     metaDesc:    "Free AI marketing tools: caption generator, ad copy, SEO titles, meta descriptions, hashtags, email generator & more. No signup. 100% private. Runs in your browser via WebLLM.",
     h1:          "Best Free AI Tools for Marketers",
+    shortIntro:  "Discover the best free AI tools for marketers that run entirely in your browser. No login required. No data sent to servers. Perfect for social media, ad copy, SEO, and content marketing.",
+    useCases: [
+      "Write scroll-stopping captions and ad copy for any platform",
+      "Generate SEO titles and meta descriptions in bulk",
+      "Repurpose one piece of content for five different channels",
+      "Build content calendars with AI-assisted topic clusters",
+      "Produce landing page copy without hiring a copywriter",
+    ],
     tagline:     "Ship more campaigns, write better copy, and rank higher — without paying for another SaaS tool.",
     intro:       `Marketers are expected to produce more content than ever: social captions, ad copy, landing pages, SEO titles, meta descriptions, email sequences, hashtags, and keyword research — all on tight deadlines and tighter budgets. BrowserAITools gives you a professional-grade AI content suite that runs 100% inside your browser, powered by WebLLM. No subscription. No API key. No data sent to any server.
 
@@ -95,6 +111,14 @@ Every tool in this collection was designed for the specific tasks marketers face
     title:       "Best Free AI Tools for Developers — No Signup, Runs in Browser",
     metaDesc:    "Free AI developer tools: code explainer, regex tester, JSON validator, diff checker, lorem ipsum, markdown converter & more. No signup. 100% private. Powered by WebLLM.",
     h1:          "Best Free AI Tools for Developers",
+    shortIntro:  "Discover the best free AI tools for developers that run entirely in your browser. No login required. No cloud processing. Perfect for code explanation, JSON validation, regex testing, and more.",
+    useCases: [
+      "Explain complex code blocks in plain English instantly",
+      "Validate and format JSON, regex, and Markdown without leaving the browser",
+      "Generate lorem ipsum and realistic placeholder data for wireframes",
+      "Debug logic errors by describing the problem to the private AI chatbot",
+      "Convert Markdown to HTML with zero build step",
+    ],
     tagline:     "Debug faster, document better, and ship cleaner code — all from your browser with zero data leaving your machine.",
     intro:       `Developers live in their browsers almost as much as their IDEs. BrowserAITools gives you a curated set of AI-powered utilities that slot into your workflow without adding another SaaS subscription. Every tool runs locally in your browser using WebLLM — no API keys, no cloud processing, no usage fees, and no data leaks. Your code snippets, regex patterns, and JSON payloads never leave your machine.
 
@@ -127,6 +151,14 @@ Explain a confusing code block, validate and format JSON payloads, test regex pa
     title:       "Best Free AI Tools for Professionals — No Signup, 100% Private",
     metaDesc:    "Free AI tools for professionals: meeting summarizer, email generator, cover letter, resume bullet, elevator pitch, decision maker & more. No signup. Runs in browser via WebLLM.",
     h1:          "Best Free AI Tools for Professionals",
+    shortIntro:  "Discover the best free AI tools for professionals that run entirely in your browser. No login required. No data shared with third parties. Perfect for emails, meeting summaries, cover letters, and workplace writing.",
+    useCases: [
+      "Turn messy meeting notes into structured summaries with action items",
+      "Draft polished emails and cold outreach in seconds",
+      "Generate cover letters tailored to specific job descriptions",
+      "Create elevator pitches and executive summaries on demand",
+      "Redact sensitive PII from documents before sharing",
+    ],
     tagline:     "Save hours every week on writing, planning, and decision-making — with AI that never touches your employer's data.",
     intro:       `Professionals spend a disproportionate amount of time on writing tasks: summarising meetings, drafting emails, writing cover letters, building presentations, and crafting pitches. BrowserAITools gives you a suite of on-device AI tools that eliminate the friction from these tasks while keeping your work completely private. Because the AI runs inside your browser using WebLLM, your meeting notes, salary negotiations, and business strategies are never uploaded to any server.
 
@@ -160,6 +192,14 @@ From generating concise meeting summaries from rough notes, to writing polished 
     title:       "Best Free AI Tools for Writers — No Signup, Runs in Browser",
     metaDesc:    "Free AI writing tools: essay writer, blog generator, paraphrasing tool, headline improver, story starter, AI humanizer & more. No signup. 100% private. Powered by WebLLM.",
     h1:          "Best Free AI Tools for Writers",
+    shortIntro:  "Discover the best free AI tools for writers that run entirely in your browser. No login required. No data sent to servers. Perfect for blog writing, content creation, editing, and beating writer's block.",
+    useCases: [
+      "Overcome writer's block with AI-powered story starters and prompts",
+      "Rewrite paragraphs in a different tone or style in one click",
+      "Polish headlines to maximize click-through rates",
+      "Check readability and grammar before publishing",
+      "Make AI-generated text sound genuinely human",
+    ],
     tagline:     "Overcome writer's block, polish every draft, and publish more — with AI that stays entirely on your device.",
     intro:       `Writers — bloggers, novelists, journalists, copywriters, content creators — all share the same obstacles: blank pages, repetitive phrasing, weak headlines, and the endless cycle of revising. BrowserAITools assembles the most powerful AI writing toolkit available for free, running completely inside your browser with no subscription, no word limits, and no data collection. Your drafts, story ideas, and creative work never leave your machine.
 
@@ -193,6 +233,14 @@ Use the AI Blog Generator to draft a full post from a headline, the Story Starte
     title:       "Best Free AI Tools for Founders & Startups — No Signup, Private",
     metaDesc:    "Free AI tools for founders: business name generator, value proposition, elevator pitch, sales email, landing page copy, target audience & more. No signup. Runs in browser.",
     h1:          "Best Free AI Tools for Founders",
+    shortIntro:  "Discover the best free AI tools for founders and startups that run entirely in your browser. No login required. No idea ever leaves your device. Perfect for naming, pitching, positioning, and early-stage marketing.",
+    useCases: [
+      "Brainstorm startup names and validate positioning angles instantly",
+      "Write landing page copy without hiring a copywriter",
+      "Generate cold outreach emails for investors and sales conversations",
+      "Define your target audience with a detailed AI-generated buyer persona",
+      "Pressure-test ideas with a pros and cons analysis",
+    ],
     tagline:     "Launch faster, pitch sharper, and market smarter — with AI that keeps your startup ideas completely private.",
     intro:       `Founding a company means wearing every hat at once: naming the business, writing the pitch, building the landing page, researching the market, drafting cold outreach, and generating marketing content — all before product-market fit is even proven. BrowserAITools gives founders an AI toolkit that covers the full early-stage workflow, running 100% in your browser so your unreleased ideas and competitive strategies never reach a third-party server.
 
@@ -304,6 +352,19 @@ const SHARED_CSS = `
     .faq-item { border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; }
     .dark .faq-item { border-color: #334155; }
 
+    /* Use cases checklist */
+    .use-cases-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .use-case-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: #334155; line-height: 1.6; }
+    .dark .use-case-item { color: #cbd5e1; }
+    .use-case-check { width: 22px; height: 22px; border-radius: 6px; background: #dcfce7; color: #16a34a; font-weight: 900; font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .dark .use-case-check { background: rgba(22,163,74,.25); color: #4ade80; }
+
+    /* Why private section */
+    .why-private-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 1.5rem 2rem; }
+    .dark .why-private-card { background: rgba(30,41,59,.6); border-color: #334155; }
+    .why-private-card p { font-size: 1rem; color: #475569; line-height: 1.8; }
+    .dark .why-private-card p { color: #94a3b8; }
+
     /* Persona nav strip */
     .persona-strip { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 1.5rem 0; }
     .persona-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 9999px; border: 1px solid #e2e8f0; background: #fff; font-size: 13px; font-weight: 600; color: #475569; text-decoration: none; transition: all .15s; }
@@ -401,13 +462,12 @@ function buildHtml(persona) {
       <div class="tool-card-cta">Try free &rarr;</div>
     </a>`).join("");
 
-  // ── How-to steps HTML ───────────────────────────────────────────────────────
-  const howHtml = persona.howSteps.map((s) => `
-    <div>
-      <div class="step-num">${s.n}</div>
-      <div class="step-title">${s.title}</div>
-      <p class="step-body">${s.body}</p>
-    </div>`).join("");
+  // ── Use cases checklist HTML ─────────────────────────────────────────────────
+  const useCasesHtml = (persona.useCases || []).map((uc) => `
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>${uc}</span>
+    </li>`).join("");
 
   // ── FAQ HTML ────────────────────────────────────────────────────────────────
   const faqHtml = persona.faqs.map((f, i) => `
@@ -500,13 +560,12 @@ ${schemaFaq}
     <section class="hero">
       <div class="badges">
         <span class="badge badge-green">&#10003; 100% Free</span>
-        <span class="badge badge-purple">&#10003; No Signup</span>
+        <span class="badge badge-purple">&#10003; No Login</span>
         <span class="badge badge-blue">&#10003; 100% Private</span>
         <span class="badge badge-orange">&#10003; Runs in Browser</span>
       </div>
-      <h1><span style="font-size:2rem;margin-right:8px;">${persona.emoji}</span><span class="gradient-text">${persona.h1}</span></h1>
-      <p class="hero-tagline">${persona.tagline}</p>
-      <p class="hero-intro">${persona.intro.replace(/\n\n/g, "</p><p class=\"hero-intro\" style=\"margin-top:1rem;\">")}</p>
+      <h1><span style="font-size:2rem;margin-right:8px;">${persona.emoji}</span><span class="gradient-text">${persona.h1}</span> <span style="font-size:clamp(1rem,2.5vw,1.5rem);font-weight:700;color:#7e22ce;">(No Login, 100% Private)</span></h1>
+      <p class="hero-intro">${persona.shortIntro}</p>
     </section>
 
     <!-- Persona navigation strip -->
@@ -522,19 +581,25 @@ ${schemaFaq}
       </div>
     </section>
 
-    <!-- How to Use -->
+    <!-- How persona uses these tools -->
     <section class="section">
-      <div class="how-card">
-        <h2 class="section-title">How to Use These Tools as a ${persona.label.slice(0, -1)}</h2>
-        <div class="how-steps">
-          ${howHtml}
-        </div>
+      <h2 class="section-title">How ${persona.label} Use These AI Tools</h2>
+      <ul class="use-cases-list">
+        ${useCasesHtml}
+      </ul>
+    </section>
+
+    <!-- Why Use Private AI Tools? -->
+    <section class="section">
+      <h2 class="section-title">Why Use Private AI Tools?</h2>
+      <div class="why-private-card">
+        <p>Unlike cloud-based AI tools, every tool on this page runs entirely inside your browser using WebLLM technology. The AI model downloads once to your device and generates all output locally — nothing you type is ever sent to a server, stored in a database, or used for model training. That means there are no privacy risks, no data collection agreements, and no compliance concerns. Because there are no cloud servers involved, every tool is also completely free with no usage limits. Open any tool, start using it instantly, and keep your work private by default.</p>
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQs -->
     <section class="section">
-      <h2 class="section-title">Frequently Asked Questions</h2>
+      <h2 class="section-title">FAQs</h2>
       <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
         ${faqHtml}
       </div>

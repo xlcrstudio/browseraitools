@@ -550,6 +550,19 @@
     .faq-item { border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; }
     .dark .faq-item { border-color: #334155; }
 
+    /* Use cases checklist */
+    .use-cases-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .use-case-item { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: #334155; line-height: 1.6; }
+    .dark .use-case-item { color: #cbd5e1; }
+    .use-case-check { width: 22px; height: 22px; border-radius: 6px; background: #dcfce7; color: #16a34a; font-weight: 900; font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .dark .use-case-check { background: rgba(22,163,74,.25); color: #4ade80; }
+
+    /* Why private section */
+    .why-private-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 1.5rem 2rem; }
+    .dark .why-private-card { background: rgba(30,41,59,.6); border-color: #334155; }
+    .why-private-card p { font-size: 1rem; color: #475569; line-height: 1.8; }
+    .dark .why-private-card p { color: #94a3b8; }
+
     /* Persona nav strip */
     .persona-strip { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 1.5rem 0; }
     .persona-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 9999px; border: 1px solid #e2e8f0; background: #fff; font-size: 13px; font-weight: 600; color: #475569; text-decoration: none; transition: all .15s; }
@@ -602,13 +615,12 @@
     <section class="hero">
       <div class="badges">
         <span class="badge badge-green">&#10003; 100% Free</span>
-        <span class="badge badge-purple">&#10003; No Signup</span>
+        <span class="badge badge-purple">&#10003; No Login</span>
         <span class="badge badge-blue">&#10003; 100% Private</span>
         <span class="badge badge-orange">&#10003; Runs in Browser</span>
       </div>
-      <h1><span style="font-size:2rem;margin-right:8px;">💼</span><span class="gradient-text">Best Free AI Tools for Professionals</span></h1>
-      <p class="hero-tagline">Save hours every week on writing, planning, and decision-making — with AI that never touches your employer's data.</p>
-      <p class="hero-intro">Professionals spend a disproportionate amount of time on writing tasks: summarising meetings, drafting emails, writing cover letters, building presentations, and crafting pitches. BrowserAITools gives you a suite of on-device AI tools that eliminate the friction from these tasks while keeping your work completely private. Because the AI runs inside your browser using WebLLM, your meeting notes, salary negotiations, and business strategies are never uploaded to any server.</p><p class="hero-intro" style="margin-top:1rem;">From generating concise meeting summaries from rough notes, to writing polished elevator pitches and sales emails, to using the Decision Maker tool for complex trade-off analysis, these tools act as a tireless professional co-pilot. There are no subscription fees, no per-document charges, and no account to create. Whether you work in finance, consulting, law, HR, or operations, you'll find tools that match your daily workflow. Simply open the tool, describe your context, and get a polished first draft in seconds.</p>
+      <h1><span style="font-size:2rem;margin-right:8px;">💼</span><span class="gradient-text">Best Free AI Tools for Professionals</span> <span style="font-size:clamp(1rem,2.5vw,1.5rem);font-weight:700;color:#7e22ce;">(No Login, 100% Private)</span></h1>
+      <p class="hero-intro">Discover the best free AI tools for professionals that run entirely in your browser. No login required. No data shared with third parties. Perfect for emails, meeting summaries, cover letters, and workplace writing.</p>
     </section>
 
     <!-- Persona navigation strip -->
@@ -828,34 +840,45 @@
       </div>
     </section>
 
-    <!-- How to Use -->
+    <!-- How persona uses these tools -->
     <section class="section">
-      <div class="how-card">
-        <h2 class="section-title">How to Use These Tools as a Professional</h2>
-        <div class="how-steps">
-          
-    <div>
-      <div class="step-num">1</div>
-      <div class="step-title">Choose your task</div>
-      <p class="step-body">Select the tool that matches your immediate need — meeting summary, email draft, elevator pitch, or decision analysis.</p>
-    </div>
-    <div>
-      <div class="step-num">2</div>
-      <div class="step-title">Describe your context</div>
-      <p class="step-body">Paste your notes, job description, or situation. The AI is context-aware and tailors output to your specific scenario.</p>
-    </div>
-    <div>
-      <div class="step-num">3</div>
-      <div class="step-title">Refine and use</div>
-      <p class="step-body">Copy the polished draft into your email, document, or slide deck. Regenerate any section until it matches your voice.</p>
-    </div>
-        </div>
+      <h2 class="section-title">How Professionals Use These AI Tools</h2>
+      <ul class="use-cases-list">
+        
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Turn messy meeting notes into structured summaries with action items</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Draft polished emails and cold outreach in seconds</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Generate cover letters tailored to specific job descriptions</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Create elevator pitches and executive summaries on demand</span>
+    </li>
+    <li class="use-case-item">
+      <span class="use-case-check">&#10003;</span>
+      <span>Redact sensitive PII from documents before sharing</span>
+    </li>
+      </ul>
+    </section>
+
+    <!-- Why Use Private AI Tools? -->
+    <section class="section">
+      <h2 class="section-title">Why Use Private AI Tools?</h2>
+      <div class="why-private-card">
+        <p>Unlike cloud-based AI tools, every tool on this page runs entirely inside your browser using WebLLM technology. The AI model downloads once to your device and generates all output locally — nothing you type is ever sent to a server, stored in a database, or used for model training. That means there are no privacy risks, no data collection agreements, and no compliance concerns. Because there are no cloud servers involved, every tool is also completely free with no usage limits. Open any tool, start using it instantly, and keep your work private by default.</p>
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQs -->
     <section class="section">
-      <h2 class="section-title">Frequently Asked Questions</h2>
+      <h2 class="section-title">FAQs</h2>
       <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
         
     <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
