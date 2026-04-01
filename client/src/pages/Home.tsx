@@ -437,6 +437,40 @@ function HomeHero({
   );
 }
 
+// ─── Persona Section ──────────────────────────────────────────────────────────
+
+const PERSONAS = [
+  { label: "Students",      emoji: "🎓", slug: "students"      },
+  { label: "Marketers",     emoji: "📣", slug: "marketers"     },
+  { label: "Professionals", emoji: "💼", slug: "professionals" },
+  { label: "Developers",    emoji: "👨‍💻", slug: "developers"    },
+  { label: "Writers",       emoji: "✍️", slug: "writers"       },
+  { label: "Founders",      emoji: "🚀", slug: "founders"      },
+];
+
+function PersonaSection() {
+  return (
+    <section className="max-w-4xl mx-auto px-4 mb-12">
+      <h2 className="text-center text-sm font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-4">
+        Explore by Use Case
+      </h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        {PERSONAS.map(({ label, emoji, slug }) => (
+          <a
+            key={slug}
+            href={`/personas/${slug}.html`}
+            data-testid={`link-persona-${slug}`}
+            className="flex flex-col items-center gap-1.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-3 py-4 shadow-sm text-sm font-semibold text-slate-700 dark:text-slate-200 hover:scale-105 hover:shadow-md hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-200 cursor-pointer"
+          >
+            <span className="text-2xl leading-none">{emoji}</span>
+            <span>{label}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function Home() {
@@ -446,6 +480,7 @@ export default function Home() {
   return (
     <>
       <HomeHero query={query} setQuery={setQuery} inputRef={inputRef} />
+      <PersonaSection />
       <TrustBar />
       <AdBlock slot="home-top" format="horizontal" className="mb-10 md:mb-14" />
       <ToolsCatalog query={query} />
