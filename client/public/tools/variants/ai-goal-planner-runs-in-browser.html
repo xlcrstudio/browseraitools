@@ -21,18 +21,10 @@
   <meta name="twitter:description" content="AI Goal Planner that runs 100% in your browser via WebLLM. No servers, no cloud, no tracking. Instant, private, and completely free. Try it now." />
 
   <meta name="robots" content="index, follow" />
+  <link rel="icon" href="/favicon.png" />
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com" defer></script>
-  <script>
-    // Tailwind config (runs sync before paint)
-    window.tailwind = window.tailwind || {};
-    document.addEventListener('DOMContentLoaded', function() {
-      if (typeof tailwind !== 'undefined' && tailwind.config) {
-        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { purple: { 50:'#faf5ff',100:'#f3e8ff',200:'#e9d5ff',300:'#d8b4fe',400:'#c084fc',500:'#a855f7',600:'#9333ea',700:'#7e22ce',800:'#6b21a8',900:'#581c87' } } } } };
-      }
-    });
-  </script>
+  <!-- Tailwind CDN (no defer — must run before paint so .hidden class is styled) -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
@@ -211,9 +203,12 @@
     .embed-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
     .embed-link { font-size: 13px; font-weight: 600; color: #9333ea; text-decoration: none; }
     .embed-link:hover { text-decoration: underline; }
-    .embed-wrapper { border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 1px 4px rgba(0,0,0,.06); background: #fff; }
+    .embed-wrapper { border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 1px 4px rgba(0,0,0,.06); background: #fff; position: relative; }
     .dark .embed-wrapper { border-color: #334155; background: #0f172a; }
-    .tool-iframe { width: 100%; border: none; min-height: 900px; display: block; }
+    .tool-iframe { width: 100%; display: block; border: none; }
+    .embed-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; font-size: 13px; color: #94a3b8; pointer-events: none; z-index: 0; }
+    /* Ensure .hidden works before Tailwind CDN finishes */
+    .hidden { display: none !important; }
     .embed-note { font-size: 11px; color: #94a3b8; text-align: center; margin-top: 8px; }
     .embed-note a { color: #a855f7; }
 
@@ -348,17 +343,26 @@
       </div>
       <div class="embed-wrapper">
         <iframe
-          src="https://browseraitools.com/ai-goal-planner"
-          title="AI Goal Planner — Free Online AI Tool"
-          class="tool-iframe"
-          loading="lazy"
-          allow="clipboard-write"
           id="tool-frame"
+          src="/ai-goal-planner"
+          title="AI Goal Planner — Free Online AI Tool"
+          width="100%"
+          height="620"
+          frameborder="0"
+          loading="eager"
+          allow="clipboard-write"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+          style="border-radius:12px;border:1px solid #e5e5e5;display:block;"
         ></iframe>
+        <div class="embed-fallback" aria-hidden="true">
+          <svg width="32" height="32" fill="none" stroke="#c084fc" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          <span>Loading interactive tool&hellip;</span>
+          <a href="/ai-goal-planner" style="pointer-events:auto;color:#a855f7;font-weight:600;font-size:12px;">If it stays blank, open in new tab &rarr;</a>
+        </div>
       </div>
       <p class="embed-note">
-        The tool above runs 100% in your browser. No data is sent to any server.
-        <a href="https://browseraitools.com/ai-goal-planner">Open in full page</a> for the best experience.
+        Runs 100% in your browser — no data sent to any server.
+        <a href="/ai-goal-planner">Open in full page</a> for the best experience.
       </p>
     </section>
 
@@ -385,8 +389,6 @@
         </div>
       </div>
     </section>
-
-
 
 
     <!-- Related Tools -->
@@ -558,26 +560,27 @@
       }
     })();
 
-    // FAQ accordion
+    // FAQ accordion — toggle answer visibility and chevron rotation
     function toggleFAQ(i) {
-      const ans = document.getElementById('faq-answer-' + i);
-      const icon = document.getElementById('faq-icon-' + i);
-      const isOpen = ans.style.display === 'block';
-      ans.style.display = isOpen ? 'none' : 'block';
-      icon.style.transform = isOpen ? '' : 'rotate(180deg)';
+      var ans  = document.getElementById('faq-answer-' + i);
+      var icon = document.getElementById('faq-icon-' + i);
+      if (!ans) return;
+      var isOpen = !ans.classList.contains('hidden');
+      if (isOpen) {
+        ans.classList.add('hidden');
+        if (icon) icon.style.transform = '';
+      } else {
+        ans.classList.remove('hidden');
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      }
     }
 
-    // Auto-expand iframe height to content
-    var frame = document.getElementById('tool-frame');
-    if (frame) {
-      frame.style.minHeight = '900px';
+    // Hide the fallback overlay once the iframe loads
+    var frame    = document.getElementById('tool-frame');
+    var fallback = document.querySelector('.embed-fallback');
+    if (frame && fallback) {
       frame.addEventListener('load', function() {
-        try {
-          var h = frame.contentWindow.document.documentElement.scrollHeight;
-          if (h > 600) frame.style.height = h + 'px';
-        } catch(e) {
-          // cross-origin fallback — keep min-height
-        }
+        fallback.style.display = 'none';
       });
     }
   </script>
