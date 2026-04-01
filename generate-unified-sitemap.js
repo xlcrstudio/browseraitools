@@ -49,7 +49,7 @@ entries.push(urlEntry({
 // 2. Main tool pages (one per unique slug)
 for (const tool of tools) {
   entries.push(urlEntry({
-    loc:        `${BASE_URL}/${tool.slug}`,
+    loc:        `${BASE_URL}/tools/${tool.slug}.html`,
     lastmod:    TODAY,
     changefreq: "weekly",
     priority:   "0.8",
