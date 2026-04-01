@@ -216,6 +216,92 @@ function ToolCard({ tool }: { tool: Tool }) {
   );
 }
 
+function SeoSection() {
+  return (
+    <section className="mb-16 md:mb-20" data-testid="section-seo-content">
+      <div className="bg-white dark:bg-slate-900/60 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm p-6 md:p-10 max-w-3xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-bold font-display mb-5 text-slate-900 dark:text-slate-100">
+          Free AI Tools That Run in Your Browser
+        </h2>
+
+        <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+          Most AI tools ask you to create an account, agree to a privacy policy, and trust that your data stays safe on their servers. BrowserAI Tools works differently. Every tool on this site runs entirely inside your browser using WebLLM — a technology that downloads a lightweight AI model to your device and runs it locally, without ever sending your text to a server.
+        </p>
+
+        <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+          That means your writing, your ideas, and your prompts stay private by default. Not because we promise it — because there are no servers involved.
+        </p>
+
+        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-3">
+          What you can do with private, offline AI:
+        </h3>
+
+        <ul className="space-y-3 mb-6">
+          <li className="flex gap-2.5 text-slate-600 dark:text-slate-400 leading-relaxed">
+            <span className="text-purple-400 font-bold shrink-0 mt-0.5">—</span>
+            <span>
+              Rewrite and polish your writing with the{" "}
+              <Link href="/ai-paraphrasing-tool" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">AI Paraphrasing Tool</Link>
+              {" "}or{" "}
+              <Link href="/ai-paragraph-rewriter" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">AI Paragraph Rewriter</Link>
+              {" "}— great for avoiding repetitive phrasing without pasting your drafts into a third-party app.
+            </span>
+          </li>
+          <li className="flex gap-2.5 text-slate-600 dark:text-slate-400 leading-relaxed">
+            <span className="text-purple-400 font-bold shrink-0 mt-0.5">—</span>
+            <span>
+              Summarize long documents privately using the{" "}
+              <Link href="/ai-text-summarizer" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">AI Text Summarizer</Link>
+              {" "}or{" "}
+              <Link href="/ai-pdf-summarizer" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">AI PDF Summarizer</Link>
+              {" "}— ideal for research, legal documents, or anything sensitive.
+            </span>
+          </li>
+          <li className="flex gap-2.5 text-slate-600 dark:text-slate-400 leading-relaxed">
+            <span className="text-purple-400 font-bold shrink-0 mt-0.5">—</span>
+            <span>
+              Generate blog posts, essays, and long-form content with the{" "}
+              <Link href="/ai-blog-post-generator" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">AI Blog Post Generator</Link>
+              {" "}or{" "}
+              <Link href="/ai-essay-writer" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">AI Essay Writer</Link>
+              {" "}— the model runs on your GPU, not ours.
+            </span>
+          </li>
+          <li className="flex gap-2.5 text-slate-600 dark:text-slate-400 leading-relaxed">
+            <span className="text-purple-400 font-bold shrink-0 mt-0.5">—</span>
+            <span>
+              Check grammar, simplify sentences, or adjust your tone with tools like the{" "}
+              <Link href="/ai-grammar-checker" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">AI Grammar Checker</Link>
+              {", "}
+              <Link href="/ai-sentence-simplifier" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">AI Sentence Simplifier</Link>
+              {", and "}
+              <Link href="/ai-tone-converter" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">AI Tone Converter</Link>.
+            </span>
+          </li>
+          <li className="flex gap-2.5 text-slate-600 dark:text-slate-400 leading-relaxed">
+            <span className="text-purple-400 font-bold shrink-0 mt-0.5">—</span>
+            <span>
+              Create marketing copy — hooks, captions, cover letters, cold emails — without feeding your business ideas to a cloud AI.
+            </span>
+          </li>
+        </ul>
+
+        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-3">
+          No login. No subscription. No catch.
+        </h3>
+
+        <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+          There's no free tier with hidden limits. You don't need to enter a credit card, verify your email, or wait for access. Open any tool, let the model load once (it caches in your browser), and start working. After that first load, the tools work even when you're offline.
+        </p>
+
+        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+          This makes BrowserAI Tools especially useful for students working in libraries, professionals handling confidential content, and developers who want to prototype ideas without an API key. It's also a practical choice for anyone who's simply tired of signing up for yet another service just to rephrase a paragraph. The full collection covers writing, summarizing, translating, coding, marketing, and productivity — all free, all private, all running in your browser.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function PrivacySection() {
   return (
     <section className="mb-16 md:mb-20">
@@ -582,6 +668,7 @@ export default function Home() {
         <FeaturedTools />
         <AdBlock slot="home-top" format="horizontal" className="mb-10 md:mb-14" />
         <ToolsCatalog query={query} />
+        <SeoSection />
         <AdBlock slot="home-mid" format="horizontal" className="mb-10 md:mb-14" />
         <PrivacySection />
         <AdBlock slot="home-bottom" format="horizontal" className="mb-10 md:mb-14" />
