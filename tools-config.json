@@ -1,104 +1,1489 @@
 {
   "tools": [
-    { "name": "AI Chatbot", "slug": "ai-chatbot", "category": "AI Assistant", "relatedSlugs": ["ai-homework-solver", "explain-this-ai", "ai-document-analyzer", "ai-message-analyzer"] },
-    { "name": "AI Hook Generator", "slug": "ai-hook-generator", "category": "Writing Tools", "relatedSlugs": ["ai-headline-improver", "ai-cta-generator", "ai-blog-outline-generator", "ai-paragraph-rewriter"] },
-    { "name": "AI Paragraph Rewriter", "slug": "ai-paragraph-rewriter", "category": "Writing Tools", "relatedSlugs": ["ai-paraphrasing-tool", "ai-tone-converter", "ai-sentence-simplifier", "ai-humanizer"] },
-    { "name": "AI Sentence Simplifier", "slug": "ai-sentence-simplifier", "category": "Writing Tools", "relatedSlugs": ["ai-paraphrasing-tool", "ai-paragraph-rewriter", "ai-readability-analyzer", "ai-humanizer"] },
-    { "name": "AI Sentence Expander", "slug": "ai-sentence-expander", "category": "Writing Tools", "relatedSlugs": ["ai-paragraph-rewriter", "ai-blog-post-generator", "ai-bullet-points-generator", "ai-essay-writer"] },
-    { "name": "AI Sentence Shortener", "slug": "ai-sentence-shortener", "category": "Writing Tools", "relatedSlugs": ["ai-paraphrasing-tool", "ai-text-summarizer", "ai-sentence-simplifier", "ai-readability-analyzer"] },
-    { "name": "AI Tone Converter", "slug": "ai-tone-converter", "category": "Writing Tools", "relatedSlugs": ["ai-paragraph-rewriter", "ai-paraphrasing-tool", "ai-humanizer", "ai-email-response-generator"] },
-    { "name": "AI Headline Improver", "slug": "ai-headline-improver", "category": "Writing Tools", "relatedSlugs": ["ai-hook-generator", "ai-seo-title-generator", "ai-cta-generator", "ai-blog-outline-generator"] },
-    { "name": "AI Bullet Points Generator", "slug": "ai-bullet-points-generator", "category": "Writing Tools", "relatedSlugs": ["ai-blog-outline-generator", "ai-resume-bullet-generator", "ai-faq-generator", "ai-meeting-summary-generator"] },
-    { "name": "AI Blog Outline Generator", "slug": "ai-blog-outline-generator", "category": "Writing Tools", "relatedSlugs": ["ai-blog-post-generator", "ai-content-brief-generator", "ai-faq-generator", "ai-keyword-generator"] },
-    { "name": "AI Text Summarizer", "slug": "ai-text-summarizer", "category": "Writing Tools", "relatedSlugs": ["ai-pdf-summarizer", "ai-youtube-summarizer", "ai-document-analyzer", "ai-meeting-summary-generator"] },
-    { "name": "AI Grammar Checker", "slug": "ai-grammar-checker", "category": "Writing Tools", "relatedSlugs": ["ai-plagiarism-checker", "ai-paraphrasing-tool", "ai-writing-feedback-coach", "ai-readability-analyzer"] },
-    { "name": "AI Translator", "slug": "ai-translator", "category": "Writing Tools", "relatedSlugs": ["ai-paraphrasing-tool", "ai-grammar-checker", "ai-paragraph-rewriter", "ai-humanizer"] },
-    { "name": "AI Paraphrasing Tool", "slug": "ai-paraphrasing-tool", "category": "Writing Tools", "relatedSlugs": ["ai-paragraph-rewriter", "ai-grammar-checker", "ai-humanizer", "ai-plagiarism-checker"] },
-    { "name": "AI Image Prompt Generator", "slug": "ai-image-prompt-generator", "category": "Writing Tools", "relatedSlugs": ["ai-prompt-generator", "ai-blog-post-generator", "ai-content-brief-generator", "ai-instagram-caption-generator"] },
-    { "name": "AI PDF Summarizer", "slug": "ai-pdf-summarizer", "category": "Writing Tools", "relatedSlugs": ["ai-text-summarizer", "ai-document-analyzer", "ai-pdf-chat", "ai-youtube-summarizer"] },
-    { "name": "AI Text Humanizer", "slug": "ai-humanizer", "category": "Writing Tools", "relatedSlugs": ["ai-paraphrasing-tool", "ai-tone-converter", "ai-paragraph-rewriter", "ai-plagiarism-checker"] },
-    { "name": "AI Blog Post Generator", "slug": "ai-blog-post-generator", "category": "Writing Tools", "relatedSlugs": ["ai-blog-outline-generator", "ai-content-brief-generator", "ai-seo-title-generator", "ai-faq-generator"] },
-    { "name": "AI YouTube Script Generator", "slug": "ai-youtube-script-generator", "category": "Writing Tools", "relatedSlugs": ["ai-youtube-title-generator", "ai-youtube-description-generator", "ai-hook-generator", "ai-blog-outline-generator"] },
-    { "name": "AI FAQ Generator", "slug": "ai-faq-generator", "category": "Writing Tools", "relatedSlugs": ["ai-blog-outline-generator", "ai-content-brief-generator", "ai-schema-markup-generator", "ai-landing-page-copy-generator"] },
-    { "name": "AI Essay Writer", "slug": "ai-essay-writer", "category": "Writing Tools", "relatedSlugs": ["ai-essay-grader", "ai-writing-feedback-coach", "ai-personal-statement-generator", "ai-plagiarism-checker"] },
-    { "name": "AI Essay Grader", "slug": "ai-essay-grader", "category": "Writing Tools", "relatedSlugs": ["ai-essay-writer", "ai-writing-feedback-coach", "ai-plagiarism-checker", "ai-grammar-checker"] },
-    { "name": "AI Content Repurposer", "slug": "ai-content-repurposer", "category": "Writing Tools", "relatedSlugs": ["ai-blog-post-generator", "ai-text-summarizer", "ai-instagram-caption-generator", "ai-linkedin-post-generator"] },
-    { "name": "AI Writing Feedback Coach", "slug": "ai-writing-feedback-coach", "category": "Writing Tools", "relatedSlugs": ["ai-essay-grader", "ai-grammar-checker", "ai-readability-analyzer", "ai-plagiarism-checker"] },
-    { "name": "Word Counter", "slug": "word-counter", "category": "Writing Tools", "relatedSlugs": ["ai-readability-analyzer", "ai-grammar-checker", "ai-text-summarizer", "case-converter"] },
-    { "name": "AI Plagiarism Checker", "slug": "ai-plagiarism-checker", "category": "Writing Tools", "relatedSlugs": ["ai-grammar-checker", "ai-essay-grader", "ai-paraphrasing-tool", "ai-humanizer"] },
-    { "name": "Case Converter", "slug": "case-converter", "category": "Writing Tools", "relatedSlugs": ["word-counter", "ai-grammar-checker", "lorem-ipsum-generator", "ai-paraphrasing-tool"] },
-    { "name": "Lorem Ipsum Generator", "slug": "lorem-ipsum-generator", "category": "Writing Tools", "relatedSlugs": ["word-counter", "case-converter", "ai-blog-post-generator", "random-number-generator"] },
-    { "name": "AI Instagram Caption Generator", "slug": "ai-instagram-caption-generator", "category": "Social Media Tools", "relatedSlugs": ["ai-hashtag-generator", "ai-tiktok-caption-generator", "ai-instagram-bio-generator", "ai-linkedin-post-generator"] },
-    { "name": "AI TikTok Caption Generator", "slug": "ai-tiktok-caption-generator", "category": "Social Media Tools", "relatedSlugs": ["ai-instagram-caption-generator", "ai-hashtag-generator", "ai-youtube-script-generator", "ai-hook-generator"] },
-    { "name": "AI LinkedIn Post Generator", "slug": "ai-linkedin-post-generator", "category": "Social Media Tools", "relatedSlugs": ["ai-linkedin-summary-generator", "ai-tweet-generator", "ai-instagram-caption-generator", "ai-cold-outreach-generator"] },
-    { "name": "AI Tweet Generator", "slug": "ai-tweet-generator", "category": "Social Media Tools", "relatedSlugs": ["ai-linkedin-post-generator", "ai-instagram-caption-generator", "ai-hashtag-generator", "ai-hook-generator"] },
-    { "name": "AI Hashtag Generator", "slug": "ai-hashtag-generator", "category": "Social Media Tools", "relatedSlugs": ["ai-instagram-caption-generator", "ai-tiktok-caption-generator", "ai-keyword-generator", "ai-tweet-generator"] },
-    { "name": "AI YouTube Title Generator", "slug": "ai-youtube-title-generator", "category": "Social Media Tools", "relatedSlugs": ["ai-youtube-description-generator", "ai-youtube-script-generator", "ai-seo-title-generator", "ai-headline-improver"] },
-    { "name": "AI YouTube Description Generator", "slug": "ai-youtube-description-generator", "category": "Social Media Tools", "relatedSlugs": ["ai-youtube-title-generator", "ai-youtube-script-generator", "ai-meta-description-generator", "ai-keyword-generator"] },
-    { "name": "AI Instagram Bio Generator", "slug": "ai-instagram-bio-generator", "category": "Social Media Tools", "relatedSlugs": ["ai-instagram-caption-generator", "ai-linkedin-summary-generator", "ai-hashtag-generator", "ai-dating-profile-generator"] },
-    { "name": "AI YouTube Summarizer", "slug": "ai-youtube-summarizer", "category": "Social Media Tools", "relatedSlugs": ["ai-text-summarizer", "ai-pdf-summarizer", "ai-youtube-script-generator", "ai-youtube-title-generator"] },
-    { "name": "AI Business Name Generator", "slug": "ai-business-name-generator", "category": "Business Tools", "relatedSlugs": ["ai-startup-name-generator", "ai-business-idea-generator", "ai-value-proposition-generator", "ai-elevator-pitch-generator"] },
-    { "name": "AI Startup Name Generator", "slug": "ai-startup-name-generator", "category": "Business Tools", "relatedSlugs": ["ai-business-name-generator", "ai-business-idea-generator", "ai-elevator-pitch-generator", "ai-value-proposition-generator"] },
-    { "name": "AI Business Idea Generator", "slug": "ai-business-idea-generator", "category": "Business Tools", "relatedSlugs": ["ai-startup-name-generator", "ai-business-name-generator", "ai-value-proposition-generator", "ai-target-audience-generator"] },
-    { "name": "AI Value Proposition Generator", "slug": "ai-value-proposition-generator", "category": "Business Tools", "relatedSlugs": ["ai-elevator-pitch-generator", "ai-target-audience-generator", "ai-landing-page-copy-generator", "ai-business-idea-generator"] },
-    { "name": "AI Elevator Pitch Generator", "slug": "ai-elevator-pitch-generator", "category": "Business Tools", "relatedSlugs": ["ai-value-proposition-generator", "ai-business-idea-generator", "ai-target-audience-generator", "ai-sales-email-generator"] },
-    { "name": "AI Target Audience Generator", "slug": "ai-target-audience-generator", "category": "Business Tools", "relatedSlugs": ["ai-value-proposition-generator", "ai-business-idea-generator", "ai-content-brief-generator", "ai-ad-copy-generator"] },
-    { "name": "AI Ad Copy Generator", "slug": "ai-ad-copy-generator", "category": "Marketing Tools", "relatedSlugs": ["ai-landing-page-copy-generator", "ai-cta-generator", "ai-sales-email-generator", "ai-headline-improver"] },
-    { "name": "AI Email Response Generator", "slug": "ai-email-response-generator", "category": "Marketing Tools", "relatedSlugs": ["ai-sales-email-generator", "ai-cold-outreach-generator", "ai-tone-converter", "ai-meeting-summary-generator"] },
-    { "name": "AI Sales Email Generator", "slug": "ai-sales-email-generator", "category": "Marketing Tools", "relatedSlugs": ["ai-cold-outreach-generator", "ai-email-response-generator", "ai-cta-generator", "ai-ad-copy-generator"] },
-    { "name": "AI Cold Outreach Generator", "slug": "ai-cold-outreach-generator", "category": "Marketing Tools", "relatedSlugs": ["ai-sales-email-generator", "ai-email-response-generator", "ai-linkedin-post-generator", "ai-cta-generator"] },
-    { "name": "AI Call-to-Action Generator", "slug": "ai-cta-generator", "category": "Marketing Tools", "relatedSlugs": ["ai-ad-copy-generator", "ai-landing-page-copy-generator", "ai-headline-improver", "ai-hook-generator"] },
-    { "name": "AI Landing Page Copy Generator", "slug": "ai-landing-page-copy-generator", "category": "Marketing Tools", "relatedSlugs": ["ai-ad-copy-generator", "ai-cta-generator", "ai-value-proposition-generator", "ai-faq-generator"] },
-    { "name": "AI Meta Description Generator", "slug": "ai-meta-description-generator", "category": "SEO Tools", "relatedSlugs": ["ai-seo-title-generator", "ai-keyword-generator", "ai-content-brief-generator", "ai-schema-markup-generator"] },
-    { "name": "AI SEO Title Generator", "slug": "ai-seo-title-generator", "category": "SEO Tools", "relatedSlugs": ["ai-meta-description-generator", "ai-keyword-generator", "ai-headline-improver", "ai-blog-outline-generator"] },
-    { "name": "AI Keyword Generator", "slug": "ai-keyword-generator", "category": "SEO Tools", "relatedSlugs": ["ai-content-brief-generator", "ai-seo-title-generator", "ai-meta-description-generator", "ai-content-gap-analyzer"] },
-    { "name": "AI Content Brief Generator", "slug": "ai-content-brief-generator", "category": "SEO Tools", "relatedSlugs": ["ai-blog-outline-generator", "ai-keyword-generator", "ai-seo-title-generator", "ai-content-gap-analyzer"] },
-    { "name": "AI Internal Link Suggestion Tool", "slug": "ai-internal-link-suggestion-tool", "category": "SEO Tools", "relatedSlugs": ["ai-content-brief-generator", "ai-seo-title-generator", "ai-keyword-generator", "ai-schema-markup-generator"] },
-    { "name": "AI Content Gap Analyzer", "slug": "ai-content-gap-analyzer", "category": "SEO Tools", "relatedSlugs": ["ai-keyword-generator", "ai-content-brief-generator", "ai-serp-intent-analyzer", "ai-internal-link-suggestion-tool"] },
-    { "name": "AI Schema Markup Generator", "slug": "ai-schema-markup-generator", "category": "SEO Tools", "relatedSlugs": ["ai-meta-description-generator", "ai-faq-generator", "ai-seo-title-generator", "ai-internal-link-suggestion-tool"] },
-    { "name": "AI SERP Intent Analyzer", "slug": "ai-serp-intent-analyzer", "category": "SEO Tools", "relatedSlugs": ["ai-keyword-generator", "ai-content-gap-analyzer", "ai-content-brief-generator", "ai-seo-title-generator"] },
-    { "name": "AI Resume Bullet Generator", "slug": "ai-resume-bullet-generator", "category": "Job & Career Tools", "relatedSlugs": ["ai-cover-letter-generator", "ai-linkedin-summary-generator", "ai-ats-resume-matcher", "ai-interview-answer-generator"] },
-    { "name": "AI Cover Letter Generator", "slug": "ai-cover-letter-generator", "category": "Job & Career Tools", "relatedSlugs": ["ai-resume-bullet-generator", "ai-linkedin-summary-generator", "ai-ats-resume-matcher", "ai-personal-statement-generator"] },
-    { "name": "AI LinkedIn Summary Generator", "slug": "ai-linkedin-summary-generator", "category": "Job & Career Tools", "relatedSlugs": ["ai-resume-bullet-generator", "ai-cover-letter-generator", "ai-linkedin-post-generator", "ai-elevator-pitch-generator"] },
-    { "name": "AI Interview Answer Generator", "slug": "ai-interview-answer-generator", "category": "Job & Career Tools", "relatedSlugs": ["ai-resume-bullet-generator", "ai-cover-letter-generator", "ai-ats-resume-matcher", "ai-elevator-pitch-generator"] },
-    { "name": "AI ATS Resume Matcher", "slug": "ai-ats-resume-matcher", "category": "Job & Career Tools", "relatedSlugs": ["ai-resume-bullet-generator", "ai-cover-letter-generator", "ai-interview-answer-generator", "ai-linkedin-summary-generator"] },
-    { "name": "AI To-Do List Generator", "slug": "ai-todo-list-generator", "category": "Productivity Tools", "relatedSlugs": ["ai-weekly-planner-generator", "ai-goal-planner", "ai-meeting-summary-generator", "ai-decision-maker"] },
-    { "name": "AI Meeting Summary Generator", "slug": "ai-meeting-summary-generator", "category": "Productivity Tools", "relatedSlugs": ["ai-text-summarizer", "ai-todo-list-generator", "ai-weekly-planner-generator", "ai-document-analyzer"] },
-    { "name": "AI Weekly Planner Generator", "slug": "ai-weekly-planner-generator", "category": "Productivity Tools", "relatedSlugs": ["ai-todo-list-generator", "ai-goal-planner", "ai-meal-planner", "ai-decision-maker"] },
-    { "name": "AI Goal Planner", "slug": "ai-goal-planner", "category": "Productivity Tools", "relatedSlugs": ["ai-todo-list-generator", "ai-weekly-planner-generator", "ai-decision-maker", "ai-pros-and-cons-generator"] },
-    { "name": "AI Decision Maker", "slug": "ai-decision-maker", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-pros-and-cons-generator", "ai-goal-planner", "ai-debate-generator", "ai-weekly-planner-generator"] },
-    { "name": "AI Pros & Cons Generator", "slug": "ai-pros-and-cons-generator", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-decision-maker", "ai-debate-generator", "ai-goal-planner", "ai-essay-writer"] },
-    { "name": "AI Debate Generator", "slug": "ai-debate-generator", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-pros-and-cons-generator", "ai-essay-writer", "ai-decision-maker", "ai-writing-feedback-coach"] },
-    { "name": "AI Excuse Generator", "slug": "ai-excuse-generator", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-roast-generator", "ai-compliment-generator", "ai-story-starter", "ai-message-analyzer"] },
-    { "name": "AI Compliment Generator", "slug": "ai-compliment-generator", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-roast-generator", "ai-excuse-generator", "ai-dating-profile-generator", "ai-instagram-caption-generator"] },
-    { "name": "AI Roast Generator", "slug": "ai-roast-generator", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-compliment-generator", "ai-excuse-generator", "ai-story-starter", "ai-debate-generator"] },
-    { "name": "AI Story Starter", "slug": "ai-story-starter", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-essay-writer", "ai-blog-post-generator", "ai-image-prompt-generator", "ai-hook-generator"] },
-    { "name": "AI Prompt Generator", "slug": "ai-prompt-generator", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-image-prompt-generator", "ai-story-starter", "ai-chatbot", "ai-code-explainer"] },
-    { "name": "AI Document Analyzer", "slug": "ai-document-analyzer", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-text-summarizer", "ai-pdf-summarizer", "ai-contract-simplifier", "ai-message-analyzer"] },
-    { "name": "AI Message Analyzer", "slug": "ai-message-analyzer", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-document-analyzer", "ai-email-response-generator", "ai-tone-converter", "ai-grammar-checker"] },
-    { "name": "AI Explain This", "slug": "explain-this-ai", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-homework-solver", "ai-document-analyzer", "ai-text-summarizer", "ai-chatbot"] },
-    { "name": "AI Dating Profile Generator", "slug": "ai-dating-profile-generator", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-instagram-bio-generator", "ai-linkedin-summary-generator", "ai-compliment-generator", "ai-message-analyzer"] },
-    { "name": "AI Meal Planner", "slug": "ai-meal-planner", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-weekly-planner-generator", "ai-todo-list-generator", "ai-goal-planner", "ai-travel-itinerary-planner"] },
-    { "name": "AI Travel Planner", "slug": "ai-travel-itinerary-planner", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-meal-planner", "ai-weekly-planner-generator", "ai-todo-list-generator", "ai-decision-maker"] },
-    { "name": "AI Flashcard Generator", "slug": "ai-flashcard-generator", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-homework-solver", "ai-text-summarizer", "ai-faq-generator", "explain-this-ai"] },
-    { "name": "AI Personal Statement Generator", "slug": "ai-personal-statement-generator", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-cover-letter-generator", "ai-essay-writer", "ai-linkedin-summary-generator", "ai-resume-bullet-generator"] },
-    { "name": "AI Local Knowledge Chat", "slug": "ai-local-knowledge-chat", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-chatbot", "ai-document-analyzer", "ai-pdf-chat", "ai-text-summarizer"] },
-    { "name": "AI Citation Generator", "slug": "ai-citation-generator", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-essay-writer", "ai-plagiarism-checker", "ai-document-analyzer", "ai-content-brief-generator"] },
-    { "name": "AI Readability Analyzer", "slug": "ai-readability-analyzer", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-grammar-checker", "ai-writing-feedback-coach", "ai-sentence-simplifier", "word-counter"] },
-    { "name": "AI Contract Simplifier", "slug": "ai-contract-simplifier", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-document-analyzer", "ai-pii-redactor", "ai-text-summarizer", "ai-pdf-summarizer"] },
-    { "name": "AI PII Redactor", "slug": "ai-pii-redactor", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-contract-simplifier", "ai-document-analyzer", "ai-text-summarizer", "ai-pdf-summarizer"] },
-    { "name": "Random Number Generator", "slug": "random-number-generator", "category": "Unique & Viral Tools", "relatedSlugs": ["password-generator", "color-palette-generator", "lorem-ipsum-generator", "diff-checker"] },
-    { "name": "Diff Checker", "slug": "diff-checker", "category": "Unique & Viral Tools", "relatedSlugs": ["json-validator", "markdown-converter", "regex-tester", "word-counter"] },
-    { "name": "Color Palette Generator", "slug": "color-palette-generator", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-image-prompt-generator", "random-number-generator", "ai-instagram-caption-generator", "ai-ad-copy-generator"] },
-    { "name": "Password Generator", "slug": "password-generator", "category": "Unique & Viral Tools", "relatedSlugs": ["random-number-generator", "ai-pii-redactor", "ai-local-knowledge-chat", "diff-checker"] },
-    { "name": "AI Homework Solver", "slug": "ai-homework-solver", "category": "Unique & Viral Tools", "relatedSlugs": ["explain-this-ai", "ai-flashcard-generator", "ai-essay-writer", "ai-chatbot"] },
-    { "name": "AI Text Detector", "slug": "ai-text-detector", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-humanizer", "ai-plagiarism-checker", "ai-grammar-checker", "ai-paraphrasing-tool"] },
-    { "name": "AI PDF Chat", "slug": "ai-pdf-chat", "category": "Unique & Viral Tools", "relatedSlugs": ["ai-pdf-summarizer", "ai-document-analyzer", "ai-local-knowledge-chat", "ai-contract-simplifier"] },
-    { "name": "AI Code Playground", "slug": "ai-code-playground", "category": "Developer Tools", "relatedSlugs": ["ai-code-explainer", "regex-tester", "json-validator", "diff-checker"] },
-    { "name": "AI Code Explainer", "slug": "ai-code-explainer", "category": "Developer Tools", "relatedSlugs": ["ai-code-playground", "regex-tester", "json-validator", "markdown-converter"] },
-    { "name": "Regex Tester", "slug": "regex-tester", "category": "Developer Tools", "relatedSlugs": ["json-validator", "ai-code-explainer", "diff-checker", "markdown-converter"] },
-    { "name": "Markdown Converter", "slug": "markdown-converter", "category": "Developer Tools", "relatedSlugs": ["json-validator", "regex-tester", "diff-checker", "ai-code-explainer"] },
-    { "name": "JSON Validator & Formatter", "slug": "json-validator", "category": "Developer Tools", "relatedSlugs": ["regex-tester", "markdown-converter", "diff-checker", "ai-schema-markup-generator"] }
+    {
+      "name": "AI Chatbot",
+      "slug": "ai-chatbot",
+      "category": "AI Assistant",
+      "relatedSlugs": [
+        "ai-homework-solver",
+        "explain-this-ai",
+        "ai-document-analyzer",
+        "ai-message-analyzer"
+      ],
+      "personas": [
+        "students",
+        "developers",
+        "professionals",
+        "writers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Hook Generator",
+      "slug": "ai-hook-generator",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-headline-improver",
+        "ai-cta-generator",
+        "ai-blog-outline-generator",
+        "ai-paragraph-rewriter"
+      ],
+      "personas": [
+        "marketers",
+        "writers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Paragraph Rewriter",
+      "slug": "ai-paragraph-rewriter",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-paraphrasing-tool",
+        "ai-tone-converter",
+        "ai-sentence-simplifier",
+        "ai-humanizer"
+      ],
+      "personas": [
+        "writers",
+        "students",
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI Sentence Simplifier",
+      "slug": "ai-sentence-simplifier",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-paraphrasing-tool",
+        "ai-paragraph-rewriter",
+        "ai-readability-analyzer",
+        "ai-humanizer"
+      ],
+      "personas": [
+        "writers",
+        "students"
+      ]
+    },
+    {
+      "name": "AI Sentence Expander",
+      "slug": "ai-sentence-expander",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-paragraph-rewriter",
+        "ai-blog-post-generator",
+        "ai-bullet-points-generator",
+        "ai-essay-writer"
+      ],
+      "personas": [
+        "writers",
+        "students"
+      ]
+    },
+    {
+      "name": "AI Sentence Shortener",
+      "slug": "ai-sentence-shortener",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-paraphrasing-tool",
+        "ai-text-summarizer",
+        "ai-sentence-simplifier",
+        "ai-readability-analyzer"
+      ],
+      "personas": [
+        "writers",
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI Tone Converter",
+      "slug": "ai-tone-converter",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-paragraph-rewriter",
+        "ai-paraphrasing-tool",
+        "ai-humanizer",
+        "ai-email-response-generator"
+      ],
+      "personas": [
+        "writers",
+        "professionals",
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI Headline Improver",
+      "slug": "ai-headline-improver",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-hook-generator",
+        "ai-seo-title-generator",
+        "ai-cta-generator",
+        "ai-blog-outline-generator"
+      ],
+      "personas": [
+        "writers",
+        "marketers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Bullet Points Generator",
+      "slug": "ai-bullet-points-generator",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-blog-outline-generator",
+        "ai-resume-bullet-generator",
+        "ai-faq-generator",
+        "ai-meeting-summary-generator"
+      ],
+      "personas": [
+        "writers",
+        "professionals",
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI Blog Outline Generator",
+      "slug": "ai-blog-outline-generator",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-blog-post-generator",
+        "ai-content-brief-generator",
+        "ai-faq-generator",
+        "ai-keyword-generator"
+      ],
+      "personas": [
+        "writers",
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI Text Summarizer",
+      "slug": "ai-text-summarizer",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-pdf-summarizer",
+        "ai-youtube-summarizer",
+        "ai-document-analyzer",
+        "ai-meeting-summary-generator"
+      ],
+      "personas": [
+        "students",
+        "professionals",
+        "writers"
+      ]
+    },
+    {
+      "name": "AI Grammar Checker",
+      "slug": "ai-grammar-checker",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-plagiarism-checker",
+        "ai-paraphrasing-tool",
+        "ai-writing-feedback-coach",
+        "ai-readability-analyzer"
+      ],
+      "personas": [
+        "students",
+        "writers"
+      ]
+    },
+    {
+      "name": "AI Translator",
+      "slug": "ai-translator",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-paraphrasing-tool",
+        "ai-grammar-checker",
+        "ai-paragraph-rewriter",
+        "ai-humanizer"
+      ],
+      "personas": [
+        "students",
+        "professionals"
+      ]
+    },
+    {
+      "name": "AI Paraphrasing Tool",
+      "slug": "ai-paraphrasing-tool",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-paragraph-rewriter",
+        "ai-grammar-checker",
+        "ai-humanizer",
+        "ai-plagiarism-checker"
+      ],
+      "personas": [
+        "students",
+        "writers"
+      ]
+    },
+    {
+      "name": "AI Image Prompt Generator",
+      "slug": "ai-image-prompt-generator",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-prompt-generator",
+        "ai-blog-post-generator",
+        "ai-content-brief-generator",
+        "ai-instagram-caption-generator"
+      ],
+      "personas": [
+        "marketers",
+        "founders",
+        "writers"
+      ]
+    },
+    {
+      "name": "AI PDF Summarizer",
+      "slug": "ai-pdf-summarizer",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-text-summarizer",
+        "ai-document-analyzer",
+        "ai-pdf-chat",
+        "ai-youtube-summarizer"
+      ],
+      "personas": [
+        "students",
+        "professionals"
+      ]
+    },
+    {
+      "name": "AI Text Humanizer",
+      "slug": "ai-humanizer",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-paraphrasing-tool",
+        "ai-tone-converter",
+        "ai-paragraph-rewriter",
+        "ai-plagiarism-checker"
+      ],
+      "personas": [
+        "writers",
+        "students"
+      ]
+    },
+    {
+      "name": "AI Blog Post Generator",
+      "slug": "ai-blog-post-generator",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-blog-outline-generator",
+        "ai-content-brief-generator",
+        "ai-seo-title-generator",
+        "ai-faq-generator"
+      ],
+      "personas": [
+        "writers",
+        "marketers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI YouTube Script Generator",
+      "slug": "ai-youtube-script-generator",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-youtube-title-generator",
+        "ai-youtube-description-generator",
+        "ai-hook-generator",
+        "ai-blog-outline-generator"
+      ],
+      "personas": [
+        "writers",
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI FAQ Generator",
+      "slug": "ai-faq-generator",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-blog-outline-generator",
+        "ai-content-brief-generator",
+        "ai-schema-markup-generator",
+        "ai-landing-page-copy-generator"
+      ],
+      "personas": [
+        "writers",
+        "marketers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Essay Writer",
+      "slug": "ai-essay-writer",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-essay-grader",
+        "ai-writing-feedback-coach",
+        "ai-personal-statement-generator",
+        "ai-plagiarism-checker"
+      ],
+      "personas": [
+        "students",
+        "writers"
+      ]
+    },
+    {
+      "name": "AI Essay Grader",
+      "slug": "ai-essay-grader",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-essay-writer",
+        "ai-writing-feedback-coach",
+        "ai-plagiarism-checker",
+        "ai-grammar-checker"
+      ],
+      "personas": [
+        "students"
+      ]
+    },
+    {
+      "name": "AI Content Repurposer",
+      "slug": "ai-content-repurposer",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-blog-post-generator",
+        "ai-text-summarizer",
+        "ai-instagram-caption-generator",
+        "ai-linkedin-post-generator"
+      ],
+      "personas": [
+        "marketers",
+        "writers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Writing Feedback Coach",
+      "slug": "ai-writing-feedback-coach",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-essay-grader",
+        "ai-grammar-checker",
+        "ai-readability-analyzer",
+        "ai-plagiarism-checker"
+      ],
+      "personas": [
+        "students",
+        "writers"
+      ]
+    },
+    {
+      "name": "Word Counter",
+      "slug": "word-counter",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-readability-analyzer",
+        "ai-grammar-checker",
+        "ai-text-summarizer",
+        "case-converter"
+      ],
+      "personas": [
+        "writers",
+        "students"
+      ]
+    },
+    {
+      "name": "AI Plagiarism Checker",
+      "slug": "ai-plagiarism-checker",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "ai-grammar-checker",
+        "ai-essay-grader",
+        "ai-paraphrasing-tool",
+        "ai-humanizer"
+      ],
+      "personas": [
+        "students",
+        "writers"
+      ]
+    },
+    {
+      "name": "Case Converter",
+      "slug": "case-converter",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "word-counter",
+        "ai-grammar-checker",
+        "lorem-ipsum-generator",
+        "ai-paraphrasing-tool"
+      ],
+      "personas": [
+        "developers",
+        "writers"
+      ]
+    },
+    {
+      "name": "Lorem Ipsum Generator",
+      "slug": "lorem-ipsum-generator",
+      "category": "Writing Tools",
+      "relatedSlugs": [
+        "word-counter",
+        "case-converter",
+        "ai-blog-post-generator",
+        "random-number-generator"
+      ],
+      "personas": [
+        "developers"
+      ]
+    },
+    {
+      "name": "AI Instagram Caption Generator",
+      "slug": "ai-instagram-caption-generator",
+      "category": "Social Media Tools",
+      "relatedSlugs": [
+        "ai-hashtag-generator",
+        "ai-tiktok-caption-generator",
+        "ai-instagram-bio-generator",
+        "ai-linkedin-post-generator"
+      ],
+      "personas": [
+        "marketers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI TikTok Caption Generator",
+      "slug": "ai-tiktok-caption-generator",
+      "category": "Social Media Tools",
+      "relatedSlugs": [
+        "ai-instagram-caption-generator",
+        "ai-hashtag-generator",
+        "ai-youtube-script-generator",
+        "ai-hook-generator"
+      ],
+      "personas": [
+        "marketers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI LinkedIn Post Generator",
+      "slug": "ai-linkedin-post-generator",
+      "category": "Social Media Tools",
+      "relatedSlugs": [
+        "ai-linkedin-summary-generator",
+        "ai-tweet-generator",
+        "ai-instagram-caption-generator",
+        "ai-cold-outreach-generator"
+      ],
+      "personas": [
+        "marketers",
+        "professionals"
+      ]
+    },
+    {
+      "name": "AI Tweet Generator",
+      "slug": "ai-tweet-generator",
+      "category": "Social Media Tools",
+      "relatedSlugs": [
+        "ai-linkedin-post-generator",
+        "ai-instagram-caption-generator",
+        "ai-hashtag-generator",
+        "ai-hook-generator"
+      ],
+      "personas": [
+        "marketers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Hashtag Generator",
+      "slug": "ai-hashtag-generator",
+      "category": "Social Media Tools",
+      "relatedSlugs": [
+        "ai-instagram-caption-generator",
+        "ai-tiktok-caption-generator",
+        "ai-keyword-generator",
+        "ai-tweet-generator"
+      ],
+      "personas": [
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI YouTube Title Generator",
+      "slug": "ai-youtube-title-generator",
+      "category": "Social Media Tools",
+      "relatedSlugs": [
+        "ai-youtube-description-generator",
+        "ai-youtube-script-generator",
+        "ai-seo-title-generator",
+        "ai-headline-improver"
+      ],
+      "personas": [
+        "marketers",
+        "writers"
+      ]
+    },
+    {
+      "name": "AI YouTube Description Generator",
+      "slug": "ai-youtube-description-generator",
+      "category": "Social Media Tools",
+      "relatedSlugs": [
+        "ai-youtube-title-generator",
+        "ai-youtube-script-generator",
+        "ai-meta-description-generator",
+        "ai-keyword-generator"
+      ],
+      "personas": [
+        "marketers",
+        "writers"
+      ]
+    },
+    {
+      "name": "AI Instagram Bio Generator",
+      "slug": "ai-instagram-bio-generator",
+      "category": "Social Media Tools",
+      "relatedSlugs": [
+        "ai-instagram-caption-generator",
+        "ai-linkedin-summary-generator",
+        "ai-hashtag-generator",
+        "ai-dating-profile-generator"
+      ],
+      "personas": [
+        "marketers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI YouTube Summarizer",
+      "slug": "ai-youtube-summarizer",
+      "category": "Social Media Tools",
+      "relatedSlugs": [
+        "ai-text-summarizer",
+        "ai-pdf-summarizer",
+        "ai-youtube-script-generator",
+        "ai-youtube-title-generator"
+      ],
+      "personas": [
+        "students",
+        "professionals"
+      ]
+    },
+    {
+      "name": "AI Business Name Generator",
+      "slug": "ai-business-name-generator",
+      "category": "Business Tools",
+      "relatedSlugs": [
+        "ai-startup-name-generator",
+        "ai-business-idea-generator",
+        "ai-value-proposition-generator",
+        "ai-elevator-pitch-generator"
+      ],
+      "personas": [
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Startup Name Generator",
+      "slug": "ai-startup-name-generator",
+      "category": "Business Tools",
+      "relatedSlugs": [
+        "ai-business-name-generator",
+        "ai-business-idea-generator",
+        "ai-elevator-pitch-generator",
+        "ai-value-proposition-generator"
+      ],
+      "personas": [
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Business Idea Generator",
+      "slug": "ai-business-idea-generator",
+      "category": "Business Tools",
+      "relatedSlugs": [
+        "ai-startup-name-generator",
+        "ai-business-name-generator",
+        "ai-value-proposition-generator",
+        "ai-target-audience-generator"
+      ],
+      "personas": [
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Value Proposition Generator",
+      "slug": "ai-value-proposition-generator",
+      "category": "Business Tools",
+      "relatedSlugs": [
+        "ai-elevator-pitch-generator",
+        "ai-target-audience-generator",
+        "ai-landing-page-copy-generator",
+        "ai-business-idea-generator"
+      ],
+      "personas": [
+        "founders",
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI Elevator Pitch Generator",
+      "slug": "ai-elevator-pitch-generator",
+      "category": "Business Tools",
+      "relatedSlugs": [
+        "ai-value-proposition-generator",
+        "ai-business-idea-generator",
+        "ai-target-audience-generator",
+        "ai-sales-email-generator"
+      ],
+      "personas": [
+        "founders",
+        "professionals"
+      ]
+    },
+    {
+      "name": "AI Target Audience Generator",
+      "slug": "ai-target-audience-generator",
+      "category": "Business Tools",
+      "relatedSlugs": [
+        "ai-value-proposition-generator",
+        "ai-business-idea-generator",
+        "ai-content-brief-generator",
+        "ai-ad-copy-generator"
+      ],
+      "personas": [
+        "founders",
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI Ad Copy Generator",
+      "slug": "ai-ad-copy-generator",
+      "category": "Marketing Tools",
+      "relatedSlugs": [
+        "ai-landing-page-copy-generator",
+        "ai-cta-generator",
+        "ai-sales-email-generator",
+        "ai-headline-improver"
+      ],
+      "personas": [
+        "marketers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Email Response Generator",
+      "slug": "ai-email-response-generator",
+      "category": "Marketing Tools",
+      "relatedSlugs": [
+        "ai-sales-email-generator",
+        "ai-cold-outreach-generator",
+        "ai-tone-converter",
+        "ai-meeting-summary-generator"
+      ],
+      "personas": [
+        "professionals",
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI Sales Email Generator",
+      "slug": "ai-sales-email-generator",
+      "category": "Marketing Tools",
+      "relatedSlugs": [
+        "ai-cold-outreach-generator",
+        "ai-email-response-generator",
+        "ai-cta-generator",
+        "ai-ad-copy-generator"
+      ],
+      "personas": [
+        "professionals",
+        "founders",
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI Cold Outreach Generator",
+      "slug": "ai-cold-outreach-generator",
+      "category": "Marketing Tools",
+      "relatedSlugs": [
+        "ai-sales-email-generator",
+        "ai-email-response-generator",
+        "ai-linkedin-post-generator",
+        "ai-cta-generator"
+      ],
+      "personas": [
+        "professionals",
+        "founders",
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI Call-to-Action Generator",
+      "slug": "ai-cta-generator",
+      "category": "Marketing Tools",
+      "relatedSlugs": [
+        "ai-ad-copy-generator",
+        "ai-landing-page-copy-generator",
+        "ai-headline-improver",
+        "ai-hook-generator"
+      ],
+      "personas": [
+        "marketers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Landing Page Copy Generator",
+      "slug": "ai-landing-page-copy-generator",
+      "category": "Marketing Tools",
+      "relatedSlugs": [
+        "ai-ad-copy-generator",
+        "ai-cta-generator",
+        "ai-value-proposition-generator",
+        "ai-faq-generator"
+      ],
+      "personas": [
+        "founders",
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI Meta Description Generator",
+      "slug": "ai-meta-description-generator",
+      "category": "SEO Tools",
+      "relatedSlugs": [
+        "ai-seo-title-generator",
+        "ai-keyword-generator",
+        "ai-content-brief-generator",
+        "ai-schema-markup-generator"
+      ],
+      "personas": [
+        "marketers",
+        "founders",
+        "developers"
+      ]
+    },
+    {
+      "name": "AI SEO Title Generator",
+      "slug": "ai-seo-title-generator",
+      "category": "SEO Tools",
+      "relatedSlugs": [
+        "ai-meta-description-generator",
+        "ai-keyword-generator",
+        "ai-headline-improver",
+        "ai-blog-outline-generator"
+      ],
+      "personas": [
+        "marketers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Keyword Generator",
+      "slug": "ai-keyword-generator",
+      "category": "SEO Tools",
+      "relatedSlugs": [
+        "ai-content-brief-generator",
+        "ai-seo-title-generator",
+        "ai-meta-description-generator",
+        "ai-content-gap-analyzer"
+      ],
+      "personas": [
+        "marketers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Content Brief Generator",
+      "slug": "ai-content-brief-generator",
+      "category": "SEO Tools",
+      "relatedSlugs": [
+        "ai-blog-outline-generator",
+        "ai-keyword-generator",
+        "ai-seo-title-generator",
+        "ai-content-gap-analyzer"
+      ],
+      "personas": [
+        "marketers",
+        "writers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Internal Link Suggestion Tool",
+      "slug": "ai-internal-link-suggestion-tool",
+      "category": "SEO Tools",
+      "relatedSlugs": [
+        "ai-content-brief-generator",
+        "ai-seo-title-generator",
+        "ai-keyword-generator",
+        "ai-schema-markup-generator"
+      ],
+      "personas": [
+        "marketers",
+        "developers"
+      ]
+    },
+    {
+      "name": "AI Content Gap Analyzer",
+      "slug": "ai-content-gap-analyzer",
+      "category": "SEO Tools",
+      "relatedSlugs": [
+        "ai-keyword-generator",
+        "ai-content-brief-generator",
+        "ai-serp-intent-analyzer",
+        "ai-internal-link-suggestion-tool"
+      ],
+      "personas": [
+        "marketers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Schema Markup Generator",
+      "slug": "ai-schema-markup-generator",
+      "category": "SEO Tools",
+      "relatedSlugs": [
+        "ai-meta-description-generator",
+        "ai-faq-generator",
+        "ai-seo-title-generator",
+        "ai-internal-link-suggestion-tool"
+      ],
+      "personas": [
+        "developers",
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI SERP Intent Analyzer",
+      "slug": "ai-serp-intent-analyzer",
+      "category": "SEO Tools",
+      "relatedSlugs": [
+        "ai-keyword-generator",
+        "ai-content-gap-analyzer",
+        "ai-content-brief-generator",
+        "ai-seo-title-generator"
+      ],
+      "personas": [
+        "marketers",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Resume Bullet Generator",
+      "slug": "ai-resume-bullet-generator",
+      "category": "Job & Career Tools",
+      "relatedSlugs": [
+        "ai-cover-letter-generator",
+        "ai-linkedin-summary-generator",
+        "ai-ats-resume-matcher",
+        "ai-interview-answer-generator"
+      ],
+      "personas": [
+        "professionals",
+        "students"
+      ]
+    },
+    {
+      "name": "AI Cover Letter Generator",
+      "slug": "ai-cover-letter-generator",
+      "category": "Job & Career Tools",
+      "relatedSlugs": [
+        "ai-resume-bullet-generator",
+        "ai-linkedin-summary-generator",
+        "ai-ats-resume-matcher",
+        "ai-personal-statement-generator"
+      ],
+      "personas": [
+        "professionals",
+        "students"
+      ]
+    },
+    {
+      "name": "AI LinkedIn Summary Generator",
+      "slug": "ai-linkedin-summary-generator",
+      "category": "Job & Career Tools",
+      "relatedSlugs": [
+        "ai-resume-bullet-generator",
+        "ai-cover-letter-generator",
+        "ai-linkedin-post-generator",
+        "ai-elevator-pitch-generator"
+      ],
+      "personas": [
+        "professionals"
+      ]
+    },
+    {
+      "name": "AI Interview Answer Generator",
+      "slug": "ai-interview-answer-generator",
+      "category": "Job & Career Tools",
+      "relatedSlugs": [
+        "ai-resume-bullet-generator",
+        "ai-cover-letter-generator",
+        "ai-ats-resume-matcher",
+        "ai-elevator-pitch-generator"
+      ],
+      "personas": [
+        "professionals",
+        "students"
+      ]
+    },
+    {
+      "name": "AI ATS Resume Matcher",
+      "slug": "ai-ats-resume-matcher",
+      "category": "Job & Career Tools",
+      "relatedSlugs": [
+        "ai-resume-bullet-generator",
+        "ai-cover-letter-generator",
+        "ai-interview-answer-generator",
+        "ai-linkedin-summary-generator"
+      ],
+      "personas": [
+        "professionals",
+        "students"
+      ]
+    },
+    {
+      "name": "AI To-Do List Generator",
+      "slug": "ai-todo-list-generator",
+      "category": "Productivity Tools",
+      "relatedSlugs": [
+        "ai-weekly-planner-generator",
+        "ai-goal-planner",
+        "ai-meeting-summary-generator",
+        "ai-decision-maker"
+      ],
+      "personas": [
+        "students",
+        "professionals"
+      ]
+    },
+    {
+      "name": "AI Meeting Summary Generator",
+      "slug": "ai-meeting-summary-generator",
+      "category": "Productivity Tools",
+      "relatedSlugs": [
+        "ai-text-summarizer",
+        "ai-todo-list-generator",
+        "ai-weekly-planner-generator",
+        "ai-document-analyzer"
+      ],
+      "personas": [
+        "professionals"
+      ]
+    },
+    {
+      "name": "AI Weekly Planner Generator",
+      "slug": "ai-weekly-planner-generator",
+      "category": "Productivity Tools",
+      "relatedSlugs": [
+        "ai-todo-list-generator",
+        "ai-goal-planner",
+        "ai-meal-planner",
+        "ai-decision-maker"
+      ],
+      "personas": [
+        "students",
+        "professionals"
+      ]
+    },
+    {
+      "name": "AI Goal Planner",
+      "slug": "ai-goal-planner",
+      "category": "Productivity Tools",
+      "relatedSlugs": [
+        "ai-todo-list-generator",
+        "ai-weekly-planner-generator",
+        "ai-decision-maker",
+        "ai-pros-and-cons-generator"
+      ],
+      "personas": [
+        "students",
+        "professionals",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Decision Maker",
+      "slug": "ai-decision-maker",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-pros-and-cons-generator",
+        "ai-goal-planner",
+        "ai-debate-generator",
+        "ai-weekly-planner-generator"
+      ],
+      "personas": [
+        "professionals",
+        "founders",
+        "students"
+      ]
+    },
+    {
+      "name": "AI Pros & Cons Generator",
+      "slug": "ai-pros-and-cons-generator",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-decision-maker",
+        "ai-debate-generator",
+        "ai-goal-planner",
+        "ai-essay-writer"
+      ],
+      "personas": [
+        "professionals",
+        "founders",
+        "students"
+      ]
+    },
+    {
+      "name": "AI Debate Generator",
+      "slug": "ai-debate-generator",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-pros-and-cons-generator",
+        "ai-essay-writer",
+        "ai-decision-maker",
+        "ai-writing-feedback-coach"
+      ],
+      "personas": [
+        "students",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI Excuse Generator",
+      "slug": "ai-excuse-generator",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-roast-generator",
+        "ai-compliment-generator",
+        "ai-story-starter",
+        "ai-message-analyzer"
+      ],
+      "personas": [
+        "students"
+      ]
+    },
+    {
+      "name": "AI Compliment Generator",
+      "slug": "ai-compliment-generator",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-roast-generator",
+        "ai-excuse-generator",
+        "ai-dating-profile-generator",
+        "ai-instagram-caption-generator"
+      ],
+      "personas": [
+        "writers"
+      ]
+    },
+    {
+      "name": "AI Roast Generator",
+      "slug": "ai-roast-generator",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-compliment-generator",
+        "ai-excuse-generator",
+        "ai-story-starter",
+        "ai-debate-generator"
+      ],
+      "personas": [
+        "writers",
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI Story Starter",
+      "slug": "ai-story-starter",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-essay-writer",
+        "ai-blog-post-generator",
+        "ai-image-prompt-generator",
+        "ai-hook-generator"
+      ],
+      "personas": [
+        "writers",
+        "students"
+      ]
+    },
+    {
+      "name": "AI Prompt Generator",
+      "slug": "ai-prompt-generator",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-image-prompt-generator",
+        "ai-story-starter",
+        "ai-chatbot",
+        "ai-code-explainer"
+      ],
+      "personas": [
+        "developers",
+        "writers"
+      ]
+    },
+    {
+      "name": "AI Document Analyzer",
+      "slug": "ai-document-analyzer",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-text-summarizer",
+        "ai-pdf-summarizer",
+        "ai-contract-simplifier",
+        "ai-message-analyzer"
+      ],
+      "personas": [
+        "students",
+        "professionals"
+      ]
+    },
+    {
+      "name": "AI Message Analyzer",
+      "slug": "ai-message-analyzer",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-document-analyzer",
+        "ai-email-response-generator",
+        "ai-tone-converter",
+        "ai-grammar-checker"
+      ],
+      "personas": [
+        "professionals",
+        "marketers"
+      ]
+    },
+    {
+      "name": "AI Explain This",
+      "slug": "explain-this-ai",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-homework-solver",
+        "ai-document-analyzer",
+        "ai-text-summarizer",
+        "ai-chatbot"
+      ],
+      "personas": [
+        "students",
+        "developers"
+      ]
+    },
+    {
+      "name": "AI Dating Profile Generator",
+      "slug": "ai-dating-profile-generator",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-instagram-bio-generator",
+        "ai-linkedin-summary-generator",
+        "ai-compliment-generator",
+        "ai-message-analyzer"
+      ],
+      "personas": [
+        "writers"
+      ]
+    },
+    {
+      "name": "AI Meal Planner",
+      "slug": "ai-meal-planner",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-weekly-planner-generator",
+        "ai-todo-list-generator",
+        "ai-goal-planner",
+        "ai-travel-itinerary-planner"
+      ],
+      "personas": [
+        "students",
+        "professionals"
+      ]
+    },
+    {
+      "name": "AI Travel Planner",
+      "slug": "ai-travel-itinerary-planner",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-meal-planner",
+        "ai-weekly-planner-generator",
+        "ai-todo-list-generator",
+        "ai-decision-maker"
+      ],
+      "personas": [
+        "professionals",
+        "students"
+      ]
+    },
+    {
+      "name": "AI Flashcard Generator",
+      "slug": "ai-flashcard-generator",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-homework-solver",
+        "ai-text-summarizer",
+        "ai-faq-generator",
+        "explain-this-ai"
+      ],
+      "personas": [
+        "students"
+      ]
+    },
+    {
+      "name": "AI Personal Statement Generator",
+      "slug": "ai-personal-statement-generator",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-cover-letter-generator",
+        "ai-essay-writer",
+        "ai-linkedin-summary-generator",
+        "ai-resume-bullet-generator"
+      ],
+      "personas": [
+        "students"
+      ]
+    },
+    {
+      "name": "AI Local Knowledge Chat",
+      "slug": "ai-local-knowledge-chat",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-chatbot",
+        "ai-document-analyzer",
+        "ai-pdf-chat",
+        "ai-text-summarizer"
+      ],
+      "personas": [
+        "professionals",
+        "developers"
+      ]
+    },
+    {
+      "name": "AI Citation Generator",
+      "slug": "ai-citation-generator",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-essay-writer",
+        "ai-plagiarism-checker",
+        "ai-document-analyzer",
+        "ai-content-brief-generator"
+      ],
+      "personas": [
+        "students"
+      ]
+    },
+    {
+      "name": "AI Readability Analyzer",
+      "slug": "ai-readability-analyzer",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-grammar-checker",
+        "ai-writing-feedback-coach",
+        "ai-sentence-simplifier",
+        "word-counter"
+      ],
+      "personas": [
+        "students",
+        "writers"
+      ]
+    },
+    {
+      "name": "AI Contract Simplifier",
+      "slug": "ai-contract-simplifier",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-document-analyzer",
+        "ai-pii-redactor",
+        "ai-text-summarizer",
+        "ai-pdf-summarizer"
+      ],
+      "personas": [
+        "professionals",
+        "founders"
+      ]
+    },
+    {
+      "name": "AI PII Redactor",
+      "slug": "ai-pii-redactor",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-contract-simplifier",
+        "ai-document-analyzer",
+        "ai-text-summarizer",
+        "ai-pdf-summarizer"
+      ],
+      "personas": [
+        "professionals",
+        "developers"
+      ]
+    },
+    {
+      "name": "Random Number Generator",
+      "slug": "random-number-generator",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "password-generator",
+        "color-palette-generator",
+        "lorem-ipsum-generator",
+        "diff-checker"
+      ],
+      "personas": [
+        "developers"
+      ]
+    },
+    {
+      "name": "Diff Checker",
+      "slug": "diff-checker",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "json-validator",
+        "markdown-converter",
+        "regex-tester",
+        "word-counter"
+      ],
+      "personas": [
+        "developers"
+      ]
+    },
+    {
+      "name": "Color Palette Generator",
+      "slug": "color-palette-generator",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-image-prompt-generator",
+        "random-number-generator",
+        "ai-instagram-caption-generator",
+        "ai-ad-copy-generator"
+      ],
+      "personas": [
+        "developers",
+        "marketers"
+      ]
+    },
+    {
+      "name": "Password Generator",
+      "slug": "password-generator",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "random-number-generator",
+        "ai-pii-redactor",
+        "ai-local-knowledge-chat",
+        "diff-checker"
+      ],
+      "personas": [
+        "developers"
+      ]
+    },
+    {
+      "name": "AI Homework Solver",
+      "slug": "ai-homework-solver",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "explain-this-ai",
+        "ai-flashcard-generator",
+        "ai-essay-writer",
+        "ai-chatbot"
+      ],
+      "personas": [
+        "students"
+      ]
+    },
+    {
+      "name": "AI Text Detector",
+      "slug": "ai-text-detector",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-humanizer",
+        "ai-plagiarism-checker",
+        "ai-grammar-checker",
+        "ai-paraphrasing-tool"
+      ],
+      "personas": [
+        "writers",
+        "students"
+      ]
+    },
+    {
+      "name": "AI PDF Chat",
+      "slug": "ai-pdf-chat",
+      "category": "Unique & Viral Tools",
+      "relatedSlugs": [
+        "ai-pdf-summarizer",
+        "ai-document-analyzer",
+        "ai-local-knowledge-chat",
+        "ai-contract-simplifier"
+      ],
+      "personas": [
+        "students",
+        "professionals"
+      ]
+    },
+    {
+      "name": "AI Code Playground",
+      "slug": "ai-code-playground",
+      "category": "Developer Tools",
+      "relatedSlugs": [
+        "ai-code-explainer",
+        "regex-tester",
+        "json-validator",
+        "diff-checker"
+      ],
+      "personas": [
+        "developers"
+      ]
+    },
+    {
+      "name": "AI Code Explainer",
+      "slug": "ai-code-explainer",
+      "category": "Developer Tools",
+      "relatedSlugs": [
+        "ai-code-playground",
+        "regex-tester",
+        "json-validator",
+        "markdown-converter"
+      ],
+      "personas": [
+        "developers",
+        "students"
+      ]
+    },
+    {
+      "name": "Regex Tester",
+      "slug": "regex-tester",
+      "category": "Developer Tools",
+      "relatedSlugs": [
+        "json-validator",
+        "ai-code-explainer",
+        "diff-checker",
+        "markdown-converter"
+      ],
+      "personas": [
+        "developers"
+      ]
+    },
+    {
+      "name": "Markdown Converter",
+      "slug": "markdown-converter",
+      "category": "Developer Tools",
+      "relatedSlugs": [
+        "json-validator",
+        "regex-tester",
+        "diff-checker",
+        "ai-code-explainer"
+      ],
+      "personas": [
+        "developers",
+        "writers"
+      ]
+    },
+    {
+      "name": "JSON Validator & Formatter",
+      "slug": "json-validator",
+      "category": "Developer Tools",
+      "relatedSlugs": [
+        "regex-tester",
+        "markdown-converter",
+        "diff-checker",
+        "ai-schema-markup-generator"
+      ],
+      "personas": [
+        "developers"
+      ]
+    }
   ],
   "variantTemplates": [
     "free {name}",

@@ -387,10 +387,8 @@ function buildHtml(persona) {
   const pageUrl   = `${BASE_URL}/personas/${persona.slug}.html`;
   const canonUrl  = `${BASE_URL}/personas/${persona.slug}.html`;
 
-  // Filter tools to just those in the whitelist (ordered), fall back to categories
-  const pageTools = persona.slugWhitelist
-    .map((s) => tools.find((t) => t.slug === s))
-    .filter(Boolean);
+  // Filter tools from tools-config.json using the `personas` field
+  const pageTools = tools.filter((t) => t.personas && t.personas.includes(persona.slug));
 
   const [schemaCollection, schemaFaq] = buildSchema(persona, pageTools);
 
@@ -605,8 +603,9 @@ function main() {
     const html    = buildHtml(persona);
     const outFile = path.join(OUT_DIR, `${persona.slug}.html`);
     fs.writeFileSync(outFile, html, "utf8");
-    const kb = (Buffer.byteLength(html, "utf8") / 1024).toFixed(1);
-    console.log(`  ✓  ${persona.slug}.html  (${kb} KB, ${tools.filter((t) => persona.slugWhitelist.includes(t.slug)).length} tools)`);
+    const kb        = (Buffer.byteLength(html, "utf8") / 1024).toFixed(1);
+    const toolCount = tools.filter((t) => t.personas && t.personas.includes(persona.slug)).length;
+    console.log(`  ✓  ${persona.slug}.html  (${kb} KB, ${toolCount} tools)`);
     count++;
   }
 
