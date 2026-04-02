@@ -1,4 +1,4 @@
-import { useState, useRef, lazy, Suspense } from "react";
+import { useState, useRef } from "react";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -7,11 +7,7 @@ import {
 } from "lucide-react";
 import { toolCategories, type ToolCategory, type Tool } from "@/lib/tools-data";
 import { AdBlock } from "@/components/AdBlock";
-
-// Lazy-load the heavy chat widget so it doesn't block initial paint
-const AIChatWidget = lazy(() =>
-  import("@/components/AIChatWidget").then((m) => ({ default: m.AIChatWidget }))
-);
+import { AIChatWidget } from "@/components/AIChatWidget";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -624,13 +620,7 @@ function HomeHero({
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="sticky top-20 w-full max-w-[500px] ml-auto">
-            <Suspense fallback={
-              <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 h-[420px] flex items-center justify-center text-slate-400 text-sm">
-                Loading AI Chat…
-              </div>
-            }>
-              <AIChatWidget />
-            </Suspense>
+            <AIChatWidget />
           </div>
         </motion.div>
       </div>
@@ -642,13 +632,7 @@ function HomeHero({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <Suspense fallback={
-          <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 h-64 flex items-center justify-center text-slate-400 text-sm">
-            Loading AI Chat…
-          </div>
-        }>
-          <AIChatWidget />
-        </Suspense>
+        <AIChatWidget />
       </motion.div>
     </section>
   );

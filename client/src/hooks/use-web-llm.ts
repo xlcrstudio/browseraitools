@@ -2,6 +2,33 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 import { CreateMLCEngine, MLCEngine, hasModelInCache, deleteModelAllInfoInCache } from '@mlc-ai/web-llm';
 import { getSelectedModelId } from '@/lib/models';
 
+// ── GPU device-lost suppressor ────────────────────────────────────────────────
+// Registered at module-load time in the capture phase so it runs BEFORE Vite's
+// runtime-error-plugin listener, preventing the red overlay on GPU exhaustion.
+if (typeof window !== "undefined") {
+  window.addEventListener(
+    "unhandledrejection",
+    (event: PromiseRejectionEvent) => {
+      const msg = String(event.reason?.message ?? event.reason ?? "").toLowerCase();
+      if (
+        msg.includes("instance dropped") ||
+        msg.includes("external instance") ||
+        msg.includes("a valid external") ||
+        msg.includes("no longer exists") ||
+        msg.includes("device was lost") ||
+        msg.includes("device lost") ||
+        msg.includes("poperrorscope") ||
+        msg.includes("mapasync") ||
+        msg.includes("webgpu") ||
+        msg.includes("gpu")
+      ) {
+        event.preventDefault();
+      }
+    },
+    true  // capture phase → fires before any bubble-phase listeners (including Vite)
+  );
+}
+
 const STALE_MODEL_IDS = ["Llama-3.1-8B-Instruct-q4f16_1-MLC"];
 
 export type WebLLMState = 'idle' | 'checking-gpu' | 'downloading' | 'ready' | 'generating' | 'error';
@@ -90,30 +117,6 @@ export function useWebLLM() {
   useEffect(() => {
     initialize();
   }, [initialize]);
-
-  // Suppress WebGPU internal unhandled rejections so Vite's error overlay
-  // doesn't appear for GPU device-lost events we already handle gracefully.
-  useEffect(() => {
-    const suppress = (event: PromiseRejectionEvent) => {
-      const msg = String(
-        event.reason?.message ?? event.reason ?? ""
-      ).toLowerCase();
-      if (
-        msg.includes("instance dropped") ||
-        msg.includes("external instance") ||
-        msg.includes("a valid external") ||
-        msg.includes("poperrorscope") ||
-        msg.includes("device was lost") ||
-        msg.includes("device lost") ||
-        msg.includes("mapasync") ||
-        msg.includes("no longer exists")
-      ) {
-        event.preventDefault();
-      }
-    };
-    window.addEventListener("unhandledrejection", suppress);
-    return () => window.removeEventListener("unhandledrejection", suppress);
-  }, []);
 
   const generate = useCallback(async (
     platform: string, 
