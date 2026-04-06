@@ -3,9 +3,14 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "prebuild": "node -v && npm -v",
+    "build": "vite build --debug",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.62.7",
