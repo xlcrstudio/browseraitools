@@ -1,8 +1,18 @@
 import { ReactNode, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link, useLocation } from "wouter";
-import { ShieldCheck, Menu, X, ChevronDown, ChevronRight, Lock, Gift, Moon, Sun } from "lucide-react";
-import logoImg from "@assets/image_1772818839650.png";
+import {
+  ShieldCheck,
+  Menu,
+  X,
+  ChevronDown,
+  ChevronRight,
+  Lock,
+  Gift,
+  Moon,
+  Sun,
+} from "lucide-react";
+//import logoImg from "@assets/image_1772818839650.png";
 import { toolCategories } from "@/lib/tools-data";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "@/hooks/use-theme";
@@ -32,21 +42,32 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 w-full glass-panel border-b-0 border-white/40 dark:border-slate-700/40">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-        <Link href="/" data-testid="link-home" className="flex items-center gap-2 group shrink-0">
-          <img src={logoImg} alt="Browser AI Tools" className="w-8 h-8 rounded-lg shadow-lg shadow-purple-500/25 group-hover:scale-105 transition-transform duration-300" />
+        <Link
+          href="/"
+          data-testid="link-home"
+          className="flex items-center gap-2 group shrink-0"
+        >
+          {/*<img src={logoImg} alt="Browser AI Tools" className="w-8 h-8 rounded-lg shadow-lg shadow-purple-500/25 group-hover:scale-105 transition-transform duration-300" />*/}
           <span className="font-display font-bold text-lg sm:text-xl tracking-tight text-slate-900 dark:text-slate-100">
-            Browser<span className="text-purple-600 dark:text-purple-400">AI</span> Tools
+            Browser
+            <span className="text-purple-600 dark:text-purple-400">AI</span>{" "}
+            Tools
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1" data-testid="nav-desktop">
+        <nav
+          className="hidden lg:flex items-center gap-1"
+          data-testid="nav-desktop"
+        >
           <DesktopToolsMenu />
           <button
             onClick={() => {
               if (window.location.pathname !== "/") {
                 window.location.href = "/#tools";
               } else {
-                document.getElementById("tools")?.scrollIntoView({ behavior: "smooth" });
+                document
+                  .getElementById("tools")
+                  ?.scrollIntoView({ behavior: "smooth" });
               }
             }}
             className="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-800/70 transition-colors"
@@ -56,11 +77,17 @@ function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <div data-testid="status-free" className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-purple-50 dark:bg-purple-900/30 border border-purple-100/50 dark:border-purple-700/30 text-purple-700 dark:text-purple-300 text-xs font-semibold shadow-sm">
+          <div
+            data-testid="status-free"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-purple-50 dark:bg-purple-900/30 border border-purple-100/50 dark:border-purple-700/30 text-purple-700 dark:text-purple-300 text-xs font-semibold shadow-sm"
+          >
             <Gift className="w-3.5 h-3.5" />
             100% Free
           </div>
-          <div data-testid="status-privacy" className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-100/50 dark:border-emerald-700/30 text-emerald-700 dark:text-emerald-300 text-xs font-semibold shadow-sm">
+          <div
+            data-testid="status-privacy"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-100/50 dark:border-emerald-700/30 text-emerald-700 dark:text-emerald-300 text-xs font-semibold shadow-sm"
+          >
             <ShieldCheck className="w-3.5 h-3.5" />
             100% Private
           </div>
@@ -69,9 +96,15 @@ function Header() {
             data-testid="button-dark-mode"
             onClick={toggleTheme}
             className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            aria-label={
+              theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+            }
           >
-            {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            {theme === "dark" ? (
+              <Sun className="w-5 h-5" />
+            ) : (
+              <Moon className="w-5 h-5" />
+            )}
           </button>
 
           <button
@@ -88,10 +121,13 @@ function Header() {
       {createPortal(
         <AnimatePresence>
           {mobileOpen && (
-            <MobileMenu onClose={() => setMobileOpen(false)} currentPath={location} />
+            <MobileMenu
+              onClose={() => setMobileOpen(false)}
+              currentPath={location}
+            />
           )}
         </AnimatePresence>,
-        document.body
+        document.body,
       )}
     </header>
   );
@@ -110,7 +146,10 @@ function DesktopToolsMenu() {
         data-testid="button-tools-menu"
         className="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-800/70 transition-colors"
       >
-        Tools <ChevronDown className={`w-4 h-4 transition-transform ${open ? "rotate-180" : ""}`} />
+        Tools{" "}
+        <ChevronDown
+          className={`w-4 h-4 transition-transform ${open ? "rotate-180" : ""}`}
+        />
       </button>
 
       <AnimatePresence>
@@ -125,7 +164,7 @@ function DesktopToolsMenu() {
             {(() => {
               const left = toolCategories.filter((_, i) => i % 2 === 0);
               const right = toolCategories.filter((_, i) => i % 2 !== 0);
-              const renderCategory = (category: typeof toolCategories[0]) => (
+              const renderCategory = (category: (typeof toolCategories)[0]) => (
                 <div key={category.slug} className="mb-4">
                   <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2 px-1">
                     {category.name}
@@ -143,16 +182,25 @@ function DesktopToolsMenu() {
                             onClick={() => setOpen(false)}
                           >
                             <Icon className="w-4 h-4 text-purple-500 shrink-0" />
-                            <span className="text-sm font-medium text-slate-700 dark:text-slate-200 group-hover:text-purple-700 dark:group-hover:text-purple-300 truncate">{tool.name}</span>
+                            <span className="text-sm font-medium text-slate-700 dark:text-slate-200 group-hover:text-purple-700 dark:group-hover:text-purple-300 truncate">
+                              {tool.name}
+                            </span>
                             <ChevronRight className="w-3 h-3 text-purple-400 ml-auto opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
                           </Link>
                         );
                       }
                       return (
-                        <div key={tool.id} className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg opacity-50">
+                        <div
+                          key={tool.id}
+                          className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg opacity-50"
+                        >
                           <Icon className="w-4 h-4 text-slate-400 shrink-0" />
-                          <span className="text-sm text-slate-400 truncate">{tool.name}</span>
-                          <span className="text-[10px] text-slate-300 ml-auto shrink-0">Soon</span>
+                          <span className="text-sm text-slate-400 truncate">
+                            {tool.name}
+                          </span>
+                          <span className="text-[10px] text-slate-300 ml-auto shrink-0">
+                            Soon
+                          </span>
                         </div>
                       );
                     })}
@@ -161,8 +209,12 @@ function DesktopToolsMenu() {
               );
               return (
                 <div className="flex gap-x-6">
-                  <div className="flex-1 min-w-0">{left.map(renderCategory)}</div>
-                  <div className="flex-1 min-w-0">{right.map(renderCategory)}</div>
+                  <div className="flex-1 min-w-0">
+                    {left.map(renderCategory)}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    {right.map(renderCategory)}
+                  </div>
                 </div>
               );
             })()}
@@ -173,7 +225,13 @@ function DesktopToolsMenu() {
   );
 }
 
-function MobileMenu({ onClose, currentPath }: { onClose: () => void; currentPath: string }) {
+function MobileMenu({
+  onClose,
+  currentPath,
+}: {
+  onClose: () => void;
+  currentPath: string;
+}) {
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
 
   return (
@@ -194,7 +252,9 @@ function MobileMenu({ onClose, currentPath }: { onClose: () => void; currentPath
       >
         <div className="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-800">
           <span className="font-display font-bold text-lg text-slate-900 dark:text-slate-100">
-            Browser<span className="text-purple-600 dark:text-purple-400">AI</span> Tools
+            Browser
+            <span className="text-purple-600 dark:text-purple-400">AI</span>{" "}
+            Tools
           </span>
           <button
             data-testid="button-mobile-menu-close"
@@ -211,7 +271,9 @@ function MobileMenu({ onClose, currentPath }: { onClose: () => void; currentPath
             href="/"
             onClick={onClose}
             className={`block px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
-              currentPath === "/" ? "bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300" : "text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
+              currentPath === "/"
+                ? "bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300"
+                : "text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
             }`}
           >
             Home
@@ -220,11 +282,17 @@ function MobileMenu({ onClose, currentPath }: { onClose: () => void; currentPath
           {toolCategories.map((category) => (
             <div key={category.slug}>
               <button
-                onClick={() => setExpandedCategory(expandedCategory === category.slug ? null : category.slug)}
+                onClick={() =>
+                  setExpandedCategory(
+                    expandedCategory === category.slug ? null : category.slug,
+                  )
+                }
                 className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
               >
                 {category.name}
-                <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${expandedCategory === category.slug ? "rotate-180" : ""}`} />
+                <ChevronDown
+                  className={`w-4 h-4 text-slate-400 transition-transform ${expandedCategory === category.slug ? "rotate-180" : ""}`}
+                />
               </button>
 
               <AnimatePresence>
@@ -249,7 +317,9 @@ function MobileMenu({ onClose, currentPath }: { onClose: () => void; currentPath
                               className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-colors"
                             >
                               <Icon className="w-4 h-4 text-purple-500 shrink-0" />
-                              <span className="text-sm font-medium text-slate-700 dark:text-slate-200">{tool.name}</span>
+                              <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                                {tool.name}
+                              </span>
                             </Link>
                           );
                         }
@@ -259,8 +329,12 @@ function MobileMenu({ onClose, currentPath }: { onClose: () => void; currentPath
                             className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg opacity-40"
                           >
                             <Icon className="w-4 h-4 text-slate-400 shrink-0" />
-                            <span className="text-sm text-slate-400">{tool.name}</span>
-                            <span className="text-[10px] text-slate-300 ml-auto">Soon</span>
+                            <span className="text-sm text-slate-400">
+                              {tool.name}
+                            </span>
+                            <span className="text-[10px] text-slate-300 ml-auto">
+                              Soon
+                            </span>
                           </div>
                         );
                       })}
@@ -289,26 +363,51 @@ function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <img src={logoImg} alt="Browser AI Tools" className="w-6 h-6 rounded-md" />
+            <img
+              src={logoImg}
+              alt="Browser AI Tools"
+              className="w-6 h-6 rounded-md"
+            />
             <span className="font-display font-bold text-sm text-slate-700 dark:text-slate-200">
-              Browser<span className="text-purple-600 dark:text-purple-400">AI</span> Tools
+              Browser
+              <span className="text-purple-600 dark:text-purple-400">AI</span>{" "}
+              Tools
             </span>
           </div>
 
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-slate-500 dark:text-slate-400">
-            <Link href="/" className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors">Home</Link>
+            <Link
+              href="/"
+              className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
+            >
+              Home
+            </Link>
             <button
               onClick={() => {
                 if (window.location.pathname !== "/") {
                   window.location.href = "/#tools";
                 } else {
-                  document.getElementById("tools")?.scrollIntoView({ behavior: "smooth" });
+                  document
+                    .getElementById("tools")
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }
               }}
               className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
-            >All Tools</button>
-            <Link href="/privacy-policy" className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors">Privacy Policy</Link>
-            <Link href="/terms-of-service" className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors">Terms of Service</Link>
+            >
+              All Tools
+            </button>
+            <Link
+              href="/privacy-policy"
+              className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-of-service"
+              className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
+            >
+              Terms of Service
+            </Link>
           </div>
 
           <div className="flex items-center gap-2 text-xs text-slate-400 dark:text-slate-500">
@@ -318,7 +417,10 @@ function Footer() {
         </div>
 
         <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-400 dark:text-slate-500">
-          <span>&copy; {new Date().getFullYear()} browseraitools.com. Based on WebLLM. All tools run locally in your browser.</span>
+          <span>
+            &copy; {new Date().getFullYear()} browseraitools.com. Based on
+            WebLLM. All tools run locally in your browser.
+          </span>
           <span>Powered by XLCR Studio</span>
         </div>
       </div>
