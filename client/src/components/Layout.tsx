@@ -47,10 +47,16 @@ function Header() {
           data-testid="link-home"
           className="flex items-center gap-2 group shrink-0"
         >
-          {/*<img src={logoImg} alt="Browser AI Tools" className="w-8 h-8 rounded-lg shadow-lg shadow-purple-500/25 group-hover:scale-105 transition-transform duration-300" />*/}
+          <img
+            src="https://placehold.co/40x40"
+            alt="Browser AI Tools"
+            className="w-8 h-8 rounded-lg shadow-lg shadow-purple-500/25 group-hover:scale-105 transition-transform duration-300"
+          />
           <span className="font-display font-bold text-lg sm:text-xl tracking-tight text-slate-900 dark:text-slate-100">
             Browser
-            <span className="text-purple-600 dark:text-purple-400">AI</span>{" "}
+            <span className="text-purple-600 dark:text-purple-400">
+              AI
+            </span>{" "}
             Tools
           </span>
         </Link>
@@ -253,7 +259,9 @@ function MobileMenu({
         <div className="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-800">
           <span className="font-display font-bold text-lg text-slate-900 dark:text-slate-100">
             Browser
-            <span className="text-purple-600 dark:text-purple-400">AI</span>{" "}
+            <span className="text-purple-600 dark:text-purple-400">
+              AI
+            </span>{" "}
             Tools
           </span>
           <button
@@ -364,13 +372,15 @@ function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <img
-              src={logoImg}
+              src="https://placehold.co/40x40"
               alt="Browser AI Tools"
               className="w-6 h-6 rounded-md"
             />
             <span className="font-display font-bold text-sm text-slate-700 dark:text-slate-200">
               Browser
-              <span className="text-purple-600 dark:text-purple-400">AI</span>{" "}
+              <span className="text-purple-600 dark:text-purple-400">
+                AI
+              </span>{" "}
               Tools
             </span>
           </div>
