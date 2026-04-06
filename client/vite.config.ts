@@ -13,4 +13,8 @@ export default defineConfig({
       ),
     },
   },
+  // Add this to be safe
+  build: {
+    outDir: "dist",
+  },
 });
