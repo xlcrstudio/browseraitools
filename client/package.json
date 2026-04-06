@@ -4,12 +4,12 @@
   "version": "1.0.0",
   "type": "module",
   "engines": {
-    "node": ">=20.0.0"
+    "node": "20.x"
   },
   "scripts": {
     "dev": "vite",
-    "prebuild": "node -v && npm -v",
-    "build": "vite build --debug",
+    "prebuild": "node -v",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
