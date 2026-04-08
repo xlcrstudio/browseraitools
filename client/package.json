@@ -61,6 +61,7 @@
     "pdfjs-dist": "^4.0.379",
     "monaco-editor": "^0.52.0",
     "@monaco-editor/react": "^4.6.0",
+    "katex": "^0.16.45",
     "wouter": "^3.3.5"
   },
   "devDependencies": {
