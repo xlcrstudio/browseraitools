@@ -12,6 +12,12 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+
+  // 👇 ADD THIS BLOCK
+  optimizeDeps: {
+    exclude: ["@mlc-ai/web-llm"],
+  },
+
   build: {
     outDir: "dist",
     emptyOutDir: true,

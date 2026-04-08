@@ -1,15 +1,24 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
-import { CreateMLCEngine, MLCEngine, hasModelInCache, deleteModelAllInfoInCache } from '@mlc-ai/web-llm';
-import { getSelectedModelId } from '@/lib/models';
+import { useState, useRef, useCallback, useEffect } from "react";
+import { getSelectedModelId } from "@/lib/models";
 
-// ── GPU device-lost suppressor ────────────────────────────────────────────────
-// Registered at module-load time in the capture phase so it runs BEFORE Vite's
-// runtime-error-plugin listener, preventing the red overlay on GPU exhaustion.
+// ── Dynamic WebLLM loader ────────────────────────────────────────────────
+let webllm: any = null;
+
+async function getWebLLM() {
+  if (!webllm) {
+    webllm = await import("@mlc-ai/web-llm");
+  }
+  return webllm;
+}
+
+// ── GPU device-lost suppressor ───────────────────────────────────────────
 if (typeof window !== "undefined") {
   window.addEventListener(
     "unhandledrejection",
     (event: PromiseRejectionEvent) => {
-      const msg = String(event.reason?.message ?? event.reason ?? "").toLowerCase();
+      const msg = String(
+        event.reason?.message ?? event.reason ?? "",
+      ).toLowerCase();
       if (
         msg.includes("instance dropped") ||
         msg.includes("external instance") ||
@@ -25,15 +34,23 @@ if (typeof window !== "undefined") {
         event.preventDefault();
       }
     },
-    true  // capture phase → fires before any bubble-phase listeners (including Vite)
+    true,
   );
 }
 
 const STALE_MODEL_IDS = ["Llama-3.1-8B-Instruct-q4f16_1-MLC"];
 
-export type WebLLMState = 'idle' | 'checking-gpu' | 'downloading' | 'ready' | 'generating' | 'error';
+export type WebLLMState =
+  | "idle"
+  | "checking-gpu"
+  | "downloading"
+  | "ready"
+  | "generating"
+  | "error";
 
 async function clearStaleModelCache() {
+  const { hasModelInCache, deleteModelAllInfoInCache } = await getWebLLM();
+
   for (const oldId of STALE_MODEL_IDS) {
     try {
       const cached = await hasModelInCache(oldId);
@@ -41,76 +58,91 @@ async function clearStaleModelCache() {
         await deleteModelAllInfoInCache(oldId);
         console.log(`Cleared stale cache for ${oldId}`);
       }
-    } catch {
-    }
+    } catch {}
   }
 }
 
 export function useWebLLM() {
-  const [state, setState] = useState<WebLLMState>('checking-gpu');
-  const [progress, setProgress] = useState<{ text: string, percent: number }>({ text: 'Preparing AI engine...', percent: 0 });
+  const [state, setState] = useState<WebLLMState>("checking-gpu");
+  const [progress, setProgress] = useState<{ text: string; percent: number }>({
+    text: "Preparing AI engine...",
+    percent: 0,
+  });
   const [error, setError] = useState<string | null>(null);
-  
-  const engineRef = useRef<MLCEngine | null>(null);
+
+  const engineRef = useRef<any>(null);
   const initStarted = useRef(false);
 
-  const initProgressCallback = useCallback((report: { text: string; progress?: number }) => {
-    const match = report.text.match(/\[(\d+)\/(\d+)\]/);
-    let percent = 0;
-    if (match && match[1] && match[2]) {
-      percent = (parseInt(match[1]) / parseInt(match[2])) * 100;
-    } else if (report.progress) {
-      percent = report.progress * 100;
-    }
-    setProgress({ text: report.text, percent: Math.round(percent) });
-  }, []);
+  const initProgressCallback = useCallback(
+    (report: { text: string; progress?: number }) => {
+      const match = report.text.match(/\[(\d+)\/(\d+)\]/);
+      let percent = 0;
+
+      if (match && match[1] && match[2]) {
+        percent = (parseInt(match[1]) / parseInt(match[2])) * 100;
+      } else if (report.progress) {
+        percent = report.progress * 100;
+      }
+
+      setProgress({ text: report.text, percent: Math.round(percent) });
+    },
+    [],
+  );
 
   const initialize = useCallback(async () => {
     if (engineRef.current) return true;
     if (initStarted.current) return false;
+
     initStarted.current = true;
 
     const modelId = getSelectedModelId();
-    
-    setState('checking-gpu');
+
+    setState("checking-gpu");
     setError(null);
 
     if (!(navigator as any).gpu) {
-      setState('error');
-      setError("Your browser doesn't support WebGPU. Please use a recent version of Chrome, Edge, or enable WebGPU flags in Safari.");
+      setState("error");
+      setError("Your browser doesn't support WebGPU. Use Chrome/Edge latest.");
       return false;
     }
 
     await clearStaleModelCache();
 
     try {
-      setState('downloading');
-      
-      const engine = await CreateMLCEngine(modelId, { initProgressCallback });
-      
+      setState("downloading");
+
+      const { CreateMLCEngine } = await getWebLLM();
+
+      const engine = await CreateMLCEngine(modelId, {
+        initProgressCallback,
+      });
+
       engineRef.current = engine;
-      setState('ready');
+      setState("ready");
       return true;
     } catch (err: any) {
       console.error("WebLLM Init Error:", err);
-      if (err.message?.includes("Instance") || err.message?.includes("external")) {
-        try {
-          console.log("Clearing model cache and retrying...");
-          await deleteModelAllInfoInCache(modelId);
-          const engine = await CreateMLCEngine(modelId, { initProgressCallback });
-          engineRef.current = engine;
-          setState('ready');
-          return true;
-        } catch (retryErr: any) {
-          console.error("WebLLM Retry Error:", retryErr);
-          setState('error');
-          setError(retryErr.message || "Failed to initialize the AI engine.");
-          return false;
-        }
+
+      try {
+        const { deleteModelAllInfoInCache, CreateMLCEngine } =
+          await getWebLLM();
+
+        console.log("Retrying after clearing cache...");
+        await deleteModelAllInfoInCache(modelId);
+
+        const engine = await CreateMLCEngine(modelId, {
+          initProgressCallback,
+        });
+
+        engineRef.current = engine;
+        setState("ready");
+        return true;
+      } catch (retryErr: any) {
+        console.error("Retry failed:", retryErr);
+        setState("error");
+        setError(retryErr.message || "Failed to initialize AI engine.");
+        return false;
       }
-      setState('error');
-      setError(err.message || "Failed to initialize the AI engine.");
-      return false;
     }
   }, [initProgressCallback]);
 
@@ -118,39 +150,13 @@ export function useWebLLM() {
     initialize();
   }, [initialize]);
 
-  const generate = useCallback(async (
-    platform: string, 
-    tone: string, 
-    topic: string, 
-    onChunk: (text: string) => void
-  ) => {
-    const prompt = `You are an elite social media strategist and copywriter known for creating viral, scroll-stopping hooks.
-Create exactly 5 distinct, high-converting hooks for a ${platform} post about "${topic}".
-The tone must be: ${tone}.
-
-CRITICAL RULES:
-1. Output ONLY the hooks, exactly one hook per line.
-2. DO NOT use numbers (e.g., "1.", "2.").
-3. DO NOT use bullet points.
-4. DO NOT include any introductory or concluding text.
-5. DO NOT wrap the hooks in quotes.
-Just 5 lines of text, nothing else.`;
-
-    return generateRaw({
-      messages: [{ role: "user", content: prompt }],
-      temperature: 0.7,
-      maxTokens: 500,
-      onChunk,
-    });
-  }, []);
-
   const doGenerate = async (opts: {
     messages: Array<{ role: "system" | "user" | "assistant"; content: string }>;
     temperature?: number;
     maxTokens?: number;
     onChunk: (text: string) => void;
   }) => {
-    const chunks = await engineRef.current!.chat.completions.create({
+    const chunks = await engineRef.current.chat.completions.create({
       messages: opts.messages,
       stream: true,
       temperature: opts.temperature ?? 0.7,
@@ -158,62 +164,101 @@ Just 5 lines of text, nothing else.`;
     });
 
     let fullText = "";
+
     for await (const chunk of chunks) {
       const content = chunk.choices[0]?.delta?.content || "";
       fullText += content;
       opts.onChunk(fullText);
     }
+
     return fullText;
   };
 
   const isDeviceLostError = (err: any): boolean => {
     const msg = String(err?.message || err || "").toLowerCase();
-    return msg.includes("instance") || msg.includes("device was lost") || msg.includes("external") || msg.includes("poperrorscope") || msg.includes("mapasync");
+    return (
+      msg.includes("device") || msg.includes("instance") || msg.includes("gpu")
+    );
   };
 
-  const generateRaw = useCallback(async (opts: {
-    messages: Array<{ role: "system" | "user" | "assistant"; content: string }>;
-    temperature?: number;
-    maxTokens?: number;
-    onChunk: (text: string) => void;
-  }) => {
-    if (!engineRef.current) {
-      return null;
-    }
+  const generateRaw = useCallback(
+    async (opts: {
+      messages: Array<{
+        role: "system" | "user" | "assistant";
+        content: string;
+      }>;
+      temperature?: number;
+      maxTokens?: number;
+      onChunk: (text: string) => void;
+    }) => {
+      if (!engineRef.current) return null;
 
-    setState('generating');
-    setError(null);
+      setState("generating");
+      setError(null);
 
-    try {
-      const result = await doGenerate(opts);
-      setState('ready');
-      return result;
-    } catch (err: any) {
-      console.error("Generation Error:", err);
-      if (isDeviceLostError(err)) {
-        console.log("GPU device lost, attempting re-initialization...");
-        try {
-          engineRef.current = null;
-          initStarted.current = false;
-          setState('downloading');
-          opts.onChunk("");
-          const engine = await CreateMLCEngine(getSelectedModelId(), { initProgressCallback });
-          engineRef.current = engine;
-          const result = await doGenerate(opts);
-          setState('ready');
-          return result;
-        } catch (retryErr: any) {
-          console.error("Re-init failed:", retryErr);
-          setState('error');
-          setError("GPU connection lost. Please refresh the page and try again.");
-          return null;
+      try {
+        const result = await doGenerate(opts);
+        setState("ready");
+        return result;
+      } catch (err: any) {
+        console.error("Generation Error:", err);
+
+        if (isDeviceLostError(err)) {
+          try {
+            engineRef.current = null;
+            initStarted.current = false;
+            setState("downloading");
+
+            const { CreateMLCEngine } = await getWebLLM();
+
+            const engine = await CreateMLCEngine(getSelectedModelId(), {
+              initProgressCallback,
+            });
+
+            engineRef.current = engine;
+
+            const result = await doGenerate(opts);
+            setState("ready");
+            return result;
+          } catch (retryErr: any) {
+            setState("error");
+            setError("GPU lost. Refresh and try again.");
+            return null;
+          }
         }
+
+        setState("error");
+        setError(err.message || "Generation failed.");
+        return null;
       }
-      setState('error');
-      setError(err.message || "Failed to generate content.");
-      return null;
-    }
-  }, [initProgressCallback]);
+    },
+    [initProgressCallback],
+  );
+
+  const generate = useCallback(
+    async (
+      platform: string,
+      tone: string,
+      topic: string,
+      onChunk: (text: string) => void,
+    ) => {
+      const prompt = `Create 5 viral hooks for a ${platform} post about "${topic}" in a ${tone} tone.
+
+Rules:
+- One per line
+- No numbering
+- No bullets
+- No quotes`;
+
+      return generateRaw({
+        messages: [{ role: "user", content: prompt }],
+        temperature: 0.7,
+        maxTokens: 500,
+        onChunk,
+      });
+    },
+    [generateRaw],
+  );
 
   return {
     state,
@@ -221,6 +266,6 @@ Just 5 lines of text, nothing else.`;
     error,
     initialize,
     generate,
-    generateRaw
+    generateRaw,
   };
 }
