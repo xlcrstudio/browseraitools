@@ -104,5 +104,8 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [
+    require.resolve("tailwindcss-animate"),
+    require.resolve("@tailwindcss/typography"),
+  ],
 } satisfies Config;
