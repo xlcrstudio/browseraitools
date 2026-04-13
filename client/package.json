@@ -1,8 +1,7 @@
 {
   "name": "client",
   "private": true,
-  "version": "1.0.0",
-   "//": "cache-bust-2026-01-13",  // ← add this line
+  "version": "1.0.1",
   "type": "module",
   "engines": {
     "node": "20.x"
@@ -72,7 +71,6 @@
     "wouter": "^3.3.5",
     "xlsx": "^0.18.5",
     "@tailwindcss/typography": "^0.5.10",
-      "tailwindcss-animate": "^1.0.7"
     "zod": "^3.23.8"
   },
   "devDependencies": {
