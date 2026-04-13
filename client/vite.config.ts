@@ -1,3 +1,4 @@
+// client/vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
@@ -12,14 +13,15 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-
-  // 👇 ADD THIS BLOCK
   optimizeDeps: {
     exclude: ["@mlc-ai/web-llm"],
   },
-
   build: {
     outDir: "dist",
     emptyOutDir: true,
+  },
+  // ← ADD THIS BLOCK
+  css: {
+    postcss: "./postcss.config.js",
   },
 });
