@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { Home, ChevronRight, Share2, Copy, Check } from "lucide-react";
-import { SiLinkedin, SiWhatsapp, SiFacebook } from "react-icons/si";
+import { SiWhatsapp, SiFacebook } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
 import { ModelSelector } from "@/components/ModelSelector";
 import { cn } from "@/lib/utils";
 
@@ -15,9 +16,10 @@ function ShareDropdown({ toolName }: { toolName: string }) {
   const [copied, setCopied] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
-  const url = typeof window !== "undefined"
-    ? `https://browseraitools.com${window.location.pathname}`
-    : "https://browseraitools.com";
+  const url =
+    typeof window !== "undefined"
+      ? `https://browseraitools.com${window.location.pathname}`
+      : "https://browseraitools.com";
   const text = `Just used "${toolName}" — a free AI tool that runs 100% in your browser, no data sent to any server.`;
 
   const platforms = [
@@ -34,7 +36,7 @@ function ShareDropdown({ toolName }: { toolName: string }) {
     {
       label: "LinkedIn",
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
-      icon: <SiLinkedin className="w-3.5 h-3.5" />,
+      icon: <FaLinkedin className="w-3.5 h-3.5" />,
       color: "hover:text-[#0A66C2]",
     },
     {
@@ -54,14 +56,18 @@ function ShareDropdown({ toolName }: { toolName: string }) {
   const copyLink = () => {
     navigator.clipboard.writeText(url);
     setCopied(true);
-    setTimeout(() => { setCopied(false); setOpen(false); }, 1500);
+    setTimeout(() => {
+      setCopied(false);
+      setOpen(false);
+    }, 1500);
   };
 
   // Close on outside click
   useEffect(() => {
     if (!open) return;
     const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+      if (ref.current && !ref.current.contains(e.target as Node))
+        setOpen(false);
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
@@ -71,12 +77,12 @@ function ShareDropdown({ toolName }: { toolName: string }) {
     <div className="relative" ref={ref}>
       <button
         type="button"
-        onClick={() => setOpen(o => !o)}
+        onClick={() => setOpen((o) => !o)}
         data-testid="button-share"
         className={cn(
           "flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-colors",
           "text-slate-400 hover:text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20",
-          open && "text-purple-600 bg-purple-50 dark:bg-purple-900/20"
+          open && "text-purple-600 bg-purple-50 dark:bg-purple-900/20",
         )}
       >
         <Share2 className="w-3.5 h-3.5" />
@@ -84,16 +90,18 @@ function ShareDropdown({ toolName }: { toolName: string }) {
       </button>
 
       {open && (
-        <div className={cn(
-          "absolute right-0 top-full mt-2 z-50 w-44",
-          "bg-white dark:bg-slate-900 rounded-xl shadow-lg shadow-slate-200/60 dark:shadow-black/30",
-          "border border-slate-100 dark:border-slate-800 overflow-hidden"
-        )}>
+        <div
+          className={cn(
+            "absolute right-0 top-full mt-2 z-50 w-44",
+            "bg-white dark:bg-slate-900 rounded-xl shadow-lg shadow-slate-200/60 dark:shadow-black/30",
+            "border border-slate-100 dark:border-slate-800 overflow-hidden",
+          )}
+        >
           <p className="text-[10px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest px-3 pt-3 pb-1">
             Share this tool
           </p>
 
-          {platforms.map(p => (
+          {platforms.map((p) => (
             <a
               key={p.label}
               href={p.href}
@@ -104,7 +112,7 @@ function ShareDropdown({ toolName }: { toolName: string }) {
               className={cn(
                 "flex items-center gap-2.5 px-3 py-2 text-sm text-slate-500 dark:text-slate-400 transition-colors",
                 "hover:bg-slate-50 dark:hover:bg-slate-800/50",
-                p.color
+                p.color,
               )}
             >
               {p.icon}
@@ -120,7 +128,11 @@ function ShareDropdown({ toolName }: { toolName: string }) {
             data-testid="share-copy-link"
             className="w-full flex items-center gap-2.5 px-3 py-2 text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-purple-600 transition-colors mb-1"
           >
-            {copied ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
+            {copied ? (
+              <Check className="w-3.5 h-3.5 text-green-500" />
+            ) : (
+              <Copy className="w-3.5 h-3.5" />
+            )}
             {copied ? "Link copied!" : "Copy link"}
           </button>
         </div>
@@ -152,7 +164,10 @@ export function ToolPageHeader({ toolName, icon: Icon }: ToolPageHeaderProps) {
             <Icon className="w-4 h-4 text-white" />
           </div>
         )}
-        <h1 className="text-lg md:text-xl font-bold font-display text-slate-800 dark:text-slate-100" data-testid="text-tool-title">
+        <h1
+          className="text-lg md:text-xl font-bold font-display text-slate-800 dark:text-slate-100"
+          data-testid="text-tool-title"
+        >
           {toolName}
         </h1>
       </div>
