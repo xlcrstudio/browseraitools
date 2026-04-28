@@ -419,6 +419,12 @@ function Footer() {
             >
               Terms of Service
             </Link>
+            <Link
+              href="/contact"
+              className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors"
+            >
+              Contact
+            </Link>
           </div>
 
           <div className="flex items-center gap-2 text-xs text-slate-400 dark:text-slate-500">

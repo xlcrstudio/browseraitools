@@ -106,6 +106,7 @@ import LoremIpsumGeneratorPage from "@/pages/LoremIpsumGeneratorPage";
 import PasswordGeneratorPage from "@/pages/PasswordGeneratorPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
+import ContactPage from "@/pages/ContactPage";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -213,6 +214,7 @@ function Router() {
       <Route path="/password-generator" component={PasswordGeneratorPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
+      <Route path="/contact" component={ContactPage} />
       <Route component={NotFound} />
     </Switch>
   );
