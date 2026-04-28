@@ -46,7 +46,15 @@ entries.push(urlEntry({
   priority:   "1.0",
 }));
 
-// 2. Main tool pages (one per unique slug)
+// 2. Static utility pages
+entries.push(urlEntry({
+  loc:        `${BASE_URL}/contact`,
+  lastmod:    TODAY,
+  changefreq: "yearly",
+  priority:   "0.4",
+}));
+
+// 3. Main tool pages (one per unique slug)
 for (const tool of tools) {
   entries.push(urlEntry({
     loc:        `${BASE_URL}/tools/${tool.slug}.html`,
@@ -90,6 +98,7 @@ const totalUrls = entries.length;
 console.log(`
 ──────────────────────────────────────────────────────────
   Homepage          : 1 URL
+  Static pages      : 1 URL  (/contact)
   Main tool pages   : ${tools.length} URLs
   Variant pages     : ${variantUrls.length} URLs
   ─────────────────────────────────────────────────────
