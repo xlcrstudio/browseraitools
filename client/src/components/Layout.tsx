@@ -12,10 +12,11 @@ import {
   Moon,
   Sun,
 } from "lucide-react";
-//import logoImg from "@assets/image_1772818839650.png";
 import { toolCategories } from "@/lib/tools-data";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from "@/hooks/use-theme";
+
+const logoImg = "/logo.png";
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
@@ -48,7 +49,7 @@ function Header() {
           className="flex items-center gap-2 group shrink-0"
         >
           <img
-            src="https://placehold.co/40x40"
+            src={logoImg}
             alt="Browser AI Tools"
             className="w-8 h-8 rounded-lg shadow-lg shadow-purple-500/25 group-hover:scale-105 transition-transform duration-300"
           />
@@ -372,7 +373,7 @@ function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
             <img
-              src="https://placehold.co/40x40"
+              src={logoImg}
               alt="Browser AI Tools"
               className="w-6 h-6 rounded-md"
             />

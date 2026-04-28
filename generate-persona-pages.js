@@ -281,7 +281,8 @@ const SHARED_CSS = `
     .site-header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid #e2e8f0; }
     .dark .site-header { background: rgba(15,23,42,0.92); border-color: #1e293b; }
     .header-inner { height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .site-logo { font-size: 1.2rem; font-weight: 900; text-decoration: none; }
+    .site-logo { font-size: 1.2rem; font-weight: 900; text-decoration: none; display: flex; align-items: center; gap: 6px; }
+    .site-logo img { width: 28px; height: 28px; border-radius: 7px; flex-shrink: 0; }
     .site-nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
     .nav-link { padding: 6px 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #475569; text-decoration: none; transition: all .15s; }
     .nav-link:hover { color: #7e22ce; background: #f5f3ff; }
@@ -504,7 +505,7 @@ function buildHtml(persona) {
   <meta property="og:title" content="${persona.title}" />
   <meta property="og:description" content="${persona.metaDesc}" />
   <meta property="og:site_name" content="BrowserAITools" />
-  <meta property="og:image" content="${BASE_URL}/favicon.png" />
+  <meta property="og:image" content="${BASE_URL}/logo.png" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
@@ -534,7 +535,7 @@ ${schemaFaq}
   <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="${BASE_URL}" class="site-logo gradient-text">BrowserAITools</a>
+      <a href="${BASE_URL}" class="site-logo"><img src="/logo.png" alt="BrowserAI Tools logo"><span class="gradient-text">BrowserAITools</span></a>
       <nav class="site-nav">
         <a href="${BASE_URL}" class="nav-link">Home</a>
         <a href="${BASE_URL}/#tools" class="nav-link">All Tools</a>
@@ -611,7 +612,7 @@ ${schemaFaq}
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <span class="footer-brand">BrowserAITools</span>
+        <img src="/logo.png" alt="" style="width:20px;height:20px;border-radius:5px;vertical-align:middle;margin-right:5px;"><span class="footer-brand">BrowserAITools</span>
         &nbsp;&mdash; 100% Free. 100% Private. 100% In-Browser.
       </div>
       <nav class="footer-nav">

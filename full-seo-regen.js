@@ -16,6 +16,9 @@ function run(label, cmd) {
 // ─── Step 1: Main tool pages ────────────────────────────────────────────────
 run('generate-main-tool-pages.js', 'node generate-main-tool-pages.js');
 
+// ─── Step 1b: Persona pages ──────────────────────────────────────────────────
+run('generate-persona-pages.js', 'node generate-persona-pages.js');
+
 // ─── Step 2: Internal links ─────────────────────────────────────────────────
 run('add-internal-links.js', 'node add-internal-links.js');
 
