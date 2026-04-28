@@ -529,6 +529,7 @@ ${schemaFaq}
   </script>
 
   <style>${SHARED_CSS}</style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5894879730362339" crossorigin="anonymous"></script>
 </head>
 <body>
 
